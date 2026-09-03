@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://hvac.thebhom.in/</loc>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
+  <sitemap>
+    <loc>https://hvac.thebhom.in/sitemap-main.xml</loc>
     <lastmod>2026-09-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://hvac.thebhom.in/refer.html</loc>
+  </sitemap>
+  <!-- SEO directory: 60 cities x 18 services = 1159 pages -->
+  <sitemap>
+    <loc>https://hvac.thebhom.in/directory/sitemap.xml</loc>
     <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hvac.thebhom.in/pitch-bold.html</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hvac.thebhom.in/pitch-premium.html</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-</urlset>
+  </sitemap>
+</sitemapindex>
