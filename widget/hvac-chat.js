@@ -7,7 +7,6 @@
   const SUPABASE_URL = 'https://xunuljixksicxprmaobd.supabase.co';
   const API_BASE = SUPABASE_URL + '/functions/v1';
   
-  // Get business ID from script tag
   const scriptTag = document.currentScript || document.querySelector('script[data-business-id]');
   const BUSINESS_ID = scriptTag?.getAttribute('data-business-id');
   if (!BUSINESS_ID) { console.error('HVAC Chat: data-business-id missing'); return; }
@@ -16,8 +15,58 @@
   let conversationId = null;
   let isOpen = false;
   let isLoading = false;
-  
-  // Inject styles
+
+  // ── Lightweight Markdown → HTML ────────────────────────────────
+  function md(text) {
+    if (!text) return '';
+    let h = text;
+    // Escape HTML
+    h = h.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    // Code blocks
+    h = h.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+    h = h.replace(/`([^`]+)`/g, '<code>$1</code>');
+    // Headings
+    h = h.replace(/^#### (.+)$/gm, '<strong>$1</strong>');
+    h = h.replace(/^### (.+)$/gm, '<strong style="font-size:15px">$1</strong>');
+    h = h.replace(/^## (.+)$/gm, '<strong style="font-size:16px">$1</strong>');
+    h = h.replace(/^# (.+)$/gm, '<strong style="font-size:17px">$1</strong>');
+    // Bold & italic
+    h = h.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+    h = h.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    h = h.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    // Strikethrough
+    h = h.replace(/~~(.+?)~~/g, '<del>$1</del>');
+    // Horizontal rule
+    h = h.replace(/^---$/gm, '<hr style="border:none;border-top:1px solid #e2e8f0;margin:8px 0">');
+    // Tables: detect header row + separator + body rows
+    h = h.replace(/^(\|.+\|)\n\|[\s\-:|]+\|\n((?:\|.+\|(?:\n|$))+)/gm, function(_, hdr, body) {
+      const th = hdr.split('|').filter(c=>c.trim()).map(c=>'<th style="padding:4px 8px;border:1px solid #e2e8f0;background:#f1f5f9;font-size:12px">'+c.trim()+'</th>').join('');
+      const rows = body.trim().split('\n').map(r=>{
+        const cells = r.split('|').filter(c=>c.trim()).map(c=>'<td style="padding:4px 8px;border:1px solid #e2e8f0;font-size:12px">'+c.trim()+'</td>').join('');
+        return '<tr>'+cells+'</tr>';
+      }).join('');
+      return '<table style="border-collapse:collapse;width:100%;margin:6px 0"><thead><tr>'+th+'</tr></thead><tbody>'+rows+'</tbody></table>';
+    });
+    // Unordered lists
+    h = h.replace(/^[\*\-] (.+)$/gm, '<li>$1</li>');
+    h = h.replace(/((?:<li>.+<\/li>\n?)+)/g, '<ul style="margin:4px 0 4px 16px;padding:0">$1</ul>');
+    // Ordered lists
+    h = h.replace(/^\d+\. (.+)$/gm, '<oli>$1</oli>');
+    h = h.replace(/((?:<oli>.+<\/oli>\n?)+)/g, function(m) {
+      return '<ol style="margin:4px 0 4px 16px;padding:0">' + m.replace(/<\/?oli>/g, function(t){ return t === '<oli>' ? '<li>' : '</li>'; }) + '</ol>';
+    });
+    // Links
+    h = h.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:#2563eb">$1</a>');
+    // Line breaks: double newline = paragraph, single = br
+    h = h.replace(/\n\n/g, '</p><p>');
+    h = h.replace(/\n/g, '<br>');
+    h = '<p>' + h + '</p>';
+    // Clean up empty paragraphs
+    h = h.replace(/<p><\/p>/g, '');
+    return h;
+  }
+
+  // ── Styles ─────────────────────────────────────────────────────
   const style = document.createElement('style');
   style.textContent = `
     #hvac-chat-widget * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
@@ -37,6 +86,17 @@
     .hvac-msg { max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
     .hvac-msg-user { align-self: flex-end; background: var(--hvac-color, #2563eb); color: white; border-bottom-right-radius: 4px; }
     .hvac-msg-bot { align-self: flex-start; background: white; color: #1e293b; border: 1px solid #e2e8f0; border-bottom-left-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .hvac-msg-bot p { margin: 0 0 6px; }
+    .hvac-msg-bot p:last-child { margin-bottom: 0; }
+    .hvac-msg-bot strong { color: #0f172a; }
+    .hvac-msg-bot em { font-style: italic; }
+    .hvac-msg-bot ul, .hvac-msg-bot ol { padding-left: 18px; }
+    .hvac-msg-bot li { margin: 2px 0; }
+    .hvac-msg-bot table { border-collapse: collapse; width: 100%; margin: 6px 0; font-size: 12px; }
+    .hvac-msg-bot pre { background: #f1f5f9; border-radius: 8px; padding: 8px; overflow-x: auto; font-size: 12px; margin: 4px 0; }
+    .hvac-msg-bot code { background: #f1f5f9; padding: 1px 4px; border-radius: 4px; font-size: 12px; }
+    .hvac-msg-bot pre code { background: none; padding: 0; }
+    .hvac-msg-bot a { color: #2563eb; text-decoration: underline; }
     .hvac-msg-welcome { text-align: center; font-size: 13px; color: #64748b; padding: 8px; }
     .hvac-typing { display: flex; gap: 4px; padding: 12px 16px; }
     .hvac-typing span { width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; animation: hvac-bounce 1.4s infinite; }
@@ -61,7 +121,7 @@
   `;
   document.head.appendChild(style);
   
-  // Create widget container
+  // ── Widget HTML ────────────────────────────────────────────────
   const container = document.createElement('div');
   container.id = 'hvac-chat-widget';
   container.innerHTML = `
@@ -91,7 +151,7 @@
   `;
   document.body.appendChild(container);
   
-  // Elements
+  // ── Elements ───────────────────────────────────────────────────
   const bubble = document.getElementById('hvac-chat-bubble');
   const badge = document.getElementById('hvac-chat-badge');
   const chatWindow = document.getElementById('hvac-chat-window');
@@ -102,34 +162,25 @@
   const sendBtn = document.getElementById('hvac-chat-send');
   const headerInfo = document.getElementById('hvac-chat-header-info');
   
-  // Load config
+  // ── Config ─────────────────────────────────────────────────────
   async function loadConfig() {
     try {
       const res = await fetch(`${API_BASE}/widget-config?business_id=${BUSINESS_ID}`);
       config = await res.json();
       if (config.error) { console.error('HVAC Chat:', config.error); return; }
-      
-      // Apply branding
       document.documentElement.style.setProperty('--hvac-color', config.widget_color || '#2563eb');
       bubble.style.background = config.widget_color || '#2563eb';
       headerInfo.querySelector('h3').textContent = config.name || 'HVAC Support';
-      
-      // Show quick action buttons for services
       if (config.services && config.services.length > 0) {
-        const btns = config.services.slice(0, 4).map(s =>
+        quickBtns.innerHTML = config.services.slice(0, 4).map(s =>
           `<button class="hvac-quick-btn" data-msg="${s} ke baare mein jaankari chahiye">${s}</button>`
         ).join('');
-        quickBtns.innerHTML = btns;
       }
-      
-      // Show notification badge after 3 seconds
       setTimeout(() => { if (!isOpen) badge.style.display = 'block'; }, 3000);
-    } catch (e) {
-      console.error('HVAC Chat: Failed to load config', e);
-    }
+    } catch (e) { console.error('HVAC Chat: Failed to load config', e); }
   }
   
-  // Toggle chat
+  // ── Toggle ─────────────────────────────────────────────────────
   function toggleChat() {
     isOpen = !isOpen;
     chatWindow.style.display = isOpen ? 'flex' : 'none';
@@ -139,15 +190,18 @@
     }
     if (isOpen) input.focus();
   }
-  
   bubble.addEventListener('click', toggleChat);
   closeBtn.addEventListener('click', toggleChat);
   
-  // Add message to UI
+  // ── Messages ───────────────────────────────────────────────────
   function addMessage(text, type) {
     const div = document.createElement('div');
     div.className = `hvac-msg hvac-msg-${type}`;
-    div.textContent = text;
+    if (type === 'bot') {
+      div.innerHTML = md(text);
+    } else {
+      div.textContent = text;
+    }
     messages.appendChild(div);
     messages.scrollTop = messages.scrollHeight;
   }
@@ -160,38 +214,25 @@
     messages.appendChild(div);
     messages.scrollTop = messages.scrollHeight;
   }
+  function hideTyping() { const el = document.getElementById('hvac-typing'); if (el) el.remove(); }
   
-  function hideTyping() {
-    const el = document.getElementById('hvac-typing');
-    if (el) el.remove();
-  }
-  
-  // Send message
+  // ── Send ───────────────────────────────────────────────────────
   async function sendMessage(text) {
     if (!text.trim() || isLoading) return;
-    
     addMessage(text, 'user');
     input.value = '';
     sendBtn.disabled = true;
     isLoading = true;
     quickBtns.innerHTML = '';
     showTyping();
-    
     try {
       const res = await fetch(`${API_BASE}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          business_id: BUSINESS_ID,
-          conversation_id: conversationId,
-          message: text,
-          visitor_id: getVisitorId(),
-        }),
+        body: JSON.stringify({ business_id: BUSINESS_ID, conversation_id: conversationId, message: text, visitor_id: getVisitorId() }),
       });
-      
       const data = await res.json();
       hideTyping();
-      
       if (data.error) {
         addMessage('Sorry, kuch problem ho gayi. Please dobara try karein.', 'bot');
       } else {
@@ -202,30 +243,24 @@
       hideTyping();
       addMessage('Network error. Please check your connection.', 'bot');
     }
-    
     isLoading = false;
     sendBtn.disabled = !input.value.trim();
   }
   
-  // Event listeners
+  // ── Events ─────────────────────────────────────────────────────
   input.addEventListener('input', () => { sendBtn.disabled = !input.value.trim() || isLoading; });
   input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(input.value); } });
   sendBtn.addEventListener('click', () => sendMessage(input.value));
-  
-  // Quick button clicks
   quickBtns.addEventListener('click', (e) => {
-    if (e.target.classList.contains('hvac-quick-btn')) {
-      sendMessage(e.target.getAttribute('data-msg'));
-    }
+    if (e.target.classList.contains('hvac-quick-btn')) sendMessage(e.target.getAttribute('data-msg'));
   });
   
-  // Visitor ID (persistent)
+  // ── Visitor ID ─────────────────────────────────────────────────
   function getVisitorId() {
     let vid = localStorage.getItem('hvac_visitor_id');
     if (!vid) { vid = 'v_' + Math.random().toString(36).substr(2, 12); localStorage.setItem('hvac_visitor_id', vid); }
     return vid;
   }
   
-  // Init
   loadConfig();
 })();
