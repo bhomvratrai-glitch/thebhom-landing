@@ -785,23 +785,46 @@
       successBanner.style.display = "none";
 
       try {
-        const resp = await fetch("/api/parse", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ url })
-        });
+        let res = null;
+        // 1. Try relative endpoint
+        try {
+          const r = await fetch("/api/parse", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url })
+          });
+          if (r.ok) res = await r.json();
+        } catch(e) {}
 
-        const res = await resp.json();
-        if (res.status === "success" && res.data) {
+        // 2. Try local port 8085
+        if (!res) {
+          try {
+            const r2 = await fetch("http://localhost:8085/api/parse", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ url })
+            });
+            if (r2.ok) res = await r2.json();
+          } catch(e) {}
+        }
+
+        if (res && res.status === "success" && res.data) {
           currentData = res.data;
           renderResult(res.data);
           resultCard.style.display = "block";
           resultCard.scrollIntoView({ behavior: "smooth" });
+        } else if (res && res.error) {
+          statusMsg.textContent = "❌ Could not analyze: " + res.error;
         } else {
-          alert("Could not analyze video: " + (res.error || "Unknown error"));
+          statusMsg.innerHTML = `<div style="background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.3);padding:14px;border-radius:10px;color:#cbd5e1;font-size:13px;line-height:1.5;text-align:left;">
+            <strong style="color:#38bdf8;">⚡ Local Downloader Engine Helper:</strong><br>
+            To enable full 1080p downloads & precise FFmpeg clip trimming on your machine, launch the background engine:<br>
+            <code style="background:#090d16;padding:4px 10px;border-radius:6px;color:#34d399;display:inline-block;margin:6px 0;font-family:monospace;">python3 /Users/bhomvratrai/Desktop/TheBhom_Videos/Universal_Video_Downloader/server.py</code><br>
+            <span style="font-size:11px;color:#94a3b8;">Supports YouTube, Instagram Reels, TikTok, Twitter/X, and 1,800+ sites with 0 ads.</span>
+          </div>`;
         }
       } catch (err) {
-        alert("Connection error to local server: " + err.message);
+        statusMsg.textContent = "❌ Error: " + err.message;
       } finally {
         parseBtn.disabled = false;
         parseBtn.innerHTML = "<span>🔍 Analyze URL</span>";
@@ -867,29 +890,45 @@
       successBanner.style.display = "none";
 
       try {
-        const resp = await fetch("/api/download", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            url,
-            quality: selectedQuality,
-            trim_start: trimStart,
-            trim_end: trimEnd
-          })
-        });
+        let res = null;
+        const payload = {
+          url,
+          quality: selectedQuality,
+          trim_start: trimStart,
+          trim_end: trimEnd
+        };
 
-        const res = await resp.json();
-        if (res.status === "success") {
+        try {
+          const r = await fetch("/api/download", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (r.ok) res = await r.json();
+        } catch(e) {}
+
+        if (!res) {
+          try {
+            const r2 = await fetch("http://localhost:8085/api/download", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            });
+            if (r2.ok) res = await r2.json();
+          } catch(e) {}
+        }
+
+        if (res && res.status === "success") {
           statusMsg.textContent = "";
           successBanner.style.display = "flex";
           document.getElementById("savedFilename").textContent = res.filename + ` (${formatBytes(res.size_bytes)})`;
           document.getElementById("savedLink").href = res.download_url;
           document.getElementById("savedLink").download = res.filename;
         } else {
-          statusMsg.textContent = "❌ Error: " + res.error;
+          statusMsg.textContent = "❌ " + (res ? res.error : "Engine not responding. Please make sure server.py is running.");
         }
       } catch (err) {
-        statusMsg.textContent = "❌ Network error: " + err.message;
+        statusMsg.textContent = "❌ " + err.message;
       } finally {
         downloadBtn.disabled = false;
         downloadBtn.innerHTML = "<span>⬇ Download Video Clip</span>";
