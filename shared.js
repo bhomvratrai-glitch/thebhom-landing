@@ -12,6 +12,145 @@ const SUBDOMAINS = [
   {label:'💌 Cards',url:'cards.html',id:'cards'},
 ];
 
+// ===== THEME MANAGER & SWITCHER =====
+const THEMES = {
+  light: { icon: '☀️', name: 'Light', desc: 'Clean Apple / Notion Frost White' },
+  navy: { icon: '🌊', name: 'Navy', desc: 'Option 1 Midnight Ocean Slate' },
+  purple: { icon: '🔮', name: 'Purple', desc: 'Option 3 Cosmic Neon Galaxy' },
+  dark: { icon: '🌙', name: 'Dark', desc: 'Classic OLED Night Mode' }
+};
+
+function getStoredTheme() {
+  try {
+    return localStorage.getItem('thebhom_theme') || 'light';
+  } catch (e) {
+    return 'light';
+  }
+}
+
+function setAppTheme(themeName) {
+  if (!THEMES[themeName]) themeName = 'light';
+  document.documentElement.setAttribute('data-theme', themeName);
+  try {
+    localStorage.setItem('thebhom_theme', themeName);
+  } catch (e) {}
+
+  // Update theme toggle button
+  const iconEl = document.getElementById('themeCurrIcon');
+  const labelEl = document.getElementById('themeCurrLabel');
+  if (iconEl) iconEl.textContent = THEMES[themeName].icon;
+  if (labelEl) labelEl.textContent = THEMES[themeName].name;
+
+  // Update menu active states
+  document.querySelectorAll('.theme-opt').forEach(opt => {
+    if (opt.getAttribute('data-theme') === themeName) {
+      opt.classList.add('active');
+    } else {
+      opt.classList.remove('active');
+    }
+  });
+
+  // Update mobile pills
+  document.querySelectorAll('.mob-theme-pill').forEach(pill => {
+    if (pill.getAttribute('data-theme') === themeName) {
+      pill.classList.add('active');
+    } else {
+      pill.classList.remove('active');
+    }
+  });
+
+  // Close menu if open
+  const menu = document.getElementById('themeMenu');
+  if (menu) menu.classList.remove('open');
+}
+
+function toggleThemeMenu(e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById('themeMenu');
+  if (menu) menu.classList.toggle('open');
+}
+
+function getThemeSwitcherHTML() {
+  const current = getStoredTheme();
+  const currTheme = THEMES[current] || THEMES.light;
+  return `
+    <div class="theme-switcher" id="themeSwitcher">
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleThemeMenu(event)" aria-label="Switch Website Theme" title="Switch Theme (Light, Navy, Purple, Dark)">
+        <span class="theme-curr-icon" id="themeCurrIcon">${currTheme.icon}</span>
+        <span class="theme-curr-label" id="themeCurrLabel">${currTheme.name}</span>
+        <span class="theme-arrow">▾</span>
+      </button>
+      <div class="theme-menu" id="themeMenu">
+        <div class="theme-menu-title">Select Website Theme</div>
+        <button class="theme-opt ${current==='light'?'active':''}" data-theme="light" onclick="setAppTheme('light')">
+          <span class="theme-opt-icon">☀️</span>
+          <div class="theme-opt-info">
+            <div class="theme-opt-name">Light Frost (Default)</div>
+            <div class="theme-opt-sub">Clean Apple / Notion style</div>
+          </div>
+          <span class="theme-check">✓</span>
+        </button>
+        <button class="theme-opt ${current==='navy'?'active':''}" data-theme="navy" onclick="setAppTheme('navy')">
+          <span class="theme-opt-icon">🌊</span>
+          <div class="theme-opt-info">
+            <div class="theme-opt-name">Deep Navy Slate</div>
+            <div class="theme-opt-sub">Option 1 Midnight Ocean</div>
+          </div>
+          <span class="theme-check">✓</span>
+        </button>
+        <button class="theme-opt ${current==='purple'?'active':''}" data-theme="purple" onclick="setAppTheme('purple')">
+          <span class="theme-opt-icon">🔮</span>
+          <div class="theme-opt-info">
+            <div class="theme-opt-name">Cosmic Purple</div>
+            <div class="theme-opt-sub">Option 3 Neon Galaxy</div>
+          </div>
+          <span class="theme-check">✓</span>
+        </button>
+        <button class="theme-opt ${current==='dark'?'active':''}" data-theme="dark" onclick="setAppTheme('dark')">
+          <span class="theme-opt-icon">🌙</span>
+          <div class="theme-opt-info">
+            <div class="theme-opt-name">OLED Dark</div>
+            <div class="theme-opt-sub">Classic Night Mode</div>
+          </div>
+          <span class="theme-check">✓</span>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function injectThemeSwitcherIfNeeded() {
+  if (document.getElementById('themeSwitcher')) return;
+  const target = document.querySelector('.hdr-right') || document.querySelector('.hdr');
+  if (!target) return;
+  const wrapper = document.createElement('div');
+  wrapper.className = 'theme-switcher';
+  wrapper.id = 'themeSwitcher';
+  wrapper.innerHTML = getThemeSwitcherHTML();
+  if (target.classList.contains('hdr-right')) {
+    target.insertBefore(wrapper, target.firstChild);
+  } else {
+    const rightBtn = target.querySelector('.fav-nav-btn, .fav-act-btn, .free-pill');
+    if (rightBtn) {
+      target.insertBefore(wrapper, rightBtn);
+    } else {
+      target.appendChild(wrapper);
+    }
+  }
+}
+
+function initTheme() {
+  setAppTheme(getStoredTheme());
+  injectThemeSwitcherIfNeeded();
+  document.addEventListener('click', (e) => {
+    const sw = document.getElementById('themeSwitcher');
+    const menu = document.getElementById('themeMenu');
+    if (menu && sw && !sw.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+}
+
 // ===== RENDER HEADER =====
 function renderHeader(activePage=''){
   const nav = SUBDOMAINS.map(s=>`<li><a href="${s.url}" class="${s.id===activePage?'active':''}">${s.label}</a></li>`).join('');
@@ -25,6 +164,7 @@ function renderHeader(activePage=''){
   </a>
   <nav><ul class="hdr-nav">${nav}</ul></nav>
   <div class="hdr-right">
+    ${getThemeSwitcherHTML()}
     <button class="spotlight-btn" onclick="openSpotlight()" style="display:inline-flex;align-items:center;gap:6px;background:rgba(124,58,237,0.18);border:1px solid rgba(124,58,237,0.4);color:#c084fc;font-weight:700;border-radius:50px;padding:6px 14px;cursor:pointer;font-size:.78rem;">🔍 Search <kbd style="background:rgba(0,0,0,0.3);padding:1px 5px;border-radius:4px;font-size:.65rem;border:1px solid rgba(255,255,255,0.2);">⌘K</kbd></button>
     <button class="fav-act-btn" onclick="openFavDrawer()" style="display:inline-flex;align-items:center;gap:6px;background:rgba(244,63,94,0.15);border:1px solid rgba(244,63,94,0.3);color:#f472b6;font-weight:700;border-radius:50px;padding:6px 14px;cursor:pointer;">❤️ Saved (<span class="fav-count-badge">0</span>)</button>
     <button id="langToggleBtn" class="lang-btn" onclick="toggleLanguage()">🇮🇳 हिन्दी</button>
@@ -34,6 +174,13 @@ function renderHeader(activePage=''){
   <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
 <nav class="mob-nav" id="mobNav">
+  <div class="mob-theme-row">
+    <span style="font-size:0.8rem;font-weight:700;color:var(--text2);margin-right:6px;">🎨 Theme:</span>
+    <button class="mob-theme-pill" data-theme="light" onclick="setAppTheme('light')">☀️ Light</button>
+    <button class="mob-theme-pill" data-theme="navy" onclick="setAppTheme('navy')">🌊 Navy</button>
+    <button class="mob-theme-pill" data-theme="purple" onclick="setAppTheme('purple')">🔮 Purple</button>
+    <button class="mob-theme-pill" data-theme="dark" onclick="setAppTheme('dark')">🌙 Dark</button>
+  </div>
   <a href="index.html">🏠 Home</a>
   <a href="#" onclick="openSpotlight();return false;" style="color:#c084fc;font-weight:700;">🔍 Global Search (Cmd+K)</a>
   ${SUBDOMAINS.map(s=>`<a href="${s.url}">${s.label}</a>`).join('')}
@@ -316,6 +463,9 @@ window.renderFavDrawerBody = function() {
 
 // ===== INIT SHARED =====
 function initShared(){
+  // Init Theme System
+  initTheme();
+
   // Mount favorites drawer & update badges
   window.renderFavDrawer();
   window.updateFavBadges();
@@ -1567,6 +1717,10 @@ window.loadMoreHomePins = loadMoreHomePins;
 window.filterHomePinterest = filterHomePinterest;
 window.promptPwaInstall = triggerAppInstall;
 window.initShared = initShared;
+window.setAppTheme = setAppTheme;
+window.toggleThemeMenu = toggleThemeMenu;
+window.getThemeSwitcherHTML = getThemeSwitcherHTML;
+window.getStoredTheme = getStoredTheme;
 
 // Auto-initialize shared features on every page so buttons, modals, and spotlight always work
 if (document.readyState === 'loading') {

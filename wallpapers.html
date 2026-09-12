@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+  <script>(function(){try{const t=localStorage.getItem('thebhom_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta name="google-adsense-account" content="ca-pub-4674566886677472">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 <meta charset="UTF-8"/>
@@ -42,18 +43,13 @@
 </script>
 <style>
 :root{
-  --bg:#07070f;--bg2:#0d0d1a;--bg3:#111128;--bg-card:#13132a;
-  --primary:#7c3aed;--primary-light:#a855f7;--cyan:#06b6d4;
-  --green:#22c55e;--amber:#f59e0b;--rose:#f43f5e;--pink:#ec4899;
-  --text:#f8fafc;--text2:#94a3b8;--text3:#64748b;
-  --border:rgba(255,255,255,.08);--r:14px;
-  --t:all .25s ease;--glow:0 0 30px rgba(124,58,237,.25);
+  --cyan:#06b6d4;--amber:#f59e0b;--rose:#f43f5e;--pink:#ec4899;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 
 /* HEADER */
-.hdr{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;display:flex;align-items:center;padding:0 2rem;gap:1.5rem;background:rgba(7,7,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;display:flex;align-items:center;padding:0 2rem;gap:1.5rem;background:var(--hdr-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:900;font-size:1.1rem;color:var(--text);}
 .logo-box{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;}
 .logo span{color:var(--primary-light);}
@@ -195,6 +191,20 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
     <li><a href="cards.html">💌 Cards</a></li>
   </ul></nav>
   <div class="hdr-right">
+    <div class="theme-switcher" id="themeSwitcher">
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleThemeMenu(event)" aria-label="Switch Theme" title="Choose Theme">
+        <span class="theme-curr-icon" id="themeCurrIcon">☀️</span>
+        <span class="theme-curr-label" id="themeCurrLabel">Light</span>
+        <span class="theme-arrow">▾</span>
+      </button>
+      <div class="theme-menu" id="themeMenu">
+        <div class="theme-menu-title">Select Website Theme</div>
+        <button class="theme-opt" data-theme="light" onclick="setAppTheme('light')"><span class="theme-opt-icon">☀️</span><div class="theme-opt-info"><div class="theme-opt-name">Light Frost (Default)</div><div class="theme-opt-sub">Clean Apple / Notion style</div></div><span class="theme-check">✓</span></button>
+        <button class="theme-opt" data-theme="navy" onclick="setAppTheme('navy')"><span class="theme-opt-icon">🌊</span><div class="theme-opt-info"><div class="theme-opt-name">Deep Navy Slate</div><div class="theme-opt-sub">Option 1 Midnight Ocean</div></div><span class="theme-check">✓</span></button>
+        <button class="theme-opt" data-theme="purple" onclick="setAppTheme('purple')"><span class="theme-opt-icon">🔮</span><div class="theme-opt-info"><div class="theme-opt-name">Cosmic Purple</div><div class="theme-opt-sub">Option 3 Neon Galaxy</div></div><span class="theme-check">✓</span></button>
+        <button class="theme-opt" data-theme="dark" onclick="setAppTheme('dark')"><span class="theme-opt-icon">🌙</span><div class="theme-opt-info"><div class="theme-opt-name">OLED Dark</div><div class="theme-opt-sub">Classic Night Mode</div></div><span class="theme-check">✓</span></button>
+      </div>
+    </div>
     <button class="fav-act-btn" onclick="openFavDrawer()" style="display:inline-flex;align-items:center;gap:6px;background:rgba(244,63,94,0.15);border:1px solid rgba(244,63,94,0.3);color:#f43f5e;font-weight:700;border-radius:50px;padding:6px 14px;cursor:pointer;">❤️ Saved (<span class="fav-count-badge">0</span>)</button>
     <button id="pwaInstallBtn" class="pwa-btn" style="display:none;" onclick="triggerAppInstall()">📱 Install App</button>
     <span class="free-pill">✅ 100% FREE</span>

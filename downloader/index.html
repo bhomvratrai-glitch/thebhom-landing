@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>(function(){try{const t=localStorage.getItem('thebhom_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta name="google-adsense-account" content="ca-pub-4674566886677472">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
   <meta charset="UTF-8">
@@ -12,6 +13,7 @@
   <meta property="og:description" content="Download and trim high quality 1080p HD videos from any platform with 1-click Apple QuickTime compatibility.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thebhom.in/downloader/">
+  <link rel="stylesheet" href="../shared.css">
   <link rel="canonical" href="https://thebhom.in/downloader/">
 
   <!-- Google AdSense Ready (Replace ca-pub-XXXXXXXXXXXXXXXX with your Publisher ID) -->
@@ -21,9 +23,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root, [data-theme="light"] {
+      --bg-dark: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-input: #f1f5f9;
+      --border-color: rgba(15, 23, 42, 0.09);
+      --accent-cyan: #0284c7;
+      --accent-blue: #2563eb;
+      --accent-emerald: #16a34a;
+      --accent-gold: #d97706;
+      --accent-purple: #7c3aed;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --body-bg: radial-gradient(circle at 50% -20%, #e0e7ff 0%, #f8fafc 70%);
+      --title-grad: linear-gradient(135deg, #0f172a 0%, #2563eb 50%, #0284c7 100%);
+      --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.06);
+    }
+    [data-theme="navy"] {
+      --bg-dark: #0b132b;
+      --bg-card: rgba(20, 32, 66, 0.85);
+      --bg-input: rgba(11, 19, 43, 0.9);
+      --border-color: rgba(56, 189, 248, 0.18);
+      --accent-cyan: #38bdf8;
+      --accent-blue: #0284c7;
+      --accent-emerald: #22c55e;
+      --accent-gold: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --body-bg: radial-gradient(circle at 50% -20%, #1c2541 0%, #0b132b 70%);
+      --title-grad: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #38bdf8 100%);
+      --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    [data-theme="purple"] {
+      --bg-dark: #0f0a1c;
+      --bg-card: rgba(27, 18, 49, 0.85);
+      --bg-input: rgba(15, 10, 28, 0.9);
+      --border-color: rgba(168, 85, 247, 0.25);
+      --accent-cyan: #c084fc;
+      --accent-blue: #a855f7;
+      --accent-emerald: #22c55e;
+      --accent-gold: #f59e0b;
+      --accent-purple: #a855f7;
+      --text-main: #f8fafc;
+      --text-muted: #c4b5fd;
+      --body-bg: radial-gradient(circle at 50% -20%, #2e1065 0%, #0f0a1c 70%);
+      --title-grad: linear-gradient(135deg, #ffffff 0%, #f0abfc 50%, #c084fc 100%);
+      --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    [data-theme="dark"] {
       --bg-dark: #070913;
       --bg-card: rgba(18, 22, 39, 0.7);
+      --bg-input: rgba(10, 14, 28, 0.8);
       --border-color: rgba(255, 255, 255, 0.08);
       --accent-cyan: #00f2fe;
       --accent-blue: #4facfe;
@@ -32,6 +83,9 @@
       --accent-purple: #8b5cf6;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
+      --body-bg: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #070913 70%);
+      --title-grad: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #38bdf8 100%);
+      --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
 
     * {
@@ -41,7 +95,7 @@
     }
 
     body {
-      background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #070913 70%);
+      background: var(--body-bg);
       color: var(--text-main);
       font-family: 'Plus Jakarta Sans', sans-serif;
       min-height: 100vh;
@@ -108,7 +162,7 @@
       font-weight: 800;
       letter-spacing: -1px;
       line-height: 1.15;
-      background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #38bdf8 100%);
+      background: var(--title-grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 12px;
@@ -455,6 +509,20 @@
       <span>The<span style="color:#a855f7;">Bhom</span>.in</span>
     </a>
     <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+      <div class="theme-switcher" id="themeSwitcher">
+        <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleThemeMenu(event)" aria-label="Switch Theme" title="Choose Theme">
+          <span class="theme-curr-icon" id="themeCurrIcon">☀️</span>
+          <span class="theme-curr-label" id="themeCurrLabel">Light</span>
+          <span class="theme-arrow">▾</span>
+        </button>
+        <div class="theme-menu" id="themeMenu">
+          <div class="theme-menu-title">Select Website Theme</div>
+          <button class="theme-opt" data-theme="light" onclick="setAppTheme('light')"><span class="theme-opt-icon">☀️</span><div class="theme-opt-info"><div class="theme-opt-name">Light Frost (Default)</div><div class="theme-opt-sub">Clean Apple / Notion style</div></div><span class="theme-check">✓</span></button>
+          <button class="theme-opt" data-theme="navy" onclick="setAppTheme('navy')"><span class="theme-opt-icon">🌊</span><div class="theme-opt-info"><div class="theme-opt-name">Deep Navy Slate</div><div class="theme-opt-sub">Option 1 Midnight Ocean</div></div><span class="theme-check">✓</span></button>
+          <button class="theme-opt" data-theme="purple" onclick="setAppTheme('purple')"><span class="theme-opt-icon">🔮</span><div class="theme-opt-info"><div class="theme-opt-name">Cosmic Purple</div><div class="theme-opt-sub">Option 3 Neon Galaxy</div></div><span class="theme-check">✓</span></button>
+          <button class="theme-opt" data-theme="dark" onclick="setAppTheme('dark')"><span class="theme-opt-icon">🌙</span><div class="theme-opt-info"><div class="theme-opt-name">OLED Dark</div><div class="theme-opt-sub">Classic Night Mode</div></div><span class="theme-check">✓</span></button>
+        </div>
+      </div>
       <a href="../" style="color:#94a3b8; text-decoration:none; font-size:0.85rem; font-weight:600; transition:color 0.2s;">🏠 Home</a>
       <a href="../wallpapers.html" style="color:#94a3b8; text-decoration:none; font-size:0.85rem; font-weight:600; transition:color 0.2s;">🖼️ Wallpapers</a>
       <a href="../ebooks.html" style="color:#94a3b8; text-decoration:none; font-size:0.85rem; font-weight:600; transition:color 0.2s;">📚 E-Books</a>
@@ -843,5 +911,6 @@
   </script>
 </div>
 
+  <script src="../shared.js"></script>
 </body>
 </html>

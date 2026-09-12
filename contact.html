@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>(function(){try{const t=localStorage.getItem('thebhom_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta name="google-adsense-account" content="ca-pub-4674566886677472">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
   <meta charset="UTF-8">
@@ -11,13 +12,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root, [data-theme="light"] {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --cyan: #0284c7;
+      --border: rgba(15, 23, 42, 0.09);
+      --heading-color: #0f172a;
+    }
+    [data-theme="navy"] {
+      --bg: #0b132b;
+      --card: #142042;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --cyan: #38bdf8;
+      --border: rgba(56, 189, 248, 0.18);
+      --heading-color: var(--heading-color, #0f172a);
+    }
+    [data-theme="purple"] {
+      --bg: #0f0a1c;
+      --card: #1b1231;
+      --text: #f8fafc;
+      --muted: #c4b5fd;
+      --cyan: #a855f7;
+      --border: rgba(168, 85, 247, 0.22);
+      --heading-color: var(--heading-color, #0f172a);
+    }
+    [data-theme="dark"] {
       --bg: #0b0f19;
       --card: #131b2e;
       --text: #f8fafc;
       --muted: #94a3b8;
       --cyan: #00f2fe;
       --border: rgba(255, 255, 255, 0.08);
+      --heading-color: var(--heading-color, #0f172a);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -35,7 +64,7 @@
       border-radius: 20px;
       padding: 48px;
     }
-    h1 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    h1 { font-size: 32px; font-weight: 800; color: var(--heading-color, #0f172a); margin-bottom: 8px; }
     p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
     .contact-card {
       background: rgba(255, 255, 255, 0.03);
@@ -44,12 +73,13 @@
       padding: 24px;
       margin-bottom: 24px;
     }
-    .contact-card h3 { font-size: 18px; color: #fff; margin-bottom: 8px; }
+    .contact-card h3 { font-size: 18px; color: var(--heading-color, #0f172a); margin-bottom: 8px; }
     .contact-card p { margin-bottom: 0; }
     a { color: var(--cyan); text-decoration: none; font-weight: 600; }
     a:hover { text-decoration: underline; }
     .nav-back { display: inline-block; margin-bottom: 24px; color: var(--muted); font-size: 14px; }
   </style>
+  <link rel="stylesheet" href="shared.css">
 </head>
 <body>
   <div class="container">
@@ -72,5 +102,6 @@
       <p>Email: <a href="mailto:ads@thebhom.in">ads@thebhom.in</a></p>
     </div>
   </div>
+  <script src="shared.js"></script>
 </body>
 </html>

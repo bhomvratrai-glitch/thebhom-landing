@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+  <script>(function(){try{const t=localStorage.getItem('thebhom_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta name="google-adsense-account" content="ca-pub-4674566886677472">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 <meta charset="UTF-8"/>
@@ -41,17 +42,13 @@
 </script>
 <style>
 :root{
-  --bg:#07070f;--bg2:#0d0d1a;--bg3:#111128;--bg-card:#13132a;
-  --primary:#06b6d4;--pl:#22d3ee;--green:#22c55e;--amber:#f59e0b;
-  --rose:#f43f5e;--purple:#a855f7;
-  --text:#f8fafc;--text2:#94a3b8;--text3:#64748b;
-  --border:rgba(255,255,255,.08);--r:14px;--t:all .25s ease;
+  --primary:#06b6d4;--pl:#22d3ee;--amber:#f59e0b;--rose:#f43f5e;--purple:#a855f7;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 .sp{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--purple));z-index:9999;width:0%;}
 /* HEADER */
-.hdr{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;display:flex;align-items:center;padding:0 2rem;gap:1.5rem;background:rgba(7,7,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;display:flex;align-items:center;padding:0 2rem;gap:1.5rem;background:var(--hdr-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:900;font-size:1.1rem;color:var(--text);}
 .logo-box{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--purple));display:flex;align-items:center;justify-content:center;font-size:.85rem;}
 .logo span{color:var(--pl);}
@@ -155,9 +152,25 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
     <li><a href="templates.html" class="active">🎨 Templates</a></li>
     <li><a href="cards.html">💌 Cards</a></li>
   </ul></nav>
-  <button onclick="openFavDrawer()" class="fav-nav-btn" style="margin-left:auto;padding:6px 14px;border-radius:20px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.4);color:#f472b6;font-size:.78rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:.4rem;">❤️ Saved <span id="favCountBadge" class="fav-badge" style="background:#ec4899;color:#fff;border-radius:10px;padding:1px 6px;font-size:.68rem;">0</span></button>
+  <div class="hdr-right" style="margin-left:auto;display:flex;align-items:center;gap:.6rem;">
+    <div class="theme-switcher" id="themeSwitcher">
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleThemeMenu(event)" aria-label="Switch Theme" title="Choose Theme">
+        <span class="theme-curr-icon" id="themeCurrIcon">☀️</span>
+        <span class="theme-curr-label" id="themeCurrLabel">Light</span>
+        <span class="theme-arrow">▾</span>
+      </button>
+      <div class="theme-menu" id="themeMenu">
+        <div class="theme-menu-title">Select Website Theme</div>
+        <button class="theme-opt" data-theme="light" onclick="setAppTheme('light')"><span class="theme-opt-icon">☀️</span><div class="theme-opt-info"><div class="theme-opt-name">Light Frost (Default)</div><div class="theme-opt-sub">Clean Apple / Notion style</div></div><span class="theme-check">✓</span></button>
+        <button class="theme-opt" data-theme="navy" onclick="setAppTheme('navy')"><span class="theme-opt-icon">🌊</span><div class="theme-opt-info"><div class="theme-opt-name">Deep Navy Slate</div><div class="theme-opt-sub">Option 1 Midnight Ocean</div></div><span class="theme-check">✓</span></button>
+        <button class="theme-opt" data-theme="purple" onclick="setAppTheme('purple')"><span class="theme-opt-icon">🔮</span><div class="theme-opt-info"><div class="theme-opt-name">Cosmic Purple</div><div class="theme-opt-sub">Option 3 Neon Galaxy</div></div><span class="theme-check">✓</span></button>
+        <button class="theme-opt" data-theme="dark" onclick="setAppTheme('dark')"><span class="theme-opt-icon">🌙</span><div class="theme-opt-info"><div class="theme-opt-name">OLED Dark</div><div class="theme-opt-sub">Classic Night Mode</div></div><span class="theme-check">✓</span></button>
+      </div>
+    </div>
+    <button onclick="openFavDrawer()" class="fav-nav-btn" style="padding:6px 14px;border-radius:20px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.4);color:#f472b6;font-size:.78rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:.4rem;">❤️ Saved <span id="favCountBadge" class="fav-badge" style="background:#ec4899;color:#fff;border-radius:10px;padding:1px 6px;font-size:.68rem;">0</span></button>
   <button id="pwaInstallBtn" class="pwa-btn" style="display:none;margin-left:.5rem;" onclick="promptPwaInstall()">📲 Install App</button>
   <span class="free-pill" style="margin-left:.5rem;">✅ 100% FREE</span>
+  </div>
 </header>
 
 <nav class="subnav">
