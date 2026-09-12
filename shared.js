@@ -4,7 +4,7 @@
 // ============================================================
 
 const SUBDOMAINS = [
-  {label:'⚡ Video Downloader',url:'downloader/',id:'downloader'},
+  {label:'⚡ Video Downloader',url:'https://download.thebhom.in/',id:'downloader'},
   {label:'🖼️ Wallpapers',url:'wallpapers.html',id:'wallpapers'},
   {label:'📚 E-Books',url:'ebooks.html',id:'ebooks'},
   {label:'📰 Magazines',url:'magazines.html',id:'magazines'},
@@ -220,7 +220,7 @@ function renderFooter(){
       <div class="f-col">
         <h5>Content & Tools</h5>
         <ul>
-          <li><a href="downloader/">⚡ Video Downloader</a></li>
+          <li><a href="https://download.thebhom.in/">⚡ Video Downloader</a></li>
           <li><a href="wallpapers.html">🖼️ 4K Wallpapers</a></li>
           <li><a href="ebooks.html">📚 E-Books</a></li>
           <li><a href="magazines.html">📰 Magazines</a></li>
@@ -231,7 +231,7 @@ function renderFooter(){
       <div class="f-col">
         <h5>Subdomains</h5>
         <ul>
-          <li><a href="downloader/">downloader.thebhom.in</a></li>
+          <li><a href="https://download.thebhom.in/">download.thebhom.in</a></li>
           <li><a href="wallpapers.html">wallpapers.thebhom.in</a></li>
           <li><a href="ebooks.html">ebooks.thebhom.in</a></li>
           <li><a href="magazines.html">magazines.thebhom.in</a></li>
