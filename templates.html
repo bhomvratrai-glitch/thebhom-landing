@@ -1005,10 +1005,7 @@ function buildCard(t){
 
   return `
 <div class="t-card" id="tc_${t.id}">
-  <button class="pin-save-btn ${isFavorite(t.id)?'saved':''}" style="position:absolute;top:8px;left:8px;z-index:10;" onclick="event.stopPropagation();pinItem('${t.id}','${t.title.replace(/'/g,"\\\\'")}','${t.cat}','🎨',this)">
-    ${isFavorite(t.id)?'✅ Saved':'📌 Save'}
-  </button>
-  <button class="fav-heart-btn ${isFavorite(t.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite({id:'${t.id}',title:'${t.title.replace(/'/g,"\\'")}',type:'template',category:'${t.cat}',preview:'🎨'}, this)" title="Add to Favorites">♥</button>
+  <button class="fav-heart-btn ${isFavorite(t.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite({id:'${t.id}',title:'${t.title.replace(/'/g,"\\'",)}',type:'template',category:'${t.cat}',preview:'🎨'}, this)" title="Add to Wishlist">♥</button>
   <div class="t-thumb" onclick="openZoom('${t.id}')">
     <span class="pack-badge">${packLabel}</span>
     <img src="${imgSrc}" alt="${t.title}" loading="lazy"/>

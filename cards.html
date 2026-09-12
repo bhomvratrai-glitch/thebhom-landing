@@ -973,10 +973,7 @@ function buildCard(card){
   const dataUrl=canv.toDataURL('image/png');
   return `
 <div class="g-card" id="gc_${card.id}">
-  <button class="pin-save-btn ${isFavorite(card.id)?'saved':''}" style="position:absolute;top:8px;left:8px;z-index:10;" onclick="event.stopPropagation();pinItem('${card.id}','${card.title.replace(/'/g,"\\\\'")}','${card.cat}','${card.emoji}',this)">
-    ${isFavorite(card.id)?'✅ Saved':'📌 Save'}
-  </button>
-  <button class="fav-heart-btn ${isFavorite(card.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite({id:'${card.id}',title:'${card.title.replace(/'/g,"\\'")}',type:'card',category:'${card.cat}',preview:'${card.emoji}'}, this)" title="Add to Favorites">♥</button>
+  <button class="fav-heart-btn ${isFavorite(card.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite({id:'${card.id}',title:'${card.title.replace(/'/g,"\\'",)}',type:'card',category:'${card.cat}',preview:'${card.emoji}'}, this)" title="Add to Wishlist">♥</button>
   <div class="card-canvas-wrap" onclick="openCardZoom('${card.id}')">
     <span class="card-pack-badge">4-PANEL FOLDABLE</span>
     <img src="${dataUrl}" alt="${card.title}" style="width:100%;height:auto;display:block;"/>

@@ -781,10 +781,7 @@ function buildMagCard(mag){
   const dataUrl=canv.toDataURL('image/png');
   return `
 <div class="m-card" id="mc_${mag.id}">
-  <button class="pin-save-btn ${isFavorite(mag.id)?'saved':''}" style="position:absolute;top:10px;left:10px;z-index:10;" onclick="event.stopPropagation();pinItem('${mag.id}','${mag.title.replace(/'/g,"\\\\'")}','${mag.category}','${mag.emoji}',this)">
-    ${isFavorite(mag.id)?'✅ Saved':'📌 Save'}
-  </button>
-  <button class="fav-heart-btn ${isFavorite(mag.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite({id:'${mag.id}',title:'${mag.title.replace(/'/g,"\\'")}',type:'magazine',category:'${mag.category}',preview:'${mag.emoji}'}, this)" title="Add to Favorites">♥</button>
+  <button class="fav-heart-btn ${isFavorite(mag.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite({id:'${mag.id}',title:'${mag.title.replace(/'/g,"\\'",)}',type:'magazine',category:'${mag.category}',preview:'${mag.emoji}'}, this)" title="Add to Wishlist">♥</button>
   <div class="m-cover" onclick="openMagReader('${mag.id}')" style="position:relative;">
     <span style="position:absolute;top:10px;right:10px;background:rgba(15,23,42,.85);color:#34d399;border:1px solid #10b98166;font-size:.65rem;font-weight:800;padding:3px 8px;border-radius:10px;z-index:2;">10 PAGES FULL</span>
     <img src="${dataUrl}" alt="${mag.title}" style="width:100%;height:100%;object-fit:cover;display:block;"/>
