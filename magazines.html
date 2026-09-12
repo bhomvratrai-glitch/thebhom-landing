@@ -516,96 +516,217 @@ function generateMagCover(mag, w=450, h=600){
   canvas.width=w; canvas.height=h;
   const ctx=canvas.getContext('2d');
 
-  // Background Gradient
   const [c1,c2,c3]=mag.colors.length>=3?mag.colors:[mag.colors[0],mag.colors[1],mag.colors[0]];
-  const grd=ctx.createLinearGradient(0,0,w,h);
+
+  // 1. Deep Rich Background Gradient
+  const grd=ctx.createLinearGradient(0,0,w*0.8,h);
   grd.addColorStop(0,c1);
   grd.addColorStop(0.5,c2);
   grd.addColorStop(1,c3||c2);
   ctx.fillStyle=grd;
   ctx.fillRect(0,0,w,h);
 
-  // Subtle magazine spine shading
-  const spineGrd=ctx.createLinearGradient(0,0,25,0);
-  spineGrd.addColorStop(0,'rgba(0,0,0,0.6)');
-  spineGrd.addColorStop(1,'transparent');
-  ctx.fillStyle=spineGrd;
-  ctx.fillRect(0,0,25,h);
-
-  // Magazine Masthead (Top Logo)
-  ctx.fillStyle='rgba(255,255,255,0.15)';
-  ctx.fillRect(15,15,w-30,50);
-  ctx.strokeStyle='rgba(255,255,255,0.2)';
-  ctx.strokeRect(15,15,w-30,50);
-
-  ctx.fillStyle='#34d399';
-  ctx.font='bold 11px Inter, sans-serif';
-  ctx.textAlign='left';
-  ctx.fillText(mag.category.toUpperCase()+' • THEBHOM SPECIAL', 26, 34);
-
-  ctx.fillStyle='#94a3b8';
-  ctx.font='10px Inter, sans-serif';
-  ctx.textAlign='right';
-  ctx.fillText(mag.issue, w-26, 34);
-
-  // Main Title
-  ctx.font='900 28px "Playfair Display", serif';
-  ctx.fillStyle='#ffffff';
-  ctx.textAlign='center';
-  ctx.shadowColor='rgba(0,0,0,0.8)';
-  ctx.shadowBlur=12;
-
-  // Split title if too long
-  const words=mag.title.split(' ');
-  if(words.length>3){
-    const mid=Math.ceil(words.length/2);
-    ctx.fillText(words.slice(0,mid).join(' '), w/2, 105);
-    ctx.fillText(words.slice(mid).join(' '), w/2, 138);
-  } else {
-    ctx.fillText(mag.title, w/2, 115);
+  // 2. Ambient Cyber/Glow Nodes in Background
+  ctx.save();
+  ctx.globalAlpha=0.18;
+  for(let i=0; i<30; i++){
+    const x=((i*73)%w);
+    const y=((i*97)%h);
+    ctx.fillStyle = (i%2===0)?'#38bdf8':'#ec4899';
+    ctx.beginPath();
+    ctx.arc(x,y,(i%4)+1,0,Math.PI*2);
+    ctx.fill();
   }
-  ctx.shadowBlur=0;
+  ctx.restore();
 
-  // Center Art / Big Emoji
-  ctx.font='96px serif';
-  ctx.textAlign='center';
-  ctx.fillText(mag.emoji, w/2, h*0.5);
+  // 3. Central Artwork: Realistic 3D Sphere / Chrome Swirl (Matching Tech Trends)
+  const cx = w/2;
+  const cy = h*0.42;
+  const r = w*0.27;
 
-  // Golden Divider Line
-  ctx.strokeStyle='#f59e0b';
-  ctx.lineWidth=2;
+  ctx.save();
+  // Ambient radial glow behind the artwork
+  const bgGlow = ctx.createRadialGradient(cx, cy, 10, cx, cy, r*1.8);
+  bgGlow.addColorStop(0, 'rgba(56, 189, 248, 0.45)');
+  bgGlow.addColorStop(0.5, 'rgba(168, 85, 247, 0.25)');
+  bgGlow.addColorStop(1, 'transparent');
+  ctx.fillStyle = bgGlow;
+  ctx.fillRect(0, cy - r*2, w, r*4);
+
+  // Draw 3D Iridescent Chrome Sphere
+  const sphereGrd = ctx.createRadialGradient(cx - r*0.35, cy - r*0.35, r*0.05, cx, cy, r);
+  if(mag.id==='m1' || mag.category==='Technology'){
+    sphereGrd.addColorStop(0, '#ffffff');
+    sphereGrd.addColorStop(0.25, '#38bdf8');
+    sphereGrd.addColorStop(0.55, '#818cf8');
+    sphereGrd.addColorStop(0.85, '#3b0764');
+    sphereGrd.addColorStop(1, '#09090b');
+  } else if(mag.id==='m2' || mag.category==='Business'){
+    sphereGrd.addColorStop(0, '#fef08a');
+    sphereGrd.addColorStop(0.25, '#eab308');
+    sphereGrd.addColorStop(0.6, '#0369a1');
+    sphereGrd.addColorStop(1, '#082f49');
+  } else if(mag.id==='m3' || mag.category==='Fashion'){
+    sphereGrd.addColorStop(0, '#fbcfe8');
+    sphereGrd.addColorStop(0.3, '#f43f5e');
+    sphereGrd.addColorStop(0.65, '#4c0519');
+    sphereGrd.addColorStop(1, '#000000');
+  } else {
+    sphereGrd.addColorStop(0, '#a7f3d0');
+    sphereGrd.addColorStop(0.3, '#10b981');
+    sphereGrd.addColorStop(0.65, '#064e3b');
+    sphereGrd.addColorStop(1, '#022c22');
+  }
+
+  // Shadow under sphere
+  ctx.shadowColor = 'rgba(0,0,0,0.6)';
+  ctx.shadowBlur = 30;
+  ctx.shadowOffsetY = 15;
+
   ctx.beginPath();
-  ctx.moveTo(w*0.2, h*0.62);
-  ctx.lineTo(w*0.8, h*0.62);
+  ctx.arc(cx, cy, r, 0, Math.PI*2);
+  ctx.fillStyle = sphereGrd;
+  ctx.fill();
+  ctx.restore();
+
+  // Draw 3D Orbiting Fluid Ring / Chrome Swirl
+  ctx.save();
+  ctx.lineWidth = 14;
+  const ringGrd = ctx.createLinearGradient(cx - r*1.3, cy - r*0.6, cx + r*1.3, cy + r*0.6);
+  ringGrd.addColorStop(0, 'rgba(56, 189, 248, 0.9)');
+  ringGrd.addColorStop(0.5, 'rgba(236, 72, 153, 0.8)');
+  ringGrd.addColorStop(1, 'rgba(56, 189, 248, 0.2)');
+  ctx.strokeStyle = ringGrd;
+  ctx.shadowColor = 'rgba(56, 189, 248, 0.8)';
+  ctx.shadowBlur = 18;
+  ctx.beginPath();
+  ctx.ellipse(cx, cy, r*1.25, r*0.45, Math.PI / -6, 0, Math.PI*2);
   ctx.stroke();
 
-  // Cover Headlines
-  const headlines=mag.coverHeadlines||['Top Industry Insights','Deep Analysis & Trends'];
-  ctx.textAlign='left';
-  headlines.forEach((hl,idx)=>{
-    const y=h*0.68 + (idx*36);
-    ctx.fillStyle='#f59e0b';
-    ctx.font='bold 12px Inter, sans-serif';
-    ctx.fillText('▶', 30, y);
+  // Central icon badge in center of sphere
+  ctx.font = '54px "Apple Color Emoji", "Segoe UI Emoji", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0,0,0,0.9)';
+  ctx.shadowBlur = 16;
+  ctx.fillText(mag.emoji, cx, cy);
+  ctx.restore();
 
-    ctx.fillStyle='#f8fafc';
-    ctx.font='600 13px Inter, sans-serif';
-    ctx.fillText(hl.length>38?hl.substring(0,36)+'…':hl, 48, y);
+  // 4. Magazine Masthead (Top Header Banner)
+  ctx.save();
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.75)';
+  ctx.fillRect(16, 16, w - 32, 54);
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(16, 16, w - 32, 54);
+
+  ctx.fillStyle = '#38bdf8';
+  ctx.font = '900 11px Inter, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('THEBHOM LUXURY DIGITAL • ' + mag.category.toUpperCase(), 28, 36);
+
+  ctx.fillStyle = '#f59e0b';
+  ctx.font = '700 10px Inter, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText(mag.issue + ' • ₹0 FREE', w - 28, 36);
+
+  // Main Magazine Title
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 28px "Playfair Display", serif';
+  ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(0,0,0,0.85)';
+  ctx.shadowBlur = 14;
+
+  const titleText = mag.title.split('—')[0].trim();
+  ctx.fillText(titleText, w/2, 114);
+
+  // Subtitle
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '600 12px Inter, sans-serif';
+  const subtitle = mag.title.includes('—') ? mag.title.split('—')[1].trim() : 'Exclusive Collector Edition';
+  ctx.fillText(subtitle, w/2, 138);
+  ctx.restore();
+
+  // 5. Featured Cover Stories (Lower Half)
+  ctx.save();
+  const headlines = mag.coverHeadlines || ['Top Industry Insights & Analysis', 'The 2026 Innovation Frontier', 'Exclusive Founder Interviews'];
+  headlines.slice(0, 3).forEach((hl, idx) => {
+    const y = h*0.66 + (idx * 34);
+    ctx.fillStyle = '#f59e0b';
+    ctx.font = 'bold 12px Inter, sans-serif';
+    ctx.fillText('◆', 26, y);
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = '700 13px Inter, sans-serif';
+    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+    ctx.shadowBlur = 6;
+    ctx.fillText(hl.length > 34 ? hl.substring(0, 32) + '…' : hl, 44, y);
   });
+  ctx.restore();
 
-  // Footer Bar (Barcode & 100% Free Badge)
-  ctx.fillStyle='rgba(0,0,0,0.7)';
-  ctx.fillRect(0,h-40,w,40);
+  // 6. Realistic Barcode Box in Bottom-Right Corner (Exact match to Tech Trends!)
+  ctx.save();
+  const bcW = 110;
+  const bcH = 48;
+  const bcX = w - bcW - 20;
+  const bcY = h - bcH - 20;
 
-  ctx.fillStyle='#22c55e';
-  ctx.font='bold 12px Inter, sans-serif';
-  ctx.textAlign='left';
-  ctx.fillText('✅ 100% FREE DIGITAL ISSUE', 20, h-16);
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(bcX, bcY, bcW, bcH);
+  ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(bcX, bcY, bcW, bcH);
 
-  ctx.fillStyle='rgba(255,255,255,0.4)';
-  ctx.font='10px Inter, sans-serif';
-  ctx.textAlign='right';
-  ctx.fillText('thebhom.in/magazines', w-20, h-16);
+  ctx.fillStyle = '#000000';
+  const stripeXStart = bcX + 8;
+  const stripeWidthMax = bcW - 16;
+  const stripes = [2, 1, 3, 1, 2, 4, 1, 2, 1, 3, 2, 1, 4, 1, 2, 1, 3, 1, 2, 3, 1, 2, 1, 4, 2, 1];
+  let currentX = stripeXStart;
+  for(let i=0; i<stripes.length && currentX < stripeXStart + stripeWidthMax; i++){
+    const sw = stripes[i];
+    if(i % 2 === 0){
+      ctx.fillRect(currentX, bcY + 6, sw, 26);
+    }
+    currentX += sw + 1.5;
+  }
+  ctx.font = '600 8px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('9 771234 567003', bcX + (bcW/2), bcY + 42);
+  ctx.restore();
+
+  // 7. Bottom Left Issue Badge
+  ctx.save();
+  ctx.fillStyle = '#22c55e';
+  ctx.font = '900 11px Inter, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('✅ FULL 10-PAGE UNABRIDGED', 26, h - 36);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.6)';
+  ctx.font = '600 10px Inter, sans-serif';
+  ctx.fillText('thebhom.in/magazines', 26, h - 20);
+  ctx.restore();
+
+  // 8. Glossy Plastic Laminate Diagonal Sheen (Exact match to input_file_3.png!)
+  ctx.save();
+  const sheenGrd = ctx.createLinearGradient(0, 0, w, h*0.75);
+  sheenGrd.addColorStop(0, 'rgba(255, 255, 255, 0.28)');
+  sheenGrd.addColorStop(0.3, 'rgba(255, 255, 255, 0.08)');
+  sheenGrd.addColorStop(0.5, 'transparent');
+  sheenGrd.addColorStop(1, 'transparent');
+  ctx.fillStyle = sheenGrd;
+  ctx.fillRect(0, 0, w, h);
+  ctx.restore();
+
+  // 9. Physical Magazine Spine on Left Edge
+  ctx.save();
+  const spineGrd = ctx.createLinearGradient(0, 0, 22, 0);
+  spineGrd.addColorStop(0, 'rgba(0, 0, 0, 0.65)');
+  spineGrd.addColorStop(0.2, 'rgba(255, 255, 255, 0.15)');
+  spineGrd.addColorStop(0.4, 'rgba(0, 0, 0, 0.35)');
+  spineGrd.addColorStop(1, 'transparent');
+  ctx.fillStyle = spineGrd;
+  ctx.fillRect(0, 0, 22, h);
+  ctx.restore();
 
   return canvas;
 }
@@ -662,19 +783,7 @@ function buildMagCard(mag){
     </div>
   </div>
 
-<!-- ADSENSE DISPLAY AD UNIT (5470514139) -->
-<div class="ad-unit-wrapper auto-display">
-  <span class="ad-label">Advertisement</span>
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-4674566886677472"
-       data-ad-slot="5470514139"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+
 
 
   <div class="m-info" onclick="openMagReader('${mag.id}')">

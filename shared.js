@@ -1167,6 +1167,524 @@ function shareToWhatsAppStatus(title, url) {
 }
 
 // ============================================================
+// 3D REALISTIC BOOK & MAGAZINE COVER GENERATORS
+// ============================================================
+const _bookCoverCache = new Map();
+const _magCoverCache = new Map();
+
+function generateBookCover(b, w = 380, h = 560) {
+  const canvas = document.createElement('canvas');
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext('2d');
+
+  const [c1, c2] = (b.gradient && b.gradient.length >= 2) ? b.gradient : (b.colors && b.colors.length >= 2 ? b.colors : ['#0f172a', '#1e3a8a']);
+
+  // 1. Deep Hardcover Base Gradient
+  const bgGrd = ctx.createLinearGradient(0, 0, w, h);
+  bgGrd.addColorStop(0, c1);
+  bgGrd.addColorStop(0.55, c2);
+  bgGrd.addColorStop(1, '#05070e');
+  ctx.fillStyle = bgGrd;
+  ctx.fillRect(0, 0, w, h);
+
+  // 2. Fine Leatherette / Canvas Grain Texture
+  ctx.save();
+  ctx.globalAlpha = 0.07;
+  for (let i = 0; i < 45; i++) {
+    const x = ((i * 67) % w);
+    const y = ((i * 89) % h);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(x, y, (i % 3) + 1, (i % 3) + 1);
+  }
+  ctx.restore();
+
+  // 3. Gilded Gold Double Border Frame
+  ctx.save();
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.45)';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(18, 18, w - 36, h - 36);
+
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.22)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(24, 24, w - 48, h - 48);
+
+  // Corner Gold Florets / Diamonds
+  const drawDiamond = (cx, cy, size = 4) => {
+    ctx.fillStyle = '#f59e0b';
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - size);
+    ctx.lineTo(cx + size, cy);
+    ctx.lineTo(cx, cy + size);
+    ctx.lineTo(cx - size, cy);
+    ctx.closePath();
+    ctx.fill();
+  };
+  drawDiamond(24, 24);
+  drawDiamond(w - 24, 24);
+  drawDiamond(24, h - 24);
+  drawDiamond(w - 24, h - 24);
+  ctx.restore();
+
+  // 4. Top Bestseller / Collector Gold Ribbon
+  ctx.save();
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+  const ribbonW = w - 68;
+  const ribbonH = 26;
+  const ribbonX = 34;
+  const ribbonY = 34;
+  ctx.fillRect(ribbonX, ribbonY, ribbonW, ribbonH);
+  ctx.strokeStyle = '#f59e0b';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(ribbonX, ribbonY, ribbonW, ribbonH);
+
+  ctx.fillStyle = '#f59e0b';
+  ctx.font = 'bold 9px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('★ NATIONAL BESTSELLER • 2026 EDITION ★', w / 2, ribbonY + (ribbonH / 2));
+  ctx.restore();
+
+  // 5. Central 3D Thematic Emblem / Medallion
+  const cx = w / 2;
+  const cy = h * 0.38;
+  const r = 58;
+
+  ctx.save();
+  // Ambient radial glow behind emblem
+  const glow = ctx.createRadialGradient(cx, cy, 10, cx, cy, r * 2.2);
+  glow.addColorStop(0, 'rgba(245, 158, 11, 0.38)');
+  glow.addColorStop(0.5, 'rgba(99, 102, 241, 0.22)');
+  glow.addColorStop(1, 'transparent');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, cy - r * 2, w, r * 4);
+
+  // Outer Gold Foil Embossed Ring
+  ctx.beginPath();
+  ctx.arc(cx, cy, r + 4, 0, Math.PI * 2);
+  const goldRing = ctx.createLinearGradient(cx - r, cy - r, cx + r, cy + r);
+  goldRing.addColorStop(0, '#fef08a');
+  goldRing.addColorStop(0.5, '#eab308');
+  goldRing.addColorStop(1, '#78350f');
+  ctx.strokeStyle = goldRing;
+  ctx.lineWidth = 3;
+  ctx.shadowColor = 'rgba(0,0,0,0.6)';
+  ctx.shadowBlur = 12;
+  ctx.stroke();
+
+  // Inner Dark Medallion
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  const innerGrd = ctx.createRadialGradient(cx - 15, cy - 15, 5, cx, cy, r);
+  innerGrd.addColorStop(0, '#1e293b');
+  innerGrd.addColorStop(1, '#090d16');
+  ctx.fillStyle = innerGrd;
+  ctx.fill();
+
+  // Medallion inner decorative dashed ring
+  ctx.beginPath();
+  ctx.arc(cx, cy, r - 6, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 3]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Central 3D Emoji / Icon
+  ctx.font = '54px "Apple Color Emoji", "Segoe UI Emoji", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+  ctx.shadowBlur = 16;
+  ctx.shadowOffsetY = 6;
+  ctx.fillText(b.emoji || '📚', cx, cy + 2);
+  ctx.restore();
+
+  // 6. Title Typography (Playfair Display / Georgia)
+  ctx.save();
+  ctx.fillStyle = '#ffffff';
+  ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(0,0,0,0.95)';
+  ctx.shadowBlur = 10;
+  ctx.shadowOffsetY = 3;
+
+  const rawTitle = (b.title || 'Master Guide').replace(/\s*\(\d{4}\)/g, '');
+  const words = rawTitle.split(' ');
+  const lines = [];
+  let currentLine = '';
+
+  for (let i = 0; i < words.length; i++) {
+    const testLine = currentLine ? (currentLine + ' ' + words[i]) : words[i];
+    if (testLine.length > 21 && currentLine) {
+      lines.push(currentLine);
+      currentLine = words[i];
+    } else {
+      currentLine = testLine;
+    }
+  }
+  if (currentLine) lines.push(currentLine);
+
+  const fontSize = lines.length > 2 ? 19 : 22;
+  ctx.font = `bold ${fontSize}px "Playfair Display", Georgia, serif`;
+
+  let titleStartY = h * 0.58;
+  if (lines.length > 2) titleStartY -= 10;
+  lines.forEach((line, idx) => {
+    ctx.fillText(line, w / 2, titleStartY + (idx * (fontSize + 6)));
+  });
+
+  // 7. Category & Subtitle
+  const categoryY = titleStartY + (lines.length * (fontSize + 6)) + 8;
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '700 10px Inter, sans-serif';
+  ctx.fillText(((b.cat || b.category || 'SPECIAL EDITION')).toUpperCase(), w / 2, categoryY);
+
+  // Divider Line
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(w * 0.25, categoryY + 10);
+  ctx.lineTo(w * 0.75, categoryY + 10);
+  ctx.stroke();
+
+  // 8. Author Ribbon & Stars
+  const authorY = categoryY + 26;
+  ctx.fillStyle = '#f8fafc';
+  ctx.font = 'bold 12px Inter, sans-serif';
+  ctx.fillText('BY ' + (b.author ? b.author.toUpperCase() : 'THEBHOM EDITORIAL'), w / 2, authorY);
+
+  ctx.fillStyle = '#f59e0b';
+  ctx.font = '10px Inter, sans-serif';
+  ctx.fillText('★★★★★ 4.9 (1,850+ REVIEWS)', w / 2, authorY + 16);
+  ctx.restore();
+
+  // 9. Realistic Barcode Box in Bottom-Right Corner (Exact match to references!)
+  ctx.save();
+  const bcW = 98;
+  const bcH = 42;
+  const bcX = w - bcW - 22;
+  const bcY = h - bcH - 22;
+
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(bcX, bcY, bcW, bcH);
+  ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(bcX, bcY, bcW, bcH);
+
+  ctx.fillStyle = '#000000';
+  const stripeXStart = bcX + 6;
+  const stripeWidthMax = bcW - 12;
+  const stripes = [2, 1, 3, 1, 2, 4, 1, 2, 1, 3, 2, 1, 3, 1, 2, 1, 2, 1, 3, 2, 1, 2];
+  let curX = stripeXStart;
+  for (let i = 0; i < stripes.length && curX < stripeXStart + stripeWidthMax; i++) {
+    const sw = stripes[i];
+    if (i % 2 === 0) {
+      ctx.fillRect(curX, bcY + 5, sw, 22);
+    }
+    curX += sw + 1.4;
+  }
+  ctx.font = '600 7px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('9 780134 685991', bcX + (bcW / 2), bcY + 36);
+  ctx.restore();
+
+  // 10. Bottom Left Publisher Badge
+  ctx.save();
+  ctx.fillStyle = '#22c55e';
+  ctx.font = 'bold 10px Inter, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('✅ FULL 10-PAGE BOOK', 28, h - 38);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '600 9px Inter, sans-serif';
+  ctx.fillText('thebhom.in/ebooks', 28, h - 24);
+  ctx.restore();
+
+  // 11. Glossy Book Sheen (Diagonal Light Reflection)
+  ctx.save();
+  const sheen = ctx.createLinearGradient(0, 0, w, h * 0.7);
+  sheen.addColorStop(0, 'rgba(255, 255, 255, 0.22)');
+  sheen.addColorStop(0.25, 'rgba(255, 255, 255, 0.05)');
+  sheen.addColorStop(0.45, 'transparent');
+  sheen.addColorStop(1, 'transparent');
+  ctx.fillStyle = sheen;
+  ctx.fillRect(0, 0, w, h);
+  ctx.restore();
+
+  // 12. Physical 3D Spine Crease on Left Edge
+  ctx.save();
+  const spineGrd = ctx.createLinearGradient(0, 0, 20, 0);
+  spineGrd.addColorStop(0, 'rgba(0, 0, 0, 0.75)');
+  spineGrd.addColorStop(0.2, 'rgba(255, 255, 255, 0.18)');
+  spineGrd.addColorStop(0.45, 'rgba(0, 0, 0, 0.4)');
+  spineGrd.addColorStop(1, 'transparent');
+  ctx.fillStyle = spineGrd;
+  ctx.fillRect(0, 0, 20, h);
+  ctx.restore();
+
+  // 13. Physical Page Thickness on Right Edge
+  ctx.save();
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+  ctx.fillRect(w - 3, 0, 1, h);
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+  ctx.fillRect(w - 2, 0, 1, h);
+  ctx.restore();
+
+  return canvas;
+}
+
+function getBookCoverDataUrl(b) {
+  if (!b) return '';
+  const key = b.id || b.title;
+  if (_bookCoverCache.has(key)) return _bookCoverCache.get(key);
+  try {
+    const canv = generateBookCover(b, 380, 560);
+    const dataUrl = canv.toDataURL('image/png');
+    _bookCoverCache.set(key, dataUrl);
+    return dataUrl;
+  } catch(e) {
+    console.error('getBookCoverDataUrl error:', e);
+    return '';
+  }
+}
+
+function generateMagCover(mag, w = 450, h = 600) {
+  const canvas = document.createElement('canvas');
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext('2d');
+
+  const colors = (mag.colors && mag.colors.length >= 2) ? mag.colors : ['#064e3b', '#0f172a', '#34d399'];
+  const [c1, c2, c3] = colors.length >= 3 ? colors : [colors[0], colors[1], colors[0]];
+
+  // 1. Deep Rich Background Gradient
+  const grd = ctx.createLinearGradient(0, 0, w * 0.8, h);
+  grd.addColorStop(0, c1);
+  grd.addColorStop(0.5, c2);
+  grd.addColorStop(1, c3 || c2);
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, w, h);
+
+  // 2. Ambient Cyber/Glow Nodes
+  ctx.save();
+  ctx.globalAlpha = 0.18;
+  for (let i = 0; i < 30; i++) {
+    const x = ((i * 73) % w);
+    const y = ((i * 97) % h);
+    ctx.fillStyle = (i % 2 === 0) ? '#38bdf8' : '#ec4899';
+    ctx.beginPath();
+    ctx.arc(x, y, (i % 4) + 1, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.restore();
+
+  // 3. Central Artwork: 3D Chrome Sphere / Swirl (Matching Tech Trends)
+  const cx = w / 2;
+  const cy = h * 0.42;
+  const r = w * 0.27;
+
+  ctx.save();
+  const bgGlow = ctx.createRadialGradient(cx, cy, 10, cx, cy, r * 1.8);
+  bgGlow.addColorStop(0, 'rgba(56, 189, 248, 0.45)');
+  bgGlow.addColorStop(0.5, 'rgba(168, 85, 247, 0.25)');
+  bgGlow.addColorStop(1, 'transparent');
+  ctx.fillStyle = bgGlow;
+  ctx.fillRect(0, cy - r * 2, w, r * 4);
+
+  const sphereGrd = ctx.createRadialGradient(cx - r * 0.35, cy - r * 0.35, r * 0.05, cx, cy, r);
+  const cat = (mag.category || mag.tag || '').toLowerCase();
+  if (mag.id === 'm1' || cat.includes('tech')) {
+    sphereGrd.addColorStop(0, '#ffffff');
+    sphereGrd.addColorStop(0.25, '#38bdf8');
+    sphereGrd.addColorStop(0.55, '#818cf8');
+    sphereGrd.addColorStop(0.85, '#3b0764');
+    sphereGrd.addColorStop(1, '#09090b');
+  } else if (mag.id === 'm2' || cat.includes('business')) {
+    sphereGrd.addColorStop(0, '#fef08a');
+    sphereGrd.addColorStop(0.25, '#eab308');
+    sphereGrd.addColorStop(0.6, '#0369a1');
+    sphereGrd.addColorStop(1, '#082f49');
+  } else if (mag.id === 'm3' || cat.includes('fashion')) {
+    sphereGrd.addColorStop(0, '#fbcfe8');
+    sphereGrd.addColorStop(0.3, '#f43f5e');
+    sphereGrd.addColorStop(0.65, '#4c0519');
+    sphereGrd.addColorStop(1, '#000000');
+  } else {
+    sphereGrd.addColorStop(0, '#a7f3d0');
+    sphereGrd.addColorStop(0.3, '#10b981');
+    sphereGrd.addColorStop(0.65, '#064e3b');
+    sphereGrd.addColorStop(1, '#022c22');
+  }
+
+  ctx.shadowColor = 'rgba(0,0,0,0.6)';
+  ctx.shadowBlur = 30;
+  ctx.shadowOffsetY = 15;
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.fillStyle = sphereGrd;
+  ctx.fill();
+  ctx.restore();
+
+  // 3D Orbiting Fluid Ring
+  ctx.save();
+  ctx.lineWidth = 14;
+  const ringGrd = ctx.createLinearGradient(cx - r * 1.3, cy - r * 0.6, cx + r * 1.3, cy + r * 0.6);
+  ringGrd.addColorStop(0, 'rgba(56, 189, 248, 0.9)');
+  ringGrd.addColorStop(0.5, 'rgba(236, 72, 153, 0.8)');
+  ringGrd.addColorStop(1, 'rgba(56, 189, 248, 0.2)');
+  ctx.strokeStyle = ringGrd;
+  ctx.shadowColor = 'rgba(56, 189, 248, 0.8)';
+  ctx.shadowBlur = 18;
+  ctx.beginPath();
+  ctx.ellipse(cx, cy, r * 1.25, r * 0.45, Math.PI / -6, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Central icon badge
+  ctx.font = '54px "Apple Color Emoji", "Segoe UI Emoji", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0,0,0,0.9)';
+  ctx.shadowBlur = 16;
+  ctx.fillText(mag.emoji || '📰', cx, cy);
+  ctx.restore();
+
+  // 4. Magazine Masthead
+  ctx.save();
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.75)';
+  ctx.fillRect(16, 16, w - 32, 54);
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(16, 16, w - 32, 54);
+
+  ctx.fillStyle = '#38bdf8';
+  ctx.font = '900 11px Inter, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('THEBHOM LUXURY DIGITAL • ' + (mag.category || mag.tag || 'EXCLUSIVE').toUpperCase(), 28, 36);
+
+  ctx.fillStyle = '#f59e0b';
+  ctx.font = '700 10px Inter, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText((mag.issue || '2026') + ' • ₹0 FREE', w - 28, 36);
+
+  // Main Title
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 28px "Playfair Display", serif';
+  ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(0,0,0,0.85)';
+  ctx.shadowBlur = 14;
+
+  const titleText = (mag.title || 'Tech Trends').split('—')[0].trim();
+  ctx.fillText(titleText, w / 2, 114);
+
+  // Subtitle
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '600 12px Inter, sans-serif';
+  const subtitle = mag.title && mag.title.includes('—') ? mag.title.split('—')[1].trim() : 'Exclusive Collector Edition';
+  ctx.fillText(subtitle, w / 2, 138);
+  ctx.restore();
+
+  // 5. Featured Cover Stories
+  ctx.save();
+  const headlines = mag.coverHeadlines || ['Top Industry Insights & Analysis', 'The 2026 Innovation Frontier', 'Exclusive Founder Interviews'];
+  headlines.slice(0, 3).forEach((hl, idx) => {
+    const y = h * 0.66 + (idx * 34);
+    ctx.fillStyle = '#f59e0b';
+    ctx.font = 'bold 12px Inter, sans-serif';
+    ctx.fillText('◆', 26, y);
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = '700 13px Inter, sans-serif';
+    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+    ctx.shadowBlur = 6;
+    ctx.fillText(hl.length > 34 ? hl.substring(0, 32) + '…' : hl, 44, y);
+  });
+  ctx.restore();
+
+  // 6. Barcode Box
+  ctx.save();
+  const bcW = 110;
+  const bcH = 48;
+  const bcX = w - bcW - 20;
+  const bcY = h - bcH - 20;
+
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(bcX, bcY, bcW, bcH);
+  ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(bcX, bcY, bcW, bcH);
+
+  ctx.fillStyle = '#000000';
+  const stripeXStart = bcX + 8;
+  const stripeWidthMax = bcW - 16;
+  const stripes = [2, 1, 3, 1, 2, 4, 1, 2, 1, 3, 2, 1, 4, 1, 2, 1, 3, 1, 2, 3, 1, 2, 1, 4, 2, 1];
+  let currentX = stripeXStart;
+  for (let i = 0; i < stripes.length && currentX < stripeXStart + stripeWidthMax; i++) {
+    const sw = stripes[i];
+    if (i % 2 === 0) {
+      ctx.fillRect(currentX, bcY + 6, sw, 26);
+    }
+    currentX += sw + 1.5;
+  }
+  ctx.font = '600 8px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('9 771234 567003', bcX + (bcW / 2), bcY + 42);
+  ctx.restore();
+
+  // 7. Bottom Left Issue Badge
+  ctx.save();
+  ctx.fillStyle = '#22c55e';
+  ctx.font = '900 11px Inter, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('✅ FULL 10-PAGE UNABRIDGED', 26, h - 36);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.6)';
+  ctx.font = '600 10px Inter, sans-serif';
+  ctx.fillText('thebhom.in/magazines', 26, h - 20);
+  ctx.restore();
+
+  // 8. Glossy Sheen
+  ctx.save();
+  const sheenGrd = ctx.createLinearGradient(0, 0, w, h * 0.75);
+  sheenGrd.addColorStop(0, 'rgba(255, 255, 255, 0.28)');
+  sheenGrd.addColorStop(0.3, 'rgba(255, 255, 255, 0.08)');
+  sheenGrd.addColorStop(0.5, 'transparent');
+  sheenGrd.addColorStop(1, 'transparent');
+  ctx.fillStyle = sheenGrd;
+  ctx.fillRect(0, 0, w, h);
+  ctx.restore();
+
+  // 9. Physical Spine
+  ctx.save();
+  const spineGrd = ctx.createLinearGradient(0, 0, 22, 0);
+  spineGrd.addColorStop(0, 'rgba(0, 0, 0, 0.65)');
+  spineGrd.addColorStop(0.2, 'rgba(255, 255, 255, 0.15)');
+  spineGrd.addColorStop(0.4, 'rgba(0, 0, 0, 0.35)');
+  spineGrd.addColorStop(1, 'transparent');
+  ctx.fillStyle = spineGrd;
+  ctx.fillRect(0, 0, 22, h);
+  ctx.restore();
+
+  return canvas;
+}
+
+function getMagCoverDataUrl(mag) {
+  if (!mag) return '';
+  const key = mag.id || mag.title;
+  if (_magCoverCache.has(key)) return _magCoverCache.get(key);
+  try {
+    const canv = generateMagCover(mag, 450, 600);
+    const dataUrl = canv.toDataURL('image/png');
+    _magCoverCache.set(key, dataUrl);
+    return dataUrl;
+  } catch(e) {
+    console.error('getMagCoverDataUrl error:', e);
+    return '';
+  }
+}
+
+
+// ============================================================
 // AMAZON KINDLE STOREFRONT MODAL
 // ============================================================
 function openAmazonBookModal(bookId) {
@@ -1216,12 +1734,9 @@ function openAmazonBookModal(bookId) {
         <!-- LEFT COLUMN: 3D COVER & BUY BOX -->
         <div class="amz-left-col">
           <div class="amz-3d-cover-wrap">
-            <div class="amz-3d-cover" style="background:linear-gradient(135deg,#0f172a,#1e1b4b);">
-              <span class="amz-look-inside-ribbon">📖 Look Inside</span>
-              <div style="font-size:3.5rem;margin-bottom:0.5rem;">${book.emoji || '📚'}</div>
-              <div style="font-size:0.95rem;font-weight:900;color:#fff;line-height:1.3;text-shadow:0 2px 8px rgba(0,0,0,0.8);">${book.title}</div>
-              <div style="font-size:0.75rem;color:#cbd5e1;margin-top:6px;">By ${book.author || 'TheBhom Editorial'}</div>
-              <div style="margin-top:10px;font-size:0.65rem;color:#f59e0b;font-weight:800;letter-spacing:1px;">THEBHOM EXCLUSIVE 2026</div>
+            <div class="amz-3d-cover" style="padding:0;overflow:hidden;background:#090d16;position:relative;">
+              <span class="amz-look-inside-ribbon" style="z-index:10;">📖 Look Inside</span>
+              <img src="${getBookCoverDataUrl(book)}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="${book.title}" />
             </div>
           </div>
 
@@ -1578,31 +2093,33 @@ function renderPinterestHomeFeed(containerId = 'pinterestFeedContainer', categor
 
     let mediaContent = '';
     if (pin.customCover) {
+      const bookObj = (window.THEBHOM?.EBOOKS || []).find(x => x.id === pin.id) || (typeof BOOKS !== 'undefined' ? BOOKS.find(x => x.id === pin.id) : null) || {
+        id: pin.id,
+        title: pin.title,
+        author: pin.author || 'TheBhom Editorial',
+        cat: pin.tag || 'Technology',
+        emoji: pin.emoji || '📚',
+        gradient: [pin.color || '#1e1b4b', '#0f172a']
+      };
+      const coverUrl = getBookCoverDataUrl(bookObj);
       mediaContent = `
-        <div style="width:100%;height:100%;min-height:280px;background:linear-gradient(135deg,${pin.color}22,#090d16);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;position:relative;border-left:5px solid rgba(255,255,255,0.2);">
-          <div style="font-size:3rem;margin-bottom:0.75rem;filter:drop-shadow(0 6px 12px rgba(0,0,0,0.6));">${pin.emoji}</div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;color:#fff;line-height:1.3;margin-bottom:0.4rem;">${pin.title}</div>
-          <div style="font-size:0.72rem;color:#f59e0b;font-weight:700;">⭐⭐⭐⭐⭐ 4.9 • 10-Page Unabridged</div>
-          <div style="margin-top:0.75rem;display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);padding:4px 10px;border-radius:20px;font-size:0.72rem;font-weight:800;color:#f59e0b;">
-            <span style="text-decoration:line-through;color:#94a3b8;font-weight:500;">₹499</span> ₹0 FREE
-          </div>
+        <div style="position:relative;width:100%;aspect-ratio:2/3;overflow:hidden;border-radius:12px;background:#090d16;box-shadow:0 10px 25px rgba(0,0,0,0.35);">
+          <img src="${coverUrl}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="${pin.title}" loading="lazy" />
         </div>
       `;
     } else if (pin.customMag) {
+      const magObj = (window.THEBHOM?.MAGAZINES || []).find(x => x.id === pin.id) || (typeof MAGS !== 'undefined' ? MAGS.find(x => x.id === pin.id) : null) || {
+        id: pin.id,
+        title: pin.title,
+        category: pin.tag || 'Technology',
+        emoji: pin.emoji || '📰',
+        issue: pin.priceBadge || 'Sept 2026',
+        colors: [pin.color || '#064e3b', '#0f172a', '#34d399']
+      };
+      const coverUrl = getMagCoverDataUrl(magObj);
       mediaContent = `
-        <div style="width:100%;height:100%;min-height:260px;background:linear-gradient(135deg,#062e24,#0f172a);display:flex;flex-direction:column;justify-content:space-between;padding:1.2rem;text-align:left;position:relative;">
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid rgba(255,255,255,0.2);padding-bottom:6px;">
-            <span style="font-size:0.8rem;font-weight:900;letter-spacing:2px;color:#34d399;">THE BHOM MAGAZINE</span>
-            <span style="font-size:0.65rem;color:#94a3b8;">${pin.priceBadge}</span>
-          </div>
-          <div style="margin:1.5rem 0;">
-            <div style="font-size:2rem;margin-bottom:6px;">${pin.emoji}</div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:#fff;line-height:1.25;">${pin.title}</div>
-            <div style="font-size:0.72rem;color:#a7f3d0;margin-top:4px;font-style:italic;">${pin.headline}</div>
-          </div>
-          <div style="font-size:0.68rem;color:#94a3b8;border-top:1px dashed rgba(255,255,255,0.15);padding-top:6px;">
-            📄 Full 10-Page Interactive Issue
-          </div>
+        <div style="position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:12px;background:#090d16;box-shadow:0 10px 25px rgba(0,0,0,0.35);">
+          <img src="${coverUrl}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="${pin.title}" loading="lazy" />
         </div>
       `;
     } else if (pin.customTmpl) {
@@ -1708,6 +2225,10 @@ window.toggleLanguage = toggleLanguage;
 window.copySelectedQuote = copySelectedQuote;
 window.shareSelectedQuote = shareSelectedQuote;
 window.shareToWhatsAppStatus = shareToWhatsAppStatus;
+window.generateBookCover = generateBookCover;
+window.getBookCoverDataUrl = getBookCoverDataUrl;
+window.generateMagCover = generateMagCover;
+window.getMagCoverDataUrl = getMagCoverDataUrl;
 window.openAmazonBookModal = openAmazonBookModal;
 window.closeAmazonBookModal = closeAmazonBookModal;
 window.buyBookOneClick = buyBookOneClick;

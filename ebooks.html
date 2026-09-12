@@ -96,12 +96,14 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
 /* BOOK CARD */
 .b-card{border-radius:var(--r);overflow:hidden;background:var(--bg-card);border:1px solid var(--border);transition:var(--t);cursor:pointer;}
 .b-card:hover{transform:translateY(-6px);border-color:rgba(245,158,11,.4);box-shadow:0 20px 40px rgba(0,0,0,.5);}
-.b-cover{position:relative;aspect-ratio:2/3;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.b-cover-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;text-align:center;}
-.b-spine{position:absolute;left:0;top:0;width:12px;height:100%;background:rgba(0,0,0,.3);}
+.b-cover{position:relative;aspect-ratio:2/3;overflow:hidden;background:#090d16;display:flex;align-items:center;justify-content:center;border-radius:calc(var(--r) - 2px);}
+.b-cover-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s cubic-bezier(0.2,0.8,0.2,1);}
+.b-card:hover .b-cover-img{transform:scale(1.04);}
+.b-cover-inner{display:none;}
+.b-spine{display:none;}
 .b-emoji{font-size:3rem;margin-bottom:.5rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5));}
 .b-title-on-cover{font-size:.75rem;font-weight:800;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.8);line-height:1.3;max-width:150px;}
-.b-author-on-cover{font-size:.6rem;color:rgba(255,255,255,.7);margin-top:.3rem;}
+.b-author-on-cover{font-size:.65rem;color:rgba(255,255,255,.8);margin-top:4px;}
 .b-badge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.7);border-radius:4px;padding:2px 6px;font-size:.62rem;font-weight:700;border:1px solid rgba(255,255,255,.15);}
 .b-badge.free{color:var(--green);border-color:rgba(34,197,94,.3);}
 .b-badge.new{color:var(--amber);border-color:rgba(245,158,11,.3);}
@@ -587,21 +589,241 @@ function getFiltered(){
 
 function fmtNum(n){ return n>=1000?(n/1000).toFixed(1)+'K':n; }
 
+const _localBookCoverCache = new Map();
+
+function generateBookCover(b, w = 380, h = 560) {
+  if (typeof window.generateBookCover === 'function' && window.generateBookCover !== generateBookCover) {
+    return window.generateBookCover(b, w, h);
+  }
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+
+  const [c1, c2] = (b.gradient && b.gradient.length >= 2) ? b.gradient : ['#0f172a', '#1e3a8a'];
+
+  // 1. Hardcover Base Gradient
+  const bgGrd = ctx.createLinearGradient(0, 0, w, h);
+  bgGrd.addColorStop(0, c1);
+  bgGrd.addColorStop(0.55, c2);
+  bgGrd.addColorStop(1, '#05070e');
+  ctx.fillStyle = bgGrd;
+  ctx.fillRect(0, 0, w, h);
+
+  // 2. Leatherette Grain Texture
+  ctx.save();
+  ctx.globalAlpha = 0.07;
+  for (let i = 0; i < 45; i++) {
+    const x = ((i * 67) % w);
+    const y = ((i * 89) % h);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(x, y, (i % 3) + 1, (i % 3) + 1);
+  }
+  ctx.restore();
+
+  // 3. Gilded Gold Frame
+  ctx.save();
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.45)';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(18, 18, w - 36, h - 36);
+
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.22)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(24, 24, w - 48, h - 48);
+
+  const drawDiamond = (cx, cy, size = 4) => {
+    ctx.fillStyle = '#f59e0b';
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - size);
+    ctx.lineTo(cx + size, cy);
+    ctx.lineTo(cx, cy + size);
+    ctx.lineTo(cx - size, cy);
+    ctx.closePath();
+    ctx.fill();
+  };
+  drawDiamond(24, 24); drawDiamond(w - 24, 24);
+  drawDiamond(24, h - 24); drawDiamond(w - 24, h - 24);
+  ctx.restore();
+
+  // 4. Top Ribbon
+  ctx.save();
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+  const ribbonW = w - 68; const ribbonH = 26;
+  const ribbonX = 34; const ribbonY = 34;
+  ctx.fillRect(ribbonX, ribbonY, ribbonW, ribbonH);
+  ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 1;
+  ctx.strokeRect(ribbonX, ribbonY, ribbonW, ribbonH);
+
+  ctx.fillStyle = '#f59e0b';
+  ctx.font = 'bold 9px Inter, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('★ NATIONAL BESTSELLER • 2026 EDITION ★', w / 2, ribbonY + (ribbonH / 2));
+  ctx.restore();
+
+  // 5. Central 3D Medallion
+  const cx = w / 2; const cy = h * 0.38; const r = 58;
+  ctx.save();
+  const glow = ctx.createRadialGradient(cx, cy, 10, cx, cy, r * 2.2);
+  glow.addColorStop(0, 'rgba(245, 158, 11, 0.38)');
+  glow.addColorStop(0.5, 'rgba(99, 102, 241, 0.22)');
+  glow.addColorStop(1, 'transparent');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, cy - r * 2, w, r * 4);
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, r + 4, 0, Math.PI * 2);
+  const goldRing = ctx.createLinearGradient(cx - r, cy - r, cx + r, cy + r);
+  goldRing.addColorStop(0, '#fef08a');
+  goldRing.addColorStop(0.5, '#eab308');
+  goldRing.addColorStop(1, '#78350f');
+  ctx.strokeStyle = goldRing; ctx.lineWidth = 3;
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 12;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  const innerGrd = ctx.createRadialGradient(cx - 15, cy - 15, 5, cx, cy, r);
+  innerGrd.addColorStop(0, '#1e293b'); innerGrd.addColorStop(1, '#090d16');
+  ctx.fillStyle = innerGrd;
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, r - 6, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)'; ctx.lineWidth = 1;
+  ctx.setLineDash([4, 3]); ctx.stroke(); ctx.setLineDash([]);
+
+  ctx.font = '54px "Apple Color Emoji", "Segoe UI Emoji", sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.85)'; ctx.shadowBlur = 16; ctx.shadowOffsetY = 6;
+  ctx.fillText(b.emoji || '📚', cx, cy + 2);
+  ctx.restore();
+
+  // 6. Title Typography
+  ctx.save();
+  ctx.fillStyle = '#ffffff'; ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(0,0,0,0.95)'; ctx.shadowBlur = 10; ctx.shadowOffsetY = 3;
+
+  const rawTitle = (b.title || 'Master Guide').replace(/\s*\(\d{4}\)/g, '');
+  const words = rawTitle.split(' ');
+  const lines = [];
+  let currentLine = '';
+  for (let i = 0; i < words.length; i++) {
+    const testLine = currentLine ? (currentLine + ' ' + words[i]) : words[i];
+    if (testLine.length > 21 && currentLine) {
+      lines.push(currentLine); currentLine = words[i];
+    } else {
+      currentLine = testLine;
+    }
+  }
+  if (currentLine) lines.push(currentLine);
+
+  const fontSize = lines.length > 2 ? 19 : 22;
+  ctx.font = `bold ${fontSize}px "Playfair Display", Georgia, serif`;
+  let titleStartY = h * 0.58;
+  if (lines.length > 2) titleStartY -= 10;
+  lines.forEach((line, idx) => {
+    ctx.fillText(line, w / 2, titleStartY + (idx * (fontSize + 6)));
+  });
+
+  // 7. Category & Subtitle
+  const categoryY = titleStartY + (lines.length * (fontSize + 6)) + 8;
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '700 10px Inter, sans-serif';
+  ctx.fillText(((b.cat || 'SPECIAL EDITION')).toUpperCase(), w / 2, categoryY);
+
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(w * 0.25, categoryY + 10); ctx.lineTo(w * 0.75, categoryY + 10); ctx.stroke();
+
+  // 8. Author Ribbon & Stars
+  const authorY = categoryY + 26;
+  ctx.fillStyle = '#f8fafc'; ctx.font = 'bold 12px Inter, sans-serif';
+  ctx.fillText('BY ' + (b.author ? b.author.toUpperCase() : 'THEBHOM EDITORIAL'), w / 2, authorY);
+
+  ctx.fillStyle = '#f59e0b';
+  ctx.font = '10px Inter, sans-serif';
+  ctx.fillText('★★★★★ 4.9 (1,850+ REVIEWS)', w / 2, authorY + 16);
+  ctx.restore();
+
+  // 9. Realistic Barcode Box in Bottom-Right Corner
+  ctx.save();
+  const bcW = 98; const bcH = 42;
+  const bcX = w - bcW - 22; const bcY = h - bcH - 22;
+  ctx.fillStyle = '#ffffff'; ctx.fillRect(bcX, bcY, bcW, bcH);
+  ctx.strokeStyle = 'rgba(0,0,0,0.25)'; ctx.lineWidth = 1; ctx.strokeRect(bcX, bcY, bcW, bcH);
+
+  ctx.fillStyle = '#000000';
+  const stripeXStart = bcX + 6; const stripeWidthMax = bcW - 12;
+  const stripes = [2, 1, 3, 1, 2, 4, 1, 2, 1, 3, 2, 1, 3, 1, 2, 1, 2, 1, 3, 2, 1, 2];
+  let curX = stripeXStart;
+  for (let i = 0; i < stripes.length && curX < stripeXStart + stripeWidthMax; i++) {
+    const sw = stripes[i];
+    if (i % 2 === 0) ctx.fillRect(curX, bcY + 5, sw, 22);
+    curX += sw + 1.4;
+  }
+  ctx.font = '600 7px monospace'; ctx.textAlign = 'center';
+  ctx.fillText('9 780134 685991', bcX + (bcW / 2), bcY + 36);
+  ctx.restore();
+
+  // 10. Bottom Left Badge
+  ctx.save();
+  ctx.fillStyle = '#22c55e'; ctx.font = 'bold 10px Inter, sans-serif'; ctx.textAlign = 'left';
+  ctx.fillText('✅ FULL 10-PAGE BOOK', 28, h - 38);
+  ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.font = '600 9px Inter, sans-serif';
+  ctx.fillText('thebhom.in/ebooks', 28, h - 24);
+  ctx.restore();
+
+  // 11. Glossy Sheen
+  ctx.save();
+  const sheen = ctx.createLinearGradient(0, 0, w, h * 0.7);
+  sheen.addColorStop(0, 'rgba(255, 255, 255, 0.22)');
+  sheen.addColorStop(0.25, 'rgba(255, 255, 255, 0.05)');
+  sheen.addColorStop(0.45, 'transparent');
+  ctx.fillStyle = sheen; ctx.fillRect(0, 0, w, h);
+  ctx.restore();
+
+  // 12. 3D Spine Crease
+  ctx.save();
+  const spineGrd = ctx.createLinearGradient(0, 0, 20, 0);
+  spineGrd.addColorStop(0, 'rgba(0, 0, 0, 0.75)');
+  spineGrd.addColorStop(0.2, 'rgba(255, 255, 255, 0.18)');
+  spineGrd.addColorStop(0.45, 'rgba(0, 0, 0, 0.4)');
+  spineGrd.addColorStop(1, 'transparent');
+  ctx.fillStyle = spineGrd; ctx.fillRect(0, 0, 20, h);
+  ctx.restore();
+
+  // 13. Page Thickness
+  ctx.save();
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.15)'; ctx.fillRect(w - 3, 0, 1, h);
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.08)'; ctx.fillRect(w - 2, 0, 1, h);
+  ctx.restore();
+
+  return canvas;
+}
+
+function getBookCoverDataUrl(b) {
+  if (typeof window.getBookCoverDataUrl === 'function') return window.getBookCoverDataUrl(b);
+  if (!b) return '';
+  const key = b.id || b.title;
+  if (_localBookCoverCache.has(key)) return _localBookCoverCache.get(key);
+  try {
+    const canv = generateBookCover(b, 380, 560);
+    const dataUrl = canv.toDataURL('image/png');
+    _localBookCoverCache.set(key, dataUrl);
+    return dataUrl;
+  } catch(e) {
+    return '';
+  }
+}
+
 function buildBookCard(b){
-  const [c1,c2]=b.gradient;
   const isFav = window.isFavorite ? window.isFavorite(b.id) : false;
   const safeTitle = b.title.replace(/'/g, "\\'");
+  const coverUrl = getBookCoverDataUrl(b);
 
   return `
 <div class="b-card" onclick="openAmazonBookModal('${b.id}')">
-  <div class="b-cover" style="background:linear-gradient(145deg,${c1},${c2})">
+  <div class="b-cover">
+    <img src="${coverUrl}" class="b-cover-img" alt="${safeTitle}" loading="lazy" />
     <button class="fav-heart-btn fav-btn-${b.id} ${isFav?'active':''}" onclick="event.stopPropagation();toggleFavorite({id:'${b.id}',title:'${safeTitle}',tag:'${b.cat}',emoji:'📚'}, event)" title="Save to Favorites">❤️</button>
-    <div class="b-spine"></div>
-    <div class="b-cover-inner">
-      <div class="b-emoji">${b.emoji}</div>
-      <div class="b-title-on-cover">${b.title}</div>
-      <div class="b-author-on-cover">By ${b.author}</div>
-    </div>
     <span class="b-badge free" style="background:#22c55e;color:#000;font-weight:900;">₹0 FREE</span>
     <span class="b-badge" style="bottom:12px;left:12px;background:rgba(15,23,42,.9);color:#f59e0b;border:1px solid #f59e0b66;font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:10px;">📖 KINDLE STORE</span>
     ${b.isNew?'<span class="b-badge new" style="top:32px">NEW</span>':''}
@@ -713,10 +935,12 @@ function openReader(id){
           <button onclick="resumeBookPage('${id}')" style="background:#7c3aed;color:#fff;border:none;padding:5px 14px;border-radius:6px;font-weight:700;cursor:pointer;">Resume Reading</button>
         </div>
         <div class="book-page">
-          <!-- TITLE & PREFACE -->
+          <!-- DELUXE 3D FRONT COVER & TITLE -->
           <div style="text-align:center;padding:1.5rem 0;border-bottom:2px solid #e2e8f0;margin-bottom:2rem;">
-            <div style="font-size:3rem;margin-bottom:.5rem;">${b.emoji}</div>
-            <h1 style="font-size:2.2rem;margin-bottom:.3rem;color:#0f172a;">${b.title}</h1>
+            <div style="display:inline-block;position:relative;max-width:280px;aspect-ratio:2/3;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);margin-bottom:1.5rem;">
+              <img src="${getBookCoverDataUrl(b)}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="${safeTitle} Cover" />
+            </div>
+            <h1 style="font-size:2.2rem;margin-bottom:.3rem;color:#0f172a;font-family:'Playfair Display',serif;">${b.title}</h1>
             <h2 style="font-size:1.15rem;color:#64748b;font-weight:500;">By ${b.author}</h2>
             <div style="display:inline-block;margin-top:.8rem;padding:4px 14px;background:#f1f5f9;border-radius:20px;font-size:.8rem;color:#475569;font-weight:600;">
               100% Free Complete 10-Page Unabridged Edition • TheBhom.in
