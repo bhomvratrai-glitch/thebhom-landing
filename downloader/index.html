@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Video Downloader • Powered by VidsSave & yt-dlp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070913;
+      --bg-card: rgba(18, 22, 39, 0.7);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --accent-cyan: #00f2fe;
+      --accent-blue: #4facfe;
+      --accent-emerald: #10b981;
+      --accent-gold: #fbbf24;
+      --accent-purple: #8b5cf6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #070913 70%);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 172, 254, 0.15));
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Platform Logos */
+    .supported-platforms {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .plat-tag {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      color: var(--text-muted);
+    }
+
+    /* Input Card */
+    .search-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 242, 254, 0.05);
+    }
+
+    .input-group {
+      display: flex;
+      gap: 12px;
+      background: rgba(10, 14, 28, 0.8);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 8px 12px;
+      transition: all 0.3s ease;
+    }
+
+    .input-group:focus-within {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+    }
+
+    .url-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 16px;
+      padding: 8px 12px;
+      font-family: inherit;
+    }
+
+    .url-input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-parse {
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      color: #030712;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-parse:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4);
+    }
+
+    .btn-parse:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Result Modal / Card */
+    .result-card {
+      display: none;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-header {
+      display: flex;
+      gap: 24px;
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+
+    .thumb-wrapper {
+      position: relative;
+      width: 260px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .duration-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.85);
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .info-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      min-width: 260px;
+    }
+
+    .info-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .info-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+      align-items: center;
+    }
+
+    .engine-pill {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 10px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .result-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Format options */
+    .options-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .format-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .format-card:hover {
+      background: rgba(0, 242, 254, 0.08);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    .format-card.selected {
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 172, 254, 0.15));
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+    }
+
+    .format-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .format-size {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Trimmer Section */
+    .trimmer-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .trimmer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .trimmer-inputs {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .trim-field {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trim-input {
+      width: 100px;
+      background: rgba(10, 14, 28, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      color: #fff;
+      padding: 6px 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* Actions */
+    .download-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-download-start {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 32px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-download-start:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+    }
+
+    .status-msg {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    /* Downloaded item link */
+    .download-success-banner {
+      display: none;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent-emerald);
+      border-radius: 14px;
+      padding: 16px;
+      color: #fff;
+      align-items: center;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <div class="badge">⚡ Integrated Video Downloader Engine</div>
+      <h1>Universal Video Downloader</h1>
+      <p class="subtitle">
+        Paste any URL from YouTube, Instagram, TikTok, Facebook, Twitter/X, Pinterest, or Reddit to extract high-definition video clips or trimmed cuts instantly.
+      </p>
+
+      <div class="supported-platforms">
+        <span class="plat-tag">YouTube & Shorts</span>
+        <span class="plat-tag">Instagram Reels</span>
+        <span class="plat-tag">TikTok</span>
+        <span class="plat-tag">Facebook</span>
+        <span class="plat-tag">Twitter / X</span>
+        <span class="plat-tag">Pinterest</span>
+        <span class="plat-tag">Reddit</span>
+      </div>
+    </header>
+
+    <!-- URL Input Card -->
+    <div class="search-card">
+      <div class="input-group">
+        <input type="text" id="videoUrl" class="url-input" placeholder="Paste any video URL (e.g. https://www.youtube.com/watch?v=... or Instagram/TikTok reel)" />
+        <button id="parseBtn" class="btn-parse" onclick="analyzeVideo()">
+          <span>🔍 Analyze URL</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Result / Download Card -->
+    <div id="resultCard" class="result-card">
+      <div class="result-header">
+        <div class="thumb-wrapper">
+          <img id="resThumb" class="thumb-img" src="" alt="Thumbnail" />
+          <span id="resDuration" class="duration-badge">00:00</span>
+        </div>
+        <div class="info-col">
+          <h2 id="resTitle" class="info-title">Video Title</h2>
+          <div class="info-meta">
+            <span id="resAuthor">Creator</span>
+            <span>•</span>
+            <span id="resEngine" class="engine-pill">VidsSave API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-body">
+        <div>
+          <div class="options-title" style="margin-bottom: 12px;">Available Qualities & Formats</div>
+          <div id="formatsGrid" class="format-grid">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Trimmer for Timeline Video Production -->
+        <div class="trimmer-box">
+          <div class="trimmer-header">
+            <div>
+              <strong style="color: #fff; font-size: 15px;">✂ Precision Clip Trimmer (Optional)</strong>
+              <div style="font-size: 12px; color: var(--text-muted);">Cut exact seconds for scene-by-scene story matching</div>
+            </div>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px;">
+              <input type="checkbox" id="enableTrim" onchange="toggleTrimInputs()" />
+              <span>Enable Trimmer</span>
+            </label>
+          </div>
+
+          <div id="trimInputs" class="trimmer-inputs" style="display: none;">
+            <div class="trim-field">
+              <span style="font-size: 13px; color: var(--text-muted);">Start Time:</span>
+              <input type="text" id="trimStart" class="trim-input" placeholder="00:05" value="00:00" />
+            </div>
+            <div class="trim-field">
+              <span style="font-size: 13px; color: var(--text-muted);">End Time:</span>
+              <input type="text" id="trimEnd" class="trim-input" placeholder="00:15" value="00:10" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Action -->
+        <div class="download-actions">
+          <span id="statusMsg" class="status-msg"></span>
+          <button id="downloadBtn" class="btn-download-start" onclick="startDownload()">
+            <span>⬇ Download Video Clip</span>
+          </button>
+        </div>
+
+        <!-- Success link banner -->
+        <div id="successBanner" class="download-success-banner">
+          <div>
+            <strong style="color: var(--accent-emerald);">✅ Download Complete!</strong>
+            <div id="savedFilename" style="font-size: 13px; color: #fff; margin-top: 2px;"></div>
+          </div>
+          <a id="savedLink" href="#" download class="btn-parse" style="text-decoration: none; padding: 8px 16px;">
+            Save to Device
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentData = null;
+    let selectedQuality = "best";
+
+    function formatSec(s) {
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return `${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return 'Stream';
+      const k = 1024;
+      const dm = 1;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+    function toggleTrimInputs() {
+      const isEnabled = document.getElementById("enableTrim").checked;
+      document.getElementById("trimInputs").style.display = isEnabled ? "flex" : "none";
+    }
+
+    async function analyzeVideo() {
+      const urlInput = document.getElementById("videoUrl");
+      const url = urlInput.value.trim();
+      if (!url) {
+        alert("Please paste a video URL first!");
+        return;
+      }
+
+      const parseBtn = document.getElementById("parseBtn");
+      const resultCard = document.getElementById("resultCard");
+      const successBanner = document.getElementById("successBanner");
+      const statusMsg = document.getElementById("statusMsg");
+
+      parseBtn.disabled = true;
+      parseBtn.innerHTML = "<span>⏳ Analyzing...</span>";
+      statusMsg.textContent = "";
+      successBanner.style.display = "none";
+
+      try {
+        const resp = await fetch("/api/parse", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url })
+        });
+
+        const res = await resp.json();
+        if (res.status === "success" && res.data) {
+          currentData = res.data;
+          renderResult(res.data);
+          resultCard.style.display = "block";
+          resultCard.scrollIntoView({ behavior: "smooth" });
+        } else {
+          alert("Could not analyze video: " + (res.error || "Unknown error"));
+        }
+      } catch (err) {
+        alert("Connection error to local server: " + err.message);
+      } finally {
+        parseBtn.disabled = false;
+        parseBtn.innerHTML = "<span>🔍 Analyze URL</span>";
+      }
+    }
+
+    function renderResult(data) {
+      document.getElementById("resTitle").textContent = data.title || "Video";
+      document.getElementById("resAuthor").textContent = data.author || "Creator";
+      document.getElementById("resDuration").textContent = formatSec(data.duration_sec || 0);
+      document.getElementById("resThumb").src = data.thumbnail || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe";
+      document.getElementById("resEngine").textContent = data.engine === "vidssave" ? "⚡ VidsSave Cloud API" : "🛡 yt-dlp Engine";
+
+      // Trim default end time to duration or 10s
+      document.getElementById("trimEnd").value = formatSec(Math.min(data.duration_sec || 10, 10));
+
+      const grid = document.getElementById("formatsGrid");
+      grid.innerHTML = "";
+
+      const resources = data.resources || [];
+      if (resources.length === 0) {
+        grid.innerHTML = "<div style='color: var(--text-muted); font-size: 13px;'>Default best quality available.</div>";
+        selectedQuality = "best";
+        return;
+      }
+
+      resources.forEach((r, idx) => {
+        const card = document.createElement("div");
+        card.className = `format-card ${idx === 0 ? 'selected' : ''}`;
+        if (idx === 0) selectedQuality = r.quality;
+
+        card.innerHTML = `
+          <div class="format-header">
+            <span>${r.format} ${r.quality}</span>
+            <span style="color: var(--accent-emerald);">●</span>
+          </div>
+          <div class="format-size">${formatBytes(r.size_bytes)}</div>
+        `;
+
+        card.onclick = () => {
+          document.querySelectorAll(".format-card").forEach(c => c.classList.remove("selected"));
+          card.classList.add("selected");
+          selectedQuality = r.quality;
+        };
+
+        grid.appendChild(card);
+      });
+    }
+
+    async function startDownload() {
+      const url = document.getElementById("videoUrl").value.trim();
+      const downloadBtn = document.getElementById("downloadBtn");
+      const statusMsg = document.getElementById("statusMsg");
+      const successBanner = document.getElementById("successBanner");
+
+      const isTrim = document.getElementById("enableTrim").checked;
+      const trimStart = isTrim ? document.getElementById("trimStart").value.trim() : null;
+      const trimEnd = isTrim ? document.getElementById("trimEnd").value.trim() : null;
+
+      downloadBtn.disabled = true;
+      downloadBtn.innerHTML = "<span>⏳ Processing & Saving...</span>";
+      statusMsg.textContent = isTrim ? "Downloading and precisely cutting clip..." : "Downloading full video...";
+      successBanner.style.display = "none";
+
+      try {
+        const resp = await fetch("/api/download", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            url,
+            quality: selectedQuality,
+            trim_start: trimStart,
+            trim_end: trimEnd
+          })
+        });
+
+        const res = await resp.json();
+        if (res.status === "success") {
+          statusMsg.textContent = "";
+          successBanner.style.display = "flex";
+          document.getElementById("savedFilename").textContent = res.filename + ` (${formatBytes(res.size_bytes)})`;
+          document.getElementById("savedLink").href = res.download_url;
+          document.getElementById("savedLink").download = res.filename;
+        } else {
+          statusMsg.textContent = "❌ Error: " + res.error;
+        }
+      } catch (err) {
+        statusMsg.textContent = "❌ Network error: " + err.message;
+      } finally {
+        downloadBtn.disabled = false;
+        downloadBtn.innerHTML = "<span>⬇ Download Video Clip</span>";
+      }
+    }
+  </script>
+</body>
+</html>
