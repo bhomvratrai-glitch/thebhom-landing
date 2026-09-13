@@ -1,7 +1,7 @@
-# hvac.thebhom.in
+# thebhom.in
 AI Lead Conversion for HVAC Businesses
 
-🚀 Live: https://hvac.thebhom.in
+🚀 Live: https://thebhom.in
 
 ## What's Here
 - `index.html` - Main landing page

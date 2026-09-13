@@ -1,6 +1,6 @@
 /**
  * HVAC AI Chat Widget by BHOM
- * Embed: <script src="https://hvac.thebhom.in/widget/hvac-chat.js" data-business-id="YOUR_ID"></script>
+ * Embed: <script src="https://thebhom.in/widget/hvac-chat.js" data-business-id="YOUR_ID"></script>
  */
 (function() {
   'use strict';
@@ -146,7 +146,7 @@
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
-      <div id="hvac-chat-powered">Powered by <a href="https://hvac.thebhom.in" target="_blank">BHOM AI</a></div>
+      <div id="hvac-chat-powered">Powered by <a href="https://thebhom.in" target="_blank">BHOM AI</a></div>
     </div>
   `;
   document.body.appendChild(container);
