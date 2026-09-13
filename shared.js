@@ -4,7 +4,8 @@
 // ============================================================
 
 const SUBDOMAINS = [
-  {label:'⚡ Video Downloader',url:'https://download.thebhom.in/',id:'downloader'},
+  {label:'🛠️ Web Tools',url:'tools/index.html',id:'tools'},
+  {label:'⚡ Video Downloader',url:'downloader/',id:'downloader'},
   {label:'🖼️ Wallpapers',url:'wallpapers.html',id:'wallpapers'},
   {label:'📚 E-Books',url:'ebooks.html',id:'ebooks'},
   {label:'📰 Magazines',url:'magazines.html',id:'magazines'},
@@ -220,7 +221,8 @@ function renderFooter(){
       <div class="f-col">
         <h5>Content & Tools</h5>
         <ul>
-          <li><a href="https://download.thebhom.in/">⚡ Video Downloader</a></li>
+          <li><a href="tools/index.html">🛠️ Online Tools (ToolNest)</a></li>
+          <li><a href="downloader/">⚡ Video Downloader</a></li>
           <li><a href="wallpapers.html">🖼️ 4K Wallpapers</a></li>
           <li><a href="ebooks.html">📚 E-Books</a></li>
           <li><a href="magazines.html">📰 Magazines</a></li>
@@ -229,14 +231,15 @@ function renderFooter(){
         </ul>
       </div>
       <div class="f-col">
-        <h5>Subdomains</h5>
+        <h5>All Hubs & Apps</h5>
         <ul>
-          <li><a href="https://download.thebhom.in/">download.thebhom.in</a></li>
-          <li><a href="wallpapers.html">wallpapers.thebhom.in</a></li>
-          <li><a href="ebooks.html">ebooks.thebhom.in</a></li>
-          <li><a href="magazines.html">magazines.thebhom.in</a></li>
-          <li><a href="templates.html">templates.thebhom.in</a></li>
-          <li><a href="cards.html">cards.thebhom.in</a></li>
+          <li><a href="tools/index.html">thebhom.in/tools</a></li>
+          <li><a href="downloader/">thebhom.in/downloader</a></li>
+          <li><a href="wallpapers.html">thebhom.in/wallpapers</a></li>
+          <li><a href="ebooks.html">thebhom.in/ebooks</a></li>
+          <li><a href="magazines.html">thebhom.in/magazines</a></li>
+          <li><a href="templates.html">thebhom.in/templates</a></li>
+          <li><a href="cards.html">thebhom.in/cards</a></li>
         </ul>
       </div>
       <div class="f-col">

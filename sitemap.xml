@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://thebhom.in/</loc><lastmod>2026-09-12</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://thebhom.in/downloader/</loc><lastmod>2026-09-12</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thebhom.in/wallpapers.html</loc><lastmod>2026-09-12</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thebhom.in/ebooks.html</loc><lastmod>2026-09-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thebhom.in/magazines.html</loc><lastmod>2026-09-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thebhom.in/cards.html</loc><lastmod>2026-09-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thebhom.in/templates.html</loc><lastmod>2026-09-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thebhom.in/about.html</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://thebhom.in/contact.html</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://thebhom.in/privacy-policy.html</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://thebhom.in/terms.html</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://thebhom.in/disclaimer.html</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://thebhom.in/</loc><lastmod>2026-09-13</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://thebhom.in/tools/</loc><lastmod>2026-09-13</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
+  <url><loc>https://thebhom.in/tools/clean-csv.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/compress-image.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/convert-jpg-to-webp.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/convert-png-to-jpg.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/merge-pdf.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/pdf-to-image.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/resize-image-online.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/rotate-pdf.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/split-pdf-pages.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/watermark-pdf.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/ai.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/automation.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/tools/products.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://thebhom.in/downloader/</loc><lastmod>2026-09-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thebhom.in/wallpapers.html</loc><lastmod>2026-09-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thebhom.in/ebooks.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thebhom.in/magazines.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thebhom.in/cards.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thebhom.in/templates.html</loc><lastmod>2026-09-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thebhom.in/about.html</loc><lastmod>2026-09-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://thebhom.in/contact.html</loc><lastmod>2026-09-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://thebhom.in/privacy-policy.html</loc><lastmod>2026-09-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://thebhom.in/terms.html</loc><lastmod>2026-09-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://thebhom.in/disclaimer.html</loc><lastmod>2026-09-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://thebhom.in/directory/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thebhom.in/directory/city/delhi/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thebhom.in/directory/city/mumbai/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
