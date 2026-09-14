@@ -12,9 +12,9 @@ const PRECACHE_ASSETS = [
   '/magazines.html',
   '/templates.html',
   '/cards.html',
-  '/shared.css?v=20260914a',
-  '/shared.js?v=20260914a',
-  '/data.js?v=20260914a',
+  '/shared.css?v=20260914b',
+  '/shared.js?v=20260914b',
+  '/data.js?v=20260914b',
   '/icon-192.png',
   '/icon-512.png',
   '/manifest.json'

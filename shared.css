@@ -151,38 +151,54 @@ header.hdr, .hdr {
 }
 
 /* Brand Logo */
-header.hdr .logo, .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  flex-shrink: 0;
+header.hdr .logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
 }
-header.hdr .logo-box, .logo-box {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background: #dc2626;
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 0.95rem;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.32);
+header.hdr .logo-box {
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  border-radius: 9px !important;
+  background: #dc2626 !important;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 900 !important;
+  font-size: 0.95rem !important;
+  color: #ffffff !important;
+  letter-spacing: -0.02em !important;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.32) !important;
+  margin: 0 !important;
 }
-header.hdr .logo-txt, .logo-txt {
-  font-size: 1.22rem;
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.025em;
-  display: flex;
-  align-items: center;
+header.hdr .logo-txt {
+  font-size: 1.22rem !important;
+  font-weight: 800 !important;
+  color: var(--text, #0f172a) !important;
+  letter-spacing: -0.025em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
-header.hdr .logo-txt span, .logo-txt span, .brand-accent {
-  color: #dc2626;
+header.hdr .logo-txt span, header.hdr .logo-txt .brand-accent, .brand-accent {
+  color: #dc2626 !important;
 }
 
 /* Center Nav with colored SVG icons */
