@@ -145,84 +145,18 @@ function toggleThemeMenu(e) {
 }
 
 function getThemeSwitcherHTML() {
-  const current = getStoredTheme();
-  const currTheme = THEMES[current] || THEMES.light;
-  return `
-    <div class="theme-switcher" id="themeSwitcher">
-      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleThemeMenu(event)" aria-label="Switch Website Theme" title="Switch Theme (Light, Navy, Purple, Dark)">
-        <span class="theme-curr-icon" id="themeCurrIcon">${currTheme.icon}</span>
-        <span class="theme-curr-label" id="themeCurrLabel">${currTheme.name}</span>
-        <span class="theme-arrow">▾</span>
-      </button>
-      <div class="theme-menu" id="themeMenu">
-        <div class="theme-menu-title">Select Website Theme</div>
-        <button class="theme-opt ${current==='light'?'active':''}" data-theme="light" onclick="setAppTheme('light')">
-          <span class="theme-opt-icon">☀️</span>
-          <div class="theme-opt-info">
-            <div class="theme-opt-name">Light Frost (Default)</div>
-            <div class="theme-opt-sub">Clean Apple / Notion style</div>
-          </div>
-          <span class="theme-check">✓</span>
-        </button>
-        <button class="theme-opt ${current==='navy'?'active':''}" data-theme="navy" onclick="setAppTheme('navy')">
-          <span class="theme-opt-icon">🌊</span>
-          <div class="theme-opt-info">
-            <div class="theme-opt-name">Deep Navy Slate</div>
-            <div class="theme-opt-sub">Option 1 Midnight Ocean</div>
-          </div>
-          <span class="theme-check">✓</span>
-        </button>
-        <button class="theme-opt ${current==='purple'?'active':''}" data-theme="purple" onclick="setAppTheme('purple')">
-          <span class="theme-opt-icon">🔮</span>
-          <div class="theme-opt-info">
-            <div class="theme-opt-name">Cosmic Purple</div>
-            <div class="theme-opt-sub">Option 3 Neon Galaxy</div>
-          </div>
-          <span class="theme-check">✓</span>
-        </button>
-        <button class="theme-opt ${current==='dark'?'active':''}" data-theme="dark" onclick="setAppTheme('dark')">
-          <span class="theme-opt-icon">🌙</span>
-          <div class="theme-opt-info">
-            <div class="theme-opt-name">OLED Dark</div>
-            <div class="theme-opt-sub">Classic Night Mode</div>
-          </div>
-          <span class="theme-check">✓</span>
-        </button>
-      </div>
-    </div>
-  `;
+  return '';
 }
 
 function injectThemeSwitcherIfNeeded() {
-  if (document.getElementById('themeSwitcher')) return;
-  const target = document.querySelector('.hdr-right') || document.querySelector('.hdr');
-  if (!target) return;
-  const wrapper = document.createElement('div');
-  wrapper.className = 'theme-switcher';
-  wrapper.id = 'themeSwitcher';
-  wrapper.innerHTML = getThemeSwitcherHTML();
-  if (target.classList.contains('hdr-right')) {
-    target.insertBefore(wrapper, target.firstChild);
-  } else {
-    const rightBtn = target.querySelector('.fav-nav-btn, .fav-act-btn, .free-pill');
-    if (rightBtn) {
-      target.insertBefore(wrapper, rightBtn);
-    } else {
-      target.appendChild(wrapper);
-    }
-  }
+  const existing = document.getElementById('themeSwitcher');
+  if (existing) existing.remove();
 }
 
 function initTheme() {
   setAppTheme(getStoredTheme());
-  injectThemeSwitcherIfNeeded();
-  document.addEventListener('click', (e) => {
-    const sw = document.getElementById('themeSwitcher');
-    const menu = document.getElementById('themeMenu');
-    if (menu && sw && !sw.contains(e.target)) {
-      menu.classList.remove('open');
-    }
-  });
+  const existing = document.getElementById('themeSwitcher');
+  if (existing) existing.remove();
 }
 
 function getBasePath() {
