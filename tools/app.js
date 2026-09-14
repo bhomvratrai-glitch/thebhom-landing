@@ -874,9 +874,9 @@ function openUpiPaymentModal(opts = {}) {
   const waMsg = `Hi TheBhom, I have completed the UPI payment of ₹${amount} for "${title}".\nUPI ID: ${upiId}\n\nPlease verify and activate my access!`;
   const waLink = `https://wa.me/917987761789?text=${encodeURIComponent(waMsg)}`;
   
-  let qrSrc = 'upi-qr.png';
+  let qrSrc = 'upi-qr.png?v=20260914_qr2';
   if (!window.location.pathname.includes('/tools/')) {
-    qrSrc = 'assets/upi-qr.png';
+    qrSrc = 'assets/upi-qr.png?v=20260914_qr2';
   }
 
   overlay.innerHTML = `
@@ -894,7 +894,7 @@ function openUpiPaymentModal(opts = {}) {
           <span>Paytm</span> • <span>Google Pay</span> • <span>PhonePe</span> • <span>BHIM</span> • <span>Cred</span>
         </div>
         <div class="upi-qr-frame">
-          <img src="${qrSrc}" alt="Paytm UPI QR Code" class="upi-qr-image" onerror="if(this.src.indexOf('/assets/')===-1)this.src='/assets/upi-qr.png';"/>
+          <img src="${qrSrc}" alt="Paytm UPI QR Code" class="upi-qr-image" onerror="if(this.src.indexOf('/assets/')===-1)this.src='/assets/upi-qr.png?v=20260914_qr2';"/>
         </div>
         <div class="upi-merchant-badge">
           <span class="upi-verified-tick">✓</span> Verified Merchant: <strong>TheBhom / Bhom Vrat Rai</strong>

@@ -1044,9 +1044,9 @@ function openUpiPaymentModal(opts = {}) {
   const waLink = `https://wa.me/917987761789?text=${encodeURIComponent(waMsg)}`;
   
   // Resolve image source: checks if inside /tools/ or root
-  let qrSrc = '/assets/upi-qr.png';
+  let qrSrc = '/assets/upi-qr.png?v=20260914_qr2';
   if (window.location.pathname.includes('/tools/')) {
-    qrSrc = 'upi-qr.png';
+    qrSrc = 'upi-qr.png?v=20260914_qr2';
   }
 
   overlay.innerHTML = `
@@ -1064,7 +1064,7 @@ function openUpiPaymentModal(opts = {}) {
           <span>Paytm</span> • <span>Google Pay</span> • <span>PhonePe</span> • <span>BHIM</span> • <span>Cred</span>
         </div>
         <div class="upi-qr-frame">
-          <img src="${qrSrc}" alt="Paytm UPI QR Code" class="upi-qr-image" onerror="if(this.src.indexOf('/assets/')===-1)this.src='/assets/upi-qr.png';"/>
+          <img src="${qrSrc}" alt="Paytm UPI QR Code" class="upi-qr-image" onerror="if(this.src.indexOf('/assets/')===-1)this.src='/assets/upi-qr.png?v=20260914_qr2';"/>
         </div>
         <div class="upi-merchant-badge">
           <span class="upi-verified-tick">✓</span> Verified Merchant: <strong>TheBhom / Bhom Vrat Rai</strong>
