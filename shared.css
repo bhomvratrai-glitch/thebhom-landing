@@ -963,46 +963,46 @@ header.hdr .hdr-right, .hdr-right {
 }
 
 /* ============================================================
-   UNIVERSAL PAYTM / UPI PAYMENT MODAL
+   UNIVERSAL PAYTM / UPI PAYMENT MODAL (iLovePDF Clean Style)
    ============================================================ */
 .upi-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(4, 6, 18, 0.86);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 100000;
   display: none;
   align-items: center;
   justify-content: center;
   padding: 1.2rem;
   opacity: 0;
-  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.2s ease;
 }
 .upi-overlay.open {
   display: flex;
   opacity: 1;
 }
 .upi-modal {
-  background: linear-gradient(165deg, #0e1124 0%, #080914 100%);
-  border: 1px solid rgba(0, 186, 242, 0.35);
-  border-radius: 24px;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 186, 242, 0.15);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.03);
   max-width: 440px;
   width: 100%;
   max-height: 92vh;
   overflow-y: auto;
-  padding: 1.6rem;
+  padding: 1.8rem;
   position: relative;
-  color: #fff;
+  color: #101828;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  animation: upiModalPop 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: upiModalPop 0.24s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
 }
 @keyframes upiModalPop {
   from {
     opacity: 0;
-    transform: scale(0.94) translateY(14px);
+    transform: scale(0.96) translateY(10px);
   }
   to {
     opacity: 1;
@@ -1013,9 +1013,9 @@ header.hdr .hdr-right, .hdr-right {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #cbd5e1;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
   border-radius: 50%;
   width: 34px;
   height: 34px;
@@ -1024,14 +1024,14 @@ header.hdr .hdr-right, .hdr-right {
   justify-content: center;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   z-index: 10;
 }
 .upi-close-btn:hover {
-  background: rgba(239, 68, 68, 0.25);
-  color: #ef4444;
-  border-color: #ef4444;
-  transform: scale(1.06);
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+  transform: scale(1.04);
 }
 .upi-header {
   text-align: center;
@@ -1042,9 +1042,9 @@ header.hdr .hdr-right, .hdr-right {
   align-items: center;
   gap: 5px;
   padding: 4px 12px;
-  background: rgba(0, 186, 242, 0.12);
-  border: 1px solid rgba(0, 186, 242, 0.35);
-  color: #00baf2;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #e11d48;
   border-radius: 50px;
   font-size: 0.72rem;
   font-weight: 800;
@@ -1053,48 +1053,49 @@ header.hdr .hdr-right, .hdr-right {
   margin-bottom: 8px;
 }
 .upi-title {
-  font-size: 1.25rem;
-  font-weight: 850;
+  font-size: 1.3rem;
+  font-weight: 900;
   margin: 0 0 8px 0;
-  color: #ffffff;
-  line-height: 1.3;
+  color: #0f172a;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 .upi-amount-pill {
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: #ecfdf3;
+  border: 1px solid #a7f3d0;
   border-radius: 10px;
   padding: 6px 14px;
   font-size: 0.88rem;
-  color: #86efac;
-  font-weight: 600;
+  color: #065f46;
+  font-weight: 700;
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 .upi-amount-num {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 900;
-  color: #4ade80;
+  color: #059669;
 }
 .upi-qr-card {
-  background: #ffffff;
-  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
   padding: 14px;
   text-align: center;
   color: #0f172a;
-  margin: 12px 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  margin: 14px 0;
 }
 .upi-apps-strip {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  color: #0284c7;
+  color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 .upi-qr-frame {
@@ -1102,13 +1103,16 @@ header.hdr .hdr-right, .hdr-right {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  background: #fff;
-  padding: 4px;
-  border-radius: 12px;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  width: max-content;
 }
 .upi-qr-image {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   max-width: 100%;
   object-fit: contain;
   border-radius: 8px;
@@ -1116,15 +1120,16 @@ header.hdr .hdr-right, .hdr-right {
 }
 .upi-merchant-badge {
   margin-top: 8px;
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   color: #475569;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
+  font-weight: 600;
 }
 .upi-verified-tick {
-  color: #16a34a;
+  color: #059669;
   font-weight: 900;
   font-size: 0.9rem;
 }
@@ -1133,150 +1138,150 @@ header.hdr .hdr-right, .hdr-right {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   padding: 8px 12px;
   margin-bottom: 12px;
 }
 .upi-id-label {
-  font-size: 0.75rem;
-  color: #94a3b8;
-  font-weight: 600;
+  font-size: 0.76rem;
+  color: #64748b;
+  font-weight: 700;
 }
 .upi-id-val {
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 0.95rem;
   font-weight: 800;
-  color: #38bdf8;
+  color: #0f172a;
   letter-spacing: 0.5px;
   user-select: all;
 }
 .upi-copy-btn {
-  background: #0284c7;
+  background: #e11d48;
   border: none;
-  color: #fff;
+  color: #ffffff;
   padding: 6px 12px;
   border-radius: 8px;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  box-shadow: 0 2px 6px rgba(225, 29, 72, 0.2);
 }
 .upi-copy-btn:hover {
-  background: #0369a1;
+  background: #be123c;
   transform: translateY(-1px);
 }
 .upi-actions {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .upi-app-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, #00baf2, #0077c8);
-  color: #fff;
+  background: #e11d48;
+  color: #ffffff;
   text-decoration: none;
   padding: 11px 16px;
   border-radius: 12px;
   font-weight: 800;
-  font-size: 0.88rem;
-  box-shadow: 0 4px 15px rgba(0, 186, 242, 0.35);
-  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
+  transition: all 0.15s ease;
 }
 .upi-app-btn:hover {
+  background: #be123c;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 186, 242, 0.5);
-  color: #fff;
+  color: #ffffff;
 }
 .upi-whatsapp-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #22c55e;
-  color: #fff;
+  background: #16a34a;
+  color: #ffffff;
   text-decoration: none;
   padding: 10px 16px;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 0.85rem;
-  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
-  transition: all 0.2s ease;
+  font-size: 0.86rem;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+  transition: all 0.15s ease;
 }
 .upi-whatsapp-btn:hover {
-  background: #16a34a;
+  background: #15803d;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.45);
-  color: #fff;
+  color: #ffffff;
 }
 .upi-utr-section {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px dashed rgba(255, 255, 255, 0.12);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
-  padding: 12px;
+  padding: 14px;
 }
 .upi-utr-title {
-  font-size: 0.76rem;
-  color: #cbd5e1;
+  font-size: 0.8rem;
+  color: #1e293b;
   margin-bottom: 8px;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
 }
 .upi-utr-box {
   display: flex;
   gap: 8px;
 }
-.upi-utr-box input {
+.upi-utr-box input, .upi-utr-section input {
   flex: 1;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
   border-radius: 8px;
-  color: #fff;
-  padding: 8px 12px;
-  font-size: 0.82rem;
+  color: #0f172a !important;
+  padding: 9px 12px;
+  font-size: 0.84rem;
   outline: none;
   font-family: inherit;
 }
-.upi-utr-box input:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+.upi-utr-box input:focus, .upi-utr-section input:focus {
+  border-color: #e11d48 !important;
+  box-shadow: 0 0 0 3px #ffe4e6;
 }
 .upi-verify-btn {
-  background: #7c3aed;
-  color: #fff;
+  background: #0f172a;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 0.82rem;
+  padding: 9px 16px;
+  font-size: 0.85rem;
   font-weight: 800;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 .upi-verify-btn:hover {
-  background: #6d28d9;
+  background: #1e293b;
 }
 .upi-footer-note {
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   color: #64748b;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 10px;
   line-height: 1.4;
 }
 
-/* VIP Support Box in Favorites Drawer */
+/* VIP Support Box in Favorites Drawer - iLovePDF Clean Style */
 .fav-vip-box {
   margin: 1.2rem 1.4rem;
   padding: 14px 16px;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(6, 182, 212, 0.15));
-  border: 1px solid rgba(124, 58, 237, 0.35);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -1287,28 +1292,29 @@ header.hdr .hdr-right, .hdr-right {
   margin: 0 0 2px;
   font-size: 0.88rem;
   font-weight: 800;
-  color: #fff;
+  color: #0f172a;
 }
 .fav-vip-info p {
   margin: 0;
-  font-size: 0.72rem;
-  color: #94a3b8;
+  font-size: 0.74rem;
+  color: #64748b;
 }
 .fav-vip-pay-btn {
-  background: linear-gradient(135deg, #7c3aed, #06b6d4);
-  color: #fff;
+  background: #e11d48;
+  color: #ffffff;
   border: none;
-  padding: 7px 14px;
+  padding: 8px 14px;
   border-radius: 8px;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 800;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.35);
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.2);
 }
 .fav-vip-pay-btn:hover {
+  background: #be123c;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.5);
 }
+
 

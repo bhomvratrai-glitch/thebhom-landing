@@ -1095,8 +1095,8 @@ function openUpiPaymentModal(opts = {}) {
       <div class="upi-utr-section">
         <div class="upi-utr-title">Enter Payment Details for Instant Verification:</div>
         <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
-          <input type="email" id="upiEmailInput" placeholder="Your Email Address (for delivery)" required style="background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;padding:8px 12px;font-size:0.82rem;outline:none;" />
-          <input type="text" id="upiNameInput" placeholder="Your Name (Optional)" style="background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;padding:8px 12px;font-size:0.82rem;outline:none;" />
+          <input type="email" id="upiEmailInput" placeholder="Your Email Address (for delivery)" required style="background:#fff;border:1px solid #cbd5e1;border-radius:8px;color:#0f172a;padding:9px 12px;font-size:0.84rem;outline:none;" />
+          <input type="text" id="upiNameInput" placeholder="Your Name (Optional)" style="background:#fff;border:1px solid #cbd5e1;border-radius:8px;color:#0f172a;padding:9px 12px;font-size:0.84rem;outline:none;" />
           <div class="upi-utr-box">
             <input type="text" id="upiUtrInput" placeholder="12-digit UTR / Ref Number" maxlength="30" style="flex:1;" />
             <button onclick="submitUpiVerification('${title.replace(/'/g, "\\'")}', ${amount})" class="upi-verify-btn" id="upiSubmitBtn">Confirm</button>
@@ -1215,11 +1215,11 @@ async function submitUpiVerification(title, amount) {
         <button class="upi-close-btn" onclick="closeUpiPaymentModal()" title="Close">✕</button>
         <div style="text-align:center;padding:10px 0;">
           <div style="font-size:2.8rem;margin-bottom:8px;animation:spin 2s linear infinite;" id="statusIcon">⏳</div>
-          <h3 style="font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:6px;" id="statusHeading">Verifying Your Payment</h3>
-          <div style="background:rgba(0,186,242,0.12);border:1px solid rgba(0,186,242,0.3);border-radius:10px;padding:8px 14px;font-size:0.85rem;color:#38bdf8;font-family:monospace;display:inline-block;margin-bottom:12px;">
+          <h3 style="font-size:1.3rem;font-weight:900;color:#0f172a;margin-bottom:6px;" id="statusHeading">Verifying Your Payment</h3>
+          <div style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:0.85rem;color:#0f172a;font-family:monospace;display:inline-block;margin-bottom:12px;">
             Order ID: <strong>#${orderId}</strong>
           </div>
-          <p style="font-size:0.85rem;color:#cbd5e1;line-height:1.5;margin-bottom:14px;" id="statusMsg">
+          <p style="font-size:0.85rem;color:#475569;line-height:1.5;margin-bottom:14px;" id="statusMsg">
             We are verifying UTR <strong>${utr}</strong> for <strong>₹${amount}</strong>.<br>
             Please keep this tab open. As soon as the owner approves, your plan will unlock right here automatically!
           </p>
@@ -1260,19 +1260,19 @@ async function submitUpiVerification(title, amount) {
           }
           if (heading) {
             heading.textContent = 'Payment Approved & Unlocked!';
-            heading.style.color = '#34d399';
+            heading.style.color = '#059669';
           }
           if (msg) {
-            msg.innerHTML = `Congratulations <strong>${name || email}</strong>! Your access is now activated.<br>License Key: <strong style="font-family:monospace;color:#38bdf8;">${checkData.order.licenseKey}</strong>`;
+            msg.innerHTML = `Congratulations <strong>${name || email}</strong>! Your access is now activated.<br>License Key: <strong style="font-family:monospace;color:#059669;background:#ecfdf3;padding:3px 8px;border-radius:6px;border:1px solid #a7f3d0;">${checkData.order.licenseKey}</strong>`;
           }
           if (unlockBox) {
             unlockBox.style.display = 'block';
             unlockBox.innerHTML = `
-              <div style="background:rgba(16,185,129,0.15);border:1px solid #10b981;border-radius:14px;padding:12px;margin-bottom:12px;">
-                <div style="font-weight:800;color:#34d399;font-size:0.95rem;">✓ Access Granted: ${title}</div>
-                <div style="font-size:0.8rem;color:#cbd5e1;margin-top:4px;">Downloads and premium perks unlocked for this device!</div>
+              <div style="background:#ecfdf3;border:1px solid #a7f3d0;border-radius:14px;padding:12px;margin-bottom:12px;">
+                <div style="font-weight:800;color:#065f46;font-size:0.95rem;">✓ Access Granted: ${title}</div>
+                <div style="font-size:0.8rem;color:#047857;margin-top:4px;">Downloads and premium perks unlocked for this device!</div>
               </div>
-              <button class="btn primary" onclick="closeUpiPaymentModal();if(typeof showToast==='function')showToast('✓ All features unlocked!','ok');" style="width:100%;padding:12px;font-weight:800;background:#00baf2;border:none;border-radius:10px;color:#fff;cursor:pointer;">
+              <button class="btn primary" onclick="closeUpiPaymentModal();if(typeof showToast==='function')showToast('✓ All features unlocked!','ok');" style="width:100%;padding:12px;font-weight:800;background:#e11d48;border:none;border-radius:10px;color:#fff;cursor:pointer;">
                 ⚡ Start Using Now
               </button>
             `;
