@@ -4,13 +4,62 @@
 // ============================================================
 
 const SUBDOMAINS = [
-  {label:'🛠️ Web Tools',url:'tools/index.html',id:'tools'},
-  {label:'⚡ Video Downloader',url:'downloader/',id:'downloader'},
-  {label:'🖼️ Wallpapers',url:'wallpapers.html',id:'wallpapers'},
-  {label:'📚 E-Books',url:'ebooks.html',id:'ebooks'},
-  {label:'📰 Magazines',url:'magazines.html',id:'magazines'},
-  {label:'🎨 Templates',url:'templates.html',id:'templates'},
-  {label:'💌 Cards',url:'cards.html',id:'cards'},
+  {
+    id: 'tools',
+    name: 'Web Tools',
+    label: '🛠️ Web Tools',
+    url: 'tools/index.html',
+    color: '#9333ea',
+    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>`
+  },
+  {
+    id: 'downloader',
+    name: 'Downloader',
+    label: '⚡ Video Downloader',
+    url: 'downloader/',
+    color: '#0891b2',
+    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`
+  },
+  {
+    id: 'wallpapers',
+    name: 'Wallpapers',
+    label: '🖼️ Wallpapers',
+    url: 'wallpapers.html',
+    color: '#16a34a',
+    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>`
+  },
+  {
+    id: 'ebooks',
+    name: 'E-Books',
+    label: '📚 E-Books',
+    url: 'ebooks.html',
+    color: '#dc2626',
+    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>`
+  },
+  {
+    id: 'magazines',
+    name: 'Magazines',
+    label: '📰 Magazines',
+    url: 'magazines.html',
+    color: '#2563eb',
+    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>`
+  },
+  {
+    id: 'templates',
+    name: 'Templates',
+    label: '🎨 Templates',
+    url: 'templates.html',
+    color: '#c026d3',
+    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#c026d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>`
+  },
+  {
+    id: 'cards',
+    name: 'Cards',
+    label: '💌 Cards',
+    url: 'cards.html',
+    color: '#e11d48',
+    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`
+  }
 ];
 
 // ===== THEME MANAGER & SWITCHER =====
@@ -42,6 +91,9 @@ function setAppTheme(themeName) {
   if (iconEl) iconEl.textContent = THEMES[themeName].icon;
   if (labelEl) labelEl.textContent = THEMES[themeName].name;
 
+  // Update minimalist navbar theme button
+  updateThemeIcon(themeName);
+
   // Update menu active states
   document.querySelectorAll('.theme-opt').forEach(opt => {
     if (opt.getAttribute('data-theme') === themeName) {
@@ -63,6 +115,27 @@ function setAppTheme(themeName) {
   // Close menu if open
   const menu = document.getElementById('themeMenu');
   if (menu) menu.classList.remove('open');
+}
+
+function updateThemeIcon(themeName) {
+  const btn = document.getElementById('hdrThemeBtn');
+  if (!btn) return;
+  const isDark = (themeName === 'dark' || themeName === 'navy' || themeName === 'purple');
+  if (isDark) {
+    btn.innerHTML = `<svg class="theme-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`;
+    btn.setAttribute('title', 'Switch to Light Mode');
+    btn.setAttribute('aria-label', 'Switch to Light Mode');
+  } else {
+    btn.innerHTML = `<svg class="theme-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>`;
+    btn.setAttribute('title', 'Switch to Dark Mode');
+    btn.setAttribute('aria-label', 'Switch to Dark Mode');
+  }
+}
+
+function quickToggleTheme() {
+  const curr = getStoredTheme();
+  const next = (curr === 'light') ? 'dark' : 'light';
+  setAppTheme(next);
 }
 
 function toggleThemeMenu(e) {
@@ -152,27 +225,59 @@ function initTheme() {
   });
 }
 
+function getBasePath() {
+  const p = window.location.pathname;
+  if (p.includes('/downloader/') || p.includes('/tools/') || p.includes('/directory/')) {
+    return '../';
+  }
+  return '';
+}
+
 // ===== RENDER HEADER =====
 function renderHeader(activePage=''){
-  const nav = SUBDOMAINS.map(s=>`<li><a href="${s.url}" class="${s.id===activePage?'active':''}">${s.label}</a></li>`).join('');
-  const subLinks = SUBDOMAINS.map(s=>`<a href="${s.url}" class="sub-link ${s.id===activePage?'here':''}">${s.label}</a>`).join('');
+  const base = getBasePath();
+  const navItems = SUBDOMAINS.map(s => {
+    const isAct = (s.id === activePage);
+    const href = base + s.url;
+    return `<li><a href="${href}" class="hdr-nav-link ${isAct?'active':''}"><span class="hdr-nav-ic" style="color:${s.color};">${s.svg}</span><span class="hdr-nav-txt">${s.name}</span></a></li>`;
+  }).join('');
+
+  const currentTheme = getStoredTheme();
+  const isDark = (currentTheme === 'dark' || currentTheme === 'navy' || currentTheme === 'purple');
+  const themeSvg = isDark
+    ? `<svg class="theme-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`
+    : `<svg class="theme-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>`;
+
   return `
 <div class="scroll-prog" id="sp"></div>
 <header class="hdr">
-  <a href="index.html" class="logo">
+  <a href="${base}index.html" class="logo">
     <div class="logo-box">TB</div>
-    <span class="logo-txt">The<span>Bhom</span>.in</span>
+    <span class="logo-txt">The<span class="brand-accent">Bhom</span></span>
   </a>
-  <nav><ul class="hdr-nav">${nav}</ul></nav>
+  <nav class="hdr-nav-container">
+    <ul class="hdr-nav">
+      ${navItems}
+    </ul>
+  </nav>
   <div class="hdr-right">
-    ${getThemeSwitcherHTML()}
-    <button class="spotlight-btn" onclick="openSpotlight()" style="display:inline-flex;align-items:center;gap:6px;background:rgba(124,58,237,0.18);border:1px solid rgba(124,58,237,0.4);color:#c084fc;font-weight:700;border-radius:50px;padding:6px 14px;cursor:pointer;font-size:.78rem;">🔍 Search <kbd style="background:rgba(0,0,0,0.3);padding:1px 5px;border-radius:4px;font-size:.65rem;border:1px solid rgba(255,255,255,0.2);">⌘K</kbd></button>
-    <button class="fav-act-btn" onclick="openFavDrawer()" style="display:inline-flex;align-items:center;gap:6px;background:rgba(244,63,94,0.15);border:1px solid rgba(244,63,94,0.3);color:#f472b6;font-weight:700;border-radius:50px;padding:6px 14px;cursor:pointer;">❤️ Saved (<span class="fav-count-badge">0</span>)</button>
-    <button id="langToggleBtn" class="lang-btn" onclick="toggleLanguage()">🇮🇳 हिन्दी</button>
-    <button id="pwaInstallBtn" class="pwa-btn" style="display:none;" onclick="triggerAppInstall()">📱 Install App</button>
-    <span style="font-size:.8rem;color:var(--green);font-weight:700;background:rgba(34,197,94,.12);padding:5px 14px;border-radius:50px;border:1px solid rgba(34,197,94,.3);">✅ 100% FREE</span>
+    <div class="hdr-search-pill" onclick="openSpotlight()" role="button" tabindex="0" title="Search tools (⌘K)">
+      <svg class="hdr-search-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span class="hdr-search-txt">Search tools...</span>
+      <kbd class="hdr-search-kbd">⌘K</kbd>
+    </div>
+    <button class="hdr-theme-btn" id="hdrThemeBtn" onclick="quickToggleTheme()" title="Toggle Theme" aria-label="Toggle Theme">
+      ${themeSvg}
+    </button>
+    <div class="hdr-user-pill" onclick="openFavDrawer()" role="button" tabindex="0" title="bhomvrat rai (Saved items & profile)">
+      <div class="hdr-user-avatar">B</div>
+      <span class="hdr-user-name">bhomvrat rai</span>
+    </div>
+    <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-  <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
 <nav class="mob-nav" id="mobNav">
   <div class="mob-theme-row">
@@ -182,15 +287,13 @@ function renderHeader(activePage=''){
     <button class="mob-theme-pill" data-theme="purple" onclick="setAppTheme('purple')">🔮 Purple</button>
     <button class="mob-theme-pill" data-theme="dark" onclick="setAppTheme('dark')">🌙 Dark</button>
   </div>
-  <a href="index.html">🏠 Home</a>
+  <a href="${base}index.html">🏠 Home</a>
   <a href="#" onclick="openSpotlight();return false;" style="color:#c084fc;font-weight:700;">🔍 Global Search (Cmd+K)</a>
-  ${SUBDOMAINS.map(s=>`<a href="${s.url}">${s.label}</a>`).join('')}
+  ${SUBDOMAINS.map(s=>`<a href="${base}${s.url}">${s.label}</a>`).join('')}
   <a href="#" onclick="openFavDrawer();return false;" style="color:#f472b6;font-weight:700;">❤️ My Saved Items (<span class="fav-count-badge">0</span>)</a>
   <a href="#" onclick="toggleLanguage();return false;">🌐 Switch Language (HI/EN)</a>
   <a href="#" onclick="triggerAppInstall();return false;" style="color:#a855f7;font-weight:700;">📱 Install TheBhom App</a>
 </nav>
-<div class="free-band">🎉 TheBhom.in पर सभी Content 100% FREE है — बिना किसी plan या credit card के Download करें!</div>
-<div class="sub-nav" style="padding:0 2rem;">${subLinks}</div>
 `;
 }
 
@@ -464,10 +567,47 @@ window.renderFavDrawerBody = function() {
   `).join('');
 };
 
+function upgradeHeaderToNewNav() {
+  const existingHdr = document.querySelector('header.hdr');
+  if (!existingHdr || existingHdr.querySelector('.hdr-user-pill')) return;
+
+  let activePage = window.PAGE_ACTIVE_ID || '';
+  if (!activePage) {
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes('wallpapers')) activePage = 'wallpapers';
+    else if (path.includes('ebooks')) activePage = 'ebooks';
+    else if (path.includes('magazines')) activePage = 'magazines';
+    else if (path.includes('templates')) activePage = 'templates';
+    else if (path.includes('cards')) activePage = 'cards';
+    else if (path.includes('downloader')) activePage = 'downloader';
+    else if (path.includes('tools')) activePage = 'tools';
+  }
+
+  const container = document.createElement('div');
+  container.innerHTML = renderHeader(activePage);
+  const newHdr = container.querySelector('header.hdr');
+  const newMobNav = container.querySelector('.mob-nav');
+
+  if (newHdr) {
+    existingHdr.replaceWith(newHdr);
+    const oldMobNav = document.getElementById('mobNav') || document.querySelector('.mob-nav');
+    if (oldMobNav) {
+      if (newMobNav) oldMobNav.replaceWith(newMobNav);
+    } else if (newMobNav) {
+      newHdr.after(newMobNav);
+    }
+  }
+
+  updateThemeIcon(getStoredTheme());
+}
+
 // ===== INIT SHARED =====
 function initShared(){
   // Init Theme System
   initTheme();
+
+  // Upgrade header to screenshot-matching navbar across any page
+  upgradeHeaderToNewNav();
 
   // Mount favorites drawer & update badges
   window.renderFavDrawer();
@@ -2245,6 +2385,9 @@ window.setAppTheme = setAppTheme;
 window.toggleThemeMenu = toggleThemeMenu;
 window.getThemeSwitcherHTML = getThemeSwitcherHTML;
 window.getStoredTheme = getStoredTheme;
+window.quickToggleTheme = quickToggleTheme;
+window.updateThemeIcon = updateThemeIcon;
+window.renderHeader = renderHeader;
 
 // Auto-initialize shared features on every page so buttons, modals, and spotlight always work
 if (document.readyState === 'loading') {
