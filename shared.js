@@ -603,6 +603,15 @@ function upgradeHeaderToNewNav() {
 
 // ===== INIT SHARED =====
 function initShared(){
+  // Force purge legacy service worker caches
+  if ('serviceWorker' in navigator && window.caches) {
+    caches.keys().then(keys => {
+      keys.forEach(k => {
+        if (k !== 'thebhom-cache-v3') caches.delete(k);
+      });
+    });
+  }
+
   // Init Theme System
   initTheme();
 

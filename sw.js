@@ -1,9 +1,9 @@
 // ============================================================
 // TheBhom.in — Progressive Web App (PWA) Service Worker
-// Cache Version: v2026.09.12
+// Cache Version: v2026.09.14
 // ============================================================
 
-const CACHE_NAME = 'thebhom-cache-v1';
+const CACHE_NAME = 'thebhom-cache-v3';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -12,32 +12,34 @@ const PRECACHE_ASSETS = [
   '/magazines.html',
   '/templates.html',
   '/cards.html',
-  '/shared.css',
-  '/shared.js',
-  '/data.js',
+  '/shared.css?v=20260914a',
+  '/shared.js?v=20260914a',
+  '/data.js?v=20260914a',
   '/icon-192.png',
   '/icon-512.png',
   '/manifest.json'
 ];
 
-// 1. Install Event: Cache Core App Shell
+// 1. Install Event: Cache Core App Shell & Skip Waiting
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(PRECACHE_ASSETS).catch((err) => {
         console.warn('Pre-caching non-fatal warning:', err);
       });
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
-// 2. Activate Event: Clean up old caches
+// 2. Activate Event: Clean up old caches & Claim Clients Immediately
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((name) => {
           if (name !== CACHE_NAME) {
+            console.log('Deleting legacy cache:', name);
             return caches.delete(name);
           }
         })
@@ -46,7 +48,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. Fetch Event: Network-First for HTML, Stale-While-Revalidate for Assets
+// 3. Fetch Event: Network-First for HTML, Scripts, Styles; Cache-First for static media
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
@@ -55,8 +57,11 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   if (url.origin.includes('google') || url.origin.includes('gstatic') || url.origin.includes('pagead2')) return;
 
-  // For HTML documents: Network first with Cache fallback
-  if (req.headers.get('accept') && req.headers.get('accept').includes('text/html')) {
+  // For HTML documents, JS scripts, and CSS: Always Network-First so updates reflect immediately
+  const isDocument = req.headers.get('accept') && req.headers.get('accept').includes('text/html');
+  const isCodeAsset = req.destination === 'script' || req.destination === 'style' || url.pathname.endsWith('.js') || url.pathname.endsWith('.css');
+
+  if (isDocument || isCodeAsset) {
     event.respondWith(
       fetch(req)
         .then((networkRes) => {
@@ -66,12 +71,12 @@ self.addEventListener('fetch', (event) => {
           }
           return networkRes;
         })
-        .catch(() => caches.match(req).then((cachedRes) => cachedRes || caches.match('/index.html')))
+        .catch(() => caches.match(req).then((cachedRes) => cachedRes || (isDocument ? caches.match('/index.html') : null)))
     );
     return;
   }
 
-  // For static assets: Cache first / Stale-while-revalidate
+  // For static media (images, fonts, icons): Stale-while-revalidate
   event.respondWith(
     caches.match(req).then((cached) => {
       const fetchPromise = fetch(req)
