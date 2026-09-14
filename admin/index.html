@@ -3,61 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TheBhom — Owner & Admin Dashboard</title>
+  <title>Owner Dashboard — TheBhom</title>
   <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23e11d48'/><text x='50%' y='68%' font-size='56' font-weight='900' fill='white' text-anchor='middle'>TB</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg: #070913;
-      --card-bg: rgba(14, 18, 36, 0.75);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(56, 189, 248, 0.4);
-      --primary: #00baf2;
-      --primary-glow: rgba(0, 186, 242, 0.25);
-      --accent: #7c3aed;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-sub: #64748b;
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #101828;
+      --text-muted: #667085;
+      --text-sub: #98a2b3;
+      --line: #e4e7ec;
+      --line-subtle: #f2f4f7;
+      --primary: #e11d48; /* iLovePDF signature vibrant red/rose */
+      --primary-dark: #be123c;
+      --primary-soft: #fff1f2;
+      --blue: #2563eb;
+      --blue-soft: #eff6ff;
+      --success: #059669;
+      --success-bg: #ecfdf3;
+      --warning: #d97706;
+      --warning-bg: #fffbeb;
+      --danger: #dc2626;
+      --danger-bg: #fef2f2;
+      --dark: #0f172a;
+      --radius: 18px;
+      --radius-sm: 10px;
+      --shadow: 0 12px 36px rgba(16, 24, 40, 0.06);
+      --shadow-sm: 0 2px 8px rgba(16, 24, 40, 0.04);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: var(--bg);
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 85% 25%, rgba(0, 186, 242, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
-      background-attachment: fixed;
+      background: var(--bg);
       color: var(--text);
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* HEADER */
+    /* HEADER — iLovePDF Clean White Style */
     header {
-      background: rgba(7, 9, 19, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--card-border);
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 0.9rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
 
-    .header-inner {
-      max-width: 1400px;
+    .hdr-inner {
+      max-width: 1320px;
       margin: 0 auto;
+      padding: 0.85rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -67,7 +73,7 @@
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 12px;
       text-decoration: none;
       color: inherit;
     }
@@ -75,304 +81,357 @@
     .brand-logo {
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, #00baf2, #7c3aed);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
+      background: var(--primary);
       color: #fff;
-      box-shadow: 0 4px 15px rgba(0, 186, 242, 0.3);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
     }
 
     .brand-title {
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.25rem;
+      font-weight: 900;
       letter-spacing: -0.5px;
+      line-height: 1.1;
+      color: var(--dark);
     }
 
     .brand-title span {
       color: var(--primary);
     }
 
-    .badge-owner {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.25));
-      border: 1px solid rgba(245, 158, 11, 0.4);
-      color: #fbbf24;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 50px;
+    .brand-badge {
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--warning);
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      margin-top: 2px;
     }
 
-    .header-actions {
+    .hdr-nav {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 8px;
     }
 
-    .owner-tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 0.82rem;
-      color: #cbd5e1;
+    .owner-pill {
+      background: var(--line-subtle);
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .owner-avatar {
-      width: 22px;
-      height: 22px;
-      background: #7c3aed;
-      color: #fff;
+    .owner-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 800;
+      background: var(--success);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
     }
 
     .btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #fff;
-      padding: 7px 14px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 13px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.15s ease;
       text-decoration: none;
     }
 
     .btn:hover {
-      background: rgba(255, 255, 255, 0.15);
+      background: #f8fafc;
+      border-color: #cbd5e1;
       transform: translateY(-1px);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #00baf2, #0284c7);
-      border: none;
-      box-shadow: 0 4px 15px rgba(0, 186, 242, 0.3);
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(225, 29, 72, 0.2);
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, #38bdf8, #00baf2);
-      box-shadow: 0 6px 20px rgba(0, 186, 242, 0.45);
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      color: #ffffff;
     }
 
     .btn-success {
-      background: linear-gradient(135deg, #10b981, #059669);
-      border: none;
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+      background: var(--success);
+      border-color: var(--success);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
     }
 
     .btn-success:hover {
-      background: linear-gradient(135deg, #34d399, #10b981);
+      background: #047857;
+      border-color: #047857;
+      color: #ffffff;
     }
 
-    .btn-danger {
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      color: #f87171;
+    .btn-danger-outline {
+      border-color: #fca5a5;
+      color: var(--danger);
+      background: #fff;
     }
 
-    .btn-danger:hover {
-      background: #ef4444;
-      color: #fff;
+    .btn-danger-outline:hover {
+      background: var(--danger-bg);
+      border-color: var(--danger);
     }
 
-    /* MAIN CONTAINER */
+    .btn-sm {
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+
+    /* MAIN BODY */
     main {
-      max-width: 1400px;
-      margin: 1.8rem auto;
-      padding: 0 1.2rem;
+      max-width: 1320px;
       width: 100%;
+      margin: 1.8rem auto;
+      padding: 0 1.5rem;
       flex: 1;
     }
 
-    /* STATS CARDS */
+    /* PAGE HEADER */
+    .page-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 1.6rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .page-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--dark);
+    }
+
+    .page-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* METRICS / STATS CARDS (iLovePDF Utility Cards Style) */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
+      gap: 1rem;
       margin-bottom: 2rem;
     }
 
     .stat-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
       padding: 1.4rem;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .stat-card:hover {
-      border-color: var(--card-border-hover);
+      box-shadow: var(--shadow);
+      border-color: #cbd5e1;
       transform: translateY(-2px);
     }
 
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-    }
-
-    .stat-revenue::before { background: linear-gradient(90deg, #10b981, #00baf2); }
-    .stat-pending::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
-    .stat-approved::before { background: linear-gradient(90deg, #00baf2, #7c3aed); }
-    .stat-total::before { background: linear-gradient(90deg, #8b5cf6, #ec4899); }
-
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      font-weight: 600;
+    .stat-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+    }
+
+    .icon-rose { background: var(--primary-soft); color: var(--primary); }
+    .icon-amber { background: var(--warning-bg); color: var(--warning); }
+    .icon-emerald { background: var(--success-bg); color: var(--success); }
+    .icon-blue { background: var(--blue-soft); color: var(--blue); }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
     }
 
     .stat-val {
-      font-size: 2.1rem;
-      font-weight: 850;
-      letter-spacing: -1px;
-      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 0.4rem;
     }
 
-    .stat-hint {
-      font-size: 0.75rem;
-      color: var(--text-sub);
-      margin-top: 0.4rem;
+    .stat-footer {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .pending-pulse-badge {
-      background: rgba(245, 158, 11, 0.2);
-      border: 1px solid #f59e0b;
-      color: #fbbf24;
-      padding: 2px 8px;
+    .pending-alert-pill {
+      background: var(--warning-bg);
+      border: 1px solid #fde68a;
+      color: var(--warning);
+      padding: 3px 8px;
       border-radius: 20px;
-      font-size: 0.72rem;
+      font-size: 11px;
       font-weight: 800;
-      animation: pulseAlert 1.6s infinite ease-in-out;
     }
 
-    @keyframes pulseAlert {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(0.96); }
-    }
-
-    /* TABS & FILTERS */
-    .controls-bar {
+    /* CONTROLS BAR (TABS + SEARCH) */
+    .controls-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius) var(--radius) 0 0;
+      padding: 1rem 1.4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-bottom: 1.2rem;
+      border-bottom: 1px solid var(--line);
     }
 
-    .tab-group {
+    .tab-pills {
       display: flex;
-      background: rgba(255, 255, 255, 0.04);
+      gap: 6px;
+      background: var(--bg);
       padding: 4px;
-      border-radius: 14px;
-      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      border: 1px solid var(--line);
     }
 
-    .tab-btn {
-      background: transparent;
+    .tab-pill {
       border: none;
+      background: transparent;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 12px;
       color: var(--text-muted);
-      padding: 8px 16px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 700;
       cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: all 0.15s ease;
     }
 
-    .tab-btn:hover {
-      color: #fff;
+    .tab-pill:hover {
+      color: var(--dark);
     }
 
-    .tab-btn.active {
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    .tab-pill.active {
+      background: #ffffff;
+      color: var(--dark);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
-    .tab-count {
-      background: rgba(255, 255, 255, 0.12);
-      padding: 1px 7px;
+    .pill-counter {
+      padding: 1px 6px;
       border-radius: 20px;
-      font-size: 0.72rem;
+      font-size: 10px;
+      background: var(--line-subtle);
+      color: var(--text-muted);
     }
 
-    .search-box {
+    .tab-pill.active .pill-counter {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .search-input-wrap {
       position: relative;
       min-width: 280px;
     }
 
-    .search-input {
+    .search-input-wrap input {
       width: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 9px 14px 9px 36px;
-      color: #fff;
-      font-size: 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px 12px 8px 34px;
+      font-size: 13px;
+      color: var(--dark);
+      background: var(--bg);
       outline: none;
       transition: border-color 0.2s ease;
     }
 
-    .search-input:focus {
+    .search-input-wrap input:focus {
       border-color: var(--primary);
+      background: #ffffff;
     }
 
     .search-icon {
       position: absolute;
-      left: 12px;
+      left: 10px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-sub);
-      pointer-events: none;
+      font-size: 13px;
     }
 
-    /* ORDERS TABLE */
-    .table-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
+    /* TABLE SECTION */
+    .table-container {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: none;
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow-sm);
       overflow: hidden;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      margin-bottom: 2.5rem;
     }
 
-    .table-wrap {
+    .table-scroll {
       width: 100%;
       overflow-x: auto;
     }
@@ -381,129 +440,123 @@
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 0.88rem;
     }
 
     th {
-      background: rgba(255, 255, 255, 0.02);
-      padding: 14px 18px;
+      background: #fafbfc;
       color: var(--text-muted);
-      font-weight: 700;
-      font-size: 0.78rem;
+      font-size: 11px;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      border-bottom: 1px solid var(--card-border);
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--line);
       white-space: nowrap;
     }
 
     td {
-      padding: 16px 18px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line-subtle);
       vertical-align: middle;
+      font-size: 13px;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
     }
 
     tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
+      background: #fbfcfe;
     }
 
-    .order-id-badge {
+    .order-id {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      color: #38bdf8;
+      font-size: 12px;
       font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
     }
 
-    .customer-info strong {
+    .user-block strong {
       display: block;
-      color: #fff;
-      font-size: 0.92rem;
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 13px;
     }
 
-    .customer-info span {
-      font-size: 0.78rem;
+    .user-block span {
       color: var(--text-muted);
+      font-size: 12px;
     }
 
-    .utr-cell {
+    .amount-badge {
+      font-weight: 900;
+      color: var(--success);
+      font-size: 15px;
+    }
+
+    .utr-chip {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 4px 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      color: #f1f5f9;
-      letter-spacing: 0.5px;
     }
 
-    .copy-btn-sm {
-      background: transparent;
+    .utr-chip button {
+      background: none;
       border: none;
-      color: #38bdf8;
       cursor: pointer;
-      font-size: 0.75rem;
-      padding: 2px 4px;
+      color: var(--primary);
+      font-size: 11px;
+      padding: 1px 4px;
       border-radius: 4px;
-      transition: all 0.2s ease;
     }
 
-    .copy-btn-sm:hover {
-      background: rgba(56, 189, 248, 0.2);
+    .utr-chip button:hover {
+      background: var(--primary-soft);
     }
 
-    .status-badge {
+    .badge-status {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      padding: 4px 10px;
-      border-radius: 30px;
-      font-size: 0.75rem;
+      padding: 3px 9px;
+      border-radius: 50px;
+      font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
 
-    .status-PENDING {
-      background: rgba(245, 158, 11, 0.15);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.35);
-    }
+    .badge-PENDING { background: var(--warning-bg); color: var(--warning); border: 1px solid #fde68a; }
+    .badge-APPROVED { background: var(--success-bg); color: var(--success); border: 1px solid #a7f3d0; }
+    .badge-REJECTED { background: var(--danger-bg); color: var(--danger); border: 1px solid #fecaca; }
 
-    .status-APPROVED {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.35);
-    }
-
-    .status-REJECTED {
-      background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-      border: 1px solid rgba(239, 68, 68, 0.35);
-    }
-
-    .actions-cell {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* MANUAL GRANT MODAL & LOGIN OVERLAY */
+    /* MODALS (iLovePDF Style Clean White Floating Modals) */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(4, 6, 18, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.2rem;
+      padding: 1rem;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.2s ease;
     }
 
     .modal-overlay.open {
@@ -511,87 +564,109 @@
       pointer-events: auto;
     }
 
-    .modal-box {
-      background: linear-gradient(165deg, #0e1227 0%, #080a18 100%);
-      border: 1px solid rgba(0, 186, 242, 0.3);
-      border-radius: 24px;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 186, 242, 0.15);
-      max-width: 440px;
+    .modal-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      max-width: 420px;
       width: 100%;
       padding: 2rem;
       position: relative;
     }
 
-    .modal-title {
-      font-size: 1.35rem;
-      font-weight: 850;
-      margin-bottom: 0.4rem;
+    .modal-head {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-head .icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 10px;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+    }
+
+    .modal-head h3 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+
+    .modal-head p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 4px;
     }
 
     .form-group {
-      margin-top: 1.1rem;
+      margin-bottom: 1rem;
     }
 
     .form-label {
       display: block;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
       margin-bottom: 6px;
     }
 
-    .form-input {
+    .form-control {
       width: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid var(--line);
       border-radius: 10px;
-      padding: 10px 14px;
-      color: #fff;
-      font-size: 0.9rem;
+      padding: 10px 12px;
+      font-size: 14px;
+      background: #ffffff;
       outline: none;
       font-family: inherit;
       transition: border-color 0.2s ease;
     }
 
-    .form-input:focus {
+    .form-control:focus {
       border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-soft);
     }
 
     /* TOAST */
-    .toast-box {
+    .toast {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: #0e1329;
-      border: 1px solid rgba(0, 186, 242, 0.35);
-      color: #fff;
+      background: var(--dark);
+      color: #ffffff;
       padding: 12px 20px;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      font-size: 0.88rem;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
       z-index: 2000;
       transform: translateY(100px);
       opacity: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s ease;
     }
 
-    .toast-box.show {
+    .toast.show {
       transform: translateY(0);
       opacity: 1;
     }
 
-    /* EMPTY STATE */
-    .empty-state {
+    .empty-box {
       padding: 3.5rem 1rem;
       text-align: center;
       color: var(--text-muted);
     }
 
-    .empty-icon {
-      font-size: 3rem;
-      margin-bottom: 0.8rem;
-      opacity: 0.6;
+    .empty-box span {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
@@ -599,16 +674,18 @@
 
   <!-- HEADER -->
   <header>
-    <div class="header-inner">
-      <a href="../index.html" class="brand-wrap">
+    <div class="hdr-inner">
+      <a href="../tools/index.html" class="brand-wrap">
         <div class="brand-logo">TB</div>
-        <div class="brand-title">The<span>Bhom</span></div>
-        <span class="badge-owner">👑 Owner Center</span>
+        <div class="brand-text">
+          <div class="brand-title">The<span>Bhom</span></div>
+          <div class="brand-badge">👑 OWNER DASHBOARD</div>
+        </div>
       </a>
 
-      <div class="header-actions">
-        <div class="owner-tag" id="ownerDisplay">
-          <div class="owner-avatar">B</div>
+      <div class="hdr-nav">
+        <div class="owner-pill">
+          <span class="owner-dot"></span>
           <span>bhomvratrai7225@gmail.com</span>
         </div>
         <button class="btn btn-primary" onclick="openManualGrantModal()">
@@ -617,8 +694,8 @@
         <button class="btn" onclick="fetchDashboardData()" title="Reload Data">
           <span id="refreshIcon">🔄</span> Refresh
         </button>
-        <button class="btn btn-danger" onclick="logoutOwner()" title="Logout">
-          <span>Sign Out</span>
+        <button class="btn btn-danger-outline" onclick="logoutOwner()" title="Sign Out">
+          Sign Out
         </button>
       </div>
     </div>
@@ -626,71 +703,85 @@
 
   <!-- MAIN -->
   <main>
-    <!-- METRICS -->
-    <div class="stats-grid">
-      <div class="stat-card stat-revenue">
-        <div class="stat-label">
-          <span>TOTAL VERIFIED REVENUE</span>
-          <span>💰</span>
-        </div>
-        <div class="stat-val" id="metricTotalRevenue">₹0</div>
-        <div class="stat-hint">Direct UPI verified & settled</div>
+    <!-- PAGE TITLE -->
+    <div class="page-head">
+      <div>
+        <h1 class="page-title">Orders & Payment Verification</h1>
+        <p class="page-desc">Real-time UPI orders, bank UTR verification, and instant customer plan auto-unlock.</p>
       </div>
-
-      <div class="stat-card stat-pending">
-        <div class="stat-label">
-          <span>PENDING APPROVALS</span>
-          <span class="pending-pulse-badge" id="pendingAlertBadge" style="display:none;">NEEDS ACTION</span>
-        </div>
-        <div class="stat-val" id="metricPendingOrders" style="color:#fbbf24;">0</div>
-        <div class="stat-hint">Incoming customer UTR submissions</div>
-      </div>
-
-      <div class="stat-card stat-approved">
-        <div class="stat-label">
-          <span>ACTIVE / UNLOCKED ORDERS</span>
-          <span>⚡</span>
-        </div>
-        <div class="stat-val" id="metricApprovedOrders" style="color:#34d399;">0</div>
-        <div class="stat-hint">Automated plan unlock delivered</div>
-      </div>
-
-      <div class="stat-card stat-total">
-        <div class="stat-label">
-          <span>TODAY'S EARNINGS</span>
-          <span>📈</span>
-        </div>
-        <div class="stat-val" id="metricTodayRevenue">₹0</div>
-        <div class="stat-hint">Today's approved transactions</div>
+      <div style="font-size:12px;font-weight:700;color:var(--text-muted);">
+        Connected Database: <strong style="color:var(--dark);">Neon PostgreSQL (neondb)</strong>
       </div>
     </div>
 
-    <!-- CONTROLS -->
-    <div class="controls-bar">
-      <div class="tab-group">
-        <button class="tab-btn active" onclick="filterOrders('ALL', this)">
-          All Orders <span class="tab-count" id="countAll">0</span>
+    <!-- METRICS (iLovePDF Style Clean Cards) -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Total Revenue</span>
+          <div class="stat-icon-box icon-rose">💰</div>
+        </div>
+        <div class="stat-val" id="metricTotalRevenue">₹0</div>
+        <div class="stat-footer">Direct verified UPI payments</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Pending Approval</span>
+          <div class="stat-icon-box icon-amber">⏳</div>
+        </div>
+        <div class="stat-val" id="metricPendingOrders" style="color:var(--warning);">0</div>
+        <div class="stat-footer">
+          <span class="pending-alert-pill" id="pendingAlertBadge" style="display:none;">NEEDS VERIFICATION</span>
+          <span id="pendingSubtext">No pending approvals</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Active / Unlocked</span>
+          <div class="stat-icon-box icon-emerald">⚡</div>
+        </div>
+        <div class="stat-val" id="metricApprovedOrders" style="color:var(--success);">0</div>
+        <div class="stat-footer">Customers with active license keys</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Today's Sales</span>
+          <div class="stat-icon-box icon-blue">📈</div>
+        </div>
+        <div class="stat-val" id="metricTodayRevenue">₹0</div>
+        <div class="stat-footer">Approved today in IST timezone</div>
+      </div>
+    </div>
+
+    <!-- TABLE CONTROLS (TABS & SEARCH) -->
+    <div class="controls-card">
+      <div class="tab-pills">
+        <button class="tab-pill active" onclick="filterOrders('ALL', this)">
+          All Orders <span class="pill-counter" id="countAll">0</span>
         </button>
-        <button class="tab-btn" onclick="filterOrders('PENDING', this)">
-          ⏳ Pending <span class="tab-count" id="countPending" style="background:#f59e0b;color:#000;">0</span>
+        <button class="tab-pill" onclick="filterOrders('PENDING', this)">
+          ⏳ Pending <span class="pill-counter" id="countPending">0</span>
         </button>
-        <button class="tab-btn" onclick="filterOrders('APPROVED', this)">
-          ✓ Approved <span class="tab-count" id="countApproved">0</span>
+        <button class="tab-pill" onclick="filterOrders('APPROVED', this)">
+          ✓ Approved <span class="pill-counter" id="countApproved">0</span>
         </button>
-        <button class="tab-btn" onclick="filterOrders('REJECTED', this)">
-          ✕ Rejected <span class="tab-count" id="countRejected">0</span>
+        <button class="tab-pill" onclick="filterOrders('REJECTED', this)">
+          ✕ Rejected <span class="pill-counter" id="countRejected">0</span>
         </button>
       </div>
 
-      <div class="search-box">
+      <div class="search-input-wrap">
         <span class="search-icon">🔍</span>
-        <input type="text" class="search-input" id="searchBox" placeholder="Search by UTR, Name, Email, ID..." oninput="handleSearch()">
+        <input type="text" id="searchBox" placeholder="Search by UTR, Name, Email..." oninput="handleSearch()">
       </div>
     </div>
 
     <!-- ORDERS TABLE -->
-    <div class="table-card">
-      <div class="table-wrap">
+    <div class="table-container">
+      <div class="table-scroll">
         <table>
           <thead>
             <tr>
@@ -698,17 +789,17 @@
               <th>Customer</th>
               <th>Product / Plan</th>
               <th>Amount</th>
-              <th>UTR / Reference</th>
+              <th>UTR / Ref Number</th>
               <th>Status</th>
-              <th>Submitted</th>
-              <th>Actions</th>
+              <th>Submitted Time</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody id="ordersTableBody">
             <tr>
-              <td colspan="8" class="empty-state">
-                <div class="empty-icon">⏳</div>
-                <div>Loading live orders from Neon PostgreSQL...</div>
+              <td colspan="8" class="empty-box">
+                <span>⏳</span>
+                <strong>Loading live orders from Neon database...</strong>
               </td>
             </tr>
           </tbody>
@@ -719,50 +810,53 @@
 
   <!-- OWNER LOGIN MODAL -->
   <div class="modal-overlay" id="loginModal">
-    <div class="modal-box">
-      <div style="text-align:center;margin-bottom:1rem;">
-        <div style="font-size:2.5rem;margin-bottom:6px;">👑</div>
-        <h2 class="modal-title">TheBhom Owner Access</h2>
-        <p style="font-size:0.85rem;color:var(--text-muted);">Protected area for <strong>bhomvratrai7225@gmail.com</strong></p>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="icon">👑</div>
+        <h3>Owner Authorization</h3>
+        <p>Restricted strictly to <strong>bhomvratrai7225@gmail.com</strong></p>
       </div>
 
       <div class="form-group">
         <label class="form-label">Authorized Gmail Address</label>
-        <input type="email" class="form-input" id="loginEmail" value="bhomvratrai7225@gmail.com" readonly style="opacity:0.85;cursor:not-allowed;">
+        <input type="email" class="form-control" id="loginEmail" value="bhomvratrai7225@gmail.com" readonly style="background:#f8fafc;cursor:not-allowed;">
       </div>
 
       <div class="form-group">
         <label class="form-label">Owner Master Passkey</label>
-        <input type="password" class="form-input" id="loginPasskey" placeholder="Enter owner passkey" autofocus>
+        <input type="password" class="form-control" id="loginPasskey" placeholder="Enter owner passkey" autofocus>
       </div>
 
-      <button class="btn btn-primary" onclick="submitOwnerLogin()" style="width:100%;margin-top:1.4rem;padding:12px;font-size:1rem;justify-content:center;">
-        ⚡ Unlock Owner Dashboard
+      <button class="btn btn-primary" onclick="submitOwnerLogin()" style="width:100%;margin-top:10px;padding:12px;">
+        ⚡ Unlock Dashboard
       </button>
-      <div id="loginError" style="color:var(--danger);font-size:0.8rem;text-align:center;margin-top:10px;display:none;"></div>
+      <div id="loginError" style="color:var(--danger);font-size:12px;text-align:center;margin-top:10px;display:none;"></div>
     </div>
   </div>
 
   <!-- MANUAL GRANT MODAL -->
   <div class="modal-overlay" id="manualGrantModal">
-    <div class="modal-box">
-      <button onclick="closeManualGrantModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#94a3b8;font-size:1.2rem;cursor:pointer;">✕</button>
-      <h3 class="modal-title">⚡ Grant Instant VIP Access</h3>
-      <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Give direct access to any customer without UPI UTR verification.</p>
+    <div class="modal-card">
+      <button onclick="closeManualGrantModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#94a3b8;font-size:18px;cursor:pointer;">✕</button>
+      <div class="modal-head">
+        <div class="icon">🎁</div>
+        <h3>Grant Direct Access</h3>
+        <p>Give direct plan access without requiring UTR verification.</p>
+      </div>
 
       <div class="form-group">
         <label class="form-label">Customer Email *</label>
-        <input type="email" class="form-input" id="grantEmail" placeholder="user@example.com">
+        <input type="email" class="form-control" id="grantEmail" placeholder="user@example.com">
       </div>
 
       <div class="form-group">
         <label class="form-label">Customer Name</label>
-        <input type="text" class="form-input" id="grantName" placeholder="e.g. Aman Sharma">
+        <input type="text" class="form-control" id="grantName" placeholder="e.g. Aman Sharma">
       </div>
 
       <div class="form-group">
         <label class="form-label">Plan / Product</label>
-        <select class="form-input" id="grantPlan">
+        <select class="form-control" id="grantPlan">
           <option value="ToolNest VIP Lifetime Bundle">ToolNest VIP Lifetime Bundle (₹199)</option>
           <option value="Excel Data Cleaning Pack">Excel Data Cleaning Pack (₹99)</option>
           <option value="Small Business Invoice Pack">Small Business Invoice Pack (₹149)</option>
@@ -771,14 +865,14 @@
         </select>
       </div>
 
-      <button class="btn btn-success" onclick="submitManualGrant()" style="width:100%;margin-top:1.4rem;padding:12px;justify-content:center;">
+      <button class="btn btn-success" onclick="submitManualGrant()" style="width:100%;margin-top:10px;padding:12px;">
         ✓ Grant & Generate License Key
       </button>
     </div>
   </div>
 
   <!-- TOAST NOTIFICATION -->
-  <div class="toast-box" id="adminToast"></div>
+  <div class="toast" id="adminToast"></div>
 
   <!-- SCRIPT -->
   <script>
@@ -858,7 +952,7 @@
       if (!token) return;
 
       const refreshIcon = document.getElementById('refreshIcon');
-      if (refreshIcon) refreshIcon.style.animation = 'pulseAlert 0.8s infinite';
+      if (refreshIcon) refreshIcon.style.display = 'inline-block';
 
       try {
         const res = await fetch('/api/admin', {
@@ -888,8 +982,6 @@
         renderOrders();
       } catch (err) {
         showToast('⚠️ Error: ' + err.message);
-      } finally {
-        if (refreshIcon) refreshIcon.style.animation = '';
       }
     }
 
@@ -900,11 +992,14 @@
       document.getElementById('metricTodayRevenue').textContent = '₹' + (stats.todayRevenue || 0);
 
       const alertBadge = document.getElementById('pendingAlertBadge');
+      const subtext = document.getElementById('pendingSubtext');
       if (stats.pendingOrders > 0) {
         alertBadge.style.display = 'inline-block';
-        alertBadge.textContent = `${stats.pendingOrders} PENDING`;
+        alertBadge.textContent = `${stats.pendingOrders} ACTION NEEDED`;
+        subtext.style.display = 'none';
       } else {
         alertBadge.style.display = 'none';
+        subtext.style.display = 'inline';
       }
 
       document.getElementById('countAll').textContent = stats.totalOrders || 0;
@@ -915,7 +1010,7 @@
 
     function filterOrders(filter, btnEl) {
       currentFilter = filter;
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pill').forEach(b => b.classList.remove('active'));
       if (btnEl) btnEl.classList.add('active');
       renderOrders();
     }
@@ -947,10 +1042,10 @@
       if (filtered.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="8" class="empty-state">
-              <div class="empty-icon">📭</div>
-              <div style="font-weight:700;font-size:1.05rem;color:#fff;">No Orders Found</div>
-              <div style="font-size:0.82rem;margin-top:4px;">No transactions matching the current filter or search criteria.</div>
+            <td colspan="8" class="empty-box">
+              <span>📂</span>
+              <strong>No orders found matching criteria</strong>
+              <p style="font-size:12px;margin-top:4px;">When customers submit payments, they will appear here in real time.</p>
             </td>
           </tr>`;
         return;
@@ -964,47 +1059,47 @@
         return `
           <tr>
             <td>
-              <span class="order-id-badge">#${o.id}</span>
+              <span class="order-id">#${o.id}</span>
             </td>
             <td>
-              <div class="customer-info">
+              <div class="user-block">
                 <strong>${escHtml(o.user_name || 'Customer')}</strong>
                 <span>${escHtml(o.user_email || '—')}</span>
-                ${o.user_phone ? `<div><span style="color:#38bdf8;">📞 ${escHtml(o.user_phone)}</span></div>` : ''}
+                ${o.user_phone ? `<div><span style="color:#0284c7;font-size:11px;">📞 ${escHtml(o.user_phone)}</span></div>` : ''}
               </div>
             </td>
             <td>
-              <strong style="color:#fff;">${escHtml(o.product_name)}</strong>
-              ${o.license_key ? `<div style="font-size:0.75rem;color:#34d399;font-family:monospace;">Key: ${escHtml(o.license_key)}</div>` : ''}
+              <strong style="color:var(--dark);">${escHtml(o.product_name)}</strong>
+              ${o.license_key ? `<div style="font-size:11px;color:var(--success);font-family:monospace;margin-top:2px;">Key: ${escHtml(o.license_key)}</div>` : ''}
             </td>
             <td>
-              <strong style="color:#4ade80;font-size:1.05rem;">₹${o.amount}</strong>
+              <span class="amount-badge">₹${o.amount}</span>
             </td>
             <td>
-              <div class="utr-cell">
+              <div class="utr-chip">
                 <span>${escHtml(o.utr_number)}</span>
-                <button class="copy-btn-sm" onclick="copyText('${escHtml(o.utr_number)}')" title="Copy UTR">📋</button>
+                <button onclick="copyText('${escHtml(o.utr_number)}')" title="Copy UTR to verify in Bank app">📋</button>
               </div>
             </td>
             <td>
-              <span class="status-badge status-${o.status}">${o.status}</span>
+              <span class="badge-status badge-${o.status}">${o.status}</span>
             </td>
             <td>
-              <span style="font-size:0.8rem;color:var(--text-muted);">${dateStr}</span>
+              <span style="color:var(--text-muted);font-size:12px;">${dateStr}</span>
             </td>
             <td>
-              <div class="actions-cell">
+              <div style="display:flex;gap:6px;">
                 ${isPending ? `
-                  <button class="btn btn-success btn-sm" onclick="approveOrder('${o.id}')" title="Approve & Unlock Access">
+                  <button class="btn btn-success btn-sm" onclick="approveOrder('${o.id}')" title="Approve & Unlock Instant Access">
                     ✓ Approve
                   </button>
-                  <button class="btn btn-danger btn-sm" onclick="rejectOrder('${o.id}')" title="Reject Order">
+                  <button class="btn btn-danger-outline btn-sm" onclick="rejectOrder('${o.id}')" title="Reject Invalid Order">
                     ✕
                   </button>
                 ` : isApproved ? `
-                  <span style="color:#34d399;font-size:0.8rem;font-weight:700;">✓ Active</span>
+                  <span style="color:var(--success);font-size:12px;font-weight:700;">✓ Unlocked</span>
                 ` : `
-                  <span style="color:#f87171;font-size:0.8rem;">✕ Rejected</span>
+                  <span style="color:var(--danger);font-size:12px;">✕ Rejected</span>
                 `}
               </div>
             </td>
@@ -1014,7 +1109,7 @@
     }
 
     async function approveOrder(orderId) {
-      if (!confirm(`Confirm approval for Order #${orderId}? This will instantly unlock the plan for the user.`)) return;
+      if (!confirm(`Confirm approval for Order #${orderId}? Customer's plan will unlock immediately.`)) return;
 
       const token = getStoredToken();
       try {
@@ -1041,7 +1136,7 @@
     }
 
     async function rejectOrder(orderId) {
-      const reason = prompt('Enter rejection reason (e.g. UTR not matched in Paytm/Bank):', 'UTR payment not verified in bank account.');
+      const reason = prompt('Enter rejection reason (e.g. UTR not found in Paytm):', 'UTR payment not verified in bank account.');
       if (reason === null) return;
 
       const token = getStoredToken();
@@ -1118,9 +1213,9 @@
 
     function copyText(str) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(str).then(() => showToast('✓ Copied: ' + str));
+        navigator.clipboard.writeText(str).then(() => showToast('✓ Copied UTR: ' + str));
       } else {
-        showToast('✓ ' + str);
+        showToast('✓ Copied: ' + str);
       }
     }
 
@@ -1129,7 +1224,6 @@
       return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
-    // Auto boot & 15-second polling
     document.addEventListener('DOMContentLoaded', async () => {
       const ok = await checkAuth();
       if (ok) fetchDashboardData();
