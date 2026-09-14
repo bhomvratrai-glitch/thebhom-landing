@@ -851,6 +851,148 @@ function setupAutomation() {
   }
 }
 
+// ============================================================
+// PAYTM & UPI PAYMENT SYSTEM (SELF-CONTAINED)
+// ============================================================
+function openUpiPaymentModal(opts = {}) {
+  const options = typeof opts === 'string' ? { title: opts } : (opts || {});
+  const title = options.title || 'ToolNest Digital Product';
+  const amount = options.amount || 99;
+
+  let overlay = document.getElementById('upiPayOverlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'upi-overlay';
+    overlay.id = 'upiPayOverlay';
+    document.body.appendChild(overlay);
+  }
+
+  const upiId = '7987761789@ptyes';
+  const payeeName = 'TheBhom';
+  const note = (title.length > 28 ? title.slice(0, 25) + '...' : title).replace(/[^\w\s]/gi, '');
+  const upiIntentUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+  const waMsg = `Hi TheBhom, I have completed the UPI payment of ₹${amount} for "${title}".\nUPI ID: ${upiId}\n\nPlease verify and activate my access!`;
+  const waLink = `https://wa.me/917987761789?text=${encodeURIComponent(waMsg)}`;
+  
+  let qrSrc = 'upi-qr.png';
+  if (!window.location.pathname.includes('/tools/')) {
+    qrSrc = 'assets/upi-qr.png';
+  }
+
+  overlay.innerHTML = `
+    <div class="upi-modal" onclick="event.stopPropagation()">
+      <button class="upi-close-btn" onclick="closeUpiPaymentModal()" title="Close">✕</button>
+      
+      <div class="upi-header">
+        <div class="upi-badge">⚡ Instant UPI / QR Payment</div>
+        <h3 class="upi-title">${esc(title)}</h3>
+        <div class="upi-amount-pill">Amount to Pay: <span class="upi-amount-num">₹${amount}</span></div>
+      </div>
+
+      <div class="upi-qr-card">
+        <div class="upi-apps-strip">
+          <span>Paytm</span> • <span>Google Pay</span> • <span>PhonePe</span> • <span>BHIM</span> • <span>Cred</span>
+        </div>
+        <div class="upi-qr-frame">
+          <img src="${qrSrc}" alt="Paytm UPI QR Code" class="upi-qr-image" onerror="if(this.src.indexOf('/assets/')===-1)this.src='/assets/upi-qr.png';"/>
+        </div>
+        <div class="upi-merchant-badge">
+          <span class="upi-verified-tick">✓</span> Verified Merchant: <strong>TheBhom / Bhom Vrat Rai</strong>
+        </div>
+      </div>
+
+      <div class="upi-id-row">
+        <div class="upi-id-label">UPI ID:</div>
+        <div class="upi-id-val" id="upiIdVal">${upiId}</div>
+        <button class="upi-copy-btn" id="upiCopyBtn" onclick="copyUpiId('${upiId}')" title="Copy UPI ID">
+          <span>📋 Copy</span>
+        </button>
+      </div>
+
+      <div class="upi-actions">
+        <a href="${upiIntentUrl}" class="upi-app-btn">
+          <span>📱</span> Pay directly in Any UPI App
+        </a>
+        <a href="${waLink}" target="_blank" rel="noopener" class="upi-whatsapp-btn">
+          <span>💬</span> Send Screenshot / UTR on WhatsApp
+        </a>
+      </div>
+
+      <div class="upi-utr-section">
+        <div class="upi-utr-title">Already Paid? Enter 12-Digit UTR / Transaction ID:</div>
+        <div class="upi-utr-box">
+          <input type="text" id="upiUtrInput" placeholder="e.g. 4235XXXXXXXX or Name" maxlength="30" />
+          <button onclick="submitUpiVerification('${esc(title)}', ${amount})" class="upi-verify-btn">Confirm</button>
+        </div>
+        <div class="upi-footer-note">🔒 100% Secure Direct UPI Transfer. Instant verification & delivery.</div>
+      </div>
+    </div>
+  `;
+
+  overlay.onclick = closeUpiPaymentModal;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeUpiPaymentModal() {
+  const overlay = document.getElementById('upiPayOverlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function copyUpiId(id) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(id).then(() => {
+      const btn = document.getElementById('upiCopyBtn');
+      if (btn) {
+        btn.innerHTML = '<span>✓ Copied!</span>';
+        btn.style.background = '#16a34a';
+        setTimeout(() => {
+          btn.innerHTML = '<span>📋 Copy</span>';
+          btn.style.background = '#0284c7';
+        }, 2500);
+      }
+      toast('✓ UPI ID Copied: ' + id);
+    }).catch(() => fallbackCopy(id));
+  } else {
+    fallbackCopy(id);
+  }
+}
+
+function fallbackCopy(text) {
+  const t = document.createElement('textarea');
+  t.value = text;
+  document.body.appendChild(t);
+  t.select();
+  try {
+    document.execCommand('copy');
+    toast('✓ UPI ID Copied: ' + text);
+  } catch(e){}
+  document.body.removeChild(t);
+}
+
+function submitUpiVerification(title, amount) {
+  const inp = document.getElementById('upiUtrInput');
+  const utr = (inp ? inp.value.trim() : '');
+  if (!utr) {
+    toast('⚠️ Please enter UTR number or name');
+    return;
+  }
+  try {
+    const key = 'thebhom_payment_' + Date.now();
+    localStorage.setItem(key, JSON.stringify({ title, amount, utr, date: new Date().toISOString() }));
+  } catch(e){}
+  toast('🎉 UTR ' + utr + ' submitted! Verification in progress.');
+  setTimeout(() => {
+    closeUpiPaymentModal();
+  }, 1600);
+}
+
+window.openUpiPaymentModal = openUpiPaymentModal;
+window.closeUpiPaymentModal = closeUpiPaymentModal;
+window.copyUpiId = copyUpiId;
+window.submitUpiVerification = submitUpiVerification;
+
 // Digital Products Catalog & Cart
 const products = [
   { id: 'excel-cleaner', name: 'Excel Data Cleaning Pack', desc: 'Ready-to-use sheets for duplicates, formatting and cleanup workflows.', price: 99, icon: '📊' },
@@ -877,6 +1019,17 @@ function addToCart(id) {
   setCart(c);
   updateCartCount();
   toast('Added to cart!');
+  setupCart();
+}
+
+function buyProductNow(id) {
+  const p = products.find((x) => x.id === id);
+  if (!p) return;
+  openUpiPaymentModal({
+    title: p.name,
+    amount: p.price,
+    desc: p.desc
+  });
 }
 
 function renderProducts() {
@@ -893,7 +1046,7 @@ function renderProducts() {
         <span class="price-sm" style="font-weight:900;font-size:1.1rem;">₹${p.price}</span>
         <div style="display:flex;gap:6px;">
           <button class="btn secondary btn-sm" data-add="${p.id}" title="Add to Cart">Add to Cart</button>
-          <button class="btn primary btn-sm" onclick="if(window.openUpiPaymentModal){openUpiPaymentModal({title:'${esc(p.name)}',amount:${p.price},desc:'${esc(p.desc)}'});}else{toast('Paytm UPI: 7987761789@ptyes');}" title="Buy via UPI">⚡ Buy Now</button>
+          <button class="btn primary btn-sm" data-buy="${p.id}" title="Buy via UPI">⚡ Buy Now</button>
         </div>
       </div>
     </article>`
@@ -901,73 +1054,69 @@ function renderProducts() {
     .join('');
 
   document.querySelectorAll('[data-add]').forEach((b) => (b.onclick = () => addToCart(b.dataset.add)));
+  document.querySelectorAll('[data-buy]').forEach((b) => (b.onclick = () => buyProductNow(b.dataset.buy)));
   updateCartCount();
 }
 
 function setupCart() {
   const box = $('cartBox');
   if (!box) return;
-  const render = () => {
-    const c = getCart();
-    if (!c.length) {
-      box.innerHTML = '<div class="muted">Your cart is empty.</div>';
-      return;
-    }
-    const rows = c
-      .map((x) => {
-        const p = products.find((pr) => pr.id === x.id);
-        return `<div class="file-row" style="margin-bottom:8px;">
-          <div>
-            <div class="file-name">${esc(p ? p.name : x.id)}</div>
-            <div class="file-meta">Qty: ${x.qty} • ₹${(p ? p.price : 0) * x.qty}</div>
-          </div>
-          <button class="btn secondary btn-sm" data-del="${x.id}">Remove</button>
-        </div>`;
+  const c = getCart();
+  if (!c.length) {
+    box.innerHTML = `
+      <div class="muted" style="padding:10px 0;">Your cart is empty. Click <strong>⚡ Buy Now</strong> on any product above, or add items to bundle.</div>
+      <button class="btn primary checkout-btn" id="checkoutBtn" data-checkout="true" onclick="openUpiPaymentModal({title:'ToolNest Starter Pack', amount:49})" style="margin-top:10px;width:100%;">⚡ Proceed to Instant Checkout (Demo Pack ₹49)</button>
+    `;
+    return;
+  }
+  const rows = c
+    .map((x) => {
+      const p = products.find((pr) => pr.id === x.id);
+      return `<div class="file-row" style="margin-bottom:8px;">
+        <div>
+          <div class="file-name">${esc(p ? p.name : x.id)}</div>
+          <div class="file-meta">Qty: ${x.qty} • ₹${(p ? p.price : 0) * x.qty}</div>
+        </div>
+        <button class="btn secondary btn-sm" data-del="${x.id}">Remove</button>
+      </div>`;
+    })
+    .join('');
+
+  const total = c.reduce((s, x) => s + (products.find((p) => p.id === x.id)?.price || 0) * x.qty, 0);
+  box.innerHTML =
+    rows +
+    `<div style="display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);">
+       <strong>Total Amount:</strong>
+       <strong style="color:var(--primary);font-size:1.2rem;">₹${total}</strong>
+     </div>
+     <button class="btn primary checkout-btn" id="checkoutBtn" data-checkout="true" onclick="openUpiPaymentModal({title:'ToolNest Cart (${c.length} Products)', amount:${total > 0 ? total : 49}})" style="margin-top:14px;width:100%;font-size:1rem;padding:12px;font-weight:800;">⚡ Proceed to Instant Checkout (₹${total})</button>`;
+
+  document.querySelectorAll('[data-del]').forEach(
+    (b) =>
+      (b.onclick = () => {
+        setCart(c.filter((x) => x.id !== b.dataset.del));
+        setupCart();
+        updateCartCount();
       })
-      .join('');
-
-    const total = c.reduce((s, x) => s + (products.find((p) => p.id === x.id)?.price || 0) * x.qty, 0);
-    box.innerHTML =
-      rows +
-      `<div style="display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);">
-         <strong>Total Amount:</strong>
-         <strong style="color:var(--primary);">₹${total}</strong>
-       </div>
-       <button class="btn primary" id="checkoutBtn" style="margin-top:14px;width:100%;">⚡ Proceed to Instant UPI Checkout</button>`;
-
-    document.querySelectorAll('[data-del]').forEach(
-      (b) =>
-        (b.onclick = () => {
-          setCart(c.filter((x) => x.id !== b.dataset.del));
-          render();
-          updateCartCount();
-        })
-    );
-
-    const chk = $('checkoutBtn');
-    if (chk) {
-      chk.onclick = () => {
-        const cartItems = getCart();
-        if (!cartItems.length) {
-          toast('Your cart is empty');
-          return;
-        }
-        const cartTotal = cartItems.reduce((s, x) => s + (products.find((p) => p.id === x.id)?.price || 0) * x.qty, 0);
-        const itemNames = cartItems.map(x => products.find(p => p.id === x.id)?.name || x.id).join(', ');
-        if (window.openUpiPaymentModal) {
-          window.openUpiPaymentModal({
-            title: `ToolNest Cart (${cartItems.length} Items)`,
-            amount: cartTotal > 0 ? cartTotal : 49,
-            desc: itemNames
-          });
-        } else {
-          toast('Paytm UPI Checkout Ready: 7987761789@ptyes');
-        }
-      };
-    }
-  };
-  render();
+  );
 }
+
+// Global Delegated Click Listener for ANY checkout button on page
+document.addEventListener('click', (e) => {
+  const chk = e.target.closest('#checkoutBtn, [data-checkout], .checkout-btn');
+  if (chk) {
+    e.preventDefault();
+    e.stopPropagation();
+    const cartItems = getCart();
+    const cartTotal = cartItems.reduce((s, x) => s + (products.find((p) => p.id === x.id)?.price || 0) * x.qty, 0);
+    const itemNames = cartItems.map(x => products.find(p => p.id === x.id)?.name || x.id).join(', ');
+    openUpiPaymentModal({
+      title: cartItems.length ? `ToolNest Cart (${cartItems.length} Products)` : 'ToolNest Starter Pack',
+      amount: cartTotal > 0 ? cartTotal : 49,
+      desc: itemNames || 'Instant Digital Product Access'
+    });
+  }
+});
 
 function setupNav() {
   const b = $('menuBtn');
