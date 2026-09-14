@@ -475,6 +475,10 @@ window.renderFavDrawer = function() {
         </div>
         <button class="fav-vip-pay-btn" onclick="openUpiPaymentModal({title:'TheBhom VIP Supporter', amount:99, desc:'VIP Supporter Plan: Ad-free perks & high-speed downloads'})">Pay ₹99 ⚡</button>
       </div>
+      <div style="margin:10px 16px 14px 16px;padding:10px 14px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:12px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="font-size:0.78rem;color:#cbd5e1;">👑 <strong>Owner Portal</strong> (bhomvratrai7225)</div>
+        <a href="/admin/" style="font-size:0.75rem;font-weight:800;color:#fbbf24;text-decoration:none;padding:4px 10px;background:rgba(245,158,11,0.2);border-radius:6px;border:1px solid rgba(245,158,11,0.4);">Dashboard →</a>
+      </div>
     </div>
   `;
   document.body.appendChild(mount);
@@ -1089,10 +1093,14 @@ function openUpiPaymentModal(opts = {}) {
       </div>
 
       <div class="upi-utr-section">
-        <div class="upi-utr-title">Already Paid? Enter 12-Digit UTR / Transaction ID:</div>
-        <div class="upi-utr-box">
-          <input type="text" id="upiUtrInput" placeholder="e.g. 4235XXXXXXXX or Name" maxlength="30" />
-          <button onclick="submitUpiVerification('${title.replace(/'/g, "\\'")}', ${amount})" class="upi-verify-btn">Confirm</button>
+        <div class="upi-utr-title">Enter Payment Details for Instant Verification:</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+          <input type="email" id="upiEmailInput" placeholder="Your Email Address (for delivery)" required style="background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;padding:8px 12px;font-size:0.82rem;outline:none;" />
+          <input type="text" id="upiNameInput" placeholder="Your Name (Optional)" style="background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;padding:8px 12px;font-size:0.82rem;outline:none;" />
+          <div class="upi-utr-box">
+            <input type="text" id="upiUtrInput" placeholder="12-digit UTR / Ref Number" maxlength="30" style="flex:1;" />
+            <button onclick="submitUpiVerification('${title.replace(/'/g, "\\'")}', ${amount})" class="upi-verify-btn" id="upiSubmitBtn">Confirm</button>
+          </div>
         </div>
         <div class="upi-footer-note">🔒 100% Secure Direct UPI Transfer. Instant verification & delivery.</div>
       </div>
@@ -1105,6 +1113,10 @@ function openUpiPaymentModal(opts = {}) {
 }
 
 function closeUpiPaymentModal() {
+  if (window._upiPollTimer) {
+    clearInterval(window._upiPollTimer);
+    window._upiPollTimer = null;
+  }
   const overlay = document.getElementById('upiPayOverlay');
   if (overlay) overlay.classList.remove('open');
   document.body.style.overflow = '';
@@ -1143,24 +1155,140 @@ function fallbackCopy(text) {
   document.body.removeChild(t);
 }
 
-function submitUpiVerification(title, amount) {
-  const inp = document.getElementById('upiUtrInput');
-  const utr = (inp ? inp.value.trim() : '');
-  if (!utr) {
-    if (typeof showToast === 'function') showToast('⚠️ कृपया UTR नंबर या आपका नाम दर्ज करें', 'warn');
+async function submitUpiVerification(title, amount) {
+  const utrInp = document.getElementById('upiUtrInput');
+  const emailInp = document.getElementById('upiEmailInput');
+  const nameInp = document.getElementById('upiNameInput');
+  const btn = document.getElementById('upiSubmitBtn');
+
+  const utr = (utrInp ? utrInp.value.trim() : '');
+  const email = (emailInp ? emailInp.value.trim() : '');
+  const name = (nameInp ? nameInp.value.trim() : '');
+
+  if (!email || !email.includes('@')) {
+    if (typeof showToast === 'function') showToast('⚠️ Please enter a valid email address', 'warn');
+    if (emailInp) emailInp.focus();
     return;
   }
-  try {
-    const key = 'thebhom_payment_' + Date.now();
-    localStorage.setItem(key, JSON.stringify({ title, amount, utr, date: new Date().toISOString() }));
-  } catch(e){}
-  
-  if (typeof showToast === 'function') {
-    showToast('🎉 UTR ' + utr + ' दर्ज हो गया! Transaction verify हो रहा है।', 'ok');
+
+  if (!utr || utr.length < 6) {
+    if (typeof showToast === 'function') showToast('⚠️ Please enter valid 12-digit UTR number', 'warn');
+    if (utrInp) utrInp.focus();
+    return;
   }
-  setTimeout(() => {
-    closeUpiPaymentModal();
-  }, 1600);
+
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+  }
+
+  try {
+    const res = await fetch('/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userName: name || 'Customer',
+        userEmail: email,
+        productName: title,
+        amount: amount,
+        utrNumber: utr
+      })
+    });
+
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      if (typeof showToast === 'function') showToast('⚠️ ' + (data.error || 'Failed to submit payment details'), 'warn');
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'Confirm';
+      }
+      return;
+    }
+
+    const orderId = data.orderId;
+    if (typeof showToast === 'function') showToast('🎉 Payment submitted! Order #' + orderId, 'ok');
+
+    // Render Live Verification Screen inside modal
+    const modalBox = document.querySelector('.upi-modal');
+    if (modalBox) {
+      modalBox.innerHTML = `
+        <button class="upi-close-btn" onclick="closeUpiPaymentModal()" title="Close">✕</button>
+        <div style="text-align:center;padding:10px 0;">
+          <div style="font-size:2.8rem;margin-bottom:8px;animation:spin 2s linear infinite;" id="statusIcon">⏳</div>
+          <h3 style="font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:6px;" id="statusHeading">Verifying Your Payment</h3>
+          <div style="background:rgba(0,186,242,0.12);border:1px solid rgba(0,186,242,0.3);border-radius:10px;padding:8px 14px;font-size:0.85rem;color:#38bdf8;font-family:monospace;display:inline-block;margin-bottom:12px;">
+            Order ID: <strong>#${orderId}</strong>
+          </div>
+          <p style="font-size:0.85rem;color:#cbd5e1;line-height:1.5;margin-bottom:14px;" id="statusMsg">
+            We are verifying UTR <strong>${utr}</strong> for <strong>₹${amount}</strong>.<br>
+            Please keep this tab open. As soon as the owner approves, your plan will unlock right here automatically!
+          </p>
+          <div id="unlockContainer" style="display:none;margin-top:14px;"></div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:10px;">
+            Live Auto-Checking every 3 seconds...
+          </div>
+        </div>
+      `;
+    }
+
+    // Start Polling for Approval
+    if (window._upiPollTimer) clearInterval(window._upiPollTimer);
+    window._upiPollTimer = setInterval(async () => {
+      try {
+        const checkRes = await fetch('/api/orders?id=' + encodeURIComponent(orderId));
+        const checkData = await checkRes.json();
+        if (checkData.found && checkData.order && checkData.order.isApproved) {
+          clearInterval(window._upiPollTimer);
+          window._upiPollTimer = null;
+
+          // Save unlocked plan locally
+          try {
+            const unlocked = JSON.parse(localStorage.getItem('thebhom_unlocked_plans') || '[]');
+            unlocked.push({ id: orderId, product: title, key: checkData.order.licenseKey, date: new Date().toISOString() });
+            localStorage.setItem('thebhom_unlocked_plans', JSON.stringify(unlocked));
+          } catch(e){}
+
+          // Update UI to Approved
+          const icon = document.getElementById('statusIcon');
+          const heading = document.getElementById('statusHeading');
+          const msg = document.getElementById('statusMsg');
+          const unlockBox = document.getElementById('unlockContainer');
+
+          if (icon) {
+            icon.textContent = '🎉';
+            icon.style.animation = '';
+          }
+          if (heading) {
+            heading.textContent = 'Payment Approved & Unlocked!';
+            heading.style.color = '#34d399';
+          }
+          if (msg) {
+            msg.innerHTML = `Congratulations <strong>${name || email}</strong>! Your access is now activated.<br>License Key: <strong style="font-family:monospace;color:#38bdf8;">${checkData.order.licenseKey}</strong>`;
+          }
+          if (unlockBox) {
+            unlockBox.style.display = 'block';
+            unlockBox.innerHTML = `
+              <div style="background:rgba(16,185,129,0.15);border:1px solid #10b981;border-radius:14px;padding:12px;margin-bottom:12px;">
+                <div style="font-weight:800;color:#34d399;font-size:0.95rem;">✓ Access Granted: ${title}</div>
+                <div style="font-size:0.8rem;color:#cbd5e1;margin-top:4px;">Downloads and premium perks unlocked for this device!</div>
+              </div>
+              <button class="btn primary" onclick="closeUpiPaymentModal();if(typeof showToast==='function')showToast('✓ All features unlocked!','ok');" style="width:100%;padding:12px;font-weight:800;background:#00baf2;border:none;border-radius:10px;color:#fff;cursor:pointer;">
+                ⚡ Start Using Now
+              </button>
+            `;
+          }
+          if (typeof showToast === 'function') showToast('🎉 Order #' + orderId + ' approved by owner!', 'ok');
+        }
+      } catch(e){}
+    }, 3500);
+
+  } catch (err) {
+    if (typeof showToast === 'function') showToast('⚠️ Error: ' + err.message, 'warn');
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Confirm';
+    }
+  }
 }
 
 document.addEventListener('keydown', (e) => {

@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheBhom — Owner & Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #070913;
+      --card-bg: rgba(14, 18, 36, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.4);
+      --primary: #00baf2;
+      --primary-glow: rgba(0, 186, 242, 0.25);
+      --accent: #7c3aed;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-sub: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(0, 186, 242, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(7, 9, 19, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.9rem 1.5rem;
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #00baf2, #7c3aed);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 186, 242, 0.3);
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title span {
+      color: var(--primary);
+    }
+
+    .badge-owner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.25));
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fbbf24;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .owner-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .owner-avatar {
+      width: 22px;
+      height: 22px;
+      background: #7c3aed;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00baf2, #0284c7);
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 186, 242, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #38bdf8, #00baf2);
+      box-shadow: 0 6px 20px rgba(0, 186, 242, 0.45);
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #10b981, #059669);
+      border: none;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-success:hover {
+      background: linear-gradient(135deg, #34d399, #10b981);
+    }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+    }
+
+    .btn-danger:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      max-width: 1400px;
+      margin: 1.8rem auto;
+      padding: 0 1.2rem;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* STATS CARDS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.4rem;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      border-color: var(--card-border-hover);
+      transform: translateY(-2px);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .stat-revenue::before { background: linear-gradient(90deg, #10b981, #00baf2); }
+    .stat-pending::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+    .stat-approved::before { background: linear-gradient(90deg, #00baf2, #7c3aed); }
+    .stat-total::before { background: linear-gradient(90deg, #8b5cf6, #ec4899); }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+
+    .stat-val {
+      font-size: 2.1rem;
+      font-weight: 850;
+      letter-spacing: -1px;
+      color: #fff;
+    }
+
+    .stat-hint {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      margin-top: 0.4rem;
+    }
+
+    .pending-pulse-badge {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid #f59e0b;
+      color: #fbbf24;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      animation: pulseAlert 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.96); }
+    }
+
+    /* TABS & FILTERS */
+    .controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tab-group {
+      display: flex;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+    }
+
+    .tab-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .tab-count {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 1px 7px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 280px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 9px 14px 9px 36px;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-sub);
+      pointer-events: none;
+    }
+
+    /* ORDERS TABLE */
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 14px 18px;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-bottom: 1px solid var(--card-border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .order-id-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .customer-info strong {
+      display: block;
+      color: #fff;
+      font-size: 0.92rem;
+    }
+
+    .customer-info span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .utr-cell {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #f1f5f9;
+      letter-spacing: 0.5px;
+    }
+
+    .copy-btn-sm {
+      background: transparent;
+      border: none;
+      color: #38bdf8;
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn-sm:hover {
+      background: rgba(56, 189, 248, 0.2);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-PENDING {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .status-APPROVED {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .status-REJECTED {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+
+    .actions-cell {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* MANUAL GRANT MODAL & LOGIN OVERLAY */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 6, 18, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: linear-gradient(165deg, #0e1227 0%, #080a18 100%);
+      border: 1px solid rgba(0, 186, 242, 0.3);
+      border-radius: 24px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 186, 242, 0.15);
+      max-width: 440px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .modal-title {
+      font-size: 1.35rem;
+      font-weight: 850;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group {
+      margin-top: 1.1rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* TOAST */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0e1329;
+      border: 1px solid rgba(0, 186, 242, 0.35);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      font-size: 0.88rem;
+      font-weight: 600;
+      z-index: 2000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+      padding: 3.5rem 1rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 0.8rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="brand-wrap">
+        <div class="brand-logo">TB</div>
+        <div class="brand-title">The<span>Bhom</span></div>
+        <span class="badge-owner">👑 Owner Center</span>
+      </a>
+
+      <div class="header-actions">
+        <div class="owner-tag" id="ownerDisplay">
+          <div class="owner-avatar">B</div>
+          <span>bhomvratrai7225@gmail.com</span>
+        </div>
+        <button class="btn btn-primary" onclick="openManualGrantModal()">
+          <span>+ Grant Access</span>
+        </button>
+        <button class="btn" onclick="fetchDashboardData()" title="Reload Data">
+          <span id="refreshIcon">🔄</span> Refresh
+        </button>
+        <button class="btn btn-danger" onclick="logoutOwner()" title="Logout">
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <!-- METRICS -->
+    <div class="stats-grid">
+      <div class="stat-card stat-revenue">
+        <div class="stat-label">
+          <span>TOTAL VERIFIED REVENUE</span>
+          <span>💰</span>
+        </div>
+        <div class="stat-val" id="metricTotalRevenue">₹0</div>
+        <div class="stat-hint">Direct UPI verified & settled</div>
+      </div>
+
+      <div class="stat-card stat-pending">
+        <div class="stat-label">
+          <span>PENDING APPROVALS</span>
+          <span class="pending-pulse-badge" id="pendingAlertBadge" style="display:none;">NEEDS ACTION</span>
+        </div>
+        <div class="stat-val" id="metricPendingOrders" style="color:#fbbf24;">0</div>
+        <div class="stat-hint">Incoming customer UTR submissions</div>
+      </div>
+
+      <div class="stat-card stat-approved">
+        <div class="stat-label">
+          <span>ACTIVE / UNLOCKED ORDERS</span>
+          <span>⚡</span>
+        </div>
+        <div class="stat-val" id="metricApprovedOrders" style="color:#34d399;">0</div>
+        <div class="stat-hint">Automated plan unlock delivered</div>
+      </div>
+
+      <div class="stat-card stat-total">
+        <div class="stat-label">
+          <span>TODAY'S EARNINGS</span>
+          <span>📈</span>
+        </div>
+        <div class="stat-val" id="metricTodayRevenue">₹0</div>
+        <div class="stat-hint">Today's approved transactions</div>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls-bar">
+      <div class="tab-group">
+        <button class="tab-btn active" onclick="filterOrders('ALL', this)">
+          All Orders <span class="tab-count" id="countAll">0</span>
+        </button>
+        <button class="tab-btn" onclick="filterOrders('PENDING', this)">
+          ⏳ Pending <span class="tab-count" id="countPending" style="background:#f59e0b;color:#000;">0</span>
+        </button>
+        <button class="tab-btn" onclick="filterOrders('APPROVED', this)">
+          ✓ Approved <span class="tab-count" id="countApproved">0</span>
+        </button>
+        <button class="tab-btn" onclick="filterOrders('REJECTED', this)">
+          ✕ Rejected <span class="tab-count" id="countRejected">0</span>
+        </button>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="searchBox" placeholder="Search by UTR, Name, Email, ID..." oninput="handleSearch()">
+      </div>
+    </div>
+
+    <!-- ORDERS TABLE -->
+    <div class="table-card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Product / Plan</th>
+              <th>Amount</th>
+              <th>UTR / Reference</th>
+              <th>Status</th>
+              <th>Submitted</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody">
+            <tr>
+              <td colspan="8" class="empty-state">
+                <div class="empty-icon">⏳</div>
+                <div>Loading live orders from Neon PostgreSQL...</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- OWNER LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-box">
+      <div style="text-align:center;margin-bottom:1rem;">
+        <div style="font-size:2.5rem;margin-bottom:6px;">👑</div>
+        <h2 class="modal-title">TheBhom Owner Access</h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);">Protected area for <strong>bhomvratrai7225@gmail.com</strong></p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Authorized Gmail Address</label>
+        <input type="email" class="form-input" id="loginEmail" value="bhomvratrai7225@gmail.com" readonly style="opacity:0.85;cursor:not-allowed;">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Owner Master Passkey</label>
+        <input type="password" class="form-input" id="loginPasskey" placeholder="Enter owner passkey" autofocus>
+      </div>
+
+      <button class="btn btn-primary" onclick="submitOwnerLogin()" style="width:100%;margin-top:1.4rem;padding:12px;font-size:1rem;justify-content:center;">
+        ⚡ Unlock Owner Dashboard
+      </button>
+      <div id="loginError" style="color:var(--danger);font-size:0.8rem;text-align:center;margin-top:10px;display:none;"></div>
+    </div>
+  </div>
+
+  <!-- MANUAL GRANT MODAL -->
+  <div class="modal-overlay" id="manualGrantModal">
+    <div class="modal-box">
+      <button onclick="closeManualGrantModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#94a3b8;font-size:1.2rem;cursor:pointer;">✕</button>
+      <h3 class="modal-title">⚡ Grant Instant VIP Access</h3>
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Give direct access to any customer without UPI UTR verification.</p>
+
+      <div class="form-group">
+        <label class="form-label">Customer Email *</label>
+        <input type="email" class="form-input" id="grantEmail" placeholder="user@example.com">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Customer Name</label>
+        <input type="text" class="form-input" id="grantName" placeholder="e.g. Aman Sharma">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Plan / Product</label>
+        <select class="form-input" id="grantPlan">
+          <option value="ToolNest VIP Lifetime Bundle">ToolNest VIP Lifetime Bundle (₹199)</option>
+          <option value="Excel Data Cleaning Pack">Excel Data Cleaning Pack (₹99)</option>
+          <option value="Small Business Invoice Pack">Small Business Invoice Pack (₹149)</option>
+          <option value="AI Productivity Prompt Pack">AI Productivity Prompt Pack (₹79)</option>
+          <option value="PDF Workflow Checklist">PDF Workflow Checklist (₹49)</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success" onclick="submitManualGrant()" style="width:100%;margin-top:1.4rem;padding:12px;justify-content:center;">
+        ✓ Grant & Generate License Key
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-box" id="adminToast"></div>
+
+  <!-- SCRIPT -->
+  <script>
+    const OWNER_EMAIL = 'bhomvratrai7225@gmail.com';
+    let allOrders = [];
+    let currentFilter = 'ALL';
+
+    function getStoredToken() {
+      return localStorage.getItem('thebhom_admin_token') || '';
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('adminToast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    async function checkAuth() {
+      const token = getStoredToken();
+      if (!token) {
+        document.getElementById('loginModal').classList.add('open');
+        return false;
+      }
+      return true;
+    }
+
+    async function submitOwnerLogin() {
+      const passkey = document.getElementById('loginPasskey').value.trim();
+      const errBox = document.getElementById('loginError');
+      errBox.style.display = 'none';
+
+      if (!passkey) {
+        errBox.textContent = 'Please enter owner passkey';
+        errBox.style.display = 'block';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/admin', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'login',
+            email: OWNER_EMAIL,
+            passkey: passkey
+          })
+        });
+
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          errBox.textContent = data.error || 'Login failed';
+          errBox.style.display = 'block';
+          return;
+        }
+
+        localStorage.setItem('thebhom_admin_token', data.token);
+        localStorage.setItem('thebhom_owner_email', OWNER_EMAIL);
+        document.getElementById('loginModal').classList.remove('open');
+        showToast('🎉 Welcome Owner! Dashboard unlocked.');
+        fetchDashboardData();
+      } catch (e) {
+        errBox.textContent = 'Network error: ' + e.message;
+        errBox.style.display = 'block';
+      }
+    }
+
+    function logoutOwner() {
+      if (confirm('Are you sure you want to sign out from the Owner Dashboard?')) {
+        localStorage.removeItem('thebhom_admin_token');
+        document.getElementById('loginModal').classList.add('open');
+      }
+    }
+
+    async function fetchDashboardData() {
+      const token = getStoredToken();
+      if (!token) return;
+
+      const refreshIcon = document.getElementById('refreshIcon');
+      if (refreshIcon) refreshIcon.style.animation = 'pulseAlert 0.8s infinite';
+
+      try {
+        const res = await fetch('/api/admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+            'x-owner-email': OWNER_EMAIL
+          },
+          body: JSON.stringify({ action: 'get_dashboard' })
+        });
+
+        if (res.status === 401 || res.status === 403) {
+          localStorage.removeItem('thebhom_admin_token');
+          document.getElementById('loginModal').classList.add('open');
+          return;
+        }
+
+        const data = await res.json();
+        if (!data.success) {
+          showToast('⚠️ ' + (data.error || 'Failed to fetch dashboard data'));
+          return;
+        }
+
+        updateStats(data.stats);
+        allOrders = data.orders || [];
+        renderOrders();
+      } catch (err) {
+        showToast('⚠️ Error: ' + err.message);
+      } finally {
+        if (refreshIcon) refreshIcon.style.animation = '';
+      }
+    }
+
+    function updateStats(stats) {
+      document.getElementById('metricTotalRevenue').textContent = '₹' + (stats.totalRevenue || 0);
+      document.getElementById('metricPendingOrders').textContent = stats.pendingOrders || 0;
+      document.getElementById('metricApprovedOrders').textContent = stats.approvedOrders || 0;
+      document.getElementById('metricTodayRevenue').textContent = '₹' + (stats.todayRevenue || 0);
+
+      const alertBadge = document.getElementById('pendingAlertBadge');
+      if (stats.pendingOrders > 0) {
+        alertBadge.style.display = 'inline-block';
+        alertBadge.textContent = `${stats.pendingOrders} PENDING`;
+      } else {
+        alertBadge.style.display = 'none';
+      }
+
+      document.getElementById('countAll').textContent = stats.totalOrders || 0;
+      document.getElementById('countPending').textContent = stats.pendingOrders || 0;
+      document.getElementById('countApproved').textContent = stats.approvedOrders || 0;
+      document.getElementById('countRejected').textContent = (stats.totalOrders - stats.pendingOrders - stats.approvedOrders) || 0;
+    }
+
+    function filterOrders(filter, btnEl) {
+      currentFilter = filter;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderOrders();
+    }
+
+    function handleSearch() {
+      renderOrders();
+    }
+
+    function renderOrders() {
+      const tbody = document.getElementById('ordersTableBody');
+      const term = document.getElementById('searchBox').value.trim().toLowerCase();
+
+      let filtered = allOrders;
+
+      if (currentFilter !== 'ALL') {
+        filtered = filtered.filter(o => o.status === currentFilter);
+      }
+
+      if (term) {
+        filtered = filtered.filter(o => 
+          (o.id && o.id.toLowerCase().includes(term)) ||
+          (o.user_name && o.user_name.toLowerCase().includes(term)) ||
+          (o.user_email && o.user_email.toLowerCase().includes(term)) ||
+          (o.utr_number && o.utr_number.toLowerCase().includes(term)) ||
+          (o.product_name && o.product_name.toLowerCase().includes(term))
+        );
+      }
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" class="empty-state">
+              <div class="empty-icon">📭</div>
+              <div style="font-weight:700;font-size:1.05rem;color:#fff;">No Orders Found</div>
+              <div style="font-size:0.82rem;margin-top:4px;">No transactions matching the current filter or search criteria.</div>
+            </td>
+          </tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(o => {
+        const dateStr = o.created_at ? new Date(o.created_at).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'short', timeStyle: 'short' }) : '—';
+        const isPending = o.status === 'PENDING';
+        const isApproved = o.status === 'APPROVED';
+
+        return `
+          <tr>
+            <td>
+              <span class="order-id-badge">#${o.id}</span>
+            </td>
+            <td>
+              <div class="customer-info">
+                <strong>${escHtml(o.user_name || 'Customer')}</strong>
+                <span>${escHtml(o.user_email || '—')}</span>
+                ${o.user_phone ? `<div><span style="color:#38bdf8;">📞 ${escHtml(o.user_phone)}</span></div>` : ''}
+              </div>
+            </td>
+            <td>
+              <strong style="color:#fff;">${escHtml(o.product_name)}</strong>
+              ${o.license_key ? `<div style="font-size:0.75rem;color:#34d399;font-family:monospace;">Key: ${escHtml(o.license_key)}</div>` : ''}
+            </td>
+            <td>
+              <strong style="color:#4ade80;font-size:1.05rem;">₹${o.amount}</strong>
+            </td>
+            <td>
+              <div class="utr-cell">
+                <span>${escHtml(o.utr_number)}</span>
+                <button class="copy-btn-sm" onclick="copyText('${escHtml(o.utr_number)}')" title="Copy UTR">📋</button>
+              </div>
+            </td>
+            <td>
+              <span class="status-badge status-${o.status}">${o.status}</span>
+            </td>
+            <td>
+              <span style="font-size:0.8rem;color:var(--text-muted);">${dateStr}</span>
+            </td>
+            <td>
+              <div class="actions-cell">
+                ${isPending ? `
+                  <button class="btn btn-success btn-sm" onclick="approveOrder('${o.id}')" title="Approve & Unlock Access">
+                    ✓ Approve
+                  </button>
+                  <button class="btn btn-danger btn-sm" onclick="rejectOrder('${o.id}')" title="Reject Order">
+                    ✕
+                  </button>
+                ` : isApproved ? `
+                  <span style="color:#34d399;font-size:0.8rem;font-weight:700;">✓ Active</span>
+                ` : `
+                  <span style="color:#f87171;font-size:0.8rem;">✕ Rejected</span>
+                `}
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function approveOrder(orderId) {
+      if (!confirm(`Confirm approval for Order #${orderId}? This will instantly unlock the plan for the user.`)) return;
+
+      const token = getStoredToken();
+      try {
+        const res = await fetch('/api/admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+            'x-owner-email': OWNER_EMAIL
+          },
+          body: JSON.stringify({ action: 'approve', orderId })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          showToast(`🎉 Order #${orderId} approved! License: ${data.licenseKey}`);
+          fetchDashboardData();
+        } else {
+          showToast('⚠️ ' + (data.error || 'Approval failed'));
+        }
+      } catch (e) {
+        showToast('⚠️ Error: ' + e.message);
+      }
+    }
+
+    async function rejectOrder(orderId) {
+      const reason = prompt('Enter rejection reason (e.g. UTR not matched in Paytm/Bank):', 'UTR payment not verified in bank account.');
+      if (reason === null) return;
+
+      const token = getStoredToken();
+      try {
+        const res = await fetch('/api/admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+            'x-owner-email': OWNER_EMAIL
+          },
+          body: JSON.stringify({ action: 'reject', orderId, reason })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          showToast(`✕ Order #${orderId} marked as rejected.`);
+          fetchDashboardData();
+        } else {
+          showToast('⚠️ ' + (data.error || 'Action failed'));
+        }
+      } catch (e) {
+        showToast('⚠️ Error: ' + e.message);
+      }
+    }
+
+    function openManualGrantModal() {
+      document.getElementById('manualGrantModal').classList.add('open');
+    }
+
+    function closeManualGrantModal() {
+      document.getElementById('manualGrantModal').classList.remove('open');
+    }
+
+    async function submitManualGrant() {
+      const email = document.getElementById('grantEmail').value.trim();
+      const name = document.getElementById('grantName').value.trim();
+      const plan = document.getElementById('grantPlan').value;
+
+      if (!email) {
+        alert('Please enter customer email');
+        return;
+      }
+
+      const token = getStoredToken();
+      try {
+        const res = await fetch('/api/admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+            'x-owner-email': OWNER_EMAIL
+          },
+          body: JSON.stringify({
+            action: 'manual_grant',
+            userEmail: email,
+            userName: name,
+            productName: plan
+          })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          showToast(`✓ Access granted to ${email}! Key: ${data.licenseKey}`);
+          closeManualGrantModal();
+          fetchDashboardData();
+        } else {
+          showToast('⚠️ ' + (data.error || 'Failed to grant access'));
+        }
+      } catch (e) {
+        showToast('⚠️ Error: ' + e.message);
+      }
+    }
+
+    function copyText(str) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(str).then(() => showToast('✓ Copied: ' + str));
+      } else {
+        showToast('✓ ' + str);
+      }
+    }
+
+    function escHtml(s) {
+      if (!s) return '';
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    // Auto boot & 15-second polling
+    document.addEventListener('DOMContentLoaded', async () => {
+      const ok = await checkAuth();
+      if (ok) fetchDashboardData();
+    });
+
+    setInterval(() => {
+      const token = getStoredToken();
+      if (token) fetchDashboardData();
+    }, 15000);
+  </script>
+</body>
+</html>
