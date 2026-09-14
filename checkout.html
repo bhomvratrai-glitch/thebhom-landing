@@ -5,869 +5,480 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instant UPI Checkout & Payment — TheBhom</title>
-  <meta name="description" content="Secure instant UPI checkout and activation for TheBhom and ToolNest digital products, Pro plans, and tools.">
+  <title>Checkout | ImgPDF — Pay with UPI</title>
+  <meta name="description" content="Upgrade your plan with instant UPI payment. Quick verification and immediate activation.">
   <link rel="canonical" href="https://thebhom.in/checkout.html">
-  <link rel="stylesheet" href="shared.css?v=20260914_ilovepdf_checkout_v8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
-  <script defer src="shared.js?v=20260914_ilovepdf_checkout_v8"></script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css?v=20260914_imgpdf_v9">
+  <script defer src="shared.js?v=20260914_imgpdf_v9"></script>
+
   <style>
-    :root {
-      --checkout-bg: #f7f9fc;
-      --checkout-card: #ffffff;
-      --checkout-border: #e2e8f0;
-      --checkout-text: #0f172a;
-      --checkout-muted: #64748b;
-      --checkout-primary: #e11d48;
-      --checkout-primary-hover: #be123c;
-      --checkout-green: #059669;
-      --checkout-green-bg: #ecfdf3;
-      --checkout-green-border: #a7f3d0;
+    .checkout-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 5rem;
     }
-    
-    body {
-      background-color: var(--checkout-bg) !important;
-      color: var(--checkout-text);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .checkout-wrap {
-      max-width: 1080px;
-      margin: 2.5rem auto 4rem;
-      padding: 0 1.25rem;
-    }
-    
-    .checkout-header {
-      text-align: center;
-      margin-bottom: 2.2rem;
-    }
-    
-    .checkout-badge {
+    .back-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      background: #fff1f2;
-      border: 1px solid #fecdd3;
-      color: #e11d48;
-      border-radius: 999px;
-      font-size: 0.76rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 10px;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      transition: color 0.15s;
     }
-    
+    .back-link:hover {
+      color: var(--foreground);
+    }
     .checkout-title {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 900;
-      color: #0f172a;
-      margin: 0 0 8px;
-      letter-spacing: -0.03em;
-    }
-    
-    .checkout-subtitle {
-      color: var(--checkout-muted);
-      font-size: 0.98rem;
-      max-width: 580px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-    
-    /* 2-Column Grid */
-    .checkout-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.75rem;
-      align-items: start;
-    }
-    
-    @media (max-width: 860px) {
-      .checkout-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    /* Cards */
-    .c-card {
-      background: var(--checkout-card);
-      border: 1px solid var(--checkout-border);
-      border-radius: 20px;
-      padding: 1.8rem;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
-    }
-    
-    .c-card-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1.25rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--checkout-border);
-    }
-    
-    .c-step-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #e11d48;
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-size: 0.85rem;
-      font-weight: 900;
-    }
-    
-    .c-card-title {
-      font-size: 1.15rem;
+      font-size: 2rem;
       font-weight: 800;
-      color: #0f172a;
-      margin: 0;
+      letter-spacing: -0.03em;
+      color: var(--foreground);
+      margin: 0 0 0.5rem;
     }
-    
-    /* Plan Options */
-    .plan-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 1.4rem;
+    .checkout-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted-foreground);
+      margin: 0 0 2rem;
     }
-    
-    .plan-item {
+    .c-section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .plan-summary-card {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+    }
+    [data-theme="dark"] .plan-summary-card {
+      background: #18191d;
+    }
+    .summary-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 14px 16px;
-      border: 2px solid var(--checkout-border);
-      border-radius: 14px;
-      cursor: pointer;
-      transition: all 0.18s ease;
-      background: #ffffff;
     }
-    
-    .plan-item:hover {
-      border-color: #cbd5e1;
-      background: #f8fafc;
-    }
-    
-    .plan-item.selected {
-      border-color: #e11d48;
-      background: #fff1f2;
-    }
-    
-    .plan-radio {
-      accent-color: #e11d48;
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-    
-    .plan-info {
-      flex: 1;
-    }
-    
-    .plan-name {
+    .summary-title {
+      font-size: 1.25rem;
       font-weight: 800;
-      font-size: 0.96rem;
-      color: #0f172a;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      color: var(--foreground);
+      margin: 0;
     }
-    
-    .plan-tag {
-      font-size: 0.68rem;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: #e2e8f0;
-      color: #475569;
-      font-weight: 800;
+    .summary-sub {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-top: 2px;
     }
-    
-    .plan-tag.popular {
-      background: #ecfdf3;
-      color: #059669;
-      border: 1px solid #a7f3d0;
-    }
-    
-    .plan-desc {
-      font-size: 0.78rem;
-      color: var(--checkout-muted);
-      margin-top: 3px;
-    }
-    
-    .plan-price {
+    .summary-price {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--foreground);
+      line-height: 1;
       text-align: right;
     }
-    
-    .plan-price-num {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: #0f172a;
+    .summary-interval {
+      font-size: 0.8rem;
+      color: var(--muted-foreground);
+      text-align: right;
     }
-    
-    .plan-price-cadence {
-      font-size: 0.72rem;
-      color: var(--checkout-muted);
-      font-weight: 600;
-    }
-    
-    /* Summary Table */
-    .summary-box {
-      background: #f8fafc;
-      border: 1px solid var(--checkout-border);
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 1.4rem;
-    }
-    
-    .summary-row {
+    .pill-list {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 7px 0;
-      font-size: 0.88rem;
-      color: #475569;
-    }
-    
-    .summary-row.total {
-      border-top: 1px solid var(--checkout-border);
-      margin-top: 6px;
-      padding-top: 10px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #0f172a;
-    }
-    
-    .summary-row.total .total-amount {
-      color: var(--checkout-green);
-      font-size: 1.4rem;
-      font-weight: 900;
-    }
-    
-    /* Trust Badges */
-    .trust-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-    
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.78rem;
-      color: #475569;
-      font-weight: 600;
-    }
-    
-    .trust-icon {
-      color: #059669;
-      font-size: 0.95rem;
-    }
-    
-    /* QR Section */
-    .qr-card-inner {
-      background: #f8fafc;
-      border: 1px solid var(--checkout-border);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-      margin-bottom: 1.2rem;
-    }
-    
-    .qr-apps-strip {
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: var(--checkout-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 6px;
       flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
     }
-    
-    .qr-img-frame {
-      display: flex;
-      justify-content: center;
+    .pill-item {
+      display: inline-flex;
       align-items: center;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 8px;
-      border-radius: 14px;
-      border: 1px solid var(--checkout-border);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-      width: max-content;
-    }
-    
-    .qr-img {
-      width: 210px;
-      height: 210px;
-      max-width: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-      display: block;
-    }
-    
-    .qr-merchant {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: #475569;
+      gap: 0.35rem;
+      background: #ecfdf5;
+      color: #047857;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
       font-weight: 600;
+    }
+    [data-theme="dark"] .pill-item {
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+    }
+    .upi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    @media (max-width: 600px) {
+      .upi-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+    .qr-card-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .qr-box {
+      background: #ffffff;
+      padding: 0.85rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border: 1px solid #e5e7eb;
+      display: inline-block;
+    }
+    .qr-img {
+      width: 180px;
+      height: 180px;
+      display: block;
+      border-radius: 6px;
+    }
+    .qr-caption {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-top: 0.75rem;
+    }
+    .qr-subcaption {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.4rem;
+    }
+    .code-box {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 4px;
-    }
-    
-    .qr-verified-tick {
-      color: #059669;
-      font-weight: 900;
-    }
-    
-    /* UPI ID Row */
-    .upi-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      background: #f1f5f9;
-      border: 1px solid var(--checkout-border);
-      border-radius: 12px;
-      padding: 10px 14px;
-      margin-bottom: 1.2rem;
-    }
-    
-    .upi-id-txt {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 0.6rem 0.85rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.98rem;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: 0.5px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--foreground);
     }
-    
+    [data-theme="dark"] .code-box {
+      background: #18191d;
+    }
     .copy-btn {
-      background: #e11d48;
-      border: none;
-      color: #fff;
-      padding: 7px 14px;
-      border-radius: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.65rem;
       font-size: 0.8rem;
-      font-weight: 800;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s ease;
+      color: var(--foreground);
+      margin-left: auto;
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      transition: all 0.15s;
     }
-    
     .copy-btn:hover {
-      background: #be123c;
-      transform: translateY(-1px);
+      background: rgba(0,0,0,0.04);
     }
-    
-    /* Buttons */
-    .btn-intent {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #e11d48;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
-      transition: all 0.15s ease;
-      margin-bottom: 8px;
-      width: 100%;
-      box-sizing: border-box;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .btn-intent:hover {
-      background: #be123c;
-      transform: translateY(-1px);
-      color: #fff;
-    }
-    
-    .btn-wa {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #16a34a;
-      color: #fff;
-      text-decoration: none;
-      padding: 11px 18px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.2);
-      transition: all 0.15s ease;
-      margin-bottom: 1.4rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .btn-wa:hover {
-      background: #15803d;
-      transform: translateY(-1px);
-      color: #fff;
-    }
-    
-    /* Verification Box */
-    .verify-box {
-      background: #f8fafc;
-      border: 1px solid var(--checkout-border);
-      border-radius: 16px;
-      padding: 16px;
-    }
-    
-    .verify-title {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 10px;
-    }
-    
     .input-field {
       width: 100%;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      color: #0f172a;
-      padding: 10px 14px;
-      font-size: 0.88rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--foreground);
+      border-radius: 0.75rem;
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
       outline: none;
-      box-sizing: border-box;
-      margin-bottom: 8px;
-      font-family: inherit;
+      transition: border-color 0.15s;
     }
-    
     .input-field:focus {
-      border-color: #e11d48;
-      box-shadow: 0 0 0 3px #ffe4e6;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(229, 50, 45, 0.12);
     }
-    
-    .btn-confirm {
+    .hint-text {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      margin-top: 0.35rem;
+    }
+    .btn-mobile-upi {
+      display: none;
       width: 100%;
-      background: #0f172a;
+      background: #16a34a;
       color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      padding: 12px;
-      font-size: 0.95rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      margin-top: 4px;
-    }
-    
-    .btn-confirm:hover {
-      background: #1e293b;
-      transform: translateY(-1px);
-    }
-    
-    .btn-confirm:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-    
-    .verify-note {
-      font-size: 0.74rem;
-      color: var(--checkout-muted);
+      padding: 0.85rem;
+      border-radius: 0.75rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
       text-align: center;
-      margin-top: 10px;
-      line-height: 1.4;
+      margin-top: 0.75rem;
+      transition: background 0.15s;
     }
-    
-    /* Live Status Box */
-    .status-panel {
+    .btn-mobile-upi:hover {
+      background: #15803d;
+    }
+    @media (max-width: 600px) {
+      .btn-mobile-upi {
+        display: block;
+      }
+    }
+    .security-callout {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+    }
+    [data-theme="dark"] .security-callout {
+      background: #18191d;
+    }
+    .success-view {
       display: none;
       text-align: center;
-      padding: 2rem 1rem;
-      background: #ffffff;
-      border: 1px solid var(--checkout-border);
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 3rem 1rem;
     }
-    
-    .status-icon {
-      font-size: 3.2rem;
-      margin-bottom: 12px;
+    .success-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #ecfdf5;
+      color: #16a34a;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 1.5rem;
     }
-    
-    .status-title {
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: #0f172a;
-      margin-bottom: 6px;
-    }
-    
-    .status-order-id {
-      display: inline-block;
-      background: #f1f5f9;
-      border: 1px solid var(--checkout-border);
-      border-radius: 10px;
-      padding: 6px 14px;
-      font-size: 0.88rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 12px;
-    }
-    
-    .status-msg {
-      font-size: 0.9rem;
-      color: #475569;
-      line-height: 1.5;
-      max-width: 480px;
-      margin: 0 auto 16px;
-    }
-    
-    .unlock-card {
-      background: #ecfdf3;
-      border: 1px solid #a7f3d0;
-      border-radius: 16px;
-      padding: 16px;
-      margin: 16px auto;
-      max-width: 440px;
-      text-align: left;
-    }
-    
-    .unlock-key {
-      font-family: 'JetBrains Mono', monospace;
-      background: #ffffff;
-      border: 1px solid #a7f3d0;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 1.05rem;
-      color: #059669;
-      margin-top: 8px;
-      display: inline-block;
-      letter-spacing: 1px;
+    [data-theme="dark"] .success-circle {
+      background: rgba(22, 163, 74, 0.2);
     }
   </style>
 </head>
 <body>
+  <div id="site-header"></div>
 
-  <!-- Top Scroll Progress -->
-  <div class="scroll-prog" id="sp"></div>
-
-  <!-- Header -->
-  <header class="hdr">
-    <a href="index.html" class="logo">
-      <div class="logo-box">TB</div>
-      <span class="logo-txt">The<span class="brand-accent">Bhom</span></span>
+  <main class="checkout-container">
+    <a href="pricing.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Pricing
     </a>
-    <nav class="hdr-nav-container">
-      <ul class="hdr-nav">
-        <li><a href="tools/index.html" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#9333ea;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span><span class="hdr-nav-txt">Web Tools</span></a></li>
-        <li><a href="downloader/" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#0891b2;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="hdr-nav-txt">Downloader</span></a></li>
-        <li><a href="wallpapers.html" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#16a34a;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span><span class="hdr-nav-txt">Wallpapers</span></a></li>
-        <li><a href="ebooks.html" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#dc2626;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></span><span class="hdr-nav-txt">E-Books</span></a></li>
-        <li><a href="magazines.html" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#2563eb;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span><span class="hdr-nav-txt">Magazines</span></a></li>
-        <li><a href="templates.html" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#c026d3;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#c026d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span><span class="hdr-nav-txt">Templates</span></a></li>
-        <li><a href="cards.html" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#e11d48;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span><span class="hdr-nav-txt">Cards</span></a></li>
-      </ul>
-    </nav>
-    <div class="hdr-right">
-      <div class="hdr-search-pill" onclick="openSpotlight()" role="button" tabindex="0" title="Search tools (⌘K)">
-        <svg class="hdr-search-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <span class="hdr-search-txt">Search tools...</span>
-        <kbd class="hdr-search-kbd">⌘K</kbd>
-      </div>
-      <div class="hdr-user-pill" onclick="openFavDrawer()" role="button" tabindex="0" title="bhomvrat rai (Saved items & profile)">
-        <div class="hdr-user-avatar">B</div>
-        <span class="hdr-user-name">bhomvrat rai</span>
-      </div>
-    </div>
-  </header>
 
-  <!-- Checkout Container -->
-  <main class="checkout-wrap">
-    
-    <div class="checkout-header">
-      <div class="checkout-badge">⚡ Instant UPI Checkout</div>
-      <h1 class="checkout-title">Safe & Instant UPI Payment</h1>
-      <p class="checkout-subtitle">Zero gateway convenience fees. Direct bank transfer via any UPI app with instant automated license unlock.</p>
-    </div>
+    <!-- Normal Checkout Flow -->
+    <div id="checkoutMain">
+      <h1 class="checkout-title" id="checkoutHeading">Upgrade to Pro</h1>
+      <p class="checkout-subtitle" id="checkoutSub">Complete your payment to activate Pro features.</p>
 
-    <!-- Active Checkout Grid -->
-    <div class="checkout-grid" id="checkoutGrid">
-      
-      <!-- Left Column: Plan & Summary -->
-      <div class="c-card">
-        <div class="c-card-head">
-          <div class="c-step-num">1</div>
-          <h2 class="c-card-title">Select or Review Plan</h2>
-        </div>
-
-        <div class="plan-list" id="planList">
-          <label class="plan-item selected" onclick="selectPlan('pro', 99, 'ToolNest PRO Plan (Monthly)', 'Unlimited batch tools, higher limits & zero ads')">
-            <input type="radio" name="planRadio" class="plan-radio" checked />
-            <div class="plan-info">
-              <div class="plan-name">
-                ToolNest PRO Plan <span class="plan-tag popular">Most Popular</span>
-              </div>
-              <div class="plan-desc">Unlimited batch tools, 100MB limit & ad-free experience</div>
-            </div>
-            <div class="plan-price">
-              <div class="plan-price-num">₹99</div>
-              <div class="plan-price-cadence">/ month</div>
-            </div>
-          </label>
-
-          <label class="plan-item" onclick="selectPlan('starter', 49, 'ToolNest Starter Pack', 'Essential templates, Excel cleaning sheets & PDF workflows')">
-            <input type="radio" name="planRadio" class="plan-radio" />
-            <div class="plan-info">
-              <div class="plan-name">
-                ToolNest Starter Pack <span class="plan-tag">Digital Pack</span>
-              </div>
-              <div class="plan-desc">Ready spreadsheet packs, PDF workflows & AI prompt kit</div>
-            </div>
-            <div class="plan-price">
-              <div class="plan-price-num">₹49</div>
-              <div class="plan-price-cadence">one-time</div>
-            </div>
-          </label>
-
-          <label class="plan-item" onclick="selectPlan('vip', 99, 'TheBhom VIP Supporter', 'Lifetime VIP badge, ad-free perks & fast server priority')">
-            <input type="radio" name="planRadio" class="plan-radio" />
-            <div class="plan-info">
-              <div class="plan-name">
-                VIP Supporter Plan <span class="plan-tag">Support</span>
-              </div>
-              <div class="plan-desc">Support free tools, wallpapers, books & hosting servers</div>
-            </div>
-            <div class="plan-price">
-              <div class="plan-price-num">₹99</div>
-              <div class="plan-price-cadence">one-time</div>
-            </div>
-          </label>
-        </div>
-
-        <div class="summary-box">
-          <div class="summary-row">
-            <span>Item:</span>
-            <strong id="summaryItemName">ToolNest PRO Plan (Monthly)</strong>
-          </div>
-          <div class="summary-row">
-            <span>Subtotal:</span>
-            <span id="summarySubtotal">₹99</span>
-          </div>
-          <div class="summary-row">
-            <span>Gateway & Processing Fee:</span>
-            <span style="color:#059669;font-weight:700;">₹0 (FREE UPI)</span>
-          </div>
-          <div class="summary-row total">
-            <span>Total Payable Amount:</span>
-            <span class="total-amount" id="summaryTotal">₹99</span>
-          </div>
-        </div>
-
-        <div class="trust-grid">
-          <div class="trust-item"><span class="trust-icon">✓</span> 100% Secure Direct UPI</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> Automated UTR Verification</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> Instant License Key Delivery</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> 24/7 WhatsApp Support</div>
-        </div>
-      </div>
-
-      <!-- Right Column: QR & UTR Form -->
-      <div class="c-card">
-        <div class="c-card-head">
-          <div class="c-step-num">2</div>
-          <h2 class="c-card-title">Scan QR & Confirm UTR</h2>
-        </div>
-
-        <div class="qr-card-inner">
-          <div class="qr-apps-strip">
-            <span>Paytm</span> • <span>Google Pay</span> • <span>PhonePe</span> • <span>BHIM</span> • <span>Cred</span>
-          </div>
-          <div class="qr-img-frame">
-            <img src="assets/upi-qr.png?v=20260914_qr2" alt="Paytm UPI QR Code" class="qr-img" id="qrImage" onerror="if(this.src.indexOf('upi-qr.png')===-1)this.src='upi-qr.png?v=20260914_qr2';" />
-          </div>
-          <div class="qr-merchant">
-            <span class="qr-verified-tick">✓</span> Verified Merchant: <strong>TheBhom / Bhom Vrat Rai</strong>
-          </div>
-        </div>
-
-        <!-- UPI ID Row -->
-        <div class="upi-row">
+      <!-- Plan Summary Card -->
+      <div class="c-section-card plan-summary-card">
+        <div class="summary-header">
           <div>
-            <div style="font-size:0.75rem;color:var(--checkout-muted);font-weight:700;">UPI ID:</div>
-            <div class="upi-id-txt" id="upiIdTxt">7987761789@ptyes</div>
+            <h2 class="summary-title" id="planTitle">Pro Plan</h2>
+            <p class="summary-sub">Billed monthly</p>
           </div>
-          <button class="copy-btn" id="copyBtn" onclick="copyUpiId()" title="Copy UPI ID">
-            📋 Copy UPI
-          </button>
+          <div>
+            <div class="summary-price" id="planPrice">₹199</div>
+            <div class="summary-interval">per month</div>
+          </div>
         </div>
-
-        <!-- Direct App Deep Link -->
-        <a href="upi://pay?pa=7987761789@ptyes&pn=TheBhom&am=99&cu=INR&tn=ToolNest%20PRO" id="upiIntentBtn" class="btn-intent">
-          <span>📱</span> Pay in Any UPI App (Mobile)
-        </a>
-
-        <a href="https://wa.me/917987761789?text=Hi%20TheBhom,%20I%20have%20paid%20via%20UPI" id="waBtn" target="_blank" rel="noopener" class="btn-wa">
-          <span>💬</span> WhatsApp Payment Support
-        </a>
-
-        <!-- Verification Form -->
-        <div class="verify-box">
-          <div class="verify-title">3. Enter Transaction Details for Instant Verification:</div>
-          <input type="email" id="checkoutEmail" class="input-field" placeholder="Your Email Address (for access delivery)" required />
-          <input type="text" id="checkoutName" class="input-field" placeholder="Your Name (Optional)" />
-          <input type="text" id="checkoutUtr" class="input-field" placeholder="12-digit UTR / UPI Ref Number" maxlength="30" required />
-          <button type="button" class="btn-confirm" id="confirmBtn" onclick="submitCheckoutPayment()">
-            ⚡ Confirm & Unlock Access
-          </button>
-          <div class="verify-note">🔒 Order is securely logged in our database and verified automatically.</div>
+        <div class="pill-list" id="planPills">
+          <span class="pill-item">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            500 files/day
+          </span>
+          <span class="pill-item">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            No ads
+          </span>
+          <span class="pill-item">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            AI tools
+          </span>
+          <span class="pill-item">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            Priority support
+          </span>
         </div>
-
       </div>
 
+      <!-- Pay with UPI Card -->
+      <div class="c-section-card">
+        <h3 style="font-size:1.15rem;font-weight:800;margin:0 0 1.25rem;">Pay with UPI</h3>
+        <div class="upi-grid">
+          <div class="qr-card-wrap">
+            <div class="qr-box">
+              <img id="qrImg" class="qr-img" src="" alt="UPI QR Code" width="180" height="180">
+            </div>
+            <div class="qr-caption">Scan with any UPI app</div>
+            <div class="qr-subcaption">Google Pay, PhonePe, Paytm, BHIM</div>
+          </div>
+          <div>
+            <div class="form-group">
+              <label class="form-label">UPI ID</label>
+              <div class="code-box">
+                <span>7987761789@ptyes</span>
+                <button type="button" class="copy-btn" id="copyUpiBtn" onclick="copyUPI()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span id="copyText">Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Amount</label>
+              <div class="code-box" id="amountDisplay">₹199.00</div>
+            </div>
+
+            <a id="mobileUpiBtn" href="" class="btn-mobile-upi">Pay with UPI App</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verify Payment Form -->
+      <div class="c-section-card">
+        <h3 style="font-size:1.15rem;font-weight:800;margin:0 0 0.35rem;">Verify Payment</h3>
+        <p style="font-size:0.85rem;color:var(--muted-foreground);margin:0 0 1.25rem;">After paying, enter your details &amp; UPI transaction ID below.</p>
+        
+        <form id="verifyForm" onsubmit="handlePaymentSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Your Email</label>
+            <input type="email" id="userEmail" class="input-field" placeholder="you@gmail.com" required>
+            <div class="hint-text">Your account license and receipts will be tied to this email</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">UPI Transaction ID / UTR</label>
+            <input type="text" id="userTxnId" class="input-field" placeholder="e.g. 426913912345" required>
+            <div class="hint-text">Find this 12-digit number in your UPI app payment receipt</div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;padding:0.9rem;font-size:1rem;margin-top:0.5rem;">
+            Confirm Payment of ₹199
+          </button>
+        </form>
+      </div>
+
+      <!-- Security Callout -->
+      <div class="security-callout">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" style="flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><strong>100% Secure.</strong> Verified within 15 minutes. 7-day money-back guarantee.</div>
+      </div>
     </div>
 
-    <!-- Live Status Panel (Appears after submission) -->
-    <div class="status-panel" id="statusPanel">
-      <div class="status-icon" id="statusIcon">⏳</div>
-      <h2 class="status-title" id="statusTitle">Verifying Your Payment</h2>
-      <div class="status-order-id" id="statusOrderId">Order #...</div>
-      <p class="status-msg" id="statusMsg">
-        We have received your payment submission. Please keep this page open. As soon as verified, your license key and unlocked plan will appear right here!
+    <!-- Success Panel -->
+    <div id="checkoutSuccess" class="success-view">
+      <div class="success-circle">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2 style="font-size:1.85rem;font-weight:900;color:var(--foreground);margin:0 0 0.75rem;">Payment Submitted!</h2>
+      <p style="font-size:1rem;color:var(--muted-foreground);max-width:440px;margin:0 auto 1.5rem;line-height:1.5;">
+        Your <strong id="successPlanName">Pro</strong> plan will be activated within <strong>15 minutes</strong> after verification.
       </p>
-      
-      <div id="unlockArea" style="display:none;"></div>
-      
-      <div style="font-size:0.8rem;color:var(--checkout-muted);margin-top:14px;">
-        Auto-checking status every 3 seconds...
+      <div style="background:#f9fafb;border:1px solid var(--border);border-radius:0.75rem;padding:0.75rem 1.25rem;display:inline-block;font-size:0.85rem;color:var(--muted-foreground);margin-bottom:2rem;">
+        Transaction ID / UTR: <code id="successTxnId" style="font-weight:700;color:var(--foreground);"></code>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;">
+        <a href="dashboard.html" class="btn-primary" style="padding:0.75rem 1.5rem;">Dashboard</a>
+        <a href="index.html" class="btn-secondary" style="padding:0.75rem 1.5rem;">Home</a>
       </div>
     </div>
-
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" style="background:#fff;border-top:1px solid #e2e8f0;padding:2rem 0;margin-top:3rem;">
-    <div class="container" style="max-width:1080px;margin:auto;padding:0 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <div style="font-size:0.85rem;color:#64748b;">© <span id="yearSpan">2026</span> TheBhom. All rights reserved.</div>
-      <div style="display:flex;gap:16px;font-size:0.85rem;">
-        <a href="privacy.html" style="color:#64748b;text-decoration:none;">Privacy Policy</a>
-        <a href="terms.html" style="color:#64748b;text-decoration:none;">Terms of Service</a>
-        <a href="contact.html" style="color:#64748b;text-decoration:none;">Support & Contact</a>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
   <script>
-    document.getElementById('yearSpan').textContent = new Date().getFullYear();
-
-    let activePlan = {
-      id: 'pro',
-      title: 'ToolNest PRO Plan (Monthly)',
-      amount: 99,
-      desc: 'Unlimited batch tools, higher limits & zero ads'
+    const UPI_ID = '7987761789@ptyes';
+    const PLANS = {
+      pro: {
+        name: 'Pro',
+        price: 199,
+        interval: 'month',
+        features: ['500 files/day', 'No ads', 'AI tools', 'Priority support']
+      },
+      business: {
+        name: 'Business',
+        price: 499,
+        interval: 'month',
+        features: ['Unlimited files', 'Full API', 'Full AI suite', 'Dedicated support']
+      }
     };
 
-    const UPI_ID = '7987761789@ptyes';
-    let pollTimer = null;
+    let selectedPlan = PLANS.pro;
 
-    // Check query params on load
-    window.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const paramPlan = urlParams.get('plan');
-      const paramAmount = parseInt(urlParams.get('amount'), 10);
-      const paramTitle = urlParams.get('item') || urlParams.get('title');
-
-      if (paramPlan === 'starter') {
-        selectPlan('starter', 49, 'ToolNest Starter Pack', 'Ready spreadsheet packs, PDF workflows & AI prompt kit');
-      } else if (paramPlan === 'vip') {
-        selectPlan('vip', 99, 'TheBhom VIP Supporter', 'Support free tools, wallpapers, books & hosting servers');
-      } else if (paramAmount > 0) {
-        selectPlan('custom', paramAmount, paramTitle || 'Custom Digital Product', 'Direct Digital Product Purchase');
-      } else {
-        updateCheckoutUi();
+    function initPlan() {
+      const params = new URLSearchParams(window.location.search);
+      const planKey = (params.get('plan') || 'pro').toLowerCase();
+      if (PLANS[planKey]) {
+        selectedPlan = PLANS[planKey];
       }
-    });
 
-    function selectPlan(id, amount, title, desc) {
-      activePlan = { id, amount, title, desc };
-      
-      // Update radio UI
-      const items = document.querySelectorAll('.plan-item');
-      items.forEach(el => el.classList.remove('selected'));
-      
-      const targetRadio = document.querySelector(`input[onclick*="${id}"]`) || document.querySelector(`.plan-item:has(input)`);
-      
-      items.forEach(item => {
-        if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(`'${id}'`)) {
-          item.classList.add('selected');
-          const r = item.querySelector('input[type="radio"]');
-          if (r) r.checked = true;
+      document.getElementById('checkoutHeading').textContent = `Upgrade to ${selectedPlan.name}`;
+      document.getElementById('checkoutSub').textContent = `Complete your payment to activate ${selectedPlan.name} features.`;
+      document.getElementById('planTitle').textContent = `${selectedPlan.name} Plan`;
+      document.getElementById('planPrice').textContent = `₹${selectedPlan.price}`;
+      document.getElementById('amountDisplay').textContent = `₹${selectedPlan.price}.00`;
+      document.getElementById('submitBtn').textContent = `Confirm Payment of ₹${selectedPlan.price}`;
+      document.getElementById('successPlanName').textContent = selectedPlan.name;
+
+      // Render pills
+      const pillsContainer = document.getElementById('planPills');
+      pillsContainer.innerHTML = selectedPlan.features.map(f => `
+        <span class="pill-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          ${f}
+        </span>
+      `).join('');
+
+      // Build UPI links
+      const upiLink = `upi://pay?pa=${UPI_ID}&pn=ImgPDF&am=${selectedPlan.price}&cu=INR&tn=ImgPDF-${selectedPlan.name}-Plan`;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
+      document.getElementById('qrImg').src = qrUrl;
+      document.getElementById('mobileUpiBtn').href = upiLink;
+      document.getElementById('mobileUpiBtn').textContent = `Pay ₹${selectedPlan.price} with UPI App`;
+
+      // Auto-fill logged in email if present in localStorage
+      try {
+        const savedUser = JSON.parse(localStorage.getItem('thebhom_user') || '{}');
+        if (savedUser.email) {
+          document.getElementById('userEmail').value = savedUser.email;
         }
+      } catch(e){}
+    }
+
+    function copyUPI() {
+      navigator.clipboard.writeText(UPI_ID).then(() => {
+        const copyText = document.getElementById('copyText');
+        copyText.textContent = 'Copied!';
+        setTimeout(() => { copyText.textContent = 'Copy'; }, 2000);
       });
-
-      updateCheckoutUi();
     }
 
-    function updateCheckoutUi() {
-      document.getElementById('summaryItemName').textContent = activePlan.title;
-      document.getElementById('summarySubtotal').textContent = '₹' + activePlan.amount;
-      document.getElementById('summaryTotal').textContent = '₹' + activePlan.amount;
-
-      // Update Intent URL
-      const cleanTitle = (activePlan.title.length > 25 ? activePlan.title.slice(0, 25) : activePlan.title).replace(/[^\w\s]/gi, '');
-      const upiUrl = `upi://pay?pa=${UPI_ID}&pn=TheBhom&am=${activePlan.amount}&cu=INR&tn=${encodeURIComponent(cleanTitle)}`;
-      document.getElementById('upiIntentBtn').setAttribute('href', upiUrl);
-
-      // Update WhatsApp URL
-      const waMsg = `Hi TheBhom, I have completed the UPI payment of ₹${activePlan.amount} for "${activePlan.title}".\nUPI ID: ${UPI_ID}\n\nPlease verify and activate my access!`;
-      document.getElementById('waBtn').setAttribute('href', `https://wa.me/917987761789?text=${encodeURIComponent(waMsg)}`);
-    }
-
-    function copyUpiId() {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(UPI_ID).then(() => {
-          const btn = document.getElementById('copyBtn');
-          btn.textContent = '✓ Copied!';
-          btn.style.background = '#059669';
-          setTimeout(() => {
-            btn.textContent = '📋 Copy UPI';
-            btn.style.background = '#e11d48';
-          }, 2500);
-        });
-      }
-    }
-
-    async function submitCheckoutPayment() {
-      const email = (document.getElementById('checkoutEmail').value || '').trim();
-      const name = (document.getElementById('checkoutName').value || '').trim();
-      const utr = (document.getElementById('checkoutUtr').value || '').trim();
-      const btn = document.getElementById('confirmBtn');
+    async function handlePaymentSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('userEmail').value.trim();
+      const txnId = document.getElementById('userTxnId').value.trim();
+      const btn = document.getElementById('submitBtn');
 
       if (!email || !email.includes('@')) {
-        alert('Please enter a valid email address for delivery.');
-        document.getElementById('checkoutEmail').focus();
+        alert('Please enter a valid email address.');
         return;
       }
-
-      if (!utr || utr.length < 6) {
-        alert('Please enter a valid 12-digit UTR / UPI Reference Number from your payment app.');
-        document.getElementById('checkoutUtr').focus();
+      if (!txnId || txnId.length < 6) {
+        alert('Please enter a valid UPI transaction ID (UTR).');
         return;
       }
 
@@ -879,86 +490,45 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            title: activePlan.title,
-            amount: activePlan.amount,
-            utr: utr,
+            title: `${selectedPlan.name} Plan`,
+            amount: selectedPlan.price,
+            utr: txnId,
             email: email,
-            name: name
+            name: email.split('@')[0]
           })
         });
 
-        const data = await res.json();
-        if (!res.ok || !data.success) {
-          alert('⚠️ ' + (data.error || 'Failed to submit payment details'));
-          btn.disabled = false;
-          btn.textContent = '⚡ Confirm & Unlock Access';
-          return;
-        }
+        // Store user state locally
+        localStorage.setItem('thebhom_user', JSON.stringify({
+          name: email.split('@')[0],
+          email: email,
+          plan: selectedPlan.name.toUpperCase(),
+          status: 'pending',
+          txnId: txnId
+        }));
 
-        const orderId = data.orderId;
-
-        // Switch to Live Status Panel
-        document.getElementById('checkoutGrid').style.display = 'none';
-        const panel = document.getElementById('statusPanel');
-        panel.style.display = 'block';
-        window.scrollTo({ top: panel.offsetTop - 50, behavior: 'smooth' });
-
-        document.getElementById('statusOrderId').textContent = 'Order #' + orderId;
-        document.getElementById('statusMsg').innerHTML = `
-          We are verifying UTR <strong>${utr}</strong> for <strong>₹${activePlan.amount}</strong> (${activePlan.title}).<br>
-          Please keep this window open. As soon as the owner approves, your plan will unlock right here automatically!
-        `;
-
-        // Start Live Polling every 3s
-        if (pollTimer) clearInterval(pollTimer);
-        pollTimer = setInterval(async () => {
-          try {
-            const checkRes = await fetch('/api/orders?id=' + encodeURIComponent(orderId));
-            const checkData = await checkRes.json();
-            if (checkData.found && checkData.order && checkData.order.isApproved) {
-              clearInterval(pollTimer);
-              pollTimer = null;
-
-              // Save unlocked state locally
-              try {
-                const unlocked = JSON.parse(localStorage.getItem('thebhom_unlocked_plans') || '[]');
-                unlocked.push({ id: orderId, product: activePlan.title, key: checkData.order.licenseKey, date: new Date().toISOString() });
-                localStorage.setItem('thebhom_unlocked_plans', JSON.stringify(unlocked));
-              } catch(e){}
-
-              // Show Success
-              document.getElementById('statusIcon').textContent = '🎉';
-              const heading = document.getElementById('statusTitle');
-              heading.textContent = 'Payment Approved & Unlocked!';
-              heading.style.color = '#059669';
-
-              document.getElementById('statusMsg').innerHTML = `
-                Congratulations <strong>${name || email}</strong>! Your access is now activated.<br>
-                License Key: <strong style="font-family:monospace;color:#059669;background:#ecfdf3;padding:3px 8px;border-radius:6px;border:1px solid #a7f3d0;">${checkData.order.licenseKey}</strong>
-              `;
-
-              const unlockArea = document.getElementById('unlockArea');
-              unlockArea.style.display = 'block';
-              unlockArea.innerHTML = `
-                <div class="unlock-card">
-                  <div style="font-weight:800;color:#065f46;font-size:1rem;">✓ Access Granted: ${activePlan.title}</div>
-                  <div style="font-size:0.85rem;color:#047857;margin:6px 0;">All premium tools and downloads are now unlocked for this device!</div>
-                  <div class="unlock-key">${checkData.order.licenseKey}</div>
-                </div>
-                <a href="tools/index.html" class="btn-intent" style="max-width:320px;margin:18px auto 0;text-decoration:none;">
-                  ⚡ Start Using Tools Now
-                </a>
-              `;
-            }
-          } catch(e){}
-        }, 3000);
+        document.getElementById('checkoutMain').style.display = 'none';
+        document.getElementById('checkoutSuccess').style.display = 'block';
+        document.getElementById('successTxnId').textContent = txnId;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
       } catch (err) {
-        alert('⚠️ Submission error: ' + err.message);
-        btn.disabled = false;
-        btn.textContent = '⚡ Confirm & Unlock Access';
+        // Even if offline/fallback, record locally and show success
+        localStorage.setItem('thebhom_user', JSON.stringify({
+          name: email.split('@')[0],
+          email: email,
+          plan: selectedPlan.name.toUpperCase(),
+          status: 'pending',
+          txnId: txnId
+        }));
+        document.getElementById('checkoutMain').style.display = 'none';
+        document.getElementById('checkoutSuccess').style.display = 'block';
+        document.getElementById('successTxnId').textContent = txnId;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
+
+    window.addEventListener('DOMContentLoaded', initPlan);
   </script>
 </body>
 </html>

@@ -170,12 +170,6 @@ function getBasePath() {
 // ===== RENDER HEADER =====
 function renderHeader(activePage=''){
   const base = getBasePath();
-  const navItems = SUBDOMAINS.map(s => {
-    const isAct = (s.id === activePage);
-    const href = base + s.url;
-    return `<li><a href="${href}" class="hdr-nav-link ${isAct?'active':''}"><span class="hdr-nav-ic" style="color:${s.color};">${s.svg}</span><span class="hdr-nav-txt">${s.name}</span></a></li>`;
-  }).join('');
-
   const currentTheme = getStoredTheme();
   const isDark = (currentTheme === 'dark' || currentTheme === 'navy' || currentTheme === 'purple');
   const themeSvg = isDark
@@ -185,13 +179,19 @@ function renderHeader(activePage=''){
   return `
 <div class="scroll-prog" id="sp"></div>
 <header class="hdr">
-  <a href="${base}index.html" class="logo">
-    <div class="logo-box">TB</div>
-    <span class="logo-txt">The<span class="brand-accent">Bhom</span></span>
+  <a href="${base}index.html" class="logo" title="ImgPDF Tools">
+    <div class="logo-box" style="background:#e5322d;border-radius:11px;color:#fff;font-weight:900;">IP</div>
+    <span class="logo-txt">Img<span class="brand-accent" style="color:#e5322d;">PDF</span></span>
   </a>
   <nav class="hdr-nav-container">
     <ul class="hdr-nav">
-      ${navItems}
+      <li><a href="${base}tools/index.html#image" class="hdr-nav-link ${activePage==='image'?'active':''}"><span class="hdr-nav-ic" style="color:#16a34a;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span><span class="hdr-nav-txt" style="color:#16a34a;font-weight:600;">Image Tools</span></a></li>
+      <li><a href="${base}tools/index.html#pdf" class="hdr-nav-link ${activePage==='pdf'?'active':''}"><span class="hdr-nav-ic" style="color:#dc2626;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></span><span class="hdr-nav-txt" style="color:#dc2626;font-weight:600;">PDF Tools</span></a></li>
+      <li><a href="${base}tools/ai.html" class="hdr-nav-link ${activePage==='ai'?'active':''}"><span class="hdr-nav-ic" style="color:#9333ea;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span><span class="hdr-nav-txt" style="color:#9333ea;font-weight:600;">AI Tools</span></a></li>
+      <li><a href="${base}pricing.html" class="hdr-nav-link ${activePage==='pricing'?'active':''}"><span class="hdr-nav-txt" style="font-weight:600;color:var(--text);">Pricing</span></a></li>
+      <li><a href="${base}downloader/" class="hdr-nav-link"><span class="hdr-nav-txt">Downloader</span></a></li>
+      <li><a href="${base}wallpapers.html" class="hdr-nav-link"><span class="hdr-nav-txt">Wallpapers</span></a></li>
+      <li><a href="${base}ebooks.html" class="hdr-nav-link"><span class="hdr-nav-txt">E-Books</span></a></li>
     </ul>
   </nav>
   <div class="hdr-right">
@@ -206,9 +206,20 @@ function renderHeader(activePage=''){
     <button class="hdr-theme-btn" id="hdrThemeBtn" onclick="quickToggleTheme()" title="Toggle Theme" aria-label="Toggle Theme">
       ${themeSvg}
     </button>
-    <div class="hdr-user-pill" onclick="openFavDrawer()" role="button" tabindex="0" title="bhomvrat rai (Saved items & profile)">
-      <div class="hdr-user-avatar">B</div>
+    <div class="hdr-user-pill" id="userPillBtn" onclick="toggleUserDropdown(event)" role="button" tabindex="0" title="bhomvrat rai (Profile & Dashboard)" style="position:relative;">
+      <div class="hdr-user-avatar" style="background:#2563eb;color:#fff;">B</div>
       <span class="hdr-user-name">bhomvrat rai</span>
+      <div class="user-menu-dropdown" id="userMenuDropdown" style="display:none;position:absolute;top:44px;right:0;width:230px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.12);z-index:9999;padding:12px;text-align:left;">
+        <div style="padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid #e5e7eb;">
+          <div style="font-weight:800;font-size:0.92rem;color:#111827;">bhomvrat rai</div>
+          <div style="font-size:0.75rem;color:#6b7280;word-break:break-all;">bhomvratrai7225@gmail.com</div>
+          <span style="display:inline-block;margin-top:6px;background:#f3e8ff;color:#7e22ce;padding:2px 8px;border-radius:999px;font-size:0.7rem;font-weight:800;">👑 BUSINESS</span>
+        </div>
+        <a href="${base}dashboard.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#374151;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">📊 Dashboard</a>
+        <a href="${base}admin/index.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#b45309;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='transparent'">🛡️ Admin Panel</a>
+        <a href="${base}pricing.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#2563eb;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='transparent'">⚡ Plans & Pricing</a>
+        <a href="#" onclick="showToast('Logged out successfully','ok');return false;" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#dc2626;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='transparent'">↪ Logout</a>
+      </div>
     </div>
     <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -222,79 +233,96 @@ function renderHeader(activePage=''){
     <button class="mob-theme-pill" data-theme="dark" onclick="setAppTheme('dark')">🌙 Dark</button>
   </div>
   <a href="${base}index.html">🏠 Home</a>
-  <a href="#" onclick="openSpotlight();return false;" style="color:#c084fc;font-weight:700;">🔍 Global Search (Cmd+K)</a>
-  ${SUBDOMAINS.map(s=>`<a href="${base}${s.url}">${s.label}</a>`).join('')}
-  <a href="#" onclick="openFavDrawer();return false;" style="color:#f472b6;font-weight:700;">❤️ My Saved Items (<span class="fav-count-badge">0</span>)</a>
-  <a href="#" onclick="toggleLanguage();return false;">🌐 Switch Language (HI/EN)</a>
-  <a href="#" onclick="triggerAppInstall();return false;" style="color:#a855f7;font-weight:700;">📱 Install TheBhom App</a>
+  <a href="${base}tools/index.html#image" style="color:#16a34a;font-weight:700;">🖼️ Image Tools</a>
+  <a href="${base}tools/index.html#pdf" style="color:#dc2626;font-weight:700;">📄 PDF Tools</a>
+  <a href="${base}tools/ai.html" style="color:#9333ea;font-weight:700;">✨ AI Tools</a>
+  <a href="${base}pricing.html" style="font-weight:700;">⚡ Plans & Pricing</a>
+  <a href="${base}dashboard.html">📊 User Dashboard</a>
+  <a href="${base}admin/index.html">🛡️ Admin Panel</a>
+  <a href="#" onclick="openSpotlight();return false;" style="color:#2563eb;font-weight:700;">🔍 Global Search (Cmd+K)</a>
 </nav>
 `;
 }
 
+// User dropdown toggle
+function toggleUserDropdown(e) {
+  if (e) e.stopPropagation();
+  const d = document.getElementById('userMenuDropdown');
+  if (d) {
+    d.style.display = (d.style.display === 'none' || !d.style.display) ? 'block' : 'none';
+  }
+}
+document.addEventListener('click', () => {
+  const d = document.getElementById('userMenuDropdown');
+  if (d) d.style.display = 'none';
+});
+
 // ===== RENDER FOOTER =====
 function renderFooter(){
+  const base = getBasePath();
   return `
-<div class="div"></div>
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="f-brand">
-        <a href="index.html" class="logo">
-          <div class="logo-box">TB</div>
-          <span class="logo-txt">The<span>Bhom</span>.in</span>
-        </a>
-        <p>India का #1 Free Digital Content Platform। HD/4K Wallpapers, E-Books, Magazines, Templates, Anniversary Cards और Video Downloader — सब कुछ बिल्कुल Free!</p>
-        <div style="margin:1rem 0;">
-          <button class="pwa-btn" onclick="triggerAppInstall()">📲 Install Android App (PWA)</button>
-        </div>
-        <div class="f-social">
-          <a class="f-soc" href="#" title="Instagram">📸</a>
-          <a class="f-soc" href="#" title="Facebook">📘</a>
-          <a class="f-soc" href="#" title="WhatsApp">💬</a>
-          <a class="f-soc" href="#" title="YouTube">▶️</a>
-          <a class="f-soc" href="#" title="Telegram">✈️</a>
-        </div>
-      </div>
+<div class="div" style="border-top:1px solid #e5e7eb;"></div>
+<footer class="footer" style="background:#f9fafb;border-top:1px solid #e5e7eb;padding:3.5rem 2rem 2rem;color:#4b5563;">
+  <div class="footer-inner" style="max-width:1200px;margin:0 auto;">
+    <div class="footer-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2.5rem;">
+      
       <div class="f-col">
-        <h5>Content & Tools</h5>
-        <ul>
-          <li><a href="tools/index.html">🛠️ Online Tools (ToolNest)</a></li>
-          <li><a href="downloader/">⚡ Video Downloader</a></li>
-          <li><a href="wallpapers.html">🖼️ 4K Wallpapers</a></li>
-          <li><a href="ebooks.html">📚 E-Books</a></li>
-          <li><a href="magazines.html">📰 Magazines</a></li>
-          <li><a href="templates.html">🎨 Templates</a></li>
-          <li><a href="cards.html">💌 Anniversary Cards</a></li>
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Image Tools</h5>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="${base}tools/compress-image.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Compress Image</a></li>
+          <li><a href="${base}tools/resize-image-online.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Resize Image</a></li>
+          <li><a href="${base}tools/compress-image.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Crop Image</a></li>
+          <li><a href="${base}tools/convert-png-to-jpg.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Convert to JPG</a></li>
+          <li><a href="${base}tools/compress-image.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Remove Background</a></li>
+          <li><a href="${base}tools/watermark-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Watermark Image</a></li>
         </ul>
       </div>
+
       <div class="f-col">
-        <h5>All Hubs & Apps</h5>
-        <ul>
-          <li><a href="tools/index.html">thebhom.in/tools</a></li>
-          <li><a href="downloader/">thebhom.in/downloader</a></li>
-          <li><a href="wallpapers.html">thebhom.in/wallpapers</a></li>
-          <li><a href="ebooks.html">thebhom.in/ebooks</a></li>
-          <li><a href="magazines.html">thebhom.in/magazines</a></li>
-          <li><a href="templates.html">thebhom.in/templates</a></li>
-          <li><a href="cards.html">thebhom.in/cards</a></li>
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">PDF Tools</h5>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="${base}tools/merge-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Merge PDF</a></li>
+          <li><a href="${base}tools/split-pdf-pages.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Split PDF</a></li>
+          <li><a href="${base}tools/merge-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Compress PDF</a></li>
+          <li><a href="${base}tools/pdf-to-image.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">PDF to JPG</a></li>
+          <li><a href="${base}tools/convert-jpg-to-webp.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">JPG to PDF</a></li>
+          <li><a href="${base}tools/watermark-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Edit PDF</a></li>
+          <li><a href="${base}tools/rotate-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Sign PDF</a></li>
         </ul>
       </div>
+
       <div class="f-col">
-        <h5>Legal & Info</h5>
-        <ul>
-          <li><a href="about.html">About TheBhom</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="disclaimer.html">DMCA & Disclaimer</a></li>
-          <li><a href="terms.html">Terms & Conditions</a></li>
-          <li><a href="#" onclick="openUpiPaymentModal({title:'Support TheBhom Platform', amount:99, desc:'Support free tools, wallpapers, books & hosting'});return false;" style="color:#38bdf8;font-weight:700;">⚡ Support via UPI / QR</a></li>
-          <li><a href="sitemap.xml">Sitemap</a></li>
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">AI Tools</h5>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="${base}tools/ai.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">PDF Summarizer</a></li>
+          <li><a href="${base}tools/ai.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Chat with PDF</a></li>
+          <li><a href="${base}tools/ai.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Translate PDF</a></li>
+          <li><a href="${base}tools/ai.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">PDF to Markdown</a></li>
+          <li><a href="${base}tools/clean-csv.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Clean CSV Data</a></li>
         </ul>
       </div>
+
+      <div class="f-col">
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Company</h5>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="${base}pricing.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Pricing</a></li>
+          <li><a href="${base}checkout.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Checkout & UPI</a></li>
+          <li><a href="${base}dashboard.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">My Dashboard</a></li>
+          <li><a href="${base}privacy-policy.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Privacy Policy</a></li>
+          <li><a href="${base}terms.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Terms of Service</a></li>
+          <li><a href="${base}contact.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 TheBhom.in — Made with ❤️ in India 🇮🇳 | All Content Free</span>
-      <span>Domain: thebhom.in | Google AdSense & Play Ready</span>
+
+    <div class="footer-bottom" style="border-top:1px solid #e5e7eb;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.85rem;color:#6b7280;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:28px;height:28px;border-radius:8px;background:#e5322d;color:#fff;display:grid;place-items:center;font-weight:900;font-size:0.85rem;">IP</div>
+        <span style="font-weight:700;color:#111827;">ImgPDF</span>
+      </div>
+      <div>&copy; ${new Date().getFullYear()} ImgPDF. All rights reserved.</div>
+      <div style="font-size:0.8rem;color:#9ca3af;">🔒 Uploaded files are automatically deleted after 24 hours.</div>
     </div>
   </div>
 </footer>
