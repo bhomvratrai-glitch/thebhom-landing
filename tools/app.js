@@ -889,9 +889,12 @@ function renderProducts() {
       <div class="product-thumb" style="font-size:36px;display:grid;place-items:center;height:90px;background:var(--soft,#eff6ff);border-radius:12px;margin-bottom:12px;">${esc(p.icon)}</div>
       <h3 style="margin:0 0 6px;">${esc(p.name)}</h3>
       <p style="color:var(--muted);font-size:13px;margin:0 0 14px;">${esc(p.desc)}</p>
-      <div class="product-meta" style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="product-meta" style="display:flex;justify-content:space-between;align-items:center;gap:6px;">
         <span class="price-sm" style="font-weight:900;font-size:1.1rem;">₹${p.price}</span>
-        <button class="btn primary btn-sm" data-add="${p.id}">Add to Cart</button>
+        <div style="display:flex;gap:6px;">
+          <button class="btn secondary btn-sm" data-add="${p.id}" title="Add to Cart">Add to Cart</button>
+          <button class="btn primary btn-sm" onclick="if(window.openUpiPaymentModal){openUpiPaymentModal({title:'${esc(p.name)}',amount:${p.price},desc:'${esc(p.desc)}'});}else{toast('Paytm UPI: 7987761789@ptyes');}" title="Buy via UPI">⚡ Buy Now</button>
+        </div>
       </div>
     </article>`
     )
@@ -930,7 +933,7 @@ function setupCart() {
          <strong>Total Amount:</strong>
          <strong style="color:var(--primary);">₹${total}</strong>
        </div>
-       <button class="btn primary" id="checkoutBtn" style="margin-top:14px;width:100%;">Proceed to Instant Checkout</button>`;
+       <button class="btn primary" id="checkoutBtn" style="margin-top:14px;width:100%;">⚡ Proceed to Instant UPI Checkout</button>`;
 
     document.querySelectorAll('[data-del]').forEach(
       (b) =>
@@ -942,7 +945,26 @@ function setupCart() {
     );
 
     const chk = $('checkoutBtn');
-    if (chk) chk.onclick = () => toast('Razorpay Checkout gateway connection ready');
+    if (chk) {
+      chk.onclick = () => {
+        const cartItems = getCart();
+        if (!cartItems.length) {
+          toast('Your cart is empty');
+          return;
+        }
+        const cartTotal = cartItems.reduce((s, x) => s + (products.find((p) => p.id === x.id)?.price || 0) * x.qty, 0);
+        const itemNames = cartItems.map(x => products.find(p => p.id === x.id)?.name || x.id).join(', ');
+        if (window.openUpiPaymentModal) {
+          window.openUpiPaymentModal({
+            title: `ToolNest Cart (${cartItems.length} Items)`,
+            amount: cartTotal > 0 ? cartTotal : 49,
+            desc: itemNames
+          });
+        } else {
+          toast('Paytm UPI Checkout Ready: 7987761789@ptyes');
+        }
+      };
+    }
   };
   render();
 }

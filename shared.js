@@ -287,6 +287,7 @@ function renderFooter(){
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
           <li><a href="disclaimer.html">DMCA & Disclaimer</a></li>
           <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="#" onclick="openUpiPaymentModal({title:'Support TheBhom Platform', amount:99, desc:'Support free tools, wallpapers, books & hosting'});return false;" style="color:#38bdf8;font-weight:700;">⚡ Support via UPI / QR</a></li>
           <li><a href="sitemap.xml">Sitemap</a></li>
         </ul>
       </div>
@@ -467,6 +468,13 @@ window.renderFavDrawer = function() {
         <button class="fav-close" onclick="closeFavDrawer()">✕</button>
       </div>
       <div class="fav-body" id="favBody"></div>
+      <div class="fav-vip-box">
+        <div class="fav-vip-info">
+          <h5>⚡ TheBhom VIP & Support</h5>
+          <p>Scan & pay via Paytm UPI for VIP perks</p>
+        </div>
+        <button class="fav-vip-pay-btn" onclick="openUpiPaymentModal({title:'TheBhom VIP Supporter', amount:99, desc:'VIP Supporter Plan: Ad-free perks & high-speed downloads'})">Pay ₹99 ⚡</button>
+      </div>
     </div>
   `;
   document.body.appendChild(mount);
@@ -1010,6 +1018,157 @@ function closeQRModal() {
   const overlay = document.getElementById('qrOverlay');
   if (overlay) overlay.classList.remove('open');
 }
+
+// ============================================================
+// UNIVERSAL PAYTM / UPI PAYMENT MODAL
+// ============================================================
+function openUpiPaymentModal(opts = {}) {
+  const options = typeof opts === 'string' ? { title: opts } : (opts || {});
+  const title = options.title || 'ToolNest PRO / Digital Product';
+  const amount = options.amount || 99;
+  const desc = options.desc || 'Pay via Paytm, PhonePe, GPay or Any UPI App';
+
+  let overlay = document.getElementById('upiPayOverlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'upi-overlay';
+    overlay.id = 'upiPayOverlay';
+    document.body.appendChild(overlay);
+  }
+
+  const upiId = '7987761789@ptyes';
+  const payeeName = 'TheBhom';
+  const note = (title.length > 28 ? title.slice(0, 25) + '...' : title).replace(/[^\w\s]/gi, '');
+  const upiIntentUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+  const waMsg = `Hi TheBhom, I have completed the UPI payment of ₹${amount} for "${title}".\nUPI ID: ${upiId}\n\nPlease verify and activate my access!`;
+  const waLink = `https://wa.me/917987761789?text=${encodeURIComponent(waMsg)}`;
+  
+  // Resolve image source: checks if inside /tools/ or root
+  let qrSrc = '/assets/upi-qr.png';
+  if (window.location.pathname.includes('/tools/')) {
+    qrSrc = 'upi-qr.png';
+  }
+
+  overlay.innerHTML = `
+    <div class="upi-modal" onclick="event.stopPropagation()">
+      <button class="upi-close-btn" onclick="closeUpiPaymentModal()" title="Close">✕</button>
+      
+      <div class="upi-header">
+        <div class="upi-badge">⚡ Instant UPI / QR Payment</div>
+        <h3 class="upi-title">${title}</h3>
+        <div class="upi-amount-pill">Amount to Pay: <span class="upi-amount-num">₹${amount}</span></div>
+      </div>
+
+      <div class="upi-qr-card">
+        <div class="upi-apps-strip">
+          <span>Paytm</span> • <span>Google Pay</span> • <span>PhonePe</span> • <span>BHIM</span> • <span>Cred</span>
+        </div>
+        <div class="upi-qr-frame">
+          <img src="${qrSrc}" alt="Paytm UPI QR Code" class="upi-qr-image" onerror="if(this.src.indexOf('/assets/')===-1)this.src='/assets/upi-qr.png';"/>
+        </div>
+        <div class="upi-merchant-badge">
+          <span class="upi-verified-tick">✓</span> Verified Merchant: <strong>TheBhom / Bhom Vrat Rai</strong>
+        </div>
+      </div>
+
+      <div class="upi-id-row">
+        <div class="upi-id-label">UPI ID:</div>
+        <div class="upi-id-val" id="upiIdVal">${upiId}</div>
+        <button class="upi-copy-btn" id="upiCopyBtn" onclick="copyUpiId('${upiId}')" title="Copy UPI ID">
+          <span>📋 Copy</span>
+        </button>
+      </div>
+
+      <div class="upi-actions">
+        <a href="${upiIntentUrl}" class="upi-app-btn">
+          <span>📱</span> Pay directly in Any UPI App
+        </a>
+        <a href="${waLink}" target="_blank" rel="noopener" class="upi-whatsapp-btn">
+          <span>💬</span> Send Screenshot / UTR on WhatsApp
+        </a>
+      </div>
+
+      <div class="upi-utr-section">
+        <div class="upi-utr-title">Already Paid? Enter 12-Digit UTR / Transaction ID:</div>
+        <div class="upi-utr-box">
+          <input type="text" id="upiUtrInput" placeholder="e.g. 4235XXXXXXXX or Name" maxlength="30" />
+          <button onclick="submitUpiVerification('${title.replace(/'/g, "\\'")}', ${amount})" class="upi-verify-btn">Confirm</button>
+        </div>
+        <div class="upi-footer-note">🔒 100% Secure Direct UPI Transfer. Instant verification & delivery.</div>
+      </div>
+    </div>
+  `;
+
+  overlay.onclick = closeUpiPaymentModal;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeUpiPaymentModal() {
+  const overlay = document.getElementById('upiPayOverlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function copyUpiId(id) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(id).then(() => {
+      const btn = document.getElementById('upiCopyBtn');
+      if (btn) {
+        btn.innerHTML = '<span>✓ Copied!</span>';
+        btn.style.background = '#16a34a';
+        setTimeout(() => {
+          btn.innerHTML = '<span>📋 Copy</span>';
+          btn.style.background = '#0284c7';
+        }, 2500);
+      }
+      if (typeof showToast === 'function') {
+        showToast('✓ UPI ID Copied: ' + id, 'ok');
+      }
+    }).catch(() => fallbackCopy(id));
+  } else {
+    fallbackCopy(id);
+  }
+}
+
+function fallbackCopy(text) {
+  const t = document.createElement('textarea');
+  t.value = text;
+  document.body.appendChild(t);
+  t.select();
+  try {
+    document.execCommand('copy');
+    if (typeof showToast === 'function') showToast('✓ UPI ID Copied: ' + text, 'ok');
+  } catch(e){}
+  document.body.removeChild(t);
+}
+
+function submitUpiVerification(title, amount) {
+  const inp = document.getElementById('upiUtrInput');
+  const utr = (inp ? inp.value.trim() : '');
+  if (!utr) {
+    if (typeof showToast === 'function') showToast('⚠️ कृपया UTR नंबर या आपका नाम दर्ज करें', 'warn');
+    return;
+  }
+  try {
+    const key = 'thebhom_payment_' + Date.now();
+    localStorage.setItem(key, JSON.stringify({ title, amount, utr, date: new Date().toISOString() }));
+  } catch(e){}
+  
+  if (typeof showToast === 'function') {
+    showToast('🎉 UTR ' + utr + ' दर्ज हो गया! Transaction verify हो रहा है।', 'ok');
+  }
+  setTimeout(() => {
+    closeUpiPaymentModal();
+  }, 1600);
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeUpiPaymentModal();
+  }
+});
+
 
 // ============================================================
 // SOCIAL PROOF LIVE ACTIVITY TICKER
@@ -2304,6 +2463,10 @@ window.closeSpotlight = closeSpotlight;
 window.openSpotlightItem = openSpotlightItem;
 window.openQRModal = openQRModal;
 window.closeQRModal = closeQRModal;
+window.openUpiPaymentModal = openUpiPaymentModal;
+window.closeUpiPaymentModal = closeUpiPaymentModal;
+window.copyUpiId = copyUpiId;
+window.submitUpiVerification = submitUpiVerification;
 window.toggleRomanticBGM = toggleRomanticBGM;
 window.playRomanticBGM = playRomanticBGM;
 window.stopRomanticBGM = stopRomanticBGM;
