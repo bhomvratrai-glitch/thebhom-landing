@@ -3,7 +3,31 @@
 <head>
   <script>(function(){try{const t=localStorage.getItem('thebhom_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta name="google-adsense-account" content="ca-pub-4674566886677472">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
+  <script>
+    (function(){
+      var adsLoaded = false;
+      function loadAdSense(){
+        if(adsLoaded) return;
+        adsLoaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472';
+        s.async = true;
+        s.crossOrigin = 'anonymous';
+        document.head.appendChild(s);
+      }
+      var events = ['scroll', 'touchstart', 'mousemove', 'click', 'keydown'];
+      events.forEach(function(e){
+        window.addEventListener(e, loadAdSense, { once: true, passive: true });
+      });
+      window.addEventListener('load', function(){
+        if('requestIdleCallback' in window){
+          requestIdleCallback(function(){ setTimeout(loadAdSense, 2000); });
+        } else {
+          setTimeout(loadAdSense, 3000);
+        }
+      });
+    })();
+  </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Free E-Books PDF Download – ebooks.thebhom.in | 1000+ Books</title>
@@ -12,6 +36,7 @@
 <meta name="theme-color" content="#7c3aed"/>
 <link rel="apple-touch-icon" href="icon-192.png"/>
 <link rel="icon" href="icon-192.png"/>
+<link rel="preload" href="shared.css?v=20260914_imgpdf_v9" as="style"/>
 <link rel="stylesheet" href="shared.css?v=20260914_imgpdf_v9"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <script type="application/ld+json">
