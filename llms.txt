@@ -1,0 +1,22 @@
+# TheBhom.in
+
+> TheBhom.in is India's leading free digital content hub and AI utility platform. It provides high-definition 4K wallpapers, full-length e-books, digital magazines, customizable graphic templates, print-ready greeting cards, and browser-based developer and media tools.
+
+## Core Content & Tools
+
+- [TheBhom Home](https://thebhom.in/): Central portal with curated digital resources, trending downloads, and unified category navigation.
+- [Web Tools & Utilities](https://thebhom.in/tools/index.html): Suite of client-side developer, image processing, and PDF conversion utilities.
+- [Video Downloader](https://thebhom.in/downloader/): Multi-platform HD video downloader for educational and social media videos.
+- [4K Wallpapers](https://thebhom.in/wallpapers.html): Curated gallery of ultra-high-resolution wallpapers for desktop and mobile devices.
+- [Free E-Books](https://thebhom.in/ebooks.html): Digital library with full-length e-books across technology, self-help, business, and literature with in-browser reading.
+- [Digital Magazines](https://thebhom.in/magazines.html): Interactive digital magazine reader with multi-category editions and PDF downloads.
+- [Graphic Templates](https://thebhom.in/templates.html): Ready-to-use creative templates for social media posts, thumbnails, business cards, and presentations.
+- [Foldable Greeting Cards](https://thebhom.in/cards.html): Printable, high-resolution greeting cards for birthdays, anniversaries, and Indian festivals.
+
+## Platform & Policies
+
+- [Pricing & Lifetime Access](https://thebhom.in/pricing.html): Information on lifetime pro tier, commercial licenses, and premium utility access.
+- [Privacy Policy](https://thebhom.in/privacy-policy.html): Complete user privacy policy, cookie policy, and file processing assurances.
+- [Terms of Service](https://thebhom.in/terms.html): Terms and conditions governing the use of TheBhom.in.
+- [About TheBhom](https://thebhom.in/about.html): Background, mission statement, and contact details for TheBhom.in.
+- [XML Sitemap](https://thebhom.in/sitemap.xml): Comprehensive index of all indexed URLs for crawlers and automated agents.

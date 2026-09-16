@@ -1,0 +1,50 @@
+# TheBhom.in (Full Documentation)
+
+> TheBhom.in is India's premier free digital content platform and web utility ecosystem. The platform serves thousands of curated resources including 4K wallpapers, full-length e-books, glossy digital magazines, graphic design templates, printable greeting cards, and browser-based developer tools.
+
+## Architecture & Overview
+
+TheBhom is built for high speed, zero latency, and privacy-first web performance. All client tools operate in-browser without server upload requirements for personal files. The platform is organized into distinct content sections and dedicated web utilities.
+
+## Main Content Sections
+
+### 1. 4K Wallpapers (wallpapers.html)
+- URL: https://thebhom.in/wallpapers.html
+- Description: Over 10,000+ curated ultra-HD desktop and mobile wallpapers across categories including AMOLED Dark, Nature, Minimalist, Sci-Fi, Cars, Anime, and Abstract 3D.
+- Features: Instant preview, one-click HD download, full-screen viewer, and favorites list.
+
+### 2. Free E-Books (ebooks.html)
+- URL: https://thebhom.in/ebooks.html
+- Description: Curated library of 1,000+ free digital books covering personal growth, technology, business, marketing, and literature in both English and Hindi.
+- Features: Built-in reader mode, PDF download, reading progress tracker, and book search.
+
+### 3. Digital Magazines (magazines.html)
+- URL: https://thebhom.in/magazines.html
+- Description: Monthly digital magazine issues spanning Tech Trends, Business Insider, Fitness & Health, Design & Photography, and World Science.
+- Features: Interactive page-flip layout, offline download, and zoom view.
+
+### 4. Graphic Templates (templates.html)
+- URL: https://thebhom.in/templates.html
+- Description: Professional design templates for Canva, Photoshop, and web editing. Includes Instagram Posts, YouTube Thumbnails, Resumes, and Festival Banners.
+- Features: Multi-format download (PNG, SVG, PDF), color customization presets.
+
+### 5. Greeting Cards (cards.html)
+- URL: https://thebhom.in/cards.html
+- Description: Print-ready, high-resolution foldable greeting cards for anniversaries, birthdays, weddings, Valentine's Day, and Indian festivals.
+- Features: Custom greeting text editing, double-sided fold guidelines, high-DPI export.
+
+### 6. Web Tools & Utilities (tools/index.html)
+- URL: https://thebhom.in/tools/index.html
+- Description: Collection of fast web utilities including PDF merger/rotator, image compressors, format converters, and code formatters.
+- Features: 100% client-side execution, private and secure.
+
+### 7. Video Downloader (downloader/)
+- URL: https://thebhom.in/downloader/
+- Description: High-speed video downloader supporting multi-resolution media extraction for content creators and students.
+
+## Legal & Compliance
+
+- Privacy Policy: https://thebhom.in/privacy-policy.html
+- Terms of Service: https://thebhom.in/terms.html
+- Contact & Support: https://thebhom.in/contact.html
+- Sitemap: https://thebhom.in/sitemap.xml
