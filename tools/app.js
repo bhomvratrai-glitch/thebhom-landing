@@ -670,6 +670,31 @@ async function processCurrent() {
   }
 
   const resBox = $('result');
+
+  // Plan limit check
+  try {
+    const user = JSON.parse(localStorage.getItem('thebhom_user') || '{}');
+    const plan = (user.plan || 'FREE').toUpperCase();
+    const jobs = JSON.parse(localStorage.getItem('thebhom_jobs') || '[]');
+    const oneDayAgo = Date.now() - 86400000;
+    const todayJobs = jobs.filter(j => (j.date || 0) > oneDayAgo);
+    const dailyLimit = plan === 'BUSINESS' ? 99999 : (plan === 'PRO' ? 500 : 10);
+
+    if (todayJobs.length >= dailyLimit) {
+      toast(`Daily limit reached (${todayJobs.length}/${dailyLimit} files)`);
+      if (resBox) {
+        resBox.className = 'result show';
+        resBox.innerHTML = `
+          <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:16px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:800;color:#9a3412;margin-bottom:6px;">⚡ Daily Limit Reached</div>
+            <p style="margin:0 0 12px;color:#7c2d12;font-size:0.88rem;">You have processed ${todayJobs.length} files today on the ${plan} plan (Limit: ${dailyLimit}/day). Upgrade for more bandwidth.</p>
+            <a href="../pricing.html" class="btn primary" style="text-decoration:none;display:inline-block;">Upgrade Plan</a>
+          </div>`;
+      }
+      return;
+    }
+  } catch(e){}
+
   if (resBox) {
     resBox.className = 'result show';
     resBox.innerHTML = '<div style="display:flex;gap:10px;align-items:center;"><div class="spinner"></div><span>Processing file in browser...</span></div>';
@@ -687,6 +712,20 @@ async function processCurrent() {
 
     if (!resBox) return;
     resBox.className = 'result show';
+
+    // Record activity in dashboard history
+    try {
+      const jobs = JSON.parse(localStorage.getItem('thebhom_jobs') || '[]');
+      jobs.unshift({
+        file: r.name || (files[0] ? files[0].name : 'processed-file'),
+        tool: tool || mode || 'ImgPDF Tool',
+        status: 'Completed',
+        size: r.blob ? (r.blob.size > 1048576 ? (r.blob.size / 1048576).toFixed(1) + ' MB' : (r.blob.size / 1024).toFixed(0) + ' KB') : '—',
+        date: Date.now()
+      });
+      if (jobs.length > 50) jobs.pop();
+      localStorage.setItem('thebhom_jobs', JSON.stringify(jobs));
+    } catch(err) {}
 
     if (r.info) {
       resBox.innerHTML = `<strong>✓ Audit Completed</strong><div style="color:var(--muted);margin-top:6px;">${esc(r.msg)}</div>`;

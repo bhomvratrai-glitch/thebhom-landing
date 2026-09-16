@@ -31,19 +31,19 @@ export async function onRequestPost(context) {
   try {
     const { request, env } = context;
     const body = await request.json().catch(() => ({}));
-    const {
-      userName = 'Customer',
-      userEmail = '',
-      userPhone = '',
-      productId = 'toolnest-pack',
-      productName = 'ToolNest Digital Product',
-      amount = 49,
-      utrNumber = '',
-    } = body;
+    const rawUtr = body.utrNumber || body.utr || body.txnId || '';
+    const rawEmail = body.userEmail || body.email || '';
+    const rawName = body.userName || body.name || (rawEmail ? rawEmail.split('@')[0] : 'Customer');
+    const rawProduct = body.productName || body.title || body.plan || 'ImgPDF Pro Plan';
+    const rawProductId = body.productId || (rawProduct.toLowerCase().includes('business') ? 'business' : 'pro');
+    const rawAmount = body.amount || 199;
+    const userPhone = body.userPhone || body.phone || '';
 
-    const trimmedUtr = String(utrNumber).trim();
-    const trimmedEmail = String(userEmail).trim().toLowerCase();
-    const trimmedName = String(userName).trim();
+    const trimmedUtr = String(rawUtr).trim();
+    const trimmedEmail = String(rawEmail).trim().toLowerCase();
+    const trimmedName = String(rawName).trim();
+    const productName = String(rawProduct).trim();
+    const productId = String(rawProductId).trim();
 
     if (!trimmedUtr) {
       return new Response(JSON.stringify({ error: 'UTR / Transaction ID is required' }), {
@@ -123,9 +123,10 @@ export async function onRequestGet(context) {
     const url = new URL(request.url);
     const orderId = url.searchParams.get('id') || url.searchParams.get('orderId');
     const utr = url.searchParams.get('utr');
+    const email = url.searchParams.get('email');
 
-    if (!orderId && !utr) {
-      return new Response(JSON.stringify({ error: 'Order ID or UTR required' }), {
+    if (!orderId && !utr && !email) {
+      return new Response(JSON.stringify({ error: 'Order ID, UTR or email required' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       });
@@ -134,8 +135,10 @@ export async function onRequestGet(context) {
     let query = `SELECT id, user_name, user_email, product_id, product_name, amount, utr_number, status, license_key, created_at, updated_at FROM payment_orders WHERE `;
     if (orderId) {
       query += `id = ${esc(orderId.trim())} LIMIT 1;`;
-    } else {
+    } else if (utr) {
       query += `utr_number = ${esc(utr.trim())} LIMIT 1;`;
+    } else {
+      query += `LOWER(user_email) = ${esc(email.trim().toLowerCase())} ORDER BY created_at DESC LIMIT 1;`;
     }
 
     const data = await queryNeon(env, query);

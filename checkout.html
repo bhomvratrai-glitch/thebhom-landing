@@ -491,10 +491,15 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             title: `${selectedPlan.name} Plan`,
+            productName: `${selectedPlan.name} Plan`,
+            productId: selectedPlan.name.toLowerCase(),
             amount: selectedPlan.price,
             utr: txnId,
+            utrNumber: txnId,
             email: email,
-            name: email.split('@')[0]
+            userEmail: email,
+            name: email.split('@')[0],
+            userName: email.split('@')[0]
           })
         });
 

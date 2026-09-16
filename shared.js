@@ -2,6 +2,23 @@
 // TheBhom.in — Shared App Logic
 // shared.js
 // ============================================================
+// Google Analytics (GA4) Global Site Tag
+(function initGA() {
+  const gaId = 'G-N3T6GDWBFT';
+  if (window.__gaInitialized || document.querySelector(`script[src*="${gaId}"]`)) return;
+  window.__gaInitialized = true;
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', gaId);
+})();
 
 const SUBDOMAINS = [
   {
@@ -206,21 +223,7 @@ function renderHeader(activePage=''){
     <button class="hdr-theme-btn" id="hdrThemeBtn" onclick="quickToggleTheme()" title="Toggle Theme" aria-label="Toggle Theme">
       ${themeSvg}
     </button>
-    <div class="hdr-user-pill" id="userPillBtn" onclick="toggleUserDropdown(event)" role="button" tabindex="0" title="bhomvrat rai (Profile & Dashboard)" style="position:relative;">
-      <div class="hdr-user-avatar" style="background:#2563eb;color:#fff;">B</div>
-      <span class="hdr-user-name">bhomvrat rai</span>
-      <div class="user-menu-dropdown" id="userMenuDropdown" style="display:none;position:absolute;top:44px;right:0;width:230px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.12);z-index:9999;padding:12px;text-align:left;">
-        <div style="padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid #e5e7eb;">
-          <div style="font-weight:800;font-size:0.92rem;color:#111827;">bhomvrat rai</div>
-          <div style="font-size:0.75rem;color:#6b7280;word-break:break-all;">bhomvratrai7225@gmail.com</div>
-          <span style="display:inline-block;margin-top:6px;background:#f3e8ff;color:#7e22ce;padding:2px 8px;border-radius:999px;font-size:0.7rem;font-weight:800;">👑 BUSINESS</span>
-        </div>
-        <a href="${base}dashboard.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#374151;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">📊 Dashboard</a>
-        <a href="${base}admin/index.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#b45309;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='transparent'">🛡️ Admin Panel</a>
-        <a href="${base}pricing.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#2563eb;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='transparent'">⚡ Plans & Pricing</a>
-        <a href="#" onclick="showToast('Logged out successfully','ok');return false;" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#dc2626;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='transparent'">↪ Logout</a>
-      </div>
-    </div>
+    ${getHdrUserSnippet(base)}
     <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -244,6 +247,45 @@ function renderHeader(activePage=''){
 `;
 }
 
+// ===== DYNAMIC USER HEADER & AUTH MODAL =====
+function getHdrUserSnippet(base) {
+  try {
+    const rawUser = localStorage.getItem('thebhom_user');
+    const u = rawUser ? JSON.parse(rawUser) : null;
+    if (u && u.email) {
+      const uName = u.name || u.email.split('@')[0] || 'User';
+      const initial = (uName[0] || 'U').toUpperCase();
+      const uPlan = u.plan || 'FREE';
+      const isPending = u.status === 'pending';
+      const badgeText = isPending ? '⏳ PENDING' : (uPlan === 'BUSINESS' ? '👑 BUSINESS' : (uPlan === 'PRO' ? '⚡ PRO' : '🌱 FREE'));
+      const badgeBg = isPending ? '#fef3c7' : (uPlan === 'BUSINESS' ? '#f3e8ff' : (uPlan === 'PRO' ? '#dbeafe' : '#f3f4f6'));
+      const badgeColor = isPending ? '#b45309' : (uPlan === 'BUSINESS' ? '#7e22ce' : (uPlan === 'PRO' ? '#2563eb' : '#4b5563'));
+
+      return `
+    <div class="hdr-user-pill" id="userPillBtn" onclick="toggleUserDropdown(event)" role="button" tabindex="0" title="${uName} (${uPlan})" style="position:relative;">
+      <div class="hdr-user-avatar" style="background:#2563eb;color:#fff;">${initial}</div>
+      <span class="hdr-user-name">${uName}</span>
+      <div class="user-menu-dropdown" id="userMenuDropdown" style="display:none;position:absolute;top:44px;right:0;width:230px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.12);z-index:9999;padding:12px;text-align:left;">
+        <div style="padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid #e5e7eb;">
+          <div style="font-weight:800;font-size:0.92rem;color:#111827;">${uName}</div>
+          <div style="font-size:0.75rem;color:#6b7280;word-break:break-all;">${u.email}</div>
+          <span style="display:inline-block;margin-top:6px;background:${badgeBg};color:${badgeColor};padding:2px 8px;border-radius:999px;font-size:0.7rem;font-weight:800;">${badgeText}</span>
+        </div>
+        <a href="${base}dashboard.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#374151;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">📊 Dashboard</a>
+        <a href="${base}pricing.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#2563eb;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='transparent'">⚡ Plans & Pricing</a>
+        <a href="#" onclick="logoutTheBhomUser();return false;" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#dc2626;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='transparent'">↪ Logout</a>
+      </div>
+    </div>`;
+    }
+  } catch(e){}
+
+  return `
+    <button class="hdr-user-pill" onclick="openAuthModal()" style="background:#2563eb;color:#fff;border:none;padding:7px 15px;border-radius:999px;font-weight:700;font-size:0.83rem;display:inline-flex;align-items:center;gap:6px;cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,0.25);transition:all 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Sign In
+    </button>`;
+}
+
 // User dropdown toggle
 function toggleUserDropdown(e) {
   if (e) e.stopPropagation();
@@ -256,6 +298,151 @@ document.addEventListener('click', () => {
   const d = document.getElementById('userMenuDropdown');
   if (d) d.style.display = 'none';
 });
+
+function openAuthModal(mode = 'login') {
+  let modal = document.getElementById('authModalOverlay');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'authModalOverlay';
+    modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);z-index:99999;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity 0.2s ease;';
+    modal.innerHTML = `
+      <div style="background:var(--card, #ffffff);border:1px solid rgba(229,231,235,0.8);border-radius:20px;max-width:400px;width:100%;padding:26px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);position:relative;" onclick="event.stopPropagation()">
+        <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:18px;color:#6b7280;cursor:pointer;line-height:1;padding:4px 8px;border-radius:6px;" title="Close">✕</button>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <div style="width:38px;height:38px;border-radius:10px;background:#e5322d;color:#fff;display:grid;place-items:center;font-weight:900;font-size:16px;">IP</div>
+          <div>
+            <h3 style="margin:0;font-size:1.15rem;font-weight:800;color:var(--text, #111827);">ImgPDF Account</h3>
+            <p style="margin:2px 0 0;font-size:0.8rem;color:#6b7280;">Sign in to sync your tools & Pro plan</p>
+          </div>
+        </div>
+
+        <div style="display:flex;background:#f3f4f6;padding:4px;border-radius:10px;margin-bottom:16px;">
+          <button id="tabLogin" onclick="switchAuthTab('login')" style="flex:1;border:none;background:#fff;color:#111827;padding:8px;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);">Sign In</button>
+          <button id="tabSignup" onclick="switchAuthTab('signup')" style="flex:1;border:none;background:transparent;color:#6b7280;padding:8px;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;">Create Account</button>
+        </div>
+
+        <form id="authForm" onsubmit="submitAuthForm(event)" style="display:flex;flex-direction:column;gap:12px;">
+          <div id="nameFieldGroup" style="display:none;">
+            <label style="display:block;font-size:0.8rem;font-weight:700;color:#374151;margin-bottom:4px;">Full Name</label>
+            <input type="text" id="authNameInput" placeholder="Your Name" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:0.9rem;outline:none;" />
+          </div>
+
+          <div>
+            <label style="display:block;font-size:0.8rem;font-weight:700;color:#374151;margin-bottom:4px;">Email Address <span style="color:#e5322d;">*</span></label>
+            <input type="email" id="authEmailInput" required placeholder="you@example.com" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:0.9rem;outline:none;" />
+          </div>
+
+          <button type="submit" id="authSubmitBtn" style="background:#2563eb;color:#fff;border:none;padding:11px;border-radius:10px;font-weight:800;font-size:0.9rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;">
+            <span>Sign In</span>
+          </button>
+        </form>
+
+        <div style="margin-top:14px;text-align:center;border-top:1px solid #f3f4f6;padding-top:12px;">
+          <button onclick="closeAuthModal()" style="background:none;border:none;color:#6b7280;font-size:0.8rem;cursor:pointer;text-decoration:underline;">Continue as Guest (Free Mode)</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', closeAuthModal);
+  }
+
+  modal.style.display = 'flex';
+  requestAnimationFrame(() => modal.style.opacity = '1');
+  switchAuthTab(mode);
+}
+
+function closeAuthModal() {
+  const modal = document.getElementById('authModalOverlay');
+  if (modal) {
+    modal.style.opacity = '0';
+    setTimeout(() => modal.style.display = 'none', 200);
+  }
+}
+
+function switchAuthTab(mode) {
+  const isSignup = mode === 'signup';
+  const nameGroup = document.getElementById('nameFieldGroup');
+  const submitBtn = document.getElementById('authSubmitBtn');
+  const tabLogin = document.getElementById('tabLogin');
+  const tabSignup = document.getElementById('tabSignup');
+
+  if (nameGroup) nameGroup.style.display = isSignup ? 'block' : 'none';
+  if (submitBtn) submitBtn.querySelector('span').textContent = isSignup ? 'Create Free Account' : 'Sign In';
+  if (tabLogin && tabSignup) {
+    tabLogin.style.background = isSignup ? 'transparent' : '#fff';
+    tabLogin.style.color = isSignup ? '#6b7280' : '#111827';
+    tabLogin.style.boxShadow = isSignup ? 'none' : '0 1px 3px rgba(0,0,0,0.1)';
+    tabSignup.style.background = isSignup ? '#fff' : 'transparent';
+    tabSignup.style.color = isSignup ? '#111827' : '#6b7280';
+    tabSignup.style.boxShadow = isSignup ? '0 1px 3px rgba(0,0,0,0.1)' : 'none';
+  }
+}
+
+async function submitAuthForm(e) {
+  e.preventDefault();
+  const emailInput = document.getElementById('authEmailInput');
+  const nameInput = document.getElementById('authNameInput');
+  const submitBtn = document.getElementById('authSubmitBtn');
+
+  const email = emailInput ? emailInput.value.trim().toLowerCase() : '';
+  const name = (nameInput && nameInput.value.trim()) || (email ? email.split('@')[0] : 'User');
+
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="spinner" style="width:14px;height:14px;border-width:2px;"></span> Verifying...';
+
+  let plan = 'FREE';
+  let status = 'active';
+  let licenseKey = null;
+
+  try {
+    const res = await fetch(`/api/orders?email=${encodeURIComponent(email)}`);
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.found && data.order) {
+        const ord = data.order;
+        if (ord.isApproved) {
+          plan = (ord.productName || ord.productId || 'PRO').toUpperCase().includes('BUSINESS') ? 'BUSINESS' : 'PRO';
+          status = 'approved';
+          licenseKey = ord.licenseKey;
+        } else if (ord.status === 'PENDING') {
+          plan = (ord.productName || ord.productId || 'PRO').toUpperCase().includes('BUSINESS') ? 'BUSINESS' : 'PRO';
+          status = 'pending';
+        }
+      }
+    }
+  } catch(err) {}
+
+  const userData = {
+    name: name,
+    email: email,
+    plan: plan,
+    status: status,
+    licenseKey: licenseKey,
+    loginAt: Date.now()
+  };
+
+  localStorage.setItem('thebhom_user', JSON.stringify(userData));
+
+  if (typeof showToast === 'function') {
+    showToast(`Signed in as ${name} (${plan} Plan)`, 'ok');
+  }
+
+  closeAuthModal();
+  setTimeout(() => location.reload(), 300);
+}
+
+function logoutTheBhomUser() {
+  localStorage.removeItem('thebhom_user');
+  if (typeof showToast === 'function') {
+    showToast('Logged out successfully', 'ok');
+  }
+  setTimeout(() => location.reload(), 300);
+}
 
 // ===== RENDER FOOTER =====
 function renderFooter(){
@@ -2614,6 +2801,9 @@ function filterHomePinterest(cat, chipEl) {
 }
 
 // Global window exposure
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.logoutTheBhomUser = logoutTheBhomUser;
 window.openSpotlight = openSpotlight;
 window.closeSpotlight = closeSpotlight;
 window.openSpotlightItem = openSpotlightItem;

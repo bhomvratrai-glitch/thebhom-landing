@@ -157,15 +157,15 @@
     <!-- Topbar -->
     <div class="dash-topbar">
       <div>
-        <h1 class="dash-user-title" id="userName">Welcome, bhomvrat rai</h1>
-        <p class="dash-user-email" id="userEmail">bhomvratrai7225@gmail.com</p>
+        <h1 class="dash-user-title" id="userName">My Account</h1>
+        <p class="dash-user-email" id="userEmail">Loading profile...</p>
       </div>
       <div class="dash-actions">
-        <span class="badge badge-ai" id="planBadge" style="display:inline-flex;align-items:center;gap:4px;padding:5px 12px;font-size:0.8rem;">
+        <span class="badge" id="planBadge" style="display:inline-flex;align-items:center;gap:4px;padding:5px 12px;font-size:0.8rem;background:#f3f4f6;color:#4b5563;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
-          <span id="planName">BUSINESS</span>
+          <span id="planName">FREE</span>
         </span>
-        <button onclick="handleLogout()" class="btn-secondary" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;font-size:0.85rem;">
+        <button id="authActionBtn" onclick="handleLogout()" class="btn-secondary" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;font-size:0.85rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
           Logout
         </button>
@@ -210,12 +210,12 @@
     <!-- Favorite Tools -->
     <h2 class="dash-section-title">Favorite Tools</h2>
     <div class="fav-tools-list">
-      <a href="tools/pdf-to-jpg.html" class="fav-tool-pill">PDF to JPG</a>
+      <a href="tools/pdf-to-image.html" class="fav-tool-pill">PDF to Image</a>
       <a href="tools/merge-pdf.html" class="fav-tool-pill">Merge PDF</a>
-      <a href="tools/compress-pdf.html" class="fav-tool-pill">Compress PDF</a>
+      <a href="tools/index.html#pdf" class="fav-tool-pill">PDF Tools</a>
       <a href="tools/compress-image.html" class="fav-tool-pill">Compress Image</a>
-      <a href="tools/ai-summarizer.html" class="fav-tool-pill">AI PDF Summarizer</a>
-      <a href="tools/video-downloader.html" class="fav-tool-pill">Video Downloader</a>
+      <a href="tools/ai.html" class="fav-tool-pill">AI Assistant</a>
+      <a href="downloader/" class="fav-tool-pill">Video Downloader</a>
     </div>
 
     <!-- Recent Activity -->
@@ -249,23 +249,64 @@
     function loadUserData() {
       try {
         const stored = JSON.parse(localStorage.getItem('thebhom_user') || '{}');
-        const email = stored.email || 'bhomvratrai7225@gmail.com';
-        const name = stored.name || email.split('@')[0] || 'bhomvrat rai';
-        const plan = stored.plan || 'BUSINESS';
+        const email = stored.email || '';
+        const name = stored.name || (email ? email.split('@')[0] : 'Guest User');
+        const plan = stored.plan || 'FREE';
+        const isPending = stored.status === 'pending';
 
         document.getElementById('userName').textContent = `Welcome, ${name}`;
-        document.getElementById('userEmail').textContent = email;
-        document.getElementById('planName').textContent = plan;
+        document.getElementById('userEmail').textContent = email || 'Guest Mode (Sign in to sync your Pro plan)';
+        document.getElementById('planName').textContent = isPending ? `${plan} (Pending Approval)` : plan;
 
         const badge = document.getElementById('planBadge');
-        if (plan === 'PRO') {
+        if (isPending) {
+          badge.className = 'badge';
+          badge.style.background = '#fef3c7';
+          badge.style.color = '#b45309';
+        } else if (plan === 'PRO') {
           badge.className = 'badge badge-pro';
+          badge.style.background = '';
+          badge.style.color = '';
         } else if (plan === 'BUSINESS') {
           badge.className = 'badge badge-ai';
+          badge.style.background = '';
+          badge.style.color = '';
         } else {
           badge.className = 'badge';
           badge.style.background = '#f3f4f6';
           badge.style.color = '#4b5563';
+        }
+
+        const authBtn = document.getElementById('authActionBtn');
+        if (!email) {
+          authBtn.textContent = 'Sign In / Register';
+          authBtn.className = 'btn-primary';
+          authBtn.onclick = () => { if (typeof openAuthModal === 'function') openAuthModal(); };
+        } else {
+          authBtn.className = 'btn-secondary';
+          authBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout`;
+          authBtn.onclick = handleLogout;
+
+          // Check live status if email exists
+          fetch(`/api/orders?email=${encodeURIComponent(email)}`)
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.found && data.order) {
+                const ord = data.order;
+                if (ord.isApproved) {
+                  const upgradedPlan = (ord.productName || ord.productId || 'PRO').toUpperCase().includes('BUSINESS') ? 'BUSINESS' : 'PRO';
+                  stored.plan = upgradedPlan;
+                  stored.status = 'approved';
+                  stored.licenseKey = ord.licenseKey;
+                  localStorage.setItem('thebhom_user', JSON.stringify(stored));
+                  document.getElementById('planName').textContent = upgradedPlan;
+                  badge.className = upgradedPlan === 'BUSINESS' ? 'badge badge-ai' : 'badge badge-pro';
+                  badge.style.background = '';
+                  badge.style.color = '';
+                }
+              }
+            })
+            .catch(() => {});
         }
 
         // Check local activity logs if present
