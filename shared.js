@@ -2,22 +2,35 @@
 // TheBhom.in — Shared App Logic
 // shared.js
 // ============================================================
-// Google Analytics (GA4) Global Site Tag
-(function initGA() {
+// Google Analytics (GA4) & Google Tag Manager (GTM)
+(function initTracking() {
+  const gtmId = 'GTM-M5CB7P73';
   const gaId = 'G-N3T6GDWBFT';
-  if (window.__gaInitialized || document.querySelector(`script[src*="${gaId}"]`)) return;
-  window.__gaInitialized = true;
 
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-  document.head.appendChild(script);
+  // 1. Google Tag Manager
+  if (!window.__gtmInitialized && !document.querySelector(`script[src*="${gtmId}"]`)) {
+    window.__gtmInitialized = true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',gtmId);
+  }
 
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', gaId);
+  // 2. Google Analytics (GA4) gtag
+  if (!window.__gaInitialized && !document.querySelector(`script[src*="${gaId}"]`)) {
+    window.__gaInitialized = true;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', gaId);
+  }
 })();
 
 const SUBDOMAINS = [
