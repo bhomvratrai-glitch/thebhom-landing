@@ -562,9 +562,11 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').then(reg => {
       console.log('TheBhom SW registered with scope:', reg.scope);
-      if (typeof reg.update === 'function') reg.update();
+      if (typeof reg.update === 'function') {
+        try { reg.update().catch(() => {}); } catch (e) {}
+      }
     }).catch(err => {
-      console.log('TheBhom SW registration failed:', err);
+      console.debug('TheBhom SW registration:', err ? (err.message || err) : 'offline');
     });
 
     // Automatically bust old caches if SW version updated
