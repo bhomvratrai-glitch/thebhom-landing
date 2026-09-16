@@ -2527,7 +2527,7 @@ function renderPinterestHomeFeed(containerId = 'pinterestFeedContainer', categor
   if (!container || !window.THEBHOM) return;
 
   currentHomeFeedCat = category;
-  if (!append) currentHomeFeedLimit = 28;
+  if (!append) currentHomeFeedLimit = 8;
 
   let allPins = [];
 
@@ -2746,7 +2746,7 @@ function renderPinterestHomeFeed(containerId = 'pinterestFeedContainer', categor
         </div>
       `;
     } else {
-      mediaContent = `<img src="${pin.thumb}" alt="${pin.title}" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#1e1b4b,#0f172a)'"/>`;
+      mediaContent = `<img src="${pin.thumb}" alt="${pin.title}" loading="lazy" decoding="async" onerror="this.parentElement.style.background='linear-gradient(135deg,#1e1b4b,#0f172a)'"/>`;
     }
 
     return `
