@@ -158,10 +158,79 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
 .pill-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;}
 .pill{padding:4px 12px;border-radius:50px;border:1px solid var(--border);font-size:.72rem;font-weight:600;color:var(--text3);}
 
-/* DEVICE TABS */
-.device-tabs{display:flex;gap:.5rem;justify-content:center;margin:1.5rem 0 .5rem;flex-wrap:wrap;}
-.dtab{padding:8px 20px;border-radius:50px;border:2px solid var(--border);background:transparent;color:var(--text2);font-size:.82rem;font-weight:600;cursor:pointer;transition:var(--t);font-family:'Inter',sans-serif;}
-.dtab.on{border-color:var(--primary);background:rgba(124,58,237,.2);color:var(--text);}
+/* MODERN DEVICE SWITCH BUTTON */
+.device-switch-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem auto 0.6rem;
+  padding: 0 1rem;
+}
+.device-segmented-switch {
+  display: inline-flex;
+  background: var(--bg3);
+  border: 1.5px solid var(--border);
+  padding: 5px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  gap: 6px;
+  position: relative;
+  max-width: 100%;
+}
+.device-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 22px;
+  border-radius: 40px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text2);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+  white-space: nowrap;
+}
+.device-switch-btn:hover:not(.on) {
+  color: var(--text);
+  background: rgba(124, 58, 237, 0.1);
+}
+.device-switch-btn.on {
+  background: linear-gradient(135deg, var(--primary), #9333ea);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.45);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.device-switch-badge {
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  transition: all 0.22s ease;
+}
+.device-switch-btn.on .device-switch-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+.device-switch-btn:not(.on) .device-switch-badge {
+  background: var(--bg2);
+  color: var(--text3);
+  border: 1px solid var(--border);
+}
+@media (max-width: 540px) {
+  .device-switch-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    gap: 5px;
+  }
+  .device-switch-badge {
+    display: none;
+  }
+}
 
 /* SEARCH */
 .srch-section{padding:1rem 2rem;max-width:900px;margin:0 auto;}
@@ -339,12 +408,23 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
 
 
 
-<!-- DEVICE TABS -->
-<div style="text-align:center;padding:.5rem 0;">
-  <div class="device-tabs">
-    <button class="dtab on" id="tabAll" onclick="switchDevice('all')">🔥 All Wallpapers</button>
-    <button class="dtab" id="tabMob" onclick="switchDevice('mobile')">📱 Mobile (Portrait)</button>
-    <button class="dtab" id="tabDesk" onclick="switchDevice('desktop')">🖥️ Desktop (Landscape)</button>
+<!-- MODERN DEVICE SWITCH BUTTON (MOBILE DEFAULT) -->
+<div class="device-switch-wrap">
+  <div class="device-segmented-switch" role="tablist" aria-label="Wallpaper device format">
+    <button class="device-switch-btn on" id="tabMob" onclick="switchDevice('mobile')" role="tab" aria-selected="true" title="Switch to Mobile Wallpapers (Portrait 1080×2400)">
+      <span>📱</span>
+      <span>Mobile</span>
+      <span class="device-switch-badge">Portrait</span>
+    </button>
+    <button class="device-switch-btn" id="tabDesk" onclick="switchDevice('desktop')" role="tab" aria-selected="false" title="Switch to Desktop Wallpapers (Landscape 4K UHD)">
+      <span>💻</span>
+      <span>Desktop</span>
+      <span class="device-switch-badge">4K UHD</span>
+    </button>
+    <button class="device-switch-btn" id="tabAll" onclick="switchDevice('all')" role="tab" aria-selected="false" title="Show All Mobile & Desktop Wallpapers">
+      <span>🔥</span>
+      <span>All</span>
+    </button>
   </div>
 </div>
 
@@ -606,7 +686,7 @@ if (window.THEBHOM && window.THEBHOM.WALLPAPERS) {
 // ============================================================
 // STATE
 // ============================================================
-let activeDevice = 'all';
+let activeDevice = 'mobile';
 let activeTag = 'all';
 let searchQ = '';
 let sortBy = 'popular';
@@ -626,9 +706,14 @@ fRow.innerHTML = ['all',...TAGS].map((t,i) =>
 function switchDevice(d){
   activeDevice = d;
   page = 1;
-  ['all','mobile','desktop'].forEach(x=>{
-    const btn = document.getElementById('tab'+x.charAt(0).toUpperCase()+x.slice(1));
-    btn?.classList.toggle('on', x===d);
+  const devMap = { mobile: 'tabMob', desktop: 'tabDesk', all: 'tabAll' };
+  Object.keys(devMap).forEach(key => {
+    const btn = document.getElementById(devMap[key]);
+    if (btn) {
+      const isAct = (key === d);
+      btn.classList.toggle('on', isAct);
+      btn.setAttribute('aria-selected', isAct ? 'true' : 'false');
+    }
   });
   render();
 }
@@ -1081,8 +1166,13 @@ window.addEventListener('scroll',()=>{
   if(b2t)b2t.classList.toggle('show',window.scrollY>300);
 });
 
-// INIT
-render();
+// INIT (Mobile by default)
+const devParam = new URLSearchParams(window.location.search).get('device');
+if (devParam && ['mobile','desktop','all'].includes(devParam)) {
+  switchDevice(devParam);
+} else {
+  switchDevice('mobile');
+}
 if (window.location.hash) {
   const hId = window.location.hash.replace('#', '');
   setTimeout(() => { if (typeof openPreview === 'function') openPreview(hId); }, 350);
