@@ -165,6 +165,24 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 }
 .srch-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(229, 50, 45, 0.35); }
 
+/* QUICK 1-CLICK POPULAR SEARCH CHIPS */
+.quick-search-row {
+  display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; margin-top: .85rem;
+}
+.qs-label {
+  font-size: 0.76rem; font-weight: 800; color: var(--ilove-text-muted); text-transform: uppercase; letter-spacing: 0.5px;
+}
+.qs-chip {
+  padding: 5px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 700;
+  cursor: pointer; border: 1px solid var(--ilove-card-border); background: var(--ilove-card-bg);
+  color: var(--ilove-text); transition: all .2s ease; display: inline-flex; align-items: center; gap: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.qs-chip:hover {
+  border-color: var(--ilove-red); background: var(--ilove-red-light); color: var(--ilove-red);
+  transform: translateY(-1px); box-shadow: 0 4px 10px rgba(229, 50, 45, 0.15);
+}
+
 /* FORMAT FILTER BAR */
 .format-filter-bar {
   display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 1.2rem;
@@ -534,6 +552,19 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
       <input id="srchInput" type="text" placeholder="Search 79,000+ books — 'Sherlock Holmes', 'Atomic Habits', 'Pride and Prejudice', 'Philosophy'..." oninput="debSearch()" onkeydown="if(event.key==='Enter')doSearch()"/>
       <button class="srch-clear" id="srchClearBtn" onclick="clearSearch()" title="Clear">✕</button>
       <button class="srch-btn" onclick="doSearch()">Search E-Books</button>
+    </div>
+    <div class="quick-search-row">
+      <span class="qs-label">⚡ 1-Click Search 79k+ Books:</span>
+      <button class="qs-chip" onclick="quickSearch('Sherlock Holmes')">🕵️ Sherlock Holmes</button>
+      <button class="qs-chip" onclick="quickSearch('Pride and Prejudice')">📖 Pride &amp; Prejudice</button>
+      <button class="qs-chip" onclick="quickSearch('Frankenstein')">⚡ Frankenstein</button>
+      <button class="qs-chip" onclick="quickSearch('Dracula')">🧛 Dracula</button>
+      <button class="qs-chip" onclick="quickSearch('The Time Machine')">⏳ Time Machine</button>
+      <button class="qs-chip" onclick="quickSearch('Bhagavad Gita')">🕉️ Gita</button>
+      <button class="qs-chip" onclick="quickSearch('Art of War')">⚔️ Art of War</button>
+      <button class="qs-chip" onclick="quickSearch('Philosophy')">📜 Philosophy</button>
+      <button class="qs-chip" onclick="quickSearch('Science Fiction')">🚀 Sci-Fi</button>
+      <button class="qs-chip" onclick="quickSearch('History')">🏛️ History</button>
     </div>
   </div>
 
@@ -1512,6 +1543,14 @@ function clearSearch() {
   doSearch();
 }
 
+function quickSearch(term) {
+  const inp = document.getElementById('srchInput');
+  if (inp) inp.value = term;
+  const clearBtn = document.getElementById('srchClearBtn');
+  if (clearBtn) clearBtn.style.display = 'block';
+  doSearch();
+}
+
 function doSearch() {
   searchQ = document.getElementById('srchInput').value.trim();
   localPage = 1;
@@ -1525,9 +1564,19 @@ function doSearch() {
 }
 
 function loadMore() {
-  if (liveApiBooks.length > 0 || searchQ || (activeTag !== 'all' && activeTag !== 'bestsellers')) {
+  if (searchQ || (activeTag !== 'all' && activeTag !== 'bestsellers')) {
     apiPage++;
     fetchOnlineBooks(true);
+  } else if (activeTag === 'all') {
+    // Check if we still have local curated books to show
+    if (localPage * LOCAL_PER_PAGE < BOOKS.length) {
+      localPage++;
+      render();
+    } else {
+      // Curated local books finished! Seamlessly load from 79,400+ online archive!
+      apiPage++;
+      fetchOnlineBooks(true);
+    }
   } else {
     localPage++;
     render();
@@ -1543,7 +1592,7 @@ async function fetchOnlineBooks(isAppend = false) {
     resCountEl.innerHTML = `<span>⏳ Searching 79,000+ catalog for "${searchQ || activeTag}"...</span>`;
   }
   const lmBtn = document.getElementById('lmBtn');
-  if (lmBtn) lmBtn.innerHTML = '⏳ Loading books...';
+  if (lmBtn) lmBtn.innerHTML = '⏳ Loading 79k+ library...';
 
   try {
     // Try Cloudflare Edge Function first, with seamless fallback to Gutendex direct
@@ -1553,7 +1602,7 @@ async function fetchOnlineBooks(isAppend = false) {
 
     let json = null;
     try {
-      const res = await fetch(endpoint, { signal: AbortSignal.timeout(4000) });
+      const res = await fetch(endpoint, { signal: AbortSignal.timeout(5000) });
       if (res.ok) {
         const j = await res.json();
         if (j && j.books && j.books.length > 0) {
@@ -1565,8 +1614,17 @@ async function fetchOnlineBooks(isAppend = false) {
     if (!json) {
       // Direct high-speed Gutendex REST call
       let directUrl = `https://gutendex.com/books/?page=${apiPage}`;
-      if (searchQ) directUrl += `&search=${encodeURIComponent(searchQ)}`;
-      if (activeTag !== 'all' && activeTag !== 'bestsellers') directUrl += `&topic=${encodeURIComponent(activeTag)}`;
+      if (searchQ) {
+        directUrl += `&search=${encodeURIComponent(searchQ)}`;
+      } else if (activeTag !== 'all' && activeTag !== 'bestsellers') {
+        const tLower = activeTag.toLowerCase();
+        if (tLower === 'hindi') directUrl += `&search=india`;
+        else if (tLower === 'self help') directUrl += `&search=psychology`;
+        else if (tLower === 'technology') directUrl += `&search=science`;
+        else if (tLower === 'business') directUrl += `&search=economics`;
+        else if (tLower === 'philosophy' || tLower === 'mystery' || tLower === 'history' || tLower === 'fiction') directUrl += `&topic=${encodeURIComponent(activeTag)}`;
+        else directUrl += `&search=${encodeURIComponent(activeTag)}`;
+      }
       try {
         const dRes = await fetch(directUrl);
         if (dRes.ok) {
@@ -1627,30 +1685,22 @@ async function fetchOnlineBooks(isAppend = false) {
 // Filter & Sort Logic
 function getDisplayBooks() {
   let list = [];
-  if (liveApiBooks.length > 0) {
-    list = [...liveApiBooks];
-    // Also include matching local curated books at top if searching
-    if (searchQ) {
-      const q = searchQ.toLowerCase();
-      const localMatches = BOOKS.filter(b => 
-        b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) || (b.cat && b.cat.toLowerCase().includes(q))
-      );
-      list = [...localMatches, ...list];
-    }
+  if (searchQ) {
+    // When searching: combine local matches at top + online results
+    const q = searchQ.toLowerCase();
+    const localMatches = BOOKS.filter(b => 
+      b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) || (b.cat && b.cat.toLowerCase().includes(q))
+    );
+    list = [...localMatches, ...liveApiBooks];
+  } else if (activeTag !== 'all' && activeTag !== 'bestsellers') {
+    // Category filter: combine local category matches + online category books
+    const localMatches = BOOKS.filter(b => b.cat && b.cat.toLowerCase() === activeTag.toLowerCase());
+    list = [...localMatches, ...liveApiBooks];
+  } else if (activeTag === 'bestsellers') {
+    list = BOOKS.filter(b => b.downloads > 100000 || b.isNew);
   } else {
-    // Displaying Curated Instant Collection
-    list = [...BOOKS];
-    if (activeTag === 'bestsellers') {
-      list = list.filter(b => b.downloads > 100000 || b.isNew);
-    } else if (activeTag !== 'all') {
-      list = list.filter(b => b.cat && b.cat.toLowerCase() === activeTag.toLowerCase());
-    }
-    if (searchQ) {
-      const q = searchQ.toLowerCase();
-      list = list.filter(b => 
-        b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) || (b.cat && b.cat.toLowerCase().includes(q))
-      );
-    }
+    // 'all' catalog: curated 26 highlights + loaded pages from 79,400+ online archive
+    list = [...BOOKS, ...liveApiBooks];
   }
 
   // Format Filter
@@ -2167,26 +2217,38 @@ function openReader(id) {
 
 function render() {
   const books = getDisplayBooks();
-  const slice = books.slice(0, localPage * LOCAL_PER_PAGE);
+  let displayedBooks = books;
+  if (activeTag === 'all' && liveApiBooks.length === 0) {
+    displayedBooks = books.slice(0, localPage * LOCAL_PER_PAGE);
+  }
+  
   const grid = document.getElementById('mainGrid');
   if (grid) {
-    grid.innerHTML = slice.map(buildBookCard).join('');
+    grid.innerHTML = displayedBooks.map(buildBookCard).join('');
   }
 
   const resCountEl = document.getElementById('resCount');
   if (resCountEl) {
     if (searchQ) {
-      resCountEl.innerHTML = `<span>🔍 Found <strong>${books.length}</strong> books for "${searchQ}"</span> <span class="catalog-badge">79k+ Library</span>`;
+      resCountEl.innerHTML = `<span>🔍 Found <strong>${displayedBooks.length}</strong> books for "${searchQ}"</span> <span class="catalog-badge">79k+ Library</span>`;
     } else if (activeTag !== 'all' && activeTag !== 'bestsellers') {
-      resCountEl.innerHTML = `<span>📚 Category: <strong>${activeTag}</strong> (${books.length} books)</span> <span class="catalog-badge">Live Filter</span>`;
+      resCountEl.innerHTML = `<span>📚 Category: <strong>${activeTag}</strong> (${displayedBooks.length} books)</span> <span class="catalog-badge">Live 79k+ Catalog</span>`;
     } else {
-      resCountEl.innerHTML = `<span>📚 Showing <strong>${slice.length}</strong> of <strong>79,400+</strong> E-Books</span> <span class="catalog-badge">100% Free</span>`;
+      resCountEl.innerHTML = `<span>📚 Showing <strong>${displayedBooks.length}</strong> of <strong>79,400+</strong> E-Books</span> <span class="catalog-badge">100% Free Public Domain</span>`;
     }
   }
 
   const lmBtn = document.getElementById('lmBtn');
   if (lmBtn) {
-    lmBtn.style.display = (books.length > slice.length || liveApiBooks.length > 0) ? 'inline-flex' : 'none';
+    if (activeTag === 'all') {
+      lmBtn.style.display = 'inline-flex';
+      lmBtn.innerHTML = `📚 Load More E-Books (Showing ${displayedBooks.length} of 79,400+)`;
+    } else if (searchQ || (activeTag !== 'all' && activeTag !== 'bestsellers')) {
+      lmBtn.style.display = 'inline-flex';
+      lmBtn.innerHTML = `📚 Load More Results (Page ${apiPage})`;
+    } else {
+      lmBtn.style.display = books.length > displayedBooks.length ? 'inline-flex' : 'none';
+    }
   }
 }
 

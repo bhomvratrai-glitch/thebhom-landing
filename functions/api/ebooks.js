@@ -28,11 +28,33 @@ export async function onRequest(context) {
   try {
     // 1. Build Target API URL for Gutendex (79,400+ books)
     let apiUrl = `https://gutendex.com/books/?page=${encodeURIComponent(page)}`;
+    const topicLower = topic ? topic.toLowerCase().trim() : '';
+
     if (query) {
       apiUrl += `&search=${encodeURIComponent(query)}`;
-    }
-    if (topic && topic.toLowerCase() !== 'all' && topic.toLowerCase() !== 'bestsellers') {
-      apiUrl += `&topic=${encodeURIComponent(topic)}`;
+      if (topicLower && topicLower !== 'all' && topicLower !== 'bestsellers') {
+        apiUrl += `&topic=${encodeURIComponent(topic)}`;
+      }
+    } else if (topicLower && topicLower !== 'all' && topicLower !== 'bestsellers') {
+      if (topicLower === 'hindi') {
+        apiUrl += `&search=india`;
+      } else if (topicLower === 'self help' || topicLower === 'mind') {
+        apiUrl += `&search=psychology`;
+      } else if (topicLower === 'technology' || topicLower === 'ai') {
+        apiUrl += `&search=science`;
+      } else if (topicLower === 'business' || topicLower === 'finance') {
+        apiUrl += `&search=economics`;
+      } else if (topicLower === 'philosophy') {
+        apiUrl += `&topic=Philosophy`;
+      } else if (topicLower === 'mystery') {
+        apiUrl += `&topic=Mystery`;
+      } else if (topicLower === 'history') {
+        apiUrl += `&topic=History`;
+      } else if (topicLower === 'fiction') {
+        apiUrl += `&topic=Fiction`;
+      } else {
+        apiUrl += `&search=${encodeURIComponent(topic)}`;
+      }
     }
 
     const controller = new AbortController();
