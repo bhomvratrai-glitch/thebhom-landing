@@ -326,21 +326,21 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
 // ═══════════════════════════════════════════════════════════
 const TEMPLATES = [
 // ─── INSTAGRAM POST 1080×1080 ───────────────────────────
-{id:'t1',cat:'Instagram',sub:'Quote Post',title:'Motivational Quote — Dark Minimal',size:'1080×1080',downloads:142000,isNew:false,
+{id:'t1',cover:'assets/covers/templates/t1.jpg',cat:'Instagram',sub:'Quote Post',title:'Motivational Quote — Dark Minimal',size:'1080×1080',downloads:142000,isNew:false,
  design:{type:'insta_quote',bg:['#0a0a0f','#0d0d18'],accent:'#7c3aed',text:'Believe in Yourself',sub:'Your only limit is your mind',font:'bold',style:'minimal_dark'}},
-{id:'t2',cat:'Instagram',sub:'Quote Post',title:'Hustle Culture Gold',size:'1080×1080',downloads:98000,isNew:false,
+{id:'t2',cover:'assets/covers/templates/t2.jpg',cat:'Instagram',sub:'Quote Post',title:'Hustle Culture Gold',size:'1080×1080',downloads:98000,isNew:false,
  design:{type:'insta_quote',bg:['#0f0800','#1a1000'],accent:'#f59e0b',text:'Work Hard in Silence',sub:'Let success make the noise 🔥',style:'gold_dark'}},
-{id:'t3',cat:'Instagram',sub:'Business Post',title:'Product Launch Cyan',size:'1080×1080',downloads:78000,isNew:true,
+{id:'t3',cover:'assets/covers/templates/t3.jpg',cat:'Instagram',sub:'Business Post',title:'Product Launch Cyan',size:'1080×1080',downloads:78000,isNew:true,
  design:{type:'product_launch',bg:['#020d14','#051520'],accent:'#06b6d4',text:'NEW LAUNCH',sub:'Available Now — Order Today!',style:'cyber_cyan'}},
-{id:'t4',cat:'Instagram',sub:'Fashion',title:'Fashion Style Minimalist',size:'1080×1080',downloads:89000,isNew:false,
+{id:'t4',cover:'assets/covers/templates/t4.jpg',cat:'Instagram',sub:'Fashion',title:'Fashion Style Minimalist',size:'1080×1080',downloads:89000,isNew:false,
  design:{type:'fashion',bg:['#0f0015','#18002a'],accent:'#ec4899',text:'Style Is Art',sub:'New Collection 2025 🌸',style:'fashion_pink'}},
-{id:'t5',cat:'Instagram',sub:'Food Post',title:'Food Menu Restaurant',size:'1080×1080',downloads:115000,isNew:false,
+{id:'t5',cover:'assets/covers/templates/t5.jpg',cat:'Instagram',sub:'Food Post',title:'Food Menu Restaurant',size:'1080×1080',downloads:115000,isNew:false,
  design:{type:'food',bg:['#0d0500','#1a0a00'],accent:'#f97316',text:'Today\'s Special 🍽️',sub:'Fresh • Tasty • Affordable',style:'food_orange'}},
-{id:'t6',cat:'Instagram',sub:'Fitness',title:'Gym Workout Dark Power',size:'1080×1080',downloads:96000,isNew:false,
+{id:'t6',cover:'assets/covers/templates/t6.jpg',cat:'Instagram',sub:'Fitness',title:'Gym Workout Dark Power',size:'1080×1080',downloads:96000,isNew:false,
  design:{type:'gym',bg:['#050505','#0f0f0f'],accent:'#ef4444',text:'NO PAIN\nNO GAIN',sub:'💪 Gym Time!',style:'gym_red'}},
-{id:'t7',cat:'Instagram',sub:'Technology',title:'Tech Startup Bold',size:'1080×1080',downloads:67000,isNew:true,
+{id:'t7',cover:'assets/covers/templates/t7.jpg',cat:'Instagram',sub:'Technology',title:'Tech Startup Bold',size:'1080×1080',downloads:67000,isNew:true,
  design:{type:'tech',bg:['#020814','#030d1e'],accent:'#22d3ee',text:'THINK DIGITAL',sub:'Innovation Never Stops 🚀',style:'tech_blue'}},
-{id:'t8',cat:'Instagram',sub:'Travel',title:'Travel Adventure Aesthetic',size:'1080×1080',downloads:81000,isNew:false,
+{id:'t8',cover:'assets/covers/templates/t8.jpg',cat:'Instagram',sub:'Travel',title:'Travel Adventure Aesthetic',size:'1080×1080',downloads:81000,isNew:false,
  design:{type:'travel',bg:['#020c06','#041a0a'],accent:'#22c55e',text:'EXPLORE THE\nWORLD ✈️',sub:'Life is too short to stay home',style:'travel_green'}},
 
 // ─── INSTAGRAM STORY 1080×1920 ────────────────────────────
@@ -366,7 +366,7 @@ const TEMPLATES = [
  design:{type:'yt_thumb',bg:['#05000f','#0d0020'],accent:'#a855f7',text:'30 DAY\nCHALLENGE',sub:'I Transformed My Body! Results Inside',style:'yt_fitness_purple'}},
 
 // ─── BUSINESS CARD ────────────────────────────────────────
-{id:'t18',cat:'Business Card',sub:'Corporate',title:'Corporate Black Gold Card',size:'3.5×2 inch',downloads:95000,isNew:false,
+{id:'t18',cover:'assets/covers/templates/t18.jpg',cat:'Business Card',sub:'Corporate',title:'Corporate Black Gold Card',size:'3.5×2 inch',downloads:95000,isNew:false,
  design:{type:'biz_card',bg:['#050505','#0a0a0a'],accent:'#f59e0b',name:'Your Name',role:'CEO & Founder',company:'Your Company',style:'corp_gold'}},
 {id:'t19',cat:'Business Card',sub:'Creative',title:'Creative Purple Gradient',size:'3.5×2 inch',downloads:78000,isNew:true,
  design:{type:'biz_card',bg:['#0a0015','#150025'],accent:'#a855f7',name:'Creative Pro',role:'Designer & Artist',company:'Creative Studio',style:'creative_purple'}},
@@ -376,7 +376,7 @@ const TEMPLATES = [
  design:{type:'biz_card',bg:['#0f0008','#180010'],accent:'#f472b6',name:'Fashion Designer',role:'Style Consultant',company:'Fashion House',style:'elegant_rose'}},
 
 // ─── FESTIVAL / INDIAN ────────────────────────────────────
-{id:'t22',cat:'Festival',sub:'Diwali',title:'Diwali Social Media Post',size:'1080×1080',downloads:245000,isNew:true,
+{id:'t22',cover:'assets/covers/templates/t22.jpg',cat:'Festival',sub:'Diwali',title:'Diwali Social Media Post',size:'1080×1080',downloads:245000,isNew:true,
  design:{type:'festival_diwali',bg:['#0f0500','#1a0a00'],accent:'#f59e0b',text:'दीपावली की\nहार्दिक शुभकामनाएं',sub:'🪔 Happy Diwali 🪔',style:'diwali_gold'}},
 {id:'t23',cat:'Festival',sub:'Holi',title:'Holi Colors Template',size:'1080×1080',downloads:198000,isNew:false,
  design:{type:'festival_holi',bg:['#050015','#0a0025'],accent:'#ec4899',text:'Happy Holi! 🎨',sub:'रंगों का त्योहार मुबारक',style:'holi_colorful'}},
@@ -1054,8 +1054,7 @@ function fmtNum(n){ return n >= 1000 ? (n/1000).toFixed(1)+'K' : n; }
 // CARD BUILDER WITH PACK BADGE
 // ═══════════════════════════════════════════════════════════
 function buildCard(t){
-  const c = makeTemplateSlide(t, 0, false);
-  const imgSrc = c.toDataURL('image/png');
+  const imgSrc = t.cover || makeTemplateSlide(t, 0, false).toDataURL('image/png');
   const slides = getTemplateSlideInfo(t);
   const packLabel = `${slides.length} SLIDES PACK`;
 
