@@ -314,24 +314,29 @@ async function handleGutenbergRequest(query, topic, page) {
     else apiUrl += `&search=${encodeURIComponent(topic)}`;
   }
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 9000);
+  let data = null;
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), query ? 3500 : 7000);
+    const apiRes = await fetch(apiUrl, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; TheBhomEbooks/2026; +https://thebhom.in)',
+        'Accept': 'application/json'
+      },
+      cf: { cacheTtl: 86400, cacheEverything: true }
+    });
+    clearTimeout(timeout);
+    if (apiRes.ok) {
+      data = await apiRes.json();
+    }
+  } catch (err) {
+    console.warn('Gutendex fetch timed out or failed:', err.message);
+  }
 
-  const apiRes = await fetch(apiUrl, {
-    signal: controller.signal,
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; TheBhomEbooks/2026; +https://thebhom.in)',
-      'Accept': 'application/json'
-    },
-    cf: { cacheTtl: 86400, cacheEverything: true }
-  });
-  clearTimeout(timeout);
+  const rawResults = (data && data.results) ? data.results : [];
 
-  if (!apiRes.ok) throw new Error(`Gutendex returned status ${apiRes.status}`);
-  const data = await apiRes.json();
-  const rawResults = data.results || [];
-
-  // If query returns 0 books from Gutenberg, seamlessly fallback to 44M+ Archive.org global texts
+  // If query returns 0 books from Gutenberg or Gutendex timed out, seamlessly search 44M+ Archive.org global texts
   if (query && rawResults.length === 0) {
     return await handleArchiveGlobalSearch(query, page, 32);
   }
