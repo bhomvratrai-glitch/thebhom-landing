@@ -389,6 +389,21 @@
 </head>
 <body>
 
+  <div style="max-width: 1200px; margin: 16px auto 0; padding: 0 16px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; backdrop-filter: blur(10px);">
+      <a href="../index.html" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #f8fafc; font-weight: 700; font-size: 0.95rem;">
+        <span style="background:#e11d48;color:#fff;padding:2px 6px;border-radius:4px;font-size:0.75rem;font-weight:900;">TB</span>
+        <span>The<span style="color:#e11d48;">Bhom</span></span>
+      </a>
+      <div style="display: flex; gap: 16px; align-items: center; font-size: 0.85rem;">
+        <a href="../tools/" style="color: #94a3b8; text-decoration: none; font-weight: 600;">🛠️ Web Tools</a>
+        <a href="../downloader/" style="color: #94a3b8; text-decoration: none; font-weight: 600;">⚡ Downloader</a>
+        <a href="../voices/" style="color: #94a3b8; text-decoration: none; font-weight: 600;">🎙️ AI Voices</a>
+        <a href="../pricing.html" style="color: #38bdf8; text-decoration: none; font-weight: 700;">💎 Upgrade Pro</a>
+      </div>
+    </div>
+  </div>
+
   <header class="header">
     <div class="badge">✨ 100% Real 3D Cartoon Animation • Atomic Sync ✨</div>
     <h1>चीकू और जादुई तितली</h1>
@@ -404,6 +419,15 @@
           <source src="final_cartoon_story.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+        <div id="simScreen" style="display:none;position:absolute;inset:0;background:radial-gradient(ellipse at center, #1e1b4b 0%, #030712 100%);color:#fff;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;z-index:10;">
+          <div style="font-size: 2.8rem; margin-bottom: 8px;">✨ 🦋 ✨</div>
+          <div style="font-size: 1.35rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 4px;" id="simSceneTitle">जादुई सुनहरे जंगल का दृश्य</div>
+          <div style="font-size: 0.95rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 12px;" id="simClipName">CLIP 01: Magical Golden Forest</div>
+          <p style="max-width: 540px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 18px;">
+            Interactive Storyboard Simulator active. Click Play or any Scene Chip below to step through the 55-second synchronized fairy tale breakdown!
+          </p>
+          <button class="btn btn-primary" onclick="togglePlay()" id="simPlayBtn" style="padding: 10px 24px; font-size: 0.95rem;">▶ Start Interactive Playback</button>
+        </div>
       </div>
 
       <div class="live-hud">
@@ -610,23 +634,35 @@
       tableBody.appendChild(tr);
     });
 
-    function jumpToBeat(idx) {
-      video.currentTime = BEATS[idx].start + 0.05;
-      video.play();
+    let isSimulating = false;
+    let simPlaying = false;
+    let simTime = 0;
+    let simInterval = null;
+
+    const simScreen = document.getElementById('simScreen');
+    const simTitle = document.getElementById('simSceneTitle');
+    const simClip = document.getElementById('simClipName');
+    const simPlayBtn = document.getElementById('simPlayBtn');
+
+    function activateSimulator() {
+      if (isSimulating) return;
+      isSimulating = true;
+      video.style.display = 'none';
+      if (simScreen) simScreen.style.display = 'flex';
+      renderAtTime(simTime);
     }
 
-    function togglePlay() {
-      if (video.paused) video.play();
-      else video.pause();
-    }
+    video.addEventListener('error', activateSimulator);
+    const vSource = video.querySelector('source');
+    if (vSource) vSource.addEventListener('error', activateSimulator);
 
-    function restartVideo() {
-      video.currentTime = 0;
-      video.play();
-    }
+    setTimeout(() => {
+      if (video.networkState === 3 || video.error) {
+        activateSimulator();
+      }
+    }, 800);
 
-    video.ontimeupdate = () => {
-      const t = video.currentTime;
+    function renderAtTime(t) {
       hudTime.textContent = `${formatTime(t)} / ${formatTime(video.duration || 55.47)}`;
 
       let activeIdx = BEATS.findIndex(b => t >= b.start && t < b.end);
@@ -644,6 +680,9 @@
         hudHindi.textContent = b.hindi;
         hudEn.textContent = b.en;
 
+        if (simTitle) simTitle.textContent = b.title;
+        if (simClip) simClip.textContent = `${b.clip} • Scene ${b.id}`;
+
         document.querySelectorAll(".scene-chip").forEach((el, i) => {
           el.classList.toggle("active", i === activeIdx);
         });
@@ -652,12 +691,73 @@
           el.classList.toggle("row-active", i === activeIdx);
         });
 
-        // Scroll chip into view smoothly
         const activeChip = document.getElementById(`chip-${activeIdx}`);
         if (activeChip) {
           activeChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
       }
+    }
+
+    function jumpToBeat(idx) {
+      if (isSimulating) {
+        simTime = BEATS[idx].start + 0.05;
+        renderAtTime(simTime);
+        if (!simPlaying) togglePlay();
+        return;
+      }
+      try {
+        video.currentTime = BEATS[idx].start + 0.05;
+        video.play().catch(() => activateSimulator());
+      } catch(e) {
+        activateSimulator();
+      }
+    }
+
+    function togglePlay() {
+      if (isSimulating) {
+        simPlaying = !simPlaying;
+        if (simPlaying) {
+          if (simTime >= 55.47) simTime = 0;
+          if (simPlayBtn) simPlayBtn.textContent = '⏸ Pause Playback';
+          simInterval = setInterval(() => {
+            simTime += 0.2;
+            if (simTime >= 55.47) {
+              simTime = 55.47;
+              simPlaying = false;
+              clearInterval(simInterval);
+              if (simPlayBtn) simPlayBtn.textContent = '⏮ Replay Story';
+            }
+            renderAtTime(simTime);
+          }, 200);
+        } else {
+          clearInterval(simInterval);
+          if (simPlayBtn) simPlayBtn.textContent = '▶ Resume Playback';
+        }
+        return;
+      }
+      if (video.paused) {
+        video.play().catch(() => {
+          activateSimulator();
+          togglePlay();
+        });
+      } else {
+        video.pause();
+      }
+    }
+
+    function restartVideo() {
+      if (isSimulating) {
+        simTime = 0;
+        renderAtTime(0);
+        if (!simPlaying) togglePlay();
+        return;
+      }
+      video.currentTime = 0;
+      video.play().catch(() => activateSimulator());
+    }
+
+    video.ontimeupdate = () => {
+      renderAtTime(video.currentTime);
     };
   </script>
 </body>

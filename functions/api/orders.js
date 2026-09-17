@@ -81,7 +81,7 @@ export async function onRequestPost(context) {
     // Generate unique Order ID
     const randomSuffix = Math.random().toString(36).substring(2, 6).toUpperCase();
     const orderId = `TB-${Date.now().toString(36).toUpperCase()}-${randomSuffix}`;
-    const parsedAmount = Math.max(0, parseFloat(amount) || 49);
+    const parsedAmount = Math.max(0, parseFloat(rawAmount) || 49);
 
     const insertSql = `
       INSERT INTO payment_orders (id, user_name, user_email, user_phone, product_id, product_name, amount, utr_number, status)
