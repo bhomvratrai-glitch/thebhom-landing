@@ -33,14 +33,23 @@ TheBhom is built for high speed, zero latency, and privacy-first web performance
 - Description: Print-ready, high-resolution foldable greeting cards for anniversaries, birthdays, weddings, Valentine's Day, and Indian festivals.
 - Features: Custom greeting text editing, double-sided fold guidelines, high-DPI export.
 
-### 6. Web Tools & Utilities (tools/index.html)
+### 6. Web Tools & Utilities Suite (tools/index.html)
 - URL: https://thebhom.in/tools/index.html
-- Description: Collection of fast web utilities including PDF merger/rotator, image compressors, format converters, and code formatters.
-- Features: 100% client-side execution, private and secure.
+- Description: Comprehensive suite of client-side developer, image processing, and PDF manipulation utilities. 100% private in-browser execution with zero server uploads.
+- Key Tools:
+  - [Image Compressor](https://thebhom.in/tools/compress-image.html): Free online image compressor for JPG, PNG, and WebP. Reduces file sizes (KB/MB) with lossy and lossless algorithms without quality degradation.
+  - [PDF Merger & Compiler](https://thebhom.in/tools/merge-pdf.html): No sign up PDF compiler online. Combine, reorder, and merge multiple PDF documents into a single file with zero watermarks.
+  - [CSV Cleaner & Deduplicator](https://thebhom.in/tools/clean-csv.html): Online CSV cleaner to remove duplicate rows, trim whitespace, and clean spreadsheet records without Excel.
+  - [PDF Rotate & Reorder](https://thebhom.in/tools/rotate-pdf.html): Rotate PDF pages 90°, 180°, or 270° and fix orientation instantly.
+  - [PDF Splitter](https://thebhom.in/tools/split-pdf.html): Extract specific page ranges or split multi-page documents into standalone PDFs.
+  - [JSON Formatter & Validator](https://thebhom.in/tools/format-json.html): Clean, format, and validate messy JSON strings with syntax highlighting.
+  - [Base64 Encoder & Decoder](https://thebhom.in/tools/base64.html): Encode and decode text or image files to Base64 in-browser.
+  - [QR Code Generator](https://thebhom.in/tools/qr-code.html): Generate custom high-resolution QR codes for URLs, WiFi credentials, and contact cards.
 
-### 7. Video Downloader (downloader/)
+### 7. Universal Video Downloader (downloader/)
 - URL: https://thebhom.in/downloader/
-- Description: High-speed video downloader supporting multi-resolution media extraction for content creators and students.
+- Description: Multi-platform HD/4K video downloader for content creators, researchers, and students.
+- Features: Download Instagram Reels in 1080p, YouTube Shorts/Videos up to 4K, and TikTok clips without watermark. Extract MP3 audio or MP4 video with high-speed direct downloads.
 
 ## Legal & Compliance
 
