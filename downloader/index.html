@@ -238,7 +238,7 @@
       padding: 2px 8px; border-radius: 6px; border: 1px solid var(--dl-border); color: var(--dl-text);
     }
 
-    /* INLINE YOUTUBE-STYLE PROGRESSIVE PLAYER STAGE */
+    /* INLINE STREAMING PLAYER STAGE */
     .player-stage-wrap {
       width: 100%;
       background: #000;
@@ -534,7 +534,7 @@
       </div>
     </div>
 
-    <!-- Result / Download Card (iLovePDF Style with YouTube-Style Progressive Player) -->
+    <!-- Result / Download Card with Streaming Player -->
     <div id="resultCard" class="result-card">
       
       <!-- Video Header -->
@@ -555,7 +555,7 @@
         <h2 id="resTitle" class="info-title">Video Title</h2>
       </div>
 
-      <!-- INLINE YOUTUBE-STYLE PROGRESSIVE PLAYER STAGE -->
+      <!-- INLINE STREAMING PLAYER STAGE -->
       <div class="player-stage-wrap" id="playerStageWrap">
         <!-- 1. Thumbnail View with YouTube Play Button -->
         <div class="stage-thumbnail" id="stageThumbnail" onclick="startInstantPlayback()" title="Click to watch / stream online in real-time">
@@ -1067,7 +1067,7 @@
         }
 
         if (vPlayer) {
-          // YouTube-style: load stream directly so browser requests byte chunks immediately
+          // Load stream directly so browser requests byte chunks immediately
           vPlayer.src = directUrl;
           vPlayer.onerror = () => {
             // If direct stream fails due to referrer, seamlessly stream through Range proxy

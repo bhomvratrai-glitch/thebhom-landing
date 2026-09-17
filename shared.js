@@ -2298,7 +2298,7 @@ function getMagCoverDataUrl(mag) {
 
 
 // ============================================================
-// AMAZON KINDLE STOREFRONT MODAL
+// E-BOOK STOREFRONT MODAL
 // ============================================================
 function openAmazonBookModal(bookId) {
   let book = null;
@@ -2572,7 +2572,7 @@ function renderPinterestHomeFeed(containerId = 'pinterestFeedContainer', categor
     });
   }
 
-  // 2. E-Books (Amazon Kindle Storefront research)
+  // 2. E-Books
   if (category === 'all' || category === 'ebooks' || category === 'business') {
     const books = window.THEBHOM.EBOOKS || [];
     books.forEach(b => {
