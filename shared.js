@@ -1024,6 +1024,22 @@ let spotlightActiveCategory = 'all';
 
 function getAllContentItems() {
   const items = [];
+  
+  // Web Tools & Downloader (ToolNest & Video Engine)
+  const webTools = [
+    { id: 'tool-downloader', title: 'Universal Video Downloader & Trimmer (1080p HD & MP3)', cat: 'tools', tag: 'Downloader', emoji: '⚡', url: 'downloader/' },
+    { id: 'tool-compress', title: 'Compress Image Online (JPG, PNG, WebP)', cat: 'tools', tag: 'Image Tool', emoji: '🗜️', url: 'tools/compress-image.html' },
+    { id: 'tool-merge', title: 'Merge PDF Files Online (Combine Multiple PDFs)', cat: 'tools', tag: 'PDF Tool', emoji: '📑', url: 'tools/merge-pdf.html' },
+    { id: 'tool-split', title: 'Split PDF Pages Online (Extract Specific Pages)', cat: 'tools', tag: 'PDF Tool', emoji: '✂️', url: 'tools/split-pdf-pages.html' },
+    { id: 'tool-watermark', title: 'Watermark PDF Online (Add Stamp / Confidential Text)', cat: 'tools', tag: 'PDF Tool', emoji: '💧', url: 'tools/watermark-pdf.html' },
+    { id: 'tool-pdf-img', title: 'PDF to Image Converter (High-Resolution JPG / PNG)', cat: 'tools', tag: 'PDF Tool', emoji: '🖼️', url: 'tools/pdf-to-image.html' },
+    { id: 'tool-resize', title: 'Resize Image Online (Custom Dimensions & Aspect Ratio)', cat: 'tools', tag: 'Image Tool', emoji: '📐', url: 'tools/resize-image-online.html' },
+    { id: 'tool-webp', title: 'Convert JPG / PNG to WebP (Lightweight Format)', cat: 'tools', tag: 'Image Tool', emoji: '🔄', url: 'tools/convert-jpg-to-webp.html' },
+    { id: 'tool-csv', title: 'CSV Cleaner & Duplicate Row Remover (100% In-Browser)', cat: 'tools', tag: 'Data Tool', emoji: '📊', url: 'tools/clean-csv.html' },
+    { id: 'tool-ai', title: 'AI Utility Hub (Summarize, Rewrite, Title & Translate)', cat: 'tools', tag: 'AI Tool', emoji: '🤖', url: 'tools/ai.html' }
+  ];
+  items.push(...webTools);
+
   if (window.THEBHOM) {
     (THEBHOM.WALLPAPERS || []).forEach(w => items.push({ id: w.id, title: w.title, cat: 'wallpapers', tag: w.tag || '4K Wallpaper', emoji: '🖼️', url: 'wallpapers.html#' + w.id }));
     (THEBHOM.EBOOKS || []).forEach(b => items.push({ id: b.id, title: b.title, cat: 'ebooks', tag: b.category || 'E-Book', emoji: b.emoji || '📚', url: 'ebooks.html#' + b.id }));
@@ -1032,7 +1048,7 @@ function getAllContentItems() {
     (THEBHOM.CARDS || []).forEach(c => items.push({ id: c.id, title: c.title, cat: 'cards', tag: c.cat || 'Greeting Card', emoji: c.emoji || '💌', url: 'cards.html#' + c.id }));
   }
   // Local fallbacks if available
-  if (items.length === 0) {
+  if (items.length === webTools.length) {
     if (typeof ALL_WALLS !== 'undefined') {
       ALL_WALLS.forEach(w => items.push({ id: w.id, title: w.title, cat: 'wallpapers', tag: w.cat || 'Wallpaper', emoji: '🖼️', url: 'wallpapers.html#' + w.id }));
     }
@@ -1051,19 +1067,12 @@ function getAllContentItems() {
 
 function openSpotlightItem(url, id, cat) {
   closeSpotlight();
-  const curPage = window.location.pathname.split('/').pop() || 'index.html';
-  const targetPage = url.split('#')[0];
-  if (curPage === targetPage) {
-    if (cat === 'wallpapers' && typeof openPreview === 'function') openPreview(id);
-    else if (cat === 'ebooks' && typeof openReader === 'function') openReader(id);
-    else if (cat === 'magazines' && typeof openMagReader === 'function') openMagReader(id);
-    else if (cat === 'cards' && typeof openCardZoom === 'function') openCardZoom(id);
-    else if (cat === 'templates' && typeof openZoom === 'function') openZoom(id);
-    else if (cat === 'templates' && typeof openTplModal === 'function') openTplModal(id);
-    window.location.hash = '#' + id;
-  } else {
-    window.location.href = url;
+  const isInSubdir = window.location.pathname.includes('/tools/') || window.location.pathname.includes('/downloader/') || window.location.pathname.includes('/directory/');
+  let targetUrl = url;
+  if (!targetUrl.startsWith('/') && !targetUrl.startsWith('http')) {
+    targetUrl = isInSubdir ? '../' + targetUrl : targetUrl;
   }
+  window.location.href = targetUrl;
 }
 
 window.addEventListener('hashchange', () => {
@@ -1101,6 +1110,7 @@ function openSpotlight() {
         </div>
         <div class="spotlight-filter-bar">
           <button class="spotlight-chip active" onclick="setSpotlightCat('all', this)">🔥 All Items</button>
+          <button class="spotlight-chip" onclick="setSpotlightCat('tools', this)">🛠️ Tools & Downloader</button>
           <button class="spotlight-chip" onclick="setSpotlightCat('wallpapers', this)">🖼️ Wallpapers</button>
           <button class="spotlight-chip" onclick="setSpotlightCat('ebooks', this)">📚 E-Books</button>
           <button class="spotlight-chip" onclick="setSpotlightCat('magazines', this)">📰 Magazines</button>

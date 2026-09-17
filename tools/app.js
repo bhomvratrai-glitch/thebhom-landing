@@ -754,6 +754,64 @@ async function processCurrent() {
   }
 }
 
+function applyToolFromUrl() {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    let target = urlParams.get('tool') || window.location.hash.replace(/^#/, '').toLowerCase();
+    if (target.startsWith('tool=')) target = target.split('=')[1];
+
+    if (!target) {
+      const wsEl = $('workspace');
+      if (wsEl && wsEl.dataset.defaultTool) {
+        target = wsEl.dataset.defaultTool.toLowerCase();
+      }
+    }
+
+    const aliasMap = {
+      'compress-image': 'compress',
+      'compress': 'compress',
+      'resize-image': 'resize',
+      'resize': 'resize',
+      'convert-image': 'convert',
+      'convert': 'convert',
+      'convert-png-to-jpg': 'convert',
+      'convert-jpg-to-webp': 'convert',
+      'crop-image': 'crop',
+      'crop': 'crop',
+      'rotate-image': 'rotate',
+      'rotate': 'rotate',
+      'image-pdf': 'image-pdf',
+      'img-pdf': 'image-pdf',
+      'merge-pdf': 'merge',
+      'merge': 'merge',
+      'split-pdf': 'split',
+      'split': 'split',
+      'split-pdf-pages': 'split',
+      'rotate-pdf': 'rotate-pdf',
+      'watermark-pdf': 'watermark',
+      'watermark': 'watermark',
+      'pdf-to-image': 'pdf-to-image',
+      'pdf-image': 'pdf-to-image',
+      'info': 'info',
+      'pdf-info': 'info'
+    };
+
+    const resolved = aliasMap[target];
+    if (!resolved) return false;
+
+    const isPdf = pdfTools.some((x) => x[0] === resolved);
+    mode = isPdf ? 'pdf' : 'image';
+    tool = resolved;
+
+    document.querySelectorAll('[data-mode]').forEach((x) => x.classList.toggle('active', x.dataset.mode === mode));
+    renderTools();
+    updateWorkspace();
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function setupWorkspace() {
   if (!$('workspace')) return;
   document.querySelectorAll('[data-mode]').forEach((b) => {
@@ -766,8 +824,27 @@ function setupWorkspace() {
     };
   });
   setupDrop();
-  renderTools();
-  updateWorkspace();
+  
+  const switched = applyToolFromUrl();
+  if (!switched) {
+    renderTools();
+    updateWorkspace();
+  }
+
+  // Handle in-page hash changes dynamically
+  window.addEventListener('hashchange', () => {
+    if (applyToolFromUrl()) {
+      const ws = $('workspace');
+      if (ws) ws.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  if (switched) {
+    setTimeout(() => {
+      const ws = $('workspace');
+      if (ws) ws.scrollIntoView({ behavior: 'smooth' });
+    }, 150);
+  }
 }
 
 // AI Utility Hub (connected to Cloudflare Function /api/ai)
@@ -843,12 +920,56 @@ function setupAutomation() {
   const inputEl = $('csvInput');
   const outputEl = $('csvOutput');
   const statsEl = $('csvStats');
+  const fileInput = $('csvFileInput');
+  const dropzone = $('csvDropzone');
   if (!cleanBtn || !inputEl || !outputEl) return;
+
+  function loadCsvText(text, filename = '') {
+    inputEl.value = text;
+    if (statsEl) {
+      const lineCount = text.split(/\r?\n/).filter(Boolean).length;
+      statsEl.textContent = `Loaded ${filename ? filename + ' with ' : ''}${lineCount} rows. Click "Clean CSV & Remove Duplicates" to process.`;
+    }
+    toast('CSV file loaded successfully');
+  }
+
+  if (fileInput) {
+    fileInput.onchange = (e) => {
+      const f = e.target.files?.[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = (evt) => loadCsvText(evt.target.result, f.name);
+      reader.readAsText(f);
+    };
+  }
+
+  if (dropzone) {
+    ['dragenter', 'dragover'].forEach((e) =>
+      dropzone.addEventListener(e, (x) => {
+        x.preventDefault();
+        dropzone.classList.add('drag');
+      })
+    );
+    ['dragleave', 'drop'].forEach((e) =>
+      dropzone.addEventListener(e, (x) => {
+        x.preventDefault();
+        dropzone.classList.remove('drag');
+      })
+    );
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const f = e.dataTransfer.files?.[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = (evt) => loadCsvText(evt.target.result, f.name);
+      reader.readAsText(f);
+    });
+  }
 
   cleanBtn.onclick = () => {
     const raw = inputEl.value.trim();
     if (!raw) {
-      toast('Paste CSV data first');
+      toast('Paste CSV data or upload a file first');
       return;
     }
     const lines = raw.split(/\r?\n/).filter(Boolean);

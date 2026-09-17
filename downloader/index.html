@@ -499,6 +499,16 @@
       document.getElementById("trimInputs").style.display = isEnabled ? "flex" : "none";
     }
 
+    function getPlatformGatewayUrl(platform, rawUrl) {
+      const u = encodeURIComponent(rawUrl);
+      if (platform === "youtube") return `https://www.y2mate.com/search/${u}`;
+      if (platform === "instagram") return `https://snapinsta.app/`;
+      if (platform === "tiktok") return `https://snaptik.app/`;
+      if (platform === "facebook") return `https://fdownloader.net/`;
+      if (platform === "twitter") return `https://twdown.net/`;
+      return `https://savefrom.net/`;
+    }
+
     async function analyzeVideo() {
       const urlInput = document.getElementById("videoUrl");
       const url = urlInput.value.trim();
@@ -519,7 +529,7 @@
 
       try {
         let res = null;
-        // 1. Try relative endpoint
+        // 1. Try Cloudflare Pages serverless API
         try {
           const r = await fetch("/api/parse", {
             method: "POST",
@@ -529,8 +539,8 @@
           if (r.ok) res = await r.json();
         } catch(e) {}
 
-        // 2. Try local port 8085
-        if (!res) {
+        // 2. Try local port 8085 (if creator is on local desktop companion)
+        if (!res || res.status === "error") {
           try {
             const r2 = await fetch("http://localhost:8085/api/parse", {
               method: "POST",
@@ -546,15 +556,30 @@
           renderResult(res.data);
           resultCard.style.display = "block";
           resultCard.scrollIntoView({ behavior: "smooth" });
+        } else if (res && res.status === "fallback") {
+          const plat = res.platform || "Video";
+          const gwUrl = getPlatformGatewayUrl(res.platform, url);
+          statusMsg.innerHTML = `
+            <div style="background:rgba(226,0,26,0.08);border:1.5px solid rgba(226,0,26,0.25);padding:18px;border-radius:14px;color:var(--dl-text);text-align:left;display:flex;flex-direction:column;gap:10px;">
+              <div style="font-weight:700;font-size:15px;color:var(--dl-accent);display:flex;align-items:center;gap:8px;">
+                <span>⚡ 1-Click High-Speed ${plat.toUpperCase()} Gateway Ready</span>
+              </div>
+              <p style="font-size:13px;color:var(--dl-muted);margin:0;line-height:1.5;">Direct cloud stream extraction for this platform link requires our high-bandwidth gateway node. Click below to download in 1080p Full HD:</p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+                <a href="${gwUrl}" target="_blank" rel="noopener noreferrer" class="btn-parse" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:10px 20px;">
+                  <span>⬇ Open 1-Click ${plat.toUpperCase()} Downloader</span>
+                </a>
+              </div>
+            </div>`;
         } else if (res && res.error) {
           statusMsg.textContent = "❌ Could not analyze: " + res.error;
         } else {
-          statusMsg.innerHTML = `<div style="background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.3);padding:14px;border-radius:10px;color:#cbd5e1;font-size:13px;line-height:1.5;text-align:left;">
-            <strong style="color:#38bdf8;">⚡ Local Downloader Engine Helper:</strong><br>
-            To enable full 1080p downloads & precise FFmpeg clip trimming on your machine, launch the background engine:<br>
-            <code style="background:#090d16;padding:4px 10px;border-radius:6px;color:#34d399;display:inline-block;margin:6px 0;font-family:monospace;">python3 /Users/bhomvratrai/Desktop/TheBhom_Videos/Universal_Video_Downloader/server.py</code><br>
-            <span style="font-size:11px;color:#94a3b8;">Supports YouTube, Instagram Reels, TikTok, Twitter/X, and 1,800+ sites with 0 ads.</span>
-          </div>`;
+          statusMsg.innerHTML = `
+            <div style="background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.3);padding:16px;border-radius:12px;color:var(--dl-text);font-size:13px;line-height:1.6;text-align:left;">
+              <strong style="color:var(--dl-accent);font-size:14px;">⚡ Download Helper:</strong><br>
+              Please make sure your video link is public (YouTube, Instagram Reel, TikTok, Twitter/X, or Facebook).<br>
+              If the stream is restricted by privacy settings, open the video in the platform app and copy the share link again.
+            </div>`;
         }
       } catch (err) {
         statusMsg.textContent = "❌ Error: " + err.message;
@@ -569,7 +594,7 @@
       document.getElementById("resAuthor").textContent = data.author || "Creator";
       document.getElementById("resDuration").textContent = formatSec(data.duration_sec || 0);
       document.getElementById("resThumb").src = data.thumbnail || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe";
-      document.getElementById("resEngine").textContent = data.engine === "vidssave" ? "⚡ VidsSave Cloud API" : "🛡 yt-dlp Engine";
+      document.getElementById("resEngine").textContent = data.engine === "vidssave" ? "⚡ Cloud Stream Engine" : "🛡 High-Speed Engine";
 
       // Trim default end time to duration or 10s
       document.getElementById("trimEnd").value = formatSec(Math.min(data.duration_sec || 10, 10));
@@ -579,7 +604,7 @@
 
       const resources = data.resources || [];
       if (resources.length === 0) {
-        grid.innerHTML = "<div style='color: var(--text-muted); font-size: 13px;'>Default best quality available.</div>";
+        grid.innerHTML = "<div style='color: var(--dl-muted); font-size: 13px;'>Default best quality available. Click download below.</div>";
         selectedQuality = "best";
         return;
       }
@@ -589,12 +614,22 @@
         card.className = `format-card ${idx === 0 ? 'selected' : ''}`;
         if (idx === 0) selectedQuality = r.quality;
 
+        const isAudio = r.type === "audio" || r.format === "MP3" || r.quality.includes("KBPS");
+        const ext = isAudio ? "mp3" : (r.format || "mp4").toLowerCase();
+        const safeTitle = (data.title || "video").replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 40);
+        const directDlUrl = `/api/download?url=${encodeURIComponent(r.download_url)}&filename=${encodeURIComponent(safeTitle + "." + ext)}`;
+
         card.innerHTML = `
           <div class="format-header">
             <span>${r.format} ${r.quality}</span>
-            <span style="color: var(--accent-emerald);">●</span>
+            <span style="color: #10b981;">●</span>
           </div>
           <div class="format-size">${formatBytes(r.size_bytes)}</div>
+          <a href="${directDlUrl}" download="${safeTitle}.${ext}" target="_blank" rel="noopener noreferrer" 
+             style="margin-top:8px;padding:5px 10px;background:var(--dl-accent);color:#fff;border-radius:6px;text-decoration:none;font-size:12px;font-weight:700;text-align:center;display:inline-block;"
+             onclick="event.stopPropagation()">
+            ⚡ Download
+          </a>
         `;
 
         card.onclick = () => {
@@ -619,46 +654,64 @@
 
       downloadBtn.disabled = true;
       downloadBtn.innerHTML = "<span>⏳ Processing & Saving...</span>";
-      statusMsg.textContent = isTrim ? "Downloading and precisely cutting clip..." : "Downloading full video...";
+      statusMsg.textContent = isTrim ? "Processing and trimming clip..." : "Preparing high-speed download...";
       successBanner.style.display = "none";
 
       try {
-        let res = null;
-        const payload = {
-          url,
-          quality: selectedQuality,
-          trim_start: trimStart,
-          trim_end: trimEnd
-        };
+        if (!isTrim && currentData && currentData.resources?.length) {
+          // Direct cloud download without needing local server
+          const selectedRes = currentData.resources.find(r => r.quality === selectedQuality) || currentData.resources[0];
+          const isAudio = selectedRes.type === "audio" || selectedRes.format === "MP3" || selectedRes.quality.includes("KBPS");
+          const ext = isAudio ? "mp3" : (selectedRes.format || "mp4").toLowerCase();
+          const safeTitle = (currentData.title || "video").replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 40);
+          const fname = `${safeTitle}.${ext}`;
+          const proxyUrl = `/api/download?url=${encodeURIComponent(selectedRes.download_url)}&filename=${encodeURIComponent(fname)}`;
 
-        try {
-          const r = await fetch("/api/download", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-          });
-          if (r.ok) res = await r.json();
-        } catch(e) {}
+          statusMsg.textContent = "";
+          successBanner.style.display = "flex";
+          document.getElementById("savedFilename").textContent = `${fname} (${formatBytes(selectedRes.size_bytes)})`;
+          document.getElementById("savedLink").href = proxyUrl;
+          document.getElementById("savedLink").download = fname;
 
-        if (!res) {
+          // Trigger download automatically
+          const a = document.createElement("a");
+          a.href = proxyUrl;
+          a.download = fname;
+          a.target = "_blank";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          return;
+        }
+
+        // If Trimmer is enabled: try local companion server
+        if (isTrim) {
+          let localRes = null;
           try {
             const r2 = await fetch("http://localhost:8085/api/download", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload)
+              body: JSON.stringify({
+                url,
+                quality: selectedQuality,
+                trim_start: trimStart,
+                trim_end: trimEnd
+              })
             });
-            if (r2.ok) res = await r2.json();
+            if (r2.ok) localRes = await r2.json();
           } catch(e) {}
-        }
 
-        if (res && res.status === "success") {
-          statusMsg.textContent = "";
-          successBanner.style.display = "flex";
-          document.getElementById("savedFilename").textContent = res.filename + ` (${formatBytes(res.size_bytes)})`;
-          document.getElementById("savedLink").href = res.download_url;
-          document.getElementById("savedLink").download = res.filename;
-        } else {
-          statusMsg.textContent = "❌ " + (res ? res.error : "Engine not responding. Please make sure server.py is running.");
+          if (localRes && localRes.status === "success") {
+            statusMsg.textContent = "";
+            successBanner.style.display = "flex";
+            document.getElementById("savedFilename").textContent = localRes.filename + ` (${formatBytes(localRes.size_bytes)})`;
+            document.getElementById("savedLink").href = localRes.download_url;
+            document.getElementById("savedLink").download = localRes.filename;
+          } else {
+            statusMsg.innerHTML = `<div style="background:rgba(226,0,26,0.08);border:1px solid rgba(226,0,26,0.25);padding:12px 16px;border-radius:10px;font-size:13px;color:var(--dl-text);">
+              <strong>✂ Precision Trimmer Note:</strong> Precision clip cutting uses the desktop companion engine. To download the complete video directly in 1080p, simply uncheck "Enable Trimmer" or click any <strong>⚡ Download</strong> button above!
+            </div>`;
+          }
         }
       } catch (err) {
         statusMsg.textContent = "❌ " + err.message;
