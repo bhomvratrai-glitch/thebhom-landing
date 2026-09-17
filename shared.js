@@ -215,6 +215,7 @@ function renderHeader(activePage=''){
   </a>
   <nav class="hdr-nav-container">
     <ul class="hdr-nav">
+      <li><a href="${base}imgpdf/" class="hdr-nav-link ${activePage==='imgpdf'?'active':''}" title="ImgPDF Suite — 47+ Image & PDF Tools"><span class="hdr-nav-ic" style="color:#e5322d;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e5322d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span class="hdr-nav-txt" style="color:#e5322d;font-weight:700;">ImgPDF</span></a></li>
       <li><a href="${base}tools/index.html#image" class="hdr-nav-link ${activePage==='image'?'active':''}"><span class="hdr-nav-ic" style="color:#16a34a;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span><span class="hdr-nav-txt" style="color:#16a34a;font-weight:600;">Image Tools</span></a></li>
       <li><a href="${base}tools/index.html#pdf" class="hdr-nav-link ${activePage==='pdf'?'active':''}"><span class="hdr-nav-ic" style="color:#dc2626;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></span><span class="hdr-nav-txt" style="color:#dc2626;font-weight:600;">PDF Tools</span></a></li>
       <li><a href="${base}tools/ai.html" class="hdr-nav-link ${activePage==='ai'?'active':''}"><span class="hdr-nav-ic" style="color:#9333ea;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span><span class="hdr-nav-txt" style="color:#9333ea;font-weight:600;">AI Tools</span></a></li>
@@ -249,9 +250,11 @@ function renderHeader(activePage=''){
     <button class="mob-theme-pill" data-theme="dark" onclick="setAppTheme('dark')">🌙 Dark</button>
   </div>
   <a href="${base}index.html">🏠 Home</a>
+  <a href="${base}imgpdf/" style="color:#ef4444;font-weight:700;">📄 ImgPDF Suite (47+ Tools)</a>
   <a href="${base}tools/index.html#image" style="color:#16a34a;font-weight:700;">🖼️ Image Tools</a>
   <a href="${base}tools/index.html#pdf" style="color:#dc2626;font-weight:700;">📄 PDF Tools</a>
   <a href="${base}tools/ai.html" style="color:#9333ea;font-weight:700;">✨ AI Tools</a>
+  <a href="${base}downloader/" style="color:#0891b2;font-weight:700;">⚡ Video Downloader</a>
   <a href="${base}pricing.html" style="font-weight:700;">⚡ Plans & Pricing</a>
   <a href="${base}dashboard.html">📊 User Dashboard</a>
   <a href="${base}admin/index.html">🛡️ Admin Panel</a>
@@ -844,9 +847,9 @@ function initShared(){
   const hamBtn=document.getElementById('hamBtn');
   const mobNav=document.getElementById('mobNav');
   hamBtn?.addEventListener('click',()=>{
-    mobNav.classList.toggle('open');
+    if(mobNav) mobNav.classList.toggle('open');
     const spans=hamBtn.querySelectorAll('span');
-    if(mobNav.classList.contains('open')){
+    if(mobNav && mobNav.classList.contains('open')){
       spans[0].style.transform='rotate(45deg) translate(5px,5px)';
       spans[1].style.opacity='0';
       spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
