@@ -564,8 +564,8 @@
             <div class="yt-play-btn">
               <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
             </div>
-            <div class="yt-play-text">▶ Stream Online (YouTube-Style Instant Play)</div>
-            <div class="yt-play-sub">Plays second-by-second in progressive chunks • No full-load waiting</div>
+            <div class="yt-play-text">▶ Watch Online</div>
+            <div class="yt-play-sub">Click to play preview instantly</div>
           </div>
         </div>
 
@@ -986,9 +986,9 @@
             <span>${r.quality} ${r.format}</span>
             <span style="color: var(--dl-accent); font-size: 11px;">●</span>
           </div>
-          <div class="format-size-tag">${formatBytes(r.size_bytes)} • Progressive</div>
+          <div class="format-size-tag">${formatBytes(r.size_bytes)} • ${r.format}</div>
           <div class="format-card-actions">
-            <button class="btn-play-stream" onclick="event.stopPropagation(); playStreamFormat('${encodeURIComponent(r.download_url)}', '${r.format}', '${r.quality}')" title="Stream instantly in player stage">
+            <button class="btn-play-stream" onclick="event.stopPropagation(); playStreamFormat('${encodeURIComponent(r.download_url)}', '${r.format}', '${r.quality}')" title="Play preview in player">
               ▶ Play
             </button>
             <a href="${directDlUrl}" download="${safeTitle}.${ext}" target="_blank" rel="noopener noreferrer" 
@@ -1010,7 +1010,7 @@
     }
 
     // ============================================================
-    // YOUTUBE-STYLE PROGRESSIVE CHUNK STREAMING INLINE PLAYER
+    // STREAMING INLINE PLAYER
     // ============================================================
     let activeStreamUrl = "";
     let activeStreamFormat = "MP4";
@@ -1063,7 +1063,7 @@
         if (stageActive) stageActive.style.display = "flex";
 
         if (label) {
-          label.textContent = `Streaming ${quality} ${format} • Instant Buffer`;
+          label.textContent = `Playing ${quality} ${format}`;
         }
 
         if (vPlayer) {

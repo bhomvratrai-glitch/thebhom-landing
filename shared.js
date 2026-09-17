@@ -2337,7 +2337,7 @@ function openAmazonBookModal(bookId) {
       <div class="amz-header-bar">
         <div class="amz-breadcrumb">
           <a href="index.html">TheBhom Store</a> <span>›</span>
-          <a href="ebooks.html">Kindle eBooks</a> <span>›</span>
+          <a href="ebooks.html">Free E-Books</a> <span>›</span>
           <span>${book.category || book.tag || 'Bestseller'}</span>
         </div>
         <div style="color:#f59e0b;font-weight:700;">🇮🇳 India's #1 Free Reading Hub</div>
@@ -2364,19 +2364,19 @@ function openAmazonBookModal(bookId) {
             </div>
 
             <div class="amz-ku-badge">
-              <span class="amz-ku-logo">kindle unlimited</span>
+              <span class="amz-ku-logo">TheBhom Reader</span>
               <span>Unlimited Free Access • No Card Needed</span>
             </div>
 
             <button class="amz-btn-buy" onclick="buyBookOneClick('${book.id}', '${book.title.replace(/'/g, "\\'")}')">
-              🛒 Buy Now with 1-Click (FREE)
+              ⚡ Get Free E-Book (Instant ₹0)
             </button>
             <button class="amz-btn-read" onclick="closeAmazonBookModal(); if(typeof openReader==='function'){ openReader('${book.id}'); } else { window.location.href='ebooks.html?read='+'${book.id}'; }">
               📖 Read Sample / Cloud Reader
             </button>
 
             <div class="amz-delivery-info">
-              ⚡ Instant Digital Download • Read on Phone, iPad, PC & Kindle • Virus-Free Verified
+              ⚡ Instant Digital Download • Read on Phone, iPad, PC & Tablets • Virus-Free Verified
             </div>
           </div>
         </div>
@@ -2460,7 +2460,7 @@ function openAmazonBookModal(bookId) {
                 <span style="color:#f59e0b;font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="amz-review-text">
-                "Incredible quality! Usually these 10-chapter books cost ₹400-500 on Amazon Kindle, but finding it on TheBhom.in completely free with zero ads or watermarks is game-changing. The audio narration is super helpful during commute."
+                "Incredible quality! Usually these 10-chapter books cost ₹400-500 elsewhere, but finding it on TheBhom.in completely free with zero ads or watermarks is game-changing. The audio narration is super helpful during commute."
               </div>
             </div>
             <div class="amz-user-review">
@@ -2583,7 +2583,7 @@ function renderPinterestHomeFeed(containerId = 'pinterestFeedContainer', categor
           id: b.id,
           title: b.title,
           category: 'ebooks',
-          badgeText: '📖 KINDLE STORE',
+          badgeText: '📖 FREE E-BOOK',
           tag: b.tag,
           emoji: b.emoji || '📚',
           ratio: '2/3',
@@ -2591,7 +2591,7 @@ function renderPinterestHomeFeed(containerId = 'pinterestFeedContainer', categor
           authorInitials: 'TP',
           authorBg: '#f59e0b',
           priceBadge: '₹499 ₹0 FREE',
-          actionText: '📖 Kindle Store',
+          actionText: '📖 View E-Book',
           actionHandler: `openAmazonBookModal('${b.id}')`,
           openHandler: `openAmazonBookModal('${b.id}')`,
           customCover: true,

@@ -852,10 +852,10 @@ function buildBookCard(b){
     <img src="${coverUrl}" class="b-cover-img" alt="${safeTitle}" loading="lazy" />
     <button class="fav-heart-btn fav-btn-${b.id} ${isFav?'active':''}" onclick="event.stopPropagation();toggleFavorite({id:'${b.id}',title:'${safeTitle}',tag:'${b.cat}',emoji:'📚'}, event)" title="Save to Favorites">❤️</button>
     <span class="b-badge free" style="background:#22c55e;color:#000;font-weight:900;">₹0 FREE</span>
-    <span class="b-badge" style="bottom:12px;left:12px;background:rgba(15,23,42,.9);color:#f59e0b;border:1px solid #f59e0b66;font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:10px;">📖 KINDLE STORE</span>
+    <span class="b-badge" style="bottom:12px;left:12px;background:rgba(15,23,42,.9);color:#f59e0b;border:1px solid #f59e0b66;font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:10px;">📖 FREE E-BOOK</span>
     ${b.isNew?'<span class="b-badge new" style="top:32px">NEW</span>':''}
     <div class="b-overlay">
-      <button class="b-read-btn" style="background:linear-gradient(135deg,#f59e0b,#f97316);color:#000;font-weight:800;" onclick="event.stopPropagation();openAmazonBookModal('${b.id}')">🛒 Buy Now ₹0 (Store Page)</button>
+      <button class="b-read-btn" style="background:linear-gradient(135deg,#f59e0b,#f97316);color:#000;font-weight:800;" onclick="event.stopPropagation();openAmazonBookModal('${b.id}')">📚 Read Free E-Book (₹0)</button>
       <button class="b-read-btn" onclick="event.stopPropagation();openReader('${b.id}')">📖 Look Inside / Read</button>
       <button class="b-dl-btn" onclick="event.stopPropagation();printBook('${b.id}')" style="background:linear-gradient(135deg,#7c3aed,#ec4899);margin-bottom:3px;">🌟 Styled PDF (Exact Fonts)</button>
       <div style="display:flex;gap:4px;width:100%;">
