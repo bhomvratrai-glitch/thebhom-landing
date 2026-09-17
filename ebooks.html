@@ -507,6 +507,91 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
   cursor: pointer; white-space: nowrap; transition: all .2s;
 }
 .ch-pill:hover { background: var(--ilove-red); color: #fff; border-color: var(--ilove-red); }
+
+/* Resume Reading Banner */
+.resume-reading-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(229, 50, 45, 0.08), rgba(15, 23, 42, 0.04));
+  border: 1px solid rgba(229, 50, 45, 0.25);
+  border-radius: 14px;
+  padding: 10px 16px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+[data-theme="dark"] .resume-reading-bar {
+  background: linear-gradient(135deg, rgba(229, 50, 45, 0.15), rgba(30, 41, 59, 0.6));
+  border-color: rgba(229, 50, 45, 0.35);
+}
+.resume-thumb {
+  width: 42px;
+  height: 58px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+.resume-info {
+  flex: 1;
+  min-width: 0;
+}
+.resume-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--ilove-red);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.resume-title {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--ilove-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resume-author {
+  font-size: 0.8rem;
+  color: var(--ilove-text-muted);
+}
+.resume-btn {
+  background: var(--ilove-red);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.resume-btn:hover {
+  background: #c8231f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(229, 50, 45, 0.3);
+}
+.resume-close {
+  background: transparent;
+  border: none;
+  color: var(--ilove-text-muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+.resume-close:hover { color: var(--ilove-red); }
 </style>
 </head>
 
@@ -598,6 +683,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 
 <!-- MAIN WORKSPACE -->
 <div class="sec">
+  <!-- Resume Reading Slot -->
+  <div id="resumeReadingSlot"></div>
   <div class="srch-box-outer">
     <div class="srch-wrap">
       <span style="font-size:1.1rem;color:var(--ilove-red);">🔍</span>
@@ -1533,6 +1620,7 @@ let totalCatalogCount = 79403;
 
 const CATEGORIES = [
   { id: 'all', name: '📚 All Mega Library (Crores)' },
+  { id: 'favorites', name: '❤️ My Saved Library' },
   { id: 'dli', name: '🇮🇳 DLI Indian Heritage (8.2L+)' },
   { id: 'ncert', name: '🎓 NCERT Textbooks (Class 1-12)' },
   { id: 'hindi', name: '🕉️ Hindi & Sanskrit Granth' },
@@ -1560,7 +1648,7 @@ function setFilter(tag, btn) {
   document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
   if (btn) btn.classList.add('on');
   
-  if (tag !== 'all' && tag !== 'bestsellers') {
+  if (tag !== 'all' && tag !== 'bestsellers' && tag !== 'favorites') {
     fetchOnlineBooks();
   } else {
     render();
@@ -1785,6 +1873,28 @@ function getDisplayBooks() {
       b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) || (b.cat && b.cat.toLowerCase().includes(q))
     );
     list = [...localMatches, ...liveApiBooks];
+  } else if (activeTag === 'favorites') {
+    const favs = window.getFavorites ? window.getFavorites() : [];
+    const favIds = new Set(favs.map(f => f.id));
+    const matched = [...BOOKS, ...liveApiBooks].filter(b => favIds.has(b.id));
+    favs.forEach(f => {
+      if (f.id && !matched.some(m => m.id === f.id)) {
+        matched.push({
+          id: f.id,
+          title: f.title || 'Saved Book',
+          author: f.author || 'Author',
+          cat: f.tag || 'Saved',
+          downloads: 12500,
+          rating: 5.0,
+          cover: f.preview || (f.id.startsWith('ia_') ? `https://archive.org/services/img/${f.id.replace(/^ia_/, '')}` : ''),
+          formats: {
+            pdf: `/api/ebooks?download=pdf&id=${f.id}`,
+            read_online: f.id.startsWith('ia_') ? `https://archive.org/details/${f.id.replace(/^ia_/, '')}?view=theater&ui=embed&wrapper=false` : ''
+          }
+        });
+      }
+    });
+    list = matched;
   } else if (activeTag !== 'all' && activeTag !== 'bestsellers') {
     // Category filter: combine local category matches + online category books
     const localMatches = BOOKS.filter(b => b.cat && b.cat.toLowerCase() === activeTag.toLowerCase());
@@ -2244,14 +2354,71 @@ function triggerFormatDownload(id, fmt, url) {
 // ─────────────────────────────────────────────────────────────
 // 4. IN-BROWSER KINDLE & REPOSITORY READER
 // ─────────────────────────────────────────────────────────────
+function saveLastReadBook(b) {
+  try {
+    const coverUrl = getBookCoverDataUrl(b);
+    localStorage.setItem('thebhom_last_read', JSON.stringify({
+      id: b.id,
+      title: b.title,
+      author: b.author,
+      cat: b.cat,
+      cover: coverUrl,
+      time: Date.now()
+    }));
+    checkResumeReading();
+  } catch(e) {}
+}
+
+function checkResumeReading() {
+  const slot = document.getElementById('resumeReadingSlot');
+  if (!slot) return;
+  try {
+    const raw = localStorage.getItem('thebhom_last_read');
+    if (!raw) {
+      slot.innerHTML = '';
+      return;
+    }
+    const b = JSON.parse(raw);
+    if (!b || !b.id || !b.title) {
+      slot.innerHTML = '';
+      return;
+    }
+    const safeTitle = (b.title || '').replace(/'/g, "\\'");
+    slot.innerHTML = `
+      <div class="resume-reading-bar" id="resumeBar">
+        <img src="${b.cover || 'assets/covers/b10_meditations.jpg'}" class="resume-thumb" alt="${safeTitle}" onerror="this.src=generateBookCover({title:'${safeTitle}',author:'${b.author || ''}'})" />
+        <div class="resume-info">
+          <span class="resume-tag">📖 RESUME READING</span>
+          <strong class="resume-title" title="${safeTitle}">${b.title}</strong>
+          <span class="resume-author">By ${b.author || 'Author'} • ${b.cat || 'E-Book'}</span>
+        </div>
+        <button class="resume-btn" onclick="handleReadBook('${b.id}')">
+          <span>Continue Reading</span> <span>▶</span>
+        </button>
+        <button class="resume-close" onclick="dismissResumeReading()" title="Dismiss">✕</button>
+      </div>
+    `;
+  } catch(e) {
+    slot.innerHTML = '';
+  }
+}
+
+function dismissResumeReading() {
+  const bar = document.getElementById('resumeBar');
+  if (bar) bar.remove();
+  try { localStorage.removeItem('thebhom_last_read'); } catch(e) {}
+}
+
 function handleReadBook(id) {
   let b = BOOKS.find(x => x.id === id);
   if (b) {
+    saveLastReadBook(b);
     openReader(id);
     return;
   }
   b = liveApiBooks.find(x => x.id === id);
   if (b) {
+    saveLastReadBook(b);
     let readUrl = '';
     if (b.formats && b.formats.read_online) {
       readUrl = b.formats.read_online;
@@ -2454,13 +2621,30 @@ function render() {
   
   const grid = document.getElementById('mainGrid');
   if (grid) {
-    grid.innerHTML = displayedBooks.map(buildBookCard).join('');
+    if (activeTag === 'favorites' && displayedBooks.length === 0) {
+      grid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 3.5rem 1.5rem; background: rgba(229,50,45,0.03); border: 2px dashed rgba(229,50,45,0.25); border-radius: 16px; margin: 1.5rem 0;">
+          <div style="font-size: 3.2rem; margin-bottom: 0.8rem;">❤️</div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--ilove-text); margin-bottom: 0.5rem;">आपकी Saved Library अभी खाली है</h3>
+          <p style="color: var(--ilove-text-muted); font-size: 0.95rem; max-width: 480px; margin: 0 auto 1.5rem; line-height: 1.6;">
+            किसी भी E-Book कार्ड पर ❤️ (Heart) बटन दबाकर उसे अपनी Saved Library में जोड़ें और बिना किसी सर्च के कभी भी 1-Click में पढ़ें।
+          </p>
+          <button class="f-btn on" onclick="setFilter('all', document.querySelector('.f-btn'))" style="font-weight:700;padding:10px 24px;font-size:0.92rem;">
+            📚 Browse Mega Library
+          </button>
+        </div>
+      `;
+    } else {
+      grid.innerHTML = displayedBooks.map(buildBookCard).join('');
+    }
   }
 
   const resCountEl = document.getElementById('resCount');
   if (resCountEl) {
     if (searchQ) {
       resCountEl.innerHTML = `<span>🔍 Found <strong>${displayedBooks.length}</strong> books for "${searchQ}"</span> <span class="catalog-badge">Crores Free E-Books</span>`;
+    } else if (activeTag === 'favorites') {
+      resCountEl.innerHTML = `<span>❤️ <strong>My Saved Library</strong> — ${displayedBooks.length} Books Bookmarked</span> <span class="catalog-badge">Personal Shelf</span>`;
     } else if (activeTag === 'dli') {
       resCountEl.innerHTML = `<span>🇮🇳 <strong>Digital Library of India (8.2L+ Books)</strong> — Showing ${displayedBooks.length} Heritage Books</span> <span class="catalog-badge">DLI Archives</span>`;
     } else if (activeTag === 'ncert') {
@@ -2474,7 +2658,9 @@ function render() {
 
   const lmBtn = document.getElementById('lmBtn');
   if (lmBtn) {
-    if (activeTag === 'all') {
+    if (activeTag === 'favorites') {
+      lmBtn.style.display = 'none';
+    } else if (activeTag === 'all') {
       lmBtn.style.display = 'inline-flex';
       lmBtn.innerHTML = `📚 Load More E-Books from Multi-Million Library`;
     } else if (searchQ || (activeTag !== 'all' && activeTag !== 'bestsellers')) {
@@ -2484,6 +2670,8 @@ function render() {
       lmBtn.style.display = books.length > displayedBooks.length ? 'inline-flex' : 'none';
     }
   }
+
+  checkResumeReading();
 }
 
 // ─────────────────────────────────────────────────────────────
