@@ -1720,9 +1720,9 @@ async function fetchOnlineBooks(isAppend = false) {
             cover: `https://archive.org/services/img/${id}`,
             summary: d.description ? d.description.replace(/<[^>]*>?/gm, '').slice(0, 320) + '...' : 'Complete digital volume with all original chapters, free reading and offline PDF download.',
             formats: {
-              pdf: `https://archive.org/download/${id}/${id}.pdf`,
-              epub: `https://archive.org/download/${id}/${id}.epub`,
-              read_online: `https://archive.org/includes/embed.php?identifier=${id}`
+              pdf: `/api/ebooks?download=pdf&ia_id=${id}`,
+              epub: `/api/ebooks?download=epub&ia_id=${id}`,
+              read_online: `https://archive.org/details/${id}?view=theater&ui=embed&wrapper=false`
             }
           };
         });
@@ -1748,12 +1748,12 @@ async function fetchOnlineBooks(isAppend = false) {
             cover: formats['image/jpeg'] || '',
             summary: `Classic masterpiece '${item.title}' by ${author}. Preserved in the world public domain.`,
             formats: {
-              epub: formats['application/epub+zip'] || '',
-              mobi: formats['application/x-mobipocket-ebook'] || '',
-              pdf: `https://www.gutenberg.org/files/${id}/${id}-pdf.pdf`,
-              txt: formats['text/plain; charset=utf-8'] || '',
-              html: formats['text/html'] || '',
-              read_online: formats['text/html'] || `https://www.gutenberg.org/ebooks/${id}.html.images`
+              epub: formats['application/epub+zip'] || `https://www.gutenberg.org/ebooks/${id}.epub3.images`,
+              mobi: formats['application/x-mobipocket-ebook'] || `https://www.gutenberg.org/ebooks/${id}.kf8.images`,
+              pdf: `/api/ebooks?download=pdf&pg_id=${id}`,
+              txt: formats['text/plain; charset=utf-8'] || `https://www.gutenberg.org/ebooks/${id}.txt.utf-8`,
+              html: `https://www.gutenberg.org/cache/epub/${id}/pg${id}-images.html`,
+              read_online: `https://www.gutenberg.org/cache/epub/${id}/pg${id}-images.html`
             }
           };
         });
@@ -2019,10 +2019,10 @@ function openDownloadModal(id) {
   const isCurated = !String(b.id).startsWith('pg_') && !String(b.id).startsWith('ia_');
 
   // Format URLs
-  const epubUrl = formats.epub || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images` : (b.ia_id ? `https://archive.org/download/${b.ia_id}/${b.ia_id}.epub` : ''));
+  const epubUrl = formats.epub || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images` : (b.ia_id ? `/api/ebooks?download=epub&ia_id=${b.ia_id}` : ''));
   const mobiUrl = formats.mobi || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.kf8.images` : '');
-  const txtUrl = formats.txt || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.txt.utf-8` : (b.ia_id ? `https://archive.org/download/${b.ia_id}/${b.ia_id}_djvu.txt` : ''));
-  const pdfUrl = formats.pdf || (b.ia_id ? `https://archive.org/download/${b.ia_id}/${b.ia_id}.pdf` : (b.pg_id ? `https://www.gutenberg.org/files/${b.pg_id}/${b.pg_id}-pdf.pdf` : ''));
+  const txtUrl = formats.txt || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.txt.utf-8` : (b.ia_id ? `/api/ebooks?download=txt&ia_id=${b.ia_id}` : ''));
+  const pdfUrl = formats.pdf || (b.ia_id ? `/api/ebooks?download=pdf&ia_id=${b.ia_id}` : (b.pg_id ? `/api/ebooks?download=pdf&pg_id=${b.pg_id}` : ''));
 
   // Ratings & Reviews
   const ratingVal = b.rating || 4.9;
@@ -2096,8 +2096,8 @@ function openDownloadModal(id) {
             <button class="dl-btn-read-now" onclick="closeDownloadModal();handleReadBook('${b.id}')">
               <span>📖</span> <strong>Read Now Online</strong>
             </button>
-            <button class="dl-btn-read-now" style="background:linear-gradient(135deg, #059669, #10b981);" onclick="triggerFormatDownload('${b.id}', 'pdf', '${pdfUrl}')">
-              <span>⬇️</span> <strong>Download PDF</strong>
+            <button class="dl-btn-read-now" style="background:linear-gradient(135deg, #059669, #10b981);" onclick="triggerFormatDownload('${b.id}', '${b.pg_id ? 'epub' : 'pdf'}', '${b.pg_id ? epubUrl : pdfUrl}')">
+              <span>⬇️</span> <strong>${b.pg_id ? 'Download E-Book (EPUB)' : 'Download PDF'}</strong>
             </button>
           </div>
         </div>
@@ -2109,6 +2109,7 @@ function openDownloadModal(id) {
 
       <div class="dl-format-list">
         <!-- PDF OPTION -->
+        ${!b.pg_id ? `
         <div class="dl-format-item" onclick="triggerFormatDownload('${b.id}', 'pdf', '${pdfUrl}')">
           <div class="dl-format-left">
             <div class="dl-format-ic pdf">PDF</div>
@@ -2118,7 +2119,7 @@ function openDownloadModal(id) {
             </div>
           </div>
           <button class="dl-format-action">Download</button>
-        </div>
+        </div>` : ''}
 
         <!-- EPUB OPTION -->
         ${epubUrl ? `
@@ -2192,6 +2193,14 @@ function triggerFormatDownload(id, fmt, url) {
   if (fmt === 'pdf') {
     if (isCurated) {
       dlBook(id);
+    } else if (b.ia_id) {
+      toast(`⬇️ "${b.title}" PDF download शुरू हो रहा है...`);
+      const targetUrl = url || `/api/ebooks?download=pdf&ia_id=${b.ia_id}`;
+      triggerBrowserDownload(targetUrl, `${safeFilename}.pdf`);
+    } else if (b.pg_id) {
+      toast(`ℹ️ "${b.title}" का आधिकारिक E-Book (EPUB) download शुरू हो रहा है...`);
+      const targetUrl = (b.formats && b.formats.epub) || `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images`;
+      triggerBrowserDownload(targetUrl, `${safeFilename}.epub`);
     } else {
       const targetUrl = url || (b.formats && b.formats.pdf);
       if (targetUrl) {
@@ -2202,7 +2211,7 @@ function triggerFormatDownload(id, fmt, url) {
       }
     }
   } else if (fmt === 'epub') {
-    const targetUrl = url || (b.formats && b.formats.epub);
+    const targetUrl = url || (b.formats && b.formats.epub) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images` : `/api/ebooks?download=epub&ia_id=${b.ia_id}`);
     if (targetUrl) {
       toast(`⬇️ "${b.title}" EPUB download शुरू हो रहा है...`);
       triggerBrowserDownload(targetUrl, `${safeFilename}.epub`);
@@ -2210,18 +2219,18 @@ function triggerFormatDownload(id, fmt, url) {
       toast(`⚠️ इस किताब का EPUB उपलब्ध नहीं है, कृपया PDF प्रारूप डाउनलोड करें।`);
     }
   } else if (fmt === 'mobi') {
-    const targetUrl = url || (b.formats && b.formats.mobi);
+    const targetUrl = url || (b.formats && b.formats.mobi) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.kf8.images` : '');
     if (targetUrl) {
       toast(`⬇️ "${b.title}" Kindle MOBI download शुरू हो रहा है...`);
       triggerBrowserDownload(targetUrl, `${safeFilename}.mobi`);
     } else {
-      toast(`⚠️ Kindle MOBI उपलब्ध नहीं है, कृपया PDF प्रारूप डाउनलोड करें।`);
+      toast(`⚠️ Kindle MOBI उपलब्ध नहीं है, कृपया EPUB या PDF प्रारूप डाउनलोड करें।`);
     }
   } else if (fmt === 'txt') {
     if (isCurated) {
       dlBook(id);
     } else {
-      const targetUrl = url || (b.formats && b.formats.txt);
+      const targetUrl = url || (b.formats && b.formats.txt) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.txt.utf-8` : `/api/ebooks?download=txt&ia_id=${b.ia_id}`);
       if (targetUrl) {
         toast(`⬇️ "${b.title}" Plain Text download शुरू हो रहा है...`);
         triggerBrowserDownload(targetUrl, `${safeFilename}.txt`);
@@ -2249,9 +2258,9 @@ function handleReadBook(id) {
     } else if (b.formats && b.formats.html) {
       readUrl = b.formats.html;
     } else if (b.pg_id) {
-      readUrl = `https://www.gutenberg.org/ebooks/${b.pg_id}.html.images`;
+      readUrl = `https://www.gutenberg.org/cache/epub/${b.pg_id}/pg${b.pg_id}-images.html`;
     } else if (b.ia_id) {
-      readUrl = `https://archive.org/includes/embed.php?identifier=${b.ia_id}`;
+      readUrl = `https://archive.org/details/${b.ia_id}?view=theater&ui=embed&wrapper=false`;
     } else if (b.formats && b.formats.pdf) {
       readUrl = b.formats.pdf;
     }
@@ -2276,7 +2285,7 @@ function openOnlineReader(b, url) {
   if (b.source === 'ncert') sourceTag = 'TheBhom Academic Reader • NCERT Edition';
   if (b.source === 'gutenberg') sourceTag = 'TheBhom Classics Reader';
 
-  const pdfUrl = b.formats && b.formats.pdf ? b.formats.pdf : '';
+  const downloadUrl = (b.formats && b.formats.pdf) || (b.ia_id ? `/api/ebooks?download=pdf&ia_id=${b.ia_id}` : (b.formats && b.formats.epub ? b.formats.epub : ''));
 
   modal.innerHTML = `
     <div class="reader-hdr" style="background:#0f172a;gap:.8rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.1);padding:0.75rem 1.2rem;">
@@ -2288,9 +2297,9 @@ function openOnlineReader(b, url) {
         </div>
       </div>
       <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
-        ${pdfUrl ? `
-        <button class="ch-pill" style="background:#059669;border-color:#059669;color:#fff;font-weight:700;display:flex;align-items:center;gap:4px;" onclick="triggerFormatDownload('${b.id}', 'pdf', '${pdfUrl}')">
-          <span>⬇️</span> Download PDF
+        ${downloadUrl ? `
+        <button class="ch-pill" style="background:#059669;border-color:#059669;color:#fff;font-weight:700;display:flex;align-items:center;gap:4px;" onclick="triggerFormatDownload('${b.id}', '${b.pg_id ? 'epub' : 'pdf'}', '${downloadUrl}')">
+          <span>⬇️</span> Download Book
         </button>` : ''}
         <button class="ch-pill" style="background:#e5322d;border-color:#e5322d;color:#fff;font-weight:700;" onclick="openDownloadModal('${b.id}')">
           <span>📂</span> All Formats
@@ -2481,25 +2490,32 @@ function render() {
 // 5. HELPER FUNCTIONS & LISTENERS
 // ─────────────────────────────────────────────────────────────
 function triggerBrowserDownload(blobOrUrl, filename) {
-  const a = document.createElement('a');
-  a.style.display = 'none';
-  let url = '';
-  let isBlob = false;
   if (typeof blobOrUrl === 'string') {
-    url = blobOrUrl;
-  } else if (blobOrUrl instanceof Blob) {
-    url = URL.createObjectURL(blobOrUrl);
-    isBlob = true;
+    const a = document.createElement('a');
+    a.href = blobOrUrl;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    if (filename) a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      if (a.parentNode) a.parentNode.removeChild(a);
+    }, 2000);
+    return;
   }
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  const evt = new MouseEvent('click', { view: window, bubbles: true, cancelable: true });
-  a.dispatchEvent(evt);
-  setTimeout(() => {
-    if (a.parentNode) a.parentNode.removeChild(a);
-    if (isBlob) URL.revokeObjectURL(url);
-  }, 4000);
+  if (blobOrUrl instanceof Blob) {
+    const url = URL.createObjectURL(blobOrUrl);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    if (filename) a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      if (a.parentNode) a.parentNode.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 4000);
+  }
 }
 
 function toast(msg) {

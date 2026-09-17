@@ -30,6 +30,37 @@ export async function onRequest(context) {
   const page = parseInt(url.searchParams.get('page') || '1', 10);
   const rows = 32;
 
+  // Dedicated Smart Download Resolver (resolves exact filenames for Archive.org and Gutenberg)
+  const downloadParam = url.searchParams.get('download');
+  if (downloadParam) {
+    const iaId = (url.searchParams.get('ia_id') || url.searchParams.get('id') || '').replace(/^ia_/, '').trim();
+    const pgId = (url.searchParams.get('pg_id') || '').replace(/^pg_/, '').trim();
+
+    if (iaId) {
+      try {
+        const metaRes = await fetch(`https://archive.org/metadata/${encodeURIComponent(iaId)}/files`, {
+          headers: { 'User-Agent': 'TheBhomEbooks/2026' }
+        });
+        if (metaRes.ok) {
+          const meta = await metaRes.json();
+          const files = meta.result || meta.files || [];
+          let pdf = files.find(f => f.name && f.name.toLowerCase().endsWith('.pdf') && !f.name.toLowerCase().includes('_text.pdf'));
+          if (!pdf) pdf = files.find(f => f.name && f.name.toLowerCase().endsWith('.pdf'));
+          if (pdf && pdf.name) {
+            return Response.redirect(`https://archive.org/download/${iaId}/${encodeURIComponent(pdf.name)}`, 302);
+          }
+        }
+      } catch (e) {
+        console.warn('Archive metadata lookup error:', e);
+      }
+      return Response.redirect(`https://archive.org/download/${iaId}`, 302);
+    }
+
+    if (pgId) {
+      return Response.redirect(`https://www.gutenberg.org/ebooks/${pgId}.epub3.images`, 302);
+    }
+  }
+
   const topicLower = topic.toLowerCase();
   const queryLower = query.toLowerCase();
 
@@ -133,9 +164,9 @@ async function handleNcertRequest(query, page, rows) {
       summary: cleanDesc ? cleanDesc.slice(0, 350) + '...' : 'Official NCERT Textbook for school education, CBSE board, and UPSC / State PSC foundational preparation.',
       cover: `https://archive.org/services/img/${id}`,
       formats: {
-        pdf: `https://archive.org/download/${id}/${id}.pdf`,
-        epub: `https://archive.org/download/${id}/${id}.epub`,
-        read_online: `https://archive.org/includes/embed.php?identifier=${id}`
+        pdf: `/api/ebooks?download=pdf&ia_id=${id}`,
+        epub: `/api/ebooks?download=epub&ia_id=${id}`,
+        read_online: `https://archive.org/details/${id}?view=theater&ui=embed&wrapper=false`
       }
     };
   });
@@ -212,9 +243,9 @@ async function handleDliRequest(query, topicLower, page, rows) {
       summary: cleanDesc ? cleanDesc.slice(0, 350) + '...' : 'Authentic scanned volume preserved from the Digital Library of India (DLI) collection. Free public domain Indian heritage text.',
       cover: `https://archive.org/services/img/${id}`,
       formats: {
-        pdf: `https://archive.org/download/${id}/${id}.pdf`,
-        epub: `https://archive.org/download/${id}/${id}.epub`,
-        read_online: `https://archive.org/includes/embed.php?identifier=${id}`
+        pdf: `/api/ebooks?download=pdf&ia_id=${id}`,
+        epub: `/api/ebooks?download=epub&ia_id=${id}`,
+        read_online: `https://archive.org/details/${id}?view=theater&ui=embed&wrapper=false`
       }
     };
   });
@@ -320,12 +351,12 @@ async function handleGutenbergRequest(query, topic, page) {
       cover: cover,
       languages: item.languages || ['en'],
       formats: {
-        epub: epub,
-        mobi: mobi,
-        pdf: pdf,
-        txt: txt,
-        html: html,
-        read_online: html || `https://www.gutenberg.org/ebooks/${id}.html.images`
+        epub: epub || `https://www.gutenberg.org/ebooks/${id}.epub3.images`,
+        mobi: mobi || `https://www.gutenberg.org/ebooks/${id}.kf8.images`,
+        pdf: `/api/ebooks?download=pdf&pg_id=${id}`,
+        txt: txt || `https://www.gutenberg.org/ebooks/${id}.txt.utf-8`,
+        html: `https://www.gutenberg.org/cache/epub/${id}/pg${id}-images.html`,
+        read_online: `https://www.gutenberg.org/cache/epub/${id}/pg${id}-images.html`
       }
     };
   });
