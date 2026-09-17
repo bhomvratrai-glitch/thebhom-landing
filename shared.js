@@ -1028,6 +1028,12 @@ function getAllContentItems() {
   // Web Tools & Downloader (ToolNest & Video Engine)
   const webTools = [
     { id: 'tool-downloader', title: 'Universal Video Downloader & Trimmer (1080p HD & MP3)', cat: 'tools', tag: 'Downloader', emoji: '⚡', url: 'downloader/' },
+    { id: 'tool-imgpdf', title: 'ImgPDF Suite — All-in-One 47+ Image & PDF Processing Tools', cat: 'tools', tag: 'ImgPDF Suite', emoji: '📄', url: 'imgpdf/' },
+    { id: 'tool-imgpdf-merge', title: 'ImgPDF Merge PDF Online (High-Speed PDF Combiner)', cat: 'tools', tag: 'ImgPDF', emoji: '➕', url: 'imgpdf/pdf/merge' },
+    { id: 'tool-imgpdf-compress', title: 'ImgPDF Compress PDF Online (Smart Optimization)', cat: 'tools', tag: 'ImgPDF', emoji: '🗜️', url: 'imgpdf/pdf/compress' },
+    { id: 'tool-imgpdf-split', title: 'ImgPDF Split PDF Online (Extract & Separate Pages)', cat: 'tools', tag: 'ImgPDF', emoji: '✂️', url: 'imgpdf/pdf/split' },
+    { id: 'tool-imgpdf-image-compress', title: 'ImgPDF Compress Images (JPG, PNG, WebP Batch)', cat: 'tools', tag: 'ImgPDF', emoji: '🖼️', url: 'imgpdf/image/compress' },
+    { id: 'tool-imgpdf-ai-summarize', title: 'ImgPDF AI Document Summarizer (Instant Key Takeaways)', cat: 'tools', tag: 'ImgPDF AI', emoji: '🤖', url: 'imgpdf/ai/summarize-pdf' },
     { id: 'tool-compress', title: 'Compress Image Online (JPG, PNG, WebP)', cat: 'tools', tag: 'Image Tool', emoji: '🗜️', url: 'tools/compress-image.html' },
     { id: 'tool-merge', title: 'Merge PDF Files Online (Combine Multiple PDFs)', cat: 'tools', tag: 'PDF Tool', emoji: '📑', url: 'tools/merge-pdf.html' },
     { id: 'tool-split', title: 'Split PDF Pages Online (Extract Specific Pages)', cat: 'tools', tag: 'PDF Tool', emoji: '✂️', url: 'tools/split-pdf-pages.html' },
