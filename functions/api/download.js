@@ -60,9 +60,12 @@ export async function onRequest(context) {
     const contentType = upstreamRes.headers.get("Content-Type") || "video/mp4";
     const contentLength = upstreamRes.headers.get("Content-Length");
 
+    const isPreview = (request.method === "POST" ? false : (new URL(request.url).searchParams.get("preview") === "true" || new URL(request.url).searchParams.get("inline") === "true"));
+    const disposition = isPreview ? "inline" : `attachment; filename="${safeFilename}"`;
+
     const respHeaders = new Headers({
       "Content-Type": contentType,
-      "Content-Disposition": `attachment; filename="${safeFilename}"`,
+      "Content-Disposition": disposition,
       "Access-Control-Allow-Origin": "*",
       "Cache-Control": "public, max-age=3600"
     });
