@@ -2057,7 +2057,7 @@ function generateBookCover(b, w = 380, h = 560) {
 
 function getBookCoverDataUrl(b) {
   if (!b) return '';
-  if (b.cover && typeof b.cover === 'string' && b.cover.trim().length > 0 && !b.cover.includes('archive.org/services/img')) {
+  if (b.cover && typeof b.cover === 'string' && b.cover.trim().length > 0) {
     return b.cover;
   }
   const key = b.id || b.title;

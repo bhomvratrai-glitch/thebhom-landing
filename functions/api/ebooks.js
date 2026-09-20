@@ -190,7 +190,7 @@ async function handleNcertRequest(query, page, rows) {
       reviews_count: Math.floor((d.downloads || 4000) / 25) + 320,
       year: d.year || 'CBSE Syllabus Edition',
       summary: cleanDesc ? cleanDesc.slice(0, 350) + '...' : 'Official NCERT Textbook for school education, CBSE board, and UPSC / State PSC foundational preparation.',
-      cover: '',
+      cover: `https://archive.org/services/img/${id}`,
       formats: {
         pdf: `/api/ebooks?download=pdf&ia_id=${id}`,
         epub: `/api/ebooks?download=epub&ia_id=${id}`,
@@ -269,7 +269,7 @@ async function handleDliRequest(query, topicLower, page, rows) {
       reviews_count: Math.floor((d.downloads || 2500) / 35) + 180,
       year: d.year || 'Heritage Edition',
       summary: cleanDesc ? cleanDesc.slice(0, 350) + '...' : 'Authentic scanned volume preserved from the Digital Library of India (DLI) collection. Free public domain Indian heritage text.',
-      cover: '',
+      cover: `https://archive.org/services/img/${id}`,
       formats: {
         pdf: `/api/ebooks?download=pdf&ia_id=${id}`,
         epub: `/api/ebooks?download=epub&ia_id=${id}`,
@@ -467,7 +467,7 @@ async function handleArchiveGlobalSearch(query, page = 1, rows = 32) {
       reviews_count: Math.floor((d.downloads || 1500) / 40) + 80,
       year: d.year || 'Digital Edition',
       summary: cleanDesc ? cleanDesc.slice(0, 350) + '...' : `Open digital library edition of '${title}' by ${author}. Available for free online reading and direct download on TheBhom.`,
-      cover: '',
+      cover: `https://archive.org/services/img/${id}`,
       formats: {
         pdf: `/api/ebooks?download=pdf&ia_id=${id}`,
         epub: `/api/ebooks?download=epub&ia_id=${id}`,

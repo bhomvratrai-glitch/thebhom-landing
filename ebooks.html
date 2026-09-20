@@ -1365,7 +1365,7 @@ const BOOKS = [
    }},
   {id:'hi4',title:'Shrimad Bhagavad Gita (श्रीमद्भगवद्गीता)',author:'Maharshi Ved Vyasa',cat:'Hindi',emoji:'🕉️',
    downloads:620000,pages:'Universal Wisdom of Kurukshetra',rating:5.0,
-   cover:'https://covers.openlibrary.org/b/id/11157767-L.jpg',
+   cover:'assets/covers/bhagavad_gita.jpg',
    formats:{pdf:'https://archive.org/download/bhagavadgita00vyas/bhagavadgita00vyas.pdf',read_online:'https://archive.org/details/bhagavadgita00vyas?view=theater'},
    content:{
      chapter1_title:'द्वितीय अध्याय: सांख्य योग (निष्काम कर्म)',
@@ -2409,17 +2409,18 @@ const KNOWN_REAL_COVERS = {
   'arthashastra': 'https://covers.openlibrary.org/b/id/13193241-L.jpg',
   'panchatantra': 'https://covers.openlibrary.org/b/id/1117546-L.jpg',
   'hitopadesha': 'https://covers.openlibrary.org/b/id/4802455-L.jpg',
-  'bhagavad gita': 'https://covers.openlibrary.org/b/id/11157767-L.jpg',
-  'gita': 'https://covers.openlibrary.org/b/id/11157767-L.jpg',
-  'bhagwad geeta': 'https://covers.openlibrary.org/b/id/11157767-L.jpg',
-  'shrimad bhagavad': 'https://covers.openlibrary.org/b/id/11157767-L.jpg',
+  'bhagavad gita': 'assets/covers/bhagavad_gita.jpg',
+  'gita': 'assets/covers/bhagavad_gita.jpg',
+  'bhagwad geeta': 'assets/covers/bhagavad_gita.jpg',
+  'shrimad bhagavad': 'assets/covers/bhagavad_gita.jpg',
+  'shrimad bhagavad gita': 'assets/covers/bhagavad_gita.jpg',
   'ramayan': 'https://covers.openlibrary.org/b/id/8238736-L.jpg',
   'ramayana': 'https://covers.openlibrary.org/b/id/8238736-L.jpg',
   'ramcharitmanas': 'https://covers.openlibrary.org/b/id/10320492-L.jpg',
   'tulsidas': 'https://covers.openlibrary.org/b/id/10320492-L.jpg',
   'valmiki': 'https://covers.openlibrary.org/b/id/8238736-L.jpg',
-  'mahabharat': 'https://covers.openlibrary.org/b/id/11157767-L.jpg',
-  'mahabharata': 'https://covers.openlibrary.org/b/id/11157767-L.jpg',
+  'mahabharat': 'assets/covers/bhagavad_gita.jpg',
+  'mahabharata': 'assets/covers/bhagavad_gita.jpg',
   'upanishad': 'https://covers.openlibrary.org/b/id/8238741-L.jpg',
   'upanishads': 'https://covers.openlibrary.org/b/id/8238741-L.jpg',
   'rig veda': 'https://covers.openlibrary.org/b/id/8238740-L.jpg',
@@ -2561,19 +2562,16 @@ function getCleanBookPlaceholder(title, author) {
 function getBookCoverDataUrl(b) {
   if (!b) return getCleanBookPlaceholder('', '');
 
-  // 1. If explicit real cover provided (and NOT an archive scanned microfilm page)
-  if (b.cover && typeof b.cover === 'string' && b.cover.trim().length > 0) {
-    const c = b.cover.trim();
-    if (!c.includes('archive.org/services/img')) {
-      return c;
-    }
-  }
-
-  // 2. Direct lookup in KNOWN_REAL_COVERS (Curated Bengali, Hindi, World Classics, NCERT)
+  // 1. Direct lookup in KNOWN_REAL_COVERS first (Priority: Curated Photo Covers like Image 2 Bhagavad Gita, Tagore, Premchand)
   const known = findKnownHdCover(b.title, b.author);
   if (known) {
     b.cover = known;
     return known;
+  }
+
+  // 2. If explicit real cover provided (including Archive.org first-page cover photos)
+  if (b.cover && typeof b.cover === 'string' && b.cover.trim().length > 0) {
+    return b.cover.trim();
   }
 
   // 3. Project Gutenberg Official Medium Cover by ID
@@ -2586,7 +2584,15 @@ function getBookCoverDataUrl(b) {
     return pgCover;
   }
 
-  // 4. Open Library ISBN or Cover ID if present
+  // 4. Archive.org First Page Photo Cover (if ia_id or id starts with ia_)
+  const iaId = b.ia_id || (String(b.id || '').startsWith('ia_') ? String(b.id).replace(/^ia_/, '') : null);
+  if (iaId) {
+    const iaCover = `https://archive.org/services/img/${iaId}`;
+    b.cover = iaCover;
+    return iaCover;
+  }
+
+  // 5. Open Library ISBN or Cover ID if present
   if (b.isbn) {
     const olIsbn = `https://covers.openlibrary.org/b/isbn/${b.isbn}-L.jpg`;
     b.cover = olIsbn;
@@ -2598,17 +2604,17 @@ function getBookCoverDataUrl(b) {
     return olId;
   }
 
-  // 5. Check LocalStorage cache from prior Open Library real cover lookup
+  // 6. Check LocalStorage cache from prior Open Library real cover lookup
   const slug = (b.title || 'book').toLowerCase().replace(/[^\w\u0900-\u097F]/g, '_').slice(0, 40);
   try {
     const cached = localStorage.getItem('thebhom_cov_' + slug);
-    if (cached && !cached.includes('archive.org/services/img')) {
+    if (cached) {
       b.cover = cached;
       return cached;
     }
   } catch(e) {}
 
-  // 6. Clean minimal placeholder (No cartoon emojis/stickers)
+  // 7. Clean minimal placeholder (No cartoon emojis/stickers)
   return getCleanBookPlaceholder(b.title, b.author);
 }
 
