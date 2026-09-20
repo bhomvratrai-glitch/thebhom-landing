@@ -216,16 +216,16 @@ async function handleNcertRequest(query, page, rows) {
 // 2. DIGITAL LIBRARY OF INDIA & HERITAGE (Archive.org Gateway)
 // ─────────────────────────────────────────────────────────────
 async function handleDliRequest(query, topicLower, page, rows) {
-  let langClause = '(language:(hindi OR sanskrit OR urdu OR marathi OR bengali) OR collection:(digitallibraryofindia))';
-  if (topicLower === 'sanskrit') {
-    langClause = '(language:(sanskrit) OR subject:(Sanskrit))';
+  let langClause = '(language:(hindi OR bengali OR english OR hin OR ben OR eng))';
+  if (topicLower === 'bengali') {
+    langClause = '(language:(bengali OR ben) OR subject:(Bengali))';
   } else if (topicLower === 'hindi') {
-    langClause = '(language:(hindi) OR subject:(Hindi))';
+    langClause = '(language:(hindi OR hin) OR subject:(Hindi))';
   }
 
   let searchClause = langClause;
   if (query) {
-    const cleanQ = query.replace(/[^\w\s\u0900-\u097F]/gi, ' ').trim();
+    const cleanQ = query.replace(/[^\w\s\u0900-\u097F\u0980-\u09FF]/gi, ' ').trim();
     searchClause += ` AND (${cleanQ})`;
   }
   const iaUrl = `https://archive.org/advancedsearch.php?q=${encodeURIComponent(searchClause)}+AND+mediatype:(texts)&fl[]=identifier,title,creator,description,year,downloads,language,subject&sort[]=downloads+desc&rows=${rows}&page=${page}&output=json`;
@@ -295,7 +295,7 @@ async function handleDliRequest(query, topicLower, page, rows) {
 // 3. PROJECT GUTENBERG HANDLER (Gutendex Gateway)
 // ─────────────────────────────────────────────────────────────
 async function handleGutenbergRequest(query, topic, page) {
-  let apiUrl = `https://gutendex.com/books/?page=${encodeURIComponent(page)}`;
+  let apiUrl = `https://gutendex.com/books/?languages=en,hi,bn&page=${encodeURIComponent(page)}`;
   const topicLower = topic ? topic.toLowerCase().trim() : '';
 
   if (query) {
@@ -341,7 +341,14 @@ async function handleGutenbergRequest(query, topic, page) {
     return await handleArchiveGlobalSearch(query, page, 32);
   }
 
-  const books = rawResults.map(item => {
+  // Strict Language Whitelist: English, Hindi, Bengali only
+  const ALLOWED_LANGS = ['en', 'hi', 'bn', 'hin', 'eng', 'ben'];
+  const filteredResults = rawResults.filter(item => {
+    const langs = (item.languages || ['en']).map(l => l.toLowerCase().trim());
+    return langs.some(l => ALLOWED_LANGS.includes(l));
+  });
+
+  const books = filteredResults.map(item => {
     const author = item.authors && item.authors.length > 0 
       ? item.authors[0].name.replace(/(\w+),\s*(\w+)/, '$2 $1')
       : 'Unknown Author';
@@ -351,8 +358,9 @@ async function handleGutenbergRequest(query, topic, page) {
     const mobi = formats['application/x-mobipocket-ebook'] || '';
     const txt = formats['text/plain; charset=utf-8'] || formats['text/plain; charset=us-ascii'] || '';
     const html = formats['text/html'] || '';
-    const cover = formats['image/jpeg'] || '';
     const id = item.id;
+    // Real authentic book cover from Project Gutenberg
+    const cover = formats['image/jpeg'] || `https://www.gutenberg.org/cache/epub/${id}/pg${id}.cover.medium.jpg`;
     const pdf = `https://www.gutenberg.org/files/${id}/${id}-pdf.pdf`;
 
     let cat = 'Classics';
@@ -417,8 +425,8 @@ async function handleGutenbergRequest(query, topic, page) {
 // 4. GLOBAL INTERNET ARCHIVE TEXTS HANDLER (44M+ Books)
 // ─────────────────────────────────────────────────────────────
 async function handleArchiveGlobalSearch(query, page = 1, rows = 32) {
-  const cleanQ = (query || 'bestseller').replace(/[^\w\s\u0900-\u097F]/gi, ' ').trim();
-  const iaUrl = `https://archive.org/advancedsearch.php?q=(${encodeURIComponent(cleanQ)})+AND+mediatype:(texts)&fl[]=identifier,title,creator,description,year,downloads,language&sort[]=downloads+desc&rows=${rows}&page=${page}&output=json`;
+  const cleanQ = (query || 'bestseller').replace(/[^\w\s\u0900-\u097F\u0980-\u09FF]/gi, ' ').trim();
+  const iaUrl = `https://archive.org/advancedsearch.php?q=(${encodeURIComponent(cleanQ)})+AND+mediatype:(texts)+AND+(language:(english OR hindi OR bengali OR en OR hi OR bn))+AND+NOT+(language:(french OR german OR spanish OR italian OR finnish OR russian OR latin OR chinese OR tagalog))&fl[]=identifier,title,creator,description,year,downloads,language&sort[]=downloads+desc&rows=${rows}&page=${page}&output=json`;
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 8000);
