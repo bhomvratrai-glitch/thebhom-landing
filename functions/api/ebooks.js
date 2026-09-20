@@ -87,8 +87,13 @@ export async function onRequest(context) {
   const isDli = source === 'dli' || 
                 topicLower === 'dli' || 
                 topicLower === 'hindi' || 
+                topicLower === 'bengali' || 
+                topicLower === 'bangla' || 
                 topicLower === 'sanskrit' || 
                 topicLower === 'heritage' ||
+                queryLower.includes('bengali') ||
+                queryLower.includes('bangla') ||
+                queryLower.includes('tagore') ||
                 queryLower.includes('ramayan') ||
                 queryLower.includes('mahabharat') ||
                 queryLower.includes('gita') ||
@@ -256,9 +261,9 @@ async function handleDliRequest(query, topicLower, page, rows) {
       ia_id: id,
       title: title,
       author: author,
-      cat: 'Indian Heritage',
+      cat: (topicLower === 'bengali' || topicLower === 'bangla') ? 'Bengali' : ((topicLower === 'hindi') ? 'Hindi' : 'Indian Heritage'),
       source: 'dli',
-      source_label: '🇮🇳 Digital Library of India',
+      source_label: (topicLower === 'bengali' || topicLower === 'bangla') ? '🇧🇩 Bengali Classic' : ((topicLower === 'hindi') ? '🇮🇳 Hindi Classic' : '🇮🇳 Digital Library of India'),
       downloads: d.downloads || 12000,
       rating: 4.9,
       reviews_count: Math.floor((d.downloads || 2500) / 35) + 180,
