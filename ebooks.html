@@ -1290,7 +1290,7 @@ const BOOKS = [
    }},
   {id:'bn4',title:'Anandamath (আনন্দমঠ)',author:'Bankim Chandra Chattopadhyay',cat:'Bengali',emoji:'🇮🇳',
    downloads:225000,pages:'Birthplace of Vande Mataram • 1882',rating:4.9,
-   cover:'https://covers.openlibrary.org/b/id/4889564-L.jpg',
+    cover:'https://covers.openlibrary.org/b/id/9187667-L.jpg',
    formats:{pdf:'https://archive.org/download/anandamath00chat/anandamath00chat.pdf',read_online:'https://archive.org/details/anandamath00chat?view=theater'},
    content:{
      chapter1_title:'Chapter 1: The Sannyasi Brotherhood',
@@ -1302,7 +1302,7 @@ const BOOKS = [
    }},
   {id:'bn5',title:'Gora (গোরা)',author:'Rabindranath Tagore',cat:'Bengali',emoji:'📖',
    downloads:195000,pages:'Epic Novel of Identity • 1910',rating:4.8,
-   cover:'https://covers.openlibrary.org/b/id/5461774-L.jpg',
+    cover:'https://covers.openlibrary.org/b/id/12233853-L.jpg',
    formats:{pdf:'https://archive.org/download/goratagore00tago/goratagore00tago.pdf',read_online:'https://archive.org/details/goratagore00tago?view=theater'},
    content:{
      chapter1_title:'Chapter 1: The Fiery Patriot',
@@ -1314,7 +1314,7 @@ const BOOKS = [
    }},
   {id:'bn6',title:'Chokher Bali (চোখের বালি)',author:'Rabindranath Tagore',cat:'Bengali',emoji:'👁️',
    downloads:210000,pages:'Psychological Novel • 1903',rating:4.8,
-   cover:'https://covers.openlibrary.org/b/id/4984138-L.jpg',
+    cover:'https://covers.openlibrary.org/b/id/13599517-L.jpg',
    formats:{pdf:'https://archive.org/download/chokherbali00tago/chokherbali00tago.pdf',read_online:'https://archive.org/details/chokherbali00tago?view=theater'},
    content:{
      chapter1_title:'Chapter 1: Binodini\'s Intellect',
@@ -2160,7 +2160,7 @@ async function fetchOnlineBooks(isAppend = false) {
             rating: 4.9,
             reviews_count: Math.floor((d.downloads || 2500) / 30) + 160,
             year: d.year || 'Authentic Edition',
-            cover: '',
+            cover: `https://archive.org/services/img/${id}`,
             language: d.language || (activeTag === 'bengali' ? 'bn' : 'hi'),
             summary: d.description ? d.description.replace(/<[^>]*>?/gm, '').slice(0, 320) + '...' : 'Complete digital volume with all original chapters, free reading and offline PDF download.',
             formats: {
@@ -2376,125 +2376,75 @@ let _isProcessingCoverQueue = false;
 
 // Curated verified authentic cover images (Open Library -L.jpg & verified public archives)
 const KNOWN_REAL_COVERS = {
-  // Bengali Classics (বাংলা কালজয়ী সাহিত্য)
+  // Bengali Classics (বাংলা কালজয়ী সাহিত্য - Exact Title Matches Only)
   'gitanjali': 'https://covers.openlibrary.org/b/id/8246100-L.jpg',
   'devdas': 'https://covers.openlibrary.org/b/id/11429192-L.jpg',
   'pather panchali': 'https://covers.openlibrary.org/b/id/6975329-L.jpg',
-  'anandamath': 'https://covers.openlibrary.org/b/id/4889564-L.jpg',
-  'gora': 'https://covers.openlibrary.org/b/id/5461774-L.jpg',
-  'chokher bali': 'https://covers.openlibrary.org/b/id/4984138-L.jpg',
+  'anandamath': 'https://covers.openlibrary.org/b/id/9187667-L.jpg',
+  'gora': 'https://covers.openlibrary.org/b/id/12233853-L.jpg',
+  'chokher bali': 'https://covers.openlibrary.org/b/id/13599517-L.jpg',
   'kapalkundala': 'https://covers.openlibrary.org/b/id/14792987-L.jpg',
-  'sarat chandra': 'https://covers.openlibrary.org/b/id/11429192-L.jpg',
-  'tagore': 'https://covers.openlibrary.org/b/id/8246100-L.jpg',
-  'rabindranath': 'https://covers.openlibrary.org/b/id/8246100-L.jpg',
-  'bibhutibhushan': 'https://covers.openlibrary.org/b/id/6975329-L.jpg',
-  'bankim': 'https://covers.openlibrary.org/b/id/4889564-L.jpg',
 
-  // Hindi Literature Classics & Epics (हिंदी साहित्य एवं ग्रंथ)
+  // Hindi Literature Classics & Epics (हिंदी साहित्य एवं ग्रंथ - Exact Title Matches Only)
   'godan': 'https://covers.openlibrary.org/b/id/12069261-L.jpg',
   'gaban': 'https://covers.openlibrary.org/b/id/12069262-L.jpg',
   'nirmala': 'https://covers.openlibrary.org/b/id/4603653-L.jpg',
   'karmabhoomi': 'https://covers.openlibrary.org/b/id/4888954-L.jpg',
-  'sevasadan': 'https://covers.openlibrary.org/b/id/12069261-L.jpg',
-  'mansarovar': 'https://covers.openlibrary.org/b/id/12069261-L.jpg',
-  'premchand': 'https://covers.openlibrary.org/b/id/12069261-L.jpg',
-  'munshi premchand': 'https://covers.openlibrary.org/b/id/12069261-L.jpg',
+  'sevasadan': 'https://covers.openlibrary.org/b/id/14806881-L.jpg',
   'madhushala': 'https://covers.openlibrary.org/b/id/13311821-L.jpg',
-  'bachchan': 'https://covers.openlibrary.org/b/id/13311821-L.jpg',
-  'harivansh': 'https://covers.openlibrary.org/b/id/13311821-L.jpg',
   'raag darbari': 'https://covers.openlibrary.org/b/id/6555326-L.jpg',
-  'shrilal shukla': 'https://covers.openlibrary.org/b/id/6555326-L.jpg',
   'chanakya niti': 'https://covers.openlibrary.org/b/id/13193241-L.jpg',
-  'chanakya': 'https://covers.openlibrary.org/b/id/13193241-L.jpg',
   'arthashastra': 'https://covers.openlibrary.org/b/id/13193241-L.jpg',
   'panchatantra': 'https://covers.openlibrary.org/b/id/1117546-L.jpg',
   'hitopadesha': 'https://covers.openlibrary.org/b/id/4802455-L.jpg',
   'bhagavad gita': 'assets/covers/bhagavad_gita.jpg',
-  'gita': 'assets/covers/bhagavad_gita.jpg',
   'bhagwad geeta': 'assets/covers/bhagavad_gita.jpg',
   'shrimad bhagavad': 'assets/covers/bhagavad_gita.jpg',
-  'shrimad bhagavad gita': 'assets/covers/bhagavad_gita.jpg',
-  'ramayan': 'https://covers.openlibrary.org/b/id/8238736-L.jpg',
-  'ramayana': 'https://covers.openlibrary.org/b/id/8238736-L.jpg',
+  'srimad bhagavad': 'assets/covers/bhagavad_gita.jpg',
   'ramcharitmanas': 'https://covers.openlibrary.org/b/id/10320492-L.jpg',
-  'tulsidas': 'https://covers.openlibrary.org/b/id/10320492-L.jpg',
-  'valmiki': 'https://covers.openlibrary.org/b/id/8238736-L.jpg',
-  'mahabharat': 'assets/covers/bhagavad_gita.jpg',
-  'mahabharata': 'assets/covers/bhagavad_gita.jpg',
-  'upanishad': 'https://covers.openlibrary.org/b/id/8238741-L.jpg',
-  'upanishads': 'https://covers.openlibrary.org/b/id/8238741-L.jpg',
-  'rig veda': 'https://covers.openlibrary.org/b/id/8238740-L.jpg',
-  'vedas': 'https://covers.openlibrary.org/b/id/8238740-L.jpg',
+  'valmiki ramayan': 'https://covers.openlibrary.org/b/id/8238736-L.jpg',
+  'valmiki ramayana': 'https://covers.openlibrary.org/b/id/8238736-L.jpg',
   'discovery of india': 'https://covers.openlibrary.org/b/id/11234900-L.jpg',
   'wings of fire': 'https://covers.openlibrary.org/b/id/10452390-L.jpg',
-  'abdul kalam': 'https://covers.openlibrary.org/b/id/10452390-L.jpg',
 
-  // Official NCERT Textbooks
+  // Official NCERT Textbooks (Specific Full Subject Titles Only)
   'ncert physics class 12': 'https://covers.openlibrary.org/b/id/8738319-L.jpg',
   'ncert chemistry class 12': 'https://covers.openlibrary.org/b/id/11396271-L.jpg',
   'ncert biology class 12': 'https://covers.openlibrary.org/b/id/10468634-L.jpg',
   'ncert science class 10': 'https://covers.openlibrary.org/b/id/10467681-L.jpg',
-  'ncert physics': 'https://covers.openlibrary.org/b/id/8738319-L.jpg',
-  'ncert chemistry': 'https://covers.openlibrary.org/b/id/11396271-L.jpg',
-  'ncert biology': 'https://covers.openlibrary.org/b/id/10468634-L.jpg',
-  'ncert science': 'https://covers.openlibrary.org/b/id/10467681-L.jpg',
-  'ncert': 'https://covers.openlibrary.org/b/id/8738319-L.jpg',
 
-  // World Classics (Unabridged English Editions)
+  // World Classics (Unabridged English Editions - Specific Titles Only)
   'pride and prejudice': 'https://covers.openlibrary.org/b/id/14348537-L.jpg',
-  'jane austen': 'https://covers.openlibrary.org/b/id/14348537-L.jpg',
-  'sherlock': 'https://covers.openlibrary.org/b/id/6717853-L.jpg',
   'sherlock holmes': 'https://covers.openlibrary.org/b/id/6717853-L.jpg',
-  'conan doyle': 'https://covers.openlibrary.org/b/id/6717853-L.jpg',
   'dracula': 'https://covers.openlibrary.org/b/id/12216503-L.jpg',
-  'bram stoker': 'https://covers.openlibrary.org/b/id/12216503-L.jpg',
   'frankenstein': 'https://covers.openlibrary.org/b/id/12356249-L.jpg',
-  'mary shelley': 'https://covers.openlibrary.org/b/id/12356249-L.jpg',
   'alice in wonderland': 'https://covers.openlibrary.org/b/id/8225261-L.jpg',
-  'lewis carroll': 'https://covers.openlibrary.org/b/id/8225261-L.jpg',
   'the republic': 'https://covers.openlibrary.org/b/id/8235106-L.jpg',
-  'plato': 'https://covers.openlibrary.org/b/id/8235106-L.jpg',
   'war and peace': 'https://covers.openlibrary.org/b/id/8231853-L.jpg',
-  'leo tolstoy': 'https://covers.openlibrary.org/b/id/8231853-L.jpg',
   'crime and punishment': 'https://covers.openlibrary.org/b/id/8231852-L.jpg',
-  'dostoevsky': 'https://covers.openlibrary.org/b/id/8231852-L.jpg',
   'moby dick': 'https://covers.openlibrary.org/b/id/8231855-L.jpg',
   'great gatsby': 'https://covers.openlibrary.org/b/id/8225266-L.jpg',
   '1984': 'https://covers.openlibrary.org/b/id/8231991-L.jpg',
-  'george orwell': 'https://covers.openlibrary.org/b/id/8231991-L.jpg',
   'animal farm': 'https://covers.openlibrary.org/b/id/8231992-L.jpg',
   'dorian gray': 'https://covers.openlibrary.org/b/id/8231992-L.jpg',
-  'oscar wilde': 'https://covers.openlibrary.org/b/id/8231992-L.jpg',
   'art of war': 'https://covers.openlibrary.org/b/id/8235107-L.jpg',
-  'sun tzu': 'https://covers.openlibrary.org/b/id/8235107-L.jpg',
   'meditations': 'https://covers.openlibrary.org/b/id/12836263-L.jpg',
-  'marcus aurelius': 'https://covers.openlibrary.org/b/id/12836263-L.jpg',
   'the prince': 'https://covers.openlibrary.org/b/id/8235108-L.jpg',
-  'machiavelli': 'https://covers.openlibrary.org/b/id/8235108-L.jpg',
   'beyond good and evil': 'https://covers.openlibrary.org/b/id/8235109-L.jpg',
-  'nietzsche': 'https://covers.openlibrary.org/b/id/8235109-L.jpg',
   'the prophet': 'https://covers.openlibrary.org/b/id/8235110-L.jpg',
-  'kahlil gibran': 'https://covers.openlibrary.org/b/id/8235110-L.jpg',
   'siddhartha': 'https://covers.openlibrary.org/b/id/8235111-L.jpg',
-  'hermann hesse': 'https://covers.openlibrary.org/b/id/8235111-L.jpg',
   'count of monte cristo': 'https://covers.openlibrary.org/b/id/8231857-L.jpg',
   'three musketeers': 'https://covers.openlibrary.org/b/id/8231857-L.jpg',
-  'alexandre dumas': 'https://covers.openlibrary.org/b/id/8231857-L.jpg',
   'les miserables': 'https://covers.openlibrary.org/b/id/8231858-L.jpg',
-  'victor hugo': 'https://covers.openlibrary.org/b/id/8231858-L.jpg',
   'metamorphosis': 'https://covers.openlibrary.org/b/id/8231859-L.jpg',
-  'franz kafka': 'https://covers.openlibrary.org/b/id/8231859-L.jpg',
   'odyssey': 'https://covers.openlibrary.org/b/id/8235112-L.jpg',
   'iliad': 'https://covers.openlibrary.org/b/id/8235112-L.jpg',
-  'homer': 'https://covers.openlibrary.org/b/id/8235112-L.jpg',
   'tale of two cities': 'https://covers.openlibrary.org/b/id/8231861-L.jpg',
-  'charles dickens': 'https://covers.openlibrary.org/b/id/8231861-L.jpg',
   'romeo and juliet': 'https://covers.openlibrary.org/b/id/8231862-L.jpg',
   'hamlet': 'https://covers.openlibrary.org/b/id/8231862-L.jpg',
   'macbeth': 'https://covers.openlibrary.org/b/id/8231862-L.jpg',
-  'shakespeare': 'https://covers.openlibrary.org/b/id/8231862-L.jpg',
 
-  // Modern Bestsellers & Self Help
+  // Modern Bestsellers (Specific ISBNs Only)
   'atomic habits': 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
   'think and grow rich': 'https://covers.openlibrary.org/b/id/14542536-L.jpg',
   'rich dad poor dad': 'https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg',
@@ -2512,12 +2462,11 @@ const KNOWN_REAL_COVERS = {
   'lean startup': 'https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg'
 };
 
-function findKnownHdCover(title, author) {
+function findKnownHdCover(title) {
   if (!title) return null;
   const t = String(title).toLowerCase();
-  const a = String(author || '').toLowerCase();
   for (const [key, url] of Object.entries(KNOWN_REAL_COVERS)) {
-    if (t.includes(key) || a.includes(key)) {
+    if (t.includes(key)) {
       return url;
     }
   }
@@ -2562,16 +2511,16 @@ function getCleanBookPlaceholder(title, author) {
 function getBookCoverDataUrl(b) {
   if (!b) return getCleanBookPlaceholder('', '');
 
-  // 1. Direct lookup in KNOWN_REAL_COVERS first (Priority: Curated Photo Covers like Image 2 Bhagavad Gita, Tagore, Premchand)
-  const known = findKnownHdCover(b.title, b.author);
+  // 1. If explicit real cover provided and valid (including assets/covers/, covers.openlibrary.org, gutenberg.org, archive.org/services/img/)
+  if (b.cover && typeof b.cover === 'string' && b.cover.trim().length > 0 && !b.cover.startsWith('data:')) {
+    return b.cover.trim();
+  }
+
+  // 2. Direct lookup in KNOWN_REAL_COVERS by exact title phrase
+  const known = findKnownHdCover(b.title);
   if (known) {
     b.cover = known;
     return known;
-  }
-
-  // 2. If explicit real cover provided (including Archive.org first-page cover photos)
-  if (b.cover && typeof b.cover === 'string' && b.cover.trim().length > 0) {
-    return b.cover.trim();
   }
 
   // 3. Project Gutenberg Official Medium Cover by ID
@@ -2607,14 +2556,14 @@ function getBookCoverDataUrl(b) {
   // 6. Check LocalStorage cache from prior Open Library real cover lookup
   const slug = (b.title || 'book').toLowerCase().replace(/[^\w\u0900-\u097F]/g, '_').slice(0, 40);
   try {
-    const cached = localStorage.getItem('thebhom_cov_' + slug);
+    const cached = localStorage.getItem('thebhom_cov_v2_' + slug);
     if (cached) {
       b.cover = cached;
       return cached;
     }
   } catch(e) {}
 
-  // 7. Clean minimal placeholder (No cartoon emojis/stickers)
+  // 7. Clean minimal placeholder (Unique silhouette with the book's OWN title and author)
   return getCleanBookPlaceholder(b.title, b.author);
 }
 
@@ -2624,10 +2573,11 @@ function getBookCoverDataUrl(b) {
 function enrichVisibleBookCovers(books) {
   if (!books || !books.length) return;
   books.forEach(b => {
-    if (b.cover && !b.cover.startsWith('data:') && !b.cover.includes('archive.org/services/img')) {
+    // If the book already has an authentic cover URL (from assets, gutenberg, openlibrary, or archive.org), NEVER overwrite it!
+    if (b.cover && !b.cover.startsWith('data:')) {
       return;
     }
-    const known = findKnownHdCover(b.title, b.author);
+    const known = findKnownHdCover(b.title);
     if (known) {
       b.cover = known;
       updateCoverInDom(b.id, known);
@@ -2635,7 +2585,7 @@ function enrichVisibleBookCovers(books) {
     }
     const slug = (b.title || 'book').toLowerCase().replace(/[^\w\u0900-\u097F]/g, '_').slice(0, 40);
     try {
-      const cached = localStorage.getItem('thebhom_cov_' + slug);
+      const cached = localStorage.getItem('thebhom_cov_v2_' + slug);
       if (cached) {
         b.cover = cached;
         updateCoverInDom(b.id, cached);
@@ -2643,9 +2593,9 @@ function enrichVisibleBookCovers(books) {
       }
     } catch(e) {}
 
-    // Queue for Open Library background search (skip NCERT which has dedicated textbook covers)
+    // Queue for Open Library background search only if no cover exists at all
     const isNcert = (b.source === 'ncert') || String(b.cat || '').toLowerCase().includes('ncert');
-    if (!isNcert) {
+    if (!isNcert && !b.ia_id && !String(b.id || '').startsWith('ia_') && !String(b.id || '').startsWith('pg_')) {
       if (!_coverLookupQueue.some(x => x.id === b.id)) {
         _coverLookupQueue.push(b);
       }
@@ -2705,7 +2655,7 @@ async function processCoverLookupQueue() {
               test.onload = () => {
                 if (test.naturalWidth > 50) {
                   b.cover = hdUrl;
-                  try { localStorage.setItem('thebhom_cov_' + slug, hdUrl); } catch(e) {}
+                  try { localStorage.setItem('thebhom_cov_v2_' + slug, hdUrl); } catch(e) {}
                   updateCoverInDom(b.id, hdUrl);
                 }
                 resolve();
@@ -2736,7 +2686,7 @@ function buildBookCard(b) {
   return `
 <div class="b-card" onclick="openDownloadModal('${b.id}')">
   <div class="b-cover">
-    <img src="${coverUrl}" data-book-id="${b.id}" class="b-cover-img" alt="${safeTitle}" loading="lazy" onerror="this.onerror=null;this.src=getBookCoverDataUrl({id:'${b.id}',title:'${safeTitle}',author:'${b.author}',cat:'${b.cat}',source:'${b.source}'})" />
+    <img src="${coverUrl}" data-book-id="${b.id}" class="b-cover-img" alt="${safeTitle}" loading="lazy" onerror="this.onerror=null;this.src=getCleanBookPlaceholder('${safeTitle}','${(b.author||'').replace(/'/g, '\\\'')}')" />
     
     <div class="format-badge-stack">
       <span class="fmt-tag pdf">PDF</span>
@@ -2829,7 +2779,7 @@ function openDownloadModal(id) {
     <div class="dl-modal-body">
       <div class="dl-book-preview-grid">
         <div class="dl-preview-left">
-          <img src="${coverUrl}" data-book-id="${b.id}" class="dl-thumb-large" alt="${safeTitle}" onerror="this.onerror=null;this.src=getBookCoverDataUrl({id:'${b.id}',title:'${safeTitle}',author:'${b.author}',cat:'${b.cat}',source:'${b.source}'})" />
+          <img src="${coverUrl}" data-book-id="${b.id}" class="dl-thumb-large" alt="${safeTitle}" onerror="this.onerror=null;this.src=getCleanBookPlaceholder('${safeTitle}','${(b.author||'').replace(/'/g, '\\\'')}')" />
           <div class="dl-format-pills-row">
             <span class="fmt-pill pdf">PDF</span>
             <span class="fmt-pill epub">EPUB</span>
@@ -3042,7 +2992,7 @@ function checkResumeReading() {
     const safeTitle = (b.title || '').replace(/'/g, "\\'");
     slot.innerHTML = `
       <div class="resume-reading-bar" id="resumeBar">
-        <img src="${b.cover || 'assets/covers/b10_meditations.jpg'}" class="resume-thumb" alt="${safeTitle}" onerror="this.onerror=null;this.src=getBookCoverDataUrl({id:'${b.id}',title:'${safeTitle}',author:'${b.author || ''}'})" />
+        <img src="${b.cover || getCleanBookPlaceholder(b.title, b.author)}" class="resume-thumb" alt="${safeTitle}" onerror="this.onerror=null;this.src=getCleanBookPlaceholder('${safeTitle}','${(b.author||'').replace(/'/g, '\\\'')}')" />
         <div class="resume-info">
           <span class="resume-tag">📖 RESUME READING</span>
           <strong class="resume-title" title="${safeTitle}">${b.title}</strong>
