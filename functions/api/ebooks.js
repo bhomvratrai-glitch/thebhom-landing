@@ -111,7 +111,7 @@ export async function onRequest(context) {
   const isGoogle = source === 'google' || source === 'googlebooks';
   const isArchive= source === 'archive' || source === 'ia';
   const isDli    = source === 'dli' || topicLower === 'dli' || (topicLower === 'hindi' && !query);
-  const isAll    = source === 'all' || source === 'mega' || (!source && query);
+  const isAll    = source === 'all' || source === 'mega' || (!source && (query || topicLower));
 
   try {
     if (isAll)     return await handleAllSources(query, topicLower, page, rows);
@@ -132,10 +132,12 @@ async function handleAllSources(query, topicLower, page, rows) {
   const per = Math.ceil(rows / 3);
   const isHindi = topicLower === 'hindi' || (query && /[\u0900-\u097F]|hindi|premchand|gita|ramayan/i.test(query));
   const repLangId = isHindi ? 2 : (topicLower === 'english' ? 1 : 0);
+  const archQuery = query || (isHindi ? 'hindi literature' : (topicLower && topicLower !== 'all' ? topicLower : 'popular bestsellers'));
+  const olQuery   = query || (isHindi ? 'hindi literature' : (topicLower && topicLower !== 'all' ? topicLower : 'bestseller'));
   const [archR, repR, olR] = await Promise.allSettled([
-    fetchArchiveBooks(query || (isHindi ? 'hindi literature' : 'popular hindi english'), page, per),
-    fetchRepFromGovt(query || '', page, per, repLangId),
-    fetchOpenLibraryBooks(query || (isHindi ? 'hindi literature' : (topicLower || 'bestseller')), isHindi ? 'hindi' : topicLower, page, per),
+    fetchArchiveBooks(archQuery, page, per),
+    fetchRepFromGovt(query || (topicLower && topicLower !== 'all' ? topicLower : ''), page, per, repLangId),
+    fetchOpenLibraryBooks(olQuery, isHindi ? 'hindi' : topicLower, page, per),
   ]);
   const arch  = archR.status === 'fulfilled' ? archR.value : [];
   const rep   = repR.status  === 'fulfilled' ? repR.value  : [];
@@ -302,13 +304,12 @@ async function handleNcertRequest(query, page, rows) {
 // ── DIGITAL LIBRARY OF INDIA / DLI ───────────────────────────
 async function fetchArchiveBooks(query, page, rows) {
   let sc = '';
-  let sortParam = '&sort[]=downloads+desc';
+  const sortParam = '&sort[]=downloads+desc';
   if (query) {
     const cleanQ = query.replace(/[^\w\s\u0900-\u097F]/gi, ' ').trim();
-    sc = `(title:("${cleanQ}") OR title:(${cleanQ}) OR description:("${cleanQ}")) AND (language:(english OR hindi OR en OR hi OR hin OR eng)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)`;
-    sortParam = '';
+    sc = `(title:("${cleanQ}") OR creator:("${cleanQ}") OR title:(${cleanQ}) OR creator:(${cleanQ}) OR description:("${cleanQ}")) AND (language:(english OR hindi OR en OR hi OR hin OR eng))`;
   } else {
-    sc = '(language:(english OR hindi OR en OR hi OR hin OR eng)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)';
+    sc = '(language:(english OR hindi OR en OR hi OR hin OR eng))';
   }
   const iaUrl = `https://archive.org/advancedsearch.php?q=${encodeURIComponent(sc)}+AND+mediatype:(texts)&fl[]=identifier,title,creator,description,year,downloads,language,avg_rating,num_reviews${sortParam}&rows=${rows}&page=${page}&output=json`;
   const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 8000);

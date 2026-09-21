@@ -752,6 +752,40 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 }
 .ch-pill:hover { background: var(--ilove-red); color: #fff; border-color: var(--ilove-red); }
 
+.reader-mode-switch {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 3px;
+}
+.reader-mode-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.reader-mode-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.reader-mode-btn.active {
+  background: #e5322d;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(229, 50, 45, 0.4);
+}
+
 /* Resume Reading Banner */
 .resume-reading-bar {
   display: flex;
@@ -945,14 +979,17 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
       <span class="qs-label">⚡ Trending Bestsellers:</span>
       <button class="qs-chip" onclick="quickSearch('Atomic Habits')">🔥 Atomic Habits</button>
       <button class="qs-chip" onclick="quickSearch('Psychology of Money')">💰 Psychology of Money</button>
-      <button class="qs-chip" onclick="quickSearch('Rich Dad Poor Dad')">📈 Rich Dad Poor Dad</button>
-      <button class="qs-chip" onclick="quickSearch('48 Laws of Power')">👑 48 Laws of Power</button>
       <button class="qs-chip" onclick="quickSearch('Colleen Hoover')">🌸 Colleen Hoover</button>
-      <button class="qs-chip" onclick="quickSearch('Munshi Premchand')">📖 Premchand</button>
-      <button class="qs-chip" onclick="quickSearch('UPSC Polity Laxmikanth')">⚖️ UPSC Polity</button>
-      <button class="qs-chip" onclick="quickSearch('NCERT Physics')">⚛️ NCERT Physics</button>
+      <button class="qs-chip" onclick="quickSearch('48 Laws of Power')">👑 48 Laws of Power</button>
+      <button class="qs-chip" onclick="quickSearch('Ikigai')">🧘 Ikigai</button>
+      <button class="qs-chip" onclick="quickSearch('Rich Dad Poor Dad')">📈 Rich Dad Poor Dad</button>
+      <button class="qs-chip" onclick="quickSearch('Power of Your Subconscious Mind')">🧠 Subconscious Mind</button>
+      <button class="qs-chip" onclick="quickSearch('Think and Grow Rich')">💡 Think & Grow Rich</button>
+      <button class="qs-chip" onclick="quickSearch('UPSC Polity')">⚖️ UPSC Polity</button>
+      <button class="qs-chip" onclick="quickSearch('NCERT')">🎒 NCERT 12th</button>
       <button class="qs-chip" onclick="quickSearch('Bhagavad Gita')">🕉️ Bhagavad Gita</button>
-      <button class="qs-chip" onclick="quickSearch('Chanakya Niti')">🧠 Chanakya Niti</button>
+      <button class="qs-chip" onclick="quickSearch('Munshi Premchand')">📖 Premchand</button>
+      <button class="qs-chip" onclick="quickSearch('Valmiki Ramayana')">📜 Ramayana</button>
       <button class="qs-chip" onclick="quickSearch('Sherlock Holmes')">🕵️ Sherlock Holmes</button>
     </div>
   </div>
@@ -1763,6 +1800,468 @@ const BOOKS = [
       "pdf": "/api/ebooks?download=pdf&rep_id=1084",
       "epub": "/api/ebooks?download=epub&rep_id=1084",
       "read_online": "/api/ebooks?download=pdf&view=1&rep_id=1084"
+    }
+  },
+  {
+    "id": "cur_verity",
+    "title": "Verity",
+    "author": "Colleen Hoover",
+    "cat": "Fiction",
+    "emoji": "🌸",
+    "gradient": ["#4a044e", "#a21caf"],
+    "downloads": 680000,
+    "isNew": true,
+    "pages": "336 pages • Unabridged Edition",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/verity-by-colleen-hoover_202401",
+    "ia_id": "verity-by-colleen-hoover_202401",
+    "source": "archive",
+    "desc": "The #1 New York Times thriller and global sensation by Colleen Hoover. A chilling romantic thriller that will keep you guessing until the final sentence.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=verity-by-colleen-hoover_202401",
+      "epub": "/api/ebooks?download=epub&ia_id=verity-by-colleen-hoover_202401",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=verity-by-colleen-hoover_202401"
+    }
+  },
+  {
+    "id": "cur_starts_with_us",
+    "title": "It Starts With Us",
+    "author": "Colleen Hoover",
+    "cat": "Fiction",
+    "emoji": "💫",
+    "gradient": ["#0369a1", "#0284c7"],
+    "downloads": 590000,
+    "isNew": true,
+    "pages": "336 pages • Sequel to It Ends With Us",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/colleen-hoover-it-starts-with-us-simon-schuster-uk-2022",
+    "ia_id": "colleen-hoover-it-starts-with-us-simon-schuster-uk-2022",
+    "source": "archive",
+    "desc": "The highly anticipated sequel to the blockbuster bestselling novel 'It Ends with Us' by Colleen Hoover.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=colleen-hoover-it-starts-with-us-simon-schuster-uk-2022",
+      "epub": "/api/ebooks?download=epub&ia_id=colleen-hoover-it-starts-with-us-simon-schuster-uk-2022",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=colleen-hoover-it-starts-with-us-simon-schuster-uk-2022"
+    }
+  },
+  {
+    "id": "cur_ikigai",
+    "title": "Ikigai: The Japanese Secret to a Long and Happy Life",
+    "author": "Héctor García & Francesc Miralles",
+    "cat": "Self-Help",
+    "emoji": "🧘",
+    "gradient": ["#064e3b", "#059669"],
+    "downloads": 540000,
+    "isNew": false,
+    "pages": "208 pages • International Bestseller",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/ikigai-the-japanese-secret-to-a-long-and-happy-life-hector-garcia-francesc-miralles",
+    "ia_id": "ikigai-the-japanese-secret-to-a-long-and-happy-life-hector-garcia-francesc-miralles",
+    "source": "archive",
+    "desc": "Discover the Japanese philosophy for discovering your life's purpose and unlocking daily joy, health, and longevity.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=ikigai-the-japanese-secret-to-a-long-and-happy-life-hector-garcia-francesc-miralles",
+      "epub": "/api/ebooks?download=epub&ia_id=ikigai-the-japanese-secret-to-a-long-and-happy-life-hector-garcia-francesc-miralles",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=ikigai-the-japanese-secret-to-a-long-and-happy-life-hector-garcia-francesc-miralles"
+    }
+  },
+  {
+    "id": "cur_how_to_win_friends",
+    "title": "How to Win Friends and Influence People",
+    "author": "Dale Carnegie",
+    "cat": "Self-Help",
+    "emoji": "🤝",
+    "gradient": ["#1e1b4b", "#4338ca"],
+    "downloads": 720000,
+    "isNew": false,
+    "pages": "288 pages • Timeless Masterpiece",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/how-to-win-friends-and-influence-people-by-dale-carnegie",
+    "ia_id": "how-to-win-friends-and-influence-people-by-dale-carnegie",
+    "source": "archive",
+    "desc": "The foundational self-help and communication classic that has transformed millions of careers and personal relationships globally.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=how-to-win-friends-and-influence-people-by-dale-carnegie",
+      "epub": "/api/ebooks?download=epub&ia_id=how-to-win-friends-and-influence-people-by-dale-carnegie",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=how-to-win-friends-and-influence-people-by-dale-carnegie"
+    }
+  },
+  {
+    "id": "cur_subconscious_mind",
+    "title": "The Power of Your Subconscious Mind",
+    "author": "Dr. Joseph Murphy",
+    "cat": "Self-Help",
+    "emoji": "🧠",
+    "gradient": ["#172554", "#1d4ed8"],
+    "downloads": 610000,
+    "isNew": false,
+    "pages": "312 pages • Global Bestseller",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/the-power-of-your-subconscious-mind-by-dr.-joseph-murphy_202102",
+    "ia_id": "the-power-of-your-subconscious-mind-by-dr.-joseph-murphy_202102",
+    "source": "archive",
+    "desc": "Harness the miraculous power of your subconscious mind to attain financial prosperity, mental peace, and personal healing.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=the-power-of-your-subconscious-mind-by-dr.-joseph-murphy_202102",
+      "epub": "/api/ebooks?download=epub&ia_id=the-power-of-your-subconscious-mind-by-dr.-joseph-murphy_202102",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=the-power-of-your-subconscious-mind-by-dr.-joseph-murphy_202102"
+    }
+  },
+  {
+    "id": "cur_monk_ferrari",
+    "title": "The Monk Who Sold His Ferrari",
+    "author": "Robin Sharma",
+    "cat": "Self-Help",
+    "emoji": "🏎️",
+    "gradient": ["#7f1d1d", "#dc2626"],
+    "downloads": 495000,
+    "isNew": false,
+    "pages": "198 pages • Fable About Fulfilling Dreams",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/the-monk-who-sold-his-ferrari-by-robin-s.-sharma-z-lib.org",
+    "ia_id": "the-monk-who-sold-his-ferrari-by-robin-s.-sharma-z-lib.org",
+    "source": "archive",
+    "desc": "A world-renowned inspiring fable about Julian Mantle, a lawyer forced to confront the spiritual crisis of his out-of-balance life.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=the-monk-who-sold-his-ferrari-by-robin-s.-sharma-z-lib.org",
+      "epub": "/api/ebooks?download=epub&ia_id=the-monk-who-sold-his-ferrari-by-robin-s.-sharma-z-lib.org",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=the-monk-who-sold-his-ferrari-by-robin-s.-sharma-z-lib.org"
+    }
+  },
+  {
+    "id": "cur_art_of_seduction",
+    "title": "The Art of Seduction",
+    "author": "Robert Greene",
+    "cat": "Self-Help",
+    "emoji": "🎭",
+    "gradient": ["#311042", "#86198f"],
+    "downloads": 580000,
+    "isNew": false,
+    "pages": "468 pages • Complete Unabridged",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/the-art-of-seduction-robert-greene",
+    "ia_id": "the-art-of-seduction-robert-greene",
+    "source": "archive",
+    "desc": "The mastery of interpersonal influence and social dynamics by the author of The 48 Laws of Power.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=the-art-of-seduction-robert-greene",
+      "epub": "/api/ebooks?download=epub&ia_id=the-art-of-seduction-robert-greene",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=the-art-of-seduction-robert-greene"
+    }
+  },
+  {
+    "id": "cur_mastery",
+    "title": "Mastery",
+    "author": "Robert Greene",
+    "cat": "Self-Help",
+    "emoji": "⚔️",
+    "gradient": ["#1c1917", "#78716c"],
+    "downloads": 410000,
+    "isNew": false,
+    "pages": "352 pages • The Path to Greatness",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/kupdf.net_232472817-robert-greene-masterypdf",
+    "ia_id": "kupdf.net_232472817-robert-greene-masterypdf",
+    "source": "archive",
+    "desc": "Unlock your passion and build supreme craft. Robert Greene distills the secrets of historical and contemporary masters.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=kupdf.net_232472817-robert-greene-masterypdf",
+      "epub": "/api/ebooks?download=epub&ia_id=kupdf.net_232472817-robert-greene-masterypdf",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=kupdf.net_232472817-robert-greene-masterypdf"
+    }
+  },
+  {
+    "id": "cur_the_secret",
+    "title": "The Secret",
+    "author": "Rhonda Byrne",
+    "cat": "Self-Help",
+    "emoji": "🔑",
+    "gradient": ["#451a03", "#b45309"],
+    "downloads": 670000,
+    "isNew": false,
+    "pages": "216 pages • The Law of Attraction",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/the-secret-rhonda-byrne_202105",
+    "ia_id": "the-secret-rhonda-byrne_202105",
+    "source": "archive",
+    "desc": "The worldwide sensation on the Law of Attraction that has empowered millions to attract wealth, health, and joy into their lives.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=the-secret-rhonda-byrne_202105",
+      "epub": "/api/ebooks?download=epub&ia_id=the-secret-rhonda-byrne_202105",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=the-secret-rhonda-byrne_202105"
+    }
+  },
+  {
+    "id": "cur_1984",
+    "title": "1984",
+    "author": "George Orwell",
+    "cat": "Fiction",
+    "emoji": "👁️",
+    "gradient": ["#09090b", "#71717a"],
+    "downloads": 820000,
+    "isNew": false,
+    "pages": "328 pages • Unabridged Classic",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/george-orwell-1984-signet-classics",
+    "ia_id": "george-orwell-1984-signet-classics",
+    "source": "archive",
+    "desc": "The chilling dystopian vision of totalitarian surveillance, Big Brother, Thought Police, and censorship.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=george-orwell-1984-signet-classics",
+      "epub": "/api/ebooks?download=epub&ia_id=george-orwell-1984-signet-classics",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=george-orwell-1984-signet-classics"
+    }
+  },
+  {
+    "id": "cur_animal_farm",
+    "title": "Animal Farm",
+    "author": "George Orwell",
+    "cat": "Fiction",
+    "emoji": "🐷",
+    "gradient": ["#422006", "#a16207"],
+    "downloads": 640000,
+    "isNew": false,
+    "pages": "140 pages • Complete Satire",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/animal-farm-by-george-orwell-1945",
+    "ia_id": "animal-farm-by-george-orwell-1945",
+    "source": "archive",
+    "desc": "Orwell's timeless political allegory where all animals are equal, but some animals are more equal than others.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=animal-farm-by-george-orwell-1945",
+      "epub": "/api/ebooks?download=epub&ia_id=animal-farm-by-george-orwell-1945",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=animal-farm-by-george-orwell-1945"
+    }
+  },
+  {
+    "id": "cur_meditations",
+    "title": "Meditations",
+    "author": "Marcus Aurelius",
+    "cat": "Philosophy",
+    "emoji": "🏛️",
+    "gradient": ["#1e293b", "#475569"],
+    "downloads": 590000,
+    "isNew": false,
+    "pages": "256 pages • Stoic Wisdom",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/meditations-by-marcus-aurelius_202107",
+    "ia_id": "meditations-by-marcus-aurelius_202107",
+    "source": "archive",
+    "desc": "The personal private journals of the Roman Emperor Marcus Aurelius. The timeless handbook of Stoic resilience and clarity.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=meditations-by-marcus-aurelius_202107",
+      "epub": "/api/ebooks?download=epub&ia_id=meditations-by-marcus-aurelius_202107",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=meditations-by-marcus-aurelius_202107"
+    }
+  },
+  {
+    "id": "cur_metamorphosis",
+    "title": "The Metamorphosis",
+    "author": "Franz Kafka",
+    "cat": "Classics",
+    "emoji": "🪲",
+    "gradient": ["#18181b", "#52525b"],
+    "downloads": 480000,
+    "isNew": false,
+    "pages": "110 pages • Existential Classic",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/the-metamorphosis-by-franz-kafka",
+    "ia_id": "the-metamorphosis-by-franz-kafka",
+    "source": "archive",
+    "desc": "Gregor Samsa wakes up one morning to find himself transformed into a monstrous vermin. Kafka's unforgettable masterpiece.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=the-metamorphosis-by-franz-kafka",
+      "epub": "/api/ebooks?download=epub&ia_id=the-metamorphosis-by-franz-kafka",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=the-metamorphosis-by-franz-kafka"
+    }
+  },
+  {
+    "id": "cur_crime_punishment",
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "cat": "Classics",
+    "emoji": "⚖️",
+    "gradient": ["#3f1010", "#8a1c1c"],
+    "downloads": 510000,
+    "isNew": false,
+    "pages": "560 pages • Psychological Masterpiece",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/crime-and-punishment-by-fyodor-dostoyevsky",
+    "ia_id": "crime-and-punishment-by-fyodor-dostoyevsky",
+    "source": "archive",
+    "desc": "Raskolnikov's moral crisis, psychological guilt, and redemption in Saint Petersburg. Unabridged classic.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=crime-and-punishment-by-fyodor-dostoyevsky",
+      "epub": "/api/ebooks?download=epub&ia_id=crime-and-punishment-by-fyodor-dostoyevsky",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=crime-and-punishment-by-fyodor-dostoyevsky"
+    }
+  },
+  {
+    "id": "cur_ramayana",
+    "title": "श्रीमद् वाल्मीकीय रामायण (Valmiki Ramayana)",
+    "author": "महर्षि वाल्मीकि (Maharshi Valmiki - Gita Press)",
+    "cat": "Hindi",
+    "emoji": "🏹",
+    "gradient": ["#7c2d12", "#ea580c"],
+    "downloads": 680000,
+    "isNew": false,
+    "pages": "सम्पूर्ण महाकाव्य • प्रामाणिक गीता प्रेस",
+    "rating": 5.0,
+    "cover": "https://archive.org/services/img/valmiki-ramayan-gita-press-gorakhpur-with-hindi-translation",
+    "ia_id": "valmiki-ramayan-gita-press-gorakhpur-with-hindi-translation",
+    "source": "archive",
+    "desc": "मर्यादा पुरुषोत्तम भगवान श्री राम के पावन चरित्र का संपूर्ण वर्णन। प्रामाणिक संस्कृत श्लोक एवं सुबोध हिंदी अनुवाद सहित।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=valmiki-ramayan-gita-press-gorakhpur-with-hindi-translation",
+      "epub": "/api/ebooks?download=epub&ia_id=valmiki-ramayan-gita-press-gorakhpur-with-hindi-translation",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=valmiki-ramayan-gita-press-gorakhpur-with-hindi-translation"
+    }
+  },
+  {
+    "id": "cur_arthashastra",
+    "title": "कौटिल्य अर्थशास्त्र (Kautilya Arthashastra)",
+    "author": "आचार्य चाणक्य / कौटिल्य (Chanakya)",
+    "cat": "Hindi",
+    "emoji": "👑",
+    "gradient": ["#78350f", "#d97706"],
+    "downloads": 490000,
+    "isNew": false,
+    "pages": "480 पृष्ठ • राजनीति एवं अर्थशास्त्र",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/kautilya-arthashastra-hindi",
+    "ia_id": "kautilya-arthashastra-hindi",
+    "source": "archive",
+    "desc": "प्राचीन भारत का महानतम राजनीति, शासन व्यवस्था, न्याय और कूटनीति शास्त्र।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=kautilya-arthashastra-hindi",
+      "epub": "/api/ebooks?download=epub&ia_id=kautilya-arthashastra-hindi",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=kautilya-arthashastra-hindi"
+    }
+  },
+  {
+    "id": "cur_yogi",
+    "title": "ऑटोबायोग्राफी ऑफ ए योगी (Autobiography of a Yogi)",
+    "author": "परमहंस योगानंद (Paramahansa Yogananda)",
+    "cat": "Spiritual",
+    "emoji": "🕉️",
+    "gradient": ["#4c1d95", "#8b5cf6"],
+    "downloads": 520000,
+    "isNew": false,
+    "pages": "514 पृष्ठ • अमर आध्यात्मिक ग्रन्थ",
+    "rating": 5.0,
+    "cover": "https://archive.org/services/img/autobiography-of-a-yogi-by-paramhansa-yogananda",
+    "ia_id": "autobiography-of-a-yogi-by-paramhansa-yogananda",
+    "source": "archive",
+    "desc": "स्टीव जॉब्स और दुनिया के करोड़ों विचारकों को प्रेरित करने वाली महान आध्यात्मिक आत्मकथा।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=autobiography-of-a-yogi-by-paramhansa-yogananda",
+      "epub": "/api/ebooks?download=epub&ia_id=autobiography-of-a-yogi-by-paramhansa-yogananda",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=autobiography-of-a-yogi-by-paramhansa-yogananda"
+    }
+  },
+  {
+    "id": "cur_nirmala",
+    "title": "निर्मला (Nirmala)",
+    "author": "मुंशी प्रेमचंद (Munshi Premchand)",
+    "cat": "Hindi",
+    "emoji": "📖",
+    "gradient": ["#14532d", "#16a34a"],
+    "downloads": 440000,
+    "isNew": false,
+    "pages": "230 पृष्ठ • क्लासिक उपन्यास",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/Nirmala-Hindi",
+    "ia_id": "Nirmala-Hindi",
+    "source": "archive",
+    "desc": "दहेज प्रथा और अनमेल विवाह की त्रासदी पर आधारित मुंशी प्रेमचंद का कालजयी उपन्यास।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=Nirmala-Hindi",
+      "epub": "/api/ebooks?download=epub&ia_id=Nirmala-Hindi",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=Nirmala-Hindi"
+    }
+  },
+  {
+    "id": "cur_karmabhumi",
+    "title": "कर्मभूमि (Karmabhumi)",
+    "author": "मुंशी प्रेमचंद (Munshi Premchand)",
+    "cat": "Hindi",
+    "emoji": "📜",
+    "gradient": ["#1e3a8a", "#2563eb"],
+    "downloads": 380000,
+    "isNew": false,
+    "pages": "390 पृष्ठ • सामाजिक चेतना",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/karmabhumi-premchand",
+    "ia_id": "karmabhumi-premchand",
+    "source": "archive",
+    "desc": "समाज सुधार, किसानों के संघर्ष और राष्ट्रीय स्वाधीनता आंदोलन की अमर गाथा।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=karmabhumi-premchand",
+      "epub": "/api/ebooks?download=epub&ia_id=karmabhumi-premchand",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=karmabhumi-premchand"
+    }
+  },
+  {
+    "id": "cur_ncert_math",
+    "title": "NCERT Mathematics Class 12 (Part 1)",
+    "author": "NCERT (Govt of India)",
+    "cat": "Technology",
+    "emoji": "📐",
+    "gradient": ["#042f2e", "#0d9488"],
+    "downloads": 350000,
+    "isNew": false,
+    "pages": "Official CBSE Textbook",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/ncert-lemh1",
+    "ia_id": "ncert-lemh1",
+    "source": "ncert",
+    "desc": "Official NCERT Class 12 Mathematics Part 1 textbook for CBSE board, JEE Main, and competitive exams.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=ncert-lemh1",
+      "epub": "/api/ebooks?download=epub&ia_id=ncert-lemh1",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=ncert-lemh1"
+    }
+  },
+  {
+    "id": "cur_ncert_chem",
+    "title": "NCERT Chemistry Class 12 (Part 1)",
+    "author": "NCERT (Govt of India)",
+    "cat": "Technology",
+    "emoji": "🧪",
+    "gradient": ["#3b0764", "#9333ea"],
+    "downloads": 320000,
+    "isNew": false,
+    "pages": "Official CBSE Textbook",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/ncert-lech1",
+    "ia_id": "ncert-lech1",
+    "source": "ncert",
+    "desc": "Official NCERT Class 12 Chemistry Part 1 textbook for CBSE board, NEET, and JEE preparation.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=ncert-lech1",
+      "epub": "/api/ebooks?download=epub&ia_id=ncert-lech1",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=ncert-lech1"
+    }
+  },
+  {
+    "id": "cur_ncert_bio",
+    "title": "NCERT Biology Class 12",
+    "author": "NCERT (Govt of India)",
+    "cat": "Technology",
+    "emoji": "🧬",
+    "gradient": ["#14532d", "#22c55e"],
+    "downloads": 410000,
+    "isNew": false,
+    "pages": "Official CBSE Textbook",
+    "rating": 5.0,
+    "cover": "https://archive.org/services/img/ncert-lebo1",
+    "ia_id": "ncert-lebo1",
+    "source": "ncert",
+    "desc": "The definitive NCERT Class 12 Biology textbook for CBSE and NEET medical aspirants.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=ncert-lebo1",
+      "epub": "/api/ebooks?download=epub&ia_id=ncert-lebo1",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=ncert-lebo1"
     }
   }
 ];
@@ -3093,18 +3592,6 @@ function handleReadBook(id) {
 }
 
 function openOnlineReader(b, url) {
-  // CRITICAL ANTI-CAPTCHA SECURITY:
-  // Never load third-party websites in an iframe. Third-party sites show Cloudflare Turnstile, CAPTCHAs, or login walls.
-  const isSafeStream = url && (
-    url.startsWith('/api/ebooks') || 
-    url.startsWith('https://thebhom.in/api/ebooks') || 
-    url.includes('gutenberg.org/cache/epub')
-  );
-  if (!isSafeStream) {
-    openReader(b.id);
-    return;
-  }
-
   const oldModal = document.getElementById('readerModal');
   if (oldModal) oldModal.remove();
 
@@ -3119,20 +3606,54 @@ function openOnlineReader(b, url) {
   if (b.source === 'ncert') sourceTag = 'TheBhom Academic Reader • NCERT Edition';
   if (b.source === 'gutenberg') sourceTag = 'TheBhom Classics Reader';
 
+  let flipbookUrl = '';
+  let pdfUrl = '';
+
+  if (b.ia_id) {
+    flipbookUrl = `https://archive.org/embed/${encodeURIComponent(b.ia_id)}?view=theater`;
+    pdfUrl = `/api/ebooks?download=pdf&view=1&ia_id=${encodeURIComponent(b.ia_id)}`;
+  } else if (b.rep_id) {
+    pdfUrl = `/api/ebooks?download=pdf&view=1&rep_id=${encodeURIComponent(b.rep_id)}`;
+    flipbookUrl = pdfUrl;
+  } else if (b.pg_id) {
+    flipbookUrl = `https://www.gutenberg.org/cache/epub/${b.pg_id}/pg${b.pg_id}-images.html`;
+    pdfUrl = `/api/ebooks?download=pdf&pg_id=${b.pg_id}`;
+  } else {
+    pdfUrl = url;
+    flipbookUrl = url;
+  }
+
+  const hasFlip = Boolean(b.ia_id);
+  const initialMode = hasFlip ? 'flip' : 'pdf';
+  const initialUrl = initialMode === 'flip' ? flipbookUrl : pdfUrl;
+
+  window._activeReaderBook = { b, flipbookUrl, pdfUrl, mode: initialMode };
+
   const downloadUrl = (b.formats && b.formats.pdf && !b.formats.pdf.includes('openlibrary.org')) ? b.formats.pdf : (b.ia_id ? `/api/ebooks?download=pdf&ia_id=${b.ia_id}` : (b.formats && b.formats.epub && !b.formats.epub.includes('openlibrary.org') ? b.formats.epub : ''));
 
   modal.innerHTML = `
-    <div class="reader-hdr" style="background:#0f172a;gap:.8rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.1);padding:0.75rem 1.2rem;">
-      <div style="display:flex;align-items:center;gap:.75rem;max-width:65%;">
-        <div style="font-size:1.6rem">📚</div>
+    <div class="reader-hdr" style="background:#0f172a;gap:.8rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.1);padding:0.7rem 1.2rem;">
+      <div style="display:flex;align-items:center;gap:.75rem;max-width:50%;overflow:hidden;">
+        <div style="font-size:1.6rem;flex-shrink:0;">📖</div>
         <div style="overflow:hidden;">
           <div style="font-weight:800;font-size:1rem;color:#f8fafc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${b.title}">${b.title}</div>
           <div style="font-size:.78rem;color:#94a3b8">By ${b.author} • ${sourceTag}</div>
         </div>
       </div>
+
+      ${hasFlip ? `
+      <div class="reader-mode-switch" style="margin:0 auto;">
+        <button class="reader-mode-btn ${initialMode === 'flip' ? 'active' : ''}" id="btnModeFlip" onclick="setReaderViewMode('flip')" title="Realistic Open Book 2-Page Spread with Page Turn Physics">
+          <span>📖</span> 3D Book Spread
+        </button>
+        <button class="reader-mode-btn ${initialMode === 'pdf' ? 'active' : ''}" id="btnModePdf" onclick="setReaderViewMode('pdf')" title="Continuous Vertical Scroll PDF Mode">
+          <span>📄</span> PDF Mode
+        </button>
+      </div>` : ''}
+
       <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
         ${downloadUrl ? `
-        <button class="ch-pill" style="background:#059669;border-color:#059669;color:#fff;font-weight:700;display:flex;align-items:center;gap:4px;" onclick="triggerFormatDownload('${b.id}', '${b.pg_id ? 'epub' : 'pdf'}', '${downloadUrl}')">
+        <button class="ch-pill" style="background:#059669;border-color:#059669;color:#fff;font-weight:700;display:flex;align-items:center;gap:4px;" onclick="triggerFormatDownload('${b.id}', '${b.pg_id ? 'epub' : 'pdf'}', '${downloadUrl}')" title="Download Complete Unabridged Book">
           <span>⬇️</span> Download Book
         </button>` : ''}
         <button class="ch-pill" style="background:#e5322d;border-color:#e5322d;color:#fff;font-weight:700;" onclick="openDownloadModal('${b.id}')">
@@ -3142,16 +3663,40 @@ function openOnlineReader(b, url) {
         <button class="ch-pill" onclick="document.getElementById('readerModal').remove()">✕ Close</button>
       </div>
     </div>
-    <div class="reader-body" style="padding:0;background:#0b0f19;height:calc(100vh - 100px);">
-      <iframe src="${url}" id="onlineReaderIframe" style="width:100%;height:100%;border:none;background:#ffffff;" title="${b.title}" allowfullscreen></iframe>
+    <div class="reader-body" style="padding:0;background:#0b0f19;height:calc(100vh - 95px);">
+      <iframe src="${initialUrl}" id="onlineReaderIframe" style="width:100%;height:100%;border:none;background:#ffffff;" title="${b.title}" allowfullscreen></iframe>
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;padding:0.45rem 1.2rem;background:#0f172a;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem;color:#94a3b8;flex-wrap:wrap;gap:8px;">
-      <span>⚡ <strong>TheBhom Native Reader</strong> • Zero external redirect • 100% Free Public Access</span>
-      <span>💡 Fast reader: Use <strong>[⛶ Fullscreen]</strong> or <strong>[⬇️ Download Book]</strong> for offline reading</span>
+      <span id="readerModeDesc">✨ <strong>3D Book Spread Mode</strong>: Realistic 2-page open book • Turn pages with click or arrow keys (← / →) • Zoom & search inside book</span>
+      <span>💡 Tip: Click <strong>[⛶ Fullscreen]</strong> for immersive reading, or <strong>[⬇️ Download Book]</strong> for offline reading.</span>
     </div>
   `;
   document.body.appendChild(modal);
 }
+
+function setReaderViewMode(mode) {
+  const data = window._activeReaderBook;
+  if (!data) return;
+  const iframe = document.getElementById('onlineReaderIframe');
+  const btnFlip = document.getElementById('btnModeFlip');
+  const btnPdf = document.getElementById('btnModePdf');
+  const tagDesc = document.getElementById('readerModeDesc');
+
+  if (mode === 'flip') {
+    data.mode = 'flip';
+    if (iframe) iframe.src = data.flipbookUrl;
+    if (btnFlip) btnFlip.classList.add('active');
+    if (btnPdf) btnPdf.classList.remove('active');
+    if (tagDesc) tagDesc.innerHTML = '✨ <strong>3D Book Spread Mode</strong>: Realistic 2-page open book with page-turn physics, zoom & search inside book';
+  } else {
+    data.mode = 'pdf';
+    if (iframe) iframe.src = data.pdfUrl;
+    if (btnPdf) btnPdf.classList.add('active');
+    if (btnFlip) btnFlip.classList.remove('active');
+    if (tagDesc) tagDesc.innerHTML = '📄 <strong>PDF Document Mode</strong>: Clean continuous vertical scrolling & text selection';
+  }
+}
+window.setReaderViewMode = setReaderViewMode;
 
 function toggleReaderFullscreen() {
   const elem = document.getElementById('readerModal');
