@@ -27,38 +27,78 @@ export async function onRequest(context) {
   const page   = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
   const rows   = 32;
 
-  // Smart Download Resolver
+  // Smart Download & In-Browser Streaming Resolver (Zero Redirect, Stay on TheBhom)
   const downloadParam = url.searchParams.get('download');
   if (downloadParam) {
-    const iaId  = (url.searchParams.get('ia_id')  || '').replace(/^ia_/, '').trim();
-    const pgId  = (url.searchParams.get('pg_id')  || '').replace(/^pg_/, '').trim();
-    const repId = (url.searchParams.get('rep_id') || '').replace(/^rep_/, '').trim();
+    const iaId   = (url.searchParams.get('ia_id')  || '').replace(/^ia_/, '').trim();
+    const pgId   = (url.searchParams.get('pg_id')  || '').replace(/^pg_/, '').trim();
+    const repId  = (url.searchParams.get('rep_id') || '').replace(/^rep_/, '').trim();
+    const isView = url.searchParams.get('view') === '1' || url.searchParams.get('inline') === '1';
 
     if (repId) {
       try {
-        const repRes = await fetch(`https://ndl.education.gov.in/api/v1/book/?bookid=${encodeURIComponent(repId)}&userid=40ce1dca-5c9d-5908-b4bb-5a25c5274184`, { headers: { 'Accept': 'application/json', 'Authorization': 'aef0cad103e968400d3c8db69a064bd9' } });
-        if (repRes.ok) { const d = await repRes.json(); const b = Array.isArray(d) ? d[0] : d; if (b && b.book_link) return Response.redirect(b.book_link, 302); }
+        const repRes = await fetch(`https://ndl.education.gov.in/api/v1/book/?bookid=${encodeURIComponent(repId)}&userid=40ce1dca-5c9d-5908-b4bb-5a25c5274184`, {
+          headers: { 'Accept': 'application/json', 'Authorization': 'aef0cad103e968400d3c8db69a064bd9' }
+        });
+        if (repRes.ok) {
+          const d = await repRes.json();
+          const b = Array.isArray(d) ? d[0] : d;
+          if (b && b.book_link) {
+            return await streamFile(b.book_link, b.book_title || repId, downloadParam, isView, request.headers);
+          }
+        }
       } catch (e) {}
     }
+
     if (iaId) {
       try {
-        const metaRes = await fetch(`https://archive.org/metadata/${encodeURIComponent(iaId)}/files`, { headers: { 'User-Agent': 'TheBhomEbooks/2026' } });
+        const metaRes = await fetch(`https://archive.org/metadata/${encodeURIComponent(iaId)}/files`, {
+          headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
+          cf: { cacheTtl: 86400, cacheEverything: true }
+        });
         if (metaRes.ok) {
           const meta = await metaRes.json();
           const files = meta.result || meta.files || [];
-          if (downloadParam === 'epub') { const f = files.find(f => f.name && f.name.toLowerCase().endsWith('.epub')); if (f) return Response.redirect(`https://archive.org/download/${iaId}/${encodeURIComponent(f.name)}`, 302); }
-          if (downloadParam === 'txt')  { const f = files.find(f => f.name && (f.name.toLowerCase().endsWith('_djvu.txt') || f.name.toLowerCase().endsWith('.txt'))); if (f) return Response.redirect(`https://archive.org/download/${iaId}/${encodeURIComponent(f.name)}`, 302); }
-          let pdf = files.find(f => f.name && f.name.toLowerCase().endsWith('.pdf') && !f.name.toLowerCase().includes('_text.pdf'));
-          if (!pdf) pdf = files.find(f => f.name && f.name.toLowerCase().endsWith('.pdf'));
-          if (pdf) return Response.redirect(`https://archive.org/download/${iaId}/${encodeURIComponent(pdf.name)}`, 302);
+          let targetFile = null;
+
+          if (downloadParam === 'epub') {
+            targetFile = files.find(f => f.name && f.name.toLowerCase().endsWith('.epub'));
+          } else if (downloadParam === 'txt') {
+            targetFile = files.find(f => f.name && (f.name.toLowerCase().endsWith('_djvu.txt') || f.name.toLowerCase().endsWith('.txt')));
+          } else {
+            // PDF: prefer main clean scan / non-text watermark PDF
+            targetFile = files.find(f => f.name && f.name.toLowerCase().endsWith('.pdf') && !f.name.toLowerCase().includes('_text.pdf'));
+            if (!targetFile) targetFile = files.find(f => f.name && f.name.toLowerCase().endsWith('.pdf'));
+          }
+
+          if (targetFile && targetFile.name) {
+            const streamUrl = `https://archive.org/download/${encodeURIComponent(iaId)}/${encodeURIComponent(targetFile.name)}`;
+            return await streamFile(streamUrl, iaId, downloadParam, isView, request.headers);
+          }
         }
       } catch (e) {}
-      return Response.redirect(`https://archive.org/download/${iaId}`, 302);
+      // Direct IA fallback file name
+      const fallbackUrl = `https://archive.org/download/${encodeURIComponent(iaId)}/${encodeURIComponent(iaId)}.pdf`;
+      return await streamFile(fallbackUrl, iaId, downloadParam, isView, request.headers);
     }
+
     if (pgId) {
-      if (downloadParam === 'mobi') return Response.redirect(`https://www.gutenberg.org/ebooks/${pgId}.kf8.images`, 302);
-      if (downloadParam === 'txt')  return Response.redirect(`https://www.gutenberg.org/ebooks/${pgId}.txt.utf-8`, 302);
-      return Response.redirect(`https://www.gutenberg.org/ebooks/${pgId}.epub3.images`, 302);
+      let targetUrl = '';
+      if (downloadParam === 'mobi') targetUrl = `https://www.gutenberg.org/ebooks/${pgId}.kf8.images`;
+      else if (downloadParam === 'txt') targetUrl = `https://www.gutenberg.org/ebooks/${pgId}.txt.utf-8`;
+      else targetUrl = `https://www.gutenberg.org/ebooks/${pgId}.epub3.images`;
+      return await streamFile(targetUrl, `Gutenberg_${pgId}`, downloadParam, isView, request.headers);
+    }
+
+    const directUrl = url.searchParams.get('url') || url.searchParams.get('file_url');
+    if (directUrl) {
+      try {
+        const parsed = new URL(directUrl);
+        const allowedHosts = ['archive.org', 'gutenberg.org', 'education.gov.in', 'openlibrary.org', 'googleapis.com'];
+        if (allowedHosts.some(h => parsed.hostname.endsWith(h))) {
+          return await streamFile(directUrl, url.searchParams.get('title') || 'Book', downloadParam, isView, request.headers);
+        }
+      } catch (e) {}
     }
   }
 
@@ -160,7 +200,7 @@ async function fetchOpenLibraryBooks(query, topicLower, page, rows) {
         pdf:  iaId ? `/api/ebooks?download=pdf&ia_id=${iaId}`  : `https://openlibrary.org${d.key}`,
         epub: iaId ? `/api/ebooks?download=epub&ia_id=${iaId}` : `https://openlibrary.org${d.key}`,
         txt:  iaId ? `/api/ebooks?download=txt&ia_id=${iaId}`  : null,
-        read_online: iaId ? `https://archive.org/details/${iaId}?view=theater&ui=embed&wrapper=false` : `https://openlibrary.org${d.key}`
+        read_online: iaId ? `/api/ebooks?download=pdf&view=1&ia_id=${iaId}` : `https://openlibrary.org${d.key}`
       }
     };
   }).filter(Boolean);
@@ -246,20 +286,20 @@ async function handleRepRequest(query, topicLower, page, rows) {
 // ── NCERT TEXTBOOKS ───────────────────────────────────────────
 async function handleNcertRequest(query, page, rows) {
   try { const b = await fetchRepFromGovt(query || 'ncert', page, rows, 0); if (b.length > 0) return jsonResp({ status: 'success', source: 'ncert', total: 1250, count: b.length, page, has_next: b.length >= rows, books: b }); } catch (e) {}
-  let sc = '(title:(ncert) OR creator:(ncert) OR collection:(ncertbooks))';
+  let sc = '(title:(ncert) OR creator:(ncert) OR collection:(ncertbooks)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)';
   if (query) sc += ` AND (${query.replace(/[^\w\s]/gi, ' ').trim()})`;
   const iaUrl = `https://archive.org/advancedsearch.php?q=${encodeURIComponent(sc)}+AND+mediatype:(texts)&fl[]=identifier,title,creator,description,year,downloads&sort[]=downloads+desc&rows=${rows}&page=${page}&output=json`;
   const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 8000);
   const res = await fetch(iaUrl, { signal: ctrl.signal, headers: { 'User-Agent': 'TheBhomEbooks/2026' }, cf: { cacheTtl: 86400, cacheEverything: true } }); clearTimeout(t);
   if (!res.ok) throw new Error(`NCERT error ${res.status}`);
   const data = await res.json(); const docs = (data.response && data.response.docs) ? data.response.docs : []; const total = (data.response && data.response.numFound) ? data.response.numFound : 4886;
-  const books = docs.map(d => { const id = d.identifier; const title = (d.title || id).replace(/_/g, ' '); const author = d.creator ? (Array.isArray(d.creator) ? d.creator.join(', ') : d.creator) : 'NCERT (Govt of India)'; const desc = d.description ? (Array.isArray(d.description) ? d.description.join(' ') : d.description) : ''; return { id: `ia_${id}`, ia_id: id, title, author, cat: 'NCERT Textbooks', source: 'ncert', source_label: '🎓 NCERT Official', downloads: d.downloads || 18500, rating: 5.0, reviews_count: Math.floor((d.downloads || 4000) / 25) + 320, year: d.year || 'CBSE Edition', summary: desc.replace(/<[^>]*>?/gm, '').trim().slice(0, 350) || 'Official NCERT Textbook for school and UPSC preparation.', cover: `https://archive.org/services/img/${id}`, formats: { pdf: `/api/ebooks?download=pdf&ia_id=${id}`, epub: `/api/ebooks?download=epub&ia_id=${id}`, read_online: `https://archive.org/details/${id}?view=theater&ui=embed&wrapper=false` } }; });
+  const books = docs.map(d => { const id = d.identifier; const title = (d.title || id).replace(/_/g, ' '); const author = d.creator ? (Array.isArray(d.creator) ? d.creator.join(', ') : d.creator) : 'NCERT (Govt of India)'; const desc = d.description ? (Array.isArray(d.description) ? d.description.join(' ') : d.description) : ''; return { id: `ia_${id}`, ia_id: id, title, author, cat: 'NCERT Textbooks', source: 'ncert', source_label: '🎓 NCERT Official', downloads: d.downloads || 18500, rating: 5.0, reviews_count: Math.floor((d.downloads || 4000) / 25) + 320, year: d.year || 'CBSE Edition', summary: desc.replace(/<[^>]*>?/gm, '').trim().slice(0, 350) || 'Official NCERT Textbook for school and UPSC preparation.', cover: `https://archive.org/services/img/${id}`, formats: { pdf: `/api/ebooks?download=pdf&ia_id=${id}`, epub: `/api/ebooks?download=epub&ia_id=${id}`, read_online: `/api/ebooks?download=pdf&view=1&ia_id=${id}` } }; });
   return jsonResp({ status: 'success', source: 'ncert', total, count: books.length, page, has_next: page * rows < total, books });
 }
 
 // ── DIGITAL LIBRARY OF INDIA / DLI ───────────────────────────
 async function fetchArchiveBooks(query, page, rows) {
-  const langF = '(language:(english OR hindi OR en OR hi OR hin OR eng))';
+  const langF = '(language:(english OR hindi OR en OR hi OR hin OR eng)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)';
   const sc    = query ? `(${query.replace(/[^\w\s\u0900-\u097F]/gi, ' ').trim()}) AND ${langF}` : langF;
   const iaUrl = `https://archive.org/advancedsearch.php?q=${encodeURIComponent(sc)}+AND+mediatype:(texts)&fl[]=identifier,title,creator,description,year,downloads,language,avg_rating,num_reviews&sort[]=downloads+desc&rows=${rows}&page=${page}&output=json`;
   const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 8000);
@@ -272,13 +312,13 @@ async function fetchArchiveBooks(query, page, rows) {
     const desc   = d.description ? (Array.isArray(d.description) ? d.description.join(' ') : d.description) : '';
     const lang   = d.language ? (Array.isArray(d.language) ? d.language[0] : d.language) : 'en';
     if (!isAllowedLang(lang.toLowerCase())) return null;
-    return { id: `ia_${id}`, ia_id: id, title, author, cat: detectCat('', title), source: 'archive', source_label: '🌐 Internet Archive', downloads: d.downloads || 4500, rating: d.avg_rating && parseFloat(d.avg_rating) > 0 ? Math.min(5, parseFloat(d.avg_rating)) : 4.7, reviews_count: d.num_reviews || Math.floor((d.downloads || 1500) / 40) + 80, year: d.year || 'Digital Edition', summary: desc.replace(/<[^>]*>?/gm, '').trim().slice(0, 350) || `Free digital edition of '${title}' by ${author}.`, cover: `https://archive.org/services/img/${id}`, language: lang, formats: { pdf: `/api/ebooks?download=pdf&ia_id=${id}`, epub: `/api/ebooks?download=epub&ia_id=${id}`, txt: `/api/ebooks?download=txt&ia_id=${id}`, read_online: `https://archive.org/details/${id}?view=theater&ui=embed&wrapper=false` } };
+    return { id: `ia_${id}`, ia_id: id, title, author, cat: detectCat('', title), source: 'archive', source_label: '🌐 Internet Archive', downloads: d.downloads || 4500, rating: d.avg_rating && parseFloat(d.avg_rating) > 0 ? Math.min(5, parseFloat(d.avg_rating)) : 4.7, reviews_count: d.num_reviews || Math.floor((d.downloads || 1500) / 40) + 80, year: d.year || 'Digital Edition', summary: desc.replace(/<[^>]*>?/gm, '').trim().slice(0, 350) || `Free digital edition of '${title}' by ${author}.`, cover: `https://archive.org/services/img/${id}`, language: lang, formats: { pdf: `/api/ebooks?download=pdf&ia_id=${id}`, epub: `/api/ebooks?download=epub&ia_id=${id}`, txt: `/api/ebooks?download=txt&ia_id=${id}`, read_online: `/api/ebooks?download=pdf&view=1&ia_id=${id}` } };
   }).filter(Boolean);
 }
 
 async function handleDliRequest(query, topicLower, page, rows) {
-  let langC = '(language:(hindi OR english OR hin OR en OR eng))';
-  if (topicLower === 'hindi') langC = '(language:(hindi OR hin) OR subject:(Hindi))';
+  let langC = '(language:(hindi OR english OR hin OR en OR eng)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)';
+  if (topicLower === 'hindi') langC = '(language:(hindi OR hin) OR subject:(Hindi)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)';
   let sc = langC;
   if (query) sc += ` AND (${query.replace(/[^\w\s\u0900-\u097F]/gi, ' ').trim()})`;
   const iaUrl = `https://archive.org/advancedsearch.php?q=${encodeURIComponent(sc)}+AND+mediatype:(texts)&fl[]=identifier,title,creator,description,year,downloads,language,avg_rating,num_reviews&sort[]=downloads+desc&rows=${rows}&page=${page}&output=json`;
@@ -292,7 +332,7 @@ async function handleDliRequest(query, topicLower, page, rows) {
     const desc = d.description ? (Array.isArray(d.description) ? d.description.join(' ') : d.description) : '';
     const lang = d.language ? (Array.isArray(d.language) ? d.language[0] : d.language) : 'hi';
     if (!isAllowedLang(lang.toLowerCase())) return null;
-    return { id: `ia_${id}`, ia_id: id, title, author, cat: topicLower === 'hindi' ? 'Hindi' : detectCat('', title), source: 'dli', source_label: topicLower === 'hindi' ? '🇮🇳 Hindi Classic' : '🇮🇳 Digital Library of India', downloads: d.downloads || 12000, rating: d.avg_rating && parseFloat(d.avg_rating) > 0 ? Math.min(5, parseFloat(d.avg_rating)) : 4.9, reviews_count: d.num_reviews || Math.floor((d.downloads || 2500) / 35) + 180, year: d.year || 'Heritage Edition', summary: desc.replace(/<[^>]*>?/gm, '').trim().slice(0, 350) || `Authentic public-domain text from the Digital Library of India.`, cover: `https://archive.org/services/img/${id}`, language: lang, formats: { pdf: `/api/ebooks?download=pdf&ia_id=${id}`, epub: `/api/ebooks?download=epub&ia_id=${id}`, read_online: `https://archive.org/details/${id}?view=theater&ui=embed&wrapper=false` } };
+    return { id: `ia_${id}`, ia_id: id, title, author, cat: topicLower === 'hindi' ? 'Hindi' : detectCat('', title), source: 'dli', source_label: topicLower === 'hindi' ? '🇮🇳 Hindi Classic' : '🇮🇳 Digital Library of India', downloads: d.downloads || 12000, rating: d.avg_rating && parseFloat(d.avg_rating) > 0 ? Math.min(5, parseFloat(d.avg_rating)) : 4.9, reviews_count: d.num_reviews || Math.floor((d.downloads || 2500) / 35) + 180, year: d.year || 'Heritage Edition', summary: desc.replace(/<[^>]*>?/gm, '').trim().slice(0, 350) || `Authentic public-domain text from the Digital Library of India.`, cover: `https://archive.org/services/img/${id}`, language: lang, formats: { pdf: `/api/ebooks?download=pdf&ia_id=${id}`, epub: `/api/ebooks?download=epub&ia_id=${id}`, read_online: `/api/ebooks?download=pdf&view=1&ia_id=${id}` } };
   }).filter(Boolean);
   return jsonResp({ status: 'success', source: 'dli', total, count: books.length, page, has_next: page * rows < total, books });
 }
@@ -363,4 +403,69 @@ function detectCat(subject, title) {
 
 function jsonResp(data, cacheSeconds = 3600) {
   return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': `public, max-age=${cacheSeconds}, s-maxage=86400` } });
+}
+
+// ── SERVER-TO-SERVER FILE STREAMING (Zero External Redirect, Zero Captcha) ──
+async function streamFile(targetUrl, titleOrId, format = 'pdf', isView = false, reqHeaders = {}) {
+  const ext = format === 'epub' ? 'epub' : format === 'txt' ? 'txt' : format === 'mobi' ? 'mobi' : 'pdf';
+  const mimeMap = {
+    pdf: 'application/pdf',
+    epub: 'application/epub+zip',
+    mobi: 'application/x-mobipocket-ebook',
+    txt: 'text/plain; charset=utf-8'
+  };
+  const safeName = (titleOrId || 'Book').replace(/[^a-zA-Z0-9_\-\u0900-\u097F]/g, '_').slice(0, 80);
+  const disposition = isView ? 'inline' : `attachment; filename="TheBhom_${safeName}.${ext}"`;
+
+  const fetchHeaders = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'Accept': '*/*'
+  };
+
+  const rangeHeader = reqHeaders && reqHeaders.get ? reqHeaders.get('range') : null;
+  if (rangeHeader) {
+    fetchHeaders['Range'] = rangeHeader;
+  }
+
+  try {
+    const upstreamRes = await fetch(targetUrl, {
+      headers: fetchHeaders,
+      redirect: 'follow',
+      cf: { cacheTtl: 86400, cacheEverything: true }
+    });
+
+    if (!upstreamRes.ok && upstreamRes.status !== 206) {
+      return new Response(JSON.stringify({ error: 'File stream unavailable', target: targetUrl }), {
+        status: upstreamRes.status || 502,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
+    const responseHeaders = new Headers();
+    responseHeaders.set('Content-Type', upstreamRes.headers.get('content-type') || mimeMap[ext] || 'application/octet-stream');
+    responseHeaders.set('Content-Disposition', disposition);
+    responseHeaders.set('Access-Control-Allow-Origin', '*');
+    responseHeaders.set('Cache-Control', 'public, max-age=86400, s-maxage=604800');
+    responseHeaders.set('X-Content-Type-Options', 'nosniff');
+
+    if (upstreamRes.headers.has('content-length')) {
+      responseHeaders.set('Content-Length', upstreamRes.headers.get('content-length'));
+    }
+    if (upstreamRes.headers.has('content-range')) {
+      responseHeaders.set('Content-Range', upstreamRes.headers.get('content-range'));
+      responseHeaders.set('Accept-Ranges', 'bytes');
+    } else if (upstreamRes.headers.has('accept-ranges')) {
+      responseHeaders.set('Accept-Ranges', upstreamRes.headers.get('accept-ranges'));
+    }
+
+    return new Response(upstreamRes.body, {
+      status: upstreamRes.status,
+      headers: responseHeaders
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({ error: 'Stream error', message: err.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    });
+  }
 }
