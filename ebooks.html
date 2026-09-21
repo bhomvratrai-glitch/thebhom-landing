@@ -387,6 +387,9 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
   .srch-wrap input#srchInput::placeholder {
     font-size: 0.82rem !important;
   }
+  .ft-text-long {
+    display: none !important; /* Collapse "Filter Options" to "Filter" on narrow phones */
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -1220,7 +1223,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     </div>
     <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterDrawer()" title="Open filter options">
       <span class="ft-icon">⚡</span>
-      <span>Filter Options</span>
+      <span>Filter<span class="ft-text-long"> Options</span></span>
       <span class="ft-badge" id="ftBadge" style="display:none;">0</span>
       <span class="ft-arrow" id="ftArrow">▾</span>
     </button>

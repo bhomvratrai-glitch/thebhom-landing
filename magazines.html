@@ -212,44 +212,132 @@
     padding: 0 1rem;
   }
   .srch-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: var(--ilove-card-bg);
-    border: 2px solid var(--ilove-card-border);
-    border-radius: 50px;
-    padding: 6px 8px 6px 18px;
-    box-shadow: var(--ilove-shadow);
-    transition: all 0.2s ease;
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Strictly prevents search button or elements from dropping down */
+    gap: 0.5rem !important;
+    background: var(--ilove-card-bg) !important;
+    border: 2px solid var(--ilove-card-border) !important;
+    border-radius: 50px !important;
+    padding: 6px 8px 6px 16px !important;
+    box-shadow: var(--ilove-shadow) !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 52px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
   }
   .srch-wrap:focus-within {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), var(--ilove-shadow) !important;
   }
-  .srch-wrap input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 0.95rem;
-    color: var(--ilove-text);
-    font-family: 'Inter', sans-serif;
+  .srch-icon {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    font-size: 1.15rem !important;
+    color: var(--primary) !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: none !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+  .srch-wrap input#srchInput {
+    position: relative !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important; /* CRITICAL: Prevents flex container blowout on narrow screens */
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 0 6px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    color: var(--ilove-text) !important;
+    font-size: 16px !important; /* CRITICAL: 16px prevents mobile iOS & Android auto-zoom and shift */
+    font-family: 'Inter', sans-serif !important;
+    margin: 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  .srch-wrap input#srchInput:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .srch-wrap input#srchInput::placeholder {
+    color: var(--ilove-text-muted) !important;
+    font-size: 0.92rem !important;
+    text-overflow: ellipsis !important;
+  }
+  .srch-clear {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    background: none !important;
+    border: none !important;
+    font-size: 1rem !important;
+    color: var(--ilove-text-muted) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    line-height: 1 !important;
+    transition: all 0.15s ease !important;
+  }
+  .srch-clear:hover {
+    color: var(--primary) !important;
+    background: rgba(37, 99, 235, 0.08) !important;
   }
   .srch-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 22px;
-    background: var(--primary);
-    border: none;
-    border-radius: 50px;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 0.88rem;
-    cursor: pointer;
-    transition: all 0.2s;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    height: 40px !important;
+    padding: 0 20px !important;
+    background: var(--primary) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 0.88rem !important;
+    cursor: pointer !important;
+    font-family: 'Inter', sans-serif !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important; /* CRITICAL: Strictly prevents button from wrapping or falling down */
+    white-space: nowrap !important;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.28) !important;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
-  .srch-btn:hover { background: var(--primary-hover); transform: scale(1.02); }
+  .srch-btn:hover {
+    background: var(--primary-hover) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35) !important;
+  }
+  .srch-btn:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.2) !important;
+  }
 
   /* 1-LINE HORIZONTAL TRENDING CHIPS */
   .quick-search-row {
@@ -620,41 +708,45 @@
     border-top: 1px solid var(--ilove-card-border);
   }
   .m-actions-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 6px;
-    padding: 0 1rem 1rem;
+    display: flex !important;
+    gap: 6px !important;
+    padding: 0 1rem 1rem !important;
+    align-items: center !important;
   }
   .m-read-btn {
-    padding: 8px 12px;
-    background: var(--primary);
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    transition: all 0.2s;
+    flex: 1 1 auto !important;
+    padding: 8px 10px !important;
+    background: var(--primary) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+    transition: all 0.2s !important;
   }
-  .m-read-btn:hover { background: var(--primary-hover); }
+  .m-read-btn:hover { background: var(--primary-hover) !important; }
   .m-pdf-btn {
-    padding: 8px 12px;
-    background: var(--ilove-bg);
-    color: var(--ilove-text);
-    border: 1px solid var(--ilove-card-border);
-    border-radius: 10px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: all 0.2s;
-  }
+    flex: 0 0 auto !important;
+    padding: 8px 12px !important;
+    background: var(--ilove-bg) !important;
+    color: var(--ilove-text) !important;
+    border: 1px solid var(--ilove-card-border) !important;
+    border-radius: 10px !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+    transition: all 0.2s !important;
   .m-pdf-btn:hover {
     border-color: #ef4444;
     color: #ef4444;
@@ -762,10 +854,59 @@
   .ch-pill:hover { background: rgba(255, 255, 255, 0.18); }
 
   @media (max-width: 640px) {
+    .search-container { padding: 0 0.75rem; margin-bottom: 1rem; }
+    .srch-wrap {
+      padding: 4px 6px 4px 12px !important;
+      min-height: 48px !important;
+      gap: 0.35rem !important;
+    }
+    .srch-wrap input#srchInput {
+      height: 38px !important;
+      line-height: 38px !important;
+      font-size: 16px !important;
+    }
+    .srch-btn {
+      padding: 0 14px !important;
+      height: 38px !important;
+      font-size: 0.82rem !important;
+    }
     .nav-filter-container { padding: 6px 8px; gap: 8px; }
     .f-btn { padding: 5px 11px; font-size: 0.76rem; }
     .filter-toggle-btn { padding: 6px 12px; font-size: 0.76rem; }
-    .m-actions-row { grid-template-columns: 1fr; }
+    .m-actions-row {
+      display: flex !important;
+      gap: 6px !important;
+    }
+    .m-read-btn { flex: 1 1 auto !important; }
+    .m-pdf-btn { flex: 0 0 auto !important; }
+    .reader-hdr {
+      padding: 0.5rem 0.8rem !important;
+      gap: 6px !important;
+    }
+    .reader-mode-btn {
+      padding: 4px 8px !important;
+      font-size: 0.7rem !important;
+    }
+    .ch-pill {
+      padding: 4px 8px !important;
+      font-size: 0.7rem !important;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .srch-btn-txt {
+      display: none !important; /* Hide text on narrow phones so search button stays on same line and never falls down */
+    }
+    .srch-btn {
+      padding: 0 11px !important;
+      min-width: 38px !important;
+    }
+    .srch-wrap input#srchInput::placeholder {
+      font-size: 0.82rem !important;
+    }
+    .ft-text-long {
+      display: none !important; /* Collapse "Filter Options" to "Filter" */
+    }
   }
   </style>
 </head>
@@ -833,10 +974,12 @@
 <!-- SEARCH & TRENDING ROW -->
 <div class="search-container">
   <div class="srch-wrap">
-    <span>🔍</span>
-    <input id="srchInput" type="text" placeholder="Search magazine — 'National Geographic', 'Forbes', 'Wired', 'Yojana', 'Champak'..." oninput="debSearch()"/>
-    <button class="srch-btn" onclick="doSearch()">
-      <span>Search</span>
+    <span class="srch-icon" aria-hidden="true">🔍</span>
+    <input id="srchInput" type="text" placeholder="Search magazine — 'National Geographic', 'Forbes', 'Wired', 'Yojana', 'Champak'..." autocomplete="off" autocorrect="off" spellcheck="false" oninput="debSearch()" onkeydown="if(event.key==='Enter')doSearch()"/>
+    <button class="srch-clear" id="srchClearBtn" onclick="clearSearch()" title="Clear" aria-label="Clear search">✕</button>
+    <button class="srch-btn" onclick="doSearch()" aria-label="Search Magazines">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+      <span class="srch-btn-txt">Search</span>
     </button>
   </div>
   <div class="quick-search-row">
@@ -887,7 +1030,7 @@
     </div>
     <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterDrawer()" title="Open filter options">
       <span class="ft-icon">⚡</span>
-      <span>Filter Options</span>
+      <span>Filter<span class="ft-text-long"> Options</span></span>
       <span class="ft-badge" id="ftBadge" style="display:none;">0</span>
       <span class="ft-arrow" id="ftArrow">▾</span>
     </button>
@@ -1718,13 +1861,31 @@ function updateFilterIndicators() {
 // Search Functions
 let debTimer;
 function debSearch() {
+  const inp = document.getElementById('srchInput');
+  const clearBtn = document.getElementById('srchClearBtn');
+  if (clearBtn) clearBtn.style.display = (inp && inp.value.length > 0) ? 'flex' : 'none';
   clearTimeout(debTimer);
   debTimer = setTimeout(doSearch, 300);
 }
 window.debSearch = debSearch;
 
+function clearSearch() {
+  const inp = document.getElementById('srchInput');
+  if (inp) {
+    inp.value = '';
+    inp.focus();
+  }
+  const clearBtn = document.getElementById('srchClearBtn');
+  if (clearBtn) clearBtn.style.display = 'none';
+  doSearch();
+}
+window.clearSearch = clearSearch;
+
 function doSearch() {
-  const val = document.getElementById('srchInput').value.trim();
+  const inp = document.getElementById('srchInput');
+  const val = inp ? inp.value.trim() : '';
+  const clearBtn = document.getElementById('srchClearBtn');
+  if (clearBtn) clearBtn.style.display = val.length > 0 ? 'flex' : 'none';
   searchQ = val;
   localPage = 1;
   apiPage = 1;
@@ -1740,7 +1901,10 @@ function doSearch() {
 window.doSearch = doSearch;
 
 function quickSearch(term) {
-  document.getElementById('srchInput').value = term;
+  const inp = document.getElementById('srchInput');
+  if (inp) inp.value = term;
+  const clearBtn = document.getElementById('srchClearBtn');
+  if (clearBtn) clearBtn.style.display = 'flex';
   doSearch();
   window.scrollTo({ top: 380, behavior: 'smooth' });
 }
