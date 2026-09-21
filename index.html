@@ -240,9 +240,9 @@
     <div class="stats-row">
       <div class="stat"><div class="stat-n" id="sW">150+</div><div class="stat-l">4K Wallpapers</div></div>
       <div class="stat"><div class="stat-n" id="sB">58+</div><div class="stat-l">Full E-Books</div></div>
-      <div class="stat"><div class="stat-n" id="sM">35+</div><div class="stat-l">Magazines</div></div>
+      <div class="stat"><div class="stat-n" id="sM">38+</div><div class="stat-l">Magazines</div></div>
       <div class="stat"><div class="stat-n" id="sT">43+</div><div class="stat-l">Templates</div></div>
-      <div class="stat"><div class="stat-n" id="sC">41+</div><div class="stat-l">Foldable Cards</div></div>
+      <div class="stat"><div class="stat-n" id="sC">44+</div><div class="stat-l">Foldable Cards</div></div>
     </div>
   </div>
 </section>
@@ -490,11 +490,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Update counts and animate stats immediately
   if (window.THEBHOM) {
-    const wL = window.THEBHOM.WALLPAPERS?.length || 150;
+    const wL = 152;
     const bL = window.THEBHOM.EBOOKS?.length || 58;
-    const mL = window.THEBHOM.MAGAZINES?.length || 35;
+    const mL = 38;
     const tL = window.THEBHOM.TEMPLATES?.length || 43;
-    const cL = window.THEBHOM.CARDS?.length || 41;
+    const cL = window.THEBHOM.CARDS?.length || 44;
 
     const wEl = document.getElementById('wcnt'); if (wEl) wEl.textContent = wL + '+ Items FREE';
     const bEl = document.getElementById('bcnt'); if (bEl) bEl.textContent = bL + '+ Items FREE';

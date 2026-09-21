@@ -636,16 +636,7 @@
     transition: transform 0.3s ease;
   }
   .m-card:hover .m-cover-img { transform: scale(1.03); }
-  .m-cover-fallback {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1.5rem;
-    text-align: center;
-    color: #ffffff;
-  }
+
   .m-cat-pill {
     position: absolute;
     top: 10px;
@@ -955,7 +946,7 @@
 
 <div class="free-banner">
   <span class="badge-pill">100% FREE</span>
-  <span>📰 6,34,000+ Free Digital Magazines! National Geographic, Forbes, Wired, Yojana, Pratiyogita Darpan, Champak & Vogue — 3D Flipbook Reader & Real PDF Download!</span>
+  <span>📰 6,34,000+ Issues in Live Archive • 38+ Curated Bestsellers! National Geographic, Forbes, Wired, Yojana, Pratiyogita Darpan, Champak & Vogue — 3D Flipbook Reader & Real PDF Download!</span>
 </div>
 
 <!-- HERO (iLovePDF Style) -->
@@ -964,9 +955,9 @@
   <h1>Trending & Bestselling <span class="grad-blue">Digital Magazines</span></h1>
   <p>Authentic verified full issues from world-leading publishers and national archives. Read in a realistic <strong>3D open-magazine flipbook</strong> or download original high-resolution <strong>PDF issues</strong>.</p>
   <div class="hero-stats-row">
-    <div class="hero-stat-pill">🌍 <strong>6,34,000+</strong> Magazine Issues</div>
+    <div class="hero-stat-pill">🌍 <strong>6,34,000+</strong> Live Archive Issues</div>
+    <div class="hero-stat-pill">⭐ <strong>38+</strong> Curated Bestsellers</div>
     <div class="hero-stat-pill">📖 <strong>3D Spread</strong> Flipbook Mode</div>
-    <div class="hero-stat-pill">🇮🇳 <strong>UPSC & Hindi</strong> Classics</div>
     <div class="hero-stat-pill">⚡ <strong>1-Click</strong> Direct PDF</div>
   </div>
 </div>
@@ -2042,12 +2033,7 @@ function buildMagCard(m) {
     <div class="m-cover-wrap">
       <span class="m-cat-pill">${m.category || 'Magazine'}</span>
       <span class="m-scan-badge">✓ Verified Scan</span>
-      <img src="${coverUrl}" class="m-cover-img" alt="${m.title}" loading="lazy" onerror="this.style.opacity='0.2'"/>
-      <div class="m-cover-fallback">
-        <div style="font-size:0.75rem;font-weight:800;letter-spacing:1px;color:#38bdf8;">${(m.publisher || 'PERIODICAL').toUpperCase()}</div>
-        <div style="font-size:1.15rem;font-weight:900;line-height:1.2;">${m.title}</div>
-        <div style="font-size:0.75rem;color:#94a3b8;">${m.year || 'Issue Archive'}</div>
-      </div>
+      <img src="${coverUrl}" class="m-cover-img" alt="${m.title}" loading="lazy" onerror="this.onerror=null;this.src='https://archive.org/services/img/${m.ia_id}'"/>
     </div>
     <div class="m-body">
       <div class="m-title" title="${m.title}">${m.title}</div>
