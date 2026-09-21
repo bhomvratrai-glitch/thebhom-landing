@@ -132,16 +132,16 @@ async function handleAllSources(query, topicLower, page, rows) {
   const per = Math.ceil(rows / 3);
   const isHindi = topicLower === 'hindi' || (query && /[\u0900-\u097F]|hindi|premchand|gita|ramayan/i.test(query));
   const repLangId = isHindi ? 2 : (topicLower === 'english' ? 1 : 0);
-  const [olR, archR, repR] = await Promise.allSettled([
-    fetchOpenLibraryBooks(query || (isHindi ? 'hindi literature' : (topicLower || 'bestseller')), isHindi ? 'hindi' : topicLower, page, per),
+  const [archR, repR, olR] = await Promise.allSettled([
     fetchArchiveBooks(query || (isHindi ? 'hindi literature' : 'popular hindi english'), page, per),
     fetchRepFromGovt(query || '', page, per, repLangId),
+    fetchOpenLibraryBooks(query || (isHindi ? 'hindi literature' : (topicLower || 'bestseller')), isHindi ? 'hindi' : topicLower, page, per),
   ]);
-  const ol    = olR.status   === 'fulfilled' ? olR.value   : [];
   const arch  = archR.status === 'fulfilled' ? archR.value : [];
   const rep   = repR.status  === 'fulfilled' ? repR.value  : [];
+  const ol    = olR.status   === 'fulfilled' ? olR.value   : [];
   const seen  = new Set();
-  const merged = [...ol, ...rep, ...arch].filter(b => {
+  const merged = [...arch, ...rep, ...ol].filter(b => {
     const key = (b.title || '').toLowerCase().replace(/[^a-z0-9\u0900-\u097F]/g, '').slice(0, 30);
     if (seen.has(key)) return false;
     seen.add(key);
@@ -176,10 +176,12 @@ async function fetchOpenLibraryBooks(query, topicLower, page, rows) {
   const rMap = {};
   noRating.forEach((d, i) => { const r = ratingResults[i]; if (r.status === 'fulfilled' && r.value && r.value.summary) rMap[d.key] = r.value.summary; });
 
-  return docs.filter(d => d.title && (d.cover_i || d.ia)).map(d => {
+  // Only include Open Library entries with valid iaId scan so they can be streamed on TheBhom
+  return docs.filter(d => d.title && d.ia).map(d => {
     const coverId = d.cover_i;
-    const iaId    = d.ia ? (Array.isArray(d.ia) ? d.ia[0] : d.ia) : null;
-    const cover   = coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : (iaId ? `https://archive.org/services/img/${iaId}` : '');
+    const iaId    = Array.isArray(d.ia) ? d.ia[0] : d.ia;
+    if (!iaId) return null;
+    const cover   = coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : `https://archive.org/services/img/${iaId}`;
     const rData   = rMap[d.key] || {};
     const rating  = parseFloat(d.ratings_average || rData.average || 4.5);
     const rCount  = parseInt(d.ratings_count || rData.count || 120);
@@ -188,7 +190,7 @@ async function fetchOpenLibraryBooks(query, topicLower, page, rows) {
     const lang    = d.language ? (Array.isArray(d.language) ? d.language[0] : d.language) : 'en';
     if (!isAllowedLang(lang)) return null;
     return {
-      id: `ol_${(d.key || '').replace(/\//g, '_')}`, ol_key: d.key,
+      id: `ol_${(d.key || '').replace(/\//g, '_')}`, ol_key: d.key, ia_id: iaId,
       title: d.title, author, cat: detectCat(subject, d.title),
       source: 'openlibrary', source_label: '📖 Open Library',
       downloads: rCount * 180 + 5000, rating: Math.min(5.0, rating),
@@ -197,10 +199,10 @@ async function fetchOpenLibraryBooks(query, topicLower, page, rows) {
       summary: subject ? `${d.title} — ${subject}. Free ebook on Open Library.` : `Free ebook '${d.title}' by ${author}.`,
       cover, language: lang,
       formats: {
-        pdf:  iaId ? `/api/ebooks?download=pdf&ia_id=${iaId}`  : `https://openlibrary.org${d.key}`,
-        epub: iaId ? `/api/ebooks?download=epub&ia_id=${iaId}` : `https://openlibrary.org${d.key}`,
-        txt:  iaId ? `/api/ebooks?download=txt&ia_id=${iaId}`  : null,
-        read_online: iaId ? `/api/ebooks?download=pdf&view=1&ia_id=${iaId}` : `https://openlibrary.org${d.key}`
+        pdf:  `/api/ebooks?download=pdf&ia_id=${iaId}`,
+        epub: `/api/ebooks?download=epub&ia_id=${iaId}`,
+        txt:  `/api/ebooks?download=txt&ia_id=${iaId}`,
+        read_online: `/api/ebooks?download=pdf&view=1&ia_id=${iaId}`
       }
     };
   }).filter(Boolean);
@@ -299,9 +301,16 @@ async function handleNcertRequest(query, page, rows) {
 
 // ── DIGITAL LIBRARY OF INDIA / DLI ───────────────────────────
 async function fetchArchiveBooks(query, page, rows) {
-  const langF = '(language:(english OR hindi OR en OR hi OR hin OR eng)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)';
-  const sc    = query ? `(${query.replace(/[^\w\s\u0900-\u097F]/gi, ' ').trim()}) AND ${langF}` : langF;
-  const iaUrl = `https://archive.org/advancedsearch.php?q=${encodeURIComponent(sc)}+AND+mediatype:(texts)&fl[]=identifier,title,creator,description,year,downloads,language,avg_rating,num_reviews&sort[]=downloads+desc&rows=${rows}&page=${page}&output=json`;
+  let sc = '';
+  let sortParam = '&sort[]=downloads+desc';
+  if (query) {
+    const cleanQ = query.replace(/[^\w\s\u0900-\u097F]/gi, ' ').trim();
+    sc = `(title:("${cleanQ}") OR title:(${cleanQ}) OR description:("${cleanQ}")) AND (language:(english OR hindi OR en OR hi OR hin OR eng)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)`;
+    sortParam = '';
+  } else {
+    sc = '(language:(english OR hindi OR en OR hi OR hin OR eng)) AND NOT (access-restricted-item:true) AND NOT (collection:inlibrary)';
+  }
+  const iaUrl = `https://archive.org/advancedsearch.php?q=${encodeURIComponent(sc)}+AND+mediatype:(texts)&fl[]=identifier,title,creator,description,year,downloads,language,avg_rating,num_reviews${sortParam}&rows=${rows}&page=${page}&output=json`;
   const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 8000);
   const res = await fetch(iaUrl, { signal: ctrl.signal, headers: { 'User-Agent': 'TheBhomEbooks/2026' }, cf: { cacheTtl: 86400, cacheEverything: true } }); clearTimeout(t);
   if (!res.ok) return [];
@@ -312,7 +321,28 @@ async function fetchArchiveBooks(query, page, rows) {
     const desc   = d.description ? (Array.isArray(d.description) ? d.description.join(' ') : d.description) : '';
     const lang   = d.language ? (Array.isArray(d.language) ? d.language[0] : d.language) : 'en';
     if (!isAllowedLang(lang.toLowerCase())) return null;
-    return { id: `ia_${id}`, ia_id: id, title, author, cat: detectCat('', title), source: 'archive', source_label: '🌐 Internet Archive', downloads: d.downloads || 4500, rating: d.avg_rating && parseFloat(d.avg_rating) > 0 ? Math.min(5, parseFloat(d.avg_rating)) : 4.7, reviews_count: d.num_reviews || Math.floor((d.downloads || 1500) / 40) + 80, year: d.year || 'Digital Edition', summary: desc.replace(/<[^>]*>?/gm, '').trim().slice(0, 350) || `Free digital edition of '${title}' by ${author}.`, cover: `https://archive.org/services/img/${id}`, language: lang, formats: { pdf: `/api/ebooks?download=pdf&ia_id=${id}`, epub: `/api/ebooks?download=epub&ia_id=${id}`, txt: `/api/ebooks?download=txt&ia_id=${id}`, read_online: `/api/ebooks?download=pdf&view=1&ia_id=${id}` } };
+    return {
+      id: `ia_${id}`,
+      ia_id: id,
+      title,
+      author,
+      cat: detectCat('', title),
+      source: 'archive',
+      source_label: '🌐 Internet Archive',
+      downloads: d.downloads || 4500,
+      rating: d.avg_rating && parseFloat(d.avg_rating) > 0 ? Math.min(5, parseFloat(d.avg_rating)) : 4.7,
+      reviews_count: d.num_reviews || Math.floor((d.downloads || 1500) / 40) + 80,
+      year: d.year || 'Digital Edition',
+      summary: desc.replace(/<[^>]*>?/gm, '').trim().slice(0, 350) || `Free digital edition of '${title}' by ${author}.`,
+      cover: `https://archive.org/services/img/${id}`,
+      language: lang,
+      formats: {
+        pdf: `/api/ebooks?download=pdf&ia_id=${id}`,
+        epub: `/api/ebooks?download=epub&ia_id=${id}`,
+        txt: `/api/ebooks?download=txt&ia_id=${id}`,
+        read_online: `/api/ebooks?download=pdf&view=1&ia_id=${id}`
+      }
+    };
   }).filter(Boolean);
 }
 

@@ -1450,7 +1450,7 @@ This blueprint guarantees that your trajectory remains compounding and resilient
 }
 
 function dlBook(id){
-  const b=BOOKS.find(x=>x.id===id);
+  const b = BOOKS.find(x => x.id === id) || liveApiBooks.find(x => x.id === id);
   if(!b) return;
   toast(`⏳ "${b.title}" — पूरा 10-Page Master PDF तैयार हो रहा है...`);
   
@@ -2161,17 +2161,19 @@ async function fetchOnlineBooks(isAppend = false) {
       if (json.books) {
         newBooks = json.books;
       } else if (json.docs) {
-        // Open Library direct response format
-        newBooks = json.docs.filter(d => d.title && (d.cover_i || d.ia)).map(d => {
+        // Open Library direct response format - only include items with a real digital scan (iaId)
+        newBooks = json.docs.filter(d => d.title && d.ia).map(d => {
           const coverId = d.cover_i;
-          const iaId = d.ia ? (Array.isArray(d.ia) ? d.ia[0] : d.ia) : null;
-          const cover = coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : (iaId ? `https://archive.org/services/img/${iaId}` : '');
+          const iaId = Array.isArray(d.ia) ? d.ia[0] : d.ia;
+          if (!iaId) return null;
+          const cover = coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : `https://archive.org/services/img/${iaId}`;
           const rating = parseFloat(d.ratings_average || 4.6);
           const rCount = parseInt(d.ratings_count || 120);
           const author = d.author_name ? (Array.isArray(d.author_name) ? d.author_name[0] : d.author_name) : 'Open Library';
           return {
             id: `ol_${(d.key || '').replace(/\//g, '_')}`,
             ol_key: d.key,
+            ia_id: iaId,
             title: d.title,
             author: author,
             cat: 'Open Library',
@@ -2185,12 +2187,12 @@ async function fetchOnlineBooks(isAppend = false) {
             language: d.language ? (Array.isArray(d.language) ? d.language[0] : d.language) : 'en',
             summary: `Free Open Library edition of '${d.title}' by ${author}.`,
             formats: {
-              pdf: iaId ? `/api/ebooks?download=pdf&ia_id=${iaId}` : `https://openlibrary.org${d.key}`,
-              epub: iaId ? `/api/ebooks?download=epub&ia_id=${iaId}` : `https://openlibrary.org${d.key}`,
-              read_online: iaId ? `/api/ebooks?download=pdf&view=1&ia_id=${iaId}` : `https://openlibrary.org${d.key}`
+              pdf: `/api/ebooks?download=pdf&ia_id=${iaId}`,
+              epub: `/api/ebooks?download=epub&ia_id=${iaId}`,
+              read_online: `/api/ebooks?download=pdf&view=1&ia_id=${iaId}`
             }
           };
-        });
+        }).filter(Boolean);
       } else if (json.response && json.response.docs) {
         // Archive.org direct response format
         newBooks = json.response.docs.map(d => {
@@ -2863,11 +2865,17 @@ function openDownloadModal(id) {
   const formats = b.formats || {};
   const isCurated = BOOKS.some(x => x.id === b.id);
 
+  const cleanFmt = (url) => {
+    if (!url || typeof url !== 'string') return '';
+    if (url.includes('openlibrary.org') || url.includes('archive.org/details')) return '';
+    return url;
+  };
+
   // Format URLs
-  const epubUrl = formats.epub || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images` : (b.ia_id ? `/api/ebooks?download=epub&ia_id=${b.ia_id}` : (b.rep_id ? `/api/ebooks?download=epub&rep_id=${b.rep_id}` : '')));
-  const mobiUrl = formats.mobi || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.kf8.images` : '');
-  const txtUrl = formats.txt || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.txt.utf-8` : (b.ia_id ? `/api/ebooks?download=txt&ia_id=${b.ia_id}` : ''));
-  const pdfUrl = formats.pdf || (b.ia_id ? `/api/ebooks?download=pdf&ia_id=${b.ia_id}` : (b.pg_id ? `/api/ebooks?download=pdf&pg_id=${b.pg_id}` : (b.rep_id ? `/api/ebooks?download=pdf&rep_id=${b.rep_id}` : '')));
+  const epubUrl = cleanFmt(formats.epub) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images` : (b.ia_id ? `/api/ebooks?download=epub&ia_id=${b.ia_id}` : (b.rep_id ? `/api/ebooks?download=epub&rep_id=${b.rep_id}` : '')));
+  const mobiUrl = cleanFmt(formats.mobi) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.kf8.images` : '');
+  const txtUrl = cleanFmt(formats.txt) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.txt.utf-8` : (b.ia_id ? `/api/ebooks?download=txt&ia_id=${b.ia_id}` : ''));
+  const pdfUrl = cleanFmt(formats.pdf) || (b.ia_id ? `/api/ebooks?download=pdf&ia_id=${b.ia_id}` : (b.pg_id ? `/api/ebooks?download=pdf&pg_id=${b.pg_id}` : (b.rep_id ? `/api/ebooks?download=pdf&rep_id=${b.rep_id}` : '')));
 
   // Ratings & Reviews
   const ratingVal = b.rating || 4.9;
@@ -3166,27 +3174,39 @@ function handleReadBook(id) {
     saveLastReadBook(b);
     let readUrl = '';
     if (b.ia_id) {
-      readUrl = `/api/ebooks?download=pdf&view=1&ia_id=${b.ia_id}`;
+      readUrl = `/api/ebooks?download=pdf&view=1&ia_id=${encodeURIComponent(b.ia_id)}`;
     } else if (b.rep_id) {
-      readUrl = `/api/ebooks?download=pdf&view=1&rep_id=${b.rep_id}`;
-    } else if (b.formats && b.formats.read_online && !b.formats.read_online.includes('archive.org/details')) {
-      readUrl = b.formats.read_online;
-    } else if (b.formats && b.formats.html) {
-      readUrl = b.formats.html;
+      readUrl = `/api/ebooks?download=pdf&view=1&rep_id=${encodeURIComponent(b.rep_id)}`;
     } else if (b.pg_id) {
       readUrl = `https://www.gutenberg.org/cache/epub/${b.pg_id}/pg${b.pg_id}-images.html`;
-    } else if (b.formats && b.formats.pdf) {
-      readUrl = b.formats.pdf;
+    } else if (b.formats && b.formats.read_online && (b.formats.read_online.startsWith('/api/ebooks') || b.formats.read_online.startsWith('https://thebhom.in/api/ebooks'))) {
+      readUrl = b.formats.read_online;
+    } else if (b.formats && b.formats.pdf && (b.formats.pdf.startsWith('/api/ebooks') || b.formats.pdf.startsWith('https://thebhom.in/api/ebooks'))) {
+      readUrl = b.formats.pdf + (b.formats.pdf.includes('?') ? '&view=1' : '?view=1');
     }
+
     if (readUrl) {
       openOnlineReader(b, readUrl);
     } else {
-      openDownloadModal(id);
+      // Direct Native Reader: 100% in-site, zero external redirect, zero captcha!
+      openReader(b.id);
     }
   }
 }
 
 function openOnlineReader(b, url) {
+  // CRITICAL ANTI-CAPTCHA SECURITY:
+  // Never load third-party websites in an iframe. Third-party sites show Cloudflare Turnstile, CAPTCHAs, or login walls.
+  const isSafeStream = url && (
+    url.startsWith('/api/ebooks') || 
+    url.startsWith('https://thebhom.in/api/ebooks') || 
+    url.includes('gutenberg.org/cache/epub')
+  );
+  if (!isSafeStream) {
+    openReader(b.id);
+    return;
+  }
+
   const oldModal = document.getElementById('readerModal');
   if (oldModal) oldModal.remove();
 
@@ -3201,7 +3221,7 @@ function openOnlineReader(b, url) {
   if (b.source === 'ncert') sourceTag = 'TheBhom Academic Reader • NCERT Edition';
   if (b.source === 'gutenberg') sourceTag = 'TheBhom Classics Reader';
 
-  const downloadUrl = (b.formats && b.formats.pdf) || (b.ia_id ? `/api/ebooks?download=pdf&ia_id=${b.ia_id}` : (b.formats && b.formats.epub ? b.formats.epub : ''));
+  const downloadUrl = (b.formats && b.formats.pdf && !b.formats.pdf.includes('openlibrary.org')) ? b.formats.pdf : (b.ia_id ? `/api/ebooks?download=pdf&ia_id=${b.ia_id}` : (b.formats && b.formats.epub && !b.formats.epub.includes('openlibrary.org') ? b.formats.epub : ''));
 
   modal.innerHTML = `
     <div class="reader-hdr" style="background:#0f172a;gap:.8rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.1);padding:0.75rem 1.2rem;">
@@ -3220,9 +3240,6 @@ function openOnlineReader(b, url) {
         <button class="ch-pill" style="background:#e5322d;border-color:#e5322d;color:#fff;font-weight:700;" onclick="openDownloadModal('${b.id}')">
           <span>📂</span> All Formats
         </button>
-        <a href="${url}" target="_blank" rel="noopener noreferrer" class="ch-pill" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;color:#fff;" title="Open reader in new tab">
-          <span>↗️</span> New Tab
-        </a>
         <button class="ch-pill" onclick="toggleReaderFullscreen()">⛶ Fullscreen</button>
         <button class="ch-pill" onclick="document.getElementById('readerModal').remove()">✕ Close</button>
       </div>
@@ -3232,7 +3249,7 @@ function openOnlineReader(b, url) {
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;padding:0.45rem 1.2rem;background:#0f172a;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem;color:#94a3b8;flex-wrap:wrap;gap:8px;">
       <span>⚡ <strong>TheBhom Native Reader</strong> • Zero external redirect • 100% Free Public Access</span>
-      <span>💡 Mobile tip: If preview doesn't render inside frame, tap <strong>[↗️ New Tab]</strong> or <strong>[⬇️ Download Book]</strong></span>
+      <span>💡 Fast reader: Use <strong>[⛶ Fullscreen]</strong> or <strong>[⬇️ Download Book]</strong> for offline reading</span>
     </div>
   `;
   document.body.appendChild(modal);
@@ -3251,7 +3268,7 @@ function toggleReaderFullscreen() {
 }
 
 function openReader(id) {
-  const b = BOOKS.find(x => x.id === id);
+  const b = BOOKS.find(x => x.id === id) || liveApiBooks.find(x => x.id === id);
   if (!b) return;
   const oldModal = document.getElementById('readerModal');
   if (oldModal) oldModal.remove();
