@@ -270,14 +270,22 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
   box-shadow: 0 1px 4px rgba(229, 50, 45, 0.2) !important;
 }
 
-/* QUICK 1-CLICK POPULAR SEARCH CHIPS */
+/* QUICK 1-CLICK POPULAR SEARCH CHIPS (SLEEK 1-LINE HORIZONTAL SCROLL) */
 .quick-search-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 2px 8px 2px;
   margin-top: 0.85rem;
+}
+.quick-search-row::-webkit-scrollbar {
+  display: none;
 }
 .qs-label {
   font-size: 0.76rem;
@@ -381,32 +389,237 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
   }
 }
 
-/* FORMAT FILTER BAR */
-.format-filter-bar {
-  display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 1.2rem;
+/* ─────────────────────────────────────────────────────────────
+   UNIFIED CLEAN FILTER BAR & COLLAPSIBLE DRAWER (iLovePDF Grade)
+   ───────────────────────────────────────────────────────────── */
+.nav-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+  background: var(--ilove-card-bg);
+  border: 1px solid var(--ilove-card-border);
+  border-radius: 16px;
+  padding: 8px 12px;
+  box-shadow: var(--ilove-shadow);
 }
-.fmt-chip {
-  padding: 5px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
-  cursor: pointer; border: 1px solid var(--border); background: var(--bg-card);
-  color: var(--text2); transition: all .2s; display: flex; align-items: center; gap: 5px;
+.primary-tabs-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px;
+  flex: 1;
 }
-.fmt-chip:hover, .fmt-chip.active {
-  border-color: var(--ilove-red); background: var(--ilove-red-light); color: var(--ilove-red);
-}
-
-/* CATEGORIES ROW */
-.filter-row {
-  display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.5rem; justify-content: center;
+.primary-tabs-bar::-webkit-scrollbar {
+  display: none;
 }
 .f-btn {
-  padding: 7px 16px; border-radius: 50px; border: 1px solid var(--ilove-card-border);
-  background: var(--ilove-card-bg); color: var(--ilove-text-muted); font-size: .82rem; font-weight: 600;
-  cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ilove-text-muted);
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s ease;
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
 }
-.f-btn:hover { color: var(--ilove-text); border-color: var(--ilove-red); }
+.f-btn:hover {
+  color: var(--ilove-text);
+  background: rgba(0, 0, 0, 0.04);
+}
 .f-btn.on {
-  border-color: var(--ilove-red); background: var(--ilove-red); color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(229, 50, 45, 0.25);
+  border-color: var(--ilove-red);
+  background: var(--ilove-red);
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(229, 50, 45, 0.3);
+}
+
+.filter-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--ilove-card-border);
+  background: var(--bg2);
+  color: var(--ilove-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.filter-toggle-btn:hover, .filter-toggle-btn.active {
+  border-color: var(--ilove-red);
+  background: var(--ilove-red-light);
+  color: var(--ilove-red);
+}
+.filter-toggle-btn .ft-badge {
+  background: var(--ilove-red);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 1px 7px;
+  line-height: 1.4;
+}
+.ft-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+.filter-toggle-btn.active .ft-arrow {
+  transform: rotate(180deg);
+}
+
+/* COLLAPSIBLE FILTER DRAWER */
+.filter-drawer {
+  background: var(--ilove-card-bg);
+  border: 1px solid var(--ilove-card-border);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  animation: filterSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes filterSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.filter-drawer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.filter-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.filter-group-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--ilove-text-muted);
+  min-width: 140px;
+  padding-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.filter-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.src-chip, .genre-chip, .fmt-chip {
+  padding: 5px 13px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--ilove-card-border);
+  background: var(--bg2);
+  color: var(--ilove-text);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+}
+.src-chip:hover, .genre-chip:hover, .fmt-chip:hover {
+  border-color: var(--ilove-red);
+  color: var(--ilove-red);
+}
+.src-chip.active, .genre-chip.active, .fmt-chip.active {
+  background: var(--ilove-red) !important;
+  border-color: var(--ilove-red) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(229, 50, 45, 0.3);
+}
+.filter-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--ilove-card-border);
+  padding-top: 0.85rem;
+  margin-top: 0.25rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.active-filter-tags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--ilove-text-muted);
+}
+.active-tag-bubble {
+  background: var(--ilove-red-light);
+  color: var(--ilove-red);
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(229, 50, 45, 0.2);
+  font-size: 0.74rem;
+}
+.filter-reset-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--ilove-card-border);
+  background: transparent;
+  color: var(--ilove-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-reset-btn:hover {
+  color: var(--ilove-red);
+  border-color: var(--ilove-red);
+  background: var(--ilove-red-light);
+}
+
+@media (max-width: 640px) {
+  .nav-filter-container {
+    padding: 6px 8px;
+    gap: 8px;
+  }
+  .primary-tabs-bar {
+    gap: 4px;
+  }
+  .f-btn {
+    padding: 5px 11px;
+    font-size: 0.76rem;
+  }
+  .filter-toggle-btn {
+    padding: 6px 12px;
+    font-size: 0.76rem;
+  }
+  .filter-drawer {
+    padding: 1rem;
+  }
+  .filter-group-label {
+    min-width: 100%;
+    margin-bottom: 4px;
+  }
 }
 
 /* TOOLBAR */
@@ -994,15 +1207,78 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     </div>
   </div>
 
-  <div class="format-filter-bar">
-    <span style="font-size:0.78rem;font-weight:700;color:var(--ilove-text-muted);margin-right:4px;">Filter Formats:</span>
-    <button class="fmt-chip active" data-fmt="all" onclick="setFormatFilter('all', this)">All Formats</button>
-    <button class="fmt-chip" data-fmt="pdf" onclick="setFormatFilter('pdf', this)">📕 PDF Document</button>
-    <button class="fmt-chip" data-fmt="epub" onclick="setFormatFilter('epub', this)">📗 EPUB (Mobile/iPad)</button>
-    <button class="fmt-chip" data-fmt="mobi" onclick="setFormatFilter('mobi', this)">📙 Kindle MOBI</button>
+  <!-- UNIFIED CLEAN FILTER BAR -->
+  <div class="nav-filter-container">
+    <div class="primary-tabs-bar" id="primaryTabsBar">
+      <button class="f-btn on" data-tag="all" onclick="setPrimaryTab('all', this)"><span>✨</span> All Books</button>
+      <button class="f-btn" data-tag="bestsellers" onclick="setPrimaryTab('bestsellers', this)"><span>🔥</span> Top Bestsellers</button>
+      <button class="f-btn" data-tag="hindi" onclick="setPrimaryTab('hindi', this)"><span>🇮🇳</span> Hindi (हिंदी साहित्य)</button>
+      <button class="f-btn" data-tag="ncert" onclick="setPrimaryTab('ncert', this)"><span>🎓</span> NCERT & UPSC</button>
+      <button class="f-btn" data-tag="Self Help" onclick="setPrimaryTab('Self Help', this)"><span>🧠</span> Self-Help & Mind</button>
+      <button class="f-btn" data-tag="Business" onclick="setPrimaryTab('Business', this)"><span>💼</span> Finance & Business</button>
+      <button class="f-btn" data-tag="favorites" onclick="setPrimaryTab('favorites', this)"><span>❤️</span> Saved</button>
+    </div>
+    <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterDrawer()" title="Open filter options">
+      <span class="ft-icon">⚡</span>
+      <span>Filter Options</span>
+      <span class="ft-badge" id="ftBadge" style="display:none;">0</span>
+      <span class="ft-arrow" id="ftArrow">▾</span>
+    </button>
   </div>
 
-  <div class="filter-row" id="filterRow"></div>
+  <!-- COLLAPSIBLE FILTER DRAWER PANEL -->
+  <div class="filter-drawer" id="filterDrawer" style="display:none;">
+    <div class="filter-drawer-inner">
+      <!-- Group 1: Format -->
+      <div class="filter-group">
+        <label class="filter-group-label">📄 Format:</label>
+        <div class="filter-pills-row">
+          <button class="fmt-chip active" data-fmt="all" onclick="setFormatFilter('all', this)">All Formats</button>
+          <button class="fmt-chip" data-fmt="pdf" onclick="setFormatFilter('pdf', this)">📕 PDF Document</button>
+          <button class="fmt-chip" data-fmt="epub" onclick="setFormatFilter('epub', this)">📗 EPUB (Mobile/iPad)</button>
+          <button class="fmt-chip" data-fmt="mobi" onclick="setFormatFilter('mobi', this)">📙 Kindle MOBI</button>
+        </div>
+      </div>
+
+      <!-- Group 2: Library Source -->
+      <div class="filter-group">
+        <label class="filter-group-label">🏛️ Source Library:</label>
+        <div class="filter-pills-row">
+          <button class="src-chip active" data-src="all" onclick="setSourceFilter('all', this)">🌐 All Libraries (4.4 Cr+)</button>
+          <button class="src-chip" data-src="openlibrary" onclick="setSourceFilter('openlibrary', this)">📖 Open Library (10M+)</button>
+          <button class="src-chip" data-src="archive" onclick="setSourceFilter('archive', this)">🏛️ Internet Archive</button>
+          <button class="src-chip" data-src="rep" onclick="setSourceFilter('rep', this)">🇮🇳 राष्ट्रीय ई-पुस्तकालय</button>
+          <button class="src-chip" data-src="dli" onclick="setSourceFilter('dli', this)">📜 DLI Heritage (8.2L+)</button>
+          <button class="src-chip" data-src="gutenberg" onclick="setSourceFilter('gutenberg', this)">📚 Gutenberg Classics</button>
+        </div>
+      </div>
+
+      <!-- Group 3: All Categories & Genres -->
+      <div class="filter-group">
+        <label class="filter-group-label">📂 Genres & Topics:</label>
+        <div class="filter-pills-row">
+          <button class="genre-chip" data-genre="Self Help" onclick="setGenreFilter('Self Help', this)">🧠 Mind & Habits</button>
+          <button class="genre-chip" data-genre="Business" onclick="setGenreFilter('Business', this)">💼 Business & Finance</button>
+          <button class="genre-chip" data-genre="Philosophy" onclick="setGenreFilter('Philosophy', this)">📜 Philosophy & Classics</button>
+          <button class="genre-chip" data-genre="Technology" onclick="setGenreFilter('Technology', this)">🚀 Tech & AI 2026</button>
+          <button class="genre-chip" data-genre="Mystery" onclick="setGenreFilter('Mystery', this)">🕵️ Mystery & Detective</button>
+          <button class="genre-chip" data-genre="History" onclick="setGenreFilter('History', this)">🏛️ History & Bio</button>
+          <button class="genre-chip" data-genre="Fiction" onclick="setGenreFilter('Fiction', this)">📖 Fiction & Romance</button>
+          <button class="genre-chip" data-genre="hinglish" onclick="setGenreFilter('hinglish', this)">🗣️ Hinglish Guides</button>
+          <button class="genre-chip" data-genre="english" onclick="setGenreFilter('english', this)">🇬🇧 English Classics</button>
+        </div>
+      </div>
+
+      <!-- Footer: Active Tag Indicator & Reset Button -->
+      <div class="filter-drawer-footer">
+        <div class="active-filter-tags" id="activeFilterTags">
+          <span style="font-weight:700;color:var(--ilove-text);">Active Filter:</span>
+          <span class="active-tag-bubble" id="activeTagBubble">✨ All Books</span>
+        </div>
+        <button class="filter-reset-btn" onclick="resetAllFilters()">↺ Reset All Filters</button>
+      </div>
+    </div>
+  </div>
 
   <div class="toolbar">
     <div class="res-count" id="resCount">
@@ -2306,33 +2582,148 @@ const CATEGORIES = [
   { id: 'History', name: '🏛️ History & Bio' }
 ];
 
-const fRow = document.getElementById('filterRow');
-if (fRow) {
-  fRow.innerHTML = CATEGORIES.map((c, i) =>
-    `<button class="f-btn${i === 0 ? ' on' : ''}" onclick="setFilter('${c.id}', this)">${c.name}</button>`
-  ).join('');
+function toggleFilterDrawer() {
+  const drawer = document.getElementById('filterDrawer');
+  const btn = document.getElementById('filterToggleBtn');
+  if (!drawer) return;
+  const isHidden = drawer.style.display === 'none' || !drawer.style.display;
+  drawer.style.display = isHidden ? 'block' : 'none';
+  if (btn) {
+    if (isHidden) btn.classList.add('active');
+    else btn.classList.remove('active');
+  }
 }
+window.toggleFilterDrawer = toggleFilterDrawer;
 
-function setFilter(tag, btn) {
+function setPrimaryTab(tag, btn) {
   activeTag = tag;
   localPage = 1;
   apiPage = 1;
   liveApiBooks = [];
-  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
+
+  document.querySelectorAll('.primary-tabs-bar .f-btn').forEach(b => b.classList.remove('on'));
   if (btn) btn.classList.add('on');
-  
+
+  // Reset secondary source & genre chips to clean state
+  document.querySelectorAll('.src-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.genre-chip').forEach(c => c.classList.remove('active'));
+  const defSrc = document.querySelector('.src-chip[data-src="all"]');
+  if (defSrc) defSrc.classList.add('active');
+
+  updateFilterIndicators();
+
   if (tag !== 'all' && tag !== 'bestsellers' && tag !== 'favorites' && tag !== 'hinglish') {
     fetchOnlineBooks();
   } else {
     render();
   }
 }
+window.setPrimaryTab = setPrimaryTab;
+window.setFilter = setPrimaryTab;
+
+function setSourceFilter(src, btn) {
+  activeTag = src;
+  localPage = 1;
+  apiPage = 1;
+  liveApiBooks = [];
+
+  document.querySelectorAll('.src-chip').forEach(c => c.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  // Highlight 'All Books' or uncheck tabs
+  document.querySelectorAll('.primary-tabs-bar .f-btn').forEach(b => b.classList.remove('on'));
+  if (src === 'all') {
+    const allTab = document.querySelector('.primary-tabs-bar .f-btn[data-tag="all"]');
+    if (allTab) allTab.classList.add('on');
+  }
+
+  document.querySelectorAll('.genre-chip').forEach(c => c.classList.remove('active'));
+
+  updateFilterIndicators();
+
+  if (src !== 'all') {
+    fetchOnlineBooks();
+  } else {
+    render();
+  }
+}
+window.setSourceFilter = setSourceFilter;
+
+function setGenreFilter(genre, btn) {
+  activeTag = genre;
+  localPage = 1;
+  apiPage = 1;
+  liveApiBooks = [];
+
+  document.querySelectorAll('.genre-chip').forEach(c => c.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  document.querySelectorAll('.primary-tabs-bar .f-btn').forEach(b => b.classList.remove('on'));
+  const matchTab = document.querySelector(`.primary-tabs-bar .f-btn[data-tag="${genre}"]`);
+  if (matchTab) matchTab.classList.add('on');
+
+  updateFilterIndicators();
+  fetchOnlineBooks();
+}
+window.setGenreFilter = setGenreFilter;
 
 function setFormatFilter(fmt, btn) {
   activeFormat = fmt;
   document.querySelectorAll('.fmt-chip').forEach(c => c.classList.remove('active'));
   if (btn) btn.classList.add('active');
+  updateFilterIndicators();
   render();
+}
+window.setFormatFilter = setFormatFilter;
+
+function resetAllFilters() {
+  activeTag = 'all';
+  activeFormat = 'all';
+  localPage = 1;
+  apiPage = 1;
+  liveApiBooks = [];
+
+  document.querySelectorAll('.primary-tabs-bar .f-btn').forEach(b => b.classList.remove('on'));
+  const allTab = document.querySelector('.primary-tabs-bar .f-btn[data-tag="all"]');
+  if (allTab) allTab.classList.add('on');
+
+  document.querySelectorAll('.fmt-chip').forEach(c => c.classList.remove('active'));
+  const allFmt = document.querySelector('.fmt-chip[data-fmt="all"]');
+  if (allFmt) allFmt.classList.add('active');
+
+  document.querySelectorAll('.src-chip').forEach(c => c.classList.remove('active'));
+  const allSrc = document.querySelector('.src-chip[data-src="all"]');
+  if (allSrc) allSrc.classList.add('active');
+
+  document.querySelectorAll('.genre-chip').forEach(c => c.classList.remove('active'));
+
+  updateFilterIndicators();
+  render();
+}
+window.resetAllFilters = resetAllFilters;
+
+function updateFilterIndicators() {
+  const badge = document.getElementById('ftBadge');
+  const bubble = document.getElementById('activeTagBubble');
+  let activeCount = 0;
+
+  if (activeFormat !== 'all') activeCount++;
+  if (activeTag !== 'all') activeCount++;
+
+  if (badge) {
+    if (activeCount > 0) {
+      badge.textContent = String(activeCount);
+      badge.style.display = 'inline-block';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+
+  if (bubble) {
+    const labelTag = activeTag === 'all' ? '✨ All Books' : activeTag;
+    const labelFmt = activeFormat === 'all' ? '' : ` • 📄 ${activeFormat.toUpperCase()}`;
+    bubble.textContent = `${labelTag}${labelFmt}`;
+  }
 }
 
 function setSort(v) {
