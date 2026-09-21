@@ -528,6 +528,52 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 .b-stars { font-size: .72rem; color: #f59e0b; font-weight: 700; }
 .b-dl-count { font-size: .7rem; color: var(--ilove-text-muted); font-weight: 600; }
 
+.b-card-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ilove-card-border);
+}
+.b-action-btn {
+  flex: 1;
+  padding: 7px 6px;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.b-action-btn.read {
+  background: var(--ilove-card-bg);
+  color: var(--ilove-text);
+  border-color: var(--ilove-card-border);
+}
+.b-action-btn.read:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+.b-action-btn.download {
+  background: var(--ilove-red);
+  color: #ffffff;
+  border-color: var(--ilove-red);
+  box-shadow: 0 2px 6px rgba(229, 50, 45, 0.2);
+}
+.b-action-btn.download:hover {
+  background: #c62828;
+  border-color: #c62828;
+  box-shadow: 0 4px 10px rgba(229, 50, 45, 0.35);
+  transform: translateY(-1px);
+}
+
 /* LOAD MORE BUTTON */
 .lm-wrap { text-align: center; margin: 2.5rem 0; }
 .lm-btn {
@@ -888,7 +934,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
   <div class="srch-box-outer">
     <div class="srch-wrap">
       <span class="srch-icon" aria-hidden="true">🔍</span>
-      <input id="srchInput" type="text" placeholder="Search crores of books — 'NCERT History', 'Valmiki Ramayan', 'Mahabharat', 'Premchand'..." autocomplete="off" autocorrect="off" spellcheck="false" oninput="debSearch()" onkeydown="if(event.key==='Enter')doSearch()"/>
+      <input id="srchInput" type="text" placeholder="Search crores of books — 'Atomic Habits', 'Psychology of Money', 'Colleen Hoover', 'NCERT', 'Premchand'..." autocomplete="off" autocorrect="off" spellcheck="false" oninput="debSearch()" onkeydown="if(event.key==='Enter')doSearch()"/>
       <button class="srch-clear" id="srchClearBtn" onclick="clearSearch()" title="Clear" aria-label="Clear search">✕</button>
       <button class="srch-btn" onclick="doSearch()" aria-label="Search E-Books">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -896,17 +942,18 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
       </button>
     </div>
     <div class="quick-search-row">
-      <span class="qs-label">⚡ 1-Click Search Mega Library:</span>
-      <button class="qs-chip" onclick="quickSearch('NCERT Class 10')">🎓 NCERT Class 10</button>
-      <button class="qs-chip" onclick="quickSearch('NCERT History')">🏛️ NCERT History</button>
-      <button class="qs-chip" onclick="quickSearch('Valmiki Ramayan')">🕉️ Valmiki Ramayan</button>
-      <button class="qs-chip" onclick="quickSearch('Mahabharat Hindi')">📜 Mahabharat</button>
-      <button class="qs-chip" onclick="quickSearch('UPSC Polity')">⚖️ UPSC Polity</button>
-      <button class="qs-chip" onclick="quickSearch('Premchand')">📖 Premchand</button>
+      <span class="qs-label">⚡ Trending Bestsellers:</span>
+      <button class="qs-chip" onclick="quickSearch('Atomic Habits')">🔥 Atomic Habits</button>
+      <button class="qs-chip" onclick="quickSearch('Psychology of Money')">💰 Psychology of Money</button>
+      <button class="qs-chip" onclick="quickSearch('Rich Dad Poor Dad')">📈 Rich Dad Poor Dad</button>
+      <button class="qs-chip" onclick="quickSearch('48 Laws of Power')">👑 48 Laws of Power</button>
+      <button class="qs-chip" onclick="quickSearch('Colleen Hoover')">🌸 Colleen Hoover</button>
+      <button class="qs-chip" onclick="quickSearch('Munshi Premchand')">📖 Premchand</button>
+      <button class="qs-chip" onclick="quickSearch('UPSC Polity Laxmikanth')">⚖️ UPSC Polity</button>
+      <button class="qs-chip" onclick="quickSearch('NCERT Physics')">⚛️ NCERT Physics</button>
+      <button class="qs-chip" onclick="quickSearch('Bhagavad Gita')">🕉️ Bhagavad Gita</button>
+      <button class="qs-chip" onclick="quickSearch('Chanakya Niti')">🧠 Chanakya Niti</button>
       <button class="qs-chip" onclick="quickSearch('Sherlock Holmes')">🕵️ Sherlock Holmes</button>
-      <button class="qs-chip" onclick="quickSearch('Bhagavad Gita')">⚡ Gita</button>
-      <button class="qs-chip" onclick="quickSearch('Chanakya Neeti')">🧠 Chanakya Neeti</button>
-      <button class="qs-chip" onclick="quickSearch('Pride and Prejudice')">📖 Pride &amp; Prejudice</button>
     </div>
   </div>
 
@@ -998,896 +1045,730 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 // 1. PRE-CACHED CURATED E-BOOK DATABASE (Instant 0ms Load)
 // ============================================================
 const BOOKS = [
-  // ─────────────────────────────────────────────────────────
-  // SEPTEMBER 2026 REAL-TIME TRENDING BOOKS (HIGH-CONVERSION HOOKS)
-  // ─────────────────────────────────────────────────────────
-  {id:'b21',title:'Autonomous AI Agents & Swarms (2026)',author:'Dr. Aravind Menon & AGY Labs',cat:'Technology',emoji:'🤖',
-   gradient:['#0f172a','#2563eb'],downloads:342000,isNew:true,
-   pages:'Full 10-Page Master Guide • September 2026',rating:5.0,
-   cover:'assets/covers/b21.jpg',
-   content:{
-     chapter1_title:'Chapter 1: The Death of Prompting: Autonomous Agent Swarms',
-     chapter1:`In September 2026, the era of typing single-turn prompts into chatbot boxes is officially dead. The builders dominating the global market are orchestrating multi-agent autonomous swarms—decentralized networks of specialized AI agents that negotiate, critique, write code, run automated tests, and close sales while you sleep.\n\nA single autonomous agent possesses four foundational pillars: long-term memory retrieval, strategic planning via recursive tree-of-thought evaluation, real-world tool execution (APIs, web browsing, terminal shells), and an adversarial critique loop that eliminates hallucinations before any output is finalized.\n\nWhen you master this architecture, the traditional constraints of human bandwidth disappear. A solopreneur operating an autonomous swarm wields the operational throughput of a 50-person agency.`,
-     chapter2_title:'Chapter 2: The 2026 Agent Architecture: Planners, Workers & Critics',
-     chapter2:`The most reliable autonomous swarm architecture follows the Tri-Council Pattern:\n\n1. The Chief Planner Agent: Breaks ambiguous commercial objectives into deterministic DAGs (Directed Acyclic Graphs) of tasks.\n2. The Specialized Worker Swarm: Multiple agents executing micro-tasks in parallel—researching data, synthesizing content, building code, or contacting leads.\n3. The Adversarial Critic: Evaluates every worker output against strict verification rubrics. If an output fails quality standards, it is automatically routed back with diagnostic feedback for self-correction without human intervention.\n\nThis self-healing loop is the secret behind 99.9% reliable commercial agent systems in 2026.`,
-     quote1:`"You do not build a business in 2026 by working 14 hours a day. You build it by designing autonomous agent architectures that work 24/7."`,
-     quote2:`"Prompt engineering was a temporary bridge. System architecture and autonomous orchestration are the eternal destination."`
-   }},
-  {id:'b22',title:'The Solopreneur 2026 Blueprint: 0 to ₹10L/Month',author:'Bhom Vrat Rai',cat:'Business',emoji:'🚀',
-   gradient:['#7c3aed','#ec4899'],downloads:289000,isNew:true,
-   pages:'Full 10-Page Roadmap • September 2026',rating:4.9,
-   cover:'assets/covers/b22.jpg',
-   content:{
-     chapter1_title:'Chapter 1: The Infinite Leverage Revolution in India',
-     chapter1:`Traditional business models forced entrepreneurs into a brutal trap: to earn more revenue, you had to hire more employees, lease bigger office spaces, and raise external capital that diluted your equity. In 2026, code, content, and autonomous AI have flipped the script.\n\nInfinite leverage means your marginal cost of replication is zero. When you build a premium digital product, template pack, or automated SaaS platform, it costs virtually nothing to distribute it to ten thousand customers worldwide.\n\nIndian creators and solo founders are generating ₹10 Lakhs to ₹50 Lakhs per month from tier-2 and tier-3 cities, selling global digital assets with zero employees and zero office overhead.`,
-     chapter2_title:'Chapter 2: High-Ticket Digital Asset Engineering',
-     chapter2:`Never sell commoditized information. People do not pay for knowledge; knowledge is free on the internet. People pay premium prices for three things:\n\n1. Speed to Outcome: Compressing 6 months of trial-and-error into 60 minutes.\n2. Cognitive Relief: Pre-built templates and plug-and-play workflows that eliminate decision fatigue.\n3. Status & Community: Membership in an elite cohort of high-performing builders.\n\nWhen your product solves a painful commercial problem directly, you can command ₹5,000 to ₹50,000 per customer with effortless organic conversions.`,
-     quote1:`"The modern solopreneur doesn't manage people. They manage code, automated workflows, and digital compounding."`,
-     quote2:`"If your product doesn't compress time or remove anxiety, nobody will pay for it. Package outcomes, not raw hours."`
-   }},
-  {id:'b23',title:'Generative Video & Cinematic AI 2026',author:'Vikramaditya Roy',cat:'Technology',emoji:'🎬',
-   gradient:['#dc2626','#f59e0b'],downloads:215000,isNew:true,
-   pages:'Full 10-Page Cinema Manual • 2026',rating:4.9,
-   cover:'assets/covers/b23.jpg',
-   content:{
-     chapter1_title:'Chapter 1: The New Hollywood: First-Frame to Feature Film',
-     chapter1:`The physical camera, soundstage, and multi-crore production crew are no longer gatekeepers of cinematic storytelling. In September 2026, modern video synthesis models allow a single director with a laptop to generate photorealistic 4K cinematic scenes with full physical realism, realistic light bounces, and emotional human nuance.\n\nThe breakthrough lies in camera motion control: moving beyond basic text-to-video prompts to multi-pass directorial keyframing, trajectory curves, and consistent character seed preservation across multi-minute film sequences.\n\nHollywood studios are actively sourcing commercial film projects and VFX from indie AI directors who can deliver feature-grade trailers in 48 hours for a fraction of traditional costs.`,
-     chapter2_title:'Chapter 2: High-Ticket Commercial Monetization',
-     chapter2:`To monetize cinematic AI in 2026, do not sell generic AI clips. Target high-budget corporate clients in luxury real estate, automotive, fashion, and electronic consumer goods:\n\n• AI Commercial Storyboarding: Pitching 20 photorealistic commercial concepts in 24 hours.\n• Virtual Product Placement: Rendering real 3D product CAD models into hyper-aesthetic AI video environments without physical photoshoots.\n• Neural Audio Scoring: Synthesizing customized orchestral film scores and voice acting synchronized to the millisecond of video cut-points.`,
-     quote1:`"The greatest film of 2026 will not be made on an eighty-crore Hollywood studio set. It will be rendered from a bedroom."`,
-     quote2:`"Mastery of cinematic AI is 10% prompt and 90% directorial vision, pacing, lighting, and sound architecture."`
-   }},
-  {id:'b24',title:'The 2026 Attention Monopoly: 1.5s Viral Hooks',author:'Rhea Kapoor',cat:'Productivity',emoji:'⚡',
-   gradient:['#059669','#10b981'],downloads:278000,isNew:true,
-   pages:'Full 10-Page Hook Formula • 2026',rating:4.8,
-   cover:'assets/covers/b24.jpg',
-   content:{
-     chapter1_title:'Chapter 1: The Dopamine Gatekeeper: Why Content Dies in 1.5 Seconds',
-     chapter1:`The human brain scrolling on modern mobile feeds in September 2026 makes an unconscious decision to stay or swipe in under 1,500 milliseconds. If the visual, audio, or psychological stimulus fails to interrupt the viewer's autonomic autopilot, your video is algorithmically discarded.\n\nVirality is not luck. It is applied neuroscience. The top 1% of content creators engineer high-arousal emotional curiosity gaps that physically compel the viewer's brain to seek cognitive closure before they can swipe away.\n\nUnderstanding the dopamine gatekeeper allows you to generate millions of organic impressions without spending a single rupee on advertisements.`,
-     chapter2_title:'Chapter 2: The 5 High-Conversion Hook Archetypes',
-     chapter2:`Every viral video in 2026 leverages one of five proven hook archetypes:\n\n1. The Negative Urgency Hook: "Stop doing X immediately if you value your Y."\n2. The Unfair Advantage Hook: "The exact tool high-earners don't want you to discover."\n3. The Visual Pattern Interrupt: Sudden, unexpected physics or contrast in the opening 24 frames.\n4. The Social Proof Reversal: "Why everyone is completely wrong about X."\n5. The Direct Transformation Hook: Showing the mind-blowing end outcome in the first second before revealing the journey.`,
-     quote1:`"Attention is the rarest and most valuable commodity on planet earth. Those who know how to capture it will control the economy."`,
-     quote2:`"Do not start with an introduction. Start at the climax, ignite the curiosity gap, and earn every subsequent second of attention."`
-   }},
-  {id:'b25',title:'Next-Gen Algo Trading & Indian Wealth (Hindi)',author:'Rajesh Sharma (Quant Analyst)',cat:'Finance',emoji:'📈',
-   gradient:['#1e1b4b','#4338ca'],downloads:395000,isNew:true,
-   pages:'Full 10-Page Wealth Masterclass • 2026',rating:4.9,
-   cover:'assets/covers/b25.jpg',
-   content:{
-     chapter1_title:'अध्याय 1: 2026 का भारतीय वित्तीय परिदृश्य: महंगाई को मात कैसे दें?',
-     chapter1:`पारंपरिक बचत खाते, फिक्स्ड डिपॉजिट और साधारण म्यूचुअल फंड्स अब आपको वास्तविक महंगाई (Inflation) से नहीं बचा सकते। 2026 के इस दौर में जब जीवनशैली की लागत 10% से 12% की गति से बढ़ रही है, तब साधारण 6-7% का रिटर्न वास्तव में आपकी संपत्ति को कम कर रहा है।\n\nसच्ची वित्तीय आज़ादी तब मिलती है जब आपका पैसा आपके लिए 24 घंटे काम करता है। भारतीय शेयर बाज़ार में अब रिटेल ट्रेडर्स और निवेशकों के पास वही क्वांट (Quantitative) और एल्गोरिद्मिक टूल्स उपलब्ध हैं जो पहले केवल वॉल स्ट्रीट के बड़े हेज फंड्स के पास होते थे।\n\nयह पुस्तक आपको सिखाएगी कि कैसे अनुशासित डेटा-ड्रिवन रणनीतियों से बिना भावनात्मक गलतियों के लगातार वेल्थ कंपाउंड की जाए।`,
-     chapter2_title:'अध्याय 2: स्मार्ट मनी कॉन्सेप्ट्स (SMC) और 1% कैपिटल नियम',
-     chapter2:`शेयर बाज़ार में 90% लोग पैसा इसलिए गंवाते हैं क्योंकि वे अपनी भावनाओं—डर और लालच—पर ट्रेड करते हैं। बाज़ार को बड़े संस्थागत निवेशक (Smart Money) नियंत्रित करते हैं।\n\nदो सबसे महत्वपूर्ण गोल्डन नियम:\n1. 1% रिस्क नियम: किसी भी एकल ट्रेड या पोजीशन पर अपनी कुल पूंजी का 1% से अधिक कभी दांव पर न लगाएं।\n2. लिक्विडिटी ट्रैप्स को पहचानना: जब आम रिटेल ट्रेडर्स ब्रेकआउट देखकर खरीदते हैं, तब स्मार्ट मनी अपने शेयर बेचकर निकलती है। सपोर्ट और रेजिस्टेंस की जगह लिक्विडिटी पूल्स को समझना सीखें।`,
-     quote1:`"शेयर बाज़ार में सबसे बड़ा प्रतिद्वंद्वी कोई अन्य ट्रेडर नहीं, बल्कि आपका अपना अनियंत्रित दिमाग है।"`,
-     quote2:`"पूंजी बचाना पहला लक्ष्य है, लाभ कमाना उसका स्वतः होने वाला परिणाम है। कभी अपने रक्षा कवच को मत तोड़ें।"`
-   }},
-  {id:'b26',title:'Cellular Longevity & Peak Neuro-Energy',author:'Dr. Sameer Patel',cat:'Health',emoji:'🧬',
-   gradient:['#047857','#06b6d4'],downloads:185000,isNew:true,
-   pages:'Full 10-Page Longevity Protocol • 2026',rating:4.8,
-   cover:'assets/covers/b26.jpg',
-   content:{
-     chapter1_title:'Chapter 1: The Mitochondrial Engine: Reversing Brain Fog',
-     chapter1:`Chronic afternoon fatigue, brain fog, and scattered focus are not normal consequences of modern life; they are symptoms of cellular mitochondrial dysfunction. Your mitochondria produce ATP—the molecular energy currency powering every neuron in your prefrontal cortex.\n\nWhen you flood your bloodstream with refined seed oils, chronic micro-stress, and blue-light radiation after sunset, your cellular power plants malfunction, causing systemic lethargy.\n\nRestoring peak neuro-energy requires systematic biological calibration: circadian light hygiene, cold thermogenesis, and cellular autophagy protocols that clear out senescent cells and double your baseline mental stamina.`,
-     chapter2_title:'Chapter 2: The 90-Minute Sleep Architecture Protocol',
-     chapter2:`Sleep quantity is irrelevant without sleep architecture. Peak cognitive performance depends on the precise balance between Deep Delta Sleep (physical cellular repair and growth hormone release) and REM Sleep (memory consolidation and creative problem solving).\n\nThe 2026 Protocol for 100% Sleep Score:\n1. 10 Minutes of Morning Sunlight within 30 minutes of waking to anchor the suprachiasmatic nucleus.\n2. Strict Cut-Off: No caffeine within 10 hours of target bedtime.\n3. Thermal Dump: A warm shower 60 minutes before bed followed by a cool bedroom (18°C) to lower core body temperature, the biological trigger for deep sleep initiation.`,
-     quote1:`"Fatigue is not a character flaw. It is a biological feedback signal that your operating system is misconfigured."`,
-     quote2:`"The highest-leverage investment a knowledge worker can make is not in software or books, but in their own cellular energy production."`
-   }},
-  // ─────────────────────────────────────────────────────────
-  // OFFICIAL RASHTRIYA E-PUSTAKALAYA (MINISTRY OF EDUCATION & NBT)
-  // ─────────────────────────────────────────────────────────
-  {id:'rep_kalidasa',title:'Kalidasa A Novel',author:'Acharya Janakivallabh Shastri',cat:'Hindi',emoji:'📜',
-   downloads:182000,isNew:true,rating:5.0,
-   publisher:'National Book Trust (Govt of India)',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/NBP_04/Kalidasa_A_Novel/Kalidasa_A_Novel.jpg',
-   summary:'An epic biographical novel depicting the timeless life and literary brilliance of the Sanskrit mahakavi Kalidasa, published by NBT India.',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/NBP_04/Kalidasa_A_Novel/Kalidasa_A_Novel.pdf',read_online:'https://ndl.education.gov.in/api/upload/NBP_04/Kalidasa_A_Novel/Kalidasa_A_Novel.pdf'}},
-  {id:'rep_sahityakar',title:'श्रेष्ठ साहित्यकारों की प्रसिद्ध कहानियाँ',author:'Dr. Sachidanand Shukla',cat:'Hindi',emoji:'📖',
-   downloads:210000,isNew:true,rating:4.9,
-   publisher:'National Book Trust (Govt of India)',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/bookscover/20250818103642Sahityakaron.jpg',
-   summary:'भारत के शीर्ष कथाकारों एवं साहित्यकारों की कालजयी और प्रेरक कहानियों का प्रामाणिक संग्रह।',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/bookslink/20250818103642Sahityakaron.pdf',read_online:'https://ndl.education.gov.in/api/upload/bookslink/20250818103642Sahityakaron.pdf'}},
-  {id:'rep_nivedita',title:'Sister Nivedita',author:'Basudha Chakravarty',cat:'Biography',emoji:'🙏',
-   downloads:154000,isNew:true,rating:4.9,
-   publisher:'National Book Trust (Govt of India)',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/NBP_05/Sister_Nivedita/9788123772684.jpg',
-   summary:'The inspiring life narrative of Sister Nivedita (Margaret Elizabeth Noble), disciple of Swami Vivekananda and champion of Indian national education.',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/NBP_05/Sister_Nivedita/Sister_Nivedita.pdf',read_online:'https://ndl.education.gov.in/api/upload/NBP_05/Sister_Nivedita/Sister_Nivedita.pdf'}},
-  {id:'rep_godan',title:'गोदान (Godan)',author:'Munshi Premchand',cat:'Hindi',emoji:'🌾',
-   downloads:390000,isNew:true,rating:5.0,
-   publisher:'Diamond Books & Rashtriya e-Pustakalaya',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/junior_diamond/cover/Gaban_Premchand_Hindi.jpg',
-   summary:'उपन्यास सम्राट मुंशी प्रेमचंद की अमर कालजयी महाकृति "गोदान"—भारतीय ग्रामीण जीवन, किसान संघर्ष और मानवीय संवेदनाओं का अप्रतिम दर्पण।',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/bookslink/20250708150201Premchand_-_Godan2.1.pdf',read_online:'https://ndl.education.gov.in/api/upload/bookslink/20250708150201Premchand_-_Godan2.1.pdf'}},
-  {id:'rep_gitanjali',title:'Gitanjali (गीतांजलि)',author:'Rabindranath Tagore',cat:'Classics',emoji:'🕊️',
-   downloads:320000,isNew:true,rating:5.0,
-   publisher:'Sahitya Akademi & ReP Govt Portal',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/bookscover/20250902135751Gitanjali.png',
-   summary:'Gurudev Rabindranath Tagore\'s Nobel Prize-winning lyrical song offerings of spiritual devotion, human dignity, and universal peace.',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/bookslink/20250902135805Gitanjali.pdf',read_online:'https://ndl.education.gov.in/api/upload/bookslink/20250902135805Gitanjali.pdf'}},
-  {id:'rep_seers',title:'Great Indian Seers & Scientific Thinkers',author:'Anaadi Foundation',cat:'Technology',emoji:'🔬',
-   downloads:168000,isNew:true,rating:4.9,
-   publisher:'Anaadi Foundation & Ministry of Education',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/bookscover/20250808162817Great_Indian_Seers_Cover.jpg',
-   summary:'A comprehensive exploration of ancient Indian mathematics, astronomy, metallurgical wisdom, and scientific methodology by foundational rishis.',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/bookslink/20250808162830Great_Indian_Seers.pdf',read_online:'https://ndl.education.gov.in/api/upload/bookslink/20250808162830Great_Indian_Seers.pdf'}},
-  {id:'rep_tridevi',title:'त्रिदेवी',author:'मनु शर्मा',cat:'Hindi',emoji:'👑',
-   downloads:142000,isNew:true,rating:4.8,
-   publisher:'National Book Trust (Govt of India)',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/bookscover/20250318123623Tridevi.jpg',
-   summary:'भारतीय इतिहास और संस्कृति में शक्ति स्वरूपा देवियों का पौराणिक और ऐतिहासिक विश्लेषण।',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/bookslink/20250318123623Tridevi.pdf',read_online:'https://ndl.education.gov.in/api/upload/bookslink/20250318123623Tridevi.pdf'}},
-  {id:'rep_hazaribagh',title:'Tales of Hazaribagh',author:'Mihir Vatsa',cat:'History',emoji:'🌲',
-   downloads:125000,isNew:true,rating:4.8,
-   publisher:'Sahitya Akademi Yuva Puraskar Selection',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/bookscover/20251210113235Tales_of_Hazaribagh.jpg',
-   summary:'An intimate exploration of the Chhotanagpur Plateau, geological wonders, and cultural heritage of Hazaribagh.',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/bookslink/20251210113235Tales_of_Hazaribagh.pdf',read_online:'https://ndl.education.gov.in/api/upload/bookslink/20251210113235Tales_of_Hazaribagh.pdf'}},
-  {id:'rep_panchtantra',title:'Panchtantra Stories Vol. 7',author:'Sunil Kumar (Vishnu Sharma)',cat:'Picturebooks',emoji:'🦊',
-   downloads:195000,isNew:true,rating:5.0,
-   publisher:'Ane Books & Rashtriya e-Pustakalaya',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/bookscover/20250911094828Cover_-_Panchtantra_7.jpg',
-   summary:'Classic moral fables and animal wisdom stories teaching human values, friendship, and practical statecraft for children and families.',
-   formats:{epub:'https://ndl.education.gov.in/api/upload/bookslink/20250911094908PANCHTANTRA_STORIES_VOL_7.epub',read_online:'https://ndl.education.gov.in/api/upload/bookslink/20250911094908PANCHTANTRA_STORIES_VOL_7.epub'}},
-  {id:'rep_shilpakala',title:'सॉफ्ट स्टोन शिल्पकला',author:'Pratap Anam',cat:'Non-Fiction',emoji:'🗿',
-   downloads:118000,isNew:true,rating:4.7,
-   publisher:'National Book Trust (Govt of India)',source:'rep',source_label:'🇮🇳 राष्ट्रीय ई-पुस्तकालय',
-   cover:'https://ndl.education.gov.in/api/upload/bookscover/20250808164010Soft_Stone_Shilpkala_Cover.jpg',
-   summary:'पारंपरिक भारतीय शिल्प, तराशी और हस्तकला की धरोहर पर प्रामाणिक सचित्र मार्गदर्शिका।',
-   formats:{pdf:'https://ndl.education.gov.in/api/upload/bookslink/20250808164010Soft_Stone_Shilpkala.pdf',read_online:'https://ndl.education.gov.in/api/upload/bookslink/20250808164010Soft_Stone_Shilpkala.pdf'}},
-
-  // SELF HELP — Real content summaries
-  {id:'b1',title:'Atomic Habits',author:'James Clear',cat:'Self Help',emoji:'⚛️',
-   gradient:['#7c3aed','#06b6d4'],downloads:128000,isNew:false,
-   gutenberg_url:'https://www.gutenberg.org/ebooks/84',
-   pages:'320 pages • Published 2018',rating:4.9,
-   cover:'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
-   content:{
-     chapter1_title:'The Surprising Power of Atomic Habits',
-     chapter1:`It is so easy to overestimate the importance of one defining moment and underestimate the value of making small improvements on a daily basis. Too often, we convince ourselves that massive success requires massive action.\n\nMeanwhile, improving by 1 percent isn't particularly notable—sometimes it isn't even noticeable—but it can be far more meaningful, especially in the long run. The difference a tiny improvement can make over time is astounding. Here's how the math works out: if you can get 1 percent better each day for one year, you'll end up thirty-seven times better by the time you're done.\n\nHabits are the compound interest of self-improvement. The same way that money multiplies through compound interest, the effects of your habits multiply as you repeat them. They seem to make little difference on any given day and yet the impact they deliver over the months and years can be enormous.`,
-     chapter2_title:'How Your Habits Shape Your Identity',
-     chapter2:`There are three levels of change: outcome change, process change, and identity change.\n\nThe first layer is changing your outcomes. This level is concerned with changing your results: losing weight, publishing a book, winning a championship. Most of the goals you set are associated with this level of change.\n\nThe second layer is changing your process. This level is concerned with changing your habits and systems: implementing a new routine at the gym, decluttering your desk for better workflow, developing a meditation practice.\n\nThe third and deepest layer is changing your identity. This level is concerned with changing your beliefs: your worldview, your self-image, your judgments about yourself and others.`,
-     quote1:`"You do not rise to the level of your goals. You fall to the level of your systems."`,
-     quote2:`"Every action you take is a vote for the type of person you wish to become."`
-   }},
-  {id:'b2',title:'Think and Grow Rich',author:'Napoleon Hill',cat:'Finance',emoji:'💰',
-   gradient:['#f59e0b','#ef4444'],downloads:245000,isNew:false,
-   gutenberg_url:'https://www.gutenberg.org/ebooks/1232',
-   pages:'238 pages • Published 1937',rating:4.8,
-   cover:'https://covers.openlibrary.org/b/id/14542536-L.jpg',
-   content:{
-     chapter1_title:'Thoughts Are Things',
-     chapter1:`Truly, "thoughts are things," and powerful things at that, when they are mixed with definiteness of purpose, persistence, and a burning desire for their translation into riches or other material objects.\n\nWhen Edwin C. Barnes climbed down from the freight train in Orange, N. J., more than thirty years ago, he may have resembled a tramp, but his thoughts were those of a king! As he made his way from the railroad tracks to Thomas A. Edison's office, his mind was at work.\n\nHe saw himself standing in Edison's presence. He heard himself asking Mr. Edison for an opportunity to carry out the one consuming obsession of his life—a burning desire to become the business associate of the great inventor.`,
-     chapter2_title:'Desire: The Starting Point of All Achievement',
-     chapter2:`The method by which desire for riches can be transmuted into its financial equivalent consists of six definite, practical steps:\n\n1. Fix in your mind the exact amount of money you desire. It is not sufficient merely to say "I want plenty of money." Be definite as to the amount.\n\n2. Determine exactly what you intend to give in return for the money you desire. (There is no such reality as "something for nothing.")\n\n3. Establish a definite date when you intend to possess the money you desire.\n\n4. Create a definite plan for carrying out your desire, and begin at once, whether you are ready or not, to put this plan into action.`,
-     quote1:`"Whatever the mind of man can conceive and believe, it can achieve."`,
-     quote2:`"A quitter never wins—and—a winner never quits."`
-   }},
-  {id:'b3',title:'Rich Dad Poor Dad',author:'Robert Kiyosaki',cat:'Finance',emoji:'🏠',
-   gradient:['#059669','#10b981'],downloads:189000,isNew:false,
-   gutenberg_url:null,
-   pages:'207 pages • Published 1997',rating:4.7,
-   cover:'https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg',
-   content:{
-     chapter1_title:'The Rich Don\'t Work for Money',
-     chapter1:`My two dads always had different points of view. One dad would say, "The love of money is the root of all evil." The other said, "The lack of money is the root of all evil."\n\nAs a young boy, having two strong fathers both influencing me was difficult. I wanted to be a good son and listen to my dad, but having two dads whose advice was opposite created certain mental conflicts. I didn't want to choose between them.\n\nThe problem was, the rich dad's plan seemed frightening and the poor dad's plan seemed safe. I went with the rich dad's plan. At 9 years old, I decided to listen to and learn from my rich dad. In doing so, I chose not to listen to my poor dad, even though he was the one with all the college degrees.`,
-     chapter2_title:'Why Teach Financial Literacy?',
-     chapter2:`Rule One: You must know the difference between an asset and a liability, and buy assets.\n\nIf you want to be rich, this is all you need to know. It is Rule No. 1. It is the only rule. This may sound absurdly simple, but most people have no idea how profound this rule is.\n\nRich people acquire assets. The poor and middle class acquire liabilities that they think are assets.\n\nAn asset puts money in my pocket. A liability takes money out of my pocket.`,
-     quote1:`"The rich focus on their asset columns while everyone else focuses on their income statements."`,
-     quote2:`"Financial struggle is often the direct result of people working all their lives for someone else."`
-   }},
-  {id:'b4',title:'The Alchemist',author:'Paulo Coelho',cat:'Fiction',emoji:'⚗️',
-   gradient:['#dc2626','#f59e0b'],downloads:312000,isNew:false,
-   gutenberg_url:'https://www.gutenberg.org/ebooks/66502',
-   pages:'208 pages • Published 1988',rating:4.9,
-   cover:'https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg',
-   content:{
-     chapter1_title:'Part One: The Boy and His Dream',
-     chapter1:`The boy's name was Santiago. Dusk was falling as the boy arrived with his herd at an abandoned church. The roof had fallen in long ago, and an enormous sycamore had grown up where the sacristy had once stood.\n\nHe decided to spend the night there. He watched as his sheep entered the ruined gate, and then laid his jacket over his shoulders and began to read a book he had brought with him from the village. It was a thick book, and he'd been reading it since the beginning of the journey.\n\nThe book described a burial customs, and the boy spent the entire afternoon trying to understand why the Romans put out their dead to be eaten by birds. He didn't quite understand the meaning of this.`,
-     chapter2_title:'The Soul of the World',
-     chapter2:`"It's the possibility of having a dream come true that makes life interesting," the alchemist told the boy, as they looked up at the Milky Way.\n\n"I've learned things from the sheep, and I've learned things from crystal," Santiago said. "I can learn something from the desert, too. It seems old and wise."\n\n"What is the world's greatest lie?" the boy asked.\n\nThe old man replied: "It's this: that at a certain point in our lives, we lose control of what's happening to us, and our lives become controlled by fate."`,
-     quote1:`"And, when you want something, all the universe conspires in helping you to achieve it."`,
-     quote2:`"It's the possibility of having a dream come true that makes life interesting."`
-   }},
-  {id:'b5',title:'Deep Work',author:'Cal Newport',cat:'Productivity',emoji:'🎯',
-   gradient:['#1d4ed8','#7c3aed'],downloads:95000,isNew:true,
-   gutenberg_url:null,pages:'304 pages • Published 2016',rating:4.8,
-   cover:'https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg',
-   content:{
-     chapter1_title:'Deep Work Is Valuable',
-     chapter1:`Deep Work: Professional activities performed in a state of distraction-free concentration that push your cognitive capabilities to their limit. These efforts create new value, improve your skill, and are hard to replicate.\n\nShallow Work: Noncognitively demanding, logistical-style tasks, often performed while distracted. These efforts tend to not create much new value in the world and are easy to replicate.\n\nIn an age of network tools, in other words, knowledge workers increasingly replace deep work with the shallow alternative—sending and receiving e-mail messages like human network routers, attending meetings, and dashing off social media posts—and this is a trend that I argue is bad for both business and the individual.`,
-     chapter2_title:'Deep Work Is Rare',
-     chapter2:`The term "metric black hole" is what I use to describe a situation where even though we expect certain behaviors to produce positive results, we can't easily measure these results, and therefore such behaviors are ignored in favor of behaviors that can be measured.\n\nConsider, for example, a company that asks its employees to be "more responsive" via email and other digital communication tools. This generates an easily measured metric—response time—that can be tracked and rewarded. But this behavior competes directly with deep work, which is harder to measure but often more valuable.`,
-     quote1:`"What we choose to focus on and what we choose to ignore—plays in defining the quality of our life."`,
-     quote2:`"To produce at your peak level you need to work for extended periods with full concentration on a single task free from distraction."`
-   }},
-  {id:'b6',title:'The Psychology of Money',author:'Morgan Housel',cat:'Finance',emoji:'💵',
-   gradient:['#0891b2','#059669'],downloads:142000,isNew:true,
-   pages:'256 pages • Published 2020',rating:4.9,
-   cover:'https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg',
-   content:{
-     chapter1_title:'No One\'s Crazy',
-     chapter1:`People do some crazy things with money. But no one is crazy.\n\nHere's the thing: People from different generations, raised by different parents who earned different incomes and held different values, in different parts of the world, born into different economies, experiencing different job markets with different incentives and different degrees of luck, learn very different lessons.\n\nEveryone has their own unique experience with how the world works. And what you've experienced is more compelling than what you learn second-hand.`,
-     chapter2_title:'Getting Wealthy vs. Staying Wealthy',
-     chapter2:`There are a million ways to get wealthy, and plenty of books on how to do so.\n\nBut there's only one way to stay wealthy: some combination of frugality and paranoia.\n\nAnd it's hard. Not because it requires intelligence. But because it requires a different way of thinking.\n\nGetting money requires taking risks, being optimistic, and putting yourself out there.\n\nBut keeping money requires the opposite of taking risk. It requires humility, and fear that what you've made can be taken away from you just as fast.`,
-     quote1:`"Doing well with money has a little to do with how smart you are and a lot to do with how you behave."`,
-     quote2:`"The most powerful thing compound interest can do is turn a modest sum into a staggering fortune over time."`
-   }},
-  {id:'b7',title:'Ikigai — Japanese Secret',author:'Héctor García',cat:'Philosophy',emoji:'🌸',
-   gradient:['#be185d','#9333ea'],downloads:88000,isNew:false,
-   pages:'208 pages • Published 2016',rating:4.8,
-   cover:'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg',
-   content:{
-     chapter1_title:'What Is Your Reason for Being?',
-     chapter1:`Only staying active will make you want to live a hundred years.\n—Japanese proverb\n\nAccording to the Japanese, everyone has an ikigai—a reason for living. And according to the residents of the Japanese island of Okinawa—the world's longest-living people—finding it is the key to a longer and more meaningful life. Having a strong sense of ikigai—the place where passion, mission, vocation, and profession intersect—means that each day is infused with meaning.\n\nIn the town of Ogimi, we interviewed a hundred-year-old woman who told us her ikigai was to take care of her great-great-grandchildren.`,
-     chapter2_title:'Ten Rules of Ikigai',
-     chapter2:`1. Stay active; don't retire.\n2. Take it slow.\n3. Don't fill your stomach.\n4. Surround yourself with good friends.\n5. Get in shape for your next birthday.\n6. Smile.\n7. Reconnect with nature.\n8. Give thanks.\n9. Live in the moment.\n10. Follow your ikigai.`,
-     quote1:`"Only staying active will make you want to live a hundred years."`,
-     quote2:`"Our ikigai is different for each of us, but one thing we have in common is that we are all searching for meaning."`
-   }},
-  {id:'b8',title:'Chanakya Niti (Hindi)',author:'Chanakya',cat:'Hindi',emoji:'📜',
-   gradient:['#d97706','#92400e'],downloads:220000,isNew:false,
-   pages:'180 pages • Ancient Text',rating:4.9,
-    cover:'https://covers.openlibrary.org/b/id/13193241-L.jpg',
-   content:{
-     chapter1_title:'प्रथम अध्याय — जीवन के नियम',
-     chapter1:`चाणक्य ने कहा: जो व्यक्ति दूसरों के दोषों को देखने में, दूसरों की निंदा करने में और दूसरों को कष्ट देने में आनंद लेता है, वह शीघ्र ही विनाश को प्राप्त होता है।\n\nबुद्धिमान व्यक्ति को चाहिए कि वह विपत्ति के समय धन की रक्षा करे। धन से धर्म की रक्षा हो, इसलिए धन अनमोल है। पत्नी की रक्षा धन से हो और स्वयं की रक्षा सदा करनी चाहिए।\n\nज्ञान, विनम्रता और विद्वानों की संगति — ये तीनों मिलकर मनुष्य को महान बनाते हैं।`,
-     chapter2_title:'द्वितीय अध्याय — शिक्षा का महत्त्व',
-     chapter2:`विद्या रूपं कुरूपाणां क्षमा रूपं तपस्विनाम्।\nकोकिलानां स्वरो रूपं स्त्रीणां रूपं पतिव्रतम्॥\n\n(अर्थात: कुरूप व्यक्ति के लिए विद्या सौंदर्य है, तपस्वियों के लिए क्षमा सौंदर्य है, कोयल के लिए स्वर सौंदर्य है और स्त्री के लिए पतिव्रता धर्म सौंदर्य है।)\n\nएकम् सत्यम् वद। सत्य ही परम धर्म है। सत्य से बड़ा कोई धर्म नहीं और झूठ से बड़ा कोई पाप नहीं।`,
-     quote1:`"जब तक शत्रु की कमजोरी न जान लो, उसे शत्रु मत मानो।"`,
-     quote2:`"विद्या ही मनुष्य की सच्ची संपत्ति है, जिसे न कोई चुरा सकता है, न छीन सकता है।"`
-   }},
-  {id:'b9',title:'Sapiens: Brief History',author:'Yuval Noah Harari',cat:'History',emoji:'🧬',
-   gradient:['#064e3b','#047857'],downloads:178000,isNew:false,
-   pages:'443 pages • Published 2011',rating:4.8,
-   cover:'https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg',
-   content:{
-     chapter1_title:'An Animal of No Significance',
-     chapter1:`About 13.5 billion years ago, matter, energy, time and space came into being in what is known as the Big Bang. The story of these fundamental features of our universe is called physics.\n\nAbout 300,000 years after their appearance, matter and energy started to coalesce into complex structures, called atoms, which then combined into molecules. The story of atoms, molecules and their interactions is called chemistry.\n\nAbout 3.8 billion years ago, on a planet called Earth, certain molecules combined to form particularly large and intricate structures called organisms. The story of organisms is called biology.`,
-     chapter2_title:'The Cognitive Revolution',
-     chapter2:`What was the Sapiens' secret of success? How did we manage to colonise rapidly so many distant and ecologically different habitats? How did we push all other human species into oblivion?\n\nThe most likely answer is the very thing that makes our history so hard to reconstruct: Homo sapiens conquered the world thanks above all to its unique language.\n\nWe are the only mammals that can cooperate flexibly in large numbers, and we can do so because we alone among animals can create and believe fictions, or myths.`,
-     quote1:`"History began when humans invented gods, and will end when humans become gods."`,
-     quote2:`"We study history not to know the future but to widen our horizons, to understand that our present situation is neither natural nor inevitable."`
-   }},
-  {id:'b10',title:'Meditations',author:'Marcus Aurelius',cat:'Philosophy',emoji:'🏛️',
-   gradient:['#374151','#6b7280'],downloads:95000,isNew:false,
-   gutenberg_url:'https://www.gutenberg.org/ebooks/2680',
-   pages:'252 pages • Ancient Text',rating:4.9,
-    cover:'assets/covers/b10.jpg',
-   content:{
-     chapter1_title:'Book I — Debts and Lessons',
-     chapter1:`From my grandfather Verus I learned to be gentle and meek, and to refrain from all anger and passion. From the reputation and remembrance of my father, modesty and a manly character.\n\nFrom my mother, piety and beneficence, and abstinence, not only from evil deeds, but even from evil thoughts; and further, simplicity in my way of living, far removed from the habits of the rich.\n\nFrom my great-grandfather, not to have frequented public schools, and to have had good teachers at home, and to know that on such things a man should spend liberally.`,
-     chapter2_title:'Book II — On Himself',
-     chapter2:`Begin the morning by saying to thyself, I shall meet with the busy-body, the ungrateful, arrogant, deceitful, envious, unsocial. All these things happen to them by reason of their ignorance of what is good and evil.\n\nBut I who have seen the nature of the good that it is beautiful, and of the bad that it is ugly, and the nature of him who does wrong, that it is akin to me, not only of the same blood or seed, but that it participates in the same intelligence and the same portion of the divinity, I can neither receive injury from any of them, for no one can fix on me what is ugly, nor can I be angry with my kinsman, nor hate him.`,
-     quote1:`"You have power over your mind—not outside events. Realize this, and you will find strength."`,
-     quote2:`"The impediment to action advances action. What stands in the way becomes the way."`
-   }},
-  {id:'b11',title:'Thinking Fast and Slow',author:'Daniel Kahneman',cat:'Psychology',emoji:'🧠',
-   gradient:['#1e40af','#3730a3'],downloads:134000,isNew:false,
-   pages:'499 pages • Published 2011',rating:4.7,
-   cover:'https://covers.openlibrary.org/b/isbn/9780374275631-L.jpg',
-   content:{
-     chapter1_title:'The Characters of the Story',
-     chapter1:`To observe your mind in automatic mode, glance at the image below.\n\nYour experience as you look at the woman's face seamlessly combines what we normally call seeing and intuitive thinking. As surely and quickly as you saw that the young woman's hair is dark, you knew she is angry. Furthermore, what you saw extended into the future: you sensed that this woman is about to say some very unkind words, probably in a loud and strident voice.\n\nA different mode of thinking would be required to read the next line: 17 × 24 = ?`,
-     chapter2_title:'Attention and Effort',
-     chapter2:`System 1 operates automatically and quickly, with little or no effort and no sense of voluntary control.\n\nSystem 2 allocates attention to the effortful mental activities that demand it, including complex computations. The operations of System 2 are often associated with the subjective experience of agency, choice, and concentration.\n\nWhen we think of ourselves, we identify with System 2, the conscious, reasoning self that has beliefs, makes choices, and decides what to think about and what to do.`,
-     quote1:`"Intelligence is not only the ability to reason; it is also the ability to find relevant material in memory and to deploy attention when needed."`,
-     quote2:`"Nothing in life is as important as you think it is while you are thinking about it."`
-   }},
-  {id:'b12',title:'The Subtle Art of Not Giving F*ck',author:'Mark Manson',cat:'Self Help',emoji:'🎯',
-   gradient:['#dc2626','#9333ea'],downloads:201000,isNew:false,
-   pages:'224 pages • Published 2016',rating:4.6,
-   cover:'https://covers.openlibrary.org/b/isbn/9780062457714-L.jpg',
-   content:{
-     chapter1_title:'Don\'t Try',
-     chapter1:`Charles Bukowski was a miserable, wretched man who wrote miserable, wretched prose about being drunk, unemployed, and  // ─────────────────────────────────────────────────────────
-  // HINDI LITERATURE MASTERPIECES (हिंदी कालजयी साहित्य)ee Cost Averaging\n• Compounding का जादू\n• कम पैसे से शुरुआत\n• Risk कम होता है`,
-   quote1:`"Stock market में वो पैसा नहीं बनाते जो daily trade करते हैं, वो बनाते हैं जो patience रखते हैं।"`,
-   quote2:`"Warren Buffett का नियम — अपने निवेश को 10 साल के लिए भूल जाओ।"`}},
-  // ─────────────────────────────────────────────────────────
-  // HINDI LITERATURE MASTERPIECES (हिंदी कालजयी साहित्य)
-  // ─────────────────────────────────────────────────────────
-  {id:'hi1',title:'Godan (गोदान)',author:'Munshi Premchand',cat:'Hindi',emoji:'🌾',
-   downloads:450000,pages:'The Epic of Indian Peasantry • 1936',rating:5.0,
-   cover:'https://covers.openlibrary.org/b/id/12069261-L.jpg',
-   formats:{pdf:'/api/ebooks?download=pdf&ia_id=Godan-Hindi',read_online:'/api/ebooks?download=pdf&view=1&ia_id=Godan-Hindi'},
-   content:{
-     chapter1_title:'अध्याय 1: होरी का सपना',
-     chapter1:`होरी महतो अपनी फटी धोती पहने, लाठी टेकते हुए बेलारी गाँव की पगडंडी पर खड़ा था। उसका जीवन भर का एक ही सपना था—घर के द्वार पर एक पछाईं गाय बंधी हो, जो खुशहाली और सम्मान का प्रतीक बने।\n\nकिसान का जीवन संघर्ष, ऋण, और सामाजिक बंधनों से घिरा था, परंतु होरी का स्वाभिमान और दयालु स्वभाव कभी नहीं डिगा। प्रेमचंद का यह कालजयी उपन्यास ग्रामीण भारत के यथार्थ और मनुष्यता की अमर गाथा है।`,
-     chapter2_title:'अध्याय 2: धनिया का स्वाभिमान',
-     chapter2:`धनिया होरी की कर्मठ और स्पष्टवादी पत्नी थी। जब पंचों ने अन्यायपूर्ण दंड लगाया, तो धनिया चट्टान की तरह सच के साथ खड़ी रही।\n\n'गोदान' केवल एक उपन्यास नहीं, बल्कि भारतीय समाज की आत्मा का जीता-जागता दस्तावेज़ है जो आज भी हर पाठक को झकझोर देता है।`,
-     quote1:`"विपत्ति जब आती है, तो चारों ओर से घेरती है; परंतु धर्म और सत्य का सहारा कभी नहीं छोड़ना चाहिए।"`,
-     quote2:`"संसार में सबसे बड़ा धर्म परोपकार और स्वाभिमान से जीना है।"`
-   }},
-  {id:'hi2',title:'Gaban (ग़बन)',author:'Munshi Premchand',cat:'Hindi',emoji:'💍',
-   downloads:310000,pages:'Masterpiece on Pride & Truth • 1931',rating:4.8,
-   cover:'https://covers.openlibrary.org/b/id/12069262-L.jpg',
-   formats:{pdf:'/api/ebooks?download=pdf&ia_id=Gaban-Hindi-Premchand',read_online:'/api/ebooks?download=pdf&view=1&ia_id=Gaban-Hindi-Premchand'},
-   content:{
-     chapter1_title:'अध्याय 1: चंद्रहार की लालसा',
-     chapter1:`जालपा का विवाह रमानाथ से हुआ। रमानाथ सुंदर और चतुर था, लेकिन झूठी शान और दिखावे की आदत ने उसे अंदर से खोखला कर रखा था।\n\nचंद्रहार का गहना प्राप्त करने की लालसा और सामाजिक प्रतिष्ठा बनाए रखने के चक्कर में रमानाथ ऐसे चक्रव्यूह में फँस गया जहाँ से निकलना असंभव जान पड़ता था।`,
-     chapter2_title:'अध्याय 2: प्रायश्चित और पुनर्जन्म',
-     chapter2:`कलकत्ता की गलियों में भटकते हुए जब रमानाथ को अपने अपराध का भान हुआ, तब देवीदीन और जोहरा के सान्निध्य में उसके चरित्र का नया जन्म हुआ।\n\nप्रेमचंद ने यह सिद्ध किया कि झूठी शान जीवन को नष्ट करती है, और केवल सच्चा परिश्रम ही सच्ची शांति प्रदान करता है।`,
-     quote1:`"दिखावे की ज़िंदगी रेत की दीवार की तरह होती है, जो सच की एक लहर में ढह जाती है।"`,
-     quote2:`"मनुष्य की पहचान उसके धन या आभूषणों से नहीं, बल्कि उसके चरित्र की पवित्रता से होती है।"`
-   }},
-  {id:'hi3',title:'Madhushala (मधुशाला)',author:'Harivansh Rai Bachchan',cat:'Hindi',emoji:'🍷',
-   downloads:380000,pages:'Immortal Poetic Symphony • 1935',rating:4.9,
-   cover:'https://covers.openlibrary.org/b/id/13311821-L.jpg',
-   formats:{pdf:'/api/ebooks?download=pdf&ia_id=Madhushala',read_online:'/api/ebooks?download=pdf&view=1&ia_id=Madhushala'},
-   content:{
-     chapter1_title:'प्रथम रुबाई — मदिरालय की राह',
-     chapter1:`मदिरालय जाने को घर से चलता है पीनेवला,\n'किस पथ से जाऊँ?' असमंजस में है वह भोलाभाला,\nअलग-अलग पथ बतलाते सब पर मैं यह बतलाता हूँ,\n'राह पकड़ तू एक चला चल, पा जाएगा मधुशाला।'\n\nबच्चन जी की 'मधुशाला' केवल सुरा का गान नहीं है, बल्कि जीवन, प्रेम, धर्मनिरपेक्षता और आध्यात्मिक आनंद का एक अमर दर्शन है।`,
-     chapter2_title:'सांप्रदायिक एकता का संदेश',
-     chapter2:`मुसलमान औ' हिन्दू है दो, एक मगर उनका प्याला,\nएक मगर उनका मदिरालय, एक मगर उनकी हाला,\nदोनों रहते एक न जब तक मस्जिद मन्दिर में जाते,\nबैर बढ़ाते मन्दिर मस्जिद, मेल कराती मधुशाला!\n\nसंसार के सारे भेदभाव मधुशाला के द्वार पर विलीन हो जाते हैं, जहाँ हर मनुष्य केवल एक आत्मा बनकर प्रवेश करता है।`,
-     quote1:`"राह पकड़ तू एक चला चल, पा जाएगा मधुशाला।"`,
-     quote2:`"बैर बढ़ाते मन्दिर मस्जिद, मेल कराती मधुशाला!"`
-   }},
-  {id:'hi4',title:'Shrimad Bhagavad Gita (श्रीमद्भगवद्गीता)',author:'Maharshi Ved Vyasa',cat:'Hindi',emoji:'🕉️',
-   downloads:620000,pages:'Universal Wisdom of Kurukshetra',rating:5.0,
-   cover:'assets/covers/bhagavad_gita.jpg',
-   formats:{pdf:'/api/ebooks?download=pdf&ia_id=hVgi_shrimad-bhagavad-gita-with-hindi-tika-by-swami-ramsukh-das-gita-press',read_online:'/api/ebooks?download=pdf&view=1&ia_id=hVgi_shrimad-bhagavad-gita-with-hindi-tika-by-swami-ramsukh-das-gita-press'},
-   content:{
-     chapter1_title:'द्वितीय अध्याय: सांख्य योग (निष्काम कर्म)',
-     chapter1:`कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥\n\n(अर्थात: तुम्हारा अधिकार केवल कर्म करने में है, उसके फलों में कभी नहीं। इसलिए कर्म के फल की आसक्ति मत रखो और न ही अकर्मण्यता में तुम्हारी रुचि हो।)\n\nभगवान श्रीकृष्ण अर्जुन को विषाद से उबारते हुए निष्काम कर्म का सर्वोच्च मार्ग दिखाते हैं। जब मनुष्य फल की चिंता छोड़कर अपने कर्तव्य में लीन होता है, तब वह परम शांति और सिद्धि प्राप्त करता है।`,
-     chapter2_title:'स्थितप्रज्ञ के लक्षण',
-     chapter2:`दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः।\nवीतरागभयक्रोधः स्थितधीर्मुनिरुच्यते॥\n\nजो दुःखों में उद्विग्न नहीं होता, सुखों की लालसा से मुक्त रहता है, और जिसका राग (आसक्ति), भय तथा क्रोध समाप्त हो चुका है, वही स्थितप्रज्ञ महापुरुष कहलाता है।`,
-     quote1:`"कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।"`,
-     quote2:`"योगः कर्मसु कौशलम् — कर्म में कुशलता ही योग है।"`
-   }},
-  {id:'b17',title:'The 48 Laws of Power',author:'Robert Greene',cat:'Psychology',emoji:'⚔️',
-   gradient:['#1f2937','#374151'],downloads:156000,isNew:false,pages:'452 pages • 1998',rating:4.6,
-   cover:'https://covers.openlibrary.org/b/isbn/9780140280197-L.jpg',
-   content:{chapter1_title:'Law 1: Never Outshine the Master',chapter1:`Always make those above you feel comfortably superior. In your desire to please and impress them, do not go too far in displaying your talents or you might accomplish the opposite—inspire fear and insecurity.\n\nMake your masters appear more brilliant than they are and you will attain the heights of power.\n\nObservance of the Law: Nicolas Fouquet, Louis XIV's finance minister in 17th-century France, was one of the most gifted ministers of his time. When he threw an extravagant party for the king at his magnificent château, he made the fatal mistake of showing off his wealth and taste—outdoing the king.`,
-   chapter2_title:'Law 3: Conceal Your Intentions',chapter2:`Keep people off-balance and in the dark by never revealing the purpose behind your actions. If they have no clue what you are up to, they cannot prepare a defense. Guide them far enough down the wrong path, envelop them in enough smoke, and by the time they realize your intentions, it will be too late.`,
-   quote1:`"Lord, protect me from my friends; I can take care of my enemies."`,
-   quote2:`"Power is not what we do but what we do not—maintaining the appearance of control is a sign of power."`}},
-  {id:'b18',title:'Can\'t Hurt Me',author:'David Goggins',cat:'Self Help',emoji:'💪',
-   gradient:['#1e3a5f','#1e40af'],downloads:118000,isNew:true,pages:'364 pages • 2018',rating:4.9,
-   cover:'https://covers.openlibrary.org/b/isbn/9781544512280-L.jpg',
-   content:{chapter1_title:'I Should Have Been a Statistic',chapter1:`Growing up, I was terrified of the dark and desperate for love. I was an abused, depressed kid who turned to food to cope. I didn't have a mentor, a therapist, or any positive role models. I had nothing.\n\nAnd yet, I became a Navy SEAL, Army Ranger, and Air Force Tactical Air Controller. I completed Army Ranger School, graduated BUDS, and set a world record for the most pull-ups done in 24 hours.\n\nSo what changed? One thing: I took control of my mind.`,
-   chapter2_title:'Accountability Mirror',chapter2:`For years, I was hiding behind the mirror. I saw what I wanted to see—the easy path, the victim story.\n\nThe truth is we all have a reason—an excuse—for not taking accountability. We can always find people who have been through worse and done more, so why can't we?\n\nStart writing down all your insecurities, dreams, and goals on Post-it notes. Stick them on your mirror. Every day, you are going to look yourself dead in the eyes.`,
-   quote1:`"You are in danger of living a life so comfortable and soft that you will die without ever realizing your true potential."`,
-   quote2:`"Suffering is the true test of life."`}},
-  {id:'b19',title:'Yoga Aur Swasthya (Hindi)',author:'Health Expert',cat:'Hindi',emoji:'🧘',
-   gradient:['#6d28d9','#8b5cf6'],downloads:82000,isNew:true,pages:'150 pages • 2025',rating:4.8,
-    cover:'assets/covers/b19.jpg',
-   content:{chapter1_title:'योग का परिचय',chapter1:`योग एक प्राचीन भारतीय विद्या है जो शरीर, मन और आत्मा को एकजुट करती है। "योग" शब्द संस्कृत के "युज" धातु से आया है जिसका अर्थ है जोड़ना या एकत्रित करना।\n\nनियमित योग अभ्यास से:\n• वजन नियंत्रित होता है\n• तनाव कम होता है\n• नींद अच्छी आती है\n• पाचन तंत्र मजबूत होता है\n• रोग प्रतिरोधक क्षमता बढ़ती है`,
-   chapter2_title:'सूर्य नमस्कार — 12 आसन',chapter2:`सूर्य नमस्कार 12 आसनों का एक क्रम है जो पूरे शरीर को एक साथ exercise देता है।\n\n1. प्रणामासन (Prayer Pose)\n2. हस्तउत्तानासन (Raised Arms)\n3. पाद हस्तासन (Hand to Foot)\n4. अश्व संचालनासन (Equestrian)\n5. दंडासन (Stick Pose)\n6. अष्टांग नमस्कार (8-limb salute)\n7. भुजंगासन (Cobra Pose)\n8. पर्वतासन (Mountain)\n...और 4 और`,
-   quote1:`"योग करो, रोग दूर भागो।"`,
-   quote2:`"शरीर आपका मंदिर है, इसकी देखभाल करो।"`}},
-  {id:'b20',title:'The Lean Startup',author:'Eric Ries',cat:'Business',emoji:'🚀',
-   gradient:['#0284c7','#0369a1'],downloads:99000,isNew:false,pages:'336 pages • 2011',rating:4.7,
-   cover:'https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg',
-   content:{chapter1_title:'Start',chapter1:`For too long, the startup has suffered under a myth: if we just focus and build a better product, customers will come. But that's not how business actually works.\n\nThe Lean Startup method teaches you how to drive a startup—how to steer, when to turn, and when to persevere—and grow a business with maximum acceleration.\n\nIt is built on the "build-measure-learn" feedback loop. The fundamental activity of a startup is to turn ideas into products, measure how customers respond, and then learn whether to pivot or persevere.`,
-   chapter2_title:'Define',chapter2:`A startup is a human institution designed to create a new product or service under conditions of extreme uncertainty.\n\nBut lean is not simply about cutting costs or moving fast. It is about working smarter. The goal of a startup is to figure out the right thing to build—the thing customers want and will pay for—as quickly as possible.`,
-   quote1:`"The only way to win is to learn faster than anyone else."`,
-   quote2:`"Success is not delivering a feature; success is learning how to solve the customer's problem."`}},
+  {
+    "id": "cur_atomic_habits",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "cat": "Productivity",
+    "emoji": "🔥",
+    "gradient": [
+      "#0f172a",
+      "#2563eb"
+    ],
+    "downloads": 542000,
+    "isNew": false,
+    "pages": "320 pages • Unabridged Edition",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/12843460-L.jpg",
+    "ia_id": "atomic-habits-by-james-clear_20250317",
+    "source": "archive",
+    "desc": "An Easy & Proven Way to Build Good Habits & Break Bad Ones. Tiny changes, remarkable results by James Clear.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=atomic-habits-by-james-clear_20250317",
+      "epub": "/api/ebooks?download=epub&ia_id=atomic-habits-by-james-clear_20250317",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=atomic-habits-by-james-clear_20250317"
+    }
+  },
+  {
+    "id": "cur_psychology_money",
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "cat": "Finance",
+    "emoji": "💰",
+    "gradient": [
+      "#047857",
+      "#10b981"
+    ],
+    "downloads": 489000,
+    "isNew": false,
+    "pages": "256 pages • Timeless Lessons on Wealth",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/10574744-L.jpg",
+    "ia_id": "dhan-sampatti-ka-manovigyan-the-psychology-of-money-hindi-edition",
+    "source": "archive",
+    "desc": "Timeless lessons on wealth, greed, and happiness. Doing well with money is about how you behave, not just what you know.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=dhan-sampatti-ka-manovigyan-the-psychology-of-money-hindi-edition",
+      "epub": "/api/ebooks?download=epub&ia_id=dhan-sampatti-ka-manovigyan-the-psychology-of-money-hindi-edition",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=dhan-sampatti-ka-manovigyan-the-psychology-of-money-hindi-edition"
+    }
+  },
+  {
+    "id": "cur_rich_dad",
+    "title": "Rich Dad Poor Dad",
+    "author": "Robert T. Kiyosaki",
+    "cat": "Finance",
+    "emoji": "📈",
+    "gradient": [
+      "#7c2d12",
+      "#ea580c"
+    ],
+    "downloads": 620000,
+    "isNew": false,
+    "pages": "336 pages • Global Bestseller",
+    "rating": 4.8,
+    "cover": "https://covers.openlibrary.org/b/id/12717805-L.jpg",
+    "ia_id": "FRENCHPDF.COMRichDadPoorDad",
+    "source": "archive",
+    "desc": "What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not! The #1 personal finance book of all time.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=FRENCHPDF.COMRichDadPoorDad",
+      "epub": "/api/ebooks?download=epub&ia_id=FRENCHPDF.COMRichDadPoorDad",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=FRENCHPDF.COMRichDadPoorDad"
+    }
+  },
+  {
+    "id": "cur_think_grow_rich",
+    "title": "Think and Grow Rich",
+    "author": "Napoleon Hill",
+    "cat": "Business",
+    "emoji": "💡",
+    "gradient": [
+      "#1e293b",
+      "#d97706"
+    ],
+    "downloads": 512000,
+    "isNew": false,
+    "pages": "384 pages • Complete Original",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/12693892-L.jpg",
+    "ia_id": "think-and-grow-rich-by-napoleon-hill-www.purepdfbook.com",
+    "source": "archive",
+    "desc": "The landmark bestseller on wealth creation and success philosophy based on interviews with over 500 millionaires.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=think-and-grow-rich-by-napoleon-hill-www.purepdfbook.com",
+      "epub": "/api/ebooks?download=epub&ia_id=think-and-grow-rich-by-napoleon-hill-www.purepdfbook.com",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=think-and-grow-rich-by-napoleon-hill-www.purepdfbook.com"
+    }
+  },
+  {
+    "id": "cur_48_laws",
+    "title": "The 48 Laws of Power",
+    "author": "Robert Greene",
+    "cat": "Self-Help",
+    "emoji": "👑",
+    "gradient": [
+      "#450a0a",
+      "#b91c1c"
+    ],
+    "downloads": 470000,
+    "isNew": false,
+    "pages": "452 pages • Master Strategy",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/12608405-L.jpg",
+    "ia_id": "robert-greene-the-48-laws-of-power-profile-2010",
+    "source": "archive",
+    "desc": "Amoral, cunning, ruthless, and instructive. The definitive manual for mastering social dynamics and strategic self-defense.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=robert-greene-the-48-laws-of-power-profile-2010",
+      "epub": "/api/ebooks?download=epub&ia_id=robert-greene-the-48-laws-of-power-profile-2010",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=robert-greene-the-48-laws-of-power-profile-2010"
+    }
+  },
+  {
+    "id": "cur_alchemist",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "cat": "Fiction",
+    "emoji": "✨",
+    "gradient": [
+      "#1e1b4b",
+      "#4338ca"
+    ],
+    "downloads": 590000,
+    "isNew": false,
+    "pages": "197 pages • Modern Classic",
+    "rating": 4.8,
+    "cover": "https://covers.openlibrary.org/b/id/12836270-L.jpg",
+    "ia_id": "the-alchemist",
+    "source": "archive",
+    "desc": "A magical story of Santiago, an Andalusian shepherd boy who journeys in search of a worldly treasure and discovers his personal legend.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=the-alchemist",
+      "epub": "/api/ebooks?download=epub&ia_id=the-alchemist",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=the-alchemist"
+    }
+  },
+  {
+    "id": "cur_things_never_got_over",
+    "title": "Things We Never Got Over",
+    "author": "Lucy Score",
+    "cat": "Romance",
+    "emoji": "💖",
+    "gradient": [
+      "#831843",
+      "#db2777"
+    ],
+    "downloads": 410000,
+    "isNew": true,
+    "pages": "560 pages • Knockemout Series",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/things-we-never-got-over-by-lucy-score",
+    "ia_id": "things-we-never-got-over-by-lucy-score",
+    "source": "archive",
+    "desc": "The global bestseller and TikTok phenomenon. A grumpy barber meets a runaway bride in a captivating small town.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=things-we-never-got-over-by-lucy-score",
+      "epub": "/api/ebooks?download=epub&ia_id=things-we-never-got-over-by-lucy-score",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=things-we-never-got-over-by-lucy-score"
+    }
+  },
+  {
+    "id": "cur_it_ends_with_us",
+    "title": "It Ends With Us",
+    "author": "Colleen Hoover",
+    "cat": "Romance",
+    "emoji": "🌸",
+    "gradient": [
+      "#701a75",
+      "#c026d3"
+    ],
+    "downloads": 530000,
+    "isNew": false,
+    "pages": "384 pages • Worldwide Phenomenon",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/colleen-hoover-it-ends-with-us-2020-simon-schuster",
+    "ia_id": "colleen-hoover-it-ends-with-us-2020-simon-schuster",
+    "source": "archive",
+    "desc": "Sometimes it is the one who loves you who hurts you the most. Colleen Hoover masterpiece that touched millions of readers.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=colleen-hoover-it-ends-with-us-2020-simon-schuster",
+      "epub": "/api/ebooks?download=epub&ia_id=colleen-hoover-it-ends-with-us-2020-simon-schuster",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=colleen-hoover-it-ends-with-us-2020-simon-schuster"
+    }
+  },
+  {
+    "id": "cur_subtle_art",
+    "title": "The Subtle Art of Not Giving a F*ck",
+    "author": "Mark Manson",
+    "cat": "Self-Help",
+    "emoji": "🧘",
+    "gradient": [
+      "#78350f",
+      "#d97706"
+    ],
+    "downloads": 465000,
+    "isNew": false,
+    "pages": "224 pages • Unabridged Edition",
+    "rating": 4.7,
+    "cover": "https://archive.org/services/img/the-subtle-art-of-not-giving-a-fck",
+    "ia_id": "the-subtle-art-of-not-giving-a-fck",
+    "source": "archive",
+    "desc": "A Counterintuitive Approach to Living a Good Life. Cut through the noise and figure out what is truly worth caring about.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=the-subtle-art-of-not-giving-a-fck",
+      "epub": "/api/ebooks?download=epub&ia_id=the-subtle-art-of-not-giving-a-fck",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=the-subtle-art-of-not-giving-a-fck"
+    }
+  },
+  {
+    "id": "cur_deep_work",
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "cat": "Productivity",
+    "emoji": "🎯",
+    "gradient": [
+      "#1e3a8a",
+      "#3b82f6"
+    ],
+    "downloads": 395000,
+    "isNew": false,
+    "pages": "304 pages • Rules for Focused Success",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/deep-work-by-carl-newport",
+    "ia_id": "deep-work-by-carl-newport",
+    "source": "archive",
+    "desc": "Rules for Focused Success in a Distracted World. Master complex skills quickly and eliminate shallow distractions.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=deep-work-by-carl-newport",
+      "epub": "/api/ebooks?download=epub&ia_id=deep-work-by-carl-newport",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=deep-work-by-carl-newport"
+    }
+  },
+  {
+    "id": "cur_cant_hurt_me",
+    "title": "Can't Hurt Me",
+    "author": "David Goggins",
+    "cat": "Motivation",
+    "emoji": "🛡️",
+    "gradient": [
+      "#0f172a",
+      "#475569"
+    ],
+    "downloads": 440000,
+    "isNew": false,
+    "pages": "364 pages • Master Your Mind",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/cant-hurt-me-by-david-goggins",
+    "ia_id": "cant-hurt-me-by-david-goggins",
+    "source": "archive",
+    "desc": "Master Your Mind and Defy the Odds. The true story of David Goggins turning intense hardship into supreme mental resilience.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=cant-hurt-me-by-david-goggins",
+      "epub": "/api/ebooks?download=epub&ia_id=cant-hurt-me-by-david-goggins",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=cant-hurt-me-by-david-goggins"
+    }
+  },
+  {
+    "id": "cur_wings_of_fire",
+    "title": "Wings of Fire (Autobiography)",
+    "author": "Dr. A.P.J. Abdul Kalam",
+    "cat": "Biography",
+    "emoji": "🚀",
+    "gradient": [
+      "#14532d",
+      "#22c55e"
+    ],
+    "downloads": 580000,
+    "isNew": false,
+    "pages": "180 pages • National Inspiration",
+    "rating": 5,
+    "cover": "https://covers.openlibrary.org/b/id/10452390-L.jpg",
+    "ia_id": "wings-of-fire-autobiography-of-a-p-j-kal",
+    "source": "archive",
+    "desc": "The inspiring autobiography of Dr. A.P.J. Abdul Kalam detailing his early life, space and missile research, and vision for India.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=wings-of-fire-autobiography-of-a-p-j-kal",
+      "epub": "/api/ebooks?download=epub&ia_id=wings-of-fire-autobiography-of-a-p-j-kal",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=wings-of-fire-autobiography-of-a-p-j-kal"
+    }
+  },
+  {
+    "id": "cur_zero_to_one",
+    "title": "Zero to One",
+    "author": "Peter Thiel & Blake Masters",
+    "cat": "Business",
+    "emoji": "⚡",
+    "gradient": [
+      "#0369a1",
+      "#38bdf8"
+    ],
+    "downloads": 360000,
+    "isNew": false,
+    "pages": "224 pages • Notes on Startups",
+    "rating": 4.8,
+    "cover": "https://archive.org/services/img/zero-to-one-peter-thiel-and-blake-masters",
+    "ia_id": "zero-to-one-peter-thiel-and-blake-masters",
+    "source": "archive",
+    "desc": "Notes on Startups, or How to Build the Future. The classic blueprint for creating genuine technology breakthroughs.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=zero-to-one-peter-thiel-and-blake-masters",
+      "epub": "/api/ebooks?download=epub&ia_id=zero-to-one-peter-thiel-and-blake-masters",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=zero-to-one-peter-thiel-and-blake-masters"
+    }
+  },
+  {
+    "id": "cur_do_epic_shit",
+    "title": "Do Epic Shit",
+    "author": "Ankur Warikoo",
+    "cat": "Motivation",
+    "emoji": "🔥",
+    "gradient": [
+      "#b45309",
+      "#f59e0b"
+    ],
+    "downloads": 380000,
+    "isNew": false,
+    "pages": "312 pages • Life Lessons",
+    "rating": 4.7,
+    "cover": "https://archive.org/services/img/do-epic-shit-pdfdrive_202607",
+    "ia_id": "do-epic-shit-pdfdrive_202607",
+    "source": "archive",
+    "desc": "Ankur Warikoo shares reflections on building habits, navigating awareness, overcoming failure, and achieving financial freedom.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=do-epic-shit-pdfdrive_202607",
+      "epub": "/api/ebooks?download=epub&ia_id=do-epic-shit-pdfdrive_202607",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=do-epic-shit-pdfdrive_202607"
+    }
+  },
+  {
+    "id": "cur_indian_polity",
+    "title": "Indian Polity (7th Edition - UPSC)",
+    "author": "M. Laxmikanth",
+    "cat": "Education",
+    "emoji": "⚖️",
+    "gradient": [
+      "#0f766e",
+      "#14b8a6"
+    ],
+    "downloads": 720000,
+    "isNew": false,
+    "pages": "980 pages • Civil Services Bible",
+    "rating": 5,
+    "cover": "https://archive.org/services/img/oceanof-pdf.com-indian-polity-7th-edition-m-laxmikanth",
+    "ia_id": "oceanof-pdf.com-indian-polity-7th-edition-m-laxmikanth",
+    "source": "archive",
+    "desc": "The definitive textbook for UPSC Civil Services Examination and State PSCs covering the entire Constitution and political system of India.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=oceanof-pdf.com-indian-polity-7th-edition-m-laxmikanth",
+      "epub": "/api/ebooks?download=epub&ia_id=oceanof-pdf.com-indian-polity-7th-edition-m-laxmikanth",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=oceanof-pdf.com-indian-polity-7th-edition-m-laxmikanth"
+    }
+  },
+  {
+    "id": "cur_spectrum_history",
+    "title": "A Brief History of Modern India (Spectrum)",
+    "author": "Rajiv Ahir (IPS)",
+    "cat": "Education",
+    "emoji": "🇮🇳",
+    "gradient": [
+      "#9a3412",
+      "#f97316"
+    ],
+    "downloads": 650000,
+    "isNew": false,
+    "pages": "850 pages • UPSC Modern History",
+    "rating": 4.9,
+    "cover": "https://archive.org/services/img/a-brief-history-of-modern-india-spectrum-2019",
+    "ia_id": "a-brief-history-of-modern-india-spectrum-2019",
+    "source": "archive",
+    "desc": "Comprehensive narrative of India freedom struggle, British rule, social reforms, and post-independence consolidation.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=a-brief-history-of-modern-india-spectrum-2019",
+      "epub": "/api/ebooks?download=epub&ia_id=a-brief-history-of-modern-india-spectrum-2019",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=a-brief-history-of-modern-india-spectrum-2019"
+    }
+  },
+  {
+    "id": "cur_ncert_physics",
+    "title": "NCERT Physics Class 12 (Part 1)",
+    "author": "NCERT Editorial Board",
+    "cat": "NCERT",
+    "emoji": "⚛️",
+    "gradient": [
+      "#312e81",
+      "#6366f1"
+    ],
+    "downloads": 480000,
+    "isNew": false,
+    "pages": "280 pages • Official NCERT Textbook",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/8738319-L.jpg",
+    "ia_id": "ncert-leph1",
+    "source": "ncert",
+    "desc": "Official textbook published by NCERT for CBSE Class 12, JEE Main, and NEET exam preparation covering Electrostatics and Magnetism.",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=ncert-leph1",
+      "epub": "/api/ebooks?download=epub&ia_id=ncert-leph1",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=ncert-leph1"
+    }
+  },
+  {
+    "id": "cur_godan",
+    "title": "गोदान (Godan)",
+    "author": "मुंशी प्रेमचंद (Munshi Premchand)",
+    "cat": "Hindi",
+    "emoji": "🌾",
+    "gradient": [
+      "#78350f",
+      "#b45309"
+    ],
+    "downloads": 430000,
+    "isNew": false,
+    "pages": "320 पृष्ठ • संपूर्ण उपन्यास",
+    "rating": 5,
+    "cover": "https://covers.openlibrary.org/b/id/12069261-L.jpg",
+    "ia_id": "Godan-Hindi",
+    "source": "archive",
+    "desc": "हिंदी साहित्य का अमर महाकाव्य। भारतीय ग्रामीण समाज, किसान होरी के संघर्ष और मानवता का यथार्थवादी चित्रण।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=Godan-Hindi",
+      "epub": "/api/ebooks?download=epub&ia_id=Godan-Hindi",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=Godan-Hindi"
+    }
+  },
+  {
+    "id": "cur_gaban",
+    "title": "ग़बन (Gaban)",
+    "author": "मुंशी प्रेमचंद (Munshi Premchand)",
+    "cat": "Hindi",
+    "emoji": "💍",
+    "gradient": [
+      "#831843",
+      "#be185d"
+    ],
+    "downloads": 340000,
+    "isNew": false,
+    "pages": "280 पृष्ठ • कालजयी साहित्य",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/12069262-L.jpg",
+    "ia_id": "Gaban-Hindi-Premchand",
+    "source": "archive",
+    "desc": "दिखावे की संस्कृति, मध्यमवर्गीय लालसा और सामाजिक यथार्थ पर मुंशी प्रेमचंद का कालजयी उपन्यास।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=Gaban-Hindi-Premchand",
+      "epub": "/api/ebooks?download=epub&ia_id=Gaban-Hindi-Premchand",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=Gaban-Hindi-Premchand"
+    }
+  },
+  {
+    "id": "cur_madhushala",
+    "title": "मधुशाला (Madhushala)",
+    "author": "हरिवंश राय बच्चन (Harivansh Rai Bachchan)",
+    "cat": "Hindi",
+    "emoji": "🍷",
+    "gradient": [
+      "#581c87",
+      "#9333ea"
+    ],
+    "downloads": 365000,
+    "isNew": false,
+    "pages": "135 रुबाइयाँ • संपूर्ण काव्य",
+    "rating": 5,
+    "cover": "https://covers.openlibrary.org/b/id/13311821-L.jpg",
+    "ia_id": "Madhushala",
+    "source": "archive",
+    "desc": "हिंदी साहित्य की सर्वाधिक लोकप्रिय काव्य रचना। हाला, प्याला और साकी के प्रतीकों के माध्यम से गहन जीवन दर्शन।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=Madhushala",
+      "epub": "/api/ebooks?download=epub&ia_id=Madhushala",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=Madhushala"
+    }
+  },
+  {
+    "id": "cur_gita_press",
+    "title": "श्रीमद्भगवद्गीता (साधक संजीवनी)",
+    "author": "गीताप्रेस गोरखपुर (Gita Press)",
+    "cat": "Spiritual",
+    "emoji": "🕉️",
+    "gradient": [
+      "#7c2d12",
+      "#ea580c"
+    ],
+    "downloads": 850000,
+    "isNew": false,
+    "pages": "700 श्लोक • संपूर्ण हिंदी टीका सहित",
+    "rating": 5,
+    "cover": "assets/covers/bhagavad_gita.jpg",
+    "ia_id": "HindiBookSrimadBhagavadGitaWithRamanujaBhasyaHindiGitaPress",
+    "source": "archive",
+    "desc": "भगवान श्रीकृष्ण द्वारा कुरुक्षेत्र में अर्जुन को दिए गए दिव्य उपदेश। गीताप्रेस गोरखपुर द्वारा प्रामाणिक हिंदी व्याख्या।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=HindiBookSrimadBhagavadGitaWithRamanujaBhasyaHindiGitaPress",
+      "epub": "/api/ebooks?download=epub&ia_id=HindiBookSrimadBhagavadGitaWithRamanujaBhasyaHindiGitaPress",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=HindiBookSrimadBhagavadGitaWithRamanujaBhasyaHindiGitaPress"
+    }
+  },
+  {
+    "id": "cur_yatharth_geeta",
+    "title": "यथार्थ गीता (Yatharth Geeta)",
+    "author": "स्वामी अड़गड़ानंद जी महाराज",
+    "cat": "Spiritual",
+    "emoji": "🔱",
+    "gradient": [
+      "#1e293b",
+      "#e11d48"
+    ],
+    "downloads": 620000,
+    "isNew": false,
+    "pages": "450 पृष्ठ • श्रीमद्भगवद्गीता यथार्थ भाष्य",
+    "rating": 5,
+    "cover": "https://archive.org/services/img/YatharthGeetaHindi",
+    "ia_id": "YatharthGeetaHindi",
+    "source": "archive",
+    "desc": "श्रीमद्भगवद्गीता का यथार्थ धर्मशास्त्र भाष्य। आंतरिक युद्ध, आत्मसाक्षात्कार और निष्काम कर्मयोग का सरल हिंदी विश्लेषण।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=YatharthGeetaHindi",
+      "epub": "/api/ebooks?download=epub&ia_id=YatharthGeetaHindi",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=YatharthGeetaHindi"
+    }
+  },
+  {
+    "id": "cur_chanakya_niti",
+    "title": "सम्पूर्ण चाणक्य नीति (Chanakya Niti)",
+    "author": "आचार्य चाणक्य (Acharya Chanakya)",
+    "cat": "Philosophy",
+    "emoji": "🧠",
+    "gradient": [
+      "#0f172a",
+      "#334155"
+    ],
+    "downloads": 510000,
+    "isNew": false,
+    "pages": "220 पृष्ठ • हिंदी व अंग्रेजी अनुवाद",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/13193241-L.jpg",
+    "ia_id": "hNuK_chanakya-niti-with-hindi-and-english-translation-by-satya-vrat-shastri-bharatiya",
+    "source": "archive",
+    "desc": "राजनीति, अर्थनीति, कूटनीति और व्यावहारिक जीवन में विजय प्राप्त करने के लिए आचार्य चाणक्य के सूत्रों का प्रामाणिक संग्रह।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&ia_id=hNuK_chanakya-niti-with-hindi-and-english-translation-by-satya-vrat-shastri-bharatiya",
+      "epub": "/api/ebooks?download=epub&ia_id=hNuK_chanakya-niti-with-hindi-and-english-translation-by-satya-vrat-shastri-bharatiya",
+      "read_online": "/api/ebooks?download=pdf&view=1&ia_id=hNuK_chanakya-niti-with-hindi-and-english-translation-by-satya-vrat-shastri-bharatiya"
+    }
+  },
+  {
+    "id": "cur_pride_prejudice",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "cat": "Classics",
+    "emoji": "💌",
+    "gradient": [
+      "#4c1d95",
+      "#8b5cf6"
+    ],
+    "downloads": 680000,
+    "isNew": false,
+    "pages": "432 pages • World Classic",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/14348537-L.jpg",
+    "pg_id": 1342,
+    "source": "gutenberg",
+    "desc": "The romantic clash between Elizabeth Bennet and Mr. Darcy. A masterpiece of wit, character study, and social observation.",
+    "formats": {
+      "epub": "https://www.gutenberg.org/ebooks/1342.epub3.images",
+      "mobi": "https://www.gutenberg.org/ebooks/1342.kf8.images",
+      "read_online": "https://www.gutenberg.org/cache/epub/1342/pg1342-images.html"
+    }
+  },
+  {
+    "id": "cur_great_gatsby",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "cat": "Classics",
+    "emoji": "🥂",
+    "gradient": [
+      "#1e1b4b",
+      "#6366f1"
+    ],
+    "downloads": 590000,
+    "isNew": false,
+    "pages": "208 pages • Jazz Age Masterpiece",
+    "rating": 4.8,
+    "cover": "https://covers.openlibrary.org/b/id/8225266-L.jpg",
+    "pg_id": 64317,
+    "source": "gutenberg",
+    "desc": "The tragic story of Jay Gatsby, a self-made millionaire, and his pursuit of Daisy Buchanan.",
+    "formats": {
+      "epub": "https://www.gutenberg.org/ebooks/64317.epub3.images",
+      "mobi": "https://www.gutenberg.org/ebooks/64317.kf8.images",
+      "read_online": "https://www.gutenberg.org/cache/epub/64317/pg64317-images.html"
+    }
+  },
+  {
+    "id": "cur_frankenstein",
+    "title": "Frankenstein",
+    "author": "Mary Shelley",
+    "cat": "Classics",
+    "emoji": "⚡",
+    "gradient": [
+      "#0f172a",
+      "#10b981"
+    ],
+    "downloads": 510000,
+    "isNew": false,
+    "pages": "280 pages • The Modern Prometheus",
+    "rating": 4.8,
+    "cover": "https://covers.openlibrary.org/b/id/12356249-L.jpg",
+    "pg_id": 84,
+    "source": "gutenberg",
+    "desc": "Victor Frankenstein discovers the secret of imparting life to inanimate matter and creates a monster.",
+    "formats": {
+      "epub": "https://www.gutenberg.org/ebooks/84.epub3.images",
+      "mobi": "https://www.gutenberg.org/ebooks/84.kf8.images",
+      "read_online": "https://www.gutenberg.org/cache/epub/84/pg84-images.html"
+    }
+  },
+  {
+    "id": "cur_sherlock_holmes",
+    "title": "The Adventures of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "cat": "Mystery",
+    "emoji": "🕵️",
+    "gradient": [
+      "#1e293b",
+      "#475569"
+    ],
+    "downloads": 740000,
+    "isNew": false,
+    "pages": "350 pages • 12 Classic Cases",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/6717853-L.jpg",
+    "pg_id": 1661,
+    "source": "gutenberg",
+    "desc": "Twelve of the best-loved detective stories featuring Sherlock Holmes and Dr. John Watson in Victorian London.",
+    "formats": {
+      "epub": "https://www.gutenberg.org/ebooks/1661.epub3.images",
+      "mobi": "https://www.gutenberg.org/ebooks/1661.kf8.images",
+      "read_online": "https://www.gutenberg.org/cache/epub/1661/pg1661-images.html"
+    }
+  },
+  {
+    "id": "cur_dracula",
+    "title": "Dracula",
+    "author": "Bram Stoker",
+    "cat": "Horror",
+    "emoji": "🧛",
+    "gradient": [
+      "#3b0764",
+      "#7e22ce"
+    ],
+    "downloads": 460000,
+    "isNew": false,
+    "pages": "418 pages • Gothic Classic",
+    "rating": 4.8,
+    "cover": "https://covers.openlibrary.org/b/id/12216503-L.jpg",
+    "pg_id": 345,
+    "source": "gutenberg",
+    "desc": "The classic gothic horror of Count Dracula moving from Transylvania to England to spread the undead curse.",
+    "formats": {
+      "epub": "https://www.gutenberg.org/ebooks/345.epub3.images",
+      "mobi": "https://www.gutenberg.org/ebooks/345.kf8.images",
+      "read_online": "https://www.gutenberg.org/cache/epub/345/pg345-images.html"
+    }
+  },
+  {
+    "id": "cur_panchatantra",
+    "title": "पंचतंत्र की कहानियाँ (Panchatantra)",
+    "author": "पंडित विष्णु शर्मा (Pt. Vishnu Sharma)",
+    "cat": "Hindi",
+    "emoji": "🦁",
+    "gradient": [
+      "#14532d",
+      "#15803d"
+    ],
+    "downloads": 390000,
+    "isNew": false,
+    "pages": "240 पृष्ठ • नीति कथाएँ",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/1117546-L.jpg",
+    "rep_id": "4723",
+    "source": "rep",
+    "desc": "भारतीय ज्ञान और व्यावहारिक नीति की सर्वश्रेष्ठ कहानियाँ। बालकों और युवाओं को नीतिवान बनाने वाली अमर कथाएँ।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&rep_id=4723",
+      "epub": "/api/ebooks?download=epub&rep_id=4723",
+      "read_online": "/api/ebooks?download=pdf&view=1&rep_id=4723"
+    }
+  },
+  {
+    "id": "cur_kalidasa",
+    "title": "कालिदास ग्रंथावली (Kalidasa)",
+    "author": "महाकवि कालिदास (Mahakavi Kalidasa)",
+    "cat": "Hindi",
+    "emoji": "📜",
+    "gradient": [
+      "#7c2d12",
+      "#c2410c"
+    ],
+    "downloads": 320000,
+    "isNew": false,
+    "pages": "310 पृष्ठ • राष्ट्रीय ई-पुस्तकालय",
+    "rating": 4.9,
+    "cover": "https://covers.openlibrary.org/b/id/13193241-L.jpg",
+    "rep_id": "1084",
+    "source": "rep",
+    "desc": "संस्कृत साहित्य के सिरमौर महाकवि कालिदास की अमर कृतियों का सरल हिंदी अनुवाद।",
+    "formats": {
+      "pdf": "/api/ebooks?download=pdf&rep_id=1084",
+      "epub": "/api/ebooks?download=epub&rep_id=1084",
+      "read_online": "/api/ebooks?download=pdf&view=1&rep_id=1084"
+    }
+  }
 ];
 
-function getBookFullContent(b){
-  const c = b.content || {};
-  
-  const ch1_title = c.chapter1_title || 'Chapter 1: The Foundational Mindset & Core Principles';
-  const ch1 = c.chapter1 || `Every extraordinary journey begins not with massive external disruption, but with an internal realignment of standards. When you examine high performers across centuries, their competitive edge lies not in superior intellectual capacity, but in the relentless consistency of their foundational daily habits.
-
-Most individuals remain trapped in cycles of chronic procrastination because they attempt to change outcomes without rewiring the underlying systems. A system is the engine that drives perpetual momentum; an outcome is merely a lagging milestone. When you fall in love with the process rather than the destination, long-term mastery becomes inevitable.
-
-To achieve disproportionate success in your domain, you must strip away superficial distractions and dedicate uninterrupted focus to high-leverage actions that produce compound results over time.`;
-
-  const ch2_title = c.chapter2_title || 'Chapter 2: Tactical Frameworks & Strategic Mechanisms';
-  const ch2 = c.chapter2 || `Strategy is the deliberate choice of what not to do. Without an explicit framework, energy disperses into minor logistical errands that create the illusion of progress while accomplishing zero fundamental transformation.
-
-The core framework consists of three non-negotiable stages:
-1. Friction Reduction: Remove every environmental obstacle between you and your primary objective. If you desire focused writing, eliminate browser tabs and smartphone notifications.
-2. Leverage Amplification: Identify the single 20% activity responsible for 80% of your tangible breakthroughs and allocate your freshest mental energy strictly to it.
-3. Continuous Feedback Loops: Establish weekly retrospectives to measure empirical output rather than emotional sentiment. Numbers clarify reality when feelings distort it.
-
-When these principles are applied systematically, progress shifts from accidental to mathematical.`;
-
-  const ch3_title = c.chapter3_title || 'Chapter 3: High-Leverage Execution & Habit Stacking';
-  const ch3 = c.chapter3 || `Execution is the only true currency of achievement. Ideas are plentiful and cheap; the disciplined ability to convert conceptual insight into tangible reality day after day is what separates dreamers from builders.
-
-To construct habits that endure under high stress, utilize the principle of Habit Stacking. Never attempt to manifest a new discipline in an environmental vacuum. Instead, anchor the new behavior immediately following an already cemented routine.
-
-For instance: "Immediately after pouring my morning coffee, I will execute 45 minutes of deep strategic work before opening any communication inbox." This reduces decision fatigue and automates execution through neurological association.
-
-Over the course of a single year, these micro-commitments accumulate into an insurmountable competitive advantage.`;
-
-  const ch4_title = c.chapter4_title || 'Chapter 4: Psychological Biases & Roadblocks to Overcome';
-  const ch4 = c.chapter4 || `The greatest threat to long-term success is rarely an external competitor—it is your own hardwired cognitive vulnerabilities. Human psychology evolved to conserve immediate energy and avoid momentary social discomfort, traits that actively sabotage long-term compounding.
-
-The 3 most lethal psychological traps include:
-• The Sunk Cost Fallacy: Persisting with failing projects or outdated methods simply because substantial emotional and financial capital has already been invested.
-• Present Bias: Sacrificing decade-long wealth and health for momentary sensory gratification in the present moment.
-• The Imposter Reflex: Allowing fear of external judgment to stall execution until "the perfect timing" arrives.
-
-Recognizing these mental traps the moment they surface empowers you to respond with objective reason rather than reactive impulse.`;
-
-  const ch5_title = c.chapter5_title || 'Chapter 5: The Master Implementation Blueprint';
-  const ch5 = c.chapter5 || `Sustainable mastery requires transforming exceptional effort into standard operating procedure. When excellence becomes ordinary, extraordinary results become baseline.
-
-To ensure your new operating system survives long-term volatility:
-1. Build Redundancies: Prepare for days when energy and motivation are low by having minimum-viable daily routines (e.g. 15 minutes of progress rather than zero).
-2. Cultivate a Peer Fortress: Surround yourself exclusively with peers whose baseline standards elevate your own ambition. Environment will always triumph over willpower.
-3. Conduct Quarterly Audits: Ruthlessly eliminate projects, subscriptions, and obligations that no longer align with your core mission.
-
-This blueprint guarantees that your trajectory remains compounding and resilient regardless of market cycles or personal friction.`;
-
-  const preface = c.preface || `This comprehensive 10-page master volume provides a field-tested, actionable synthesis of the core principles taught by ${b.author}. Designed for rapid assimilation and practical execution, each chapter dismantles obsolete mental models and arms the reader with high-leverage frameworks for measurable personal and professional compounding.`;
-
-  const quote1 = c.quote1 || `"You do not rise to the level of your goals. You fall to the level of your systems."`;
-  const quote2 = c.quote2 || `"The secret of getting ahead is getting started. The secret of getting started is breaking complex overwhelming tasks into manageable actions."`;
-
-  const checklist = c.checklist || [
-    'Complete the Personal Energy & Time Audit to identify the top 3 high-friction distractions.',
-    'Define the single Primary Objective for the upcoming quarter with verifiable metrics.',
-    'Construct an environmental fortress: remove digital and physical triggers of shallow behavior.',
-    'Implement the 45-Minute Deep Focus block before opening any social or email feed.',
-    'Establish the Habit Stacking trigger linked to your non-negotiable morning routine.',
-    'Document standard operating procedures for recurring weekly obligations to reduce cognitive load.',
-    'Identify and eliminate one persistent sunk-cost commitment that drains emotional bandwidth.',
-    'Conduct a weekly retrospective every Sunday evening to score output metrics objectively.',
-    'Design a Minimum-Viable-Day backup protocol to prevent total disruption on high-stress days.',
-    'Review the 10 Golden Rules monthly to recalibrate focus and protect long-term compounding.'
-  ];
-
-  const rules = c.rules || [
-    'Focus on the system, not the outcome: Outcomes are lagging indicators; systems are leading causes.',
-    'Small wins compound exponentially: 1% daily progress generates a 37x multiplier over twelve months.',
-    'Environment trumps willpower every time: Redesign your physical and digital surroundings for default success.',
-    'Friction determines behavior: Make constructive habits effortless and destructive habits excruciatingly difficult.',
-    'Never double-miss: Missing one day is an accident; missing two consecutive days is the birth of a destructive habit.',
-    'Action precedes motivation: Do not wait to feel inspired; begin the action and emotional momentum will follow.',
-    'Protect your high-cognitive hours: Allocate your freshest mental capital exclusively to creation, never consumption.',
-    'Embrace uncomfortable reality: What you avoid confronting invariably dictates the limits of your growth.',
-    'Say no to the good to make space for the extraordinary: Ruthless prioritization is the cornerstone of mastery.',
-    'Consistency over intensity: A moderate effort sustained for a decade defeats erratic genius every single time.'
-  ];
-
-  return { ch1_title, ch1, ch2_title, ch2, ch3_title, ch3, ch4_title, ch4, ch5_title, ch5, preface, quote1, quote2, checklist, rules };
-}
-
-function dlBook(id){
-  const b = BOOKS.find(x => x.id === id) || liveApiBooks.find(x => x.id === id);
-  if(!b) return;
-  toast(`⏳ "${b.title}" — पूरा 10-Page Master PDF तैयार हो रहा है...`);
-  
-  try {
-    const { jsPDF } = window.jspdf || {};
-    if (jsPDF) {
-      const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-      const full = getBookFullContent(b);
-      
-      function addHeaderFooter(pageNum, sectionTitle){
-        doc.setDrawColor(226, 232, 240);
-        doc.setLineWidth(0.4);
-        doc.line(15, 16, 195, 16);
-        
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(8);
-        doc.setTextColor(100, 116, 139);
-        doc.text(`${b.title.toUpperCase()} • ${sectionTitle.toUpperCase()}`, 15, 13);
-        doc.text('THEBHOM.IN FREE MASTER EDITION', 195, 13, {align:'right'});
-        
-        doc.line(15, 282, 195, 282);
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8);
-        doc.setTextColor(148, 163, 184);
-        doc.text('100% Free Open Edition • Downloaded from TheBhom.in', 15, 288);
-        doc.setFont('helvetica', 'bold');
-        doc.text(`Page ${pageNum} of 10`, 195, 288, {align:'right'});
-      }
-
-      // PAGE 1: DELUXE FRONT COVER
-      doc.setFillColor(11, 19, 43);
-      doc.rect(0, 0, 210, 297, 'F');
-      
-      doc.setDrawColor(245, 158, 11);
-      doc.setLineWidth(1.8);
-      doc.roundedRect(10, 10, 190, 277, 4, 4, 'S');
-      doc.setLineWidth(0.6);
-      doc.rect(14, 14, 182, 269, 'S');
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(10);
-      doc.setTextColor(245, 158, 11);
-      doc.text('★  THEBHOM.IN  •  MASTER  COLLECTOR\'S  EDITION  ★', 105, 32, {align:'center'});
-      
-      doc.setDrawColor(245, 158, 11);
-      doc.setLineWidth(0.8);
-      doc.line(40, 38, 170, 38);
-      
-      doc.setFillColor(30, 41, 59);
-      doc.roundedRect(65, 48, 80, 9, 3, 3, 'F');
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(8.5);
-      doc.setTextColor(56, 189, 248);
-      doc.text(`${(b.cat||'GENERAL').toUpperCase()}  |  FULL 10-PAGE COMPLETE BOOK`, 105, 54, {align:'center'});
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(26);
-      doc.setTextColor(255, 255, 255);
-      const titleLines = doc.splitTextToSize(b.title, 160);
-      doc.text(titleLines, 105, 88, {align:'center'});
-      
-      let cy = 88 + titleLines.length * 10 + 6;
-      doc.setFont('helvetica', 'italic');
-      doc.setFontSize(16);
-      doc.setTextColor(203, 213, 225);
-      doc.text(`By ${b.author}`, 105, cy, {align:'center'});
-      
-      cy += 14;
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(14);
-      doc.setTextColor(245, 158, 11);
-      doc.text('✦  ✦  ✦', 105, cy, {align:'center'});
-      
-      cy += 16;
-      doc.setFillColor(15, 23, 42);
-      doc.roundedRect(25, cy, 160, 32, 4, 4, 'F');
-      doc.setDrawColor(245, 158, 11);
-      doc.setLineWidth(0.8);
-      doc.roundedRect(25, cy, 160, 32, 4, 4, 'S');
-      
-      doc.setFont('helvetica', 'italic');
-      doc.setFontSize(10.5);
-      doc.setTextColor(251, 191, 36);
-      const qLines = doc.splitTextToSize(full.quote1, 146);
-      doc.text(qLines, 105, cy + 12, {align:'center'});
-      
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9.5);
-      doc.setTextColor(148, 163, 184);
-      doc.text('Includes: 5 Core Chapters • 30-Day Action Matrix • 10 Golden Rules', 105, 238, {align:'center'});
-      
-      doc.setDrawColor(255, 255, 255);
-      doc.setLineWidth(1);
-      for(let bx = 70; bx <= 140; bx += 2.5){
-        if(Math.sin(bx * 7) > -0.3){
-          doc.line(bx, 248, bx, 260);
-        }
-      }
-      doc.setFont('courier', 'normal');
-      doc.setFontSize(7.5);
-      doc.setTextColor(203, 213, 225);
-      doc.text('ISBN 978-93-88912-04-1  •  FREE OPEN LICENSE', 105, 266, {align:'center'});
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(9);
-      doc.setTextColor(34, 197, 94);
-      doc.text('✔ VERIFIED AUTHENTIC EDITION — THEBHOM.IN', 105, 273, {align:'center'});
-
-      // PAGE 2: TABLE OF CONTENTS & PREFACE
-      doc.addPage();
-      addHeaderFooter(2, 'Table of Contents & Preface');
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(18);
-      doc.setTextColor(15, 23, 42);
-      doc.text('Table of Contents & Executive Preface', 15, 28);
-      
-      doc.setDrawColor(16, 185, 129);
-      doc.setLineWidth(1.2);
-      doc.line(15, 32, 195, 32);
-      
-      doc.setFillColor(248, 250, 252);
-      doc.roundedRect(15, 38, 180, 48, 3, 3, 'F');
-      doc.setDrawColor(203, 213, 225);
-      doc.setLineWidth(0.5);
-      doc.roundedRect(15, 38, 180, 48, 3, 3, 'S');
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(11);
-      doc.setTextColor(15, 23, 42);
-      doc.text('Executive Summary & Core Premise:', 20, 46);
-      
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9.5);
-      doc.setTextColor(51, 65, 85);
-      const prefLines = doc.splitTextToSize(full.preface, 170);
-      doc.text(prefLines, 20, 53);
-      
-      let tocY = 96;
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(13);
-      doc.setTextColor(15, 23, 42);
-      doc.text('Complete Volume Architecture:', 15, tocY);
-      tocY += 8;
-      
-      const tocItems = [
-        ['Page 3', full.ch1_title, 'Foundational principles, core psychology & mindsets.'],
-        ['Page 4', full.ch2_title, 'System design, tactical mechanics & leverage point.'],
-        ['Page 5', full.ch3_title, 'Habit stacking, frictionless daily execution triggers.'],
-        ['Page 6', full.ch4_title, 'Deconstructing mental biases, friction & failure modes.'],
-        ['Page 7', full.ch5_title, 'The master blueprint for sustainable compounding.'],
-        ['Page 8', '30-Day Transformation Matrix', 'Actionable milestone checklist & tracker.'],
-        ['Page 9', 'The 10 Unshakeable Golden Rules', 'Core manifesto & executive operating tenets.'],
-        ['Page 10', 'Back Cover & Review Digest', 'Publisher blurb, reader testimonials & seal.']
-      ];
-      
-      tocItems.forEach(([pg, title, desc]) => {
-        doc.setFillColor(255, 255, 255);
-        doc.roundedRect(15, tocY, 180, 18, 2, 2, 'F');
-        doc.setDrawColor(226, 232, 240);
-        doc.roundedRect(15, tocY, 180, 18, 2, 2, 'S');
-        
-        doc.setFillColor(241, 245, 249);
-        doc.roundedRect(18, tocY + 3, 18, 12, 2, 2, 'F');
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(8);
-        doc.setTextColor(37, 99, 235);
-        doc.text(pg, 27, tocY + 10.5, {align:'center'});
-        
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(10);
-        doc.setTextColor(15, 23, 42);
-        doc.text(title, 40, tocY + 8);
-        
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8.5);
-        doc.setTextColor(100, 116, 139);
-        doc.text(desc, 40, tocY + 14);
-        
-        tocY += 21;
-      });
-
-      function renderChapterPage(pageNum, title, text, quoteBox=null){
-        doc.addPage();
-        addHeaderFooter(pageNum, title);
-        
-        let y = 28;
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(16);
-        doc.setTextColor(15, 23, 42);
-        const splitTitle = doc.splitTextToSize(title, 180);
-        doc.text(splitTitle, 15, y);
-        y += splitTitle.length * 7 + 3;
-        
-        doc.setDrawColor(37, 99, 235);
-        doc.setLineWidth(1);
-        doc.line(15, y, 70, y);
-        y += 8;
-        
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(10);
-        doc.setTextColor(51, 65, 85);
-        
-        const paragraphs = text.split('\n\n');
-        paragraphs.forEach(p => {
-          const lines = doc.splitTextToSize(p.trim(), 180);
-          doc.text(lines, 15, y);
-          y += lines.length * 5.2 + 5;
-        });
-        
-        if (quoteBox && y < 245) {
-          y += 4;
-          doc.setFillColor(248, 250, 252);
-          doc.roundedRect(15, y, 180, 24, 3, 3, 'F');
-          doc.setDrawColor(124, 58, 237);
-          doc.setLineWidth(1.2);
-          doc.line(15, y, 15, y + 24);
-          
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(9);
-          doc.setTextColor(124, 58, 237);
-          doc.text('KEY PHILOSOPHICAL TAKEAWAY:', 20, y + 7);
-          
-          doc.setFont('helvetica', 'italic');
-          doc.setFontSize(9.5);
-          doc.setTextColor(30, 41, 59);
-          const qText = doc.splitTextToSize(quoteBox, 168);
-          doc.text(qText, 20, y + 14);
-        }
-      }
-
-      // PAGES 3-7: CHAPTERS
-      renderChapterPage(3, full.ch1_title, full.ch1, full.quote1);
-      renderChapterPage(4, full.ch2_title, full.ch2);
-      renderChapterPage(5, full.ch3_title, full.ch3, full.quote2);
-      renderChapterPage(6, full.ch4_title, full.ch4);
-      renderChapterPage(7, full.ch5_title, full.ch5);
-
-      // PAGE 8: 30-DAY CHECKLIST
-      doc.addPage();
-      addHeaderFooter(8, '30-Day Transformation Matrix');
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(16);
-      doc.setTextColor(15, 23, 42);
-      doc.text('30-Day Action Implementation Matrix', 15, 28);
-      
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9);
-      doc.setTextColor(100, 116, 139);
-      doc.text('Print this sheet and verify completion of all 10 non-negotiable milestones:', 15, 34);
-      
-      doc.setDrawColor(16, 185, 129);
-      doc.setLineWidth(1);
-      doc.line(15, 38, 195, 38);
-      
-      let cyCheck = 44;
-      full.checklist.forEach((item, idx) => {
-        doc.setFillColor(255, 255, 255);
-        doc.roundedRect(15, cyCheck, 180, 20, 2, 2, 'F');
-        doc.setDrawColor(226, 232, 240);
-        doc.roundedRect(15, cyCheck, 180, 20, 2, 2, 'S');
-        
-        doc.setDrawColor(100, 116, 139);
-        doc.setLineWidth(0.8);
-        doc.rect(20, cyCheck + 5, 6, 6, 'S');
-        
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9.5);
-        doc.setTextColor(16, 185, 129);
-        doc.text(`Milestone 0${idx+1}:`, 30, cyCheck + 9.5);
-        
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(9);
-        doc.setTextColor(30, 41, 59);
-        const itemLines = doc.splitTextToSize(item, 136);
-        doc.text(itemLines, 56, cyCheck + 9.5);
-        
-        cyCheck += 23;
-      });
-
-      // PAGE 9: THE 10 GOLDEN RULES
-      doc.addPage();
-      addHeaderFooter(9, 'The 10 Unshakeable Golden Rules');
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(16);
-      doc.setTextColor(15, 23, 42);
-      doc.text('Epilogue: The 10 Unshakeable Golden Rules', 15, 28);
-      
-      doc.setDrawColor(147, 51, 234);
-      doc.setLineWidth(1);
-      doc.line(15, 32, 195, 32);
-      
-      let ruleY = 40;
-      full.rules.forEach((rule, idx) => {
-        doc.setFillColor(250, 245, 255);
-        doc.roundedRect(15, ruleY, 180, 20, 2, 2, 'F');
-        doc.setDrawColor(233, 213, 255);
-        doc.roundedRect(15, ruleY, 180, 20, 2, 2, 'S');
-        
-        doc.setFillColor(147, 51, 234);
-        doc.circle(23, ruleY + 10, 5, 'F');
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(8.5);
-        doc.setTextColor(255, 255, 255);
-        doc.text(`${idx+1}`, 23, ruleY + 12.5, {align:'center'});
-        
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(9.2);
-        doc.setTextColor(59, 7, 100);
-        const rLines = doc.splitTextToSize(rule, 160);
-        doc.text(rLines, 32, ruleY + 9);
-        
-        ruleY += 23;
-      });
-
-      // PAGE 10: BACK COVER
-      doc.addPage();
-      doc.setFillColor(11, 19, 43);
-      doc.rect(0, 0, 210, 297, 'F');
-      
-      doc.setDrawColor(245, 158, 11);
-      doc.setLineWidth(1.8);
-      doc.roundedRect(10, 10, 190, 277, 4, 4, 'S');
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(14);
-      doc.setTextColor(245, 158, 11);
-      doc.text('THEBHOM.IN  •  OPEN KNOWLEDGE REPOSITORY', 105, 30, {align:'center'});
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(20);
-      doc.setTextColor(255, 255, 255);
-      doc.text(b.title, 105, 55, {align:'center'});
-      
-      doc.setFont('helvetica', 'italic');
-      doc.setFontSize(13);
-      doc.setTextColor(203, 213, 225);
-      doc.text(`By ${b.author}`, 105, 66, {align:'center'});
-      
-      doc.setFillColor(15, 23, 42);
-      doc.roundedRect(20, 80, 170, 75, 4, 4, 'F');
-      doc.setDrawColor(51, 65, 85);
-      doc.roundedRect(20, 80, 170, 75, 4, 4, 'S');
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(11);
-      doc.setTextColor(245, 158, 11);
-      doc.text('ABOUT THIS COMPLETE EDITION', 28, 92);
-      
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9.5);
-      doc.setTextColor(226, 232, 240);
-      const blurb = `This edition presents the comprehensive operating philosophy, frameworks, and actionable execution checklists from "${b.title}". Curated and verified by TheBhom Editorial Collective, it empowers readers to bridge the gap between passive reading and deliberate, measurable transformation. Distributed free of charge to promote global access to transformative ideas.`;
-      doc.text(doc.splitTextToSize(blurb, 154), 28, 102);
-      
-      doc.setFillColor(15, 23, 42);
-      doc.roundedRect(20, 165, 170, 60, 4, 4, 'F');
-      doc.setDrawColor(51, 65, 85);
-      doc.roundedRect(20, 165, 170, 60, 4, 4, 'S');
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(10.5);
-      doc.setTextColor(34, 197, 94);
-      doc.text('CRITICAL ACCLAIM & COMMUNITY REVIEWS', 28, 176);
-      
-      const revs = [
-        `"An indispensable playbook for anyone seeking to eliminate superficial noise and master high-leverage habits." — The Global Review`,
-        `"The 30-Day implementation matrix alone is worth weeks of executive coaching. Clear, potent, and actionable." — Tech Insights`,
-        `"A rare masterpiece that transforms complex psychology into simple, daily non-negotiable systems." — Modern Reader`
-      ];
-      let rY = 186;
-      revs.forEach(rv => {
-        doc.setFont('helvetica', 'italic');
-        doc.setFontSize(8.5);
-        doc.setTextColor(203, 213, 225);
-        doc.text(doc.splitTextToSize(rv, 154), 28, rY);
-        rY += 13;
-      });
-      
-      doc.setDrawColor(255, 255, 255);
-      doc.setLineWidth(1);
-      for(let bx = 70; bx <= 140; bx += 2.5){
-        if(Math.cos(bx * 9) > -0.2){
-          doc.line(bx, 244, bx, 256);
-        }
-      }
-      doc.setFont('courier', 'normal');
-      doc.setFontSize(7.5);
-      doc.setTextColor(148, 163, 184);
-      doc.text('EDITION CODE: BHOM-EBOOK-2026-COMPLETE-10PG', 105, 262, {align:'center'});
-      
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(10);
-      doc.setTextColor(34, 197, 94);
-      doc.text('100% FREE DIGITAL EDITION  •  HTTPS://THEBHOM.IN', 105, 272, {align:'center'});
-
-      const pdfBlob = doc.output('blob');
-      triggerBrowserDownload(pdfBlob, `TheBhom_${b.title.replace(/[^a-zA-Z0-9]/g,'_')}_Full_10Pages.pdf`);
-      toast(`🎉 "${b.title}" — पूरा 10-Page Master PDF download हो गया!`);
-      return;
-    }
-  } catch(err) {
-    console.warn('jsPDF Generation Error:', err);
-  }
-
-  const full = getBookFullContent(b);
-  const fallbackText = `THEBHOM.IN — FULL 10-PAGE UNABRIDGED EDITION
-${b.title.toUpperCase()}
-By ${b.author}
-
-${full.preface}
-
-CH 1: ${full.ch1_title}
-${full.ch1}
-
-CH 2: ${full.ch2_title}
-${full.ch2}
-
-CH 3: ${full.ch3_title}
-${full.ch3}
-
-CH 4: ${full.ch4_title}
-${full.ch4}
-
-CH 5: ${full.ch5_title}
-${full.ch5}
-
-CHECKLIST:
-${full.checklist.join('\n')}
-
-RULES:
-${full.rules.join('\n')}`;
-  const blob = new Blob([fallbackText], {type: 'text/plain;charset=utf-8'});
-  triggerBrowserDownload(blob, `TheBhom_${b.title.replace(/[^a-zA-Z0-9]/g,'_')}_Complete.txt`);
-  toast(`✅ "${b.title}" Complete Book download शुरू हो गया!`);
+function dlBook(id) {
+  triggerFormatDownload(id, "pdf");
 }
 
 // ============================================================
@@ -2420,6 +2301,27 @@ let _isProcessingCoverQueue = false;
 
 // Curated verified authentic cover images (Open Library -L.jpg & verified public archives)
 const KNOWN_REAL_COVERS = {
+  // Global Bestsellers & Self-Help
+  'atomic habits': 'https://covers.openlibrary.org/b/id/12843460-L.jpg',
+  'the psychology of money': 'https://covers.openlibrary.org/b/id/10574744-L.jpg',
+  'psychology of money': 'https://covers.openlibrary.org/b/id/10574744-L.jpg',
+  'rich dad poor dad': 'https://covers.openlibrary.org/b/id/12717805-L.jpg',
+  'think and grow rich': 'https://covers.openlibrary.org/b/id/12693892-L.jpg',
+  'the 48 laws of power': 'https://covers.openlibrary.org/b/id/12608405-L.jpg',
+  '48 laws of power': 'https://covers.openlibrary.org/b/id/12608405-L.jpg',
+  'the alchemist': 'https://covers.openlibrary.org/b/id/12836270-L.jpg',
+  'things we never got over': 'https://archive.org/services/img/things-we-never-got-over-by-lucy-score',
+  'it ends with us': 'https://archive.org/services/img/colleen-hoover-it-ends-with-us-2020-simon-schuster',
+  'the subtle art of not giving a f*ck': 'https://archive.org/services/img/the-subtle-art-of-not-giving-a-fck',
+  'deep work': 'https://archive.org/services/img/deep-work-by-carl-newport',
+  'cant hurt me': 'https://archive.org/services/img/cant-hurt-me-by-david-goggins',
+  "can't hurt me": 'https://archive.org/services/img/cant-hurt-me-by-david-goggins',
+  'zero to one': 'https://archive.org/services/img/zero-to-one-peter-thiel-and-blake-masters',
+  'do epic shit': 'https://archive.org/services/img/do-epic-shit-pdfdrive_202607',
+  'indian polity': 'https://archive.org/services/img/oceanof-pdf.com-indian-polity-7th-edition-m-laxmikanth',
+  'a brief history of modern india': 'https://archive.org/services/img/a-brief-history-of-modern-india-spectrum-2019',
+  'yatharth geeta': 'https://archive.org/services/img/YatharthGeetaHindi',
+
   // Bengali Classics (বাংলা কালজয়ী সাহিত্য - Exact Title Matches Only)
   'gitanjali': 'https://covers.openlibrary.org/b/id/8246100-L.jpg',
   'devdas': 'https://covers.openlibrary.org/b/id/11429192-L.jpg',
@@ -2845,6 +2747,14 @@ function buildBookCard(b) {
       <span class="b-stars">⭐⭐⭐⭐⭐ ${b.rating ? b.rating.toFixed(1) : '4.9'}</span>
       <span class="b-dl-count">⬇️ ${fmtNum(b.downloads)} dl</span>
     </div>
+    <div class="b-card-actions">
+      <button class="b-action-btn read" onclick="event.stopPropagation();handleReadBook('${b.id}')" title="Read Online Free">
+        <span>📖</span> Read
+      </button>
+      <button class="b-action-btn download" onclick="event.stopPropagation();triggerFormatDownload('${b.id}','${b.pg_id ? 'epub' : 'pdf'}')" title="Instant Download">
+        <span>⬇️</span> ${b.pg_id ? 'EPUB' : 'PDF'}
+      </button>
+    </div>
   </div>
 </div>`;
 }
@@ -3046,35 +2956,32 @@ function triggerFormatDownload(id, fmt, url) {
   if (!b) b = liveApiBooks.find(x => x.id === id);
   if (!b) return;
 
-  const isCurated = BOOKS.some(x => x.id === b.id);
   const safeFilename = `TheBhom_${(b.title || 'Book').replace(/[^a-zA-Z0-9]/g, '_')}`;
 
   if (fmt === 'pdf') {
-    if (isCurated) {
-      dlBook(id);
-    } else if (b.rep_id) {
-      toast(`⬇️ "${b.title}" (राष्ट्रीय ई-पुस्तकालय) PDF download शुरू हो रहा है...`);
-      const targetUrl = url || (b.formats && b.formats.pdf) || `/api/ebooks?download=pdf&rep_id=${b.rep_id}`;
-      triggerBrowserDownload(targetUrl, `${safeFilename}.pdf`);
+    if (url) {
+      toast(`⬇️ "${b.title}" PDF download शुरू हो रहा है...`);
+      triggerBrowserDownload(url, `${safeFilename}.pdf`);
+    } else if (b.formats && b.formats.pdf) {
+      toast(`⬇️ "${b.title}" PDF download शुरू हो रहा है...`);
+      triggerBrowserDownload(b.formats.pdf, `${safeFilename}.pdf`);
     } else if (b.ia_id) {
       toast(`⬇️ "${b.title}" PDF download शुरू हो रहा है...`);
-      const targetUrl = url || `/api/ebooks?download=pdf&ia_id=${b.ia_id}`;
+      const targetUrl = `/api/ebooks?download=pdf&ia_id=${encodeURIComponent(b.ia_id)}`;
+      triggerBrowserDownload(targetUrl, `${safeFilename}.pdf`);
+    } else if (b.rep_id) {
+      toast(`⬇️ "${b.title}" (राष्ट्रीय ई-पुस्तकालय) PDF download शुरू हो रहा है...`);
+      const targetUrl = `/api/ebooks?download=pdf&rep_id=${encodeURIComponent(b.rep_id)}`;
       triggerBrowserDownload(targetUrl, `${safeFilename}.pdf`);
     } else if (b.pg_id) {
       toast(`ℹ️ "${b.title}" का आधिकारिक E-Book (EPUB) download शुरू हो रहा है...`);
       const targetUrl = (b.formats && b.formats.epub) || `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images`;
       triggerBrowserDownload(targetUrl, `${safeFilename}.epub`);
     } else {
-      const targetUrl = url || (b.formats && b.formats.pdf);
-      if (targetUrl) {
-        toast(`⬇️ "${b.title}" PDF download शुरू हो रहा है...`);
-        triggerBrowserDownload(targetUrl, `${safeFilename}.pdf`);
-      } else {
-        toast(`⚠️ इस किताब का डायरेक्ट PDF उपलब्ध नहीं है, कृपया 'Read Now' में पढ़ें।`);
-      }
+      toast(`⚠️ इस किताब का डायरेक्ट PDF उपलब्ध नहीं है, कृपया 'Read Now' में पढ़ें।`);
     }
   } else if (fmt === 'epub') {
-    const targetUrl = url || (b.formats && b.formats.epub) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images` : (b.ia_id ? `/api/ebooks?download=epub&ia_id=${b.ia_id}` : (b.rep_id ? `/api/ebooks?download=epub&rep_id=${b.rep_id}` : '')));
+    const targetUrl = url || (b.formats && b.formats.epub) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.epub3.images` : (b.ia_id ? `/api/ebooks?download=epub&ia_id=${encodeURIComponent(b.ia_id)}` : (b.rep_id ? `/api/ebooks?download=epub&rep_id=${encodeURIComponent(b.rep_id)}` : '')));
     if (targetUrl) {
       toast(`⬇️ "${b.title}" EPUB download शुरू हो रहा है...`);
       triggerBrowserDownload(targetUrl, `${safeFilename}.epub`);
@@ -3090,16 +2997,12 @@ function triggerFormatDownload(id, fmt, url) {
       toast(`⚠️ Kindle MOBI उपलब्ध नहीं है, कृपया EPUB या PDF प्रारूप डाउनलोड करें।`);
     }
   } else if (fmt === 'txt') {
-    if (isCurated) {
-      dlBook(id);
+    const targetUrl = url || (b.formats && b.formats.txt) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.txt.utf-8` : (b.ia_id ? `/api/ebooks?download=txt&ia_id=${encodeURIComponent(b.ia_id)}` : ''));
+    if (targetUrl) {
+      toast(`⬇️ "${b.title}" Plain Text download शुरू हो रहा है...`);
+      triggerBrowserDownload(targetUrl, `${safeFilename}.txt`);
     } else {
-      const targetUrl = url || (b.formats && b.formats.txt) || (b.pg_id ? `https://www.gutenberg.org/ebooks/${b.pg_id}.txt.utf-8` : `/api/ebooks?download=txt&ia_id=${b.ia_id}`);
-      if (targetUrl) {
-        toast(`⬇️ "${b.title}" Plain Text download शुरू हो रहा है...`);
-        triggerBrowserDownload(targetUrl, `${safeFilename}.txt`);
-      } else {
-        toast(`⚠️ Plain Text उपलब्ध नहीं है, कृपया PDF प्रारूप डाउनलोड करें।`);
-      }
+      toast(`⚠️ Plain Text उपलब्ध नहीं है, कृपया PDF प्रारूप डाउनलोड करें।`);
     }
   }
 }
@@ -3164,33 +3067,28 @@ function dismissResumeReading() {
 
 function handleReadBook(id) {
   let b = BOOKS.find(x => x.id === id);
-  if (b) {
-    saveLastReadBook(b);
-    openReader(id);
-    return;
-  }
-  b = liveApiBooks.find(x => x.id === id);
-  if (b) {
-    saveLastReadBook(b);
-    let readUrl = '';
-    if (b.ia_id) {
-      readUrl = `/api/ebooks?download=pdf&view=1&ia_id=${encodeURIComponent(b.ia_id)}`;
-    } else if (b.rep_id) {
-      readUrl = `/api/ebooks?download=pdf&view=1&rep_id=${encodeURIComponent(b.rep_id)}`;
-    } else if (b.pg_id) {
-      readUrl = `https://www.gutenberg.org/cache/epub/${b.pg_id}/pg${b.pg_id}-images.html`;
-    } else if (b.formats && b.formats.read_online && (b.formats.read_online.startsWith('/api/ebooks') || b.formats.read_online.startsWith('https://thebhom.in/api/ebooks'))) {
-      readUrl = b.formats.read_online;
-    } else if (b.formats && b.formats.pdf && (b.formats.pdf.startsWith('/api/ebooks') || b.formats.pdf.startsWith('https://thebhom.in/api/ebooks'))) {
-      readUrl = b.formats.pdf + (b.formats.pdf.includes('?') ? '&view=1' : '?view=1');
-    }
+  if (!b) b = liveApiBooks.find(x => x.id === id);
+  if (!b) return;
 
-    if (readUrl) {
-      openOnlineReader(b, readUrl);
-    } else {
-      // Direct Native Reader: 100% in-site, zero external redirect, zero captcha!
-      openReader(b.id);
-    }
+  saveLastReadBook(b);
+  let readUrl = '';
+  if (b.ia_id) {
+    readUrl = `/api/ebooks?download=pdf&view=1&ia_id=${encodeURIComponent(b.ia_id)}`;
+  } else if (b.rep_id) {
+    readUrl = `/api/ebooks?download=pdf&view=1&rep_id=${encodeURIComponent(b.rep_id)}`;
+  } else if (b.pg_id) {
+    readUrl = `https://www.gutenberg.org/cache/epub/${b.pg_id}/pg${b.pg_id}-images.html`;
+  } else if (b.formats && b.formats.read_online && (b.formats.read_online.startsWith('/api/ebooks') || b.formats.read_online.startsWith('https://thebhom.in/api/ebooks') || b.formats.read_online.includes('gutenberg.org'))) {
+    readUrl = b.formats.read_online;
+  } else if (b.formats && b.formats.pdf && (b.formats.pdf.startsWith('/api/ebooks') || b.formats.pdf.startsWith('https://thebhom.in/api/ebooks'))) {
+    readUrl = b.formats.pdf + (b.formats.pdf.includes('?') ? '&view=1' : '?view=1');
+  }
+
+  if (readUrl) {
+    openOnlineReader(b, readUrl);
+  } else {
+    openDownloadModal(b.id);
+    toast(`📖 Please select a format to read or download "${b.title}"`);
   }
 }
 
@@ -3268,121 +3166,7 @@ function toggleReaderFullscreen() {
 }
 
 function openReader(id) {
-  const b = BOOKS.find(x => x.id === id) || liveApiBooks.find(x => x.id === id);
-  if (!b) return;
-  const oldModal = document.getElementById('readerModal');
-  if (oldModal) oldModal.remove();
-
-  const full = getBookFullContent(b);
-  const isFav = window.isFavorite ? window.isFavorite(b.id) : false;
-  const safeTitle = (b.title || 'Book').replace(/'/g, "\'");
-
-  const modal = document.createElement('div');
-  modal.className = 'reader-modal';
-  modal.id = 'readerModal';
-  modal.innerHTML = `
-    <div class="reader-hdr" style="background:linear-gradient(90deg,rgba(229,50,45,0.15),rgba(245,158,11,0.15));flex-wrap:wrap;gap:.5rem;">
-      <div style="display:flex;align-items:center;gap:.75rem;">
-        <div class="b-emoji" style="font-size:1.8rem">${b.emoji || '📚'}</div>
-        <div>
-          <div style="font-weight:800;font-size:1.05rem;color:#f8fafc">${b.title}</div>
-          <div style="font-size:.78rem;color:#94a3b8">${b.author} • Complete 10-Page Master Edition</div>
-        </div>
-      </div>
-      <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
-        <div class="ch-nav-pills" style="display:flex;gap:4px;overflow-x:auto;max-width:320px;padding:2px;">
-          <button class="ch-pill" onclick="jumpToSec('sec-toc')">📑 Index</button>
-          <button class="ch-pill" onclick="jumpToSec('sec-ch1')">Ch 1</button>
-          <button class="ch-pill" onclick="jumpToSec('sec-ch2')">Ch 2</button>
-          <button class="ch-pill" onclick="jumpToSec('sec-ch3')">Ch 3</button>
-          <button class="ch-pill" onclick="jumpToSec('sec-ch4')">Ch 4</button>
-          <button class="ch-pill" onclick="jumpToSec('sec-ch5')">Ch 5</button>
-          <button class="ch-pill" onclick="jumpToSec('sec-check')">✅ Matrix</button>
-          <button class="ch-pill" onclick="jumpToSec('sec-rules')">⭐ 10 Rules</button>
-        </div>
-
-        <div style="display:flex;align-items:center;gap:4px;border-left:1px solid rgba(255,255,255,0.15);padding-left:6px;">
-          <button class="ch-pill" onclick="setReaderTheme('light')">☀️</button>
-          <button class="ch-pill" onclick="setReaderTheme('sepia')">📜</button>
-          <button class="ch-pill" onclick="setReaderTheme('dark')">🌙</button>
-          <button class="ch-pill" onclick="setReaderTheme('oled')">⬛</button>
-          <button class="ch-pill" onclick="adjustFontSize(-1)">A-</button>
-          <button class="ch-pill" onclick="adjustFontSize(1)">A+</button>
-          <button class="ch-pill" id="speechToggleBtn" onclick="toggleBookSpeech('${b.id}')">🎙️ Listen</button>
-          <button class="ch-pill" style="background:#e5322d;border-color:#e5322d;color:#fff;" onclick="dlBook('${b.id}')">⬇️ Download PDF</button>
-          <button class="ch-pill" onclick="stopBookSpeech();document.getElementById('readerModal').remove()">✕</button>
-        </div>
-      </div>
-    </div>
-    
-    <div class="reader-body">
-      <div class="reader-content">
-        <div class="book-page theme-light">
-          <div style="text-align:center;font-size:3.2rem;margin-bottom:1rem;">${b.emoji || '📚'}</div>
-          <h1>${b.title}</h1>
-          <h2>By ${b.author}</h2>
-          <div style="text-align:center;color:#e5322d;font-weight:700;font-size:0.85rem;margin-bottom:2rem;">
-            NATIONAL BESTSELLER • 100% UNABRIDGED MASTER EDITION
-          </div>
-
-          <div id="sec-toc" style="background:rgba(0,0,0,0.03);padding:1.5rem;border-radius:12px;margin-bottom:2.5rem;border:1px solid rgba(0,0,0,0.08);">
-            <strong style="display:block;font-size:1.1rem;margin-bottom:.8rem;color:#e5322d;">📑 Volume Table of Contents:</strong>
-            <ol style="margin-left:1.5rem;line-height:2;font-size:0.95rem;">
-              <li><strong>${full.ch1_title}</strong></li>
-              <li><strong>${full.ch2_title}</strong></li>
-              <li><strong>${full.ch3_title}</strong></li>
-              <li><strong>${full.ch4_title}</strong></li>
-              <li><strong>${full.ch5_title}</strong></li>
-              <li><strong>30-Day Implementation Checklist & Tracker</strong></li>
-              <li><strong>The 10 Unshakeable Golden Rules</strong></li>
-            </ol>
-          </div>
-
-          <div class="quote">
-            <strong>Executive Preface:</strong><br>${full.preface}
-          </div>
-
-          <div id="sec-ch1" class="chapter">${full.ch1_title}</div>
-          ${full.ch1.split('\n\n').map(p => `<p>${p}</p>`).join('')}
-          <div class="quote">${full.quote1}</div>
-
-          <div id="sec-ch2" class="chapter">${full.ch2_title}</div>
-          ${full.ch2.split('\n\n').map(p => `<p>${p}</p>`).join('')}
-
-          <div id="sec-ch3" class="chapter">${full.ch3_title}</div>
-          ${full.ch3.split('\n\n').map(p => `<p>${p}</p>`).join('')}
-          <div class="quote">${full.quote2}</div>
-
-          <div id="sec-ch4" class="chapter">${full.ch4_title}</div>
-          ${full.ch4.split('\n\n').map(p => `<p>${p}</p>`).join('')}
-
-          <div id="sec-ch5" class="chapter">${full.ch5_title}</div>
-          ${full.ch5.split('\n\n').map(p => `<p>${p}</p>`).join('')}
-
-          <div id="sec-check" class="chapter">30-Day Action Implementation Matrix</div>
-          ${full.checklist.map((c, i) => `
-            <div class="checklist-item">
-              <span style="color:#e5322d;font-weight:800;">[${i + 1}]</span>
-              <span>${c}</span>
-            </div>
-          `).join('')}
-
-          <div id="sec-rules" class="chapter">The 10 Golden Rules for Compounding Success</div>
-          ${full.rules.map((r, i) => `
-            <div class="checklist-item">
-              <span style="color:#f59e0b;font-weight:800;">⭐ Rule ${i + 1}:</span>
-              <span>${r}</span>
-            </div>
-          `).join('')}
-
-          <div style="text-align:center;padding:3rem 1rem 1rem;color:var(--text-muted);font-size:0.85rem;border-top:1px solid rgba(0,0,0,0.1);margin-top:3rem;">
-            © 2026 TheBhom.in — Free Open Knowledge Edition for Global Readers.
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(modal);
+  handleReadBook(id);
 }
 
 function render() {
@@ -3549,10 +3333,9 @@ function toggleBookSpeech(bookId) {
     return;
   }
 
-  const b = BOOKS.find(x => x.id === bookId);
+  const b = BOOKS.find(x => x.id === bookId) || liveApiBooks.find(x => x.id === bookId);
   if (!b) return;
-  const full = getBookFullContent(b);
-  const textToRead = `${b.title}. By ${b.author}. ${full.preface}. Chapter 1: ${full.ch1_title}. ${full.ch1}`;
+  const textToRead = `${b.title}. By ${b.author}. ${b.desc || b.summary || 'Enjoy reading this authentic book on TheBhom digital library.'}`;
   window.speechSynthesis.cancel();
 
   const utter = new SpeechSynthesisUtterance(textToRead);
