@@ -209,9 +209,9 @@ function renderHeader(activePage=''){
   return `
 <div class="scroll-prog" id="sp"></div>
 <header class="hdr">
-  <a href="${base}index.html" class="logo" title="ImgPDF Tools">
-    <div class="logo-box" style="background:#e5322d;border-radius:11px;color:#fff;font-weight:900;">IP</div>
-    <span class="logo-txt">Img<span class="brand-accent" style="color:#e5322d;">PDF</span></span>
+  <a href="${base}index.html" class="logo" title="TheBhom — Free Digital Content & Web Tools">
+    <div class="logo-box" style="background:linear-gradient(135deg, #e11d48, #be123c);border-radius:11px;color:#fff;font-weight:900;">TB</div>
+    <span class="logo-txt">The<span class="brand-accent" style="color:#e11d48;">Bhom</span></span>
   </a>
   <nav class="hdr-nav-container">
     <ul class="hdr-nav">
@@ -327,9 +327,9 @@ function openAuthModal(mode = 'login') {
       <div style="background:var(--card, #ffffff);border:1px solid rgba(229,231,235,0.8);border-radius:20px;max-width:400px;width:100%;padding:26px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);position:relative;" onclick="event.stopPropagation()">
         <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:18px;color:#6b7280;cursor:pointer;line-height:1;padding:4px 8px;border-radius:6px;" title="Close">✕</button>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
-          <div style="width:38px;height:38px;border-radius:10px;background:#e5322d;color:#fff;display:grid;place-items:center;font-weight:900;font-size:16px;">IP</div>
+          <div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg, #e11d48, #be123c);color:#fff;display:grid;place-items:center;font-weight:900;font-size:16px;">TB</div>
           <div>
-            <h3 style="margin:0;font-size:1.15rem;font-weight:800;color:var(--text, #111827);">ImgPDF Account</h3>
+            <h3 style="margin:0;font-size:1.15rem;font-weight:800;color:var(--text, #111827);">TheBhom Account</h3>
             <p style="margin:2px 0 0;font-size:0.8rem;color:#6b7280;">Sign in to sync your tools & Pro plan</p>
           </div>
         </div>
@@ -525,10 +525,10 @@ function renderFooter(){
 
     <div class="footer-bottom" style="border-top:1px solid #e5e7eb;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.85rem;color:#6b7280;">
       <div style="display:flex;align-items:center;gap:8px;">
-        <div style="width:28px;height:28px;border-radius:8px;background:#e5322d;color:#fff;display:grid;place-items:center;font-weight:900;font-size:0.85rem;">IP</div>
-        <span style="font-weight:700;color:#111827;">ImgPDF</span>
+        <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg, #e11d48, #be123c);color:#fff;display:grid;place-items:center;font-weight:900;font-size:0.85rem;">TB</div>
+        <span style="font-weight:700;color:#111827;">TheBhom</span>
       </div>
-      <div>&copy; ${new Date().getFullYear()} ImgPDF. All rights reserved.</div>
+      <div>&copy; ${new Date().getFullYear()} TheBhom. All rights reserved.</div>
       <div style="font-size:0.8rem;color:#9ca3af;">🔒 Uploaded files are automatically deleted after 24 hours.</div>
     </div>
   </div>
