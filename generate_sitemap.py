@@ -5,7 +5,7 @@ Runs during GitHub Actions deploy."""
 import datetime
 
 today = datetime.date.today().isoformat()
-base = "https://thebhom.in"
+base = "https://www.thebhom.in"
 
 lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',

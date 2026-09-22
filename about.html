@@ -4,10 +4,32 @@
   <script>(function(){try{const t=localStorage.getItem('thebhom_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta name="google-adsense-account" content="ca-pub-4674566886677472">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHVNZWFVQV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GHVNZWFVQV');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us • TheBhom Network</title>
-  <meta name="description" content="Learn about TheBhom and our suite of AI video production, editing, neural voice generation, and media utility tools.">
+  <title>About TheBhom • The Free Digital Library & Unified Web Utilities Hub</title>
+  <meta name="description" content="Discover TheBhom's mission: Organizing the internet's best free tools, digital books, periodicals, templates, and creative assets into one unified, clean, lightning-fast platform.">
+  <link rel="canonical" href="https://www.thebhom.in/about.html">
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.thebhom.in/about.html">
+  <meta property="og:title" content="About TheBhom • The Unified Free Digital Utilities Hub">
+  <meta property="og:description" content="The internet has immense free knowledge and utilities scattered everywhere. TheBhom brings them together into one synchronized, high-speed, clean platform.">
+  <meta property="og:image" content="https://www.thebhom.in/icon-512.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About TheBhom • The Unified Free Digital Utilities Hub">
+  <meta name="twitter:description" content="Organizing the free web into a clean, synchronized, zero-paywall directory.">
+  <meta name="twitter:image" content="https://www.thebhom.in/icon-512.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,7 +50,7 @@
       --muted: #94a3b8;
       --cyan: #38bdf8;
       --border: rgba(56, 189, 248, 0.18);
-      --heading-color: var(--heading-color, #0f172a);
+      --heading-color: #f1f5f9;
     }
     [data-theme="purple"] {
       --bg: #0f0a1c;
@@ -37,7 +59,7 @@
       --muted: #c4b5fd;
       --cyan: #a855f7;
       --border: rgba(168, 85, 247, 0.22);
-      --heading-color: var(--heading-color, #0f172a);
+      --heading-color: #f8fafc;
     }
     [data-theme="dark"] {
       --bg: #0b0f19;
@@ -46,65 +68,133 @@
       --muted: #94a3b8;
       --cyan: #00f2fe;
       --border: rgba(255, 255, 255, 0.08);
-      --heading-color: var(--heading-color, #0f172a);
+      --heading-color: #f8fafc;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      line-height: 1.7;
+      line-height: 1.75;
       padding: 40px 20px;
     }
     .container {
-      max-width: 860px;
+      max-width: 920px;
       margin: 0 auto;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 48px;
+      border-radius: 24px;
+      padding: 52px;
+      box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05);
     }
-    h1 { font-size: 32px; font-weight: 800; color: var(--heading-color, #0f172a); margin-bottom: 8px; }
-    .tagline { color: var(--cyan); font-size: 15px; margin-bottom: 28px; font-weight: 600; }
-    h2 { font-size: 20px; color: var(--heading-color, #0f172a); margin: 28px 0 12px; }
-    p { color: var(--muted); font-size: 15px; margin-bottom: 18px; }
-    .nav-back { display: inline-block; margin-bottom: 24px; color: var(--muted); font-size: 14px; text-decoration: none; }
+    h1 { font-size: 34px; font-weight: 800; color: var(--heading-color); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .tagline { color: var(--cyan); font-size: 16px; margin-bottom: 30px; font-weight: 700; }
+    h2 { font-size: 22px; font-weight: 700; color: var(--heading-color); margin: 36px 0 14px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    h3 { font-size: 18px; font-weight: 700; color: var(--heading-color); margin: 20px 0 8px; }
+    p { color: var(--muted); font-size: 15.5px; margin-bottom: 20px; }
+    ul { list-style: none; padding: 0; margin-bottom: 24px; }
+    ul li { position: relative; padding-left: 28px; margin-bottom: 12px; color: var(--muted); font-size: 15px; }
+    ul li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan); font-weight: 800; }
+    .nav-back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--muted); font-size: 14px; text-decoration: none; font-weight: 600; }
     .nav-back:hover { color: var(--cyan); }
-    .feature-pill {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(0, 242, 254, 0.1);
-      border: 1px solid rgba(0, 242, 254, 0.2);
-      border-radius: 8px;
-      color: var(--cyan);
-      font-size: 13px;
-      margin-right: 8px;
-      margin-bottom: 8px;
+    .grid-hub {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+    .hub-box {
+      background: rgba(2, 132, 199, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .hub-box h4 { font-size: 16px; font-weight: 700; color: var(--heading-color); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .hub-box p { font-size: 13.5px; margin-bottom: 0; }
+    .quote-box {
+      background: rgba(2, 132, 199, 0.06);
+      border-left: 4px solid var(--cyan);
+      border-radius: 0 16px 16px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      font-style: italic;
+      color: var(--text);
+    }
+    @media (max-width: 640px) {
+      .container { padding: 28px 20px; border-radius: 16px; }
+      h1 { font-size: 26px; }
     }
   </style>
   <link rel="stylesheet" href="shared.css">
 </head>
 <body>
   <div class="container">
-    <a href="/" class="nav-back">← Back to Home</a>
+    <a href="/" class="nav-back">← Back to TheBhom Home</a>
     <h1>About TheBhom</h1>
-    <div class="tagline">Next-Generation AI Media Production, Creator Tools & Utility Network</div>
+    <div class="tagline">Organizing the World's Best Free Internet Resources in One Unified, Clean Platform</div>
 
-    <p><strong>TheBhom</strong> is an innovative online technology and media ecosystem designed for digital creators, video editors, and consumers worldwide. Our mission is to democratize high-end video production tools, audio synthesis, and multimedia utilities directly through the web browser.</p>
-
-    <h2>Our Core Capabilities</h2>
-    <div style="margin-bottom: 24px;">
-      <span class="feature-pill">⚡ Universal Video Downloader & Trimmer</span>
-      <span class="feature-pill">🎬 3D Animation & Cartoon Story Engine</span>
-      <span class="feature-pill">🎙️ Neural Voiceover & Multilingual TTS</span>
-      <span class="feature-pill">🎞️ Atomic Beat-Synced Cinema Breakdowns</span>
+    <div class="quote-box">
+      "The internet has virtually everything available for free—but it is scattered across millions of clunky, ad-cluttered websites. TheBhom is created to organize, categorize, synchronize, and present every authentic free utility and resource under one fast, beautiful, and honest roof."
     </div>
 
-    <h2>Committed to Quality and User Experience</h2>
-    <p>We pride ourselves on offering frictionless, modern, and lightning-fast user interfaces without cumbersome sign-up walls or bloated trackers. Every tool in our ecosystem is engineered with performance, accessibility, and high visual standards in mind.</p>
+    <h2>Our Core Purpose & Philosophy</h2>
+    <p>Every single day, students, creators, developers, designers, and home users spend hours searching the web for free tools, study material, wallpapers, and templates. Often, they encounter paywalls, deceptive download buttons, aggressive popups, or expired links.</p>
+    <p><strong>TheBhom</strong> solves this fundamental fragmentation. We curate and engineer high-quality browser-based utilities, open-access knowledge archives, and creative assets into synchronized, intuitive categories that work instantly on desktop, tablet, and mobile devices—with zero hidden costs and zero required signups.</p>
 
-    <h2>Connect With Us</h2>
-    <p>We are constantly expanding our toolset and welcoming feedback from our creator community. For collaboration and inquiries, visit our <a href="/contact.html" style="color: var(--cyan);">Contact Page</a> or email us at <a href="mailto:contact@thebhom.in" style="color: var(--cyan);">contact@thebhom.in</a>.</p>
+    <h2>What You Can Find on TheBhom Today</h2>
+    <div class="grid-hub">
+      <div class="hub-box">
+        <h4>📄 ImgPDF Suite</h4>
+        <p>47+ client-side Image & PDF utilities. Compress, merge, convert, OCR, watermark, and sign documents securely in your browser.</p>
+      </div>
+      <div class="hub-box">
+        <h4>📚 E-Books & NCERT Library</h4>
+        <p>Over 1 Crore+ verified public domain, open-access, and academic books from national libraries, Internet Archive, and NCERT.</p>
+      </div>
+      <div class="hub-box">
+        <h4>📰 Periodicals & Magazines</h4>
+        <p>6,34,000+ historical and modern periodical issues with realistic 3D open-book spread flipbook reading and direct PDF download.</p>
+      </div>
+      <div class="hub-box">
+        <h4>🖼️ 4K Wallpapers</h4>
+        <p>Curated AMOLED dark mode and desktop ultra-HD backgrounds optimized for true black battery preservation.</p>
+      </div>
+      <div class="hub-box">
+        <h4>💌 Cards & Invitations</h4>
+        <p>Instant digital invitation and celebration greeting cards ready for one-tap WhatsApp and social sharing.</p>
+      </div>
+      <div class="hub-box">
+        <h4>🎨 Creative & Career Templates</h4>
+        <p>ATS-friendly resume blueprints, business card layouts, and social media media kits.</p>
+      </div>
+      <div class="hub-box">
+        <h4>📖 Editorial Knowledge Hub</h4>
+        <p>26+ comprehensive, well-researched technical guides covering design principles, PDF optimization, and productivity.</p>
+      </div>
+      <div class="hub-box">
+        <h4>⚡ Universal Video Downloader</h4>
+        <p>Streamlined, high-speed educational video previewing and clip trimming utility.</p>
+      </div>
+    </div>
+
+    <h2>Upcoming Horizon: Expanding What the Free Web Offers</h2>
+    <p>TheBhom is constantly expanding. In the coming months, our platform is actively onboarding:</p>
+    <ul>
+      <li><strong>Interactive Web Games:</strong> Zero-install, browser-native casual and educational puzzle games.</li>
+      <li><strong>Open Cultural Media & Public Cinema:</strong> Restored public domain cinema, documentaries, and community media archives.</li>
+      <li><strong>Developer & Creator Sandboxes:</strong> Fast code formatters, SVG editors, and localized audio synthesizers.</li>
+    </ul>
+
+    <h2>Strict Commitment to Authenticity & User Privacy</h2>
+    <p>We believe digital utilities should be honest and transparent:</p>
+    <ul>
+      <li><strong>100% Genuine Metrics:</strong> Every catalog count and archive figure on TheBhom is authentic and mathematically verifiable.</li>
+      <li><strong>Local Processing:</strong> Tools such as our image compressors and PDF utilities process documents directly in your browser memory whenever possible, ensuring your files never leave your device.</li>
+      <li><strong>Zero Forced Accounts:</strong> You never have to create an account or provide payment card details to access our primary suite of public tools.</li>
+    </ul>
+
+    <h2>Connect With TheBhom Team</h2>
+    <p>Have an idea for a free resource or tool we should integrate? Need technical support? Reach out directly via our <a href="/contact.html" style="color: var(--cyan); font-weight: 700;">Contact Page</a> or email us at <a href="mailto:contact@thebhom.in" style="color: var(--cyan); font-weight: 700;">contact@thebhom.in</a>.</p>
   </div>
   <script src="shared.js?v=20260914_imgpdf_v9"></script>
 </body>

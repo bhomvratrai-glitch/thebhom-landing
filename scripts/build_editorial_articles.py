@@ -50,7 +50,7 @@ def get_head(title, description, slug, category, published_date, read_time, faq_
             "image": "https://www.thebhom.in/hero.jpg",
             "author": {
                 "@type": "Person",
-                "name": "Bhomvrat Rai",
+                "name": "TheBhom",
                 "url": "https://www.thebhom.in/about.html"
             },
             "publisher": {
@@ -374,7 +374,7 @@ def get_head(title, description, slug, category, published_date, read_time, faq_
       <h1 class="art-title">{html.escape(title)}</h1>
       
       <div class="art-meta">
-        <span class="art-author">By Bhomvrat Rai</span>
+        <span class="art-author">By TheBhom</span>
         <span>•</span>
         <span>TheBhom Editorial Desk</span>
         <span>•</span>
