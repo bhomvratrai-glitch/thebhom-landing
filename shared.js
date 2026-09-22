@@ -5,7 +5,7 @@
 // Google Analytics (GA4) & Google Tag Manager (GTM)
 (function initTracking() {
   const gtmId = 'GTM-K2B22XSW';
-  const gaId = 'G-N3T6GDWBFT';
+  const gaId = 'G-GHVNZWFVQV';
 
   // 1. Google Tag Manager
   if (!window.__gtmInitialized && !document.querySelector(`script[src*="${gtmId}"]`)) {
