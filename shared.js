@@ -223,6 +223,7 @@ function renderHeader(activePage=''){
       <li><a href="${base}downloader/" class="hdr-nav-link"><span class="hdr-nav-txt">Downloader</span></a></li>
       <li><a href="${base}wallpapers.html" class="hdr-nav-link"><span class="hdr-nav-txt">Wallpapers</span></a></li>
       <li><a href="${base}ebooks.html" class="hdr-nav-link"><span class="hdr-nav-txt">E-Books</span></a></li>
+      <li><a href="${base}articles/index.html" class="hdr-nav-link ${activePage==='articles'?'active':''}"><span class="hdr-nav-txt" style="color:#0284c7;font-weight:700;">Articles</span></a></li>
     </ul>
   </nav>
   <div class="hdr-right">
@@ -255,6 +256,7 @@ function renderHeader(activePage=''){
   <a href="${base}tools/index.html#pdf" style="color:#dc2626;font-weight:700;">📄 PDF Tools</a>
   <a href="${base}tools/ai.html" style="color:#9333ea;font-weight:700;">✨ AI Tools</a>
   <a href="${base}downloader/" style="color:#0891b2;font-weight:700;">⚡ Video Downloader</a>
+  <a href="${base}articles/index.html" style="color:#0284c7;font-weight:700;">📚 Articles & Resource Guides</a>
   <a href="${base}pricing.html" style="font-weight:700;">⚡ Plans & Pricing</a>
   <a href="${base}dashboard.html">📊 User Dashboard</a>
   <a href="${base}admin/index.html">🛡️ Admin Panel</a>
@@ -506,8 +508,10 @@ function renderFooter(){
       </div>
 
       <div class="f-col">
-        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Company</h5>
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Company & Resources</h5>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="${base}articles/index.html" style="color:#0284c7;font-weight:700;text-decoration:none;font-size:0.88rem;">📚 Articles & Guides</a></li>
+          <li><a href="${base}about.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">About Us</a></li>
           <li><a href="${base}pricing.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Pricing</a></li>
           <li><a href="${base}checkout.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Checkout & UPI</a></li>
           <li><a href="${base}dashboard.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">My Dashboard</a></li>

@@ -51,6 +51,16 @@ main_pages = [
 for loc, freq, pri in main_pages:
     lines.append(f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod><changefreq>{freq}</changefreq><priority>{pri}</priority></url>")
 
+# Editorial Authority Hub & Articles
+import os
+articles_dir = "articles"
+if os.path.exists(articles_dir):
+    lines.append(f"  <url><loc>{base}/articles/</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>")
+    lines.append(f"  <url><loc>{base}/articles/index.html</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>")
+    for art_file in sorted(os.listdir(articles_dir)):
+        if art_file.endswith(".html") and art_file != "index.html":
+            lines.append(f"  <url><loc>{base}/articles/{art_file}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>")
+
 cities = [
     "delhi","mumbai","bangalore","hyderabad","ahmedabad","chennai","kolkata","pune",
     "jaipur","lucknow","kanpur","nagpur","indore","bhopal","patna","vadodara","surat",
