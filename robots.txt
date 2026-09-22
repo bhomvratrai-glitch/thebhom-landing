@@ -1,6 +1,19 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/admin
 
+Sitemap: https://www.thebhom.in/sitemap.xml
 Sitemap: https://thebhom.in/sitemap.xml

@@ -926,6 +926,17 @@ function buildCard(item, downloadFn){
 
 // ===== BULLETPROOF FILE DOWNLOADER =====
 function triggerBrowserDownload(blobOrUrl, filename) {
+  // GA4 Event Tracking
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'file_download', {
+        file_name: filename || 'unknown',
+        link_url: typeof blobOrUrl === 'string' ? blobOrUrl : 'direct_blob',
+        page_location: window.location.href
+      });
+    }
+  } catch(e) {}
+
   const a = document.createElement('a');
   a.style.display = 'none';
   let url = '';
@@ -959,6 +970,17 @@ function triggerBrowserDownload(blobOrUrl, filename) {
 
 // ===== DOWNLOAD HANDLER =====
 function handleDownload(id, type){
+  // GA4 Event Tracking
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'file_download', {
+        file_name: id,
+        file_extension: type || 'pdf',
+        page_location: window.location.href
+      });
+    }
+  } catch(e) {}
+
   showToast(`✅ "${id}" download हो रही है...`,'ok');
   // Simulate download tracking
   setTimeout(()=>showToast(`🎉 Download complete! Share करें TheBhom.in`,'ok'),2000);
@@ -1009,6 +1031,11 @@ function createContentPage(config){
     searchQ=document.getElementById('srchInput')?.value.trim()||'';
     page=1;
     render();
+    try {
+      if (searchQ && typeof window.gtag === 'function') {
+        window.gtag('event', 'search', { search_term: searchQ, page_location: window.location.href });
+      }
+    } catch(e) {}
   };
 
   // Build filter buttons
@@ -1141,9 +1168,17 @@ function openSpotlight() {
     overlay.addEventListener('click', closeSpotlight);
 
     const input = document.getElementById('spotlightInput');
+    let spotlightSearchTimer = null;
     input.addEventListener('input', () => {
       spotlightActiveIndex = 0;
       renderSpotlightResults();
+      clearTimeout(spotlightSearchTimer);
+      spotlightSearchTimer = setTimeout(() => {
+        const q = input.value.trim();
+        if (q.length >= 2 && typeof window.gtag === 'function') {
+          window.gtag('event', 'search', { search_term: q, event_label: 'omnisearch' });
+        }
+      }, 700);
     });
     input.addEventListener('keydown', (e) => {
       const resultsEl = document.getElementById('spotlightResults');
