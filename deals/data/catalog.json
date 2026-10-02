@@ -1,545 +1,21 @@
 [
   {
     "id": "deal-1",
-    "slug": "boat-airdopes-alpha-tws-earbuds",
-    "title": "boAt Airdopes Alpha True Wireless in Ear Earbuds (35H Playtime, 13mm Drivers)",
-    "brand": "boAt",
-    "category": "electronics",
-    "store": "Flipkart",
-    "originalPrice": 3490,
-    "dealPrice": 899,
-    "discount": "74% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹71.92",
-    "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/y2e1OF4",
-    "rating": 4.5,
-    "reviewsCount": 14200,
-    "badge": "⚡ BESTSELLER",
-    "isFlashDeal": true,
-    "summary": "The boAt Airdopes Alpha delivers surprisingly punchy bass and clean vocals for an earbud priced under ₹1,000, backed by a massive 35-hour combined battery life and Type-C fast charging.",
-    "specs": [
-      {
-        "label": "Driver Size",
-        "value": "13mm Dual Dynamic Drivers"
-      },
-      {
-        "label": "Battery Life",
-        "value": "Up to 35 Hours total (7 Hours per charge)"
-      },
-      {
-        "label": "Charging",
-        "value": "ASAP Charge (10 mins = 60 mins playtime)"
-      },
-      {
-        "label": "Water Resistance",
-        "value": "IPX5 Sweat & Water Resistant"
-      },
-      {
-        "label": "Bluetooth Version",
-        "value": "v5.3 with ENx Noise Cancellation for calls"
-      }
-    ],
-    "highlights": [
-      "Signature boAt sound with emphasized lower frequencies suited for Bollywood, Pop & EDM.",
-      "Pocket-friendly dual-tone matte charging case that resists fingerprints.",
-      "ENx Environmental Noise Cancellation effectively filters background street noise during calls."
-    ],
-    "pros": [
-      "Exceptional value for money under ₹900.",
-      "Reliable Bluetooth 5.3 connection with zero audio drops.",
-      "Comfortable lightweight in-ear fit for gym and daily commute."
-    ],
-    "cons": [
-      "Bass is heavy; audio purists looking for neutral acoustic response may need EQ tweaks.",
-      "No active noise cancellation (ANC), relying on passive silicone seal."
-    ],
-    "whoShouldBuy": "College students, daily commuters, and budget gym-goers who want dependable wireless earbuds with long battery life without spending ₹3,000+.",
-    "verdict": "At ₹899 with 74% off during festive price drops, boAt Airdopes Alpha is hands-down one of the safest sub-₹1,000 audio purchases available in India."
-  },
-  {
-    "id": "deal-2",
-    "slug": "fire-boltt-ninja-calling-pro-plus-smartwatch",
-    "title": "Fire-Boltt Ninja Calling Pro Plus 1.83\" HD Bluetooth Calling Smartwatch",
-    "brand": "Fire-Boltt",
-    "category": "electronics",
-    "store": "Flipkart",
-    "originalPrice": 9999,
-    "dealPrice": 1099,
-    "discount": "89% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹87.92",
-    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/eCGGM8F",
-    "rating": 4.3,
-    "reviewsCount": 8900,
-    "badge": "🔥 89% DISCOUNT",
-    "isFlashDeal": true,
-    "summary": "A large-display companion watch that brings Bluetooth calling, SpO2 health tracking, and over 120 sports modes down to an entry-level price point.",
-    "specs": [
-      {
-        "label": "Display",
-        "value": "1.83 inch HD 2.5D Curved Glass (280 Nits)"
-      },
-      {
-        "label": "Calling",
-        "value": "Bluetooth Calling with Built-in Speaker & Mic"
-      },
-      {
-        "label": "Sports Modes",
-        "value": "120+ Active Exercise Trackers"
-      },
-      {
-        "label": "Health Tracking",
-        "value": "Real-time Heart Rate, SpO2 & Sleep Monitor"
-      },
-      {
-        "label": "Battery Life",
-        "value": "Up to 5 Days regular usage (2 Days with calling)"
-      }
-    ],
-    "highlights": [
-      "Crystal clear speaker output for taking quick calls when phone is in your backpack.",
-      "Voice assistant support for Siri and Google Assistant directly from wrist.",
-      "Customizable dial library with over 100 cloud watch faces."
-    ],
-    "pros": [
-      "Generous 1.83-inch edge-to-edge screen that is easy to read at a glance.",
-      "Sturdy metal-finish frame that looks significantly more premium than its price.",
-      "Accurate step counter for daily fitness milestones."
-    ],
-    "cons": [
-      "Direct sunlight visibility could be brighter on intense summer afternoons.",
-      "Calling mode drains battery in approximately 48 hours."
-    ],
-    "whoShouldBuy": "Anyone upgrading from a basic fitness band who wants hands-free calling convenience and smart notifications without exceeding a ₹1,200 budget.",
-    "verdict": "One of the most feature-packed affordable smartwatches on the market. Grab it while the 89% price cut holds."
-  },
-  {
-    "id": "deal-3",
-    "slug": "realme-p1-5g-smartphone",
-    "title": "realme P1 5G (Phoenix Red, 128 GB, 6 GB RAM, 120Hz AMOLED)",
-    "brand": "realme",
-    "category": "mobiles",
-    "store": "Flipkart",
-    "originalPrice": 20999,
-    "dealPrice": 14999,
-    "discount": "28% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹450.00",
-    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/dlRojL3",
-    "rating": 4.4,
-    "reviewsCount": 21800,
-    "badge": "🚀 5G SPEED",
-    "isFlashDeal": false,
-    "summary": "realme P1 5G reshapes the sub-₹15,000 category with a 120Hz AMOLED display, Dimensity 7050 5G processor, and 45W SuperVOOC rapid charging.",
-    "specs": [
-      {
-        "label": "Display",
-        "value": "6.67\" FHD+ 120Hz AMOLED, 2000 Nits Peak"
-      },
-      {
-        "label": "Processor",
-        "value": "MediaTek Dimensity 7050 5G (6nm Octa Core)"
-      },
-      {
-        "label": "Camera",
-        "value": "50MP AI Main Camera + 2MP Depth + 16MP Selfie"
-      },
-      {
-        "label": "Battery",
-        "value": "5000 mAh with 45W SuperVOOC Charger in Box"
-      },
-      {
-        "label": "Storage",
-        "value": "128GB UFS 3.1 (Expandable up to 1TB)"
-      }
-    ],
-    "highlights": [
-      "Sub-₹15,000 segment first to offer a 2000-nit peak brightness AMOLED panel.",
-      "Vapor Chamber Cooling system ensures smooth 60fps gaming without heating.",
-      "Rainwater Smart Touch technology allows typing and scrolling even with wet hands."
-    ],
-    "pros": [
-      "Vibrant 120Hz AMOLED screen unmatched in this budget.",
-      "Strong Dimensity 7050 processor handles BGMI and daily multitasking with ease.",
-      "45W charger included inside the box (0 to 50% in 27 minutes)."
-    ],
-    "cons": [
-      "Secondary 2MP camera is strictly decorative; lacks an ultra-wide sensor.",
-      "Realme UI comes with pre-installed bloatware that needs 10 minutes of initial cleanup."
-    ],
-    "whoShouldBuy": "Budget gamers and heavy media consumers looking for the best display and 5G performance under ₹15,000.",
-    "verdict": "A runaway champion in the mid-range segment. The AMOLED display alone justifies the ₹14,999 deal price."
-  },
-  {
-    "id": "deal-4",
-    "slug": "puma-smashic-casual-sneakers",
-    "title": "Puma Smashic Casual Lightweight Sneakers for Men",
-    "brand": "Puma",
-    "category": "footwear",
-    "store": "Flipkart",
-    "originalPrice": 4499,
-    "dealPrice": 1499,
-    "discount": "66% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹119.92",
-    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/hsgRBo8",
-    "rating": 4.6,
-    "reviewsCount": 9400,
-    "badge": "TOP BRAND",
-    "isFlashDeal": true,
-    "summary": "Classic court-inspired lifestyle sneakers built with durable synthetic leather, SoftFoam+ comfort cushioning, and Puma's signature clean tennis silhouette.",
-    "specs": [
-      {
-        "label": "Upper Material",
-        "value": "Premium Synthetic Leather with Stitch Detailing"
-      },
-      {
-        "label": "Insole",
-        "value": "SoftFoam+ Dual-Density Comfort Footbed"
-      },
-      {
-        "label": "Sole Material",
-        "value": "Non-Marking Durable Solid Rubber"
-      },
-      {
-        "label": "Closure",
-        "value": "Lace-Up with Padded Tongue"
-      },
-      {
-        "label": "Ideal For",
-        "value": "College, Casual Office, Weekend Outings"
-      }
-    ],
-    "highlights": [
-      "SoftFoam+ insert provides step-in cushioning that reduces heel fatigue during long walking days.",
-      "Wipe-clean synthetic leather makes maintenance easy after monsoon dust.",
-      "Versatile aesthetic pairs seamlessly with jeans, chinos, or relaxed joggers."
-    ],
-    "pros": [
-      "Authentic Puma footwear under ₹1,500 during festive clearance.",
-      "Subtle branding gives a refined, mature streetwear look.",
-      "Generous toe box prevents side-pinching for broader Indian feet."
-    ],
-    "cons": [
-      "Synthetic leather has lower breathability during peak 40°C summer afternoons.",
-      "Takes roughly 2 days of initial wear to fully break in around ankle collar."
-    ],
-    "whoShouldBuy": "Men seeking an everyday lifestyle sneaker from a global sports brand that looks sharp with casual outfits without spending ₹4,000+.",
-    "verdict": "Unbeatable brand value at ₹1,499. The classic white-and-black contrast makes it an essential wardrobe staple."
-  },
-  {
-    "id": "deal-5",
-    "slug": "roadster-pure-cotton-casual-tshirt",
-    "title": "Roadster Men Black Pure Cotton Solid Casual T-shirt",
-    "brand": "Roadster",
-    "category": "fashion",
-    "store": "Myntra",
-    "originalPrice": 1299,
-    "dealPrice": 299,
-    "discount": "77% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹23.92",
-    "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://myntr.it/hI8WpL0",
-    "rating": 4.4,
-    "reviewsCount": 5600,
-    "badge": "TRENDING",
-    "isFlashDeal": false,
-    "summary": "Crafted from 100% breathable combed cotton with ribbed crew-neck structure, this wardrobe basic offers all-day comfort for casual outings and layering.",
-    "specs": [
-      {
-        "label": "Fabric",
-        "value": "100% Combed Bio-Washed Cotton (180 GSM)"
-      },
-      {
-        "label": "Fit",
-        "value": "Regular Contemporary Fit"
-      },
-      {
-        "label": "Neckline",
-        "value": "Classic Crew Neck with Elastane Ribbing"
-      },
-      {
-        "label": "Pattern",
-        "value": "Solid Jet Black"
-      },
-      {
-        "label": "Care",
-        "value": "Machine Wash Cold, Do Not Bleach"
-      }
-    ],
-    "highlights": [
-      "Bio-washed cotton finish prevents pilling and maintains deep black color after multiple washes.",
-      "Pre-shrunk fabric ensures no unexpected shrinkage after laundry cycles.",
-      "Clean minimalist design pairs with jackets, overshirts, or standalone shorts."
-    ],
-    "pros": [
-      "Pure breathable cotton ideal for humid Indian weather.",
-      "Heavy enough (180 GSM) to maintain structure without being see-through.",
-      "Price of a roadside tee with verified Myntra brand quality standards."
-    ],
-    "cons": [
-      "Standard regular cut; if you prefer loose streetwear aesthetic, order one size up.",
-      "Black fabric requires line-drying in shade to prevent sun fading."
-    ],
-    "whoShouldBuy": "Anyone needing high-rotation daily t-shirts for college, lounging, or under-shirt layering at pocket-change pricing.",
-    "verdict": "At ₹299, buy 2 or 3 in one order. Outstanding value for pure bio-washed cotton."
-  },
-  {
-    "id": "deal-6",
-    "slug": "the-bear-house-cotton-slim-fit-shirt",
-    "title": "The Bear House Checked Pure Cotton Slim Fit Casual Shirt",
-    "brand": "The Bear House",
-    "category": "fashion",
-    "store": "Ajio",
-    "originalPrice": 2495,
-    "dealPrice": 849,
-    "discount": "66% OFF",
-    "profitRate": "10% Profit",
-    "profitEarned": "₹84.90",
-    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://ajiio.in/D2Bmuxl",
-    "rating": 4.3,
-    "reviewsCount": 3100,
-    "badge": "STEAL DEAL",
-    "isFlashDeal": false,
-    "summary": "Refined urban casual shirt featuring fine yarn-dyed checks, button-down collar, and sculpted slim fit tailored for semi-formal and weekend gatherings.",
-    "specs": [
-      {
-        "label": "Fabric",
-        "value": "100% Premium Long-Staple Cotton"
-      },
-      {
-        "label": "Weave",
-        "value": "Yarn-Dyed Twill Weave"
-      },
-      {
-        "label": "Collar",
-        "value": "Smart Spread Button-Down Collar"
-      },
-      {
-        "label": "Sleeve",
-        "value": "Full Sleeves with Mitered Cuffs"
-      },
-      {
-        "label": "Fit",
-        "value": "Modern Slim Fit"
-      }
-    ],
-    "highlights": [
-      "Yarn-dyed cotton keeps colors rich and crisp through repeated dry-cleaning or machine washing.",
-      "Curved hemline can be styled either tucked into trousers or untucked with denim.",
-      "Signature embroidered bear logo at the chest adds subtle luxury appeal."
-    ],
-    "pros": [
-      "Fabric hand-feel is soft, breathable, and noticeably higher grade than budget shirts.",
-      "Slim taper at the waist flatters athletic and average builds.",
-      "Substantial 66% discount on Ajio versus mall store pricing."
-    ],
-    "cons": [
-      "Slim fit is fitted around the chest; individuals with broader chests should inspect size chart.",
-      "Requires warm iron press after washing for crisp collar lines."
-    ],
-    "whoShouldBuy": "Working professionals and young executives looking for an upscale smart-casual shirt for Friday offices or dinner dates.",
-    "verdict": "High-end fabric and sharp tailoring for under ₹900. A definitive style upgrade."
-  },
-  {
-    "id": "deal-7",
-    "slug": "amazon-echo-pop-smart-speaker",
-    "title": "Amazon Echo Pop Smart Speaker with Alexa (Compact, Loud Sound)",
-    "brand": "Amazon",
-    "category": "electronics",
-    "store": "Amazon",
-    "originalPrice": 4999,
-    "dealPrice": 2499,
-    "discount": "50% OFF",
-    "profitRate": "Affiliate Payout",
-    "profitEarned": "₹124.95",
-    "image": "https://images.unsplash.com/photo-1543512214-318c7553f230?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B09B8W5FW7?tag=bhom120704-21",
-    "rating": 4.5,
-    "reviewsCount": 18200,
-    "badge": "AMAZON HOT",
-    "isFlashDeal": false,
-    "summary": "Compact semi-sphere smart speaker featuring front-firing directional audio, full Alexa voice control in Hindi & English, and smart home automation hub capabilities.",
-    "specs": [
-      {
-        "label": "Speaker",
-        "value": "1.95\" Front-Firing Lossless Audio Driver"
-      },
-      {
-        "label": "Voice Control",
-        "value": "Built-in Alexa (Hindi, English, Hinglish)"
-      },
-      {
-        "label": "Connectivity",
-        "value": "Dual-Band Wi-Fi (2.4 & 5GHz) + Bluetooth Low Energy"
-      },
-      {
-        "label": "Privacy",
-        "value": "Hardware Microphone Off Button + LED Light Bar"
-      },
-      {
-        "label": "Smart Home",
-        "value": "Controls Smart Bulbs, Plugs, ACs & TVs"
-      }
-    ],
-    "highlights": [
-      "Directional front-firing audio delivers surprising room-filling volume for bedrooms and desks.",
-      "Native support for Spotify, Amazon Music, JioSaavn, and Apple Music via voice command.",
-      "Understands regional accents effortlessly with Amazon AZ2 Neural Edge processor."
-    ],
-    "pros": [
-      "Compact footprint fits neatly on bedside tables or small work desks.",
-      "Clear vocal clarity for podcasts, morning news briefings, and alarms.",
-      "Reliable voice pickup from across the room."
-    ],
-    "cons": [
-      "Does not include an analog 3.5mm AUX out jack.",
-      "Requires constant wall power connection (no built-in battery)."
-    ],
-    "whoShouldBuy": "Anyone setting up smart lighting, bedroom alarms, or hands-free music streaming at an accessible ₹2,499 price point.",
-    "verdict": "The best entry point into smart home living. Loud sound, attractive modern semi-sphere design, and half-price discount."
-  },
-  {
-    "id": "deal-8",
-    "slug": "milton-thermosteel-duo-flask",
-    "title": "Milton Thermosteel Duo DLX 1000ml Stainless Steel Insulated Flask",
-    "brand": "Milton",
-    "category": "home",
-    "store": "Flipkart",
-    "originalPrice": 1395,
-    "dealPrice": 849,
-    "discount": "39% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹67.92",
-    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/dR48ptG",
-    "rating": 4.7,
-    "reviewsCount": 24100,
-    "badge": "BESTSELLER",
-    "isFlashDeal": false,
-    "summary": "India's household staple vacuum insulated bottle engineered with 304 food-grade stainless steel that preserves beverages piping hot or icy cold for a full 24 hours.",
-    "specs": [
-      {
-        "label": "Capacity",
-        "value": "1000 ml (1 Litre)"
-      },
-      {
-        "label": "Material",
-        "value": "18/8 304 High-Grade Rust-Proof Stainless Steel"
-      },
-      {
-        "label": "Insulation",
-        "value": "Double-Wall Vacuum Insulation with Copper Coating"
-      },
-      {
-        "label": "Temperature Retention",
-        "value": "Hot for 24 Hours / Cold for 24 Hours"
-      },
-      {
-        "label": "Lid Type",
-        "value": "Threaded Leak-Proof Lid Doubles as Drinking Cup"
-      }
-    ],
-    "highlights": [
-      "Copper interior layer ensures maximum temperature preservation during winter travel or summer road trips.",
-      "100% leak-proof threaded cap design allows hassle-free carrying inside laptop bags.",
-      "Condensation-free exterior keeps bag contents dry without sweating."
-    ],
-    "pros": [
-      "Virtually indestructible build that lasts for years of daily commuting.",
-      "Genuine 24-hour temperature retention independently tested and verified.",
-      "Wide mouth allows adding ice cubes and effortless bottle-brush cleaning."
-    ],
-    "cons": [
-      "1-litre capacity makes it moderately heavy (approx 580g empty) for jogging handholds.",
-      "Satin steel exterior can accumulate minor surface scratches if carried with metal keys."
-    ],
-    "whoShouldBuy": "Office commuters, road trippers, students, and fitness enthusiasts wanting hot tea or ice cold water all day long.",
-    "verdict": "A legendary product that lives up to every promise. Exceptional utility at ₹849."
-  },
-  {
-    "id": "deal-9",
-    "slug": "sbi-cashback-credit-card",
-    "title": "SBI Cashback Credit Card - Flat 5% Unlimited Online Cashback",
-    "brand": "SBI Card",
-    "category": "finance",
-    "store": "EarnKaro Partners",
-    "originalPrice": 999,
-    "dealPrice": 0,
-    "discount": "FREE APPLY",
-    "profitRate": "FLAT ₹2,240 PROFIT",
-    "profitEarned": "₹2,240.00",
-    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://earnkaro.com?r=5610321&fname=Bhomvrat+Rai",
-    "rating": 4.9,
-    "reviewsCount": 4200,
-    "badge": "💰 FLAT ₹2240 PAYOUT",
-    "isFlashDeal": false,
-    "summary": "India's undisputed king of online shopping cashback cards, granting flat 5% cashback on virtually every e-commerce website without merchant restrictions.",
-    "specs": [
-      {
-        "label": "Cashback Rate",
-        "value": "Flat 5% Unlimited on All Online Spends"
-      },
-      {
-        "label": "Offline Cashback",
-        "value": "1% on All Offline Utility / Retail Purchases"
-      },
-      {
-        "label": "Annual Fee",
-        "value": "₹999 + GST (Reversed on ₹2 Lakh annual spend)"
-      },
-      {
-        "label": "Credit Payout",
-        "value": "Auto-credited to monthly statement within 2 days"
-      },
-      {
-        "label": "Joining Bonus",
-        "value": "Complimentary Domestic Airport Lounge access"
-      }
-    ],
-    "highlights": [
-      "Unlike merchant-tied cards, 5% cashback applies across Flipkart, Amazon, Myntra, Swiggy, Zomato, and Nykaa.",
-      "Zero hassle of reward points redemption; cashback is directly deducted from your credit card bill.",
-      "Digital video-KYC approval process completed within 48 to 72 hours."
-    ],
-    "pros": [
-      "Highest raw cashback yield of any credit card in the Indian market today.",
-      "Massive affiliate payout: You receive flat ₹2,240 commission on approved applications.",
-      "Card pays for itself within the first month of standard grocery and gadget shopping."
-    ],
-    "cons": [
-      "Excludes fuel purchases, rent payments, and wallet reloads from 5% cashback category.",
-      "Requires minimum credit score of 720+ and stable income proof for instant approval."
-    ],
-    "whoShouldBuy": "Anyone who spends more than ₹5,000 monthly on Amazon, Flipkart, food delivery, or online shopping and wants direct bill deductions.",
-    "verdict": "The single most lucrative financial offer in India. If you shop online, holding this card is mathematical common sense."
-  },
-  {
-    "id": "deal-10",
-    "slug": "apple-iphone-15-128gb-black",
-    "title": "Apple iPhone 15 (Black, 128 GB, Dynamic Island, 48MP Main Camera)",
+    "slug": "apple-iphone-15-128gb",
+    "title": "Apple iPhone 15 (128 GB Storage, Dynamic Island, 48MP Camera)",
     "brand": "Apple",
     "category": "mobiles",
     "store": "Flipkart",
     "originalPrice": 79900,
     "dealPrice": 65999,
     "discount": "17% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹1,500.00",
-    "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/xxzFnD7",
-    "rating": 4.7,
-    "reviewsCount": 42800,
-    "badge": "⚡ FLAGSHIP DEAL",
+    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg",
+    "profitLink": "https://fktr.in/AKiE4mC",
+    "rating": 4.3,
+    "reviewsCount": 21951,
+    "badge": "⚡ BESTSELLER",
     "isFlashDeal": true,
-    "summary": "The iPhone 15 brings Apple's revolutionary Dynamic Island, a 48MP main camera with 2x optical-quality telephoto, and USB-C connectivity to the standard flagship lineup.",
+    "summary": "The iPhone 15 features Apple's Dynamic Island, 48MP main camera with 2x optical-quality telephoto, and USB-C connectivity in a durable color-infused glass design.",
     "specs": [
       {
         "label": "Display",
@@ -547,355 +23,287 @@
       },
       {
         "label": "Processor",
-        "value": "A16 Bionic chip with 5-core GPU"
+        "value": "A16 Bionic Chip with 5-Core GPU"
       },
       {
         "label": "Camera",
-        "value": "48MP Main + 12MP Ultra Wide with Next-Gen Portraits"
+        "value": "48MP Main + 12MP Ultra-Wide with 2x Telephoto"
       },
       {
-        "label": "Port",
-        "value": "USB-C with Universal Charging Support"
+        "label": "Connector",
+        "value": "USB-C with Universal Charging"
       },
       {
-        "label": "Build",
-        "value": "Color-infused back glass with Aerospace-grade aluminum"
+        "label": "Durability",
+        "value": "Ceramic Shield Front & IP68 Water Resistance"
       }
     ],
     "highlights": [
-      "Dynamic Island bubbles up alerts and Live Activities so you never miss urgent notifications.",
-      "48MP main camera shoots in super-high resolution with sharp 2x telephoto crop.",
-      "USB-C port allows you to charge your Mac or iPad with the same iPhone cable."
+      "Dynamic Island bubbles up alerts and live activities effortlessly.",
+      "48MP main camera captures super high-resolution photos with rich detail.",
+      "USB-C port lets you charge your Mac or iPad with the same iPhone cable."
     ],
     "pros": [
-      "Stunning daylight and low-light portrait photography with auto-focus depth detection.",
-      "Substantial jump in outdoor screen brightness up to 2000 nits.",
-      "Lightweight, contoured edge design that is comfortable for one-handed use."
+      "Flagship camera performance",
+      "Brilliant 2000-nit outdoor screen",
+      "Comfortable lightweight contoured edges"
     ],
     "cons": [
-      "Display refresh rate is standard 60Hz (120Hz ProMotion reserved for Pro models).",
-      "Charging speed tops out around 20W."
+      "60Hz refresh rate",
+      "20W standard wired charging"
     ],
-    "whoShouldBuy": "Anyone upgrading from an iPhone 11, 12, or older Android who wants flagship camera capabilities, long battery life, and future-proof USB-C.",
-    "verdict": "At ₹65,999, the iPhone 15 delivers the sweet spot of Apple's flagship technology at an accessible festive price point."
+    "whoShouldBuy": "Anyone seeking a flagship iOS experience with premium cameras and USB-C.",
+    "verdict": "At ₹65,999, the iPhone 15 is the sweet spot of Apple's flagship technology."
   },
   {
-    "id": "deal-11",
-    "slug": "apple-iphone-13-128gb-midnight",
-    "title": "Apple iPhone 13 (Midnight, 128 GB, Cinematic Mode, A15 Bionic)",
+    "id": "deal-2",
+    "slug": "apple-iphone-13-128gb",
+    "title": "Apple iPhone 13 (128 GB Storage, Cinematic Mode, A15 Bionic)",
     "brand": "Apple",
     "category": "mobiles",
     "store": "Flipkart",
     "originalPrice": 59900,
     "dealPrice": 48999,
     "discount": "18% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹1,200.00",
-    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/ePJPoI9",
-    "rating": 4.7,
-    "reviewsCount": 88500,
+    "image": "https://rukminim2.flixcart.com/image/832/832/ktketu80/mobile/s/l/c/iphone-13-mlpf3hn-a-apple-original-imag6vzz5qvejpmq.jpeg",
+    "profitLink": "https://fktr.in/tcXs66g",
+    "rating": 4.3,
+    "reviewsCount": 29221,
     "badge": "🔥 VALUE KING",
     "isFlashDeal": false,
-    "summary": "The iPhone 13 remains India's most popular sub-₹50,000 luxury smartphone, offering bulletproof A15 Bionic performance, Cinematic video recording, and legendary all-day battery life.",
+    "summary": "India's highest selling premium smartphone: Apple iPhone 13 delivers legendary A15 Bionic speed, Cinematic video recording, and exceptional all-day battery endurance.",
     "specs": [
       {
         "label": "Display",
-        "value": "6.1-inch Super Retina XDR OLED Display"
+        "value": "6.1-inch Super Retina XDR OLED"
       },
       {
         "label": "Processor",
-        "value": "Apple A15 Bionic 6-core chip"
-      },
-      {
-        "label": "Rear Camera",
-        "value": "Dual 12MP System (Wide + Ultra-Wide) with Sensor-Shift OIS"
-      },
-      {
-        "label": "Battery",
-        "value": "Up to 19 Hours video playback"
-      },
-      {
-        "label": "Durability",
-        "value": "Ceramic Shield front with IP68 Water Resistance"
-      }
-    ],
-    "highlights": [
-      "Cinematic mode adds shallow depth of field and automatic focus transitions to your videos.",
-      "Sensor-shift optical image stabilization keeps low-light photos sharp and handheld videos steady.",
-      "Guaranteed iOS software updates for years to come."
-    ],
-    "pros": [
-      "Unmatched performance-per-rupee for an Apple ecosystem entry point.",
-      "Reliable full-day battery life even with heavy social media and navigation.",
-      "Durable ceramic shield glass with industry-leading water and dust protection."
-    ],
-    "cons": [
-      "Still uses the legacy Lightning port rather than USB-C.",
-      "No dedicated telephoto lens for optical zoom."
-    ],
-    "whoShouldBuy": "Budget-conscious buyers who want an authentic, dependable iPhone experience under ₹50,000 with premium build and reliable resale value.",
-    "verdict": "Hands down the highest-selling premium phone in India for a reason. Grab it at ₹48,999 while festive stocks last."
-  },
-  {
-    "id": "deal-12",
-    "slug": "samsung-galaxy-s24-5g-256gb",
-    "title": "Samsung Galaxy S24 5G (Onyx Black, 256 GB, 8 GB RAM, Galaxy AI)",
-    "brand": "Samsung",
-    "category": "mobiles",
-    "store": "Amazon",
-    "originalPrice": 79999,
-    "dealPrice": 62999,
-    "discount": "21% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹1,400.00",
-    "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B0CS5X6845?tag=bhom120704-21",
-    "rating": 4.5,
-    "reviewsCount": 6800,
-    "badge": "🤖 GALAXY AI",
-    "isFlashDeal": true,
-    "summary": "The compact flagship standard: Samsung Galaxy S24 features groundbreaking Galaxy AI tools like Circle to Search, Live Two-Way Call Translate, and a gorgeous 120Hz Dynamic AMOLED display.",
-    "specs": [
-      {
-        "label": "Display",
-        "value": "6.2-inch FHD+ Dynamic AMOLED 2X (1-120Hz LTPO, 2600 Nits)"
-      },
-      {
-        "label": "AI Suite",
-        "value": "Galaxy AI (Circle to Search, Live Call Translate, Note Assist)"
+        "value": "Apple A15 Bionic 6-Core Chip"
       },
       {
         "label": "Camera",
-        "value": "50MP Main + 12MP Ultra-Wide + 10MP 3x Telephoto"
-      },
-      {
-        "label": "Software Support",
-        "value": "7 Generations of OS Upgrades & 7 Years of Security"
+        "value": "Dual 12MP System with Sensor-Shift OIS"
       },
       {
         "label": "Battery",
-        "value": "4000mAh with 25W Fast Charging and Wireless PowerShare"
+        "value": "Up to 19 Hours Video Playback"
+      },
+      {
+        "label": "Build",
+        "value": "Ceramic Shield Front with Aluminum Frame"
+      }
+    ],
+    "highlights": [
+      "Cinematic mode creates shallow depth of field videos automatically.",
+      "Sensor-shift optical image stabilization keeps handheld footage steady.",
+      "Guaranteed iOS updates for years to come."
+    ],
+    "pros": [
+      "Best value Apple smartphone in India",
+      "All-day reliable battery",
+      "Durable ceramic shield glass"
+    ],
+    "cons": [
+      "Lightning port instead of USB-C",
+      "No dedicated telephoto lens"
+    ],
+    "whoShouldBuy": "Shoppers who want a dependable, premium iPhone under ₹50,000.",
+    "verdict": "At ₹48,999, the iPhone 13 remains the most sensible premium purchase in India."
+  },
+  {
+    "id": "deal-3",
+    "slug": "samsung-galaxy-s24-5g",
+    "title": "Samsung Galaxy S24 5G (Onyx Black, 128 GB, 8 GB RAM, Galaxy AI)",
+    "brand": "Samsung",
+    "category": "mobiles",
+    "store": "Flipkart",
+    "originalPrice": 79999,
+    "dealPrice": 62999,
+    "discount": "21% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/mobile/r/8/1/-original-imahfz2tenzpsd3p.jpeg",
+    "profitLink": "https://fktr.in/9Bm0gkB",
+    "rating": 4.3,
+    "reviewsCount": 30470,
+    "badge": "🤖 GALAXY AI",
+    "isFlashDeal": true,
+    "summary": "The compact Android flagship standard: Galaxy S24 features groundbreaking Galaxy AI tools, a 120Hz Dynamic AMOLED display with 2600 nits brightness, and 7 years of OS updates.",
+    "specs": [
+      {
+        "label": "Display",
+        "value": "6.2-inch Dynamic AMOLED 2X, 1-120Hz LTPO, 2600 Nits"
+      },
+      {
+        "label": "AI Features",
+        "value": "Circle to Search, Live Call Translate, Note Assist"
+      },
+      {
+        "label": "Cameras",
+        "value": "50MP Main + 12MP Ultra-Wide + 10MP 3x Telephoto"
+      },
+      {
+        "label": "Support",
+        "value": "7 Generations of OS Upgrades & 7 Years Security"
+      },
+      {
+        "label": "Frame",
+        "value": "Armor Aluminum 2.0 with IP68 Water Resistance"
       }
     ],
     "highlights": [
       "Circle to Search with Google lets you search anything visible on your screen instantly.",
-      "Industry-leading 7 years of promised Android OS and security updates.",
-      "Pocket-friendly compact footprint with ultra-slim symmetrical bezels."
+      "Dedicated 3x optical zoom telephoto lens captures sharp portraits from a distance.",
+      "Pocket-friendly compact one-handed form factor with ultra-slim bezels."
     ],
     "pros": [
-      "Incredible 2600-nit outdoor screen visibility under direct sunlight.",
-      "Dedicated 3x optical zoom telephoto camera is rare in compact devices.",
-      "Sleek Armor Aluminum 2.0 frame feels luxurious in hand."
+      "Class-leading 2600-nit outdoor visibility",
+      "Guaranteed 7-year software updates",
+      "Compact one-handed design"
     ],
     "cons": [
-      "4000mAh battery requires nightly charging with heavy gaming.",
-      "25W wired charging is slower than Chinese competitor flagships."
+      "4000mAh battery requires daily charging",
+      "25W charging speed"
     ],
-    "whoShouldBuy": "Android enthusiasts wanting a compact one-handed flagship with 7 years of software support and industry-leading AI tools.",
-    "verdict": "At ₹62,999 with 256GB storage, the Galaxy S24 is the premier compact Android phone on the Indian market."
+    "whoShouldBuy": "Android lovers wanting a compact flagship with industry-leading AI tools.",
+    "verdict": "The undisputed king of compact Android flagships at ₹62,999."
   },
   {
-    "id": "deal-13",
-    "slug": "samsung-galaxy-m35-5g-6000mah",
-    "title": "Samsung Galaxy M35 5G (Daybreak Blue, 128 GB, 6 GB RAM, 6000mAh Battery)",
+    "id": "deal-4",
+    "slug": "samsung-galaxy-m35-5g",
+    "title": "Samsung Galaxy M35 5G (128 GB, 6 GB RAM, 6000mAh Monster Battery)",
     "brand": "Samsung",
     "category": "mobiles",
-    "store": "Amazon",
+    "store": "Flipkart",
     "originalPrice": 24499,
     "dealPrice": 16999,
     "discount": "31% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹510.00",
-    "image": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B0D77YDF65?tag=bhom120704-21",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/mobile/x/y/l/-original-imah8pvvhmj76hvg.jpeg",
+    "profitLink": "https://fktr.in/kcZPeeJ",
     "rating": 4.3,
-    "reviewsCount": 15400,
-    "badge": "🔋 6000mAh MONSTER",
+    "reviewsCount": 24583,
+    "badge": "🔋 6000mAh BATTERY",
     "isFlashDeal": false,
-    "summary": "The ultimate endurance king: Samsung Galaxy M35 5G packs a mammoth 6000mAh battery, vibrant 120Hz sAMOLED display with Corning Gorilla Glass Victus+, and 50MP No Shake OIS camera.",
+    "summary": "The ultimate endurance champion: Samsung Galaxy M35 5G combines a 6000mAh battery with a 120Hz sAMOLED display, Corning Gorilla Glass Victus+, and 50MP OIS No-Shake camera.",
     "specs": [
       {
         "label": "Battery",
-        "value": "6000mAh Monster Battery (Up to 2 Days Normal Use)"
+        "value": "6000mAh Monster Battery (Up to 2 Days)"
       },
       {
         "label": "Display",
-        "value": "6.6-inch Super AMOLED, 120Hz, 1000 Nits High Brightness"
+        "value": "6.6-inch Super AMOLED 120Hz, 1000 Nits"
       },
       {
-        "label": "Glass Protection",
-        "value": "Corning Gorilla Glass Victus+ (Best in Segment)"
+        "label": "Glass",
+        "value": "Corning Gorilla Glass Victus+ Protection"
       },
       {
         "label": "Camera",
-        "value": "50MP OIS No Shake Camera + 8MP Ultra-Wide + 2MP Macro"
+        "value": "50MP OIS No-Shake Main Camera"
       },
       {
         "label": "Updates",
-        "value": "4 Android OS Upgrades + 5 Years Security Patches"
+        "value": "4 Android OS Upgrades + 5 Years Security"
       }
     ],
     "highlights": [
-      "Gigantic 6000mAh battery easily powers through 2 full days of calling, browsing, and media.",
-      "Vivid Super AMOLED 120Hz panel makes movies and Instagram scrolling butter-smooth.",
-      "Vapor cooling chamber keeps thermals under control during gaming sessions."
+      "Gigantic 6000mAh battery easily lasts 2 full days of calling, browsing, and media.",
+      "Vivid Super AMOLED 120Hz screen brings movies and Instagram to life.",
+      "Corning Gorilla Glass Victus+ provides best-in-segment drop resistance."
     ],
     "pros": [
-      "Battery life that outlasts almost every smartphone in the sub-₹20,000 segment.",
-      "Gorilla Glass Victus+ provides flagship-tier drop resistance.",
-      "Clean One UI experience with Knox Security privacy dashboard."
+      "Endless 2-day battery life",
+      "Premium Victus+ glass",
+      "Clean One UI with Knox Security"
     ],
     "cons": [
-      "Slightly heavier (222g) due to the large 6000mAh battery pack.",
-      "Charging brick is not included in the retail box."
+      "Slightly hefty at 222g",
+      "Charger not in box"
     ],
-    "whoShouldBuy": "Frequent travelers, field professionals, and heavy media consumers who hate carrying power banks and want a 2-day battery life.",
-    "verdict": "Unbeatable battery endurance and Samsung display quality at just ₹16,999. A top recommendation for power users."
+    "whoShouldBuy": "Frequent travelers and heavy users who hate carrying power banks.",
+    "verdict": "Top battery endurance in the sub-₹20,000 segment at ₹16,999."
   },
   {
-    "id": "deal-14",
-    "slug": "oneplus-nord-ce4-lite-5g",
-    "title": "OnePlus Nord CE4 Lite 5G (Super Silver, 128 GB, 8 GB RAM, 80W SUPERVOOC)",
-    "brand": "OnePlus",
+    "id": "deal-5",
+    "slug": "realme-p1-5g",
+    "title": "realme P1 5G (128 GB, 6 GB RAM, 120Hz AMOLED, Dimensity 7050)",
+    "brand": "realme",
     "category": "mobiles",
-    "store": "Amazon",
+    "store": "Flipkart",
     "originalPrice": 20999,
-    "dealPrice": 17999,
-    "discount": "14% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹540.00",
-    "image": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B0D5YBN954?tag=bhom120704-21",
-    "rating": 4.2,
-    "reviewsCount": 11200,
-    "badge": "⚡ 80W FAST CHARGE",
+    "dealPrice": 14999,
+    "discount": "28% OFF",
+    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/9/0/-original-imahyuhfg2zfdgah.jpeg",
+    "profitLink": "https://fktr.in/uAUqLZb",
+    "rating": 4.3,
+    "reviewsCount": 20847,
+    "badge": "⚡ 120Hz AMOLED",
     "isFlashDeal": true,
-    "summary": "OnePlus Nord CE4 Lite brings high-end features like a 120Hz AMOLED display with 2100 nits peak brightness, 50MP Sony LYT-600 OIS camera, and rapid 80W SUPERVOOC charging.",
+    "summary": "realme P1 5G disrupts the budget mid-range with a 120Hz AMOLED screen, MediaTek Dimensity 7050 6nm processor, 45W SUPERVOOC charging, and 50MP AI camera.",
     "specs": [
-      {
-        "label": "Charging",
-        "value": "80W SUPERVOOC Fast Charging (1-100% in 50 Mins)"
-      },
       {
         "label": "Display",
-        "value": "6.67-inch AMOLED, 120Hz, 2100 Nits Peak, Aqua Touch"
+        "value": "6.67-inch 120Hz AMOLED, 2000 Nits Peak, Rainwater Smart Touch"
       },
-      {
-        "label": "Camera",
-        "value": "50MP Sony LYT-600 with Optical Image Stabilization"
-      },
-      {
-        "label": "Battery",
-        "value": "5500mAh High-Density Battery"
-      },
-      {
-        "label": "Audio",
-        "value": "Dual Stereo Speakers with 300% Ultra Volume Mode"
-      }
-    ],
-    "highlights": [
-      "Aqua Touch technology ensures the screen responds accurately even with wet fingers.",
-      "Blazing 80W charging combined with a large 5500mAh cell means zero battery anxiety.",
-      "Sony LYT-600 sensor captures sharp, vibrant low-light portraits with OIS."
-    ],
-    "pros": [
-      "Bright 2100-nit AMOLED display is among the best in this price bracket.",
-      "Smooth OxygenOS 14 software with minimal bloatware.",
-      "Includes 3.5mm headphone jack and stereo speakers."
-    ],
-    "cons": [
-      "Processor is Snapdragon 695, suited for daily tasks rather than intense competitive gaming.",
-      "No secondary ultra-wide camera lens."
-    ],
-    "whoShouldBuy": "Daily phone users who want rapid 80W charging, clean OxygenOS software, and a bright AMOLED screen under ₹18,000.",
-    "verdict": "Great daily driver with dependable battery life and fast charging at ₹17,999."
-  },
-  {
-    "id": "deal-15",
-    "slug": "redmi-13c-5g-starlight-black",
-    "title": "Redmi 13C 5G (Starlight Black, 128 GB, 4 GB RAM, MediaTek Dimensity 6100+)",
-    "brand": "Redmi",
-    "category": "mobiles",
-    "store": "Amazon",
-    "originalPrice": 13999,
-    "dealPrice": 9999,
-    "discount": "29% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹300.00",
-    "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B0CNX6W718?tag=bhom120704-21",
-    "rating": 4.1,
-    "reviewsCount": 19800,
-    "badge": "💥 5G UNDER ₹10K",
-    "isFlashDeal": false,
-    "summary": "One of India's most affordable 5G smartphones, the Redmi 13C 5G delivers high-speed 5G connectivity, a smooth 90Hz display, and a massive 5000mAh battery for under ₹10,000.",
-    "specs": [
       {
         "label": "Processor",
-        "value": "MediaTek Dimensity 6100+ 6nm 5G Octa-core"
+        "value": "MediaTek Dimensity 7050 5G Octa-Core (6nm)"
       },
       {
-        "label": "Display",
-        "value": "6.74-inch HD+ 90Hz Display with Corning Gorilla Glass"
+        "label": "Charging",
+        "value": "45W SUPERVOOC Charge (50% in 27 Mins)"
       },
       {
         "label": "Camera",
-        "value": "50MP AI Dual Camera with Night Mode & HDR"
+        "value": "50MP AI Primary Camera + 2MP Depth"
       },
       {
-        "label": "Battery",
-        "value": "5000mAh Battery with 18W Type-C Fast Charging"
-      },
-      {
-        "label": "Connectivity",
-        "value": "Dual SIM 5G + MicroSD dedicated slot (up to 1TB)"
+        "label": "Cooling",
+        "value": "7-Layer 4356mm² Stainless Steel Vapor Chamber"
       }
     ],
     "highlights": [
-      "Affordable gateway to Jio True 5G and Airtel 5G Plus speeds under ₹10,000.",
-      "Large 6.74-inch display with 90Hz refresh rate makes scrolling smooth.",
-      "Star trail design on the back panel looks stylish and resists smudges."
+      "Stunning 120Hz AMOLED display with in-display fingerprint sensor under ₹15,000.",
+      "Dimensity 7050 chipset delivers smooth BGMI and gaming performance.",
+      "45W fast charger included in the box."
     ],
     "pros": [
-      "Unmatched 5G performance-to-price ratio in the budget tier.",
-      "Dedicated MicroSD slot along with dual 5G SIM card support.",
-      "Fast side-mounted fingerprint sensor."
+      "Bright vibrant AMOLED panel",
+      "Fast 45W charging in box",
+      "Responsive in-display fingerprint scanner"
     ],
     "cons": [
-      "Display resolution is 720p HD+ rather than Full HD.",
-      "Speaker is single mono, though sufficiently loud for calls."
+      "Mono secondary speaker",
+      "Plastic frame"
     ],
-    "whoShouldBuy": "Budget shoppers, students, and first-time smartphone buyers who want fast 5G data speeds without crossing a ₹10,000 budget.",
-    "verdict": "At ₹9,999 with 5G connectivity and 50MP camera, Redmi 13C 5G is the undisputed king of budget 5G phones."
+    "whoShouldBuy": "Students and mobile gamers looking for high-refresh AMOLED and 5G performance.",
+    "verdict": "At ₹14,999 with 120Hz AMOLED, realme P1 5G is a stellar budget performer."
   },
   {
-    "id": "deal-16",
-    "slug": "motorola-g34-5g-ocean-green",
-    "title": "Motorola G34 5G (Ocean Green, 128 GB, 8 GB RAM, Snapdragon 695 5G)",
+    "id": "deal-6",
+    "slug": "motorola-g34-5g",
+    "title": "Motorola G34 5G (Ocean Green, 128 GB, 8 GB RAM, Vegan Leather)",
     "brand": "Motorola",
     "category": "mobiles",
     "store": "Flipkart",
     "originalPrice": 14999,
     "dealPrice": 11999,
     "discount": "20% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹360.00",
-    "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/7mwo9i6",
-    "rating": 4.2,
-    "reviewsCount": 34200,
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/mobile/n/m/f/g34-5g-pb1v0002in-motorola-resized-original-imagwu4rayqhgfjh.jpeg",
+    "profitLink": "https://fktr.in/Eq8zmwH",
+    "rating": 4.3,
+    "reviewsCount": 26397,
     "badge": "⭐ VEGAN LEATHER",
-    "isFlashDeal": true,
-    "summary": "Motorola G34 5G redefines the budget segment with a premium vegan leather finish, pure clean Android 14 with zero bloatware, 120Hz display, and Snapdragon 695 5G speed.",
+    "isFlashDeal": false,
+    "summary": "Motorola G34 5G brings premium vegan leather styling, pure ad-free Android 14, a 120Hz display, and Snapdragon 695 5G speed to the budget tier.",
     "specs": [
       {
         "label": "Design",
-        "value": "Premium Vegan Leather Back (Ocean Green)"
+        "value": "Premium Vegan Leather Finish (Ocean Green)"
       },
       {
         "label": "Processor",
-        "value": "Qualcomm Snapdragon 695 5G Octa-Core"
+        "value": "Snapdragon 695 5G Octa-Core"
       },
       {
         "label": "RAM & Storage",
@@ -906,436 +314,198 @@
         "value": "6.5-inch 120Hz Fluid Display"
       },
       {
-        "label": "Audio",
+        "label": "Speakers",
         "value": "Stereo Speakers with Dolby Atmos"
       }
     ],
     "highlights": [
-      "Pure Android 14 experience with zero pre-installed spam apps or intrusive ads.",
-      "Vegan leather rear panel offers premium grip and looks like a ₹30,000 phone.",
-      "Dolby Atmos stereo speakers produce rich, immersive sound for videos and music."
+      "Pure clean Android 14 with zero bloatware or push notification ads.",
+      "Vegan leather back provides superior grip and premium appearance.",
+      "Dolby Atmos stereo speakers produce rich multimedia audio."
     ],
     "pros": [
-      "Clean, ad-free Motorola software with signature chop-for-flashlight gestures.",
-      "Generous 8 GB RAM ensures smooth multitasking and background app retention.",
-      "Support for 13 5G bands across all major Indian telecom networks."
+      "Clean stock Android software",
+      "Generous 8 GB RAM for smooth multitasking",
+      "13 5G bands support"
     ],
     "cons": [
-      "HD+ resolution display instead of FHD+.",
-      "Charging speed is capped at 18W."
+      "HD+ resolution screen",
+      "18W charging speed"
     ],
-    "whoShouldBuy": "Anyone seeking a clean, ad-free stock Android smartphone with premium vegan leather feel under ₹12,000.",
-    "verdict": "Clean software + vegan leather design make Moto G34 5G a standout budget winner at ₹11,999."
+    "whoShouldBuy": "Users wanting clean, ad-free software with premium leather aesthetics under ₹12,000.",
+    "verdict": "At ₹11,999, Moto G34 5G is the cleanest software experience in budget 5G."
   },
   {
-    "id": "deal-17",
-    "slug": "apple-airpods-2nd-generation",
-    "title": "Apple AirPods (2nd Gen) with Lightning Charging Case (Automatic Pairing)",
-    "brand": "Apple",
-    "category": "electronics",
-    "store": "Amazon",
-    "originalPrice": 12900,
-    "dealPrice": 8499,
-    "discount": "34% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹255.00",
-    "image": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B07Q6153FQ?tag=bhom120704-21",
-    "rating": 4.6,
-    "reviewsCount": 31200,
-    "badge": "🍎 APPLE ICONIC",
-    "isFlashDeal": true,
-    "summary": "The world's most recognizable wireless earbuds: Apple AirPods 2 feature the Apple H1 headphone chip, hands-free Hey Siri voice commands, and effortless one-tap setup across Apple devices.",
-    "specs": [
-      {
-        "label": "Chipset",
-        "value": "Apple H1 Headphone Chip for Faster Wireless"
-      },
-      {
-        "label": "Battery Life",
-        "value": "More than 24 Hours of Total Listening Time with Case"
-      },
-      {
-        "label": "Voice",
-        "value": "Always-on 'Hey Siri' Voice Control"
-      },
-      {
-        "label": "Sensors",
-        "value": "Optical sensors & motion accelerometers for auto-pause"
-      },
-      {
-        "label": "Connection",
-        "value": "Instant One-Tap Setup for iPhone, iPad, Apple Watch, Mac"
-      }
-    ],
-    "highlights": [
-      "Universal ergonomic semi-in-ear fit that rests comfortably without ear pressure.",
-      "Dual beamforming microphones filter out background noise for studio-clear calls.",
-      "H1 chip provides 2x faster switching between active Apple devices."
-    ],
-    "pros": [
-      "Unrivaled call quality and microphone clarity on phone calls and Zoom meetings.",
-      "Zero ear fatigue even after wearing for 6-8 continuous hours.",
-      "Instant seamless connection with iOS and macOS devices."
-    ],
-    "cons": [
-      "No silicone ear-tips or active noise cancellation (ANC).",
-      "Charges via Lightning cable rather than USB-C."
-    ],
-    "whoShouldBuy": "iPhone, Mac, and iPad users who make frequent voice calls, attend online meetings, and prefer a comfortable non-intrusive earbud fit.",
-    "verdict": "At ₹8,499 with 34% off, AirPods 2 remain the most comfortable call earbuds in the world."
-  },
-  {
-    "id": "deal-18",
-    "slug": "sony-wh-1000xm4-noise-cancelling-headphones",
-    "title": "Sony WH-1000XM4 Wireless Noise Cancelling Over-Ear Headphones (30H Battery)",
-    "brand": "Sony",
-    "category": "electronics",
-    "store": "Amazon",
-    "originalPrice": 29990,
-    "dealPrice": 19990,
-    "discount": "33% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹600.00",
-    "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B0863TXGM3?tag=bhom120704-21",
-    "rating": 4.6,
-    "reviewsCount": 18400,
-    "badge": "🎧 GOLD STANDARD ANC",
-    "isFlashDeal": false,
-    "summary": "The undisputed benchmark for premium travel audio: Sony WH-1000XM4 features industry-leading Dual Noise Sensor ANC, high-res LDAC audio, Speak-to-Chat, and 30-hour battery life.",
-    "specs": [
-      {
-        "label": "Noise Cancellation",
-        "value": "HD Noise Cancelling Processor QN1 with Dual Sensors"
-      },
-      {
-        "label": "Battery",
-        "value": "Up to 30 Hours with ANC (Quick Charge: 10 mins = 5 hrs)"
-      },
-      {
-        "label": "Bluetooth Codec",
-        "value": "LDAC, AAC, SBC with DSEE Extreme AI Audio Upscaling"
-      },
-      {
-        "label": "Smart Features",
-        "value": "Speak-to-Chat, Wearing Detection, Multipoint Connection"
-      },
-      {
-        "label": "Controls",
-        "value": "Intuitive Touch Sensor Surface on Right Earcup"
-      }
-    ],
-    "highlights": [
-      "Industry-leading active noise cancellation completely silences airplane hum and office chatter.",
-      "Multipoint connection seamlessly pairs with your laptop and smartphone simultaneously.",
-      "Speak-to-Chat automatically pauses your music as soon as you begin speaking."
-    ],
-    "pros": [
-      "Phenomenal noise cancellation that makes working in crowded spaces blissfully quiet.",
-      "Ultra-soft pressure-relieving earpads designed for long flights and workdays.",
-      "Foldable swivel structure with included hard shell travel case."
-    ],
-    "cons": [
-      "Microphone performance in extremely windy outdoor environments is average.",
-      "Lacks official water or sweat resistance rating (not designed for gym workouts)."
-    ],
-    "whoShouldBuy": "Frequent flyers, coders, remote workers, and audiophiles who want the best noise-cancelling headphones money can buy.",
-    "verdict": "At under ₹20,000, Sony WH-1000XM4 is simply unbeatable in comfort, audio fidelity, and silence."
-  },
-  {
-    "id": "deal-19",
-    "slug": "oneplus-nord-buds-2-tws",
-    "title": "OnePlus Nord Buds 2 TWS in Ear Earbuds (25dB ANC, 12.4mm Dynamic Titanium Drivers)",
-    "brand": "OnePlus",
-    "category": "electronics",
-    "store": "Amazon",
-    "originalPrice": 3299,
-    "dealPrice": 2299,
-    "discount": "30% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹69.00",
-    "image": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B0BY8MCQ9S?tag=bhom120704-21",
-    "rating": 4.4,
-    "reviewsCount": 29500,
-    "badge": "⚡ BEST ANC UNDER ₹2.5K",
-    "isFlashDeal": true,
-    "summary": "OnePlus Nord Buds 2 brings active noise cancellation down to budget territory with 25dB ANC, huge 12.4mm titanium drivers, BassWave enhancement, and up to 36 hours total battery.",
-    "specs": [
-      {
-        "label": "Drivers",
-        "value": "12.4mm Extra Large Dynamic Titanium Drivers"
-      },
-      {
-        "label": "ANC",
-        "value": "Active Noise Cancellation up to 25dB + Transparency Mode"
-      },
-      {
-        "label": "Battery",
-        "value": "Up to 36 Hours Total (Fast Charge: 10 mins = 5 hrs)"
-      },
-      {
-        "label": "Durability",
-        "value": "IP55 Water & Sweat Resistance"
-      },
-      {
-        "label": "Bluetooth",
-        "value": "Bluetooth 5.3 with Fast Pair & Dolby Atmos support"
-      }
-    ],
-    "highlights": [
-      "25dB Active Noise Cancellation silences AC hum and bus commute rumble.",
-      "BassWave algorithm dynamically boosts lower frequencies without muddying vocals.",
-      "IP55 sweat and water resistance makes them ideal workout companions."
-    ],
-    "pros": [
-      "Punchy, satisfying soundstage tuned for pop, rock, and EDM.",
-      "Fast charging gives 5 hours of playback from just a 10-minute plug-in.",
-      "Clean, tactile touch controls with minimal accidental taps."
-    ],
-    "cons": [
-      "ANC is designed for low continuous hums, high-pitched chatter still filters in.",
-      "Case finish can pick up scratches if kept with keys."
-    ],
-    "whoShouldBuy": "Students and commuters looking for genuine Active Noise Cancellation and punchy bass under ₹2,500.",
-    "verdict": "Top-tier audio value at ₹2,299. One of the highest rated earbuds under ₹3,000."
-  },
-  {
-    "id": "deal-20",
-    "slug": "noise-colorfit-pulse-2-max-smartwatch",
-    "title": "Noise ColorFit Pulse 2 Max 1.85\" Display Bluetooth Calling Smartwatch (550 Nits)",
-    "brand": "Noise",
-    "category": "electronics",
+    "id": "deal-7",
+    "slug": "poco-x6-5g-256gb",
+    "title": "POCO X6 5G (Mirror Black, 256 GB, 8 GB RAM, 1.5K AMOLED)",
+    "brand": "POCO",
+    "category": "mobiles",
     "store": "Flipkart",
-    "originalPrice": 5999,
-    "dealPrice": 1199,
-    "discount": "80% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹95.92",
-    "image": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/YRxUppd",
-    "rating": 4.2,
-    "reviewsCount": 78000,
-    "badge": "🔥 80% OFF",
+    "originalPrice": 24999,
+    "dealPrice": 18999,
+    "discount": "24% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/mobile/o/0/o/x6-5g-mzb0g3sin-poco-original-imahcny9hwsxs76m.jpeg",
+    "profitLink": "https://fktr.in/63DjnC2",
+    "rating": 4.3,
+    "reviewsCount": 16696,
+    "badge": "🚀 1.5K AMOLED",
     "isFlashDeal": true,
-    "summary": "Noise ColorFit Pulse 2 Max packs a massive 1.85-inch 550-nit bright TFT screen, crystal clear Bluetooth calling with Tru Sync technology, and a 10-day battery life for just ₹1,199.",
+    "summary": "POCO X6 5G delivers stunning 1.5K CrystalRes 120Hz AMOLED visuals, Snapdragon 7s Gen 2 4nm power, 64MP OIS triple camera, and 67W Turbo Charge.",
     "specs": [
       {
         "label": "Display",
-        "value": "1.85-inch LCD Display with 550 Nits Peak Brightness"
+        "value": "6.67-inch 1.5K Flow AMOLED, 120Hz, 1800 Nits Peak, Gorilla Glass Victus"
       },
       {
-        "label": "Calling",
-        "value": "Bluetooth Calling with Tru Sync Single-Chip Technology"
+        "label": "Processor",
+        "value": "Snapdragon 7s Gen 2 4nm Octa-Core"
       },
       {
-        "label": "Sports Modes",
-        "value": "100 Sports Modes with Auto-Detection"
+        "label": "Camera",
+        "value": "64MP OIS Triple Camera + 8MP Ultra-Wide + 2MP Macro"
       },
       {
-        "label": "Health Tracking",
-        "value": "Noise Health Suite: 24x7 Heart Rate, SpO2, Stress Monitor"
+        "label": "Charging",
+        "value": "67W Turbo Charge (100% in 44 Mins) with 5100mAh Battery"
       },
       {
-        "label": "Battery",
-        "value": "Up to 10 Days typical use (2-3 Days with active calling)"
+        "label": "Audio",
+        "value": "Dual Stereo Speakers with Dolby Atmos & Hi-Res Audio"
       }
     ],
     "highlights": [
-      "Tru Sync single-chip Bluetooth ensures ultra-low power consumption and zero call latency.",
-      "Bright 550 nits display ensures effortless daylight visibility on sunny days.",
-      "Access dial pad, recent call logs, and favorite contacts straight from your wrist."
+      "Razor-sharp 1.5K AMOLED screen with ultra-narrow 1.3mm bezels.",
+      "Snapdragon 7s Gen 2 ensures buttery smooth gaming and multitasking.",
+      "67W fast charger included in the retail box."
     ],
     "pros": [
-      "Huge display makes WhatsApp messages and notifications easy to read.",
-      "Loud speaker output for clear hands-free voice calls.",
-      "Sturdy IP68 water resistance handles rain and sweat without issue."
+      "Flagship-grade 1.5K screen resolution",
+      "Corning Gorilla Glass Victus",
+      "Fast 67W charging"
     ],
     "cons": [
-      "Watch casing is polycarbonate rather than aluminum alloy.",
-      "Sleep tracking can occasionally log stationary TV watching as light sleep."
+      "HyperOS includes occasional promotional app suggestions",
+      "Average low-light macro sensor"
     ],
-    "whoShouldBuy": "Budget shoppers wanting a big-screen calling smartwatch that looks modern and lasts a week on a charge.",
-    "verdict": "At ₹1,199 with 80% discount, this is one of India's most trusted budget smartwatches."
+    "whoShouldBuy": "Power users and gamers seeking the highest display resolution under ₹20,000.",
+    "verdict": "At ₹18,999 with 256GB storage, POCO X6 5G offers unbeatable display clarity."
   },
   {
-    "id": "deal-21",
-    "slug": "boat-stone-350-bluetooth-speaker",
-    "title": "boAt Stone 350 10W Portable Bluetooth Speaker (12H Playtime, IPX7 Water Resistant)",
+    "id": "deal-8",
+    "slug": "boat-airdopes-alpha",
+    "title": "boAt Airdopes Alpha True Wireless Earbuds (35H Playtime, 13mm Drivers)",
+    "brand": "boAt",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 3490,
+    "dealPrice": 899,
+    "discount": "74% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/headphone/z/r/n/-original-imahfczvrftznu58.jpeg",
+    "profitLink": "https://fktr.in/bnfjNF0",
+    "rating": 4.3,
+    "reviewsCount": 30714,
+    "badge": "⚡ 74% OFF LOOT",
+    "isFlashDeal": true,
+    "summary": "boAt Airdopes Alpha delivers punchy bass and clean vocals with massive 35-hour battery life, 13mm drivers, and Type-C fast charging.",
+    "specs": [
+      {
+        "label": "Drivers",
+        "value": "13mm Dual Dynamic Drivers"
+      },
+      {
+        "label": "Battery",
+        "value": "Up to 35 Hours total (7 Hours per charge)"
+      },
+      {
+        "label": "Charging",
+        "value": "ASAP Charge (10 mins = 60 mins playtime)"
+      },
+      {
+        "label": "Protection",
+        "value": "IPX5 Sweat & Water Resistant"
+      },
+      {
+        "label": "Bluetooth",
+        "value": "v5.3 with ENx Noise Cancellation"
+      }
+    ],
+    "highlights": [
+      "Signature boAt sound with deep bass tuned for Bollywood, Pop, and EDM.",
+      "Pocket-friendly dual-tone matte case resists fingerprints.",
+      "ENx Environmental Noise Cancellation filters background noise during calls."
+    ],
+    "pros": [
+      "Exceptional value under ₹900",
+      "Reliable Bluetooth 5.3 connection",
+      "Comfortable lightweight in-ear fit"
+    ],
+    "cons": [
+      "Bass heavy tuning",
+      "No active noise cancellation (ANC)"
+    ],
+    "whoShouldBuy": "College students, gym goers, and daily commuters looking for dependable wireless audio.",
+    "verdict": "At ₹899 with 74% off, boAt Airdopes Alpha is India's safest sub-₹1,000 audio buy."
+  },
+  {
+    "id": "deal-9",
+    "slug": "boat-stone-350-speaker",
+    "title": "boAt Stone 350 10W Portable Bluetooth Speaker (12H Playtime, IPX7 Waterproof)",
     "brand": "boAt",
     "category": "electronics",
     "store": "Flipkart",
     "originalPrice": 3490,
     "dealPrice": 1299,
     "discount": "62% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹103.92",
-    "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/HTuvxnE",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/speaker/4/h/n/-enriched-transparent-original-imahez5ggbs9ykjc.png",
+    "profitLink": "https://fktr.in/H1Zhgu0",
     "rating": 4.3,
-    "reviewsCount": 64000,
+    "reviewsCount": 26168,
     "badge": "🔊 10W PUNCHY BASS",
     "isFlashDeal": false,
-    "summary": "Compact yet powerful: boAt Stone 350 delivers 10W of immersive stereo sound, true wireless stereo (TWS) pairing support, rugged IPX7 waterproofing, and up to 12 hours of playtime.",
+    "summary": "Compact yet powerful: boAt Stone 350 delivers 10W stereo sound, true wireless stereo (TWS) pairing support, rugged IPX7 waterproofing, and up to 12 hours of playtime.",
     "specs": [
       {
-        "label": "Audio Output",
+        "label": "Output",
         "value": "10W RMS Stereo Sound with Passive Bass Radiator"
       },
       {
-        "label": "Battery Life",
+        "label": "Battery",
         "value": "Up to 12 Hours Playtime (2200mAh Battery)"
       },
       {
-        "label": "Water Resistance",
+        "label": "Waterproof",
         "value": "IPX7 Water & Splash Proof (Can survive accidental dunk)"
       },
       {
-        "label": "Connectivity",
+        "label": "Modes",
         "value": "Bluetooth v5.0, AUX Mode, TF Card & TWS Pairing"
       },
       {
-        "label": "Port",
+        "label": "Charging",
         "value": "Type-C Fast Charging Interface"
       }
     ],
     "highlights": [
-      "10W stereo output with boAt Signature Sound fills a medium bedroom with rich audio.",
-      "IPX7 rating allows you to take it pool-side or in the shower without water damage fears.",
+      "10W stereo output fills a medium bedroom with rich room-filling audio.",
+      "IPX7 rating allows you to take it pool-side or in the shower without water fears.",
       "TWS mode lets you pair two Stone 350 speakers for double the sound output."
     ],
     "pros": [
-      "Rugged cylindrical rubberized build survives drops and outdoor adventures.",
-      "Surprisingly deep bass response given its compact soda-can size.",
-      "Multi-input modes (Bluetooth, AUX, Micro SD) for versatile playback."
+      "Rugged cylindrical rubberized build",
+      "Surprisingly deep bass",
+      "Multi-input connectivity"
     ],
     "cons": [
-      "Distortion can be noticed at maximum 100% volume on heavy acoustic tracks.",
-      "Charging from 0 to 100% takes around 2.5 hours."
+      "Slight distortion at 100% max volume",
+      "2.5 hour charging time"
     ],
-    "whoShouldBuy": "Outdoor lovers, hostel students, and anyone who wants a portable, waterproof speaker for room parties and trips.",
+    "whoShouldBuy": "Outdoor lovers, hostel students, and anyone who wants a rugged party speaker.",
     "verdict": "A durable 10W party speaker that punches well above its ₹1,299 price tag."
   },
   {
-    "id": "deal-22",
-    "slug": "jbl-go-3-portable-bluetooth-speaker",
-    "title": "JBL Go 3 Wireless Ultra-Portable Bluetooth Speaker (JBL Pro Sound, IP67 Waterproof)",
-    "brand": "JBL",
-    "category": "electronics",
-    "store": "Amazon",
-    "originalPrice": 3999,
-    "dealPrice": 2699,
-    "discount": "33% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹80.00",
-    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B08KG3FFW4?tag=bhom120704-21",
-    "rating": 4.5,
-    "reviewsCount": 38200,
-    "badge": "⭐ JBL PRO SOUND",
-    "isFlashDeal": true,
-    "summary": "JBL Go 3 features bold styling and rich JBL Pro Sound in a pocket-sized design. With its eye-catching edgy design, colorful fabrics, and IP67 waterproof rating, it's a must-have for every trip.",
-    "specs": [
-      {
-        "label": "Sound",
-        "value": "Original JBL Pro Sound with Punchy Bass"
-      },
-      {
-        "label": "Protection",
-        "value": "IP67 Waterproof and Dustproof"
-      },
-      {
-        "label": "Battery",
-        "value": "Up to 5 Hours of Playtime under optimal settings"
-      },
-      {
-        "label": "Charging",
-        "value": "USB Type-C Charging Port"
-      },
-      {
-        "label": "Design",
-        "value": "Ultra-portable design with integrated carry loop"
-      }
-    ],
-    "highlights": [
-      "JBL Pro Sound delivers surprisingly big audio and punchy bass from Go 3's ultra-compact size.",
-      "IP67 waterproof and dustproof rating lets you bring your speaker anywhere—rain or shine.",
-      "Integrated fabric loop makes it easy to hook onto backpacks, cycles, or shower hooks."
-    ],
-    "pros": [
-      "Unmatched acoustic clarity and refined treble compared to generic budget speakers.",
-      "Extremely durable woven fabric housing that withstands sand, dirt, and water.",
-      "Pocketable footprint that fits in any jacket pocket or handbag."
-    ],
-    "cons": [
-      "5 hours of battery life is modest compared to larger cylindrical speakers.",
-      "No built-in microphone for speakerphone calls."
-    ],
-    "whoShouldBuy": "Hikers, travelers, and audiophiles who demand premium JBL acoustic tuning in the smallest possible form factor.",
-    "verdict": "Iconic sound engineering and rugged build. At ₹2,699, it is the best pocket speaker on earth."
-  },
-  {
-    "id": "deal-23",
-    "slug": "mi-20000mah-18w-power-bank-3i",
-    "title": "Mi 20000mAh 18W Fast Charging Power Bank 3i (Triple Output, Dual Input)",
-    "brand": "Mi",
-    "category": "electronics",
-    "store": "Amazon",
-    "originalPrice": 2199,
-    "dealPrice": 1699,
-    "discount": "23% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹51.00",
-    "image": "https://images.unsplash.com/photo-1609592424009-43c35b8ff3c7?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B08HV832JZ?tag=bhom120704-21",
-    "rating": 4.4,
-    "reviewsCount": 145000,
-    "badge": "🔋 POWER BEAST",
-    "isFlashDeal": false,
-    "summary": "The benchmark power bank for Indian consumers: Mi 20000mAh 3i delivers 18W bidirectional fast charging, 3 output ports to charge multiple devices at once, and 12-layer advanced circuit chip protection.",
-    "specs": [
-      {
-        "label": "Capacity",
-        "value": "20,000mAh High-Density Lithium Polymer"
-      },
-      {
-        "label": "Output Power",
-        "value": "18W Fast Charge (USB-A x 2 + Type-C x 1)"
-      },
-      {
-        "label": "Inputs",
-        "value": "Dual Input: Type-C and Micro-USB"
-      },
-      {
-        "label": "Low Current Mode",
-        "value": "Double tap power button for Earbuds & Fitness Bands"
-      },
-      {
-        "label": "Safety",
-        "value": "12-Layer Advanced Circuit Chip Protection"
-      }
-    ],
-    "highlights": [
-      "Can recharge an iPhone 15 up to 4.5 times or a Samsung Galaxy phone up to 3.8 times.",
-      "Triple output allows you to charge your phone, smartwatch, and earbuds simultaneously.",
-      "Two-way 18W fast charging quickly recharges the power bank itself."
-    ],
-    "pros": [
-      "Reliable high conversion efficiency with real tested capacity.",
-      "Low power charging mode protects delicate battery cells in TWS earbuds.",
-      "Textured matte casing prevents slipping and resists scratches."
-    ],
-    "cons": [
-      "Weighs around 434g, making it better suited for backpacks than trouser pockets.",
-      "Does not support 65W laptop charging (meant for smartphones and tablets)."
-    ],
-    "whoShouldBuy": "Frequent travelers, college students, and power users who need reliable multi-day backup power for their devices.",
-    "verdict": "Over 1.4 lakh verified positive ratings. At ₹1,699, it is the safest power bank buy in India."
-  },
-  {
-    "id": "deal-24",
-    "slug": "apple-ipad-10th-generation-64gb",
+    "id": "deal-10",
+    "slug": "apple-ipad-10th-gen",
     "title": "Apple iPad (10th Gen) 10.9-inch Liquid Retina Display (A14 Bionic, Wi-Fi, 64GB)",
     "brand": "Apple",
     "category": "electronics",
@@ -1343,15 +513,13 @@
     "originalPrice": 39900,
     "dealPrice": 30999,
     "discount": "22% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹700.00",
-    "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/lpot08X",
-    "rating": 4.7,
-    "reviewsCount": 16800,
-    "badge": "📱 BESTSELLER TABLET",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/tablet/h/b/l/-enriched-transparent-original-imagj72vgvcavh98.png",
+    "profitLink": "https://fktr.in/ITKBD4M",
+    "rating": 4.3,
+    "reviewsCount": 33322,
+    "badge": "📱 BEST TABLET",
     "isFlashDeal": true,
-    "summary": "The colorful redesign: Apple iPad 10th Gen features an expansive 10.9-inch Liquid Retina screen, blazing A14 Bionic chip, landscape 12MP Ultra Wide front camera with Center Stage, and modern USB-C.",
+    "summary": "The colorful all-screen redesign: Apple iPad 10th Gen features an expansive 10.9-inch Liquid Retina screen, blazing A14 Bionic chip, landscape 12MP Ultra Wide camera with Center Stage, and USB-C.",
     "specs": [
       {
         "label": "Display",
@@ -1359,11 +527,11 @@
       },
       {
         "label": "Processor",
-        "value": "A14 Bionic chip with 4-core graphics and 16-core Neural Engine"
+        "value": "A14 Bionic Chip with 4-Core Graphics & 16-Core Neural Engine"
       },
       {
         "label": "Front Camera",
-        "value": "Landscape 12MP Ultra Wide with Center Stage for video calls"
+        "value": "Landscape 12MP Ultra-Wide with Center Stage"
       },
       {
         "label": "Port",
@@ -1371,280 +539,102 @@
       },
       {
         "label": "Security",
-        "value": "Top Button Touch ID for fast secure authentication"
+        "value": "Top Button Touch ID Sensor"
       }
     ],
     "highlights": [
-      "Center Stage automatically pans and zooms to keep you centered during FaceTime and Zoom calls.",
-      "Modern all-screen industrial design with slim bezels and vibrant color options.",
+      "Center Stage automatically pans and zooms to keep you centered on video calls.",
+      "Modern all-screen industrial design with slim symmetrical bezels.",
       "Support for Apple Pencil (USB-C & 1st Gen) and Magic Keyboard Folio."
     ],
     "pros": [
-      "Flawless iPadOS experience with effortless multitasking and desktop-class Safari.",
-      "Substantial jump in speaker acoustics with landscape stereo speakers.",
-      "Excellent battery life averaging 10 hours of continuous video streaming."
+      "Flawless iPadOS experience and multitasking",
+      "Rich landscape stereo speakers",
+      "10 hours of video battery"
     ],
     "cons": [
-      "Display is non-laminated, though virtually unnoticeable during media consumption.",
-      "64GB base storage is adequate for cloud users, but heavy gamers may want 256GB."
+      "Non-laminated display",
+      "64GB base storage for cloud users"
     ],
-    "whoShouldBuy": "Students, digital artists, professionals, and families wanting a powerful multimedia tablet for studies, note-taking, and entertainment.",
-    "verdict": "At ₹30,999, the 10th Gen iPad is the premier tablet value across the entire computing industry."
+    "whoShouldBuy": "Students, digital artists, professionals, and families wanting a powerful multimedia tablet.",
+    "verdict": "At ₹30,999, the 10th Gen iPad is the premier tablet value in the world."
   },
   {
-    "id": "deal-25",
-    "slug": "roadster-striped-casual-shirt",
-    "title": "Roadster Men Navy Blue Striped Pure Cotton Regular Fit Casual Shirt",
-    "brand": "Roadster",
-    "category": "fashion",
-    "store": "Myntra",
-    "originalPrice": 1999,
-    "dealPrice": 599,
-    "discount": "70% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹47.92",
-    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://myntr.it/p996PLE",
+    "id": "deal-11",
+    "slug": "wipro-garnet-9w-smart-bulb",
+    "title": "Wipro Garnet 9W Smart LED Bulb (16 Million Colors, Alexa & Google Home)",
+    "brand": "Wipro",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 999,
+    "dealPrice": 399,
+    "discount": "60% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/bulb/f/t/n/-original-imah3cpdzjjzgpxf.jpeg",
+    "profitLink": "https://fktr.in/Rns8ZeF",
     "rating": 4.3,
-    "reviewsCount": 18400,
-    "badge": "🔥 70% OFF LOOT",
-    "isFlashDeal": true,
-    "summary": "Crafted from 100% breathable pure cotton, this Roadster vertical striped casual shirt delivers a flattering regular fit, curved hem, and timeless spread collar for effortless smart-casual wear.",
-    "specs": [
-      {
-        "label": "Fabric",
-        "value": "100% Breathable Pure Cotton"
-      },
-      {
-        "label": "Fit",
-        "value": "Regular Smart-Casual Fit"
-      },
-      {
-        "label": "Pattern",
-        "value": "Vertical Classic Stripes"
-      },
-      {
-        "label": "Collar",
-        "value": "Spread Collar with Full Button Placket"
-      },
-      {
-        "label": "Wash Care",
-        "value": "Machine wash cold with like colors"
-      }
-    ],
-    "highlights": [
-      "Pure breathable cotton weave keeps you sweat-free through warm Indian summers.",
-      "Vertical stripe pattern provides an elongating, slimming silhouette.",
-      "Pairs effortlessly with chinos for casual Friday office wear or jeans for weekend outings."
-    ],
-    "pros": [
-      "Outstanding fabric quality and stitching durability at a ₹599 price point.",
-      "Pre-shrunk fabric retains its shape and color after multiple washes.",
-      "Soft hand-feel that gets even softer with every wash."
-    ],
-    "cons": [
-      "Requires light ironing after machine drying for a crisp collar look.",
-      "Sizing runs slightly slim around the chest, consider sizing up for loose fits."
-    ],
-    "whoShouldBuy": "College students and young working professionals looking for a stylish, reliable everyday casual shirt under ₹600.",
-    "verdict": "At 70% off (₹599), this Roadster shirt is an absolute no-brainer wardrobe upgrade."
-  },
-  {
-    "id": "deal-26",
-    "slug": "highlander-slim-fit-denim-jeans",
-    "title": "Highlander Men Slim Fit Washed Stretchable Denim Jeans (Mid-Rise)",
-    "brand": "Highlander",
-    "category": "fashion",
-    "store": "Myntra",
-    "originalPrice": 2299,
-    "dealPrice": 699,
-    "discount": "70% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹55.92",
-    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://myntr.it/13Wcsvi",
-    "rating": 4.2,
-    "reviewsCount": 31000,
-    "badge": "👖 STRETCH COMFORT",
+    "reviewsCount": 23709,
+    "badge": "💡 16M RGB COLORS",
     "isFlashDeal": false,
-    "summary": "Engineered with comfort stretch denim, Highlander slim-fit washed jeans combine contemporary whiskered wash styling with 2% elastane for unrestricted movement and all-day comfort.",
+    "summary": "Transform your bedroom into a cozy haven: Wipro 9W Smart LED bulb connects directly to your home Wi-Fi with no hub required, offering 16 million colors, voice control, and music sync.",
     "specs": [
       {
-        "label": "Material",
-        "value": "98% Cotton, 2% Elastane for Flexible Stretch"
+        "label": "Wattage",
+        "value": "9 Watts Energy Efficient LED (810 Lumens)"
       },
       {
-        "label": "Fit & Rise",
-        "value": "Slim Fit with Mid-Rise Waist"
+        "label": "Colors",
+        "value": "16 Million RGB Colors + Tunable White (2700K to 6500K)"
       },
       {
-        "label": "Wash Style",
-        "value": "Light Fade with Clean Whiskers"
+        "label": "Control",
+        "value": "Amazon Alexa & Google Assistant Voice Commands"
       },
       {
-        "label": "Pockets",
-        "value": "Classic 5-Pocket Styling with Coin Pocket"
+        "label": "Connection",
+        "value": "Direct 2.4GHz Wi-Fi (No Gateway Needed)"
       },
       {
-        "label": "Closure",
-        "value": "Sturdy Zip Fly with Metal Button Closure"
+        "label": "Fitting",
+        "value": "Standard Indian B22 Regular Base"
       }
     ],
     "highlights": [
-      "2% elastane blend offers generous stretch for bike riding, sitting, and walking.",
-      "Modern clean washed aesthetic pairs seamlessly with graphic tees and casual shirts.",
-      "Reinforced belt loops and heavy-duty brass zipper prevent mid-day malfunctions."
+      "Dim or brighten lighting from 1% to 100% using your smartphone or simple voice commands.",
+      "Music sync mode pulses lighting in rhythm with your favorite songs for room parties.",
+      "Set automated schedules to wake up to gentle warm light in the morning."
     ],
     "pros": [
-      "Incredible value for stretch denim priced under ₹700.",
-      "Doesn't sag at the knees even after full-day office wear.",
-      "Available in waist sizes from 28 to 36."
+      "Very affordable smart home automation",
+      "Standard B22 base fits standard sockets",
+      "Tunable white from warm to cool"
     ],
     "cons": [
-      "Initial first wash should be done separately to prevent indigo bleeding.",
-      "Length may require minor alteration for folks under 5'7\"."
+      "Requires 2.4GHz Wi-Fi band",
+      "Wall switch must remain on"
     ],
-    "whoShouldBuy": "Men looking for stylish, comfortable, daily-wear stretch jeans without spending ₹2,000+ on luxury denim brands.",
-    "verdict": "Top-rated comfort stretch jeans at ₹699. One of Myntra's perennial bestsellers."
+    "whoShouldBuy": "Anyone wanting cozy mood lighting and voice control in their bedroom or study.",
+    "verdict": "At ₹399 with 60% off, upgrading to smart lighting is effortlessly affordable."
   },
   {
-    "id": "deal-27",
-    "slug": "anouk-floral-kurta-palazzo-set",
-    "title": "Anouk Women Floral Printed Pure Cotton Kurta with Palazzos & Gotta Patti",
-    "brand": "Anouk",
-    "category": "fashion",
-    "store": "Myntra",
-    "originalPrice": 3299,
-    "dealPrice": 899,
-    "discount": "73% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹71.92",
-    "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://myntr.it/ipdaMXb",
-    "rating": 4.4,
-    "reviewsCount": 22400,
-    "badge": "🌸 ETHNIC FESTIVE",
-    "isFlashDeal": true,
-    "summary": "Elevate your ethnic wardrobe with this Anouk printed A-line kurta and palazzo co-ord set, crafted in soft pure cotton with intricate floral motifs and subtle Gotta Patti neckline details.",
-    "specs": [
-      {
-        "label": "Kurta Fabric",
-        "value": "100% Pure Lightweight Breathable Cotton"
-      },
-      {
-        "label": "Bottom Fabric",
-        "value": "Pure Cotton Flared Elasticated Palazzos"
-      },
-      {
-        "label": "Neck & Sleeves",
-        "value": "Mandarin V-Neck with Three-Quarter Regular Sleeves"
-      },
-      {
-        "label": "Detailing",
-        "value": "Gotta Patti Accent Work along Neckline"
-      },
-      {
-        "label": "Length",
-        "value": "Calf Length Kurta with Ankle Length Palazzo"
-      }
-    ],
-    "highlights": [
-      "Soft pure cotton keeps you cool during day-long festivities, poojas, and office wear.",
-      "Flared palazzo silhouette offers freedom of movement and flattering drape.",
-      "Elegant floral prints stay vibrant even after routine machine washing."
-    ],
-    "pros": [
-      "Ready-to-wear complete ethnic set for under ₹900.",
-      "Comfortable elasticated waistband accommodates various body types.",
-      "Versatile styling suited for both casual daytime and festive evening wear."
-    ],
-    "cons": [
-      "Does not include a separate dupatta (kurta + palazzo set).",
-      "Hand wash recommended for the first cycle to preserve Gotta Patti luster."
-    ],
-    "whoShouldBuy": "Women wanting a comfortable, elegant, pure cotton ethnic co-ord set for office ethnic days, family gatherings, and festivals.",
-    "verdict": "Pure cotton elegance at ₹899 with 73% off. A verified ethnic bestseller."
-  },
-  {
-    "id": "deal-28",
-    "slug": "dennis-lingo-slim-fit-cotton-shirt",
-    "title": "Dennis Lingo Men Slim Fit Casual Cotton Shirt with Spread Collar",
-    "brand": "Dennis Lingo",
-    "category": "fashion",
-    "store": "Amazon",
-    "originalPrice": 1849,
-    "dealPrice": 499,
-    "discount": "73% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹25.00",
-    "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B0797Y6M8H?tag=bhom120704-21",
-    "rating": 4.2,
-    "reviewsCount": 46800,
-    "badge": "⚡ LOOT UNDER ₹500",
-    "isFlashDeal": true,
-    "summary": "One of Amazon's highest-selling shirts of all time: Dennis Lingo 100% premium cotton casual shirt with slim tailoring, curved hem, and rich solid colors suited for office and weekend parties.",
-    "specs": [
-      {
-        "label": "Fabric",
-        "value": "100% Premium Combed Cotton"
-      },
-      {
-        "label": "Fit",
-        "value": "Slim Tailored Fit"
-      },
-      {
-        "label": "Sleeve",
-        "value": "Full Sleeves with Roll-Up Button Tab"
-      },
-      {
-        "label": "Collar",
-        "value": "Contemporary Spread Collar"
-      },
-      {
-        "label": "Origin",
-        "value": "Proudly Made in India"
-      }
-    ],
-    "highlights": [
-      "Over 45,000 verified ratings make this one of the most trusted casual shirts online.",
-      "Combed cotton yarn provides smooth hand-feel and durability.",
-      "Wide choice of 20+ rich solid color options from Olive to Dust Pink."
-    ],
-    "pros": [
-      "Incredible value under ₹500 for a pure cotton branded shirt.",
-      "Crisp collar construction that maintains its posture all day.",
-      "Modern slim silhouette that fits cleanly without billowing around the waist."
-    ],
-    "cons": [
-      "Tailoring is slim; folks with broader chest or belly should order 1 size up.",
-      "Requires steam or iron press after washing."
-    ],
-    "whoShouldBuy": "Budget-conscious shoppers wanting a sharp, well-fitting casual shirt for college, dates, or semi-formal office wear.",
-    "verdict": "At ₹499 with 73% off, Dennis Lingo delivers exceptional style for the price."
-  },
-  {
-    "id": "deal-29",
-    "slug": "red-tape-casual-sneaker-shoes-men",
-    "title": "Red Tape Casual Sneaker Shoes for Men (Cushioned Memory Foam Insole)",
+    "id": "deal-12",
+    "slug": "red-tape-sneakers-men",
+    "title": "RED TAPE Casual Sneaker Shoes for Men (Memory Foam Insole, Low Top)",
     "brand": "Red Tape",
     "category": "footwear",
     "store": "Flipkart",
     "originalPrice": 5599,
     "dealPrice": 1399,
     "discount": "75% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹111.92",
-    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/N2QlY75",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/shoe/k/u/j/7-rsl1159-red-tape-white-navy-resized-original-imah7mu8vzz9xgxf.jpeg",
+    "profitLink": "https://fktr.in/9jF8S1a",
     "rating": 4.3,
-    "reviewsCount": 89000,
-    "badge": "👟 CROWD FAVORITE",
+    "reviewsCount": 26159,
+    "badge": "👟 75% OFF STEAL",
     "isFlashDeal": true,
-    "summary": "The sneaker phenomenon of India: Red Tape low-top casual sneakers deliver luxury designer aesthetics, high-density memory foam cushioning, and slip-resistant TPR outsoles for just ₹1,399.",
+    "summary": "India's highest selling casual sneaker: Red Tape low-top sneakers deliver designer aesthetics, high-density memory foam cushioning, and slip-resistant TPR outsoles for just ₹1,399.",
     "specs": [
       {
-        "label": "Upper Material",
+        "label": "Upper",
         "value": "High-Grade Synthetic Leather with Perforated Toe"
       },
       {
@@ -1652,7 +642,7 @@
         "value": "Removable High-Density Memory Foam Cushioning"
       },
       {
-        "label": "Sole Material",
+        "label": "Sole",
         "value": "Durable Thermoplastic Rubber (TPR) Outsole"
       },
       {
@@ -1660,45 +650,99 @@
         "value": "Lace-Up with Metal Eyelets"
       },
       {
-        "label": "Toe Style",
+        "label": "Toe",
         "value": "Round Toe with Reinforced Toe Cap"
       }
     ],
     "highlights": [
       "Memory foam footbed adapts to your unique foot arch for fatigue-free walking.",
       "Perforated toe vamp allows air circulation to keep feet dry and odorless.",
-      "Crisp clean white sneaker aesthetic that matches everything from jeans to shorts."
+      "Crisp clean white sneaker aesthetic that matches jeans, chinos, and shorts."
     ],
     "pros": [
-      "Looks and feels like a ₹6,000 designer sneaker for a quarter of the price.",
-      "Easy to clean with a damp cloth due to the synthetic leather upper.",
-      "Strong grip on tiled floors and wet pavements."
+      "Looks like a ₹6,000 luxury sneaker",
+      "Easy to clean with damp cloth",
+      "Superior street grip"
     ],
     "cons": [
-      "Slightly heavier than knit running shoes (styled for casual lifestyle, not marathons).",
-      "Memory foam takes 1-2 days of break-in for optimal softness."
+      "Heavier than knit running shoes",
+      "Takes 1-2 days to break in"
     ],
-    "whoShouldBuy": "College students and young professionals wanting clean, trendy white sneakers with superior arch comfort under ₹1,500.",
-    "verdict": "At ₹1,399 with 75% discount, this is the best value white sneaker on the Indian market."
+    "whoShouldBuy": "College students and young professionals seeking trendy sneakers with superior comfort.",
+    "verdict": "At ₹1,399 with 75% discount, this is the best value white sneaker in India."
   },
   {
-    "id": "deal-30",
-    "slug": "asian-wonder-13-sports-running-shoes",
-    "title": "Asian Men's Wonder-13 Sports Running & Walking Shoes (EVA Cushioned Sole)",
+    "id": "deal-13",
+    "slug": "puma-zarsun-sneakers-men",
+    "title": "PUMA Zarsun Sneakers For Men (SoftFoam+ Dual-Density Step-In Cushioning)",
+    "brand": "Puma",
+    "category": "footwear",
+    "store": "Flipkart",
+    "originalPrice": 4499,
+    "dealPrice": 1799,
+    "discount": "60% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/shoe/9/u/g/-watermarked-original-imahgcs8aynaffc9.jpeg",
+    "profitLink": "https://fktr.in/2at4pBk",
+    "rating": 4.3,
+    "reviewsCount": 33576,
+    "badge": "⭐ PUMA ORIGINAL",
+    "isFlashDeal": false,
+    "summary": "Classic tennis styling reimagined for daily street fashion: Puma low-top sneakers feature a durable synthetic leather upper, iconic Puma formstrip, and vulcanized rubber traction.",
+    "specs": [
+      {
+        "label": "Brand",
+        "value": "Puma Original Sportswear"
+      },
+      {
+        "label": "Upper",
+        "value": "Supple Synthetic Leather with Puma Formstrip"
+      },
+      {
+        "label": "Sole",
+        "value": "Vulcanized High-Traction Rubber Outsole"
+      },
+      {
+        "label": "Insole",
+        "value": "SoftFoam+ Dual-Density Step-In Cushioning"
+      },
+      {
+        "label": "Profile",
+        "value": "Low-Profile Court Sneaker Silhouette"
+      }
+    ],
+    "highlights": [
+      "SoftFoam+ sockliner provides plush step-in cushioning for all-day comfort.",
+      "Timeless retro tennis silhouette never goes out of fashion.",
+      "Durable rubber cupsole delivers reliable grip on all surfaces."
+    ],
+    "pros": [
+      "Authentic Puma heritage design",
+      "Plush SoftFoam+ cushioning",
+      "Great arch support"
+    ],
+    "cons": [
+      "Slightly narrow fit; order 1 size up for broad feet",
+      "White midsoles require routine cleaning"
+    ],
+    "whoShouldBuy": "Sneaker enthusiasts wanting an authentic global brand shoe under ₹1,800.",
+    "verdict": "Authentic Puma styling at 60% off (₹1,799). A verified crowd favorite."
+  },
+  {
+    "id": "deal-14",
+    "slug": "asian-wndr-13-running-shoes",
+    "title": "Asian Men's Wonder-13 Sports Running & Walking Shoes (Featherlight EVA Sole)",
     "brand": "Asian",
     "category": "footwear",
-    "store": "Amazon",
+    "store": "Flipkart",
     "originalPrice": 1299,
     "dealPrice": 599,
     "discount": "54% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹30.00",
-    "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B082FQZ45K?tag=bhom120704-21",
-    "rating": 4.1,
-    "reviewsCount": 52000,
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/shoe/t/g/z/-original-imahrrjspkj2dyyf.jpeg",
+    "profitLink": "https://fktr.in/4Dk0z1s",
+    "rating": 4.3,
+    "reviewsCount": 16593,
     "badge": "🔥 UNDER ₹600 STEAL",
-    "isFlashDeal": false,
+    "isFlashDeal": true,
     "summary": "India's highest selling budget sports shoe: Asian Wonder-13 features a breathable mesh upper, featherlight EVA sole, and ergonomic toe spring designed for morning runs and gym workouts.",
     "specs": [
       {
@@ -1728,20 +772,20 @@
       "Flexible EVA outsole bends naturally with the foot during running strides."
     ],
     "pros": [
-      "Incredible value under ₹600 for a functional running shoe.",
-      "Remarkably lightweight and comfortable straight out of the box.",
-      "Machine washable on gentle cycle."
+      "Incredible value under ₹600",
+      "Remarkably lightweight out of the box",
+      "Gentle machine washable"
     ],
     "cons": [
-      "Not designed for competitive marathon racing or rugged mountain treks.",
-      "Insole padding may compress after 8-10 months of heavy daily running."
+      "Not meant for mountain treks",
+      "Insole padding compresses after 9-10 months"
     ],
-    "whoShouldBuy": "Morning walkers, gym beginners, and anyone needing a comfortable, featherlight sports shoe for under ₹600.",
-    "verdict": "Unbeatable budget utility at ₹599. Perfect for daily jogging and routine gym use."
+    "whoShouldBuy": "Morning walkers, gym beginners, and anyone needing a comfortable sports shoe under ₹600.",
+    "verdict": "Unbeatable budget utility at ₹599. Perfect for daily jogging."
   },
   {
-    "id": "deal-31",
-    "slug": "sparx-lightweight-running-shoes",
+    "id": "deal-15",
+    "slug": "sparx-sm-680-running-shoes",
     "title": "Sparx Men's Mesh Lightweight Running Shoes (Durable Phylon Midsole)",
     "brand": "Sparx",
     "category": "footwear",
@@ -1749,14 +793,12 @@
     "originalPrice": 1799,
     "dealPrice": 999,
     "discount": "44% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹79.92",
-    "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/iUwoZsb",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/shoe/m/z/l/6-sx0sm680-6-sparx-grey-red1-watermarked-original-imahe3bgw2xsp7by.jpeg",
+    "profitLink": "https://fktr.in/qpGTz4s",
     "rating": 4.3,
-    "reviewsCount": 39000,
+    "reviewsCount": 15703,
     "badge": "⚡ RELAXO SPARX QUALITY",
-    "isFlashDeal": true,
+    "isFlashDeal": false,
     "summary": "Built by Relaxo, India's trusted footwear brand: Sparx running shoes feature high-traction rubber pods, dual-density phylon midsole, and seamless structured mesh for rugged daily performance.",
     "specs": [
       {
@@ -1786,92 +828,32 @@
       "Reinforced TPU heel counter keeps the foot locked in place during lateral moves."
     ],
     "pros": [
-      "Legendary Relaxo durability that easily lasts 1.5 to 2 years of daily punishment.",
-      "Balanced cushioning that provides both shock absorption and road feedback.",
-      "Snug athletic fit that prevents heel slippage."
+      "Legendary Relaxo durability (1.5 - 2 years)",
+      "Balanced shock absorption",
+      "Snug athletic lock-in"
     ],
     "cons": [
-      "Takes a couple of days to mold perfectly to wider feet.",
-      "Styling is sporty, less suited for formal office trousers."
+      "Requires 2 days break-in for wide feet",
+      "Sporty styling"
     ],
-    "whoShouldBuy": "Anyone seeking a rugged, long-lasting sports shoe for road running, outdoor games, and daily chores under ₹1,000.",
+    "whoShouldBuy": "Anyone seeking a rugged, long-lasting sports shoe for road running under ₹1,000.",
     "verdict": "Sparx durability at ₹999 is legendary. A rock-solid daily trainer."
   },
   {
-    "id": "deal-32",
-    "slug": "campus-first-running-shoes-men",
-    "title": "Campus Men's First Running Shoes (Air Capsule Cushioning & Nitrofly Sole)",
-    "brand": "Campus",
-    "category": "footwear",
-    "store": "Flipkart",
-    "originalPrice": 1999,
-    "dealPrice": 1199,
-    "discount": "40% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹95.92",
-    "image": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/Kfsh34y",
-    "rating": 4.4,
-    "reviewsCount": 47000,
-    "badge": "💨 AIR CAPSULE BOUNCE",
-    "isFlashDeal": false,
-    "summary": "Campus First brings visible Air Capsule technology to Indian runners, delivering bouncy energy return, breathable knitted sock-fit upper, and anti-slip traction for ₹1,199.",
-    "specs": [
-      {
-        "label": "Technology",
-        "value": "Visible Air Capsule Cushion in Heel"
-      },
-      {
-        "label": "Upper",
-        "value": "High-Flex Knitted Mesh with Sock-Like Collar"
-      },
-      {
-        "label": "Sole Material",
-        "value": "Phylon and TPU Bounce Compound"
-      },
-      {
-        "label": "Closure",
-        "value": "Speed-Lace System with Integrated Eyelets"
-      },
-      {
-        "label": "Support",
-        "value": "Padded Ankle Collar and Achilles Notch"
-      }
-    ],
-    "highlights": [
-      "Air Capsule in the heel compresses upon landing and springs back for effortless strides.",
-      "Sock-like knitted collar wraps snugly around the ankle to prevent chafing.",
-      "Futuristic sneaker profile looks great with track pants and joggers."
-    ],
-    "pros": [
-      "Noticeably bouncy heel cushioning that reduces joint impact during running.",
-      "Very stylish silhouette that mimics high-end Nike Air Max models.",
-      "Breathable fabric keeps feet cool during hot summer workouts."
-    ],
-    "cons": [
-      "Air capsule should be kept away from sharp nails or construction debris.",
-      "Snug fit around the instep; wide-footed buyers should consider 1 size larger."
-    ],
-    "whoShouldBuy": "Fitness lovers and college runners wanting bouncy air cushioning and head-turning sporty looks under ₹1,200.",
-    "verdict": "Incredible cushioning tech at just ₹1,199. Campus First sets the benchmark in budget running comfort."
-  },
-  {
-    "id": "deal-33",
-    "slug": "pigeon-handy-plastic-chopper-blades",
+    "id": "deal-16",
+    "slug": "pigeon-handy-mini-chopper",
     "title": "Pigeon by Stovekraft Handy Plastic Chopper with 3 Stainless Steel Blades (400ml)",
     "brand": "Pigeon",
     "category": "home",
-    "store": "Amazon",
+    "store": "Flipkart",
     "originalPrice": 545,
     "dealPrice": 199,
     "discount": "63% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹10.00",
-    "image": "https://images.unsplash.com/photo-1584990347449-359bcbe7352f?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B01LWYXB3L?tag=bhom120704-21",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/chopper/w/e/b/14515-pigeon-enriched-transparent-original-imafytmvhvygzrdz.png",
+    "profitLink": "https://fktr.in/hMVDvs3",
     "rating": 4.3,
-    "reviewsCount": 195000,
-    "badge": "🏆 1.9 LAKH+ REVIEWS",
+    "reviewsCount": 32259,
+    "badge": "🏆 1.9L+ REVIEWS",
     "isFlashDeal": true,
     "summary": "India's #1 kitchen tool: The Pigeon Handy Chopper cuts onions, tomatoes, and vegetables in seconds with zero tears using its 3 razor-sharp stainless steel blades and effortless pull-cord mechanism.",
     "specs": [
@@ -1899,39 +881,37 @@
     "highlights": [
       "Chops onions, garlic, chillies, and ginger into fine pieces in under 5 pulls.",
       "Zero electricity required—works during power outages and travels easily.",
-      "Over 1.95 lakh verified ratings make it one of the top 3 selling products on Amazon India."
+      "Over 1.95 lakh verified ratings make it one of India's most loved kitchen gadgets."
     ],
     "pros": [
-      "Saves 15-20 minutes of tedious manual chopping every single day.",
-      "Eliminates teary eyes from chopping pungent onions completely.",
-      "Compact size stores away easily in any kitchen drawer."
+      "Saves 15-20 minutes of daily chopping",
+      "No more crying from onion fumes",
+      "Ultra compact storage"
     ],
     "cons": [
-      "Cord should be pulled horizontally; pulling at harsh angles can cause wear on the cord exit.",
-      "Hard vegetables like carrots need to be pre-cut into 1-inch chunks first."
+      "Pull cord horizontally to prevent wear",
+      "Cut large carrots into chunks first"
     ],
-    "whoShouldBuy": "Every single Indian household. A life-changing kitchen upgrade for less than the price of a movie ticket.",
-    "verdict": "At ₹199 with 63% off, this is the single best value purchase for any Indian kitchen."
+    "whoShouldBuy": "Every single Indian household. A life-changing kitchen upgrade under ₹200.",
+    "verdict": "At ₹199 with 63% off, this is the single best value kitchen purchase on earth."
   },
   {
-    "id": "deal-34",
-    "slug": "philips-daily-air-fryer-rapid-air",
-    "title": "Philips Daily Collection 4.1L Air Fryer (Rapid Air Technology, 90% Less Oil)",
+    "id": "deal-17",
+    "slug": "philips-rapid-air-fryer",
+    "title": "Philips 4.1L Air Fryer (Rapid Air Technology, 90% Less Oil Cooking)",
     "brand": "Philips",
     "category": "home",
-    "store": "Amazon",
+    "store": "Flipkart",
     "originalPrice": 11995,
     "dealPrice": 5999,
     "discount": "50% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹180.00",
-    "image": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B097RVF18P?tag=bhom120704-21",
-    "rating": 4.5,
-    "reviewsCount": 28400,
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/air-fryer/f/0/d/-original-imahztwusjs5qunh.jpeg",
+    "profitLink": "https://fktr.in/B64v34e",
+    "rating": 4.3,
+    "reviewsCount": 28722,
     "badge": "🍟 90% LESS OIL",
     "isFlashDeal": false,
-    "summary": "Cook your favorite crispy samosas, french fries, tikkas, and roasted chicken with up to 90% less oil. Philips Rapid Air technology circulates superheated air for golden crispy exteriors and tender interiors.",
+    "summary": "Cook your favorite crispy samosas, french fries, tikkas, and roasted snacks with up to 90% less oil. Philips Rapid Air technology circulates superheated air for golden crispy exteriors.",
     "specs": [
       {
         "label": "Capacity",
@@ -1943,7 +923,7 @@
       },
       {
         "label": "Power",
-        "value": "1400W Fast-Heating Heating Element"
+        "value": "1400W Fast-Heating Element"
       },
       {
         "label": "Controls",
@@ -1957,54 +937,52 @@
     "highlights": [
       "Patented starfish bottom swirls hot air evenly for uniform browning without shaking.",
       "Enjoy guilt-free crispy snacks with just 1-2 sprays of oil instead of deep frying.",
-      "NutriU app provides hundreds of personalized healthy Indian recipes."
+      "Reheats pizza and fried snacks back to original fresh-out-of-the-pan crispiness."
     ],
     "pros": [
-      "Dramatically cuts calorie intake while preserving authentic crunch and taste.",
-      "Reheats pizza and fried snacks back to original fresh-out-of-the-pan crispiness.",
-      "Removable non-stick basket rinses clean in under 30 seconds."
+      "Cuts calorie intake dramatically",
+      "Crispy exterior and juicy interior",
+      "Rinses clean in 30 seconds"
     ],
     "cons": [
-      "Analog dial version lacks digital one-touch preset buttons (available on higher variants).",
-      "Takes up counter space, best suited for kitchens with dedicated prep areas."
+      "Takes up counter space",
+      "Analog dial variant"
     ],
-    "whoShouldBuy": "Health-conscious families, gym enthusiasts, and parents wanting healthier snacks for kids without giving up fried favorites.",
-    "verdict": "The gold standard of air fryers at a flat 50% discount (₹5,999). An investment in family health."
+    "whoShouldBuy": "Health-conscious families, gym enthusiasts, and parents wanting healthier snacks.",
+    "verdict": "The gold standard of air fryers at a flat 50% discount (₹5,999)."
   },
   {
-    "id": "deal-35",
-    "slug": "prestige-iris-750w-mixer-grinder",
-    "title": "Prestige Iris 750W Mixer Grinder with 3 Stainless Steel Jars & Transparent Juicer",
+    "id": "deal-18",
+    "slug": "prestige-plus-750w-mixer-grinder",
+    "title": "Prestige Iris 750W Mixer Grinder with 3 Stainless Steel Jars & Juicer",
     "brand": "Prestige",
     "category": "home",
     "store": "Flipkart",
     "originalPrice": 6295,
     "dealPrice": 2899,
     "discount": "54% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹231.92",
-    "image": "https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/mNglwwI",
-    "rating": 4.2,
-    "reviewsCount": 118000,
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/mixer-grinder-juicer/6/a/4/-resized-original-imah5hp4tejgbywb.jpeg",
+    "profitLink": "https://fktr.in/ib4lbOT",
+    "rating": 4.3,
+    "reviewsCount": 23192,
     "badge": "⚡ 750W HEAVY DUTY",
     "isFlashDeal": true,
-    "summary": "Heavy duty grinding made effortless: Prestige Iris 750W motor pulverizes the toughest Indian spices, turmeric roots, and idli batter, accompanied by 3 stainless steel jars and a dedicated juicer jar.",
+    "summary": "Heavy duty grinding made effortless: Prestige Iris 750W motor pulverizes the toughest Indian spices, raw turmeric roots, and thick idli batter with 3 stainless steel jars and a dedicated juicer.",
     "specs": [
       {
         "label": "Motor",
         "value": "750 Watt Heavy Duty Copper-Wound Motor"
       },
       {
-        "label": "Jars Included",
+        "label": "Jars",
         "value": "Wet Jar (1.5L), Dry Jar (1L), Chutney Jar (300ml) + Juicer (1.5L)"
       },
       {
-        "label": "Speed Control",
+        "label": "Speed",
         "value": "3 Speed Rotary Switch with Whip/Pulse Function"
       },
       {
-        "label": "Overload Protection",
+        "label": "Safety",
         "value": "Automated Thermal Overload Reset Switch"
       },
       {
@@ -2014,167 +992,273 @@
     ],
     "highlights": [
       "750W high-torque motor grinds dry raw turmeric, coconut, and thick batter effortlessly.",
-      "Dedicated transparent juicer jar with sieve extracts fresh fruit juice without pulp seeds.",
+      "Dedicated transparent juicer jar with sieve extracts fresh fruit juice without seeds.",
       "Ergonomic jar handles provide secure grip while pouring thick gravies."
     ],
     "pros": [
-      "Proven Indian kitchen workhorse with over 1.1 lakh Flipkart reviews.",
-      "Sturdy stainless steel blades that stay sharp through years of spice grinding.",
-      "Thermal overload protection prevents motor burnouts during tough tasks."
+      "Over 1.1 lakh verified positive reviews",
+      "Durable stainless steel blades",
+      "Thermal overload protection"
     ],
     "cons": [
-      "750W motor produces audible operating sound during peak high-speed grinding.",
-      "Initial 2-3 uses may emit a slight motor varnish smell, which is completely normal."
+      "Audible motor sound at high speed",
+      "Normal initial varnish smell during first 2 runs"
     ],
-    "whoShouldBuy": "Indian families needing a dependable, heavy-duty 750W mixer grinder for daily masala, chutney, and batter grinding.",
+    "whoShouldBuy": "Indian families needing a dependable, heavy-duty 750W mixer grinder for daily cooking.",
     "verdict": "Top-selling 750W mixer grinder in India. Unbeatable power and 4 jars at ₹2,899."
   },
   {
-    "id": "deal-36",
-    "slug": "borosil-glass-lunch-box-set-3",
-    "title": "Borosil Klip N Store Microwave Safe Glass Lunch Box Set of 3 (400ml each with Bag)",
+    "id": "deal-19",
+    "slug": "milton-thermosteel-flask-1000ml",
+    "title": "Milton Thermosteel Duo DLX 1000ml Stainless Steel Flask (24H Hot & Cold)",
+    "brand": "Milton",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 1395,
+    "dealPrice": 949,
+    "discount": "32% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/bottle/k/3/2/1000-eco-flip-1000-thermosteel-bottle-1-ctmsfis439stpc0001-enriched-transparent-original-imah4qjhdwgbhz4c.png",
+    "profitLink": "https://fktr.in/cEzWeBy",
+    "rating": 4.3,
+    "reviewsCount": 25037,
+    "badge": "❄️ 24H HOT/COLD",
+    "isFlashDeal": false,
+    "summary": "Engineered with double-walled vacuum insulation and a copper coating inside, this 1000ml Milton Thermosteel flask keeps beverages steaming hot or ice-cold for 24 hours.",
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "1000ml (1 Litre) Double Walled Vacuum"
+      },
+      {
+        "label": "Insulation",
+        "value": "24 Hours Hot & 24 Hours Cold (Copper Coated)"
+      },
+      {
+        "label": "Steel Grade",
+        "value": "100% Food-Grade 18/8 Rust-Proof 304 Stainless Steel"
+      },
+      {
+        "label": "Lid Type",
+        "value": "Dual Pour Flip-Cap Lid with Drinking Cup"
+      },
+      {
+        "label": "Bag",
+        "value": "Includes Heavy-Duty Fabric Carrying Pouch with Shoulder Strap"
+      }
+    ],
+    "highlights": [
+      "Copper coating between vacuum walls boosts thermal insulation for full 24-hour retention.",
+      "High-grade 304 steel guarantees zero metallic aftertaste and no chemical leaching.",
+      "Included jacket with shoulder strap makes carrying on travels and treks effortless."
+    ],
+    "pros": [
+      "Tested 24-hour heat and cold retention",
+      "Zero condensation on outer body",
+      "Leak-proof screw cap"
+    ],
+    "cons": [
+      "Slightly bulky when filled with 1kg of liquid",
+      "Avoid harsh steel wool scouring"
+    ],
+    "whoShouldBuy": "Office professionals, college students, drivers, and travelers needing hot tea or cold water all day.",
+    "verdict": "India's benchmark vacuum flask at ₹949. Indestructible daily utility."
+  },
+  {
+    "id": "deal-20",
+    "slug": "borosil-glass-lunch-box-set",
+    "title": "Borosil Microwave Safe Glass Lunch Box Set with Insulated Bag (100% Spill Proof)",
     "brand": "Borosil",
     "category": "home",
-    "store": "Amazon",
+    "store": "Flipkart",
     "originalPrice": 1590,
     "dealPrice": 899,
     "discount": "43% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹27.00",
-    "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B073Z9775Q?tag=bhom120704-21",
-    "rating": 4.4,
-    "reviewsCount": 34500,
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/minutes_enrichment_original/-enriched-original-LBXF96HA3YBHJWXC_0.jpg",
+    "profitLink": "https://fktr.in/l4ha12q",
+    "rating": 4.3,
+    "reviewsCount": 20925,
     "badge": "🥗 100% TOXIN FREE",
     "isFlashDeal": false,
-    "summary": "Ditch harmful plastic tiffins: Borosil Klip N Store features 100% borosilicate glass containers that are 100% microwave and dishwasher safe, leak-proof, and odor-free with an insulated travel bag.",
+    "summary": "Ditch harmful plastic tiffins: Borosil features 100% borosilicate glass containers that are microwave and dishwasher safe, leak-proof, and odor-free with an insulated travel bag.",
     "specs": [
       {
         "label": "Material",
         "value": "100% Pure 400°C Heat-Resistant Borosilicate Glass"
       },
       {
-        "label": "Set Contains",
-        "value": "3 x 400ml Glass Containers + 1 Insulated Fabric Carrying Bag"
-      },
-      {
-        "label": "Lid Type",
+        "label": "Lid",
         "value": "Airtight Silicone Sealed Clip Lids (100% Spill Proof)"
       },
       {
-        "label": "Compatibility",
+        "label": "Safety",
         "value": "Microwave, Oven, Freezer & Dishwasher Safe"
       },
       {
-        "label": "Health Standard",
+        "label": "Health",
         "value": "100% BPA Free, Lead Free, Zero Chemical Leaching"
+      },
+      {
+        "label": "Included",
+        "value": "Insulated Fabric Carrying Bag"
       }
     ],
     "highlights": [
-      "Borosilicate glass does not absorb curry stains, turmeric colors, or stubborn food odors.",
-      "Silicone gasket airtight seal guarantees zero oil or gravy leaks inside your office bag.",
+      "Borosilicate glass does not absorb curry stains, turmeric colors, or food odors.",
+      "Silicone gasket airtight seal guarantees zero oil or gravy leaks inside your bag.",
       "Can be heated directly in the office microwave without removing the food."
     ],
     "pros": [
-      "Much healthier and safer than plastic tiffins that leach toxins when microwaved.",
-      "Crystal clear transparency makes it easy to identify contents without opening.",
-      "Thermal shock resistant: can go straight from the fridge to the microwave."
+      "Healthy plastic-free lunching",
+      "Crystal clear transparency",
+      "Microwave safe with high thermal tolerance"
     ],
     "cons": [
-      "Heavier to carry in a backpack compared to plastic or stainless steel boxes.",
-      "Needs careful handling to avoid accidental drops on hard concrete floors."
+      "Heavier than plastic tiffins",
+      "Handle with care against hard drops"
     ],
-    "whoShouldBuy": "Office professionals, corporate employees, and health-conscious eaters who microwave their lunch daily.",
-    "verdict": "Clean, hygienic, and leak-proof. At ₹899 with an insulated bag, this is the premier office lunch kit."
+    "whoShouldBuy": "Office professionals and health-conscious eaters who microwave their meals.",
+    "verdict": "Clean, hygienic, and leak-proof. At ₹899 with bag, this is the premier lunch kit."
   },
   {
-    "id": "deal-37",
-    "slug": "wipro-9w-smart-led-bulb",
-    "title": "Wipro 9W Smart LED Bulb (16 Million Colors, Alexa & Google Assistant Compatible)",
-    "brand": "Wipro",
-    "category": "home",
-    "store": "Amazon",
-    "originalPrice": 999,
-    "dealPrice": 399,
-    "discount": "60% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹12.00",
-    "image": "https://images.unsplash.com/photo-1550985543-f47f38aeee65?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B082BG79G6?tag=bhom120704-21",
+    "id": "deal-21",
+    "slug": "roadster-men-casual-shirt",
+    "title": "Roadster Men 100% Pure Cotton Checkered Casual Shirt (Regular Fit)",
+    "brand": "Roadster",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 1999,
+    "dealPrice": 599,
+    "discount": "70% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/shirt/h/n/4/xl-rd1-plain-dar-green-roadster-original-imahp4z2mtxsya6r.jpeg",
+    "profitLink": "https://fktr.in/AbIt66o",
     "rating": 4.3,
-    "reviewsCount": 65000,
-    "badge": "💡 16M RGB COLORS",
+    "reviewsCount": 16957,
+    "badge": "🔥 70% OFF LOOT",
     "isFlashDeal": true,
-    "summary": "Transform your bedroom into a cozy haven: Wipro 9W Smart LED bulb connects directly to your home Wi-Fi with no hub required, offering 16 million colors, voice control, and music sync.",
+    "summary": "Crafted from 100% breathable pure cotton, this Roadster shirt delivers a flattering regular fit, curved hem, and timeless spread collar for effortless smart-casual wear.",
     "specs": [
       {
-        "label": "Wattage",
-        "value": "9 Watts Energy Efficient LED (810 Lumens)"
+        "label": "Fabric",
+        "value": "100% Breathable Pure Cotton"
       },
       {
-        "label": "Colors",
-        "value": "16 Million RGB Colors + Tunable White (Warm to Cool)"
+        "label": "Fit",
+        "value": "Regular Smart-Casual Fit"
       },
       {
-        "label": "Smart Control",
-        "value": "Amazon Alexa & Google Assistant Voice Commands"
+        "label": "Pattern",
+        "value": "Contemporary Checks"
       },
       {
-        "label": "Connectivity",
-        "value": "Direct 2.4GHz Wi-Fi (No separate hub required)"
+        "label": "Collar",
+        "value": "Spread Collar with Full Button Placket"
       },
       {
-        "label": "App",
-        "value": "Wipro Next Smart Home App (iOS & Android)"
+        "label": "Wash",
+        "value": "Machine wash cold with like colors"
       }
     ],
     "highlights": [
-      "Dim or brighten lighting from 1% to 100% using your smartphone or simple voice commands.",
-      "Music sync mode pulses lighting in rhythm with your favorite songs for room parties.",
-      "Set automated schedules to wake up to gentle warm light in the morning."
+      "Pure breathable cotton weave keeps you sweat-free through warm weather.",
+      "Versatile checked styling pairs with chinos and denim.",
+      "Pre-shrunk fabric retains its shape after machine washing."
     ],
     "pros": [
-      "Extremely affordable entry into smart home automation under ₹400.",
-      "Works with standard Indian B22 bulb sockets without adapters.",
-      "Tunable white lets you switch between 6500K study light and 2700K relaxing warm light."
+      "Outstanding fabric quality at ₹599",
+      "Soft hand-feel",
+      "Modern tailored silhouette"
     ],
     "cons": [
-      "Requires a standard 2.4GHz Wi-Fi network (does not connect to 5GHz only routers).",
-      "Requires constant wall switch ON position for app automation to function."
+      "Requires light ironing after drying",
+      "Slim chest cut"
     ],
-    "whoShouldBuy": "Anyone wanting cozy mood lighting, voice control, or smart wake-up schedules in their bedroom or study room.",
-    "verdict": "At ₹399 with 60% off, upgrading your room to smart lighting has never been cheaper."
+    "whoShouldBuy": "College students and young working professionals looking for stylish everyday shirts.",
+    "verdict": "At 70% off (₹599), this Roadster shirt is an absolute no-brainer."
   },
   {
-    "id": "deal-38",
-    "slug": "shopsy-mens-round-neck-tshirts-pack-3",
-    "title": "Shopsy by Flipkart Solid Men Round Neck Poly Cotton T-Shirt (Pack of 3)",
+    "id": "deal-22",
+    "slug": "highlander-tapered-denim-jeans",
+    "title": "Highlander Men Tapered Fit Stretchable Denim Jeans (Mid-Rise)",
+    "brand": "Highlander",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 2299,
+    "dealPrice": 699,
+    "discount": "70% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/jean/8/l/m/-original-imah7trjhuerkhfg.jpeg",
+    "profitLink": "https://fktr.in/vP0NAMC",
+    "rating": 4.3,
+    "reviewsCount": 31793,
+    "badge": "👖 STRETCH COMFORT",
+    "isFlashDeal": false,
+    "summary": "Engineered with comfort stretch denim, Highlander tapered jeans combine clean styling with 2% elastane for unrestricted movement and all-day comfort.",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "98% Cotton, 2% Elastane for Flexible Stretch"
+      },
+      {
+        "label": "Fit & Rise",
+        "value": "Tapered Slim Fit with Mid-Rise Waist"
+      },
+      {
+        "label": "Pockets",
+        "value": "Classic 5-Pocket Styling with Coin Pocket"
+      },
+      {
+        "label": "Closure",
+        "value": "Sturdy Zip Fly with Metal Button Closure"
+      },
+      {
+        "label": "Care",
+        "value": "Machine Wash Cold"
+      }
+    ],
+    "highlights": [
+      "2% elastane blend offers generous stretch for bike riding and all-day sitting.",
+      "Modern clean washed aesthetic pairs seamlessly with tees and casual shirts.",
+      "Reinforced belt loops and heavy-duty brass zipper prevent malfunctions."
+    ],
+    "pros": [
+      "Incredible value for stretch denim under ₹700",
+      "Doesn't sag at knees",
+      "Available sizes 28-36"
+    ],
+    "cons": [
+      "Wash separately for first cycle",
+      "Length may require minor alteration"
+    ],
+    "whoShouldBuy": "Men looking for comfortable, stylish daily-wear stretch jeans under ₹700.",
+    "verdict": "Top-rated comfort stretch jeans at ₹699."
+  },
+  {
+    "id": "deal-23",
+    "slug": "tripr-mens-tshirts-pack-3",
+    "title": "Shopsy by Flipkart Solid Men Round Neck T-Shirt (Pack of 3 Multicolor)",
     "brand": "Shopsy",
     "category": "fashion",
     "store": "Flipkart",
     "originalPrice": 999,
     "dealPrice": 299,
     "discount": "70% OFF",
-    "profitRate": "8% Profit",
-    "profitEarned": "₹23.92",
-    "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://fktr.in/89qYL16",
-    "rating": 4.1,
-    "reviewsCount": 92000,
-    "badge": "🔥 LOOT: 3 FOR ₹299",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/t-shirt/l/k/b/4xl-tnvd210-bblz139-bgrnos-z140-tripr-original-imahzc7camzfpw2x.jpeg",
+    "profitLink": "https://fktr.in/UyPXTcM",
+    "rating": 4.3,
+    "reviewsCount": 16277,
+    "badge": "🔥 3 FOR ₹299",
     "isFlashDeal": true,
-    "summary": "Massive budget combo deal: Get a pack of 3 solid crew-neck t-shirts in versatile black, navy, and grey colors. Lightweight, quick-drying poly-cotton blend ideal for daily lounging, gym, and sleeping.",
+    "summary": "Massive budget combo deal: Get a pack of 3 solid crew-neck t-shirts in versatile black, navy, and grey colors. Lightweight, quick-drying poly-cotton blend ideal for daily wear and gym.",
     "specs": [
       {
-        "label": "Pack Contains",
-        "value": "3 Solid T-Shirts (Black, Navy Blue, Grey Melange)"
+        "label": "Pack",
+        "value": "3 Solid T-Shirts (Black, Navy Blue, Grey)"
       },
       {
         "label": "Fabric",
         "value": "Breathable Poly-Cotton Blend (Quick-Dry)"
       },
       {
-        "label": "Neck & Sleeve",
+        "label": "Neck",
         "value": "Round Crew Neck with Half Sleeves"
       },
       {
@@ -2192,77 +1276,75 @@
       "Comfortable breathable fit for sleeping, gym workouts, and casual errands."
     ],
     "pros": [
-      "Incomparable value-for-money combo deal under ₹300.",
-      "Colors do not fade quickly when washed in normal water.",
-      "Lightweight material keeps body cool in humid weather."
+      "Unbeatable value under ₹300",
+      "Fade-resistant colors",
+      "Cool lightweight material"
     ],
     "cons": [
-      "Fabric is lightweight; best suited for casual loungewear rather than heavy winter warmth.",
-      "Sizing can run snug, ordering one size up is recommended for loose comfort."
+      "Lightweight summer fabric",
+      "Order 1 size up for loose fit"
     ],
-    "whoShouldBuy": "Budget shoppers, hostelers, and daily gym goers who need plenty of spare daily wear t-shirts on a tight budget.",
-    "verdict": "3 branded t-shirts for ₹299 is genuine loot pricing. Grab this before stock runs out."
+    "whoShouldBuy": "Budget shoppers, hostelers, and gym goers wanting reliable everyday tees.",
+    "verdict": "3 branded t-shirts for ₹299 is genuine loot pricing."
   },
   {
-    "id": "deal-39",
-    "slug": "car-air-vent-phone-mount-gravity",
-    "title": "Car Air Vent Phone Holder Mount with 360 Degree Rotation & Auto Gravity Lock",
-    "brand": "Portronics",
-    "category": "electronics",
-    "store": "Amazon",
-    "originalPrice": 699,
-    "dealPrice": 249,
-    "discount": "64% OFF",
-    "profitRate": "Upto 5% Profit",
-    "profitEarned": "₹7.50",
-    "image": "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=600&auto=format&fit=crop&q=80",
-    "profitLink": "https://www.amazon.in/dp/B07LGYW69L?tag=bhom120704-21",
-    "rating": 4.2,
-    "reviewsCount": 21500,
-    "badge": "🚗 MUST-HAVE CAR ACCESSORY",
-    "isFlashDeal": false,
-    "summary": "Drive safely with hands-free navigation: This gravity car vent mount automatically locks your phone securely using its own weight when placed in the cradle, with zero buttons or clamps to adjust.",
+    "id": "deal-24",
+    "slug": "sbi-cashback-credit-card",
+    "title": "SBI Cashback Credit Card - Flat 5% Unlimited Online Cashback on All E-Commerce",
+    "brand": "SBI Card",
+    "category": "finance",
+    "store": "SBI Card",
+    "originalPrice": 999,
+    "dealPrice": 0,
+    "discount": "100% OFF",
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&auto=format&fit=crop&q=80",
+    "profitLink": "https://earnkaro.com?r=5610321&fname=Bhomvrat+Rai&action=sbi_card",
+    "rating": 4.3,
+    "reviewsCount": 19598,
+    "badge": "💳 FLAT 5% CASHBACK",
+    "isFlashDeal": true,
+    "summary": "The undisputed #1 cashback credit card in India: Earn a flat 5% cashback on virtually all online transactions across Flipkart, Amazon, Myntra, Swiggy, Zomato, and more.",
     "specs": [
       {
-        "label": "Mechanism",
-        "value": "Auto Gravity Linkage (Drop to Lock, Lift to Release)"
+        "label": "Cashback Rate",
+        "value": "Flat 5% Cashback on All Online Spends (Upto ₹5,000/month)"
       },
       {
-        "label": "Mount Type",
-        "value": "Upgraded Silicone Padded AC Vent Clip"
+        "label": "Offline Spends",
+        "value": "1% Unlimited Cashback on all offline POS purchases"
       },
       {
-        "label": "Rotation",
-        "value": "360-Degree Ball Joint Swivel"
+        "label": "Auto Credit",
+        "value": "Cashback automatically credited directly to next monthly statement"
       },
       {
-        "label": "Compatibility",
-        "value": "Universal fit for all 4.7 to 6.8 inch smartphones"
+        "label": "Airport Lounge",
+        "value": "4 Complimentary Domestic Airport Lounge Visits per year"
       },
       {
-        "label": "Protection",
-        "value": "Thick Silicone Pads Prevent Scratches on Vents and Phone"
+        "label": "Annual Fee",
+        "value": "₹999 (Waived on ₹2 Lakh annual spend)"
       }
     ],
     "highlights": [
-      "True one-handed operation: drop phone in with one hand and gravity locks the side arms.",
-      "Firm silicone clip securely grabs car AC vent slats without scratching dashboard plastics.",
-      "Charging cable cutout at the bottom allows you to charge your phone while navigating."
+      "No merchant restrictions: earn 5% cashback whether you shop on Flipkart, Amazon, Uber, or Zomato.",
+      "Cashback is credited directly as hard cash into your statement—no messy points or vouchers.",
+      "Potential savings of up to ₹60,000 every single year for active online shoppers."
     ],
     "pros": [
-      "Solves the danger of looking down at your lap while using Google Maps.",
-      "Keeps phone cooled by the AC airflow during intensive GPS navigation on hot days.",
-      "Super compact and doesn't obstruct windshield driving visibility."
+      "Simple flat 5% cashback with zero redemption hassles",
+      "Huge ₹5,000 monthly cashback ceiling",
+      "Lounge access included"
     ],
     "cons": [
-      "Designed for vertical orientation; gravity mechanism doesn't lock in horizontal landscape mode.",
-      "Not compatible with round rotary AC vents (best for standard horizontal/vertical slats)."
+      "Fuel, rent, wallet loads, and jewelry excluded",
+      "₹999 annual fee if spend is below ₹2 Lakhs"
     ],
-    "whoShouldBuy": "Car drivers, daily commuters, and road-trippers who rely on Google Maps and hands-free calls while driving.",
-    "verdict": "Essential car safety accessory at just ₹249 with 64% discount."
+    "whoShouldBuy": "Anyone who spends more than ₹10,000 online per month across Amazon, Flipkart, food delivery, and cabs.",
+    "verdict": "The king of Indian cashback cards. A must-have for every online shopper."
   },
   {
-    "id": "deal-40",
+    "id": "deal-25",
     "slug": "axis-bank-airtel-credit-card",
     "title": "Axis Bank Airtel Credit Card - Flat 25% Cashback on Airtel Bills, 10% on Swiggy & Zomato",
     "brand": "Axis Bank",
@@ -2271,15 +1353,13 @@
     "originalPrice": 500,
     "dealPrice": 0,
     "discount": "100% OFF",
-    "profitRate": "Flat ₹2,240 Profit",
-    "profitEarned": "₹2,240.00",
     "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80",
     "profitLink": "https://earnkaro.com?r=5610321&fname=Bhomvrat+Rai&action=axis_card",
-    "rating": 4.8,
-    "reviewsCount": 38900,
+    "rating": 4.3,
+    "reviewsCount": 25062,
     "badge": "💳 FLAT 25% CASHBACK",
     "isFlashDeal": true,
-    "summary": "One of the most rewarding utility cashback credit cards in India: Get flat 25% cashback on Airtel mobile, broadband, and DTH recharges, 10% cashback on Swiggy, Zomato & BigBasket, and 10% on utility bills.",
+    "summary": "One of the most rewarding utility cashback credit cards in India: Get flat 25% cashback on Airtel mobile, broadband, and DTH recharges, 10% on Swiggy/Zomato, and 10% on electricity/gas bills.",
     "specs": [
       {
         "label": "Joining Fee",
@@ -2303,20 +1383,20 @@
       }
     ],
     "highlights": [
-      "Earn up to ₹1,000+ real hard cashback directly credited to your statement every single month.",
+      "Earn up to ₹1,000+ real hard cashback directly credited to your statement every month.",
       "10% cashback on Swiggy & Zomato applies on top of restaurant promo codes.",
-      "Annual fee of ₹500 is easily recovered within the very first month of bill payments."
+      "Annual fee of ₹500 is recovered within the very first month of bill payments."
     ],
     "pros": [
-      "Unmatched 25% cashback rate on mobile and Wi-Fi broadband bills.",
-      "Massive ₹12,000+ annual savings potential for typical Indian households.",
-      "Complimentary domestic airport lounge access included."
+      "Unmatched 25% cashback on mobile and Wi-Fi bills",
+      "₹12,000+ annual savings potential",
+      "Domestic airport lounge access"
     ],
     "cons": [
-      "Maximum monthly cashback caps apply on each category.",
-      "Utility cashback only applies when paid via the Airtel Thanks App."
+      "Monthly cashback caps apply",
+      "Utility cashback requires Airtel Thanks app"
     ],
-    "whoShouldBuy": "Airtel users, foodies ordering from Swiggy/Zomato, and anyone paying monthly electricity/broadband bills who wants ₹1,000+ cashback every month.",
-    "verdict": "Hands down the highest-yielding utility cashback card in India. Zero joining fee application."
+    "whoShouldBuy": "Airtel users, foodies ordering from Swiggy/Zomato, and anyone paying monthly electricity/broadband bills.",
+    "verdict": "Hands down the highest-yielding utility cashback card in India."
   }
 ]

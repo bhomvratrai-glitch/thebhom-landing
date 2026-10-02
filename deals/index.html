@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TheBhom Deals - Best Online Shopping Deals, Coupons & Cashback Offers</title>
-  <meta name="description" content="Discover handpicked online shopping deals, flash sales, price drop alerts, and exclusive cashback from Flipkart, Amazon, Myntra, Ajio, and top Indian stores.">
-  <meta name="keywords" content="online shopping deals, loot deals india, flipkart bbd deals, amazon great indian festival, myntra sale, cashback offers">
+  <title>TheBhom Deals - Best Online Shopping Deals, Offers & Price Drops</title>
+  <meta name="description" content="Shop verified online deals from Flipkart, Amazon, and top Indian stores. Lowest price verification, authentic specifications, and direct store buy links.">
+  <meta name="keywords" content="online shopping deals, flipkart loot deals, amazon price drops, best offers india">
   <link rel="canonical" href="https://www.thebhom.in/deals/">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="TheBhom Deals - Verified Online Shopping Deals & Guaranteed Cashback">
-  <meta property="og:description" content="Shop verified loot deals and save up to 90% on electronics, smartphones, fashion, and daily essentials.">
+  <meta property="og:title" content="TheBhom Deals - Best Online Shopping Deals & Price Drops">
+  <meta property="og:description" content="Verified online shopping deals with up to 80% off on smartphones, electronics, fashion, and home appliances.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.thebhom.in/deals/">
 
@@ -52,94 +52,101 @@
   }
   </script>
 </head>
-<body>
+<body class="ecommerce-body">
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <div class="container header-content">
-      <a href="/" class="brand">
-        <div class="brand-icon">🛍️</div>
-        <div class="brand-text">
-          <span class="brand-title">TheBhom <span>Deals</span></span>
-          <p>Verified Online Shopping Loot Deals</p>
+  <!-- Flipkart/Amazon Style E-Commerce Header -->
+  <header class="ecommerce-header">
+    <div class="header-inner container-fluid">
+      
+      <!-- Brand Logo -->
+      <a href="/deals/" class="header-logo">
+        <div class="logo-box">
+          <span class="logo-icon">🛍️</span>
+          <span class="logo-brand">TheBhom</span>
+          <span class="logo-tag">DEALS</span>
         </div>
       </a>
 
-      <div class="header-actions">
-        <a href="/" class="btn-secondary-nav">TheBhom Home</a>
-        <a href="https://telegram.me/realearnkaro" target="_blank" rel="noopener noreferrer" class="btn-header-telegram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-          <span>Join Telegram Channel</span>
+      <!-- Amazon/Flipkart Integrated Search Bar -->
+      <div class="header-search">
+        <div class="search-input-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" placeholder="Search for Products, Brands (iPhone, boAt, Puma, Shoes, Mixer)..." autocomplete="off">
+          <button id="clearSearchBtn" class="clear-search-btn" style="display:none;" title="Clear search">✕</button>
+        </div>
+      </div>
+
+      <!-- Header Utilities -->
+      <div class="header-nav-right">
+        <a href="/" class="nav-link-subtle">TheBhom Home</a>
+        <a href="https://telegram.me/realearnkaro" target="_blank" rel="noopener" class="telegram-deal-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          <span>Telegram Deals</span>
         </a>
       </div>
+
     </div>
+
+    <!-- Category Sub-Navigation Strip (Flipkart / Amazon Style) -->
+    <nav class="category-strip" aria-label="E-commerce Categories">
+      <div class="category-strip-inner container-fluid">
+        <button class="cat-tab active" data-category="all">
+          <span class="cat-icon">🔥</span>
+          <span>All Deals</span>
+        </button>
+        <button class="cat-tab" data-category="mobiles">
+          <span class="cat-icon">📱</span>
+          <span>Smartphones</span>
+        </button>
+        <button class="cat-tab" data-category="electronics">
+          <span class="cat-icon">🎧</span>
+          <span>Audio & Gadgets</span>
+        </button>
+        <button class="cat-tab" data-category="footwear">
+          <span class="cat-icon">👟</span>
+          <span>Footwear & Shoes</span>
+        </button>
+        <button class="cat-tab" data-category="fashion">
+          <span class="cat-icon">👕</span>
+          <span>Fashion & Apparel</span>
+        </button>
+        <button class="cat-tab" data-category="home">
+          <span class="cat-icon">🏠</span>
+          <span>Home & Kitchen</span>
+        </button>
+        <button class="cat-tab" data-category="finance">
+          <span class="cat-icon">💳</span>
+          <span>Cashback Cards</span>
+        </button>
+      </div>
+    </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="container">
+  <!-- Clean Top Deals Announcement Bar -->
+  <div class="deals-announcement-bar">
+    <div class="container-fluid bar-flex">
+      <div class="bar-left">
+        <span class="flash-badge">⚡ DEALS OF THE DAY</span>
+        <span class="bar-text">Handpicked Online Shopping Price Drops • 100% In-Stock Verified Links</span>
+      </div>
+      <div class="bar-right">
+        <span class="trust-chip">✓ Verified Flipkart & Store Links</span>
+        <span class="trust-chip">✓ Direct Store Checkout</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Shopping Section -->
+  <main class="main-shopping-container container-fluid">
     
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-pill">🔥 Top Deals Across Flipkart, Amazon, Myntra & Ajio</div>
-      <h1 class="hero-title">Real Savings, Zero Fluff</h1>
-      <p class="hero-subtitle">Every product is human-curated with genuine price drop verification, authentic pros & cons, and instant cashback directly into your pocket.</p>
+    <!-- Products Grid (Dense Flipkart/Amazon Style: 6-8 per row on large displays) -->
+    <div id="dealsContainer" class="products-grid" aria-live="polite">
+      <!-- Injected dynamically via js/app.js -->
+    </div>
 
-      <!-- Live Search Bar -->
-      <div class="search-wrapper">
-        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search by brand, product, or category (e.g. boAt, realme, Puma, Milton, Shirt)...">
-      </div>
-    </section>
-
-    <!-- Universal Link Converter Tool -->
-    <section class="converter-card">
-      <div class="converter-header">
-        <div class="converter-title">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-          <span>Universal Profit Link Converter</span>
-        </div>
-        <span class="converter-badge">Works on 100 Crore+ Products</span>
-      </div>
-      <p style="font-size: 13px; color: var(--text-secondary); margin-top: -4px;">Want to buy something not listed here? Paste ANY Flipkart, Amazon, Myntra, or Ajio product link to generate a direct profit tracking link before placing your order.</p>
-      
-      <form id="convertForm" class="converter-form">
-        <input type="url" id="convertUrlInput" class="converter-input" placeholder="Paste product link (https://www.flipkart.com/... or https://amazon.in/...)" required>
-        <button type="submit" class="btn-convert">
-          <span>Make Profit Link</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
-
-      <div id="converterResult" class="converter-result">
-        <div>
-          <span style="font-size: 11px; font-weight: 700; color: #475569; display: block; margin-bottom: 2px;">YOUR PROFIT TRACKING LINK:</span>
-          <a id="resultLink" href="#" target="_blank" rel="noopener noreferrer nofollow" class="result-url">https://...</a>
-        </div>
-        <button class="btn-icon-action" onclick="copyLink(document.getElementById('resultLink').href)" title="Copy Link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- Categories Filter Navigation -->
-    <nav class="categories-nav" aria-label="Deal categories">
-      <button class="category-pill active" data-category="all">🔥 All Curated Deals</button>
-      <button class="category-pill" data-category="electronics">📱 Electronics & Audio</button>
-      <button class="category-pill" data-category="mobiles">🚀 Smartphones</button>
-      <button class="category-pill" data-category="fashion">👗 Fashion & Apparel</button>
-      <button class="category-pill" data-category="footwear">👟 Footwear & Sneakers</button>
-      <button class="category-pill" data-category="home">🏠 Home & Kitchen</button>
-      <button class="category-pill" data-category="finance">💳 Credit Cards & Cashback</button>
-    </nav>
-
-    <!-- Deals Grid -->
-    <section id="dealsContainer" class="deals-grid" aria-live="polite">
-      <!-- Dynamic render via js/app.js -->
-    </section>
-
-    <!-- Google AdSense Fluid In-Article Slot -->
-    <aside class="ad-slot-card">
-      <span class="ad-label">Advertisement</span>
+    <!-- AdSense In-Article Responsive Banner -->
+    <aside class="ecommerce-ad-slot">
+      <span class="ad-tag">Advertisement</span>
       <ins class="adsbygoogle"
            style="display:block; text-align:center;"
            data-ad-layout="in-article"
@@ -153,18 +160,18 @@
 
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container footer-content">
+  <!-- E-Commerce Footer -->
+  <footer class="ecommerce-footer">
+    <div class="container-fluid footer-row">
       <div>
-        <p><strong>TheBhom Deals</strong> &copy; 2026. All rights reserved.</p>
-        <p style="font-size: 11px; margin-top: 4px; color: #94a3b8;">Disclaimer: When you buy through links on our site, we may earn an affiliate commission at no extra cost to you. Product prices and availability are accurate as of the date/time indicated and are subject to change.</p>
+        <p><strong>TheBhom Deals</strong> &copy; 2026. Online Deals & Verified Price Drop Catalog.</p>
+        <p class="disclaimer-text">Disclosure: As an affiliate partner with Flipkart, Amazon, and EarnKaro, we earn from qualifying purchases at no additional cost to you. Product prices and offers are accurate at the time of publication.</p>
       </div>
-      <div class="footer-links">
+      <div class="footer-links-group">
         <a href="/">TheBhom.in</a>
         <a href="/tools/">Digital Tools</a>
         <a href="https://earnkaro.com?r=5610321" target="_blank" rel="noopener">EarnKaro Partner</a>
-        <a href="https://telegram.me/realearnkaro" target="_blank" rel="noopener">Telegram Deals</a>
+        <a href="https://telegram.me/realearnkaro" target="_blank" rel="noopener">Join Telegram</a>
       </div>
     </div>
   </footer>
