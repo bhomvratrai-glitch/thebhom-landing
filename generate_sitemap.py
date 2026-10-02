@@ -61,6 +61,14 @@ if os.path.exists(articles_dir):
         if art_file.endswith(".html") and art_file != "index.html":
             lines.append(f"  <url><loc>{base}/articles/{art_file}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>")
 
+# Online Deals & Shopping Offers Hub
+deals_p_dir = "deals/p"
+lines.append(f"  <url><loc>{base}/deals/</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>")
+if os.path.exists(deals_p_dir):
+    for deal_file in sorted(os.listdir(deals_p_dir)):
+        if deal_file.endswith(".html"):
+            lines.append(f"  <url><loc>{base}/deals/p/{deal_file}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>")
+
 cities = [
     "delhi","mumbai","bangalore","hyderabad","ahmedabad","chennai","kolkata","pune",
     "jaipur","lucknow","kanpur","nagpur","indore","bhopal","patna","vadodara","surat",
