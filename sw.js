@@ -3,7 +3,7 @@
 // Cache Version: v2026.09.14
 // ============================================================
 
-const CACHE_NAME = 'thebhom-cache-v3';
+const CACHE_NAME = 'thebhom-cache-v4';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -53,9 +53,10 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
-  // Ignore non-GET, analytics, ads, and chrome-extension requests
+  // Ignore non-GET, analytics, ads, and /deals (deals has dynamic shopping catalog)
   if (req.method !== 'GET') return;
   if (url.origin.includes('google') || url.origin.includes('gstatic') || url.origin.includes('pagead2')) return;
+  if (url.pathname.startsWith('/deals')) return;
 
   // For HTML documents, JS scripts, and CSS: Always Network-First so updates reflect immediately
   const isDocument = req.headers.get('accept') && req.headers.get('accept').includes('text/html');

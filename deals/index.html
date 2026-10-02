@@ -22,7 +22,972 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
+  <!-- Force Clear Legacy Stale Caches for Deals -->
+  <script>
+    if ('serviceWorker' in navigator && window.caches) {
+      caches.keys().then(keys => {
+        keys.forEach(k => {
+          if (k.includes('thebhom-cache-v3') || k.includes('thebhom-cache-v2') || k.includes('thebhom-cache-v1')) {
+            caches.delete(k);
+          }
+        });
+      });
+    }
+  </script>
+
+  <!-- Inlined Core CSS for Zero-FOUC Instant Rendering -->
+  <style>
+/* ==========================================================================
+   TheBhom Deals - Flipkart / Amazon Clean E-Commerce Design System
+   ========================================================================== */
+
+:root {
+  --bg-page: #f1f3f6;
+  --bg-card: #ffffff;
+  --text-main: #212121;
+  --text-muted: #878787;
+  --text-secondary: #565959;
+  
+  --primary-blue: #2874f0;
+  --primary-blue-dark: #1259c7;
+  --accent-orange: #fb641b;
+  --accent-orange-hover: #e8530a;
+  --accent-green: #388e3c;
+  --border-light: #e0e0e0;
+  --border-subtle: #f0f0f0;
+  
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+  
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.12);
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.ecommerce-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ==========================================================================
+   E-Commerce Header
+   ========================================================================== */
+.ecommerce-header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+.logo-brand {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  letter-spacing: -0.5px;
+}
+
+.logo-tag {
+  background: #ffea00;
+  color: #000;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+  margin-left: 2px;
+}
+
+/* Amazon/Flipkart Integrated Search Bar */
+.header-search {
+  flex: 1;
+  max-width: 720px;
+}
+
+.search-input-box {
+  display: flex;
+  align-items: center;
+  background: #f0f5ff;
+  border: 1px solid #c7d9fc;
+  border-radius: var(--radius-md);
+  padding: 0 14px;
+  height: 44px;
+  transition: var(--transition);
+}
+
+.search-input-box:focus-within {
+  background: #fff;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.15);
+}
+
+.search-icon {
+  color: var(--primary-blue);
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.search-input-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: var(--text-main);
+  font-family: inherit;
+}
+
+.clear-search-btn {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 4px;
+}
+
+/* Header Right Nav */
+.header-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.nav-link-subtle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-link-subtle:hover {
+  background: #f1f5f9;
+  color: var(--primary-blue);
+}
+
+.telegram-deal-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0088cc;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+}
+
+.telegram-deal-pill:hover {
+  background: #0077b3;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Category Strip (Flipkart / Amazon Style)
+   ========================================================================== */
+.category-strip {
+  background: #ffffff;
+  border-top: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.category-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.category-strip-inner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+}
+
+.cat-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.cat-tab:hover {
+  background: #f8fafc;
+  color: var(--primary-blue);
+}
+
+.cat-tab.active {
+  background: #e8f0fe;
+  color: var(--primary-blue);
+  border-color: #bad3fc;
+  font-weight: 700;
+}
+
+.cat-icon {
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   Deals Announcement Bar
+   ========================================================================== */
+.deals-announcement-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 0;
+  margin-bottom: 16px;
+}
+
+.bar-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.bar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flash-badge {
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.bar-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trust-chip {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+/* ==========================================================================
+   Dense Products Grid (Flipkart / Amazon Style: 6 to 8 per row)
+   ========================================================================== */
+.main-shopping-container {
+  padding-bottom: 60px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (min-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .products-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 14px;
+  }
+}
+
+/* ==========================================================================
+   Product Card
+   ========================================================================== */
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+/* Thumbnail Box */
+.product-thumb-box {
+  position: relative;
+  background: #ffffff;
+  padding: 12px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.thumb-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.store-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.store-badge.flipkart {
+  background: #e8f0fe;
+  color: var(--primary-blue);
+  border-color: #c7d9fc;
+}
+
+/* Card Body */
+.product-info-box {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-brand {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
+}
+
+.product-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.35;
+  height: 36px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 6px;
+}
+
+.product-name a:hover {
+  color: var(--primary-blue);
+}
+
+/* Rating Strip */
+.rating-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.star-pill {
+  background: var(--accent-green);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.rating-count {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Price Strip */
+.price-strip {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 10px;
+  margin-top: auto;
+}
+
+.price-current {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.price-mrp {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* Action Buttons */
+.product-btn-group {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.btn-buy-now {
+  flex: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--accent-orange);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 6px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-buy-now:hover {
+  background: var(--accent-orange-hover);
+}
+
+.btn-see-details {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 4px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-see-details:hover {
+  background: #f0f5ff;
+}
+
+/* Empty State */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.empty-state h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.empty-state p {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   AdSense Container
+   ========================================================================== */
+.ecommerce-ad-slot {
+  margin: 32px auto 0;
+  max-width: 900px;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+
+.ad-tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.ecommerce-footer {
+  background: #172337;
+  color: #ffffff;
+  padding: 24px 0;
+  margin-top: 40px;
+  font-size: 12px;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.disclaimer-text {
+  font-size: 11px;
+  color: #878787;
+  margin-top: 4px;
+  max-width: 800px;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-links-group a {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.footer-links-group a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Toast Notification
+   ========================================================================== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1e293b;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   PRODUCT DETAIL PAGE STYLING (deals/p/*.html)
+   ========================================================================== */
+.product-detail-container {
+  max-width: 1200px;
+  margin: 20px auto 40px;
+  padding: 0 16px;
+}
+
+.detail-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.detail-breadcrumb a {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.detail-hero-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 800px) {
+  .detail-hero-card {
+    grid-template-columns: 450px 1fr;
+    padding: 32px;
+  }
+}
+
+.detail-gallery-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  height: 420px;
+  justify-content: center;
+}
+
+.detail-main-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.detail-info-pane {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-product-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.detail-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.detail-rating-pill {
+  background: var(--accent-green);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.detail-pricing-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.detail-price-main {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.detail-mrp-cut {
+  font-size: 15px;
+  color: #94a3b8;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+.detail-discount-tag {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e11d48;
+  margin-left: 8px;
+}
+
+.detail-action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-buy-store-cta {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--accent-orange);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.btn-buy-store-cta:hover {
+  background: var(--accent-orange-hover);
+  transform: translateY(-1px);
+}
+
+.btn-share-deal {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #25d366;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.btn-share-deal:hover {
+  background: #1ebe57;
+}
+
+/* E-E-A-T Specifications & Review Blocks */
+.review-sections-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.info-block-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.info-block-card h2, .info-block-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.specs-data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specs-data-table tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.specs-data-table td {
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.specs-data-table td.label-col {
+  width: 35%;
+  font-weight: 600;
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.specs-data-table td.value-col {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.pro-con-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+@media (min-width: 650px) {
+  .pro-con-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pro-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.pro-box h4 {
+  color: #166534;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.con-box {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.con-box h4 {
+  color: #991b1b;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.point-list {
+  list-style: none;
+}
+
+.point-list li {
+  font-size: 13px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.4;
+}
+
+.bullet-icon {
+  font-weight: 800;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.pro-box .bullet-icon { color: #16a34a; }
+.con-box .bullet-icon { color: #dc2626; }
+
+  </style>
+
+  <!-- External Stylesheet Backup -->
+  <link rel="stylesheet" href="/deals/css/style.css?v=20261003_v5">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Google Analytics 4 (GA4) -->
@@ -180,6 +1145,6 @@
   <div id="toast" class="toast"></div>
 
   <!-- Client Script -->
-  <script src="js/app.js"></script>
+  <script src="/deals/js/app.js?v=20261003_v5"></script>
 </body>
 </html>

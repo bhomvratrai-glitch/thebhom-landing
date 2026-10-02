@@ -1418,7 +1418,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Load Catalog
 async function initCatalog() {
   try {
-    const res = await fetch("data/catalog.json");
+    const res = await fetch("/deals/data/catalog.json?v=20261003_v4");
     if (!res.ok) throw new Error("Catalog fetch error");
     catalog = await res.json();
   } catch (err) {
@@ -1462,7 +1462,7 @@ function createProductCardHtml(item) {
   const isFree = item.dealPrice === 0;
   const formattedPrice = isFree ? "FREE" : `₹${item.dealPrice.toLocaleString("en-IN")}`;
   const formattedOriginalPrice = item.originalPrice > 0 ? `₹${item.originalPrice.toLocaleString("en-IN")}` : "";
-  const detailUrl = `p/${item.slug}.html`;
+  const detailUrl = `/deals/p/${item.slug}.html`;
 
   return `
     <article class="product-card" data-id="${item.id}">
@@ -1470,7 +1470,7 @@ function createProductCardHtml(item) {
       <!-- Top Image Container -->
       <div class="product-thumb-box">
         <a href="${detailUrl}" class="thumb-link" title="${escapeHtml(item.title)}">
-          <img class="product-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy">
+          <img class="product-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" style="max-height:160px; max-width:160px; object-fit:contain;" onerror="this.onerror=null;this.src='https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg';">
         </a>
         <span class="discount-badge">${item.discount || "DEAL"}</span>
         <span class="store-badge ${item.store.toLowerCase().replace(/\s+/g, '-')}">${escapeHtml(item.store)}</span>
