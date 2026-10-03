@@ -69,40 +69,6 @@ if os.path.exists(deals_p_dir):
         if deal_file.endswith(".html"):
             lines.append(f"  <url><loc>{base}/deals/p/{deal_file}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>")
 
-cities = [
-    "delhi","mumbai","bangalore","hyderabad","ahmedabad","chennai","kolkata","pune",
-    "jaipur","lucknow","kanpur","nagpur","indore","bhopal","patna","vadodara","surat",
-    "visakhapatnam","coimbatore","kochi","thiruvananthapuram","guwahati","chandigarh",
-    "dehradun","ranchi","gurgaon","noida","faridabad","ghaziabad","mysore","nashik",
-    "rajkot","varanasi","amritsar","ludhiana","agra","meerut","jodhpur","udaipur",
-    "raipur","bhubaneswar","mangalore","thrissur","trichy","madurai","salem",
-    "vijayawada","warangal","aurangabad","solapur","jabalpur","gwalior","allahabad",
-    "bareilly","moradabad","gorakhpur","bikaner","ajmer","kota","jammu"
-]
-
-services = [
-    "ac-repair","ac-installation","ac-service","ac-gas-refill","split-ac-repair",
-    "window-ac-repair","central-ac-maintenance","ac-amc","ac-compressor-repair",
-    "ac-pcb-repair","ac-duct-cleaning","vrv-vrf-system","commercial-ac","ac-rental",
-    "ac-shifting","refrigerator-repair","air-cooler-repair","hvac-contractor"
-]
-
-# Directory index
-lines.append(f"  <url><loc>{base}/directory/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>")
-
-# City pages
-for c in cities:
-    lines.append(f"  <url><loc>{base}/directory/city/{c}/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>")
-
-# Service pages
-for s in services:
-    lines.append(f"  <url><loc>{base}/directory/service/{s}/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>")
-
-# City x Service combos (60 x 18 = 1080)
-for c in cities:
-    for s in services:
-        lines.append(f"  <url><loc>{base}/directory/city/{c}/{s}/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>")
-
 lines.append('</urlset>')
 
 with open("sitemap.xml", "w", encoding="utf-8") as f:

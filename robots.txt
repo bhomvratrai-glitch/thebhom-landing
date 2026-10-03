@@ -14,6 +14,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/admin
+Disallow: /directory/
 
 Sitemap: https://www.thebhom.in/sitemap.xml
 Sitemap: https://thebhom.in/sitemap.xml
