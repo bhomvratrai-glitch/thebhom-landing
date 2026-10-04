@@ -2849,6 +2849,10 @@ function renderProducts() {
     let matchesCategory = false;
     if (currentCategory === "all") {
       matchesCategory = true;
+    } else if (currentCategory === "under499") {
+      matchesCategory = Number(item.dealPrice || 0) <= 499 && Number(item.dealPrice || 0) > 0;
+    } else if (currentCategory === "lowestprice") {
+      matchesCategory = (parseInt(item.discount || "0") >= 60) || (item.badge && item.badge.includes("UNDER"));
     } else if (currentCategory === "mobiles") {
       matchesCategory = item.category === "mobiles";
     } else if (currentCategory === "electronics") {
@@ -2893,17 +2897,19 @@ function createProductCardHtml(item) {
   const formattedPrice = isFree ? "FREE" : `₹${Number(item.dealPrice || 0).toLocaleString("en-IN")}`;
   const formattedOriginalPrice = item.originalPrice > 0 ? `₹${Number(item.originalPrice).toLocaleString("en-IN")}` : "";
   const detailUrl = `/deals/p/${item.slug}.html`;
+  const isLowestPrice = (parseInt(item.discount || "0") >= 60) || (Number(item.dealPrice || 0) <= 499);
 
   return `
     <article class="product-card" data-id="${item.id}">
       
       <!-- Top Image Container -->
-      <div class="product-thumb-box">
+      <div class="product-thumb-box" style="position:relative;">
         <a href="${detailUrl}" class="thumb-link" title="${escapeHtml(item.title)}">
           <img class="product-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" style="max-height:160px; max-width:160px; object-fit:contain;" onerror="this.onerror=null;this.src='https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg';">
         </a>
         <span class="discount-badge">${item.discount || "DEAL"}</span>
         <span class="store-badge ${String(item.store).toLowerCase().replace(/\s+/g, '-')}">${escapeHtml(item.store)}</span>
+        ${isLowestPrice ? `<span class="lowest-price-tag" style="position:absolute; bottom:6px; left:6px; background:#ecfdf5; color:#047857; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; border:1px solid #a7f3d0; letter-spacing:0.2px;">📉 Lowest Price Ever</span>` : ""}
       </div>
 
       <!-- Card Details Body -->
