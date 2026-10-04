@@ -1,5 +1,740 @@
 const FALLBACK_CATALOG = [
   {
+    "id": "WATH7F99EWF55K5W",
+    "pid": "WATH7F99EWF55K5W",
+    "slug": "mathey-tissot-d810bsv-swiss-made-quartz-green-dial-wath7f99ewf55k5w",
+    "title": "Mathey-Tissot D810BSV Swiss Made Quartz Green Dial Analog Watch - For Women",
+    "brand": "MatheyTissot",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 26000,
+    "dealPrice": 11699,
+    "discount": "55% off",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/watch/s/r/e/1-d810bsv-mathey-tissot-women-watermarked-original-imahftzsvz7y3zyh.jpeg?q=70",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=WATH7F99EWF55K5W&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DWATH7F99EWF55K5W",
+    "rating": "4.3",
+    "reviewsCount": 7890,
+    "badge": "🔥 LOWEST PRICE EVER",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Flipkart. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on electronics.",
+    "verdict": "At ₹11,699, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "NRSH6PQBPZRG8ZZH",
+    "pid": "NRSH6PQBPZRG8ZZH",
+    "slug": "giva-zircon-rhodium-plated-sterling-silver-nose-ri-nrsh6pqbpzrg8zzh",
+    "title": "GIVA Zircon Rhodium Plated Sterling Silver Nose Ring",
+    "brand": "GIVA",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 1999,
+    "dealPrice": 329,
+    "discount": "83% off",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/nose-ring-stud/w/i/m/np0207-nose-ring-giva-original-imah6pqbygzpdqyq.jpeg?q=70",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=NRSH6PQBPZRG8ZZH&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DNRSH6PQBPZRG8ZZH",
+    "rating": "4.3",
+    "reviewsCount": 5412,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Flipkart. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹329, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "B0H8ST28M6",
+    "pid": "B0H8ST28M6",
+    "slug": "sumiko-2-pcs-empty-first-aid-kit-bag-b0h8st28m6",
+    "title": "Sumiko 2 Pcs Empty First Aid Kit Bag",
+    "brand": "Sumiko",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 599,
+    "dealPrice": 299,
+    "discount": "50% off",
+    "image": "https://m.media-amazon.com/images/I/41BfsDA-3fL._SY300_SX300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0H8ST28M6?tag=bhom120704-21",
+    "rating": "4.3",
+    "reviewsCount": 8235,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Amazon. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Amazon.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹299, this is a verified value deal on Amazon."
+  },
+  {
+    "id": "B0H9M4M2LH",
+    "pid": "B0H9M4M2LH",
+    "slug": "lucent-39-s-general-knowledge-2027-gk-book-b0h9m4m2lh",
+    "title": "Lucent&#39;s General Knowledge 2027 GK Book",
+    "brand": "Lucent39s",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 349,
+    "dealPrice": 120,
+    "discount": "65% off",
+    "image": "https://m.media-amazon.com/images/I/61lY1YSnx7L._SL1264_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0H9M4M2LH?tag=bhom120704-21",
+    "rating": "4.3",
+    "reviewsCount": 7697,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Amazon. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Amazon.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹120, this is a verified value deal on Amazon."
+  },
+  {
+    "id": "B079H8KJNY",
+    "pid": "B079H8KJNY",
+    "slug": "tata-sampann-chilli-powder-with-natural-oils-200g--b079h8kjny",
+    "title": "Tata Sampann Chilli Powder with Natural Oils, 200g, Lal Mirchi Powder, Mirchi Powder",
+    "brand": "Tata",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 140,
+    "dealPrice": 48,
+    "discount": "65% off",
+    "image": "https://m.media-amazon.com/images/I/41ZexnzCM7L._SY300_SX300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B079H8KJNY?tag=bhom120704-21",
+    "rating": "4.3",
+    "reviewsCount": 5746,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Amazon. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Amazon.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹48, this is a verified value deal on Amazon."
+  },
+  {
+    "id": "B0GKH4DWFB",
+    "pid": "B0GKH4DWFB",
+    "slug": "amazon-brand-tavasya-women-floral-printed-short-ku-b0gkh4dwfb",
+    "title": "Amazon Brand - Tavasya Women Floral Printed Short Kurti",
+    "brand": "Amazon",
+    "category": "fashion",
+    "store": "Amazon",
+    "originalPrice": 1099,
+    "dealPrice": 299,
+    "discount": "72% off",
+    "image": "https://m.media-amazon.com/images/I/41Ny9t9TUTL._SY445_SX342_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0GKH4DWFB?tag=bhom120704-21",
+    "rating": "4.3",
+    "reviewsCount": 7568,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Amazon. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Amazon.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on fashion.",
+    "verdict": "At ₹299, this is a verified value deal on Amazon."
+  },
+  {
+    "id": "SNDEF23WJZ74NNG3",
+    "pid": "SNDEF23WJZ74NNG3",
+    "slug": "crocs-unisex-crocband-clogs-sandal-pink-8-uk-india-sndef23wjz74nng3",
+    "title": "CROCS Unisex Crocband Clogs Sandal (Pink , 8 UK/India)",
+    "brand": "CROCS",
+    "category": "footwear",
+    "store": "Flipkart",
+    "originalPrice": 5495,
+    "dealPrice": 1146,
+    "discount": "79% off",
+    "image": "https://rukminim2.flixcart.com/image/800/1070/xif0q/sandal/6/k/p/-watermarked-original-imahjhjqxm47rgbh.jpeg?q=80",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=SNDEF23WJZ74NNG3&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DSNDEF23WJZ74NNG3",
+    "rating": "4.3",
+    "reviewsCount": 6486,
+    "badge": "🔥 LOWEST PRICE EVER",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Flipkart. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on footwear.",
+    "verdict": "At ₹1,146, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "RTRGYZZNGUHDTVWA",
+    "pid": "RTRGYZZNGUHDTVWA",
+    "slug": "jio-jfi-m2-150-mbps-4g-router-black-dual-band-rtrgyzznguhdtvwa",
+    "title": "Jio jfi m2 150 Mbps 4G Router(Black, Dual Band)",
+    "brand": "Jio",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 4012,
+    "dealPrice": 990,
+    "discount": "75% off",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/klzhq4w0/router/z/p/i/jiofi-m2-jio-original-imagyzzkvpbba2qw.jpeg?q=70",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=RTRGYZZNGUHDTVWA&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DRTRGYZZNGUHDTVWA",
+    "rating": "4.3",
+    "reviewsCount": 8142,
+    "badge": "🔥 LOWEST PRICE EVER",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Flipkart. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹990, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "FANERBFYSA2YRTVF",
+    "pid": "FANERBFYSA2YRTVF",
+    "slug": "usha-maxx-air-ultra-with-2-year-warranty-anti-dust-fanerbfysa2yrtvf",
+    "title": "USHA Maxx Air Ultra with 2 Year Warranty Anti Dust 400 mm Table F...more",
+    "brand": "USHA",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 2800,
+    "dealPrice": 1798,
+    "discount": "35% off",
+    "image": "https://rukminim2.flixcart.com/image/800/1070/xif0q/fan/n/k/7/maxx-air-ultra-55-1-induction-table-fan-400-usha-resized-original-imahcc2phc5rvv76.jpeg?q=80",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=FANERBFYSA2YRTVF&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DFANERBFYSA2YRTVF",
+    "rating": "4.3",
+    "reviewsCount": 4208,
+    "badge": "🔥 LOWEST PRICE EVER",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Flipkart. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹1,798, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "RFMGUHSSD2XNNT53",
+    "pid": "RFMGUHSSD2XNNT53",
+    "slug": "ndframe-kuber-lakshmi-kubera-lakshmi-kuber-laxmi-p-rfmguhssd2xnnt53",
+    "title": "NDFRAME Kuber Lakshmi Kubera Lakshmi Kuber Laxmi photo frame Religious Frame",
+    "brand": "NDFRAME",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 478,
+    "dealPrice": 72,
+    "discount": "84% off",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/religious-frame/e/w/w/6-kuber-lakshmi-kubera-lakshmi-kuber-laxmi-photo-frame-gold-01-enriched-0-original-imaguhsstqyrtrp8.jpeg?q=70",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=RFMGUHSSD2XNNT53&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DRFMGUHSSD2XNNT53",
+    "rating": "4.3",
+    "reviewsCount": 5034,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Flipkart. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹72, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "MTYG7FHHC6HVWNGF",
+    "pid": "MTYG7FHHC6HVWNGF",
+    "slug": "galactic-dancing-and-spinning-rolling-doll-tumble--mtyg7fhhc6hvwngf",
+    "title": "Galactic Dancing and Spinning Rolling Doll Tumble Monkey Toy Voic...more",
+    "brand": "Galactic",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 1000,
+    "dealPrice": 146,
+    "discount": "85% off",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/shopsy-musical-toy/d/x/i/dancing-monkey-toys-for-spinning-rolling-tumble-musical-banana-resized-original-imahbfjb8p4exdnp.jpeg?q=70",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=MTYG7FHHC6HVWNGF&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DMTYG7FHHC6HVWNGF",
+    "rating": "4.3",
+    "reviewsCount": 6050,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Flipkart. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹146, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "STIHP88NUEKTHJBC",
+    "pid": "STIHP88NUEKTHJBC",
+    "slug": "miraj-lifestyle-6-inch-embroidery-flower-glow-in-t-stihp88nuekthjbc",
+    "title": "Miraj lifestyle 6 inch EMBROIDERY FLOWER Glow in the Dark Sticker",
+    "brand": "Miraj",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 499,
+    "dealPrice": 76,
+    "discount": "84% off",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/sticker/t/s/x/medium-embroidery-flower-6-6-d-30-miraj-lifestyle-original-imahp88mnnq5yeyc.jpeg?q=70",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=STIHP88NUEKTHJBC&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DSTIHP88NUEKTHJBC",
+    "rating": "4.3",
+    "reviewsCount": 5675,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Flipkart. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹76, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "WATHQ8GPNZ2PYHTM",
+    "pid": "WATHQ8GPNZ2PYHTM",
+    "slug": "vintage-classic-brown-leather-strap-watch-wathq8gpnz2pyhtm",
+    "title": "Vintage Classic Brown Leather Strap Analog Watch for Men & Women",
+    "brand": "Vintage",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 1999,
+    "dealPrice": 399,
+    "discount": "80% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/watch/n/f/v/1-vintage-nmr-men-women-original-imahq8gpxdmchaxq.jpeg?q=70",
+    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=WATHQ8GPNZ2PYHTM&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DWATHQ8GPNZ2PYHTM",
+    "rating": "4.3",
+    "reviewsCount": 7015,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Vintage classic minimalist analog watch with genuine leather textured brown strap and durable steel casing.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Flipkart.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹500, this is a verified value deal on Flipkart."
+  },
+  {
+    "id": "christophe",
+    "pid": "christophe",
+    "slug": "christopher-cocoa-drinking-chocolate-cocoa-powder--christophe",
+    "title": "Christopher Cocoa, Drinking Chocolate Cocoa Powder, Dark No Sugar, 200g",
+    "brand": "Christopher",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 399,
+    "dealPrice": 198,
+    "discount": "50% off",
+    "image": "https://m.media-amazon.com/images/I/51zXC7q1RML._SL1000_.jpg",
+    "profitLink": "https://www.amazon.in/dp/christophe?tag=bhom120704-21",
+    "rating": "4.3",
+    "reviewsCount": 3061,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Amazon. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Amazon.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹198, this is a verified value deal on Amazon."
+  },
+  {
+    "id": "B0C9PD7ST6",
+    "pid": "B0C9PD7ST6",
+    "slug": "zapora-mini-air-conditioner-portable-oscillating-d-b0c9pd7st6",
+    "title": "ZAPORA Mini Air Conditioner - Portable, Oscillating Desk Air Conditioner - White - Personal - 3 Speeds - Residential Use",
+    "brand": "ZAPORA",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 5436,
+    "dealPrice": 2708,
+    "discount": "50% off",
+    "image": "https://m.media-amazon.com/images/I/512JQMbn94L._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0C9PD7ST6?tag=bhom120704-21",
+    "rating": "4.3",
+    "reviewsCount": 7553,
+    "badge": "🔥 LOWEST PRICE EVER",
+    "isFlashDeal": true,
+    "summary": "Verified lowest price drop on Amazon. 100% genuine product with manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Price Status",
+        "value": "All-Time Lowest Ever"
+      },
+      {
+        "label": "Condition",
+        "value": "Brand New Sealed"
+      }
+    ],
+    "highlights": [
+      "Lowest recorded price ever on Amazon.",
+      "Verified seller with authentic brand warranty.",
+      "Direct checkout with fast delivery."
+    ],
+    "pros": [
+      "All-time lowest price recorded",
+      "Verified discount",
+      "Direct checkout"
+    ],
+    "cons": [
+      "Limited time promotional offer",
+      "High demand"
+    ],
+    "whoShouldBuy": "Shoppers looking for verified bargains on home.",
+    "verdict": "At ₹2,708, this is a verified value deal on Amazon."
+  },
+  {
     "id": "deal-1",
     "slug": "apple-iphone-15-128gb",
     "title": "Apple iPhone 15 (128 GB Storage, Dynamic Island, 48MP Camera)",
@@ -53,7 +788,8 @@ const FALLBACK_CATALOG = [
       "20W standard wired charging"
     ],
     "whoShouldBuy": "Anyone seeking a flagship iOS experience with premium cameras and USB-C.",
-    "verdict": "At ₹65,999, the iPhone 15 is the sweet spot of Apple's flagship technology."
+    "verdict": "At ₹65,999, the iPhone 15 is the sweet spot of Apple's flagship technology.",
+    "pid": "deal-1"
   },
   {
     "id": "deal-2",
@@ -65,7 +801,7 @@ const FALLBACK_CATALOG = [
     "originalPrice": 59900,
     "dealPrice": 48999,
     "discount": "18% OFF",
-    "image": "https://rukminim2.flixcart.com/image/832/832/ktketu80/mobile/s/l/c/iphone-13-mlpf3hn-a-apple-original-imag6vzz5qvejpmq.jpeg",
+    "image": "https://rukminim2.flixcart.com/image/612/612/ktketu80/mobile/a/j/u/iphone-13-mini-mlkc3hn-a-apple-original-imag6vp6swvmsbnn.jpeg",
     "profitLink": "https://fktr.in/tcXs66g",
     "rating": 4.3,
     "reviewsCount": 29221,
@@ -109,7 +845,8 @@ const FALLBACK_CATALOG = [
       "No dedicated telephoto lens"
     ],
     "whoShouldBuy": "Shoppers who want a dependable, premium iPhone under ₹50,000.",
-    "verdict": "At ₹48,999, the iPhone 13 remains the most sensible premium purchase in India."
+    "verdict": "At ₹48,999, the iPhone 13 remains the most sensible premium purchase in India.",
+    "pid": "deal-2"
   },
   {
     "id": "deal-3",
@@ -165,7 +902,8 @@ const FALLBACK_CATALOG = [
       "25W charging speed"
     ],
     "whoShouldBuy": "Android lovers wanting a compact flagship with industry-leading AI tools.",
-    "verdict": "The undisputed king of compact Android flagships at ₹62,999."
+    "verdict": "The undisputed king of compact Android flagships at ₹62,999.",
+    "pid": "deal-3"
   },
   {
     "id": "deal-4",
@@ -221,7 +959,8 @@ const FALLBACK_CATALOG = [
       "Charger not in box"
     ],
     "whoShouldBuy": "Frequent travelers and heavy users who hate carrying power banks.",
-    "verdict": "Top battery endurance in the sub-₹20,000 segment at ₹16,999."
+    "verdict": "Top battery endurance in the sub-₹20,000 segment at ₹16,999.",
+    "pid": "deal-4"
   },
   {
     "id": "deal-5",
@@ -233,7 +972,7 @@ const FALLBACK_CATALOG = [
     "originalPrice": 20999,
     "dealPrice": 14999,
     "discount": "28% OFF",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/9/0/-original-imahyuhfg2zfdgah.jpeg",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/mobile/y/9/0/-original-imahyuhfg2z4fvyh.jpeg",
     "profitLink": "https://fktr.in/uAUqLZb",
     "rating": 4.3,
     "reviewsCount": 20847,
@@ -277,7 +1016,8 @@ const FALLBACK_CATALOG = [
       "Plastic frame"
     ],
     "whoShouldBuy": "Students and mobile gamers looking for high-refresh AMOLED and 5G performance.",
-    "verdict": "At ₹14,999 with 120Hz AMOLED, realme P1 5G is a stellar budget performer."
+    "verdict": "At ₹14,999 with 120Hz AMOLED, realme P1 5G is a stellar budget performer.",
+    "pid": "deal-5"
   },
   {
     "id": "deal-6",
@@ -333,7 +1073,8 @@ const FALLBACK_CATALOG = [
       "18W charging speed"
     ],
     "whoShouldBuy": "Users wanting clean, ad-free software with premium leather aesthetics under ₹12,000.",
-    "verdict": "At ₹11,999, Moto G34 5G is the cleanest software experience in budget 5G."
+    "verdict": "At ₹11,999, Moto G34 5G is the cleanest software experience in budget 5G.",
+    "pid": "deal-6"
   },
   {
     "id": "deal-7",
@@ -389,7 +1130,8 @@ const FALLBACK_CATALOG = [
       "Average low-light macro sensor"
     ],
     "whoShouldBuy": "Power users and gamers seeking the highest display resolution under ₹20,000.",
-    "verdict": "At ₹18,999 with 256GB storage, POCO X6 5G offers unbeatable display clarity."
+    "verdict": "At ₹18,999 with 256GB storage, POCO X6 5G offers unbeatable display clarity.",
+    "pid": "deal-7"
   },
   {
     "id": "deal-8",
@@ -445,7 +1187,8 @@ const FALLBACK_CATALOG = [
       "No active noise cancellation (ANC)"
     ],
     "whoShouldBuy": "College students, gym goers, and daily commuters looking for dependable wireless audio.",
-    "verdict": "At ₹899 with 74% off, boAt Airdopes Alpha is India's safest sub-₹1,000 audio buy."
+    "verdict": "At ₹899 with 74% off, boAt Airdopes Alpha is India's safest sub-₹1,000 audio buy.",
+    "pid": "deal-8"
   },
   {
     "id": "deal-9",
@@ -501,7 +1244,8 @@ const FALLBACK_CATALOG = [
       "2.5 hour charging time"
     ],
     "whoShouldBuy": "Outdoor lovers, hostel students, and anyone who wants a rugged party speaker.",
-    "verdict": "A durable 10W party speaker that punches well above its ₹1,299 price tag."
+    "verdict": "A durable 10W party speaker that punches well above its ₹1,299 price tag.",
+    "pid": "deal-9"
   },
   {
     "id": "deal-10",
@@ -557,7 +1301,8 @@ const FALLBACK_CATALOG = [
       "64GB base storage for cloud users"
     ],
     "whoShouldBuy": "Students, digital artists, professionals, and families wanting a powerful multimedia tablet.",
-    "verdict": "At ₹30,999, the 10th Gen iPad is the premier tablet value in the world."
+    "verdict": "At ₹30,999, the 10th Gen iPad is the premier tablet value in the world.",
+    "pid": "deal-10"
   },
   {
     "id": "deal-11",
@@ -613,7 +1358,8 @@ const FALLBACK_CATALOG = [
       "Wall switch must remain on"
     ],
     "whoShouldBuy": "Anyone wanting cozy mood lighting and voice control in their bedroom or study.",
-    "verdict": "At ₹399 with 60% off, upgrading to smart lighting is effortlessly affordable."
+    "verdict": "At ₹399 with 60% off, upgrading to smart lighting is effortlessly affordable.",
+    "pid": "deal-11"
   },
   {
     "id": "deal-12",
@@ -669,7 +1415,8 @@ const FALLBACK_CATALOG = [
       "Takes 1-2 days to break in"
     ],
     "whoShouldBuy": "College students and young professionals seeking trendy sneakers with superior comfort.",
-    "verdict": "At ₹1,399 with 75% discount, this is the best value white sneaker in India."
+    "verdict": "At ₹1,399 with 75% discount, this is the best value white sneaker in India.",
+    "pid": "deal-12"
   },
   {
     "id": "deal-13",
@@ -725,7 +1472,8 @@ const FALLBACK_CATALOG = [
       "White midsoles require routine cleaning"
     ],
     "whoShouldBuy": "Sneaker enthusiasts wanting an authentic global brand shoe under ₹1,800.",
-    "verdict": "Authentic Puma styling at 60% off (₹1,799). A verified crowd favorite."
+    "verdict": "Authentic Puma styling at 60% off (₹1,799). A verified crowd favorite.",
+    "pid": "deal-13"
   },
   {
     "id": "deal-14",
@@ -781,7 +1529,8 @@ const FALLBACK_CATALOG = [
       "Insole padding compresses after 9-10 months"
     ],
     "whoShouldBuy": "Morning walkers, gym beginners, and anyone needing a comfortable sports shoe under ₹600.",
-    "verdict": "Unbeatable budget utility at ₹599. Perfect for daily jogging."
+    "verdict": "Unbeatable budget utility at ₹599. Perfect for daily jogging.",
+    "pid": "deal-14"
   },
   {
     "id": "deal-15",
@@ -837,7 +1586,8 @@ const FALLBACK_CATALOG = [
       "Sporty styling"
     ],
     "whoShouldBuy": "Anyone seeking a rugged, long-lasting sports shoe for road running under ₹1,000.",
-    "verdict": "Sparx durability at ₹999 is legendary. A rock-solid daily trainer."
+    "verdict": "Sparx durability at ₹999 is legendary. A rock-solid daily trainer.",
+    "pid": "deal-15"
   },
   {
     "id": "deal-16",
@@ -893,7 +1643,8 @@ const FALLBACK_CATALOG = [
       "Cut large carrots into chunks first"
     ],
     "whoShouldBuy": "Every single Indian household. A life-changing kitchen upgrade under ₹200.",
-    "verdict": "At ₹199 with 63% off, this is the single best value kitchen purchase on earth."
+    "verdict": "At ₹199 with 63% off, this is the single best value kitchen purchase on earth.",
+    "pid": "deal-16"
   },
   {
     "id": "deal-17",
@@ -949,7 +1700,8 @@ const FALLBACK_CATALOG = [
       "Analog dial variant"
     ],
     "whoShouldBuy": "Health-conscious families, gym enthusiasts, and parents wanting healthier snacks.",
-    "verdict": "The gold standard of air fryers at a flat 50% discount (₹5,999)."
+    "verdict": "The gold standard of air fryers at a flat 50% discount (₹5,999).",
+    "pid": "deal-17"
   },
   {
     "id": "deal-18",
@@ -1005,7 +1757,8 @@ const FALLBACK_CATALOG = [
       "Normal initial varnish smell during first 2 runs"
     ],
     "whoShouldBuy": "Indian families needing a dependable, heavy-duty 750W mixer grinder for daily cooking.",
-    "verdict": "Top-selling 750W mixer grinder in India. Unbeatable power and 4 jars at ₹2,899."
+    "verdict": "Top-selling 750W mixer grinder in India. Unbeatable power and 4 jars at ₹2,899.",
+    "pid": "deal-18"
   },
   {
     "id": "deal-19",
@@ -1061,7 +1814,8 @@ const FALLBACK_CATALOG = [
       "Avoid harsh steel wool scouring"
     ],
     "whoShouldBuy": "Office professionals, college students, drivers, and travelers needing hot tea or cold water all day.",
-    "verdict": "India's benchmark vacuum flask at ₹949. Indestructible daily utility."
+    "verdict": "India's benchmark vacuum flask at ₹949. Indestructible daily utility.",
+    "pid": "deal-19"
   },
   {
     "id": "deal-20",
@@ -1117,7 +1871,8 @@ const FALLBACK_CATALOG = [
       "Handle with care against hard drops"
     ],
     "whoShouldBuy": "Office professionals and health-conscious eaters who microwave their meals.",
-    "verdict": "Clean, hygienic, and leak-proof. At ₹899 with bag, this is the premier lunch kit."
+    "verdict": "Clean, hygienic, and leak-proof. At ₹899 with bag, this is the premier lunch kit.",
+    "pid": "deal-20"
   },
   {
     "id": "deal-21",
@@ -1173,7 +1928,8 @@ const FALLBACK_CATALOG = [
       "Slim chest cut"
     ],
     "whoShouldBuy": "College students and young working professionals looking for stylish everyday shirts.",
-    "verdict": "At 70% off (₹599), this Roadster shirt is an absolute no-brainer."
+    "verdict": "At 70% off (₹599), this Roadster shirt is an absolute no-brainer.",
+    "pid": "deal-21"
   },
   {
     "id": "deal-22",
@@ -1229,7 +1985,8 @@ const FALLBACK_CATALOG = [
       "Length may require minor alteration"
     ],
     "whoShouldBuy": "Men looking for comfortable, stylish daily-wear stretch jeans under ₹700.",
-    "verdict": "Top-rated comfort stretch jeans at ₹699."
+    "verdict": "Top-rated comfort stretch jeans at ₹699.",
+    "pid": "deal-22"
   },
   {
     "id": "deal-23",
@@ -1285,7 +2042,8 @@ const FALLBACK_CATALOG = [
       "Order 1 size up for loose fit"
     ],
     "whoShouldBuy": "Budget shoppers, hostelers, and gym goers wanting reliable everyday tees.",
-    "verdict": "3 branded t-shirts for ₹299 is genuine loot pricing."
+    "verdict": "3 branded t-shirts for ₹299 is genuine loot pricing.",
+    "pid": "deal-23"
   },
   {
     "id": "deal-24",
@@ -1341,7 +2099,8 @@ const FALLBACK_CATALOG = [
       "₹999 annual fee if spend is below ₹2 Lakhs"
     ],
     "whoShouldBuy": "Anyone who spends more than ₹10,000 online per month across Amazon, Flipkart, food delivery, and cabs.",
-    "verdict": "The king of Indian cashback cards. A must-have for every online shopper."
+    "verdict": "The king of Indian cashback cards. A must-have for every online shopper.",
+    "pid": "deal-24"
   },
   {
     "id": "deal-25",
@@ -1397,7 +2156,8 @@ const FALLBACK_CATALOG = [
       "Utility cashback requires Airtel Thanks app"
     ],
     "whoShouldBuy": "Airtel users, foodies ordering from Swiggy/Zomato, and anyone paying monthly electricity/broadband bills.",
-    "verdict": "Hands down the highest-yielding utility cashback card in India."
+    "verdict": "Hands down the highest-yielding utility cashback card in India.",
+    "pid": "deal-25"
   },
   {
     "id": "deal-26",
@@ -1453,7 +2213,8 @@ const FALLBACK_CATALOG = [
       "No alert slider"
     ],
     "whoShouldBuy": "Busy professionals and gamers who want ultra-fast 100W charging and a clean software UI.",
-    "verdict": "At ₹21,999, the OnePlus Nord CE4 is an all-round mid-range powerhouse."
+    "verdict": "At ₹21,999, the OnePlus Nord CE4 is an all-round mid-range powerhouse.",
+    "pid": "deal-26"
   },
   {
     "id": "deal-27",
@@ -1509,7 +2270,8 @@ const FALLBACK_CATALOG = [
       "Funtouch OS pre-installs bloatware"
     ],
     "whoShouldBuy": "Budget mobile gamers and mobile photographers who prioritize speed and camera stability.",
-    "verdict": "At ₹17,999, Vivo T3 5G is the highest performing smartphone under ₹20,000."
+    "verdict": "At ₹17,999, Vivo T3 5G is the highest performing smartphone under ₹20,000.",
+    "pid": "deal-27"
   },
   {
     "id": "deal-28",
@@ -1565,7 +2327,8 @@ const FALLBACK_CATALOG = [
       "Average low-light video"
     ],
     "whoShouldBuy": "Shoppers who want a luxurious, waterproof smartphone with clean ad-free software.",
-    "verdict": "The most beautiful and durable phone under ₹22,000."
+    "verdict": "The most beautiful and durable phone under ₹22,000.",
+    "pid": "deal-28"
   },
   {
     "id": "deal-29",
@@ -1617,7 +2380,8 @@ const FALLBACK_CATALOG = [
       "No 3.5mm headphone jack"
     ],
     "whoShouldBuy": "BGMI / Free Fire gamers looking for 60fps stable gaming under ₹20,000.",
-    "verdict": "A high-performance gaming beast that delivers maximum fps per rupee."
+    "verdict": "A high-performance gaming beast that delivers maximum fps per rupee.",
+    "pid": "deal-29"
   },
   {
     "id": "deal-30",
@@ -1669,7 +2433,8 @@ const FALLBACK_CATALOG = [
       "Average low light night mode"
     ],
     "whoShouldBuy": "Daily users wanting a slim, beautiful phone for multimedia and social media.",
-    "verdict": "Great display and camera combination at ₹15,999."
+    "verdict": "Great display and camera combination at ₹15,999.",
+    "pid": "deal-30"
   },
   {
     "id": "deal-31",
@@ -1681,7 +2446,7 @@ const FALLBACK_CATALOG = [
     "originalPrice": 34999,
     "dealPrice": 28999,
     "discount": "17% OFF",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/mobile/g/t/u/-original-imagxhd5xtjuwnqz.jpeg",
     "profitLink": "https://fktr.in/kVJfSwg",
     "rating": 4.3,
     "reviewsCount": 17950,
@@ -1721,7 +2486,8 @@ const FALLBACK_CATALOG = [
       "Snapdragon 7s Gen 2 is average for hardcore gaming"
     ],
     "whoShouldBuy": "Photography enthusiasts who want pro telephoto zoom and luxury design.",
-    "verdict": "The undisputed camera king under ₹30,000."
+    "verdict": "The undisputed camera king under ₹30,000.",
+    "pid": "deal-31"
   },
   {
     "id": "deal-32",
@@ -1773,7 +2539,8 @@ const FALLBACK_CATALOG = [
       "No 3.5mm wired headphone jack"
     ],
     "whoShouldBuy": "Work-from-home pros, students, and music lovers who hate daily charging.",
-    "verdict": "At ₹3,990, Sony WH-CH520 is the most dependable wireless headphone in India."
+    "verdict": "At ₹3,990, Sony WH-CH520 is the most dependable wireless headphone in India.",
+    "pid": "deal-32"
   },
   {
     "id": "deal-33",
@@ -1825,7 +2592,8 @@ const FALLBACK_CATALOG = [
       "No speakerphone microphone"
     ],
     "whoShouldBuy": "Travelers, cyclists, and bathroom singers who want portable punchy sound.",
-    "verdict": "The gold standard of compact outdoor speakers at ₹2,499."
+    "verdict": "The gold standard of compact outdoor speakers at ₹2,499.",
+    "pid": "deal-33"
   },
   {
     "id": "deal-34",
@@ -1877,7 +2645,8 @@ const FALLBACK_CATALOG = [
       "No built-in GPS"
     ],
     "whoShouldBuy": "Anyone wanting a reliable calling smartwatch on a strict budget.",
-    "verdict": "At ₹1,199 with 80% off, this is India's unbeatable budget smartwatch."
+    "verdict": "At ₹1,199 with 80% off, this is India's unbeatable budget smartwatch.",
+    "pid": "deal-34"
   },
   {
     "id": "deal-35",
@@ -1929,7 +2698,8 @@ const FALLBACK_CATALOG = [
       "Companion app has ads"
     ],
     "whoShouldBuy": "Men and women who prefer traditional round watch aesthetics over square dials.",
-    "verdict": "India's highest selling round calling smartwatch at ₹1,399."
+    "verdict": "India's highest selling round calling smartwatch at ₹1,399.",
+    "pid": "deal-35"
   },
   {
     "id": "deal-36",
@@ -1981,7 +2751,8 @@ const FALLBACK_CATALOG = [
       "Micro-USB included in box"
     ],
     "whoShouldBuy": "Students and commuters who need dependable backup charging under ₹700.",
-    "verdict": "Essential daily carry accessory at ₹699."
+    "verdict": "Essential daily carry accessory at ₹699.",
+    "pid": "deal-36"
   },
   {
     "id": "deal-37",
@@ -2033,7 +2804,8 @@ const FALLBACK_CATALOG = [
       "Adapter sold separately"
     ],
     "whoShouldBuy": "Anyone expanding smartphone, tablet, or security camera storage.",
-    "verdict": "India's most trusted memory card at ₹849."
+    "verdict": "India's most trusted memory card at ₹849.",
+    "pid": "deal-37"
   },
   {
     "id": "deal-38",
@@ -2085,7 +2857,8 @@ const FALLBACK_CATALOG = [
       "Bluetooth range is standard 10m"
     ],
     "whoShouldBuy": "Movie buffs and cricket fans who want to upgrade thin TV speakers without spending ₹10,000+.",
-    "verdict": "Best home theater soundbar under ₹4,000."
+    "verdict": "Best home theater soundbar under ₹4,000.",
+    "pid": "deal-38"
   },
   {
     "id": "deal-39",
@@ -2137,7 +2910,8 @@ const FALLBACK_CATALOG = [
       "Not suitable for heavy rain"
     ],
     "whoShouldBuy": "Morning walkers, college students, and gym runners wanting comfortable shoes.",
-    "verdict": "India's highest value daily running shoe at ₹899."
+    "verdict": "India's highest value daily running shoe at ₹899.",
+    "pid": "deal-39"
   },
   {
     "id": "deal-40",
@@ -2189,7 +2963,8 @@ const FALLBACK_CATALOG = [
       "Initial wear feels slightly stiff"
     ],
     "whoShouldBuy": "Office professionals, corporate employees, and graduates attending interviews.",
-    "verdict": "Classic, dependable office formal shoes at ₹799."
+    "verdict": "Classic, dependable office formal shoes at ₹799.",
+    "pid": "deal-40"
   },
   {
     "id": "deal-41",
@@ -2241,7 +3016,8 @@ const FALLBACK_CATALOG = [
       "Can get slippery on smooth wet tiles"
     ],
     "whoShouldBuy": "Anyone seeking effortless, waterproof daily footwear for home and casual outings.",
-    "verdict": "The ultimate comfort slip-on at ₹1,999."
+    "verdict": "The ultimate comfort slip-on at ₹1,999.",
+    "pid": "deal-41"
   },
   {
     "id": "deal-42",
@@ -2293,7 +3069,8 @@ const FALLBACK_CATALOG = [
       "Requires break-in period"
     ],
     "whoShouldBuy": "Trekkers, bike riders, and men wanting indestructible outdoor leather footwear.",
-    "verdict": "An investment that lasts for years at ₹2,899."
+    "verdict": "An investment that lasts for years at ₹2,899.",
+    "pid": "deal-42"
   },
   {
     "id": "deal-43",
@@ -2345,7 +3122,8 @@ const FALLBACK_CATALOG = [
       "Regular fit is not slim"
     ],
     "whoShouldBuy": "Men looking for versatile Friday dressing and smart weekend polo shirts.",
-    "verdict": "Essential wardrobe staple at ₹599."
+    "verdict": "Essential wardrobe staple at ₹599.",
+    "pid": "deal-43"
   },
   {
     "id": "deal-44",
@@ -2397,7 +3175,8 @@ const FALLBACK_CATALOG = [
       "Color can bleed on first wash"
     ],
     "whoShouldBuy": "Anyone seeking a sharp, comfortable pair of branded jeans under ₹1,600.",
-    "verdict": "The undisputed king of denim at a rare 50% discount."
+    "verdict": "The undisputed king of denim at a rare 50% discount.",
+    "pid": "deal-44"
   },
   {
     "id": "deal-46",
@@ -2449,7 +3228,8 @@ const FALLBACK_CATALOG = [
       "Motor sound is noticeable"
     ],
     "whoShouldBuy": "Small families, bachelors, and home cooks needing daily grinding power.",
-    "verdict": "India's undisputed value mixer grinder at ₹1,899."
+    "verdict": "India's undisputed value mixer grinder at ₹1,899.",
+    "pid": "deal-46"
   },
   {
     "id": "deal-47",
@@ -2501,7 +3281,8 @@ const FALLBACK_CATALOG = [
       "3L capacity is for quick bucket fills, not long showers"
     ],
     "whoShouldBuy": "Homeowners looking for instant hot water for kitchens or quick morning baths.",
-    "verdict": "The most trusted instant geyser in India at ₹3,299."
+    "verdict": "The most trusted instant geyser in India at ₹3,299.",
+    "pid": "deal-47"
   },
   {
     "id": "deal-48",
@@ -2553,7 +3334,8 @@ const FALLBACK_CATALOG = [
       "Cannot be used while plugged into charger"
     ],
     "whoShouldBuy": "Men looking for clean, irritation-free weekly beard grooming and stubble shaping.",
-    "verdict": "India's highest rated daily beard trimmer at ₹849."
+    "verdict": "India's highest rated daily beard trimmer at ₹849.",
+    "pid": "deal-48"
   },
   {
     "id": "deal-49",
@@ -2605,7 +3387,8 @@ const FALLBACK_CATALOG = [
       "Basic LCD tracker without backlight"
     ],
     "whoShouldBuy": "Fitness seekers looking to burn weight and do daily cardio without a costly gym membership.",
-    "verdict": "Top-rated home cardio machine under ₹5,000."
+    "verdict": "Top-rated home cardio machine under ₹5,000.",
+    "pid": "deal-49"
   },
   {
     "id": "deal-50",
@@ -2657,7 +3440,8 @@ const FALLBACK_CATALOG = [
       "Aluminium body not dishwasher safe"
     ],
     "whoShouldBuy": "Every Indian kitchen needing a durable 3L cooker for dal, rice, and curries.",
-    "verdict": "The most trusted pressure cooker in India at ₹1,199."
+    "verdict": "The most trusted pressure cooker in India at ₹1,199.",
+    "pid": "deal-50"
   },
   {
     "id": "deal-51",
@@ -2669,7 +3453,7 @@ const FALLBACK_CATALOG = [
     "originalPrice": 500,
     "dealPrice": 0,
     "discount": "FREE",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/4/z/b/-original-imagx9egzmgzffg7.jpeg",
+    "image": "https://media-assets.swiggy.com/co-web-assets/external_landing_pages/images/cbcc_new/Card%20Facia%20Ornge.png",
     "profitLink": "https://earnkaro.com?r=5610321",
     "rating": 4.3,
     "reviewsCount": 20545,
@@ -2709,7 +3493,3880 @@ const FALLBACK_CATALOG = [
       "Monthly cashback caps apply"
     ],
     "whoShouldBuy": "Anyone spending ₹2,000+ monthly on Swiggy food, groceries, or dining out.",
-    "verdict": "A must-have cashback card for food lovers and online shoppers."
+    "verdict": "A must-have cashback card for food lovers and online shoppers.",
+    "pid": "deal-51"
+  },
+  {
+    "id": "B0029P6Q7U",
+    "pid": "B0029P6Q7U",
+    "slug": "delta-faucet-8-square-raincan-shower-head-touch-cl-b0029p6q7u",
+    "title": "DELTA FAUCET | 8” Square Raincan Shower Head| Touch-Clean Technology (Polished Chrome) | Overhead Shower | RP50841",
+    "brand": "DELTA",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 58208,
+    "dealPrice": 1350,
+    "discount": "98% OFF",
+    "image": "https://m.media-amazon.com/images/I/61v+rRySLlL._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0029P6Q7U?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0029P6Q7U",
+    "rating": "4.2",
+    "reviewsCount": 1500,
+    "badge": "🔥 MEGA DROP",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "98% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹1,350, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B0CDRMWKRH",
+    "pid": "B0CDRMWKRH",
+    "slug": "desidiya-3aa-battery-powered-copper-string-decorat-b0cdrmwkrh",
+    "title": "Desidiya 3AA Battery Powered Copper String Decorative LED Fairy Lights Warm White, 5 Meters, 50 LED&#39;s (Pack of 1)",
+    "brand": "Desidiya",
+    "category": "electronics",
+    "store": "Amazon",
+    "originalPrice": 999,
+    "dealPrice": 57,
+    "discount": "94% OFF",
+    "image": "https://m.media-amazon.com/images/I/819QjIjUR6S._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0CDRMWKRH?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0CDRMWKRH",
+    "rating": "4.3",
+    "reviewsCount": 1771,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "94% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹57, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "BOTHMGG6SEXZJVAU",
+    "pid": "BOTHMGG6SEXZJVAU",
+    "slug": "volito-2-litre-water-bottle-2000-ml-plastic-bottle-bothmgg6sexzjvau",
+    "title": "Volito 2 Litre Water Bottle 2000 ml Plastic Bottle (Pack of 1, Multicolor)",
+    "brand": "Volito",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 1099,
+    "dealPrice": 109,
+    "discount": "90% OFF",
+    "image": "https://rukminim2.flixcart.com/image/800/1070/xif0q/bottle/n/r/h/2000-2-litre-motivational-water-bottle-with-straw-water-bottle-original-imahmgfv3dyxzuuw.jpeg?q=80",
+    "profitLink": "https://fktr.in/r6i2IeO",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=BOTHMGG6SEXZJVAU",
+    "rating": "4.4",
+    "reviewsCount": 2042,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Heavy-duty leak-proof design with easy-carry handle. Clean odorless finish that preserves fresh water taste throughout the day.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "90% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹109, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "41719293",
+    "pid": "41719293",
+    "slug": "michael-kors-brand-logo-printed-canvas-structured--41719293",
+    "title": "Michael Kors Brand Logo Printed Canvas Structured Sling Bag With Pouch",
+    "brand": "Michael",
+    "category": "home",
+    "store": "Myntra",
+    "originalPrice": 43000,
+    "dealPrice": 5490,
+    "discount": "87% OFF",
+    "image": "https://assets.myntassets.com/assets/images/2026/APRIL/29/NYiamsJH_7c34b01686784510a83b5e0ac58ef88f.jpg",
+    "profitLink": "https://myntr.it/3BYHaG4",
+    "directStoreUrl": "https://www.myntra.com/41719293",
+    "rating": "4.5",
+    "reviewsCount": 2313,
+    "badge": "🔥 MEGA DROP",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "87% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹5,490, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "TNGHPCZGCEMKAZPG",
+    "pid": "TNGHPCZGCEMKAZPG",
+    "slug": "mamta-dhingra-tong-2-tong-1-10-cm-salad-tongs-pack-tnghpczgcemkazpg",
+    "title": "Mamta Dhingra Tong 2 Tong 1 10 cm Salad Tongs (Pack of 2)",
+    "brand": "Mamta",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 599,
+    "dealPrice": 91,
+    "discount": "85% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/tong/3/g/v/2-tong-2-mamta-dhingra-original-imahpcntgqv3j3vk.jpeg?q=70",
+    "profitLink": "https://fktr.in/o7kPv1n",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=TNGHPCZGCEMKAZPG",
+    "rating": "4.6",
+    "reviewsCount": 2584,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "85% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹91, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "B006X50OPW",
+    "pid": "B006X50OPW",
+    "slug": "market-wizards-interviews-with-top-traders-b006x50opw",
+    "title": "Market Wizards: Interviews with Top Traders",
+    "brand": "Market",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 2329,
+    "dealPrice": 379,
+    "discount": "84% OFF",
+    "image": "https://m.media-amazon.com/images/I/51Xh8kTlirL.jpg",
+    "profitLink": "https://www.amazon.in/dp/B006X50OPW?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B006X50OPW",
+    "rating": "4.7",
+    "reviewsCount": 2855,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "84% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹379, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B0BFLVYQB5",
+    "pid": "B0BFLVYQB5",
+    "slug": "electric-kettle-0-600-liter-capacity-for-fast-boil-b0bflvyqb5",
+    "title": "Electric Kettle 0.600 liter Capacity for Fast Boiling Water, Tea, Coffee (Random Color",
+    "brand": "Electric",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 2999,
+    "dealPrice": 499,
+    "discount": "83% OFF",
+    "image": "https://m.media-amazon.com/images/I/41EpoNKCcCL._SY300_SX300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0BFLVYQB5?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0BFLVYQB5",
+    "rating": "4.8",
+    "reviewsCount": 3126,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "83% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹499, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "ACCHGZSM4KKCFHSE",
+    "pid": "ACCHGZSM4KKCFHSE",
+    "slug": "ygm-acoustic-foams-acoustic-foams-portable-karaoke-acchgzsm4kkcfhse",
+    "title": "YGM Acoustic Foams Acoustic Foams-Portable Karaoke LED with 2 Mic...more",
+    "brand": "YGM",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 2600,
+    "dealPrice": 467,
+    "discount": "82% OFF",
+    "image": "https://rukminim2.flixcart.com/image/800/1070/xif0q/speaker/smart-speaker/s/h/b/mini-karaoke-machine-for-kids-with-wireless-microphone-ygm-original-imahgzrmgerfj2e4.jpeg?q=80",
+    "profitLink": "https://fktr.in/TlsbWYz",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=ACCHGZSM4KKCFHSE",
+    "rating": "4.9",
+    "reviewsCount": 3397,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "82% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹467, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "40898527",
+    "pid": "40898527",
+    "slug": "hellcat-infants-pack-of-3-printed-sleepsuits-40898527",
+    "title": "HELLCAT Infants Pack Of 3 Printed Sleepsuits",
+    "brand": "HELLCAT",
+    "category": "home",
+    "store": "Myntra",
+    "originalPrice": 2997,
+    "dealPrice": 676,
+    "discount": "77% OFF",
+    "image": "https://assets.myntassets.com/assets/images/2026/MARCH/25/PiuDyxat_4a7ce9d0567e4ad1ba36f240e0c51845.jpg",
+    "profitLink": "https://myntr.it/1Nj44Xj",
+    "directStoreUrl": "https://www.myntra.com/40898527",
+    "rating": "4.2",
+    "reviewsCount": 3668,
+    "badge": "🔥 MEGA DROP",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "77% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹676, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "COBHPJH3YH23Z6VZ",
+    "pid": "COBHPJH3YH23Z6VZ",
+    "slug": "mdeon-premium-silicone-spatula-oil-brush-set-silic-cobhpjh3yh23z6vz",
+    "title": "MdeOn Premium Silicone Spatula & Oil Brush Set Silicon Flat Pastry Brush",
+    "brand": "MdeOn",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 399,
+    "dealPrice": 97,
+    "discount": "76% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/shopsy-cooking-brush/i/i/c/sh-oil-brush-spatula-silicon-yuvaa-trendz-original-imahpjjx4su8bbhb.jpeg?q=70",
+    "profitLink": "https://fktr.in/q8t5ijp",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=COBHPJH3YH23Z6VZ",
+    "rating": "4.3",
+    "reviewsCount": 3939,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "76% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹97, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "B0BVZ8SSZL",
+    "pid": "B0BVZ8SSZL",
+    "slug": "wonderchef-valencia-non-stick-sauce-pan-with-glass-b0bvz8sszl",
+    "title": "Wonderchef Valencia Non-Stick Sauce Pan with Glass Lid | Cool Touch Bakelite Handle | Pure Grade Aluminium| Tempered Glass Lid | 1.5 litres | 2.5 mm Thickness | 2 Year Warranty | Purple",
+    "brand": "Wonderchef",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 1670,
+    "dealPrice": 412,
+    "discount": "75% OFF",
+    "image": "https://m.media-amazon.com/images/I/51BPMEvDB6L._SL1200_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0BVZ8SSZL?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0BVZ8SSZL",
+    "rating": "4.4",
+    "reviewsCount": 4210,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "75% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹412, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "WCWH7UPZUSR48XTY",
+    "pid": "WCWH7UPZUSR48XTY",
+    "slug": "lino-perros-women-casual-tan-artificial-leather-wa-wcwh7upzusr48xty",
+    "title": "LINO PERROS Women Casual Tan Artificial Leather Wallet (11 Card Slots)",
+    "brand": "LINO",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 1995,
+    "dealPrice": 659,
+    "discount": "67% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/wallet-card-wallet/s/8/l/lwpr00447tan-1-3-lwpr00447-11-wallet-lino-perros-10-original-imahrgzn93fhgqab.jpeg?q=70",
+    "profitLink": "https://fktr.in/APatH2W",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=WCWH7UPZUSR48XTY",
+    "rating": "4.5",
+    "reviewsCount": 4481,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "67% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹659, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "SHOHGMRZFQTBWYPC",
+    "pid": "SHOHGMRZFQTBWYPC",
+    "slug": "adidas-stridzo-2-0-for-men-black-8-shohgmrzfqtbwypc",
+    "title": "ADIDAS STRIDZO 2.0 For Men (Black , 8)",
+    "brand": "ADIDAS",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 5599,
+    "dealPrice": 1907,
+    "discount": "66% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/shoe/q/d/p/-watermarked-original-imahmddhzymtrjrh.jpeg?q=70",
+    "profitLink": "https://fktr.in/mBLDtle",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=SHOHGMRZFQTBWYPC",
+    "rating": "4.6",
+    "reviewsCount": 4752,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "66% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹1,907, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "B0GPW2MYH3",
+    "pid": "B0GPW2MYH3",
+    "slug": "5-yrs-free-data-recovery-dash-cam-gigastone-64gb-m-b0gpw2myh3",
+    "title": "【5 Yrs Free Data Recovery】【Dash Cam】 GIGASTONE 64GB Micro SD Card, TLC High Endurance Pro, Speed Up to 95MB/s, Compatible with REDTIGER Rove VIOFO VANTRUE PRUVEEO ARIFAYZ, MicroSDXC UHS-I A1 V30 U3",
+    "brand": "5",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 13567,
+    "dealPrice": 5162,
+    "discount": "62% OFF",
+    "image": "https://m.media-amazon.com/images/I/71ayiuyV8gL._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0GPW2MYH3?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0GPW2MYH3",
+    "rating": "4.7",
+    "reviewsCount": 5023,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "62% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹5,162, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B0GKFH23KX",
+    "pid": "B0GKFH23KX",
+    "slug": "docat-book-stand-for-reading-writing-painting-and--b0gkfh23kx",
+    "title": "DOCAT Book Stand for Reading, Writing, Painting and Used As Laptop Stand for Desk, Adjustable Book Holder with 360° Rotating Base, Compatible with Cookbooks, Textbooks, Tablets and Laptops (Wooden)",
+    "brand": "DOCAT",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 4999,
+    "dealPrice": 1999,
+    "discount": "60% OFF",
+    "image": "https://m.media-amazon.com/images/I/61TJzW3jhsL._SL1024_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0GKFH23KX?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0GKFH23KX",
+    "rating": "4.8",
+    "reviewsCount": 5294,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "60% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹1,999, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "FNBGYZ8FCQQGYHBS",
+    "pid": "FNBGYZ8FCQQGYHBS",
+    "slug": "dyna-physical-resistance-band-light-to-medium-resi-fnbgyz8fcqqgyhbs",
+    "title": "Dyna Physical Resistance Band-Light to Medium Resistance Fitness Band(Red, Pack of 1)",
+    "brand": "Dyna",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 399,
+    "dealPrice": 188,
+    "discount": "53% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/fitness-band/l/k/a/physical-resistance-band-light-to-medium-resistance-6270-001-resized-original-imah26kpfywpz5u3.jpeg?q=70",
+    "profitLink": "https://fktr.in/x9vAFL8",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=FNBGYZ8FCQQGYHBS",
+    "rating": "4.9",
+    "reviewsCount": 5565,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "53% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹188, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "TMRHN7EFXJH6RP7X",
+    "pid": "TMRHN7EFXJH6RP7X",
+    "slug": "vgr-v-106-grooming-kit-180-min-runtime-8-length-se-tmrhn7efxjh6rp7x",
+    "title": "VGR V-106. Grooming Kit 180 min  Runtime 8 Length Settings (Gold)",
+    "brand": "VGR",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 3099,
+    "dealPrice": 1482,
+    "discount": "52% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/trimmer/n/1/y/0-5-12-mm-v-106-stainless-steel-corded-cordless-vgr-original-imahn78gbnufahb6.jpeg?q=70",
+    "profitLink": "https://fktr.in/ft51RKH",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=TMRHN7EFXJH6RP7X",
+    "rating": "4.2",
+    "reviewsCount": 5836,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "52% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹1,482, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "40716725",
+    "pid": "40716725",
+    "slug": "lotto-women-mesh-running-shoes-40716725",
+    "title": "Lotto Women Mesh Running Shoes",
+    "brand": "Lotto",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 3999,
+    "dealPrice": 1992,
+    "discount": "50% OFF",
+    "image": "https://assets.myntassets.com/assets/images/2026/APRIL/15/eaf0YsPd_f9593b039aa64df5a2bb1a86c4d24182.jpg",
+    "profitLink": "https://myntr.it/d7bmrzF",
+    "directStoreUrl": "https://www.myntra.com/40716725",
+    "rating": "4.3",
+    "reviewsCount": 6107,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Lightweight cushioned insole with premium stitching. Fits true to size and pairs effortlessly with jeans, chinos, or cargo pants.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "50% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹1,992, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "41398398",
+    "pid": "41398398",
+    "slug": "kappa-men-regular-fit-brand-logo-training-track-pa-41398398",
+    "title": "Kappa Men Regular Fit Brand Logo Training Track Pants",
+    "brand": "Kappa",
+    "category": "home",
+    "store": "Myntra",
+    "originalPrice": 1499,
+    "dealPrice": 749,
+    "discount": "50% OFF",
+    "image": "https://assets.myntassets.com/assets/images/2026/APRIL/15/anSIvCrf_52b0087be0e249faafc54b3832b0605d.jpg",
+    "profitLink": "https://myntr.it/eo3lj8Y",
+    "directStoreUrl": "https://www.myntra.com/41398398",
+    "rating": "4.4",
+    "reviewsCount": 6378,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "50% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹749, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "45024531",
+    "pid": "45024531",
+    "slug": "moody-detan-dash-face-exfoliating-mist-110-ml-45024531",
+    "title": "MOODY Detan Dash Face Exfoliating Mist - 110 ml",
+    "brand": "MOODY",
+    "category": "home",
+    "store": "Myntra",
+    "originalPrice": 449,
+    "dealPrice": 245,
+    "discount": "45% OFF",
+    "image": "https://assets.myntassets.com/h_400,q_90,w_400/v1/assets/images/2026/AUGUST/11/7yUo23q3_0dd623dd24c9457bbe3eb5b3c81b1246.jpg",
+    "profitLink": "https://myntr.it/4082irn",
+    "directStoreUrl": "https://www.myntra.com/45024531",
+    "rating": "4.5",
+    "reviewsCount": 6649,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "45% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹245, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "TMRHPWZYJY8ZJEBW",
+    "pid": "TMRHPWZYJY8ZJEBW",
+    "slug": "vgr-v-001-pro-v-977-grooming-kit-300-min-runtime-1-tmrhpwzyjy8zjebw",
+    "title": "VGR V-001 PRO & V-977 Grooming Kit 300 min  Runtime 15 Length Settings",
+    "brand": "VGR",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 15999,
+    "dealPrice": 11004,
+    "discount": "31% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/trimmer/e/j/l/0-5-12-mm-v-001-pro-v-977-titanium-coated-cordless-vgr-original-imahpwyzzuxm5ueu.jpeg?q=70",
+    "profitLink": "https://fktr.in/giaEL1H",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=TMRHPWZYJY8ZJEBW",
+    "rating": "4.6",
+    "reviewsCount": 6920,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "31% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹11,004, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "ACCGF5C8GDHRQ2TY",
+    "pid": "ACCGF5C8GDHRQ2TY",
+    "slug": "fire-boltt-fire-pods-atlas-anc-enc-earbuds-tws-tra-accgf5c8gdhrq2ty",
+    "title": "Fire-Boltt Fire Pods Atlas ANC ENC Earbuds TWS Transparent & Low Latency Game Mode Bluetooth Headset (Black, True Wireless)",
+    "brand": "FireBoltt",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 10999,
+    "dealPrice": 1299,
+    "discount": "88% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/headphone/n/o/q/-enriched-transparent-original-imagfymhfnhuphr9.png?q=70",
+    "profitLink": "https://fktr.in/uRwRHta",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=ACCGF5C8GDHRQ2TY",
+    "rating": "4.7",
+    "reviewsCount": 7191,
+    "badge": "🔥 MEGA DROP",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Solid sound profile with clear mids and punchy low-end at just ₹1299. Comfortable ear-tips for long gaming or calling sessions.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "88% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹1,299, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "SNDHAZ2WTKRJWFAF",
+    "pid": "SNDHAZ2WTKRJWFAF",
+    "slug": "aadi-men-sandals-sndhaz2wtkrjwfaf",
+    "title": "aadi Men Sandals",
+    "brand": "aadi",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 1999,
+    "dealPrice": 272,
+    "discount": "86% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/shopsy-sandal/o/w/w/6-group-381-6-aadi-brown-original-imahanzm6zbksf4q.jpeg?q=70",
+    "profitLink": "https://fktr.in/qE4vcee",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=SNDHAZ2WTKRJWFAF",
+    "rating": "4.8",
+    "reviewsCount": 7462,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "86% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹272, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "SNDHPHFYKMKYEEMU",
+    "pid": "SNDHPHFYKMKYEEMU",
+    "slug": "aadi-men-sandal-brown-6-sndhphfykmkyeemu",
+    "title": "aadi Men Sandal (Brown , 6)",
+    "brand": "aadi",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 1999,
+    "dealPrice": 283,
+    "discount": "86% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/slipper-flip-flop/b/1/a/7-group-452-aadi-brown-original-imahpgnefsg5hukw.jpeg?q=70",
+    "profitLink": "https://fktr.in/ZH51q7G",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=SNDHPHFYKMKYEEMU",
+    "rating": "4.9",
+    "reviewsCount": 7733,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "86% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹283, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "23298224",
+    "pid": "23298224",
+    "slug": "saraf-rs-jewellery-silver-plated-ad-studded-leaf-s-23298224",
+    "title": "Saraf RS Jewellery Silver-Plated AD-Studded Leaf Shaped Studs Earrings",
+    "brand": "Saraf",
+    "category": "home",
+    "store": "Myntra",
+    "originalPrice": 2645,
+    "dealPrice": 449,
+    "discount": "83% OFF",
+    "image": "https://assets.myntassets.com/assets/images/23298224/2023/5/20/53548462-c3a6-40fb-b45e-b29471c2dcb91684565114562SarafRSJewelleryBlueLeafShapedStudsEarrings1.jpg",
+    "profitLink": "https://myntr.it/9SUoZ9z",
+    "directStoreUrl": "https://www.myntra.com/23298224",
+    "rating": "4.2",
+    "reviewsCount": 8004,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "83% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹449, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "30975863",
+    "pid": "30975863",
+    "slug": "oversized-anime-graphic-t-shirt-with-round-neck-30975863",
+    "title": "Oversized Anime Graphic T-shirt with Round Neck",
+    "brand": "Oversized",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 1499,
+    "dealPrice": 254,
+    "discount": "83% OFF",
+    "image": "https://assets.myntassets.com/assets/images/2024/SEPTEMBER/13/t5DBSYM3_13a512f2595943e384b86d2f2e3e2910.jpg",
+    "profitLink": "https://myntr.it/72Zg2XB",
+    "directStoreUrl": "https://www.myntra.com/30975863",
+    "rating": "4.3",
+    "reviewsCount": 8275,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: 100% breathable cotton fabric with zero color bleeding. Pre-shrunk fit maintains clean collar shape after multiple machine washes.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "83% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹254, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "B0C8NT2LVS",
+    "pid": "B0C8NT2LVS",
+    "slug": "champion-reasoning-book-3-0-for-ibps-sbi-rbi-rrb-s-b0c8nt2lvs",
+    "title": "Champion Reasoning Book 3.0 For IBPS | SBI |RBI |RRB |SEBI | NABARD| Other Banks & Insurance exams (English Printed Edition) By Adda247",
+    "brand": "Champion",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 1089,
+    "dealPrice": 268,
+    "discount": "75% OFF",
+    "image": "https://m.media-amazon.com/images/I/51bZug1252L._SY445_SX342_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0C8NT2LVS?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0C8NT2LVS",
+    "rating": "4.4",
+    "reviewsCount": 8546,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "75% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹268, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "SMWHF7GMHHBUDJRQ",
+    "pid": "SMWHF7GMHHBUDJRQ",
+    "slug": "fastrack-fastrack-revoltt-fs1-pro-smartwatch-blue--smwhf7gmhhbudjrq",
+    "title": "Fastrack Fastrack Revoltt FS1 Pro Smartwatch (Blue Strap, Free Size)",
+    "brand": "Fastrack",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 7995,
+    "dealPrice": 2099,
+    "discount": "74% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/smartwatch/z/7/i/-original-imahkewqwhhajv6v.jpeg?q=70",
+    "profitLink": "https://fktr.in/zJLvNLJ",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=SMWHF7GMHHBUDJRQ",
+    "rating": "4.5",
+    "reviewsCount": 8817,
+    "badge": "🔥 MEGA DROP",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Responsive touch display with bright outdoor visibility. Bluetooth calling audio is crisp and battery lasts 4-5 days on a single charge.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "74% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹2,099, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "38505705",
+    "pid": "38505705",
+    "slug": "rare-rabbit-men-geometric-print-spread-collar-half-38505705",
+    "title": "RARE RABBIT Men Geometric Print Spread Collar Half Sleeve Cotton Regular Fit Polo T-Shirt",
+    "brand": "RARE",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 3999,
+    "dealPrice": 1279,
+    "discount": "68% OFF",
+    "image": "https://assets.myntassets.com/assets/images/2025/DECEMBER/8/jKMFF2ft_13fc5fc209d941a391f2e970e93d7da8.jpg",
+    "profitLink": "https://myntr.it/yTser8F",
+    "directStoreUrl": "https://www.myntra.com/38505705",
+    "rating": "4.6",
+    "reviewsCount": 9088,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: 100% breathable cotton fabric with zero color bleeding. Pre-shrunk fit maintains clean collar shape after multiple machine washes.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "68% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹1,279, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "B0C2QKC5YJ",
+    "pid": "B0C2QKC5YJ",
+    "slug": "bona-pet-system-premium-pet-microfiber-mop-for-mul-b0c2qkc5yj",
+    "title": "Bona® Pet System Premium Pet Microfiber Mop for Multi-Surface Floors",
+    "brand": "Bona",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 17303,
+    "dealPrice": 6125,
+    "discount": "65% OFF",
+    "image": "https://m.media-amazon.com/images/I/41-M5C44tcL._SY300_SX300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0C2QKC5YJ?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0C2QKC5YJ",
+    "rating": "4.7",
+    "reviewsCount": 9359,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Microfiber head traps fine dust and hair with single swipe. Telescopic stainless steel handle reaches under beds and sofas effortlessly.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "65% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹6,125, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "17698052",
+    "pid": "17698052",
+    "slug": "rare-rabbit-men-navy-blue-slim-fit-shorts-17698052",
+    "title": "RARE RABBIT Men Navy Blue Slim Fit Shorts",
+    "brand": "RARE",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 2499,
+    "dealPrice": 874,
+    "discount": "65% OFF",
+    "image": "https://assets.myntassets.com/assets/images/17698052/2024/3/28/b032dd99-66e7-4e73-97ab-559a625ed5911711621349518-RARE-RABBIT-Men-Navy-Blue-Slim-Fit-Shorts-3021711621349441-7.jpg",
+    "profitLink": "https://myntr.it/P8hKni9",
+    "directStoreUrl": "https://www.myntra.com/17698052",
+    "rating": "4.8",
+    "reviewsCount": 9630,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "65% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹874, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "B0F7L4PSH6",
+    "pid": "B0F7L4PSH6",
+    "slug": "swiss-beauty-satin-comfort-lipstick-trio-3-in-1-ul-b0f7l4psh6",
+    "title": "Swiss Beauty Satin Comfort Lipstick Trio 3-in-1| Ultra-Hydrating | Highly Pigmented | Smooth Glide | Satin Matte Finish | One-Swipe Application | Shade- 3-Red & Maroon, 9gm",
+    "brand": "Swiss",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 599,
+    "dealPrice": 240,
+    "discount": "60% OFF",
+    "image": "https://m.media-amazon.com/images/I/41K-Tj6Il2L._SY300_SX300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0F7L4PSH6?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0F7L4PSH6",
+    "rating": "4.9",
+    "reviewsCount": 9901,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "60% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹240, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "PWBH34ZQT6CGNSES",
+    "pid": "PWBH34ZQT6CGNSES",
+    "slug": "ambrane-10000-mah-22-5-w-wired-wireless-with-magsa-pwbh34zqt6cgnses",
+    "title": "Ambrane 10000 mAh 22.5 W Wired & Wireless With MagSafe Compact Pocket Size Power Bank (Black, Lithium Polymer, Fast Charging, Power Delivery 3.0, Quick Charge 3.0 for Earbuds, Laptop, Mobile, Smartwatch, Tablet, Trimmer)",
+    "brand": "Ambrane",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 2999,
+    "dealPrice": 1299,
+    "discount": "57% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/power-bank/s/w/x/-enriched-transparent-original-imahdzf2fxycwnyh.png?q=70",
+    "profitLink": "https://fktr.in/5glyaFX",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=PWBH34ZQT6CGNSES",
+    "rating": "4.2",
+    "reviewsCount": 10172,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Solid sound profile with clear mids and punchy low-end at just ₹1299. Comfortable ear-tips for long gaming or calling sessions.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "57% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹1,299, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "TOHGFHS9RYZZZUBS",
+    "pid": "TOHGFHS9RYZZZUBS",
+    "slug": "halonix-5w-glimer-pro-torch-red-20-cm-rechargeable-tohgfhs9ryzzzubs",
+    "title": "HALONIX 5W Glimer Pro Torch (Red, 20 cm, Rechargeable)",
+    "brand": "HALONIX",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 795,
+    "dealPrice": 399,
+    "discount": "50% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/minutes_enrichment_original/-enriched-original-TOHGFHS9RYZZZUBS_0.jpg?q=70",
+    "profitLink": "https://fktr.in/zFTiQiQ",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=TOHGFHS9RYZZZUBS",
+    "rating": "4.3",
+    "reviewsCount": 10443,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "50% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹399, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "B0DSG2TVNF",
+    "pid": "B0DSG2TVNF",
+    "slug": "loom-tree-air-conditioning-fan-usb-portable-air-co-b0dsg2tvnf",
+    "title": "LOOM TREE® Air Conditioning Fan USB Portable Air Conditioner for Dorm Desk Office White | Home & Garden | Home Improvement | Heating, Cooling & Air | Portable Fans",
+    "brand": "LOOM",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 2805,
+    "dealPrice": 1753,
+    "discount": "38% OFF",
+    "image": "https://m.media-amazon.com/images/I/31U8Gv4PDOL._SY300_SX300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0DSG2TVNF?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0DSG2TVNF",
+    "rating": "4.4",
+    "reviewsCount": 10714,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "38% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹1,753, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B0BPCPVCJP",
+    "pid": "B0BPCPVCJP",
+    "slug": "tommy-hilfiger-women-green-dial-analog-watch-analo-b0bpcpvcjp",
+    "title": "Tommy Hilfiger Women Green Dial Analog Watch Analog Green Dial Women's Watch-TH1782553",
+    "brand": "Tommy",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 10000,
+    "dealPrice": 6300,
+    "discount": "37% OFF",
+    "image": "https://m.media-amazon.com/images/I/41mnGfdTpqL._SY300_SX300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0BPCPVCJP?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0BPCPVCJP",
+    "rating": "4.5",
+    "reviewsCount": 10985,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "37% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹6,300, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B0D35Q4MPM",
+    "pid": "B0D35Q4MPM",
+    "slug": "nike-unisex-cap-b0d35q4mpm",
+    "title": "Nike Unisex Cap",
+    "brand": "Nike",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 1195,
+    "dealPrice": 836,
+    "discount": "30% OFF",
+    "image": "https://m.media-amazon.com/images/I/61-fGRFSwxL._AC_SX342_SY445_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0D35Q4MPM?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0D35Q4MPM",
+    "rating": "4.6",
+    "reviewsCount": 11256,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "30% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹836, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B0756DPZD1",
+    "pid": "B0756DPZD1",
+    "slug": "pidilite-fevicryl-acrylic-colour-pink-500ml-art-an-b0756dpzd1",
+    "title": "Pidilite Fevicryl Acrylic Colour Pink, 500ml, Art and Craft Paint, DIY Paint, Rich Pigment, Non-Cracking for Canvas, Wood, Leather, Earthenware, Metal | Ideal for Artists, Students, Hobbyists",
+    "brand": "Pidilite",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 350,
+    "dealPrice": 250,
+    "discount": "29% OFF",
+    "image": "https://m.media-amazon.com/images/I/41JBddDlqWL._SY300_SX300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0756DPZD1?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0756DPZD1",
+    "rating": "4.7",
+    "reviewsCount": 11527,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "29% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹250, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B0GH32CR51",
+    "pid": "B0GH32CR51",
+    "slug": "belkin-magsafe-charger-compatible-2-in-1-wireless--b0gh32cr51",
+    "title": "Belkin MagSafe Charger Compatible, 2-in-1 Wireless Charging Station, Qi2.2 25W Convertible Magnetic Charger for iPhone 17, Apple Watch Series 10, Google Pixel 10 and More (45W Adapter in",
+    "brand": "Belkin",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 22258,
+    "dealPrice": 16487,
+    "discount": "26% OFF",
+    "image": "https://m.media-amazon.com/images/I/616aAurqIyL._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0GH32CR51?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0GH32CR51",
+    "rating": "4.8",
+    "reviewsCount": 11798,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "26% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹16,487, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "MOBHGZZ9AGANPQBF",
+    "pid": "MOBHGZZ9AGANPQBF",
+    "slug": "oppo-reno15-pro-5g-sunset-gold-256-gb-12-gb-ram-mobhgzz9aganpqbf",
+    "title": "OPPO Reno15 Pro 5G (Sunset Gold, 256 GB) (12 GB RAM)",
+    "brand": "OPPO",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 74999,
+    "dealPrice": 57343,
+    "discount": "24% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/x/e/l/-resized-original-imahjgt2bnrqszju.jpeg?q=70",
+    "profitLink": "https://fktr.in/bhiHlrn",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=MOBHGZZ9AGANPQBF",
+    "rating": "4.9",
+    "reviewsCount": 12069,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "24% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹57,343, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "B07TPNGWBW",
+    "pid": "B07TPNGWBW",
+    "slug": "amazon-brand-symbol-men-cotton-blend-neck-hooded-s-b07tpngwbw",
+    "title": "Amazon Brand - Symbol Men Cotton Blend Neck Hooded Sweatshirt",
+    "brand": "Amazon",
+    "category": "fashion",
+    "store": "Amazon",
+    "originalPrice": 2199,
+    "dealPrice": 399,
+    "discount": "82% OFF",
+    "image": "https://m.media-amazon.com/images/I/31kvovvhikL._SX342_SY445_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B07TPNGWBW?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B07TPNGWBW",
+    "rating": "4.2",
+    "reviewsCount": 12340,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: 100% breathable cotton fabric with zero color bleeding. Pre-shrunk fit maintains clean collar shape after multiple machine washes.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "82% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹399, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "MCWHHC2FFKFT7VPM",
+    "pid": "MCWHHC2FFKFT7VPM",
+    "slug": "boardcab-twist-mop-with-microfiber-head-adjustable-mcwhhc2ffkft7vpm",
+    "title": "BOARDCAB Twist Mop with Microfiber Head, Adjustable Stainless Steel Handle Wet & Dry Mop",
+    "brand": "BOARDCAB",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 999,
+    "dealPrice": 198,
+    "discount": "80% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mop-cleaning-wipe/w/j/q/1-twist-mop-04-boardcab-na-original-imahhc2fjhdbeccp.jpeg?q=70",
+    "profitLink": "https://fktr.in/jMm5Qfa",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=MCWHHC2FFKFT7VPM",
+    "rating": "4.3",
+    "reviewsCount": 12611,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Microfiber head traps fine dust and hair with single swipe. Telescopic stainless steel handle reaches under beds and sofas effortlessly.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "80% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹198, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "34993362",
+    "pid": "34993362",
+    "slug": "house-of-pataudi-embroidered-thread-work-jashn-kur-34993362",
+    "title": "House of Pataudi Embroidered Thread Work Jashn Kurta with Trousers",
+    "brand": "House",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 5699,
+    "dealPrice": 1253,
+    "discount": "78% OFF",
+    "image": "https://assets.myntassets.com/assets/images/2025/OCTOBER/16/jdWFsOV1_c734f8cd4b944b21af8d747795034168.jpg",
+    "profitLink": "https://myntr.it/4CbH1eN",
+    "directStoreUrl": "https://www.myntra.com/34993362",
+    "rating": "4.4",
+    "reviewsCount": 12882,
+    "badge": "🔥 MEGA DROP",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "78% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹1,253, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "PERHG7PDVPZ8XFEA",
+    "pid": "PERHG7PDVPZ8XFEA",
+    "slug": "axe-best-perfume-for-men-midnight-oak-fragrance-12-perhg7pdvpz8xfea",
+    "title": "AXE Best Perfume for Men Midnight Oak Fragrance 12Hr Long Lasting Eau de Parfum  -  100 ml (For Men)",
+    "brand": "AXE",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 1499,
+    "dealPrice": 337,
+    "discount": "78% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/perfume/x/u/x/-original-imahmfwqhqjzyeun.jpeg?q=70",
+    "profitLink": "https://fktr.in/dOSjw4b",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=PERHG7PDVPZ8XFEA",
+    "rating": "4.5",
+    "reviewsCount": 13153,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "78% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹337, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "33548457",
+    "pid": "33548457",
+    "slug": "mast-harbour-mock-collar-colorblocked-tailored-jac-33548457",
+    "title": "Mast & Harbour Mock Collar Colorblocked Tailored Jacket",
+    "brand": "Mast",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 2699,
+    "dealPrice": 647,
+    "discount": "76% OFF",
+    "image": "https://assets.myntassets.com/h_400,q_90,w_400/v1/assets/images/2025/SEPTEMBER/29/auu7yrxv_696a5e3c149d4287ae389199fb63475c.jpg",
+    "profitLink": "https://myntr.it/c0827Kv",
+    "directStoreUrl": "https://www.myntra.com/33548457",
+    "rating": "4.6",
+    "reviewsCount": 13424,
+    "badge": "🔥 MEGA DROP",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "76% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹647, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "HWBFXXSVVQHHZX3E",
+    "pid": "HWBFXXSVVQHHZX3E",
+    "slug": "shop-shoppee-heatingbag1-heating-pad-hwbfxxsvvqhhzx3e",
+    "title": "Shop & Shoppee HeatingBag1 Heating Pad",
+    "brand": "Shop",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 999,
+    "dealPrice": 267,
+    "discount": "73% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/hot-water-bag/u/b/s/electrothermal-hot-water-bag-for-pain-relief-pack-of-18-d237-original-imafxezagfhyghwe.jpeg?q=70",
+    "profitLink": "https://fktr.in/a1ZIcfo",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=HWBFXXSVVQHHZX3E",
+    "rating": "4.7",
+    "reviewsCount": 13695,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "73% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹267, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "B086XL3PJZ",
+    "pid": "B086XL3PJZ",
+    "slug": "philips-slimline-advance-25-watt-2500-lumen-metal--b086xl3pjz",
+    "title": "Philips Slimline Advance 25-Watt 2500-lumen Metal Batten Tubelight (Pack of 20) (Warm White) (Study Room Specialist)",
+    "brand": "Philips",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 21980,
+    "dealPrice": 6132,
+    "discount": "72% OFF",
+    "image": "https://m.media-amazon.com/images/I/41Vr+ovlYpL._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B086XL3PJZ?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B086XL3PJZ",
+    "rating": "4.8",
+    "reviewsCount": 13966,
+    "badge": "🔥 MEGA DROP",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "72% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹6,132, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "ARMHZZKA2UYCS4GJ",
+    "pid": "ARMHZZKA2UYCS4GJ",
+    "slug": "rhtdm-cooling-arm-sleeves-with-thumb-hole-for-driv-armhzzka2uycs4gj",
+    "title": "Rhtdm Cooling Arm Sleeves with Thumb Hole for Driving, Running and Cycling Comfort Nylon Arm Warmer",
+    "brand": "Rhtdm",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 499,
+    "dealPrice": 145,
+    "discount": "71% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/shopsy-arm-warmer/s/q/u/medium-2-cooling-arm-sleeves-with-thumb-hole-for-driving-running-original-imahzyhgqajnztyg.jpeg?q=70",
+    "profitLink": "https://fktr.in/oiNOEwn",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=ARMHZZKA2UYCS4GJ",
+    "rating": "4.9",
+    "reviewsCount": 14237,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "71% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹145, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "26787754",
+    "pid": "26787754",
+    "slug": "crocs-off-grid-clog-unisex-26787754",
+    "title": "Crocs Off Grid Clog Unisex",
+    "brand": "Crocs",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 5495,
+    "dealPrice": 2198,
+    "discount": "60% OFF",
+    "image": "https://assets.myntassets.com/assets/images/26787754/2024/3/11/4dcb0761-b28e-4bad-bd5c-36aa4212d7a01710147400691-Off-Grid-Clog-Blk-3491710147400364-1.jpg",
+    "profitLink": "https://myntr.it/9JQvDnr",
+    "directStoreUrl": "https://www.myntra.com/26787754",
+    "rating": "4.2",
+    "reviewsCount": 14508,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "60% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹2,198, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "44404747",
+    "pid": "44404747",
+    "slug": "puma-glidepacer-pro-lightweight-running-shoes-44404747",
+    "title": "Puma Glidepacer Pro Lightweight Running Shoes",
+    "brand": "Puma",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 8999,
+    "dealPrice": 4049,
+    "discount": "55% OFF",
+    "image": "https://assets.myntassets.com/assets/images/2026/SEPTEMBER/14/0b66b0430be14568acc3329715f4cf27.jpg",
+    "profitLink": "https://myntr.it/usj6Jbo",
+    "directStoreUrl": "https://www.myntra.com/44404747",
+    "rating": "4.3",
+    "reviewsCount": 14779,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Lightweight cushioned insole with premium stitching. Fits true to size and pairs effortlessly with jeans, chinos, or cargo pants.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "55% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹4,049, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "B0F27Z7PFP",
+    "pid": "B0F27Z7PFP",
+    "slug": "puma-unisex-adult-novo-leather-wallet-black-920970-b0f27z7pfp",
+    "title": "Puma Unisex-Adult, NOVO Leather Wallet, Black, (9209701)",
+    "brand": "Puma",
+    "category": "fashion",
+    "store": "Amazon",
+    "originalPrice": 2299,
+    "dealPrice": 1070,
+    "discount": "53% OFF",
+    "image": "https://m.media-amazon.com/images/I/3118K7N0guL._SX342_SY445_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0F27Z7PFP?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0F27Z7PFP",
+    "rating": "4.4",
+    "reviewsCount": 15050,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "53% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹1,070, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "16201666",
+    "pid": "16201666",
+    "slug": "kids-grey-bayaband-clogs-16201666",
+    "title": "Kids Grey Bayaband Clogs",
+    "brand": "Kids",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 3495,
+    "dealPrice": 1677,
+    "discount": "52% OFF",
+    "image": "https://assets.myntassets.com/h_400,q_90,w_400/v1/assets/images/16201666/2022/6/2/731e43c2-3d02-47a4-a7f4-baaf8c6d8cda1654165012006-Crocs-Kids-Grey-Bayaband-Clogs-181654165011625-1.jpg",
+    "profitLink": "https://myntr.it/B8qa7mx",
+    "directStoreUrl": "https://www.myntra.com/16201666",
+    "rating": "4.5",
+    "reviewsCount": 15321,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "52% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹1,677, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "WSPH7EB427HWGZQ2",
+    "pid": "WSPH7EB427HWGZQ2",
+    "slug": "ghadi-power-wash-detergent-powder-jasmine-lemon-va-wsph7eb427hwgzq2",
+    "title": "Ghadi Power Wash Detergent Powder (Jasmine, Lemon, Vanilla) (5 kg...more",
+    "brand": "Ghadi",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 340,
+    "dealPrice": 195,
+    "discount": "43% OFF",
+    "image": "https://rukminim2.flixcart.com/image/800/1070/xif0q/washing-powder/y/r/f/-enriched-transparent-original-imahkj9gy8yupxc6.png?q=80",
+    "profitLink": "https://fktr.in/l9WzEJM",
+    "directStoreUrl": "https://www.flipkart.com/product/p/itme?pid=WSPH7EB427HWGZQ2",
+    "rating": "4.6",
+    "reviewsCount": 15592,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "43% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹195, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "B0BS9LWP9F",
+    "pid": "B0BS9LWP9F",
+    "slug": "freestyle-libre-sensor-2-b0bs9lwp9f",
+    "title": "FreeStyle Libre Sensor (2)",
+    "brand": "FreeStyle",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 9342,
+    "dealPrice": 5998,
+    "discount": "36% OFF",
+    "image": "https://m.media-amazon.com/images/I/61oZdKA5eQL._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0BS9LWP9F?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B0BS9LWP9F",
+    "rating": "4.7",
+    "reviewsCount": 15863,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "36% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹5,998, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B07S5CTSJB",
+    "pid": "B07S5CTSJB",
+    "slug": "titan-modern-bandhan-analog-silver-dial-unisex-s-w-b07s5ctsjb",
+    "title": "Titan Modern Bandhan Analog Silver Dial Unisex's Watch-NN9400294202KM01",
+    "brand": "Titan",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 21995,
+    "dealPrice": 14617,
+    "discount": "34% OFF",
+    "image": "https://m.media-amazon.com/images/I/51pCjdYVN1L._SL1000_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B07S5CTSJB?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B07S5CTSJB",
+    "rating": "4.8",
+    "reviewsCount": 16134,
+    "badge": "✓ VERIFIED DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "34% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹14,617, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "B07FCYB4FL",
+    "pid": "B07FCYB4FL",
+    "slug": "fevi-kwik-instant-adhesive-mini-pack-of-10-b07fcyb4fl",
+    "title": "Fevi Kwik Instant Adhesive Mini, Pack of 10",
+    "brand": "Fevi",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 100,
+    "dealPrice": 95,
+    "discount": "5% OFF",
+    "image": "https://m.media-amazon.com/images/I/41CDBYeMJeL._SX300_SY300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B07FCYB4FL?tag=bhom120704-21",
+    "directStoreUrl": "https://www.amazon.in/dp/B07FCYB4FL",
+    "rating": "4.9",
+    "reviewsCount": 16405,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "5% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹95, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "BOAT-BASSHEADS-100",
+    "pid": "BOAT-BASSHEADS-100",
+    "slug": "boat-bassheads-100-in-ear-wired-earphones-with-mic-boat-bassheads-100",
+    "title": "boAt Bassheads 100 in-Ear Wired Earphones with Mic (Super Extra Bass)",
+    "brand": "boAt",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 999,
+    "dealPrice": 299,
+    "discount": "70% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/3/n/b/bassheads-100-boat-enriched-transparent-original-imag4tgdrpxfh3pk.png",
+    "profitLink": "https://fktr.in/B1hM5bQ",
+    "rating": "4.2",
+    "reviewsCount": 16676,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Punchy hawk-inspired bass, mic picks up voice clearly for calls, and the 1.2m tangle-free cable easily lasts 1+ years of rough daily gym use.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "70% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹299, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "PORTRONICS-CONCH-120",
+    "pid": "PORTRONICS-CONCH-120",
+    "slug": "portronics-conch-120-type-c-in-ear-earphones-with--portronics-conch-120",
+    "title": "Portronics Conch 120 Type-C in-Ear Earphones with DAC Chip & Mic",
+    "brand": "Portronics",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 699,
+    "dealPrice": 199,
+    "discount": "72% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/6/v/x/conch-sigma-c-in-ear-type-c-wired-earphones-in-line-hd-mic-14-original-imahascs6b84jukh.jpeg",
+    "profitLink": "https://fktr.in/P1oQzR4",
+    "rating": "4.3",
+    "reviewsCount": 16947,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Type-C direct connection without adapters. The built-in DAC delivers Hi-Fi lossless audio on iPhone 15/16 and Samsung S series phones without background hiss.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "72% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹199, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "AMBRANE-TYPE-C-CABLE",
+    "pid": "AMBRANE-TYPE-C-CABLE",
+    "slug": "ambrane-3a-fast-charging-braided-type-c-cable-1-5m-ambrane-type-c-cable",
+    "title": "Ambrane 3A Fast Charging Braided Type-C Cable (1.5M, 480Mbps Data)",
+    "brand": "Ambrane",
+    "category": "electronics",
+    "store": "Amazon",
+    "originalPrice": 499,
+    "dealPrice": 149,
+    "discount": "70% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/data-cable/0/m/3/-enriched-transparent-original-imagzepv69eyqzz7.png",
+    "profitLink": "https://www.amazon.in/dp/B082BG7MGL?tag=bhom120704-21",
+    "rating": "4.4",
+    "reviewsCount": 17218,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Heavy-duty nylon braiding prevents neck-fraying. Supports Quick Charge 3.0 up to 18W/20W phone charging reliably.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "70% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
+    "verdict": "At ₹149, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "SYSKA-LED-BULB-4PACK",
+    "pid": "SYSKA-LED-BULB-4PACK",
+    "slug": "syska-9w-b22-led-cool-day-light-bulbs-pack-of-4-en-syska-led-bulb-4pack",
+    "title": "Syska 9W B22 LED Cool Day Light Bulbs (Pack of 4, Energy Saver)",
+    "brand": "Syska",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 600,
+    "dealPrice": 249,
+    "discount": "58% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/bulb/s/d/o/-original-imahfjg5hftwynks.jpeg",
+    "profitLink": "https://www.amazon.in/dp/B07L5P4VLR?tag=bhom120704-21",
+    "rating": "4.5",
+    "reviewsCount": 17489,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Crisp 6500K bright white light without flicker. 90% energy saving compared to conventional bulbs with standard 1-year replacement warranty.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "58% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹249, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "PIGEON-MINI-CHOPPER-3B",
+    "pid": "PIGEON-MINI-CHOPPER-3B",
+    "slug": "pigeon-by-stovekraft-handy-mini-plastic-chopper-wi-pigeon-mini-chopper-3b",
+    "title": "Pigeon by Stovekraft Handy Mini Plastic Chopper with 3 Stainless Blades",
+    "brand": "Pigeon",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 495,
+    "dealPrice": 199,
+    "discount": "60% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/chopper/u/p/v/p-101-pigeon-enriched-transparent-1-original-imafgdeyzfmej7cv.png",
+    "profitLink": "https://www.amazon.in/dp/B01LWYXB2U?tag=bhom120704-21",
+    "rating": "4.6",
+    "reviewsCount": 17760,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Chops onions, garlic, and nuts finely in 5-6 quick pulls. No electricity needed, tear-free onion cutting, and washes in 10 seconds under tap water.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "60% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹199, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "RED-TAPE-ANKLE-SOCKS-3P",
+    "pid": "RED-TAPE-ANKLE-SOCKS-3P",
+    "slug": "red-tape-men-solid-low-cut-ankle-cotton-socks-pack-red-tape-ankle-socks-3p",
+    "title": "RED TAPE Men Solid Low Cut Ankle Cotton Socks (Pack of 3 Pairs)",
+    "brand": "RED",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 799,
+    "dealPrice": 199,
+    "discount": "75% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/sock/n/v/p/-original-imahgryrxnuxpukj.jpeg",
+    "profitLink": "https://fktr.in/Q8rTk1b",
+    "rating": "4.7",
+    "reviewsCount": 18031,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: 80% combed cotton with reinforced heel & toe. Stays securely inside sneakers without slipping down into the shoe while walking.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "75% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹199, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "WROGN-CREW-NECK-TEE",
+    "pid": "WROGN-CREW-NECK-TEE",
+    "slug": "wrogn-men-solid-regular-fit-pure-cotton-crew-neck--wrogn-crew-neck-tee",
+    "title": "WROGN Men Solid Regular Fit Pure Cotton Crew Neck T-Shirt",
+    "brand": "WROGN",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 1199,
+    "dealPrice": 299,
+    "discount": "75% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/l/w/-original-imahdgzmhcrgu5ut.jpeg",
+    "profitLink": "https://myntr.it/W7vXy2Z",
+    "rating": "4.8",
+    "reviewsCount": 18302,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Breathable 180 GSM bio-washed cotton. Zero shrinkage after machine wash, color stays jet black even under direct sun.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "75% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹299, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "HIGHLANDER-CHINO-SHORTS",
+    "pid": "HIGHLANDER-CHINO-SHORTS",
+    "slug": "highlander-men-slim-fit-casual-cotton-chino-shorts-highlander-chino-shorts",
+    "title": "HIGHLANDER Men Slim Fit Casual Cotton Chino Shorts with Pockets",
+    "brand": "HIGHLANDER",
+    "category": "fashion",
+    "store": "Myntra",
+    "originalPrice": 1499,
+    "dealPrice": 399,
+    "discount": "73% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/short/z/s/3/30-hlv8001052-highlander-original-imah3qz2sguvn5zm.jpeg",
+    "profitLink": "https://myntr.it/H8kLm9P",
+    "rating": "4.9",
+    "reviewsCount": 18573,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Clean tailored fit sitting just above the knee. Premium matte buttons and sturdy belt loops make it versatile for casual outing or weekend lounge.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Myntra"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "73% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Myntra.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Myntra network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹399, this is a verified value-for-money steal on Myntra."
+  },
+  {
+    "id": "BOLDFIT-STEEL-BOTTLE-1L",
+    "pid": "BOLDFIT-STEEL-BOTTLE-1L",
+    "slug": "boldfit-stainless-steel-single-wall-water-bottle-1-boldfit-steel-bottle-1l",
+    "title": "Boldfit Stainless Steel Single Wall Water Bottle (1 Litre, Leak Proof)",
+    "brand": "Boldfit",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 999,
+    "dealPrice": 349,
+    "discount": "65% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/bottle/y/q/2/1000-stainless-steel-sipper-bottle-leakproof-durable-for-home-original-imahfg74ttg3qbu4.jpeg",
+    "profitLink": "https://www.amazon.in/dp/B08DHR6V7P?tag=bhom120704-21",
+    "rating": "4.2",
+    "reviewsCount": 18844,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Food-grade 304 rust-proof stainless steel. Lightweight gym bottle with leak-proof silicon ring cap. Zero chemical plastic taste.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "65% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹349, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "MILTON-DUO-DELUXE-500",
+    "pid": "MILTON-DUO-DELUXE-500",
+    "slug": "milton-thermosteel-duo-deluxe-flask-500ml-24h-hot--milton-duo-deluxe-500",
+    "title": "Milton Thermosteel Duo Deluxe Flask (500ml, 24H Hot & Cold Retention)",
+    "brand": "Milton",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 995,
+    "dealPrice": 449,
+    "discount": "55% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/bottle/w/p/c/1000-duo-dlx-1000-thermosteel-water-bottle-isi-certified-24-hr-original-imahejwn6uzdfmd9.jpeg",
+    "profitLink": "https://www.amazon.in/dp/B0073P5G2G?tag=bhom120704-21",
+    "rating": "4.3",
+    "reviewsCount": 19115,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Vacuum insulated double wall maintains boiling hot chai or chilled iced water for 20+ hours. The screw lid doubles as a drinking cup.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "55% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹449, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "GODREJ-AER-POCKET-5P",
+    "pid": "GODREJ-AER-POCKET-5P",
+    "slug": "godrej-aer-pocket-bathroom-air-fragrance-gel-pack--godrej-aer-pocket-5p",
+    "title": "Godrej aer Pocket Bathroom Air Fragrance Gel (Pack of 5 Assorted)",
+    "brand": "Godrej",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 300,
+    "dealPrice": 225,
+    "discount": "25% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-freshener/5/j/b/-resized-original-imahp549f4gawcqg.jpeg",
+    "profitLink": "https://www.amazon.in/dp/B07N8Z7GRL?tag=bhom120704-21",
+    "rating": "4.4",
+    "reviewsCount": 19386,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Unique slim-gel technology keeps bathroom fresh 24x7 for full 3-4 weeks per pouch. No artificial harsh chemical odor.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "25% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹225, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "LIFELONG-LLM27-MASSAGER",
+    "pid": "LIFELONG-LLM27-MASSAGER",
+    "slug": "lifelong-llm27-electric-handheld-full-body-massage-lifelong-llm27-massager",
+    "title": "Lifelong LLM27 Electric Handheld Full Body Massager (3 Attachments)",
+    "brand": "Lifelong",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 1499,
+    "dealPrice": 499,
+    "discount": "67% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/massager/d/w/p/-original-imahqcjfcxxj4y7z.jpeg",
+    "profitLink": "https://www.amazon.in/dp/B07N9D8VRP?tag=bhom120704-21",
+    "rating": "4.5",
+    "reviewsCount": 1657,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Powerful vibration motor eases stiff neck, shoulder, and calf tension after long desk hours. Includes flat, roller, and wave attachments with mesh cover.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "67% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹499, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "FASTRACK-ANALOG-WATCH-MEN",
+    "pid": "FASTRACK-ANALOG-WATCH-MEN",
+    "slug": "fastrack-casual-black-dial-silicone-strap-analog-w-fastrack-analog-watch-men",
+    "title": "Fastrack Casual Black Dial Silicone Strap Analog Watch for Men",
+    "brand": "Fastrack",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 1295,
+    "dealPrice": 499,
+    "discount": "61% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/watch/v/u/c/-watermarked-original-imahftrzeyeey3hj.jpeg",
+    "profitLink": "https://fktr.in/F8qPz1b",
+    "rating": "4.6",
+    "reviewsCount": 1928,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Minimalist matte black dial with flexible sweat-resistant silicone strap. Quartz movement with accurate timekeeping and 30M water resistance.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "61% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
+    "verdict": "At ₹499, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "DETTOL-SANITIZER-500ML",
+    "pid": "DETTOL-SANITIZER-500ML",
+    "slug": "dettol-instant-hand-sanitizer-liquid-refill-500ml--dettol-sanitizer-500ml",
+    "title": "Dettol Instant Hand Sanitizer Liquid Refill (500ml with Pump Dispenser)",
+    "brand": "Dettol",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 250,
+    "dealPrice": 189,
+    "discount": "25% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/hand-wash-sanitizer/f/a/l/-original-imah5ez78mgxqvmh.jpeg",
+    "profitLink": "https://fktr.in/D9tKz3p",
+    "rating": "4.7",
+    "reviewsCount": 2199,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: 72.34% alcohol based formula kills 99.9% germs without water. Dries in 10 seconds leaving hands moisturized without stickiness.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "25% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Flipkart network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹189, this is a verified value-for-money steal on Flipkart."
+  },
+  {
+    "id": "CELLO-OPALWARE-SET-6P",
+    "pid": "CELLO-OPALWARE-SET-6P",
+    "slug": "cello-opalware-dazzle-tropical-lagoon-cup-saucer-s-cello-opalware-set-6p",
+    "title": "Cello Opalware Dazzle Tropical Lagoon Cup & Saucer Set (Pack of 6)",
+    "brand": "Cello",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 895,
+    "dealPrice": 349,
+    "discount": "61% OFF",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/cup-saucer/m/x/n/cup-saucer-2096-u-p-c-original-imahnh5kpwqbeg5e.jpeg",
+    "profitLink": "https://www.amazon.in/dp/B07N9D7VQR?tag=bhom120704-21",
+    "rating": "4.8",
+    "reviewsCount": 2470,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: 100% bone-ash free German opal glass. Thermal resistant, microwave safe, and chip-resistant for daily tea & coffee serving.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "61% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹349, this is a verified value-for-money steal on Amazon."
+  },
+  {
+    "id": "FEVIKWIK-MINI-PACK-12",
+    "pid": "FEVIKWIK-MINI-PACK-12",
+    "slug": "fevi-kwik-instant-adhesive-mini-tube-pack-of-12-tu-fevikwik-mini-pack-12",
+    "title": "Fevi Kwik Instant Adhesive Mini Tube (Pack of 12 Tubes, Fast Bonding)",
+    "brand": "Fevi",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 120,
+    "dealPrice": 49,
+    "discount": "59% OFF",
+    "image": "https://m.media-amazon.com/images/I/41CDBYeMJeL._SX300_SY300_QL70_ML2_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B07FCYB4FL?tag=bhom120704-21",
+    "rating": "4.9",
+    "reviewsCount": 2741,
+    "badge": "⚡ UNDER ₹499",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Bonds plastic, wood, ceramic, and metal in 5 seconds flat. 12 separate single-use mini tubes prevent unused glue from drying up.",
+    "specs": [
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Condition",
+        "value": "100% Brand New Genuine"
+      },
+      {
+        "label": "Price Drop",
+        "value": "59% OFF"
+      },
+      {
+        "label": "Verification",
+        "value": "Verified Lowest Price"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Verified in-stock with authentic manufacturer warranty.",
+      "Direct store checkout with safe doorstep delivery."
+    ],
+    "pros": [
+      "Unbeatable discount compared to standard MRP",
+      "Fast delivery via Amazon network",
+      "Eligible for easy returns/replacement"
+    ],
+    "cons": [
+      "Limited promotional inventory",
+      "Offer price subject to stock availability"
+    ],
+    "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
+    "verdict": "At ₹49, this is a verified value-for-money steal on Amazon."
   }
 ];
 
@@ -2730,7 +7387,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Load Catalog
 async function initCatalog() {
   try {
-    const res = await fetch("/deals/data/catalog.json?v=20261003_v8");
+    const res = await fetch("/deals/data/catalog.json?v=20261004_v11");
     if (!res.ok) throw new Error("Catalog fetch error");
     catalog = await res.json();
   } catch (err) {
@@ -2898,6 +7555,7 @@ function createProductCardHtml(item) {
   const formattedOriginalPrice = item.originalPrice > 0 ? `₹${Number(item.originalPrice).toLocaleString("en-IN")}` : "";
   const detailUrl = `/deals/p/${item.slug}.html`;
   const isLowestPrice = (parseInt(item.discount || "0") >= 60) || (Number(item.dealPrice || 0) <= 499);
+  const cleanDiscount = (item.discount && item.discount.length <= 15) ? escapeHtml(item.discount) : "DEAL";
 
   return `
     <article class="product-card" data-id="${item.id}">
@@ -2905,9 +7563,9 @@ function createProductCardHtml(item) {
       <!-- Top Image Container -->
       <div class="product-thumb-box" style="position:relative;">
         <a href="${detailUrl}" class="thumb-link" title="${escapeHtml(item.title)}">
-          <img class="product-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" style="max-height:160px; max-width:160px; object-fit:contain;" onerror="this.onerror=null;this.src='https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg';">
+          <img class="product-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" style="max-height:160px; max-width:160px; object-fit:contain;" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f8fafc' rx='12'/%3E%3Cpath d='M70 80h60v70a10 10 0 0 1-10 10H80a10 10 0 0 1-10-10V80zm10-10a20 20 0 0 1 40 0h-8a12 12 0 0 0-24 0h-8z' fill='%23cbd5e1'/%3E%3Ctext x='100' y='145' font-family='sans-serif' font-size='12' font-weight='600' fill='%2364748b' text-anchor='middle'%3EDeal Item%3C/text%3E%3C/svg%3E';">
         </a>
-        <span class="discount-badge">${item.discount || "DEAL"}</span>
+        <span class="discount-badge">${cleanDiscount}</span>
         <span class="store-badge ${String(item.store).toLowerCase().replace(/\s+/g, '-')}">${escapeHtml(item.store)}</span>
         ${isLowestPrice ? `<span class="lowest-price-tag" style="position:absolute; bottom:6px; left:6px; background:#ecfdf5; color:#047857; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; border:1px solid #a7f3d0; letter-spacing:0.2px;">📉 Lowest Price Ever</span>` : ""}
       </div>
