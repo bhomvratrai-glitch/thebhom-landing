@@ -1,64 +1,90 @@
 #!/usr/bin/env python3
-"""Generate clean, policy-compliant, 100% 200 OK flat sitemap.xml.
-Excludes thin affiliate pages, redirects, and unpublished sections."""
-
-import datetime
 import os
+import glob
+from datetime import datetime
 
-today = datetime.date.today().isoformat()
-base = "https://www.thebhom.in"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TODAY = datetime.utcnow().strftime('%Y-%m-%d')
 
-lines = [
+urls = []
+
+# 1. Main Landing Pages & Subdomains
+main_pages = [
+    ('/', '1.0', 'daily'),
+    ('/deals/', '0.95', 'daily'),
+    ('/downloader/', '0.9', 'daily'),
+    ('/wallpapers', '0.9', 'daily'),
+    ('/ebooks', '0.9', 'weekly'),
+    ('/magazines', '0.9', 'weekly'),
+    ('/cards', '0.9', 'weekly'),
+    ('/templates', '0.9', 'weekly'),
+    ('/about', '0.8', 'monthly'),
+    ('/contact', '0.8', 'monthly'),
+    ('/privacy-policy', '0.7', 'monthly'),
+    ('/terms', '0.7', 'monthly'),
+    ('/disclaimer', '0.7', 'monthly'),
+]
+for path, priority, freq in main_pages:
+    urls.append((f'https://www.thebhom.in{path}', priority, freq))
+
+# 2. Main Web Tools Suite
+for f in sorted(glob.glob(os.path.join(BASE_DIR, 'tools', '*.html'))):
+    b = os.path.basename(f)
+    if b in ['contact.html', 'privacy.html', 'terms.html', 'checkout.html']:
+        continue
+    slug = b[:-5]
+    if slug == 'index':
+        urls.append(('https://www.thebhom.in/tools/', '0.9', 'daily'))
+    else:
+        urls.append((f'https://www.thebhom.in/tools/{slug}', '0.85', 'weekly'))
+
+# 3. High-Value Guide Articles
+for f in sorted(glob.glob(os.path.join(BASE_DIR, 'articles', '*.html'))):
+    b = os.path.basename(f)
+    slug = b[:-5]
+    if slug == 'index':
+        urls.append(('https://www.thebhom.in/articles/', '0.95', 'daily'))
+    else:
+        urls.append((f'https://www.thebhom.in/articles/{slug}', '0.85', 'weekly'))
+
+# 4. ImgPDF Suite (PDF, Image, and Document Utilities)
+for root, dirs, files in os.walk(os.path.join(BASE_DIR, 'imgpdf')):
+    for f in sorted(files):
+        if not f.endswith('.html'):
+            continue
+        rel = os.path.relpath(os.path.join(root, f), BASE_DIR)
+        parts = rel.split(os.sep)
+        b = os.path.basename(rel)
+        # Exclude internal / non-content pages
+        if any(x in rel for x in ['404', 'admin', 'auth', 'dashboard', 'forgot-password', 'login', 'signup', 'reset-password', 'pricing', 'refund', 'acceptable-use', 'data-retention', 'cookies']):
+            continue
+        slug = b[:-5]
+        dir_part = '/'.join(parts[:-1])
+        if slug == 'index':
+            urls.append((f'https://www.thebhom.in/{dir_part}/', '0.9', 'weekly'))
+        else:
+            urls.append((f'https://www.thebhom.in/{dir_part}/{slug}', '0.85', 'weekly'))
+
+# Remove duplicates while preserving order
+seen = set()
+unique_urls = []
+for u, pri, freq in urls:
+    if u not in seen:
+        seen.add(u)
+        unique_urls.append((u, pri, freq))
+
+xml_lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 ]
 
-# Core Tools & Digital Resources (All Clean Extensionless URLs returning 200 OK)
-main_pages = [
-    (f"{base}/", "daily", "1.0"),
-    (f"{base}/tools/", "daily", "0.95"),
-    (f"{base}/tools/clean-csv", "weekly", "0.85"),
-    (f"{base}/tools/compress-image", "weekly", "0.85"),
-    (f"{base}/tools/convert-jpg-to-webp", "weekly", "0.85"),
-    (f"{base}/tools/convert-png-to-jpg", "weekly", "0.85"),
-    (f"{base}/tools/merge-pdf", "weekly", "0.85"),
-    (f"{base}/tools/pdf-to-image", "weekly", "0.85"),
-    (f"{base}/tools/resize-image-online", "weekly", "0.85"),
-    (f"{base}/tools/rotate-pdf", "weekly", "0.85"),
-    (f"{base}/tools/split-pdf-pages", "weekly", "0.85"),
-    (f"{base}/tools/watermark-pdf", "weekly", "0.85"),
-    (f"{base}/tools/ai", "weekly", "0.85"),
-    (f"{base}/tools/automation", "weekly", "0.85"),
-    (f"{base}/tools/products", "weekly", "0.85"),
-    (f"{base}/downloader/", "daily", "0.9"),
-    (f"{base}/wallpapers", "daily", "0.9"),
-    (f"{base}/ebooks", "weekly", "0.9"),
-    (f"{base}/magazines", "weekly", "0.9"),
-    (f"{base}/cards", "weekly", "0.9"),
-    (f"{base}/templates", "weekly", "0.9"),
-    (f"{base}/about", "monthly", "0.8"),
-    (f"{base}/contact", "monthly", "0.8"),
-    (f"{base}/privacy-policy", "monthly", "0.7"),
-    (f"{base}/terms", "monthly", "0.7"),
-    (f"{base}/disclaimer", "monthly", "0.7"),
-]
+for url, pri, freq in unique_urls:
+    xml_lines.append(f'  <url><loc>{url}</loc><lastmod>{TODAY}</lastmod><changefreq>{freq}</changefreq><priority>{pri}</priority></url>')
 
-for loc, freq, pri in main_pages:
-    lines.append(f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod><changefreq>{freq}</changefreq><priority>{pri}</priority></url>")
+xml_lines.append('</urlset>\n')
 
-# Editorial Authority Hub & Articles (Clean URLs)
-articles_dir = "articles"
-if os.path.exists(articles_dir):
-    lines.append(f"  <url><loc>{base}/articles/</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>")
-    for art_file in sorted(os.listdir(articles_dir)):
-        if art_file.endswith(".html") and art_file != "index.html":
-            slug = art_file[:-5]
-            lines.append(f"  <url><loc>{base}/articles/{slug}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>")
+sitemap_path = os.path.join(BASE_DIR, 'sitemap.xml')
+with open(sitemap_path, 'w', encoding='utf-8') as out:
+    out.write('\n'.join(xml_lines))
 
-lines.append('</urlset>')
-
-with open("sitemap.xml", "w", encoding="utf-8") as f:
-    f.write("\n".join(lines) + "\n")
-
-url_count = len(lines) - 2
-print(f"Generated clean policy-compliant sitemap.xml with {url_count} 100% 200-OK URLs")
+print(f"Generated {sitemap_path} successfully with {len(unique_urls)} canonical URLs.")
