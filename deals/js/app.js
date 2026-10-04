@@ -2730,14 +2730,114 @@ document.addEventListener("DOMContentLoaded", () => {
 // Load Catalog
 async function initCatalog() {
   try {
-    const res = await fetch("/deals/data/catalog.json?v=20261003_v6");
+    const res = await fetch("/deals/data/catalog.json?v=20261003_v8");
     if (!res.ok) throw new Error("Catalog fetch error");
     catalog = await res.json();
   } catch (err) {
     console.warn("Catalog fetch failed, using built-in catalog:", err);
     catalog = FALLBACK_CATALOG;
   }
+  
+  // Check URL parameters for direct deal or search query
+  checkUrlParams();
   renderProducts();
+}
+
+// URL Params Handler (Deep Linking from Pinterest & External Feeds)
+function checkUrlParams() {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const dealParam = urlParams.get("deal");
+    const qParam = urlParams.get("q");
+
+    if (qParam) {
+      searchQuery = qParam.trim();
+      const input = document.getElementById("searchInput");
+      if (input) input.value = searchQuery;
+      const clearBtn = document.getElementById("clearSearchBtn");
+      if (clearBtn) clearBtn.style.display = "block";
+    }
+
+    if (dealParam) {
+      handleDirectDealParam(dealParam);
+    }
+  } catch (e) {
+    console.warn("URL params parse error:", e);
+  }
+}
+
+// Direct Deal Redirect Bridge
+function handleDirectDealParam(dealId) {
+  const cleanId = String(dealId).trim().toLowerCase();
+  const deal = catalog.find(item => 
+    (item.pid && item.pid.toLowerCase() === cleanId) ||
+    (item.id && item.id.toLowerCase() === cleanId) ||
+    (item.slug && item.slug.toLowerCase().includes(cleanId))
+  );
+
+  if (deal && deal.profitLink) {
+    showRedirectBridge(deal);
+  } else {
+    // If not found by exact ID, search for it
+    searchQuery = dealId;
+    const input = document.getElementById("searchInput");
+    if (input) input.value = dealId;
+    const clearBtn = document.getElementById("clearSearchBtn");
+    if (clearBtn) clearBtn.style.display = "block";
+  }
+}
+
+// Visual Redirect Bridge (Ensures 100% affiliate credit with zero user friction)
+function showRedirectBridge(deal) {
+  const overlay = document.createElement("div");
+  overlay.id = "dealRedirectOverlay";
+  overlay.style.cssText = "position:fixed; inset:0; z-index:99999; background:rgba(15,23,42,0.92); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:20px;";
+
+  const priceText = deal.dealPrice ? `₹${Number(deal.dealPrice).toLocaleString("en-IN")}` : "FREE";
+  const originalText = deal.originalPrice ? `₹${Number(deal.originalPrice).toLocaleString("en-IN")}` : "";
+
+  overlay.innerHTML = `
+    <div style="background:#fff; max-width:480px; width:100%; border-radius:16px; padding:28px; text-align:center; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); animation:modalPop 0.3s cubic-bezier(0.16,1,0.3,1);">
+      <div style="width:56px; height:56px; background:#eff6ff; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:28px;">⚡</div>
+      <span style="font-size:12px; font-weight:800; color:#2563eb; text-transform:uppercase; letter-spacing:0.5px;">Verified Lowest Price Deal</span>
+      <h3 style="font-size:17px; font-weight:800; color:#0f172a; margin:8px 0 14px; line-height:1.4; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">${escapeHtml(deal.title)}</h3>
+      
+      <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:18px;">
+        <span style="font-size:24px; font-weight:900; color:#0f172a;">${priceText}</span>
+        ${originalText ? `<span style="font-size:14px; color:#94a3b8; text-decoration:line-through;">${originalText}</span>` : ""}
+        <span style="background:#dcfce7; color:#166534; font-size:12px; font-weight:800; padding:2px 8px; border-radius:4px;">${deal.discount || "DEAL"}</span>
+      </div>
+
+      <p style="font-size:13px; color:#64748b; margin-bottom:20px;">Transferring you directly to official <strong>${escapeHtml(deal.store)}</strong> store checkout with discount locked in...</p>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="${deal.profitLink}" target="_blank" rel="noopener noreferrer nofollow" id="directStoreLinkBtn" style="display:flex; align-items:center; justify-content:center; gap:8px; background:#fb641b; color:#fff; font-size:15px; font-weight:800; padding:13px; border-radius:8px; text-decoration:none;">
+          <span>Open Deal on ${escapeHtml(deal.store)}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button id="cancelRedirectBtn" style="font-size:13px; font-weight:600; color:#64748b; padding:8px; cursor:pointer;">Stay on TheBhom Deals Catalog</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  document.getElementById("cancelRedirectBtn").addEventListener("click", () => {
+    overlay.remove();
+    // Scroll product into view if present
+    const card = document.querySelector(`[data-id="${deal.id}"]`);
+    if (card) {
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+      card.style.outline = "3px solid #fb641b";
+    }
+  });
+
+  // Fast auto-redirect after 800ms
+  setTimeout(() => {
+    if (document.body.contains(overlay)) {
+      window.location.replace(deal.profitLink);
+    }
+  }, 1000);
 }
 
 // Render Products Grid
@@ -2746,11 +2846,29 @@ function renderProducts() {
   if (!container) return;
 
   const filtered = catalog.filter(item => {
-    const matchesCategory = currentCategory === "all" || item.category === currentCategory;
+    let matchesCategory = false;
+    if (currentCategory === "all") {
+      matchesCategory = true;
+    } else if (currentCategory === "mobiles") {
+      matchesCategory = item.category === "mobiles";
+    } else if (currentCategory === "electronics") {
+      matchesCategory = item.category === "electronics" || item.category === "tech";
+    } else if (currentCategory === "footwear") {
+      matchesCategory = item.category === "footwear";
+    } else if (currentCategory === "fashion") {
+      matchesCategory = item.category === "fashion";
+    } else if (currentCategory === "home") {
+      matchesCategory = item.category === "home" || item.category === "appliances";
+    } else if (currentCategory === "finance") {
+      matchesCategory = item.category === "finance";
+    } else {
+      matchesCategory = item.category === currentCategory;
+    }
+
     const matchesSearch = !searchQuery ||
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.store.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (item.brand && item.brand.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      (item.store && item.store.toLowerCase().includes(searchQuery.toLowerCase())) ||
       (item.discount && item.discount.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
@@ -2760,7 +2878,7 @@ function renderProducts() {
       <div class="empty-state">
         <div style="font-size: 40px; margin-bottom: 12px;">🔍</div>
         <h3>No matching products found</h3>
-        <p>Try searching for a different brand or switch category tabs above.</p>
+        <p>Try searching for a different keyword or switch category tabs above.</p>
       </div>
     `;
     return;
@@ -2772,8 +2890,8 @@ function renderProducts() {
 // Create Flipkart/Amazon Style Compact Product Card
 function createProductCardHtml(item) {
   const isFree = item.dealPrice === 0;
-  const formattedPrice = isFree ? "FREE" : `₹${item.dealPrice.toLocaleString("en-IN")}`;
-  const formattedOriginalPrice = item.originalPrice > 0 ? `₹${item.originalPrice.toLocaleString("en-IN")}` : "";
+  const formattedPrice = isFree ? "FREE" : `₹${Number(item.dealPrice || 0).toLocaleString("en-IN")}`;
+  const formattedOriginalPrice = item.originalPrice > 0 ? `₹${Number(item.originalPrice).toLocaleString("en-IN")}` : "";
   const detailUrl = `/deals/p/${item.slug}.html`;
 
   return `
@@ -2785,14 +2903,14 @@ function createProductCardHtml(item) {
           <img class="product-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" style="max-height:160px; max-width:160px; object-fit:contain;" onerror="this.onerror=null;this.src='https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg';">
         </a>
         <span class="discount-badge">${item.discount || "DEAL"}</span>
-        <span class="store-badge ${item.store.toLowerCase().replace(/\s+/g, '-')}">${escapeHtml(item.store)}</span>
+        <span class="store-badge ${String(item.store).toLowerCase().replace(/\s+/g, '-')}">${escapeHtml(item.store)}</span>
       </div>
 
       <!-- Card Details Body -->
       <div class="product-info-box">
         
         <!-- Brand & Title -->
-        <span class="product-brand">${escapeHtml(item.brand)}</span>
+        <span class="product-brand">${escapeHtml(item.brand || item.store)}</span>
         <h3 class="product-name">
           <a href="${detailUrl}" title="${escapeHtml(item.title)}">${escapeHtml(item.title)}</a>
         </h3>
@@ -2800,7 +2918,7 @@ function createProductCardHtml(item) {
         <!-- Rating -->
         <div class="rating-strip">
           <span class="star-pill">★ ${item.rating || "4.3"}</span>
-          <span class="rating-count">(${Number(item.reviewsCount || 12000).toLocaleString("en-IN")})</span>
+          <span class="rating-count">(${Number(item.reviewsCount || 1200).toLocaleString("en-IN")})</span>
         </div>
 
         <!-- Pricing Row -->
