@@ -51,23 +51,6 @@ const FALLBACK_CATALOG = [
     "dateAdded": "2026-10-04T17:16:38.567Z"
   },
   {
-    "id": "AMZ-WOMEN-9381659095",
-    "title": "Sponsored \nVajan Ghatvaa\nMarathi Edition\nby Vaidya Suyog Dandekar",
-    "dealPrice": 180,
-    "originalPrice": 450,
-    "discount": "60% OFF",
-    "category": "fashion",
-    "store": "Amazon",
-    "badge": "Festive Drop",
-    "brand": "Sponsored",
-    "image": "https://m.media-amazon.com/images/I/81o++s4UnXL._AC_UL320_.jpg",
-    "affiliateLink": "https://www.amazon.in/dp/9381659095?tag=bhom120704-21",
-    "profitLink": "https://www.amazon.in/dp/9381659095?tag=bhom120704-21",
-    "slug": "sponsored-vajan-ghatvaa-marathi-edition-by-vaidya--9381659095",
-    "summary": "Real User Verdict: Highly rated lightweight fabric, authentic handcrafted appeal, vibrant color fastness, and extremely flattering fit at just ₹180.",
-    "dateAdded": "2026-10-04T17:16:38.101Z"
-  },
-  {
     "id": "AMZ-WOMEN-B0HFSXVT3M",
     "title": "Sponsored \nRATAN Women’s Cotton Printed Flared Kurta | 3/4 Sleeve Anarkali Kurti | Floral Ethnic Wear Kurta for Women",
     "dealPrice": 699,
