@@ -11,7 +11,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 11699,
     "discount": "55% off",
     "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/watch/s/r/e/1-d810bsv-mathey-tissot-women-watermarked-original-imahftzsvz7y3zyh.jpeg?q=70",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=WATH7F99EWF55K5W&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DWATH7F99EWF55K5W",
+    "profitLink": "https://fktr.in/WQ8JG9y",
     "rating": "4.3",
     "reviewsCount": 7890,
     "badge": "🔥 LOWEST PRICE EVER",
@@ -46,7 +46,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on electronics.",
-    "verdict": "At ₹11,699, this is a verified value deal on Flipkart."
+    "verdict": "At ₹11,699, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/WQ8JG9y"
   },
   {
     "id": "NRSH6PQBPZRG8ZZH",
@@ -60,7 +61,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 329,
     "discount": "83% off",
     "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/nose-ring-stud/w/i/m/np0207-nose-ring-giva-original-imah6pqbygzpdqyq.jpeg?q=70",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=NRSH6PQBPZRG8ZZH&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DNRSH6PQBPZRG8ZZH",
+    "profitLink": "https://fktr.in/wT6CcZ6",
     "rating": "4.3",
     "reviewsCount": 5412,
     "badge": "⚡ UNDER ₹499",
@@ -95,7 +96,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on home.",
-    "verdict": "At ₹329, this is a verified value deal on Flipkart."
+    "verdict": "At ₹329, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/wT6CcZ6"
   },
   {
     "id": "B0H8ST28M6",
@@ -305,7 +307,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 1146,
     "discount": "79% off",
     "image": "https://rukminim2.flixcart.com/image/800/1070/xif0q/sandal/6/k/p/-watermarked-original-imahjhjqxm47rgbh.jpeg?q=80",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=SNDEF23WJZ74NNG3&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DSNDEF23WJZ74NNG3",
+    "profitLink": "https://fktr.in/2rqp6vL",
     "rating": "4.3",
     "reviewsCount": 6486,
     "badge": "🔥 LOWEST PRICE EVER",
@@ -340,7 +342,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on footwear.",
-    "verdict": "At ₹1,146, this is a verified value deal on Flipkart."
+    "verdict": "At ₹1,146, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/2rqp6vL"
   },
   {
     "id": "RTRGYZZNGUHDTVWA",
@@ -354,7 +357,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 990,
     "discount": "75% off",
     "image": "https://rukmini1.flixcart.com/image/1500/1500/klzhq4w0/router/z/p/i/jiofi-m2-jio-original-imagyzzkvpbba2qw.jpeg?q=70",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=RTRGYZZNGUHDTVWA&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DRTRGYZZNGUHDTVWA",
+    "profitLink": "https://fktr.in/S21QTDc",
     "rating": "4.3",
     "reviewsCount": 8142,
     "badge": "🔥 LOWEST PRICE EVER",
@@ -389,7 +392,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on home.",
-    "verdict": "At ₹990, this is a verified value deal on Flipkart."
+    "verdict": "At ₹990, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/S21QTDc"
   },
   {
     "id": "FANERBFYSA2YRTVF",
@@ -403,7 +407,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 1798,
     "discount": "35% off",
     "image": "https://rukminim2.flixcart.com/image/800/1070/xif0q/fan/n/k/7/maxx-air-ultra-55-1-induction-table-fan-400-usha-resized-original-imahcc2phc5rvv76.jpeg?q=80",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=FANERBFYSA2YRTVF&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DFANERBFYSA2YRTVF",
+    "profitLink": "https://fktr.in/E5OnYzb",
     "rating": "4.3",
     "reviewsCount": 4208,
     "badge": "🔥 LOWEST PRICE EVER",
@@ -438,7 +442,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on home.",
-    "verdict": "At ₹1,798, this is a verified value deal on Flipkart."
+    "verdict": "At ₹1,798, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/E5OnYzb"
   },
   {
     "id": "RFMGUHSSD2XNNT53",
@@ -452,7 +457,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 72,
     "discount": "84% off",
     "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/religious-frame/e/w/w/6-kuber-lakshmi-kubera-lakshmi-kuber-laxmi-photo-frame-gold-01-enriched-0-original-imaguhsstqyrtrp8.jpeg?q=70",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=RFMGUHSSD2XNNT53&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DRFMGUHSSD2XNNT53",
+    "profitLink": "https://fktr.in/tc6GmBu",
     "rating": "4.3",
     "reviewsCount": 5034,
     "badge": "⚡ UNDER ₹499",
@@ -487,7 +492,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on home.",
-    "verdict": "At ₹72, this is a verified value deal on Flipkart."
+    "verdict": "At ₹72, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/tc6GmBu"
   },
   {
     "id": "MTYG7FHHC6HVWNGF",
@@ -501,7 +507,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 146,
     "discount": "85% off",
     "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/shopsy-musical-toy/d/x/i/dancing-monkey-toys-for-spinning-rolling-tumble-musical-banana-resized-original-imahbfjb8p4exdnp.jpeg?q=70",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=MTYG7FHHC6HVWNGF&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DMTYG7FHHC6HVWNGF",
+    "profitLink": "https://fktr.in/lslwpHk",
     "rating": "4.3",
     "reviewsCount": 6050,
     "badge": "⚡ UNDER ₹499",
@@ -536,7 +542,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on home.",
-    "verdict": "At ₹146, this is a verified value deal on Flipkart."
+    "verdict": "At ₹146, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/lslwpHk"
   },
   {
     "id": "STIHP88NUEKTHJBC",
@@ -550,7 +557,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 76,
     "discount": "84% off",
     "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/sticker/t/s/x/medium-embroidery-flower-6-6-d-30-miraj-lifestyle-original-imahp88mnnq5yeyc.jpeg?q=70",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=STIHP88NUEKTHJBC&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DSTIHP88NUEKTHJBC",
+    "profitLink": "https://fktr.in/C0VVs6l",
     "rating": "4.3",
     "reviewsCount": 5675,
     "badge": "⚡ UNDER ₹499",
@@ -585,7 +592,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on home.",
-    "verdict": "At ₹76, this is a verified value deal on Flipkart."
+    "verdict": "At ₹76, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/C0VVs6l"
   },
   {
     "id": "WATHQ8GPNZ2PYHTM",
@@ -599,7 +607,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 399,
     "discount": "80% OFF",
     "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/watch/n/f/v/1-vintage-nmr-men-women-original-imahq8gpxdmchaxq.jpeg?q=70",
-    "profitLink": "https://affiliate.flipkart.com/action/affiliate/response?affid=rohanpouri&affExtParam2=5610321&sub1=WATHQ8GPNZ2PYHTM&url=https%3A%2F%2Fwww.flipkart.com%2Fproduct%2Fp%2Fitme%3Fpid%3DWATHQ8GPNZ2PYHTM",
+    "profitLink": "https://fktr.in/e2q2QJL",
     "rating": "4.3",
     "reviewsCount": 7015,
     "badge": "⚡ UNDER ₹499",
@@ -634,7 +642,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on home.",
-    "verdict": "At ₹500, this is a verified value deal on Flipkart."
+    "verdict": "At ₹500, this is a verified value deal on Flipkart.",
+    "affiliateLink": "https://fktr.in/e2q2QJL"
   },
   {
     "id": "christophe",
@@ -648,7 +657,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 198,
     "discount": "50% off",
     "image": "https://m.media-amazon.com/images/I/51zXC7q1RML._SL1000_.jpg",
-    "profitLink": "https://www.amazon.in/dp/christophe?tag=bhom120704-21",
+    "profitLink": "https://www.amazon.in/dp/B07T485V6X?tag=bhom120704-21",
     "rating": "4.3",
     "reviewsCount": 3061,
     "badge": "⚡ UNDER ₹499",
@@ -683,7 +692,8 @@ const FALLBACK_CATALOG = [
       "High demand"
     ],
     "whoShouldBuy": "Shoppers looking for verified bargains on home.",
-    "verdict": "At ₹198, this is a verified value deal on Amazon."
+    "verdict": "At ₹198, this is a verified value deal on Amazon.",
+    "affiliateLink": "https://www.amazon.in/dp/B07T485V6X?tag=bhom120704-21"
   },
   {
     "id": "B0C9PD7ST6",
@@ -6532,7 +6542,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 299,
     "discount": "70% OFF",
     "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/3/n/b/bassheads-100-boat-enriched-transparent-original-imag4tgdrpxfh3pk.png",
-    "profitLink": "https://fktr.in/B1hM5bQ",
+    "profitLink": "https://fktr.in/rNXbcQ2",
     "rating": "4.2",
     "reviewsCount": 16676,
     "badge": "⚡ UNDER ₹499",
@@ -6571,7 +6581,8 @@ const FALLBACK_CATALOG = [
       "Offer price subject to stock availability"
     ],
     "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
-    "verdict": "At ₹299, this is a verified value-for-money steal on Flipkart."
+    "verdict": "At ₹299, this is a verified value-for-money steal on Flipkart.",
+    "affiliateLink": "https://fktr.in/rNXbcQ2"
   },
   {
     "id": "PORTRONICS-CONCH-120",
@@ -6585,7 +6596,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 199,
     "discount": "72% OFF",
     "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/6/v/x/conch-sigma-c-in-ear-type-c-wired-earphones-in-line-hd-mic-14-original-imahascs6b84jukh.jpeg",
-    "profitLink": "https://fktr.in/P1oQzR4",
+    "profitLink": "https://fktr.in/HjjsKau",
     "rating": "4.3",
     "reviewsCount": 16947,
     "badge": "⚡ UNDER ₹499",
@@ -6624,7 +6635,8 @@ const FALLBACK_CATALOG = [
       "Offer price subject to stock availability"
     ],
     "whoShouldBuy": "Anyone looking to save big on electronics items at verified lowest prices.",
-    "verdict": "At ₹199, this is a verified value-for-money steal on Flipkart."
+    "verdict": "At ₹199, this is a verified value-for-money steal on Flipkart.",
+    "affiliateLink": "https://fktr.in/HjjsKau"
   },
   {
     "id": "AMBRANE-TYPE-C-CABLE",
@@ -6797,7 +6809,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 199,
     "discount": "75% OFF",
     "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/sock/n/v/p/-original-imahgryrxnuxpukj.jpeg",
-    "profitLink": "https://fktr.in/Q8rTk1b",
+    "profitLink": "https://fktr.in/CW08iLa",
     "rating": "4.7",
     "reviewsCount": 18031,
     "badge": "⚡ UNDER ₹499",
@@ -6836,7 +6848,8 @@ const FALLBACK_CATALOG = [
       "Offer price subject to stock availability"
     ],
     "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
-    "verdict": "At ₹199, this is a verified value-for-money steal on Flipkart."
+    "verdict": "At ₹199, this is a verified value-for-money steal on Flipkart.",
+    "affiliateLink": "https://fktr.in/CW08iLa"
   },
   {
     "id": "WROGN-CREW-NECK-TEE",
@@ -6850,7 +6863,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 299,
     "discount": "75% OFF",
     "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/l/w/-original-imahdgzmhcrgu5ut.jpeg",
-    "profitLink": "https://myntr.it/W7vXy2Z",
+    "profitLink": "https://myntr.it/j6uPI6p",
     "rating": "4.8",
     "reviewsCount": 18302,
     "badge": "⚡ UNDER ₹499",
@@ -6889,7 +6902,8 @@ const FALLBACK_CATALOG = [
       "Offer price subject to stock availability"
     ],
     "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
-    "verdict": "At ₹299, this is a verified value-for-money steal on Myntra."
+    "verdict": "At ₹299, this is a verified value-for-money steal on Myntra.",
+    "affiliateLink": "https://myntr.it/j6uPI6p"
   },
   {
     "id": "HIGHLANDER-CHINO-SHORTS",
@@ -6903,7 +6917,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 399,
     "discount": "73% OFF",
     "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/short/z/s/3/30-hlv8001052-highlander-original-imah3qz2sguvn5zm.jpeg",
-    "profitLink": "https://myntr.it/H8kLm9P",
+    "profitLink": "https://myntr.it/9ltvMwu",
     "rating": "4.9",
     "reviewsCount": 18573,
     "badge": "⚡ UNDER ₹499",
@@ -6942,7 +6956,8 @@ const FALLBACK_CATALOG = [
       "Offer price subject to stock availability"
     ],
     "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
-    "verdict": "At ₹399, this is a verified value-for-money steal on Myntra."
+    "verdict": "At ₹399, this is a verified value-for-money steal on Myntra.",
+    "affiliateLink": "https://myntr.it/9ltvMwu"
   },
   {
     "id": "BOLDFIT-STEEL-BOTTLE-1L",
@@ -7168,7 +7183,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 499,
     "discount": "61% OFF",
     "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/watch/v/u/c/-watermarked-original-imahftrzeyeey3hj.jpeg",
-    "profitLink": "https://fktr.in/F8qPz1b",
+    "profitLink": "https://fktr.in/Fmwb3AL",
     "rating": "4.6",
     "reviewsCount": 1928,
     "badge": "⚡ UNDER ₹499",
@@ -7207,7 +7222,8 @@ const FALLBACK_CATALOG = [
       "Offer price subject to stock availability"
     ],
     "whoShouldBuy": "Anyone looking to save big on fashion items at verified lowest prices.",
-    "verdict": "At ₹499, this is a verified value-for-money steal on Flipkart."
+    "verdict": "At ₹499, this is a verified value-for-money steal on Flipkart.",
+    "affiliateLink": "https://fktr.in/Fmwb3AL"
   },
   {
     "id": "DETTOL-SANITIZER-500ML",
@@ -7221,7 +7237,7 @@ const FALLBACK_CATALOG = [
     "dealPrice": 189,
     "discount": "25% OFF",
     "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/hand-wash-sanitizer/f/a/l/-original-imah5ez78mgxqvmh.jpeg",
-    "profitLink": "https://fktr.in/D9tKz3p",
+    "profitLink": "https://fktr.in/1pG53bD",
     "rating": "4.7",
     "reviewsCount": 2199,
     "badge": "⚡ UNDER ₹499",
@@ -7260,7 +7276,8 @@ const FALLBACK_CATALOG = [
       "Offer price subject to stock availability"
     ],
     "whoShouldBuy": "Anyone looking to save big on home items at verified lowest prices.",
-    "verdict": "At ₹189, this is a verified value-for-money steal on Flipkart."
+    "verdict": "At ₹189, this is a verified value-for-money steal on Flipkart.",
+    "affiliateLink": "https://fktr.in/1pG53bD"
   },
   {
     "id": "CELLO-OPALWARE-SET-6P",
@@ -7387,7 +7404,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Load Catalog
 async function initCatalog() {
   try {
-    const res = await fetch("/deals/data/catalog.json?v=20261004_v11");
+    const res = await fetch("/deals/data/catalog.json?v=20261004_v12");
     if (!res.ok) throw new Error("Catalog fetch error");
     catalog = await res.json();
   } catch (err) {
@@ -7553,7 +7570,7 @@ function createProductCardHtml(item) {
   const isFree = item.dealPrice === 0;
   const formattedPrice = isFree ? "FREE" : `₹${Number(item.dealPrice || 0).toLocaleString("en-IN")}`;
   const formattedOriginalPrice = item.originalPrice > 0 ? `₹${Number(item.originalPrice).toLocaleString("en-IN")}` : "";
-  const detailUrl = `/deals/p/${item.slug}.html`;
+  const detailUrl = `/deals/p/${item.slug}`;
   const isLowestPrice = (parseInt(item.discount || "0") >= 60) || (Number(item.dealPrice || 0) <= 499);
   const cleanDiscount = (item.discount && item.discount.length <= 15) ? escapeHtml(item.discount) : "DEAL";
 
