@@ -47,3 +47,4 @@ Disallow: /pricing.html
 Disallow: /dashboard.html
 
 Sitemap: https://www.thebhom.in/sitemap.xml
+Sitemap: https://www.thebhom.in/sitemap-news.xml

@@ -65,6 +65,15 @@ for root, dirs, files in os.walk(os.path.join(BASE_DIR, 'imgpdf')):
         else:
             urls.append((f'https://www.thebhom.in/{dir_part}/{slug}', '0.85', 'weekly'))
 
+# 5. News & Viral Stories
+for f in sorted(glob.glob(os.path.join(BASE_DIR, 'news', '*.html'))):
+    b = os.path.basename(f)
+    slug = b[:-5]
+    if slug == 'index':
+        urls.append(('https://www.thebhom.in/news/', '0.95', 'hourly'))
+    else:
+        urls.append((f'https://www.thebhom.in/news/{slug}', '0.85', 'daily'))
+
 # Remove duplicates while preserving order
 seen = set()
 unique_urls = []
