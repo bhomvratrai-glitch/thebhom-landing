@@ -38,7 +38,7 @@ const SUBDOMAINS = [
     id: 'tools',
     name: 'Web Tools',
     label: '🛠️ Web Tools',
-    url: 'tools/index.html',
+    url: '/tools/',
     color: '#9333ea',
     svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>`
   },
@@ -46,7 +46,7 @@ const SUBDOMAINS = [
     id: 'downloader',
     name: 'Downloader',
     label: '⚡ Video Downloader',
-    url: 'downloader/',
+    url: '/downloader/',
     color: '#0891b2',
     svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`
   },
@@ -54,7 +54,7 @@ const SUBDOMAINS = [
     id: 'wallpapers',
     name: 'Wallpapers',
     label: '🖼️ Wallpapers',
-    url: 'wallpapers.html',
+    url: '/wallpapers',
     color: '#16a34a',
     svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>`
   },
@@ -62,7 +62,7 @@ const SUBDOMAINS = [
     id: 'ebooks',
     name: 'E-Books',
     label: '📚 E-Books',
-    url: 'ebooks.html',
+    url: '/ebooks',
     color: '#dc2626',
     svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>`
   },
@@ -70,7 +70,7 @@ const SUBDOMAINS = [
     id: 'magazines',
     name: 'Magazines',
     label: '📰 Magazines',
-    url: 'magazines.html',
+    url: '/magazines',
     color: '#2563eb',
     svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>`
   },
@@ -78,7 +78,7 @@ const SUBDOMAINS = [
     id: 'templates',
     name: 'Templates',
     label: '🎨 Templates',
-    url: 'templates.html',
+    url: '/templates',
     color: '#c026d3',
     svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#c026d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>`
   },
@@ -86,7 +86,7 @@ const SUBDOMAINS = [
     id: 'cards',
     name: 'Cards',
     label: '💌 Cards',
-    url: 'cards.html',
+    url: '/cards',
     color: '#e11d48',
     svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`
   }
@@ -209,21 +209,20 @@ function renderHeader(activePage=''){
   return `
 <div class="scroll-prog" id="sp"></div>
 <header class="hdr">
-  <a href="${base}index.html" class="logo" title="TheBhom — Free Digital Content & Web Tools">
+  <a href="/" class="logo" title="TheBhom — Free Digital Content & Web Tools">
     <div class="logo-box" style="background:linear-gradient(135deg, #e11d48, #be123c);border-radius:11px;color:#fff;font-weight:900;">TB</div>
     <span class="logo-txt">The<span class="brand-accent" style="color:#e11d48;">Bhom</span></span>
   </a>
   <nav class="hdr-nav-container">
     <ul class="hdr-nav">
-      <li><a href="${base}imgpdf/" class="hdr-nav-link ${activePage==='imgpdf'?'active':''}" title="ImgPDF Suite — 47+ Image & PDF Tools"><span class="hdr-nav-ic" style="color:#e5322d;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e5322d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span class="hdr-nav-txt" style="color:#e5322d;font-weight:700;">ImgPDF</span></a></li>
-      <li><a href="${base}tools/index.html#image" class="hdr-nav-link ${activePage==='image'?'active':''}"><span class="hdr-nav-ic" style="color:#16a34a;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span><span class="hdr-nav-txt" style="color:#16a34a;font-weight:600;">Image Tools</span></a></li>
-      <li><a href="${base}tools/index.html#pdf" class="hdr-nav-link ${activePage==='pdf'?'active':''}"><span class="hdr-nav-ic" style="color:#dc2626;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></span><span class="hdr-nav-txt" style="color:#dc2626;font-weight:600;">PDF Tools</span></a></li>
-      <li><a href="${base}tools/ai.html" class="hdr-nav-link ${activePage==='ai'?'active':''}"><span class="hdr-nav-ic" style="color:#9333ea;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span><span class="hdr-nav-txt" style="color:#9333ea;font-weight:600;">AI Tools</span></a></li>
-      <li><a href="${base}pricing.html" class="hdr-nav-link ${activePage==='pricing'?'active':''}"><span class="hdr-nav-txt" style="font-weight:600;color:var(--text);">Pricing</span></a></li>
-      <li><a href="${base}downloader/" class="hdr-nav-link"><span class="hdr-nav-txt">Downloader</span></a></li>
-      <li><a href="${base}wallpapers.html" class="hdr-nav-link"><span class="hdr-nav-txt">Wallpapers</span></a></li>
-      <li><a href="${base}ebooks.html" class="hdr-nav-link"><span class="hdr-nav-txt">E-Books</span></a></li>
-      <li><a href="${base}articles/index.html" class="hdr-nav-link ${activePage==='articles'?'active':''}"><span class="hdr-nav-txt" style="color:#0284c7;font-weight:700;">Articles</span></a></li>
+      <li><a href="/tools/" class="hdr-nav-link ${activePage==='tools'?'active':''}"><span class="hdr-nav-ic" style="color:#9333ea;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span><span class="hdr-nav-txt" style="color:#9333ea;font-weight:600;">Web Tools</span></a></li>
+      <li><a href="/wallpapers" class="hdr-nav-link ${activePage==='wallpapers'?'active':''}"><span class="hdr-nav-txt">Wallpapers</span></a></li>
+      <li><a href="/ebooks" class="hdr-nav-link ${activePage==='ebooks'?'active':''}"><span class="hdr-nav-txt">E-Books</span></a></li>
+      <li><a href="/magazines" class="hdr-nav-link ${activePage==='magazines'?'active':''}"><span class="hdr-nav-txt">Magazines</span></a></li>
+      <li><a href="/templates" class="hdr-nav-link ${activePage==='templates'?'active':''}"><span class="hdr-nav-txt">Templates</span></a></li>
+      <li><a href="/cards" class="hdr-nav-link ${activePage==='cards'?'active':''}"><span class="hdr-nav-txt">Cards</span></a></li>
+      <li><a href="/downloader/" class="hdr-nav-link ${activePage==='downloader'?'active':''}"><span class="hdr-nav-txt">Downloader</span></a></li>
+      <li><a href="/articles/" class="hdr-nav-link ${activePage==='articles'?'active':''}"><span class="hdr-nav-txt" style="color:#0284c7;font-weight:700;">Articles</span></a></li>
     </ul>
   </nav>
   <div class="hdr-right">
@@ -238,7 +237,7 @@ function renderHeader(activePage=''){
     <button class="hdr-theme-btn" id="hdrThemeBtn" onclick="quickToggleTheme()" title="Toggle Theme" aria-label="Toggle Theme">
       ${themeSvg}
     </button>
-    ${getHdrUserSnippet(base)}
+    ${getHdrUserSnippet('/')}
     <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -250,16 +249,17 @@ function renderHeader(activePage=''){
     <button class="mob-theme-pill" data-theme="purple" onclick="setAppTheme('purple')">🔮 Purple</button>
     <button class="mob-theme-pill" data-theme="dark" onclick="setAppTheme('dark')">🌙 Dark</button>
   </div>
-  <a href="${base}index.html">🏠 Home</a>
-  <a href="${base}imgpdf/" style="color:#ef4444;font-weight:700;">📄 ImgPDF Suite (47+ Tools)</a>
-  <a href="${base}tools/index.html#image" style="color:#16a34a;font-weight:700;">🖼️ Image Tools</a>
-  <a href="${base}tools/index.html#pdf" style="color:#dc2626;font-weight:700;">📄 PDF Tools</a>
-  <a href="${base}tools/ai.html" style="color:#9333ea;font-weight:700;">✨ AI Tools</a>
-  <a href="${base}downloader/" style="color:#0891b2;font-weight:700;">⚡ Video Downloader</a>
-  <a href="${base}articles/index.html" style="color:#0284c7;font-weight:700;">📚 Articles & Resource Guides</a>
-  <a href="${base}pricing.html" style="font-weight:700;">⚡ Plans & Pricing</a>
-  <a href="${base}dashboard.html">📊 User Dashboard</a>
-  <a href="${base}admin/index.html">🛡️ Admin Panel</a>
+  <a href="/">🏠 Home</a>
+  <a href="/tools/" style="color:#9333ea;font-weight:700;">🛠️ Web Tools</a>
+  <a href="/wallpapers">🖼️ Wallpapers</a>
+  <a href="/ebooks">📚 E-Books</a>
+  <a href="/magazines">📰 Magazines</a>
+  <a href="/templates">🎨 Templates</a>
+  <a href="/cards">💌 Cards</a>
+  <a href="/downloader/" style="color:#0891b2;font-weight:700;">⚡ Video Downloader</a>
+  <a href="/articles/" style="color:#0284c7;font-weight:700;">📚 Articles & Guides</a>
+  <a href="/about">ℹ️ About Us</a>
+  <a href="/contact">📞 Contact</a>
   <a href="#" onclick="openSpotlight();return false;" style="color:#2563eb;font-weight:700;">🔍 Global Search (Cmd+K)</a>
 </nav>
 `;
@@ -464,7 +464,6 @@ function logoutTheBhomUser() {
 
 // ===== RENDER FOOTER =====
 function renderFooter(){
-  const base = getBasePath();
   return `
 <div class="div" style="border-top:1px solid #e5e7eb;"></div>
 <footer class="footer" style="background:#f9fafb;border-top:1px solid #e5e7eb;padding:3.5rem 2rem 2rem;color:#4b5563;">
@@ -474,50 +473,45 @@ function renderFooter(){
       <div class="f-col">
         <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Image Tools</h5>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
-          <li><a href="${base}tools/compress-image.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Compress Image</a></li>
-          <li><a href="${base}tools/resize-image-online.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Resize Image</a></li>
-          <li><a href="${base}tools/compress-image.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Crop Image</a></li>
-          <li><a href="${base}tools/convert-png-to-jpg.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Convert to JPG</a></li>
-          <li><a href="${base}tools/compress-image.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Remove Background</a></li>
-          <li><a href="${base}tools/watermark-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Watermark Image</a></li>
+          <li><a href="/tools/compress-image" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Compress Image</a></li>
+          <li><a href="/tools/resize-image-online" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Resize Image</a></li>
+          <li><a href="/tools/convert-jpg-to-webp" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Convert JPG to WebP</a></li>
+          <li><a href="/tools/convert-png-to-jpg" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Convert PNG to JPG</a></li>
         </ul>
       </div>
 
       <div class="f-col">
         <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">PDF Tools</h5>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
-          <li><a href="${base}tools/merge-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Merge PDF</a></li>
-          <li><a href="${base}tools/split-pdf-pages.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Split PDF</a></li>
-          <li><a href="${base}tools/merge-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Compress PDF</a></li>
-          <li><a href="${base}tools/pdf-to-image.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">PDF to JPG</a></li>
-          <li><a href="${base}tools/convert-jpg-to-webp.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">JPG to PDF</a></li>
-          <li><a href="${base}tools/watermark-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Edit PDF</a></li>
-          <li><a href="${base}tools/rotate-pdf.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Sign PDF</a></li>
+          <li><a href="/tools/merge-pdf" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Merge PDF</a></li>
+          <li><a href="/tools/split-pdf-pages" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Split PDF</a></li>
+          <li><a href="/tools/rotate-pdf" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Rotate PDF</a></li>
+          <li><a href="/tools/watermark-pdf" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Watermark PDF</a></li>
+          <li><a href="/tools/pdf-to-image" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">PDF to Image</a></li>
         </ul>
       </div>
 
       <div class="f-col">
-        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">AI Tools</h5>
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Digital Resources</h5>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
-          <li><a href="${base}tools/ai.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">PDF Summarizer</a></li>
-          <li><a href="${base}tools/ai.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Chat with PDF</a></li>
-          <li><a href="${base}tools/ai.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Translate PDF</a></li>
-          <li><a href="${base}tools/ai.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">PDF to Markdown</a></li>
-          <li><a href="${base}tools/clean-csv.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Clean CSV Data</a></li>
+          <li><a href="/wallpapers" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">4K AMOLED Wallpapers</a></li>
+          <li><a href="/ebooks" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Free E-Books Library</a></li>
+          <li><a href="/magazines" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Digital Magazines</a></li>
+          <li><a href="/templates" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Design Templates</a></li>
+          <li><a href="/cards" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Greeting Cards</a></li>
+          <li><a href="/downloader/" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Video Downloader</a></li>
         </ul>
       </div>
 
       <div class="f-col">
-        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Company & Resources</h5>
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Company & Policy</h5>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
-          <li><a href="${base}articles/index.html" style="color:#0284c7;font-weight:700;text-decoration:none;font-size:0.88rem;">📚 Articles & Guides</a></li>
-          <li><a href="${base}about.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">About Us</a></li>
-          <li><a href="${base}pricing.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Pricing</a></li>
-          <li><a href="${base}checkout.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Checkout & UPI</a></li>
-          <li><a href="${base}dashboard.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">My Dashboard</a></li>
-          <li><a href="${base}privacy-policy.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Privacy Policy</a></li>
-          <li><a href="${base}terms.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Terms of Service</a></li>
-          <li><a href="${base}contact.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Contact</a></li>
+          <li><a href="/articles/" style="color:#0284c7;font-weight:700;text-decoration:none;font-size:0.88rem;">📚 Articles & Guides</a></li>
+          <li><a href="/about" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">About Us</a></li>
+          <li><a href="/contact" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Contact Us</a></li>
+          <li><a href="/privacy-policy" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Privacy Policy</a></li>
+          <li><a href="/terms" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Terms of Service</a></li>
+          <li><a href="/disclaimer" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Disclaimer</a></li>
         </ul>
       </div>
 
@@ -528,8 +522,8 @@ function renderFooter(){
         <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg, #e11d48, #be123c);color:#fff;display:grid;place-items:center;font-weight:900;font-size:0.85rem;">TB</div>
         <span style="font-weight:700;color:#111827;">TheBhom</span>
       </div>
-      <div>&copy; ${new Date().getFullYear()} TheBhom. All rights reserved.</div>
-      <div style="font-size:0.8rem;color:#9ca3af;">🔒 Uploaded files are automatically deleted after 24 hours.</div>
+      <div>&copy; ${new Date().getFullYear()} TheBhom. All rights reserved. Free Educational & Digital Utilities Hub.</div>
+      <div style="font-size:0.8rem;color:#9ca3af;">🔒 Client-side browser processing. Files are never stored on external servers.</div>
     </div>
   </div>
 </footer>
