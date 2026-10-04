@@ -46,7 +46,21 @@
 
 ---
 
-## 3. Active Production Verification
+## 3. TheBhom Real-Time News & Viral Stories Engine (Added October 5, 2026)
+- **Subpath**: `/news/` (`https://www.thebhom.in/news/`)
+- **Automated Generator**: `python3 scripts/news_engine.py`
+  - Fetches live RSS from Google News India, Space/ISRO, Tech/AI, Viral Science.
+  - Automatically synthesizes rich, human-touch articles with key highlights, background analysis, source attribution, and Schema.org `NewsArticle` JSON-LD.
+  - Generates individual `news/[slug].html` pages.
+  - Generates Google Publisher Center RSS feed (`/feed.xml` & `/news/rss.xml`).
+  - Generates Google News Sitemap (`/sitemap-news.xml`).
+  - Automatically injects live trending articles into Homepage (`/index.html`) under section `#live-news-section` for instant Googlebot internal link discovery.
+  - Updates master `sitemap.xml` (currently tracking 240+ canonical URLs).
+
+---
+
+## 4. Active Production Verification
 - Live site returns HTTP 200 on all canonical clean URLs.
 - AdSense script executes synchronously on page load.
 - Review requested successfully in Google AdSense dashboard.
+- Live news hub (`/news/`), RSS (`/feed.xml`), and news sitemap (`/sitemap-news.xml`) active on Cloudflare Pages.
