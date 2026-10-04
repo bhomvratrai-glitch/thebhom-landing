@@ -1,5 +1,939 @@
 const FALLBACK_CATALOG = [
   {
+    "id": "CROCS-CLASSIC-CLOGS",
+    "pid": "CROCS-CLASSIC-CLOGS",
+    "title": "Crocs Classic Unisex Lightweight Waterproof Clogs with Croslite Comfort",
+    "brand": "Crocs",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 3295,
+    "dealPrice": 1999,
+    "discount": "39% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/sandal/f/j/e/7-10001-7-crocs-bone-watermarked-original-imah76jgmyqacprd.jpeg",
+    "profitLink": "https://fktr.in/4kfrnMB",
+    "rating": "4.6",
+    "reviewsCount": 34100,
+    "badge": "🔥 ALL-TIME FAV",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Legendary Croslite foam cushioning molds to foot contours. Ventilation ports shed water and debris quickly, making it the supreme monsoon footwear.",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Proprietary Croslite Foam"
+      },
+      {
+        "label": "Features",
+        "value": "Waterproof, Buoyant, Easy Clean"
+      },
+      {
+        "label": "Fit",
+        "value": "Roomy Relaxed Fit"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Official discount on genuine Crocs on Flipkart.",
+      "Pivoting heel strap offers a secure fit for active walking.",
+      "Customizable with Jibbitz charms."
+    ],
+    "pros": [
+      "Indestructible durability",
+      "Supreme all-day arch comfort",
+      "Wipes clean in seconds"
+    ],
+    "cons": [
+      "Casual styling not suitable for formal wear"
+    ],
+    "whoShouldBuy": "Doctors, travelers, students, and home lounge comfort seekers.",
+    "verdict": "Original Crocs Classic under ₹2,000 is always an immediate buy.",
+    "slug": "crocs-classic-unisex-lightweight-waterproof-clogs--crocs-classic-clogs",
+    "affiliateLink": "https://fktr.in/4kfrnMB"
+  },
+  {
+    "id": "NOISE-COLORFIT-PULSE2",
+    "pid": "NOISE-COLORFIT-PULSE2",
+    "title": "Noise ColorFit Pulse 2 Max 1.85\" Bluetooth Calling Smartwatch with 550 Nits",
+    "brand": "Noise",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 5999,
+    "dealPrice": 1199,
+    "discount": "80% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/smartwatch/n/o/z/-enriched-transparent-original-imah76jstup5zdww.png",
+    "profitLink": "https://fktr.in/xH47doL",
+    "rating": "4.4",
+    "reviewsCount": 78500,
+    "badge": "⚡ 80% OFF",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Massive 1.85-inch vibrant TFT screen with 550 nits brightness visible in harsh sunlight. Single-chip TruSync technology delivers instant Bluetooth calling with zero audio delay.",
+    "specs": [
+      {
+        "label": "Display",
+        "value": "1.85\" LCD with 550 Nits"
+      },
+      {
+        "label": "Calling",
+        "value": "Bluetooth Calling via TruSync"
+      },
+      {
+        "label": "Sports Modes",
+        "value": "100+ Sports Tracking"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Massive 80% price crash on Flipkart.",
+      "10-day battery life (up to 3 days with continuous Bluetooth calling).",
+      "Comprehensive health suite: SpO2, 24x7 Heart Rate, and Sleep Tracking."
+    ],
+    "pros": [
+      "Bright sunlight visibility",
+      "Clear call audio on wrist",
+      "Over 150 watch faces"
+    ],
+    "cons": [
+      "TFT panel rather than AMOLED"
+    ],
+    "whoShouldBuy": "Anyone looking for a reliable Bluetooth calling smartwatch under ₹1,200.",
+    "verdict": "At ₹1,199, unmatched feature-to-price ratio.",
+    "slug": "noise-colorfit-pulse-2-max-1-85-bluetooth-calling--noise-colorfit-pulse2",
+    "affiliateLink": "https://fktr.in/xH47doL"
+  },
+  {
+    "id": "BOROSIL-KLIP-LUNCHBOX",
+    "pid": "BOROSIL-KLIP-LUNCHBOX",
+    "title": "Borosil Klip N Store Microwave Safe Glass Lunch Box Set (Leak-Proof with Bag)",
+    "brand": "Borosil",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 1595,
+    "dealPrice": 899,
+    "discount": "43% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/minutes_enrichment_original/-enriched-original-LBXF96HA3YBHJWXC_0.jpg",
+    "profitLink": "https://fktr.in/l4ha12q",
+    "rating": "4.7",
+    "reviewsCount": 18700,
+    "badge": "🔥 BOROSIL DEAL",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: 100% borosilicate glass that doesn't leach toxic chemicals or absorb turmeric stains. Withstands microwave heating directly from the fridge.",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "100% Borosilicate Glass"
+      },
+      {
+        "label": "Features",
+        "value": "Microwave & Dishwasher Safe"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Includes thermal insulated carry bag with secure zipper.",
+      "4-clip locking lids with food-grade silicone leak-proof seals.",
+      "Zero odor retention compared to plastic containers."
+    ],
+    "pros": [
+      "100% chemical-free glass",
+      "Microwave safe with lid off",
+      "Keeps curries leak-proof"
+    ],
+    "cons": [
+      "Handle with care to prevent drops"
+    ],
+    "whoShouldBuy": "Office goers and health-conscious food preppers.",
+    "verdict": "Essential toxin-free lunch upgrade at ₹899.",
+    "slug": "borosil-klip-n-store-microwave-safe-glass-lunch-bo-borosil-klip-lunchbox",
+    "affiliateLink": "https://fktr.in/l4ha12q"
+  },
+  {
+    "id": "RED-TAPE-WHITE-SNEAKERS",
+    "pid": "RED-TAPE-WHITE-SNEAKERS",
+    "title": "RED TAPE Men's Casual White Sneakers with Memory Foam Comfort Insole",
+    "brand": "RED TAPE",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 5599,
+    "dealPrice": 1399,
+    "discount": "75% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/shoe/k/u/j/7-rsl1159-red-tape-white-navy-resized-original-imah7mu8vzz9xgxf.jpeg",
+    "profitLink": "https://fktr.in/9jF8S1a",
+    "rating": "4.5",
+    "reviewsCount": 42100,
+    "badge": "⚡ 75% OFF",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Chunky street silhouette with thick memory foam sole that relieves knee pressure during 10,000+ step walking days. Sturdy stitching and premium matte finish.",
+    "specs": [
+      {
+        "label": "Upper",
+        "value": "PU Leather"
+      },
+      {
+        "label": "Insole",
+        "value": "High-Density Memory Foam"
+      },
+      {
+        "label": "Sole",
+        "value": "TPR Grip Traction"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "75% price cut on Flipkart's #1 viral sneaker model.",
+      "Navy accent heel counter with subtle embossed logo.",
+      "Lightweight construction with durable abrasion resistance."
+    ],
+    "pros": [
+      "Incredible memory foam bounce",
+      "Trendy chunky streetwear look",
+      "75% discount"
+    ],
+    "cons": [
+      "Requires 1-2 days of break-in for wide feet"
+    ],
+    "whoShouldBuy": "Anyone wanting the trendy chunky white sneaker aesthetic on a budget.",
+    "verdict": "At ₹1,399, Red Tape's most popular sneaker deal.",
+    "slug": "red-tape-men-s-casual-white-sneakers-with-memory-f-red-tape-white-sneakers",
+    "affiliateLink": "https://fktr.in/9jF8S1a"
+  },
+  {
+    "id": "PUMA-ZARSUN-SNEAKERS",
+    "pid": "PUMA-ZARSUN-SNEAKERS",
+    "title": "PUMA Zarsun Men's Lifestyle Casual Sneakers with SoftFoam+ Cushioning",
+    "brand": "PUMA",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 4499,
+    "dealPrice": 1799,
+    "discount": "60% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/shoe/9/u/g/-watermarked-original-imahgcs8aynaffc9.jpeg",
+    "profitLink": "https://fktr.in/2at4pBk",
+    "rating": "4.4",
+    "reviewsCount": 19800,
+    "badge": "🔥 60% OFF",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Clean court silhouette with synthetic leather upper that wipes clean easily. SoftFoam+ sockliner provides step-in comfort and all-day heel shock absorption.",
+    "specs": [
+      {
+        "label": "Sole",
+        "value": "Non-Marking Rubber"
+      },
+      {
+        "label": "Insole",
+        "value": "PUMA SoftFoam+ Cushioning"
+      },
+      {
+        "label": "Fit",
+        "value": "Regular True to Size"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "60% discount on genuine PUMA lifestyle sneakers on Flipkart.",
+      "Pairs effortlessly with chinos, cargo pants, and denim.",
+      "Perforated toe-box for breathability in Indian summers."
+    ],
+    "pros": [
+      "Sleek minimal aesthetic",
+      "Extremely comfortable insole",
+      "Easy to clean"
+    ],
+    "cons": [
+      "White midsole requires regular damp wipe"
+    ],
+    "whoShouldBuy": "College students and young professionals seeking versatile sneakers.",
+    "verdict": "Original PUMA sneakers under ₹1,800 is a rare steal.",
+    "slug": "puma-zarsun-men-s-lifestyle-casual-sneakers-with-s-puma-zarsun-sneakers",
+    "affiliateLink": "https://fktr.in/2at4pBk"
+  },
+  {
+    "id": "PHILIPS-AIR-FRYER",
+    "pid": "PHILIPS-AIR-FRYER",
+    "title": "Philips 4.1L Digital Air Fryer with Rapid Air Technology & Touch Panel",
+    "brand": "Philips",
+    "category": "home",
+    "store": "Flipkart",
+    "originalPrice": 11995,
+    "dealPrice": 5999,
+    "discount": "50% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/air-fryer/f/0/d/-original-imahztwusjs5qunh.jpeg",
+    "profitLink": "https://fktr.in/B64v34e",
+    "rating": "4.6",
+    "reviewsCount": 14200,
+    "badge": "🔥 50% OFF",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Patented starfish bottom swirls superheated air for 90% less oil fries with uniform crispiness. Easy-clean non-stick basket is dishwasher safe.",
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "4.1 Litres"
+      },
+      {
+        "label": "Technology",
+        "value": "Rapid Air Starfish Tech"
+      },
+      {
+        "label": "Power",
+        "value": "1400W Fast Heating"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Flat 50% price drop on Flipkart.",
+      "7 preset touch menus: French fries, chicken, fish, baking, veggies, and keep warm.",
+      "NutriU app integration with 500+ Indian healthy recipes."
+    ],
+    "pros": [
+      "Even golden browning without burning",
+      "90% oil reduction",
+      "Dishwasher safe basket"
+    ],
+    "cons": [
+      "Slightly bulky kitchen counter footprint"
+    ],
+    "whoShouldBuy": "Health-conscious families wanting guilt-free samosas, fries, and tikkas.",
+    "verdict": "The gold-standard air fryer in India at 50% discount.",
+    "slug": "philips-4-1l-digital-air-fryer-with-rapid-air-tech-philips-air-fryer",
+    "affiliateLink": "https://fktr.in/B64v34e"
+  },
+  {
+    "id": "BOAT-AIRDOPES-ALPHA",
+    "pid": "BOAT-AIRDOPES-ALPHA",
+    "title": "boAt Airdopes Alpha True Wireless Earbuds with 35H Playtime & ENx Mic",
+    "brand": "boAt",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 3499,
+    "dealPrice": 899,
+    "discount": "74% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/headphone/z/r/n/-original-imahfczvrftznu58.jpeg",
+    "profitLink": "https://fktr.in/bnfjNF0",
+    "rating": "4.3",
+    "reviewsCount": 65200,
+    "badge": "⚡ 74% OFF",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Semi-in-ear comfortable fit that doesn't hurt ear canals during 4-hour stretches. Dual ENx mics filter ambient noise during calls.",
+    "specs": [
+      {
+        "label": "Playtime",
+        "value": "35 Hours Total"
+      },
+      {
+        "label": "Drivers",
+        "value": "13mm Dynamic Bass Drivers"
+      },
+      {
+        "label": "Call Quality",
+        "value": "ENx Environmental Noise Cancellation"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "74% discount on Flipkart's top-selling budget TWS.",
+      "BEAST Mode with 50ms ultra-low latency for gaming.",
+      "IPX5 sweat resistance and touch controls."
+    ],
+    "pros": [
+      "Comfortable open-ear fit",
+      "Punchy 13mm bass",
+      "Pocket-friendly case"
+    ],
+    "cons": [
+      "Passive noise isolation is minimal"
+    ],
+    "whoShouldBuy": "Anyone wanting a reliable, bass-heavy TWS earbud under ₹1,000.",
+    "verdict": "At ₹899, unbeatable everyday value from boAt.",
+    "slug": "boat-airdopes-alpha-true-wireless-earbuds-with-35h-boat-airdopes-alpha",
+    "affiliateLink": "https://fktr.in/bnfjNF0"
+  },
+  {
+    "id": "JBL-GO-3",
+    "pid": "JBL-GO-3",
+    "title": "JBL Go 3 Ultra-Portable Waterproof & Dustproof Bluetooth Speaker",
+    "brand": "JBL",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 3999,
+    "dealPrice": 2499,
+    "discount": "38% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/kljrvrk0/speaker/mobile-tablet-speaker/o/b/q/go3blu-jbl-original-imagymz3c4yrdqc8.jpeg",
+    "profitLink": "https://fktr.in/y10lcWQ",
+    "rating": "4.5",
+    "reviewsCount": 39100,
+    "badge": "🔥 BESTSELLER",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Pocket-sized powerhouse with punchy JBL Pro Sound. IP67 waterproof and dustproof fabric chassis that can be washed under running tap water.",
+    "specs": [
+      {
+        "label": "Durability",
+        "value": "IP67 Waterproof & Dustproof"
+      },
+      {
+        "label": "Output",
+        "value": "JBL Pro Sound 4.2W RMS"
+      },
+      {
+        "label": "Playtime",
+        "value": "5 Hours on Single Charge"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Flipkart.",
+      "Integrated rugged rope loop for clipping onto backpacks and cycles.",
+      "Type-C fast charging with Bluetooth 5.1."
+    ],
+    "pros": [
+      "Surprising bass for its tiny size",
+      "Complete IP67 waterproofing",
+      "Durable rugged fabric"
+    ],
+    "cons": [
+      "5-hour battery is modest"
+    ],
+    "whoShouldBuy": "Travelers, cyclists, shower singers, and outdoor picnic enthusiasts.",
+    "verdict": "The undisputed king of ultra-portable mini Bluetooth speakers.",
+    "slug": "jbl-go-3-ultra-portable-waterproof-dustproof-bluet-jbl-go-3",
+    "affiliateLink": "https://fktr.in/y10lcWQ"
+  },
+  {
+    "id": "SONY-WH-CH520",
+    "pid": "SONY-WH-CH520",
+    "title": "Sony WH-CH520 Wireless Bluetooth Headphones with 50H Battery Life & DSEE",
+    "brand": "Sony",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 4990,
+    "dealPrice": 3990,
+    "discount": "20% OFF",
+    "image": "https://rukminim2.flixcart.com/image/1500/1500/xif0q/headphone/e/l/y/-enriched-transparent-original-imahbyh9yjypkqsz.png",
+    "profitLink": "https://fktr.in/aOffVlY",
+    "rating": "4.6",
+    "reviewsCount": 28400,
+    "badge": "🔥 TOP RATED",
+    "isFlashDeal": false,
+    "summary": "Real User Verdict: Featherlight 147g swivel earcups with plush cushioning. 50-hour battery means charging once every two weeks. Sony DSEE engine restores high frequencies in compressed tracks.",
+    "specs": [
+      {
+        "label": "Battery Life",
+        "value": "50 Hours Continuous"
+      },
+      {
+        "label": "Audio Engine",
+        "value": "Sony DSEE Upscaling"
+      },
+      {
+        "label": "Fast Charge",
+        "value": "3 min charge = 1.5 hours"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Multipoint connection: seamlessly switches between phone and laptop.",
+      "Built-in mic with crystal clear voice pickup for Zoom and Google Meet calls.",
+      "Sony Headphones Connect app with custom 5-band EQ."
+    ],
+    "pros": [
+      "Unmatched 50-hour battery",
+      "Extremely lightweight on head",
+      "Sony sound tuning"
+    ],
+    "cons": [
+      "On-ear design rather than over-ear"
+    ],
+    "whoShouldBuy": "Music lovers and work-from-home pros wanting marathon battery life.",
+    "verdict": "Sony's best value wireless headphone on Flipkart.",
+    "slug": "sony-wh-ch520-wireless-bluetooth-headphones-with-5-sony-wh-ch520",
+    "affiliateLink": "https://fktr.in/aOffVlY"
+  },
+  {
+    "id": "PELFSNSBMW4VKCGQ",
+    "pid": "PELFSNSBMW4VKCGQ",
+    "title": "GIVA Sterling Silver 925 Freshwater Real Pearl Pendant with Chain",
+    "brand": "GIVA",
+    "category": "fashion",
+    "store": "Flipkart",
+    "originalPrice": 7499,
+    "dealPrice": 2993,
+    "discount": "60% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/pendant-necklace/b/m/w/-original-imah4zmf2n9z5gzg.jpeg",
+    "profitLink": "https://fktr.in/pbv0LY3",
+    "rating": "4.7",
+    "reviewsCount": 8200,
+    "badge": "🔥 60% OFF",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Hallmarked 925 Sterling Silver with anti-tarnish rhodium e-coating. Features a genuine handpicked freshwater cultured pearl. Comes with authenticity certificate.",
+    "specs": [
+      {
+        "label": "Metal",
+        "value": "925 Sterling Silver"
+      },
+      {
+        "label": "Stone",
+        "value": "Genuine Freshwater Pearl"
+      },
+      {
+        "label": "Plating",
+        "value": "Rhodium Anti-Tarnish"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Official 60% price drop on genuine GIVA jewellery on Flipkart.",
+      "Includes 6-month manufacturer warranty and BIS hallmark authenticity card.",
+      "Comes in GIVA signature luxury gift box with jewellery care kit."
+    ],
+    "pros": [
+      "Real 925 sterling silver",
+      "Authentic freshwater pearl",
+      "Luxury packaging"
+    ],
+    "cons": [
+      "Premium investment item"
+    ],
+    "whoShouldBuy": "Gifting for birthdays, anniversaries, or self-reward for everyday elegance.",
+    "verdict": "At ₹2,993 (down from ₹7,499), a timeless sterling silver gift piece.",
+    "slug": "giva-sterling-silver-925-freshwater-real-pearl-pen-pelfsnsbmw4vkcgq",
+    "affiliateLink": "https://fktr.in/pbv0LY3"
+  },
+  {
+    "id": "ACCH6R7PYQXCJF8X",
+    "pid": "ACCH6R7PYQXCJF8X",
+    "title": "Aroma NB138 Ascrow 32dB Active Noise Cancellation Wireless Bluetooth Neckband",
+    "brand": "Aroma",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 2999,
+    "dealPrice": 684,
+    "discount": "77% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/headphone/p/y/q/nb138-ascrow-active-noise-cancellation-wireless-bluetooth-original-imah6r7pgh9uys3z.jpeg",
+    "profitLink": "https://fktr.in/Bud1sKi",
+    "rating": "4.3",
+    "reviewsCount": 14890,
+    "badge": "🔥 77% OFF",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: 32dB Active Noise Cancellation silences traffic and fan hum. 48-hour battery backup with dual pairing and punchy 10mm bass drivers.",
+    "specs": [
+      {
+        "label": "ANC",
+        "value": "32dB Active Noise Cancellation"
+      },
+      {
+        "label": "Playtime",
+        "value": "48 Hours Total"
+      },
+      {
+        "label": "Drivers",
+        "value": "10mm Titanium Dynamic Bass"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Most affordable ANC neckband on Flipkart under ₹700.",
+      "Fast charging: 10 minutes charge gives 10 hours playtime.",
+      "Type-C charging port with magnetic auto on/off earbuds."
+    ],
+    "pros": [
+      "Genuine 32dB ANC at budget price",
+      "Insane 48h battery life",
+      "Fast charging"
+    ],
+    "cons": [
+      "Body plastic feels functional rather than luxury"
+    ],
+    "whoShouldBuy": "Daily commuters and office workers wanting affordable noise cancellation.",
+    "verdict": "At ₹684, there is no other ANC neckband with 48h battery that competes.",
+    "slug": "aroma-nb138-ascrow-32db-active-noise-cancellation--acch6r7pyqxcjf8x",
+    "affiliateLink": "https://fktr.in/Bud1sKi"
+  },
+  {
+    "id": "MCPHMBW3TUFZZHHX",
+    "pid": "MCPHMBW3TUFZZHHX",
+    "title": "TELESHIELD 9H Tempered Glass Back Camera Lens Protector for Smartphones",
+    "brand": "TELESHIELD",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 999,
+    "dealPrice": 186,
+    "discount": "81% OFF",
+    "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile-camera-lens-protector/n/e/r/back-camera-lens-glass-protector-for-nothing-phone-2a-plus-original-imah3d9w5gg5zkug.jpeg",
+    "profitLink": "https://fktr.in/auMqGXF",
+    "rating": "4.3",
+    "reviewsCount": 3120,
+    "badge": "⚡ UNDER ₹199",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: 9H hardness sapphire-grade tempered glass. Oleophobic coating resists fingerprints with 99.9% optical transparency that preserves night photography quality.",
+    "specs": [
+      {
+        "label": "Hardness",
+        "value": "9H Tempered Glass"
+      },
+      {
+        "label": "Optical Clarity",
+        "value": "99.9% HD Clear"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Prevents camera lens shatter and scratches from keys or table drops.",
+      "Black ring cutouts prevent flash glare during low-light photography.",
+      "Edge-to-edge precision fit."
+    ],
+    "pros": [
+      "Zero loss in picture clarity",
+      "Shockproof lens protection",
+      "Bubble-free"
+    ],
+    "cons": [
+      "One-time application adhesive"
+    ],
+    "whoShouldBuy": "Anyone wanting to safeguard their phone's expensive camera lenses.",
+    "verdict": "At ₹186, cheap insurance against a ₹5,000+ camera repair bill.",
+    "slug": "teleshield-9h-tempered-glass-back-camera-lens-prot-mcphmbw3tufzzhhx",
+    "affiliateLink": "https://fktr.in/auMqGXF"
+  },
+  {
+    "id": "ACCHNUZQGDCGFWQ2",
+    "pid": "ACCHNUZQGDCGFWQ2",
+    "title": "StarScreen Screen Guard for Universal 15.6-inch Laptop Displays (Anti-Glare)",
+    "brand": "StarScreen",
+    "category": "electronics",
+    "store": "Flipkart",
+    "originalPrice": 1999,
+    "dealPrice": 247,
+    "discount": "88% OFF",
+    "image": "https://rukminim2.flixcart.com/image/800/1070/xif0q/screen-guard/screen-guard/v/m/t/15-6-inch-laptop-screen-protector-matte-anti-glare-and-anti-blue-original-imahfhyvhzgx8yzh.jpeg",
+    "profitLink": "https://fktr.in/7mh6gOc",
+    "rating": "4.4",
+    "reviewsCount": 5210,
+    "badge": "⚡ 88% OFF",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Matte anti-glare finish cuts harsh screen reflections in bright rooms. Anti-blue light coating reduces eye strain during long laptop work sessions.",
+    "specs": [
+      {
+        "label": "Size",
+        "value": "15.6 Inch Universal"
+      },
+      {
+        "label": "Finish",
+        "value": "Matte Anti-Glare"
+      },
+      {
+        "label": "Store",
+        "value": "Flipkart"
+      }
+    ],
+    "highlights": [
+      "Massive 88% discount on Flipkart.",
+      "High scratch resistance prevents keyboard marks on laptop screens.",
+      "Bubble-free silicone adhesive installation kit included."
+    ],
+    "pros": [
+      "Cuts glare significantly",
+      "Easy installation",
+      "Protects laptop screen"
+    ],
+    "cons": [
+      "Slightly lowers display sharpness due to matte texture"
+    ],
+    "whoShouldBuy": "Professionals and students spending 6+ hours daily on laptops.",
+    "verdict": "At ₹247, an essential accessory to protect eyes and expensive displays.",
+    "slug": "starscreen-screen-guard-for-universal-15-6-inch-la-acchnuzqgdcgfwq2",
+    "affiliateLink": "https://fktr.in/7mh6gOc"
+  },
+  {
+    "id": "B088TS175C",
+    "pid": "B088TS175C",
+    "title": "Christopher Cocoa Drinking Chocolate Premium Dutch Processed Cocoa Powder (200g)",
+    "brand": "Christopher Cocoa",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 395,
+    "dealPrice": 198,
+    "discount": "50% OFF",
+    "image": "https://m.media-amazon.com/images/I/71fB7vG2sUL._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B088TS175C?tag=bhom120704-21",
+    "rating": "4.6",
+    "reviewsCount": 6840,
+    "badge": "⚡ UNDER ₹299",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Authentic Dutch-processed alkalized cocoa with deep aromatic richness. Dissolves velvety smooth in hot milk without clumping.",
+    "specs": [
+      {
+        "label": "Weight",
+        "value": "200 Grams"
+      },
+      {
+        "label": "Type",
+        "value": "Dutch Processed Alkalized Cocoa"
+      },
+      {
+        "label": "Store",
+        "value": "Amazon"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "Ideal for artisanal hot chocolate, iced mocha, and gourmet baking.",
+      "Zero added sugar or artificial flavorings."
+    ],
+    "pros": [
+      "Rich chocolate aroma",
+      "Fine lump-free texture",
+      "Cafe quality hot cocoa"
+    ],
+    "cons": [
+      "Unsweetened, requires sugar or jaggery per taste"
+    ],
+    "whoShouldBuy": "Hot chocolate lovers and home bakers looking for European-style cocoa.",
+    "verdict": "At ₹198, cafe-quality drinking chocolate at home.",
+    "slug": "christopher-cocoa-drinking-chocolate-premium-dutch-b088ts175c",
+    "affiliateLink": "https://www.amazon.in/dp/B088TS175C?tag=bhom120704-21"
+  },
+  {
+    "id": "B0765VCQF1",
+    "pid": "B0765VCQF1",
+    "title": "Co2Crea Air Pen Scanner Wireless OCR Digital Text Highlighter & Reader",
+    "brand": "Co2Crea",
+    "category": "electronics",
+    "store": "Amazon",
+    "originalPrice": 3999,
+    "dealPrice": 1321,
+    "discount": "67% OFF",
+    "image": "https://m.media-amazon.com/images/I/51ENfraD0RL._SY300_SX300_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0765VCQF1?tag=bhom120704-21",
+    "rating": "4.3",
+    "reviewsCount": 1530,
+    "badge": "🔥 67% OFF",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Instant text-to-speech scanner pen with high-accuracy OCR. Scans printed text directly into Word, notes, or phone via Bluetooth.",
+    "specs": [
+      {
+        "label": "Connectivity",
+        "value": "Wireless Bluetooth / USB-C"
+      },
+      {
+        "label": "Function",
+        "value": "OCR Text Recognition & Audio Readout"
+      },
+      {
+        "label": "Store",
+        "value": "Amazon"
+      }
+    ],
+    "highlights": [
+      "Transcribes up to 3,000 characters per minute directly to smartphone or laptop.",
+      "Helps students, researchers, and book readers take instant digital notes without typing.",
+      "Compact ergonomic pen form with rechargeable battery."
+    ],
+    "pros": [
+      "High OCR accuracy",
+      "Instant Bluetooth sync",
+      "Great for study and exams"
+    ],
+    "cons": [
+      "Requires steady scanning hand movement"
+    ],
+    "whoShouldBuy": "Students, UPSC/GATE aspirants, lawyers, and researchers.",
+    "verdict": "A ₹1,321 gadget that saves hundreds of hours of manual typing.",
+    "slug": "co2crea-air-pen-scanner-wireless-ocr-digital-text--b0765vcqf1",
+    "affiliateLink": "https://www.amazon.in/dp/B0765VCQF1?tag=bhom120704-21"
+  },
+  {
+    "id": "B0CGX7X5H5",
+    "pid": "B0CGX7X5H5",
+    "title": "4 Pcs Washable Microfiber Mop Slippers Dust Cleaning Shoes Cover",
+    "brand": "Generic",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 1299,
+    "dealPrice": 299,
+    "discount": "77% OFF",
+    "image": "https://m.media-amazon.com/images/I/810s98oxiyL._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0CGX7X5H5?tag=bhom120704-21",
+    "rating": "4.2",
+    "reviewsCount": 4210,
+    "badge": "⚡ UNDER ₹299",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Ultra-dense chenille microfiber soles trap pet hair, dust, and water spills while you walk. Machine washable and reusable.",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Chenille Microfiber"
+      },
+      {
+        "label": "Pack Size",
+        "value": "4 Pieces (2 Pairs)"
+      },
+      {
+        "label": "Care",
+        "value": "Machine Washable"
+      },
+      {
+        "label": "Store",
+        "value": "Amazon"
+      }
+    ],
+    "highlights": [
+      "Hands-free floor cleaning simply by walking around the house.",
+      "Elastic band fits over bare feet, socks, or footwear.",
+      "Safe on hardwood, tile, marble, and vinyl floors."
+    ],
+    "pros": [
+      "Zero scratch risk on floors",
+      "Super absorbent",
+      "Machine washable"
+    ],
+    "cons": [
+      "Not meant for rough outdoor surfaces"
+    ],
+    "whoShouldBuy": "Pet owners and busy homeowners wanting effortless daily floor maintenance.",
+    "verdict": "At ₹299 for 4 pieces, an ingenious practical home utility.",
+    "slug": "4-pcs-washable-microfiber-mop-slippers-dust-cleani-b0cgx7x5h5",
+    "affiliateLink": "https://www.amazon.in/dp/B0CGX7X5H5?tag=bhom120704-21"
+  },
+  {
+    "id": "B0GVT3K9H9",
+    "pid": "B0GVT3K9H9",
+    "title": "MiniExplorer Big Hauler Storage & Deform Transport Truck Toy with Die-Cast Cars",
+    "brand": "MiniExplorer",
+    "category": "home",
+    "store": "Amazon",
+    "originalPrice": 4799,
+    "dealPrice": 998,
+    "discount": "79% OFF",
+    "image": "https://m.media-amazon.com/images/I/519wXU0sIeL._SY300_SX300_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0GVT3K9H9?tag=bhom120704-21",
+    "rating": "4.5",
+    "reviewsCount": 1940,
+    "badge": "🔥 ALL-TIME LOW",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: High-impact non-toxic ABS plastic truck that transforms into a multi-level race track. Includes die-cast alloy mini vehicles.",
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Transforming Truck Toy"
+      },
+      {
+        "label": "Material",
+        "value": "BPA-Free ABS + Metal"
+      },
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Warranty",
+        "value": "100% Brand Authentic"
+      }
+    ],
+    "highlights": [
+      "Massive 79% price reduction on Amazon.",
+      "Dual function: stores up to 24 cars and unfolds into a dual-lane racing launcher.",
+      "Perfect birthday gift for kids aged 3-10."
+    ],
+    "pros": [
+      "Multi-functional transform design",
+      "Durable shock-resistant plastic",
+      "Includes mini cars"
+    ],
+    "cons": [
+      "Popular gift item with fast stock depletion"
+    ],
+    "whoShouldBuy": "Parents looking for an engaging, screen-free educational toy for kids.",
+    "verdict": "At ₹998 (down from ₹4,799), it is an extraordinary impulse steal.",
+    "slug": "miniexplorer-big-hauler-storage-deform-transport-t-b0gvt3k9h9",
+    "affiliateLink": "https://www.amazon.in/dp/B0GVT3K9H9?tag=bhom120704-21"
+  },
+  {
+    "id": "B0FMXS5CHS",
+    "pid": "B0FMXS5CHS",
+    "title": "Storite Men's Multi-Card Bifold Genuine Leather Wallet with RFID Protection",
+    "brand": "Storite",
+    "category": "fashion",
+    "store": "Amazon",
+    "originalPrice": 999,
+    "dealPrice": 198,
+    "discount": "80% OFF",
+    "image": "https://m.media-amazon.com/images/I/71eejmDqMbL._SL1500_.jpg",
+    "profitLink": "https://www.amazon.in/dp/B0FMXS5CHS?tag=bhom120704-21",
+    "rating": "4.4",
+    "reviewsCount": 3820,
+    "badge": "⚡ UNDER ₹299",
+    "isFlashDeal": true,
+    "summary": "Real User Verdict: Slim bifold design with genuine soft-grain leather and advanced RFID blocking lining. Fits 8+ cards and currency without bulging pockets.",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Genuine Leather"
+      },
+      {
+        "label": "Protection",
+        "value": "RFID Shielding"
+      },
+      {
+        "label": "Store",
+        "value": "Amazon"
+      },
+      {
+        "label": "Price Status",
+        "value": "80% Price Drop"
+      }
+    ],
+    "highlights": [
+      "Official price drop on Amazon.",
+      "RFID blocking layer protects credit/debit cards from digital theft.",
+      "Compact slim profile ideal for front or back pocket carry."
+    ],
+    "pros": [
+      "Premium leather touch",
+      "Sturdy stitch reinforcement",
+      "RFID protection"
+    ],
+    "cons": [
+      "Limited color variants at this price"
+    ],
+    "whoShouldBuy": "Men looking for a durable, slim leather wallet at a fraction of standard price.",
+    "verdict": "At ₹198, this is an unbeatable everyday carry deal.",
+    "slug": "storite-men-s-multi-card-bifold-genuine-leather-wa-b0fmxs5chs",
+    "affiliateLink": "https://www.amazon.in/dp/B0FMXS5CHS?tag=bhom120704-21"
+  },
+  {
     "id": "WATH7F99EWF55K5W",
     "pid": "WATH7F99EWF55K5W",
     "slug": "mathey-tissot-d810bsv-swiss-made-quartz-green-dial-wath7f99ewf55k5w",
@@ -6822,7 +7756,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Load Catalog
 async function initCatalog() {
   try {
-    const res = await fetch("/deals/data/catalog.json?v=20261004_v13");
+    const res = await fetch("/deals/data/catalog.json?v=20261004_v14");
     if (!res.ok) throw new Error("Catalog fetch error");
     catalog = await res.json();
   } catch (err) {
