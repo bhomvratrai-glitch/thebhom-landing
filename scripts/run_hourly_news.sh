@@ -28,7 +28,7 @@ if [[ -n $(git status -s) ]]; then
   # 4. Deploy to Cloudflare Pages
   if [ -n "$CLOUDFLARE_ACCOUNT_ID" ] && [ -n "$CLOUDFLARE_API_KEY" ]; then
     echo "Deploying to Cloudflare Pages..."
-    npx -y wrangler pages deploy . --project-name=thebhom --commit-dirty=true
+    npx -y wrangler pages deploy . --project-name=thebhom --branch=main --commit-dirty=true
 
     # 5. Purge Cloudflare Edge Cache
     if [ -n "$CLOUDFLARE_ZONE_ID_THEBHOM" ]; then
