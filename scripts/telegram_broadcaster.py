@@ -260,15 +260,23 @@ def run_broadcast(max_items=2):
     is_deals_channel = 'deal' in channel.lower()
     
     sent_count = 0
+    consecutive_failures = 0
     if is_deals_channel:
         deals = get_latest_deals()
         for deal in deals:
             if deal['id'] in posted:
                 continue
-            if broadcast_deal(token, channel, deal):
+            success = broadcast_deal(token, channel, deal)
+            if success:
                 posted.add(deal['id'])
                 sent_count += 1
+                consecutive_failures = 0
                 time.sleep(3)
+            else:
+                consecutive_failures += 1
+                if consecutive_failures >= 2:
+                    print(f"[⚠️ Telegram] Channel {channel} unreachable. Verify that the channel exists and @thebhom_live_bot is an Admin.")
+                    break
             if sent_count >= max_items:
                 break
     else:
@@ -276,10 +284,17 @@ def run_broadcast(max_items=2):
         for art in news_items:
             if art['id'] in posted:
                 continue
-            if broadcast_news(token, channel, art):
+            success = broadcast_news(token, channel, art)
+            if success:
                 posted.add(art['id'])
                 sent_count += 1
+                consecutive_failures = 0
                 time.sleep(3)
+            else:
+                consecutive_failures += 1
+                if consecutive_failures >= 2:
+                    print(f"[⚠️ Telegram] Channel {channel} unreachable. Verify that the channel exists and @thebhom_live_bot is an Admin.")
+                    break
             if sent_count >= max_items:
                 break
                 
