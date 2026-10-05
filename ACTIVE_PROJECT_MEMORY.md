@@ -95,3 +95,23 @@
 - AdSense script executes synchronously on page load (`pub-4674566886677472`).
 - Cloudflare Pages deployment verified live.
 - Cloudflare Edge Cache purge API verified (`{"success":true}`).
+
+---
+
+## 7. Community Traffic & Instant Telegram Deals Pipeline (October 5, 2026)
+### Quora Live Backlinks
+- **Answer 1**: *How do I compress PDF files online for free?*
+  - Live URL: `https://www.quora.com/How-do-I-compress-PDF-files-online-for-free/answer/Bhomvrat-Rai`
+  - Backlinks to: `https://www.thebhom.in/imgpdf/compress-pdf-online` and `https://www.thebhom.in/imgpdf/merge-pdf`
+- **Answer 2**: *How do I merge PDF files for free?*
+  - Live URL: `https://www.quora.com/How-do-I-merge-PDF-files-for-free/answer/Bhomvrat-Rai`
+  - Backlinks to: `https://www.thebhom.in/imgpdf/merge-pdf` and `https://www.thebhom.in/imgpdf/compress-pdf-online`
+
+### Telegram Deals & News Broadcaster
+- **Bot**: `@thebhom_live_bot` ("TheBhom News and Deals", ID `8866349662`)
+- **Target Channel**: `@thebhom_deals`
+- **User Telegram Account**: `bhom1207` (ID `1063182415`)
+- **Broadcaster Script**: `scripts/telegram_broadcaster.py`
+  - Auto-extracts top verified deals from `deals/p/*.html`
+  - Sends high-resolution product cards with bold discount pricing and direct store affiliate links (`fktr.in` / Amazon tag `bhom120704-21`).
+  - Integrated into hourly autonomous cron via `scripts/traffic_booster.py`.
