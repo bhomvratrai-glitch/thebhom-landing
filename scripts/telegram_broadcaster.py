@@ -257,7 +257,8 @@ def run_broadcast(max_items=2):
         return False
     
     posted = get_posted_ids()
-    is_deals_channel = 'deal' in channel.lower()
+    mode = creds.get('TELEGRAM_BROADCAST_MODE', 'deals').lower()
+    is_deals_channel = mode == 'deals' or 'deal' in channel.lower() or channel == "-1004358353540"
     
     sent_count = 0
     consecutive_failures = 0
