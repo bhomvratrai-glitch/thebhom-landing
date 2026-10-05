@@ -1192,65 +1192,8 @@ def generate_google_news_sitemap(news_list):
     return sitemap_news_xml
 
 def update_homepage_internal_linking(latest_news):
-    """Injects high-visibility '🔥 Live Trending News & Space Stories' section into /index.html"""
-    index_file = os.path.join(BASE_DIR, 'index.html')
-    if not os.path.exists(index_file):
-        return
-
-    with open(index_file, 'r', encoding='utf-8') as f:
-        content = f.read()
-
-    # Generate news section markup
-    cards_html = ""
-    for n in latest_news[:4]:
-        img_url, _ = n.get('image', CATEGORY_IMAGES[n['category']][0])
-        cards_html += f"""
-        <a href="/news/{n['slug']}" class="hub-card" style="text-align: left; text-decoration: none;">
-          <div class="hub-preview-img-wrap" style="height: 160px; overflow: hidden; border-radius: 12px; margin-bottom: 0.75rem;">
-            <img src="{img_url}" alt="{html.escape(n['title'])}" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
-          </div>
-          <span class="hub-count" style="color:#2563eb; background:#eff6ff; display:inline-block; margin-bottom:0.5rem;">{n['category_badge']}</span>
-          <h3 style="font-size:1.05rem; line-height:1.35; margin:0 0 0.5rem 0; color:#0f172a;">{html.escape(n['title'])}</h3>
-          <p style="font-size:0.85rem; color:#64748b; margin:0;">{html.escape(n['desc_snippet'] or '')}...</p>
-        </a>
-        """
-
-    news_section_markup = f"""<!-- START LIVE TRENDING NEWS SECTION -->
-<section class="sec" id="live-news-section" style="padding: 2.5rem 1rem; background: #ffffff; border-bottom: 1px solid #e2e8f0;">
-  <div class="con" style="max-width: 1200px; margin: 0 auto;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-      <div>
-        <span style="font-size: 0.82rem; font-weight: 700; color: #e11d48; text-transform: uppercase; letter-spacing: 0.05em;">⚡ Real-Time Curation</span>
-        <h2 style="font-size: 2rem; font-weight: 800; color: #0f172a; margin: 0.25rem 0 0 0;">Trending News, ISRO Space &amp; Viral Stories</h2>
-      </div>
-      <div>
-        <a href="/news/" style="color: #2563eb; font-weight: 600; text-decoration: none; font-size: 0.95rem;">View All News &amp; Updates →</a>
-      </div>
-    </div>
-    <div class="hub-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
-      {cards_html}
-    </div>
-  </div>
-</section>
-<!-- END LIVE TRENDING NEWS SECTION -->"""
-
-    if '<!-- START LIVE TRENDING NEWS SECTION -->' in content:
-        content = re.sub(
-            r'<!-- START LIVE TRENDING NEWS SECTION -->.*?<!-- END LIVE TRENDING NEWS SECTION -->',
-            news_section_markup,
-            content,
-            flags=re.DOTALL
-        )
-    else:
-        # Place it right after the hero / before the hub section
-        if '</header>' in content:
-            content = content.replace('</header>', '</header>\n\n' + news_section_markup, 1)
-        elif '<section class="sec"' in content:
-            content = content.replace('<section class="sec"', news_section_markup + '\n\n<section class="sec"', 1)
-
-    with open(index_file, 'w', encoding='utf-8') as f:
-        f.write(content)
-    print("Updated /index.html with live trending news internal links!")
+    """Kept clean: News is isolated to /news/ per user design preference"""
+    pass
 
 def main():
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Running TheBhom News Engine...")

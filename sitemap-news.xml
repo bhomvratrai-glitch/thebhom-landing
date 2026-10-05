@@ -2,6 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.thebhom.in/news/indian-senior-citizens-account-comparing-us-and-indian-healthcare-goes-vira</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>Indian senior citizen&#x27;s account comparing US and Indian healthcare goes viral: &#x27;Medicines for my wife wor</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/french-woman-praises-indias-upi-payments-culture-in-viral-video-20-chai-jus</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>French woman praises India&#x27;s UPI payments culture in viral video: ‘ ₹20 chai? Just scan and pay’</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/harsh-goenka-shares-japans-viral-human-refrigerator-would-it-work-in-india</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>Harsh Goenka Shares Japan&#x27;s Viral &#x27;Human Refrigerator&#x27;. Would It Work In India?</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/government-of-gujarat-iairo-and-ibm-announce-plans-for-an-industrial-artifi</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>Government of Gujarat, IAIRO and IBM Announce Plans for an Industrial Artificial Intelligence Centre of Excellence in Gujarat</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/science-technology-and-innovation-in-the-age-of-ai</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>Science, technology and innovation in the age of AI |</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/artificial-intelligence-ai-for-bharat-innovation-and-inclusion-at-scale</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>Artificial Intelligence (AI) for Bharat: Innovation and inclusion at scale</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/us-faa-to-assess-indias-aviation-safety-oversight-what-it-means-and-why-it</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>US FAA to assess India&#x27;s aviation safety oversight. What it means and why it matters | HT Explainers</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/govt-planning-to-arrest-abhijeet-dipke-ashutosh-ranka-cjps-saurav-das-calls</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>‘Govt planning to arrest Abhijeet Dipke, Ashutosh Ranka’: CJP’s Saurav Das calls for biggest mobilisation</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/us-withdraws-b</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>US withdraws B-1 bomber aircraft from UK’s Fairford base amid Iran fears</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/keralam-government-gets-legal-opinion-to-proceed-against-chief-election-com</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>Keralam government gets legal opinion to proceed against Chief Election Commissioner Gyanesh Kumar in abetment to suicide case</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.thebhom.in/news/trump-defiant-about-midterm-chances-as-he-rallies-for-republicans-in-ohio</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T06:56:29+05:30</news:publication_date>
+      <news:title>Trump defiant about midterm chances as he rallies for Republicans in Ohio</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.thebhom.in/news/hum-india-hogaye-arunachal-girl-has-a-happy-update-after-viral-plea-against</loc>
     <news:news>
       <news:publication>
@@ -318,105 +439,6 @@
       </news:publication>
       <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
       <news:title>Any Process Taking Away Voting Rights Of Millions Of Citizens Is Unjustifiable, No Court Can Condone It:...</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/india-is-discussing-agreements-on-grains-and-maritime-safety-with-moscow-an</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>India is discussing agreements on grains and maritime safety with Moscow and Kyiv: Jaishankar</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/hundreds-including-neha-woman-journalist-who-alleged-sexual-harassment-by-c</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>Hundreds, including Neha, woman journalist who alleged sexual harassment by cop, detained as Delhi protest demanding Gyanesh Kumar’s removal enters third day</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/what-are-the-five-questions-being-asked-regarding-the-flydubai-attack</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>What are the five questions being asked regarding the Flydubai attack?</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/isros-astrosat-nasas-space-observatories-capture-dramatic-eruptions-from-st</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>ISRO’s AstroSat, NASA’s space observatories capture dramatic eruptions from stellar wreckage</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/235-students-reach-final-round-of-nasa</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>235 Students reach final round of NASA-ISRO educational tour</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/space-calendar-2026-rocket-launches-skywatching-events-missions-more</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>Space calendar 2026: Rocket launches, skywatching events, missions &amp; more!</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/alaknanda-how-indian-astronomers-found-a-milky-way</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>Alaknanda: How Indian astronomers found a Milky Way-like galaxy</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/isro-missions-list-axiom-4-chandrayan-mangalyaan-aditya-l1</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>ISRO Missions List, Axiom 4, Chandrayan, Mangalyaan, Aditya L1</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/mexico-city-is-sinking-this-nasa-satellite-just-found-out-by-how-much</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>Mexico City is sinking. This NASA satellite just found out by how much</news:title>
     </news:news>
   </url>
 </urlset>

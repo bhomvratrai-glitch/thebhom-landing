@@ -232,12 +232,14 @@ function renderHeader(activePage=''){
   <nav class="hdr-nav-container">
     <ul class="hdr-nav">
       <li><a href="/tools/" class="hdr-nav-link ${activePage==='tools'?'active':''}"><span class="hdr-nav-ic" style="color:#9333ea;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span><span class="hdr-nav-txt" style="color:#9333ea;font-weight:600;">Web Tools</span></a></li>
+      <li><a href="/imgpdf/" class="hdr-nav-link ${activePage==='imgpdf'?'active':''}" title="ImgPDF Suite — 47+ Image & PDF Tools"><span class="hdr-nav-ic" style="color:#e5322d;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e5322d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span class="hdr-nav-txt" style="color:#e5322d;font-weight:700;">ImgPDF</span></a></li>
+      <li><a href="/downloader/" class="hdr-nav-link ${activePage==='downloader'?'active':''}"><span class="hdr-nav-ic" style="color:#0891b2;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="hdr-nav-txt">Downloader</span></a></li>
       <li><a href="/wallpapers" class="hdr-nav-link ${activePage==='wallpapers'?'active':''}"><span class="hdr-nav-txt">Wallpapers</span></a></li>
       <li><a href="/ebooks" class="hdr-nav-link ${activePage==='ebooks'?'active':''}"><span class="hdr-nav-txt">E-Books</span></a></li>
       <li><a href="/magazines" class="hdr-nav-link ${activePage==='magazines'?'active':''}"><span class="hdr-nav-txt">Magazines</span></a></li>
       <li><a href="/templates" class="hdr-nav-link ${activePage==='templates'?'active':''}"><span class="hdr-nav-txt">Templates</span></a></li>
       <li><a href="/cards" class="hdr-nav-link ${activePage==='cards'?'active':''}"><span class="hdr-nav-txt">Cards</span></a></li>
-      <li><a href="/downloader/" class="hdr-nav-link ${activePage==='downloader'?'active':''}"><span class="hdr-nav-txt">Downloader</span></a></li>
+      <li><a href="/news/" class="hdr-nav-link ${activePage==='news'?'active':''}" title="TheBhom News & Viral Stories"><span class="hdr-nav-ic" style="color:#ea580c;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span><span class="hdr-nav-txt" style="color:#ea580c;font-weight:700;">News</span></a></li>
       <li><a href="/articles/" class="hdr-nav-link ${activePage==='articles'?'active':''}"><span class="hdr-nav-txt" style="color:#0284c7;font-weight:700;">Articles</span></a></li>
     </ul>
   </nav>
@@ -266,13 +268,15 @@ function renderHeader(activePage=''){
     <button class="mob-theme-pill" data-theme="dark" onclick="setAppTheme('dark')">🌙 Dark</button>
   </div>
   <a href="/">🏠 Home</a>
+  <a href="/news/" style="color:#ea580c;font-weight:700;">📰 News & Viral Stories</a>
   <a href="/tools/" style="color:#9333ea;font-weight:700;">🛠️ Web Tools</a>
+  <a href="/imgpdf/" style="color:#e5322d;font-weight:700;">📄 ImgPDF Suite</a>
+  <a href="/downloader/" style="color:#0891b2;font-weight:700;">⚡ Video Downloader</a>
   <a href="/wallpapers">🖼️ Wallpapers</a>
   <a href="/ebooks">📚 E-Books</a>
   <a href="/magazines">📰 Magazines</a>
   <a href="/templates">🎨 Templates</a>
   <a href="/cards">💌 Cards</a>
-  <a href="/downloader/" style="color:#0891b2;font-weight:700;">⚡ Video Downloader</a>
   <a href="/articles/" style="color:#0284c7;font-weight:700;">📚 Articles & Guides</a>
   <a href="/about">ℹ️ About Us</a>
   <a href="/contact">📞 Contact</a>
@@ -774,6 +778,9 @@ function upgradeHeaderToNewNav() {
     else if (path.includes('cards')) activePage = 'cards';
     else if (path.includes('downloader')) activePage = 'downloader';
     else if (path.includes('tools')) activePage = 'tools';
+    else if (path.includes('news')) activePage = 'news';
+    else if (path.includes('imgpdf')) activePage = 'imgpdf';
+    else if (path.includes('articles')) activePage = 'articles';
   }
 
   const container = document.createElement('div');
