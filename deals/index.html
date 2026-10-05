@@ -241,6 +241,52 @@ button {
 }
 
 /* ==========================================================================
+   Universal Sub-site Navigation Strip
+   ========================================================================== */
+.subnav {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 16px;
+  background: #f8fafc;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-light);
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  align-items: center;
+}
+.subnav::-webkit-scrollbar { display: none; }
+.subnav a {
+  white-space: nowrap;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  color: #475569;
+  background: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border-light);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.subnav a:hover {
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  background: #f0f5ff;
+  transform: translateY(-1px);
+}
+.subnav a.here, .subnav a.active {
+  color: #ffffff !important;
+  background: var(--primary-blue) !important;
+  border-color: var(--primary-blue) !important;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(40, 116, 240, 0.25);
+}
+
+/* ==========================================================================
    Category Strip (Flipkart / Amazon Style)
    ========================================================================== */
 .category-strip {
@@ -1057,6 +1103,20 @@ button {
       </div>
 
     </div>
+
+    <!-- Universal Sub-site Navigation Strip -->
+    <nav class="subnav">
+      <a href="/tools/">🛠️ Web Tools</a>
+      <a href="/imgpdf/">📄 ImgPDF</a>
+      <a href="/downloader/">⚡ Downloader</a>
+      <a href="/wallpapers">🖼️ Wallpapers</a>
+      <a href="/ebooks">📚 E-Books</a>
+      <a href="/magazines">📰 Magazines</a>
+      <a href="/templates">🎨 Templates</a>
+      <a href="/cards">💌 Cards</a>
+      <a href="/deals/" class="here">🔥 Deals</a>
+      <a href="/news/">📰 News</a>
+    </nav>
 
     <!-- Category Sub-Navigation Strip (Flipkart / Amazon Style) -->
     <nav class="category-strip" aria-label="E-commerce Categories">
