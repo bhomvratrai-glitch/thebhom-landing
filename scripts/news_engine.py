@@ -1130,21 +1130,22 @@ def generate_rss_feed(news_list):
     
     xml_items = []
     for item in news_list[:50]:
-        title = html.escape(item['title'])
-        link = f"https://www.thebhom.in/news/{item['slug']}"
-        desc = html.escape(item.get('desc_snippet') or item['title'])
-        cat = html.escape(item['category_label'])
+        title = html.unescape(item['title']).strip()
+        link = html.escape(f"https://www.thebhom.in/news/{item['slug']}")
+        desc = html.unescape(item.get('desc_snippet') or item['title']).replace('\xa0', ' ').strip()
+        cat = html.unescape(item['category_label']).strip()
         rfc_date = item.get('rfc_date', pub_date_now)
         img_url, _ = item.get('image', CATEGORY_IMAGES[item['category']][0])
+        safe_img_url = html.escape(img_url, quote=True)
         
         xml_items.append(f"""    <item>
-      <title>{title}</title>
+      <title><![CDATA[{title}]]></title>
       <link>{link}</link>
       <guid isPermaLink="true">{link}</guid>
-      <description>{desc}</description>
-      <category>{cat}</category>
+      <description><![CDATA[{desc}]]></description>
+      <category><![CDATA[{cat}]]></category>
       <pubDate>{rfc_date}</pubDate>
-      <enclosure url="{img_url}" type="image/jpeg" length="124000"/>
+      <enclosure url="{safe_img_url}" type="image/jpeg" length="124000"/>
     </item>""")
 
     rss_xml = f"""<?xml version="1.0" encoding="UTF-8"?>

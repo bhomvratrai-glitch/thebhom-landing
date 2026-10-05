@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.thebhom.in/news/plea-against-cec-gyanesh-kumar-live-updates-from-supreme-court</loc>
+    <news:news>
+      <news:publication>
+        <news:name>TheBhom News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-05T07:01:28+05:30</news:publication_date>
+      <news:title>Plea Against CEC Gyanesh Kumar : Live Updates From Supreme Court</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.thebhom.in/news/indian-senior-citizens-account-comparing-us-and-indian-healthcare-goes-vira</loc>
     <news:news>
       <news:publication>
@@ -428,17 +439,6 @@
       </news:publication>
       <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
       <news:title>Georgia shooting: 2 dead, up to 35 injured at homecoming party as police investigate | Hindustan Times</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.thebhom.in/news/any-process-taking-away-voting-rights-of-millions-of-citizens-is-unjustifia</loc>
-    <news:news>
-      <news:publication>
-        <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T20:49:22+05:30</news:publication_date>
-      <news:title>Any Process Taking Away Voting Rights Of Millions Of Citizens Is Unjustifiable, No Court Can Condone It:...</news:title>
     </news:news>
   </url>
 </urlset>
