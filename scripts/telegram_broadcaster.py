@@ -47,11 +47,13 @@ def save_posted_ids(posted):
         json.dump(list(posted)[-500:], f, indent=2)
 
 def telegram_api(token, method, payload):
+    import ssl
     url = f"https://api.telegram.org/bot{token}/{method}"
     data = json.dumps(payload).encode('utf-8')
     req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
+    ctx = ssl._create_unverified_context()
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
+        with urllib.request.urlopen(req, context=ctx, timeout=15) as resp:
             return resp.status, json.loads(resp.read().decode('utf-8'))
     except urllib.error.HTTPError as e:
         body = e.read().decode('utf-8', errors='ignore')
