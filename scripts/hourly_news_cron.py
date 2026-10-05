@@ -209,6 +209,15 @@ def run_hourly_cycle():
     index_urls += [f"{SITE_URL}/sitemap-news.xml", f"{SITE_URL}/news/"]
     ping_search_engines(list(dict.fromkeys(index_urls)))  # deduplicated
 
+    # 8. Traffic Booster — Platform submissions (Reddit, Pinterest, Telegram, RSS, Mix.com)
+    booster_script = os.path.join(BASE_DIR, 'scripts', 'traffic_booster.py')
+    if os.path.exists(booster_script):
+        ok, bout, berr = run_cmd(f"{sys.executable} {booster_script}")
+        if ok:
+            log("[TrafficBooster] Platform submissions complete.")
+        else:
+            log(f"[TrafficBooster] Warning: {berr[:100]}")
+
     log("Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.")
     log("==================================================")
 
