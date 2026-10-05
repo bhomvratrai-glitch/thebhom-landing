@@ -15,12 +15,14 @@ CTX      = ssl._create_unverified_context()
 def _load_creds():
     cred = os.path.expanduser('~/.gemini/config/credentials.env')
     if os.path.exists(cred):
-        with open(cred) as f:
+        with open(cred, 'r', encoding='utf-8') as f:
             for line in f:
                 line = line.strip()
+                if line.startswith('export '):
+                    line = line[7:].strip()
                 if line and not line.startswith('#') and '=' in line:
                     k, _, v = line.partition('=')
-                    os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+                    os.environ[k.strip()] = v.strip().strip('"').strip("'")
 _load_creds()
 
 INDEXNOW_KEY    = os.environ.get('INDEXNOW_KEY', 'thebhom-indexnow-key-2024')

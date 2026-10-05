@@ -59,8 +59,39 @@
 
 ---
 
-## 4. Active Production Verification
+## 4. Automated Hourly Publishing & Traffic Pipeline (Active)
+- **Hourly Cron Daemon**: `in.thebhom.news-hourly` LaunchAgent running every 3600 seconds (1 hour) via macOS `launchd`. Runs automatically on boot/wake.
+- **Hourly Workflow**:
+  1. `news_engine.py`: Scrapes top trending Google News India, ISRO/Space, Tech/AI, Viral Science, synthesizes full SEO articles with Schema.org `NewsArticle` JSON-LD.
+  2. Injects trending stories into `index.html` homepage `#live-news-section`.
+  3. Updates `feed.xml` (RSS 2.0 with media enclosures).
+  4. Updates `sitemap-news.xml` and `sitemap.xml`.
+  5. Commits and pushes changes to GitHub `main` branch.
+  6. Deploys to Cloudflare Pages via Wrangler (`npx -y wrangler pages deploy . --project-name=thebhom`).
+  7. Purges Cloudflare Edge Cache via Cloudflare API.
+  8. Submits newly generated URLs to IndexNow (`api.indexnow.org` and `bing.com/indexnow`) with HTTP 200 instant crawl triggers.
+  9. Runs `traffic_booster.py` for multi-platform distribution.
+
+---
+
+## 5. Google Search Console & Indexing Status
+- **Domain Property**: `sc-domain:thebhom.in`
+- **Sitemaps Submitted**:
+  - `https://thebhom.in/sitemap.xml` (Status: Success, 254 discovered URLs)
+  - `https://www.thebhom.in/sitemap.xml` (Status: Success, 254 discovered URLs)
+  - `https://thebhom.in/sitemap-news.xml` (Submitted & Queued)
+  - `https://thebhom.in/thebhom-indexnow-key-2024.txt` (Verified HTTP 200 on live edge)
+- **Live URL Priority Indexing**:
+  - `https://thebhom.in/news/` submitted to Google's Priority Crawl Queue via Search Console CDP automation.
+- **Pinterest Integration**:
+  - RSS feeds actively auto-publishing Pins to boards (@bhomvrat).
+  - `thebhom.in/pinterest-feed.xml` -> Loot Deals board
+  - `thebhom.in/feed.xml` -> Active feed
+
+---
+
+## 6. Active Production Verification
 - Live site returns HTTP 200 on all canonical clean URLs.
-- AdSense script executes synchronously on page load.
-- Review requested successfully in Google AdSense dashboard.
-- Live news hub (`/news/`), RSS (`/feed.xml`), and news sitemap (`/sitemap-news.xml`) active on Cloudflare Pages.
+- AdSense script executes synchronously on page load (`pub-4674566886677472`).
+- Cloudflare Pages deployment verified live.
+- Cloudflare Edge Cache purge API verified (`{"success":true}`).

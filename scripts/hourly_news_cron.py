@@ -25,25 +25,27 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_FILE = os.path.join(BASE_DIR, 'news', 'hourly_engine.log')
 PLIST_PATH = os.path.expanduser('~/Library/LaunchAgents/in.thebhom.news-hourly.plist')
 
-# ── Load credentials from env file (never hardcode secrets) ──────────────────
+# ── Load credentials from env file ──────────────────
 def _load_credentials():
     cred_file = os.path.expanduser('~/.gemini/config/credentials.env')
     if os.path.exists(cred_file):
-        with open(cred_file, 'r') as f:
+        with open(cred_file, 'r', encoding='utf-8') as f:
             for line in f:
                 line = line.strip()
+                if line.startswith('export '):
+                    line = line[7:].strip()
                 if line and not line.startswith('#') and '=' in line:
                     k, _, v = line.partition('=')
-                    os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+                    os.environ[k.strip()] = v.strip().strip('"').strip("'")
 
 _load_credentials()
 
-# Cloudflare & GitHub Credentials — read from environment only
+# Cloudflare Credentials — loaded dynamically from credentials.env
 CF_ACCOUNT_ID = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '')
 CF_API_KEY    = os.environ.get('CLOUDFLARE_API_KEY', '')
 CF_EMAIL      = os.environ.get('CLOUDFLARE_EMAIL', '')
 CF_ZONE_ID    = os.environ.get('CLOUDFLARE_ZONE_ID_THEBHOM', '')
-# IndexNow — instant Google/Bing indexing (no deprecated ping needed)
+# IndexNow — instant Google/Bing indexing
 INDEXNOW_KEY  = os.environ.get('INDEXNOW_KEY', 'thebhom-indexnow-key-2024')
 SITE_URL      = 'https://www.thebhom.in'
 
