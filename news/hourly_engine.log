@@ -301,3 +301,8 @@ error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebho
 [2026-10-05 19:40:54] ==================================================
 [2026-10-05 19:48:52] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (2 URLs submitted)
 [2026-10-05 19:48:53] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (2 URLs submitted)
+[2026-10-05 20:44:34] ==================================================
+[2026-10-05 20:44:34] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-05 20:44:56] Added 27 new stories. Total in database: 332
+[2026-10-05 20:44:56] Global sitemap.xml updated.
+[2026-10-05 20:44:57] Detected 339 changed/new files. Committing and deploying...
