@@ -16,6 +16,8 @@ import sys
 import time
 import subprocess
 import urllib.request
+import urllib.parse
+import json
 import ssl
 from datetime import datetime, timezone
 
@@ -23,11 +25,27 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_FILE = os.path.join(BASE_DIR, 'news', 'hourly_engine.log')
 PLIST_PATH = os.path.expanduser('~/Library/LaunchAgents/in.thebhom.news-hourly.plist')
 
-# Cloudflare & GitHub Credentials
-CF_ACCOUNT_ID = "f0229ef3f7b9c89edefc57c0303ed4e9"
-CF_API_KEY = "REDACTED_USE_CREDENTIALS_ENV"
-CF_EMAIL = "Bhomvratrai7225@gmail.com"
-CF_ZONE_ID = "7f6f6bd06fe55410160eda1175651b8e"
+# ── Load credentials from env file (never hardcode secrets) ──────────────────
+def _load_credentials():
+    cred_file = os.path.expanduser('~/.gemini/config/credentials.env')
+    if os.path.exists(cred_file):
+        with open(cred_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and '=' in line:
+                    k, _, v = line.partition('=')
+                    os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+_load_credentials()
+
+# Cloudflare & GitHub Credentials — read from environment only
+CF_ACCOUNT_ID = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '')
+CF_API_KEY    = os.environ.get('CLOUDFLARE_API_KEY', '')
+CF_EMAIL      = os.environ.get('CLOUDFLARE_EMAIL', '')
+CF_ZONE_ID    = os.environ.get('CLOUDFLARE_ZONE_ID_THEBHOM', '')
+# IndexNow — instant Google/Bing indexing (no deprecated ping needed)
+INDEXNOW_KEY  = os.environ.get('INDEXNOW_KEY', 'thebhom-indexnow-key-2024')
+SITE_URL      = 'https://www.thebhom.in'
 
 def log(msg):
     now_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -74,34 +92,62 @@ def purge_cloudflare_cache():
         log(f"Failed to purge Cloudflare cache: {e}")
         return False
 
-def ping_search_engines():
-    pings = [
-        "https://www.google.com/ping?sitemap=https://www.thebhom.in/sitemap-news.xml",
-        "https://www.google.com/ping?sitemap=https://www.thebhom.in/sitemap.xml",
-        "https://www.bing.com/ping?sitemap=https://www.thebhom.in/sitemap-news.xml"
-    ]
+def ping_search_engines(new_urls=None):
+    """Submit new article URLs via IndexNow for instant Google/Bing indexing.
+    Google deprecated sitemap ping in June 2023 (HTTP 410 Gone).
+    IndexNow is now the correct, supported method."""
     ctx = ssl._create_unverified_context()
-    for p in pings:
+
+    # Build URL list to submit
+    if not new_urls:
+        new_urls = [
+            f"{SITE_URL}/sitemap-news.xml",
+            f"{SITE_URL}/news/",
+        ]
+
+    # IndexNow payload (Google + Bing both accept api.indexnow.org)
+    payload = json.dumps({
+        "host": "www.thebhom.in",
+        "key": INDEXNOW_KEY,
+        "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
+        "urlList": new_urls[:100]  # max 100 per call
+    }).encode('utf-8')
+
+    indexnow_endpoints = [
+        "https://api.indexnow.org/indexnow",
+        "https://www.bing.com/indexnow",
+    ]
+    for endpoint in indexnow_endpoints:
         try:
-            req = urllib.request.Request(p, headers={"User-Agent": "TheBhomHourlyBot/2.0"})
-            with urllib.request.urlopen(req, context=ctx, timeout=6) as resp:
-                log(f"[PING] {p.split('=')[-1]} -> HTTP {resp.status}")
+            req = urllib.request.Request(
+                endpoint,
+                data=payload,
+                headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": "TheBhomHourlyBot/2.0"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, context=ctx, timeout=10) as resp:
+                log(f"[IndexNow] {endpoint} -> HTTP {resp.status} ({len(new_urls)} URLs submitted)")
         except Exception as e:
-            log(f"[PING NOTICE] {p.split('=')[-1]}: {e}")
+            log(f"[IndexNow NOTICE] {endpoint}: {e}")
 
 def run_hourly_cycle():
     log("==================================================")
     log("Starting Hourly TheBhom News & SEO Publishing Cycle...")
-    
-    # 1. Run news_engine.py
+
+    # 1. Run news_engine.py — collect newly generated article URLs
     engine_script = os.path.join(BASE_DIR, 'scripts', 'news_engine.py')
     ok, out, err = run_cmd(f"{sys.executable} {engine_script}")
+    new_article_urls = []
     if not ok:
         log(f"news_engine.py failed: {err}")
     else:
         for l in out.strip().splitlines():
-            if "Total in database" in l or "Added" in l:
+            if "Added" in l or "Total in database" in l:
                 log(l)
+            # Capture newly written article paths
+            if l.startswith("WROTE:"):
+                slug = l.replace("WROTE:", "").strip()
+                new_article_urls.append(f"{SITE_URL}/news/{slug}")
 
     # 2. Update master sitemap.xml
     sitemap_script = os.path.join(BASE_DIR, 'generate_sitemap.py')
@@ -125,10 +171,12 @@ def run_hourly_cycle():
 
     log(f"Detected {len(changes)} changed/new files. Committing and deploying...")
 
-    # 4. Git Add, Commit & Push
+    # 4. Git Add, Commit & Push (credentials from env — no secrets in code)
     now_ts = datetime.now().strftime('%Y-%m-%d %H:%M')
     run_cmd("git add .")
-    ok, commit_out, commit_err = run_cmd(f'git commit -m "chore(news): auto-publish hourly news [{now_ts}] — new breaking stories & SEO updates"')
+    ok, commit_out, commit_err = run_cmd(
+        f'git commit -m "chore(news): auto-publish hourly news [{now_ts}] — new breaking stories & SEO updates"'
+    )
     if not ok and "nothing to commit" not in commit_err:
         log(f"Git commit error: {commit_err}")
     else:
@@ -140,7 +188,7 @@ def run_hourly_cycle():
     else:
         log(f"Git push warning: {push_err}")
 
-    # 5. Deploy to Cloudflare Pages
+    # 5. Deploy to Cloudflare Pages (uses env vars loaded at startup)
     deploy_cmd = (
         f'CLOUDFLARE_ACCOUNT_ID="{CF_ACCOUNT_ID}" '
         f'CLOUDFLARE_API_KEY="{CF_API_KEY}" '
@@ -156,8 +204,10 @@ def run_hourly_cycle():
     # 6. Purge Cloudflare Cache
     purge_cloudflare_cache()
 
-    # 7. Ping Google and Bing
-    ping_search_engines()
+    # 7. IndexNow — instant Google/Bing indexing of new articles
+    index_urls = new_article_urls if new_article_urls else [f"{SITE_URL}/news/"]
+    index_urls += [f"{SITE_URL}/sitemap-news.xml", f"{SITE_URL}/news/"]
+    ping_search_engines(list(dict.fromkeys(index_urls)))  # deduplicated
 
     log("Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.")
     log("==================================================")
