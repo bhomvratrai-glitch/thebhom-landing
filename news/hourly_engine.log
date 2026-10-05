@@ -89,3 +89,16 @@ error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebho
 [2026-10-05 14:50:04] Added 19 new stories. Total in database: 181
 [2026-10-05 14:50:04] Global sitemap.xml updated.
 [2026-10-05 14:50:04] Detected 188 changed/new files. Committing and deploying...
+[2026-10-05 14:50:05] Git commit created for [2026-10-05 14:50].
+[2026-10-05 14:50:10] Git push to GitHub main successful.
+[2026-10-05 14:50:32] Cloudflare Pages deployment completed successfully!
+[2026-10-05 14:50:33] Cloudflare edge cache purged successfully.
+[2026-10-05 14:50:34] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 202 (2 URLs submitted)
+[2026-10-05 14:50:35] [IndexNow] https://www.bing.com/indexnow -> HTTP 202 (2 URLs submitted)
+[2026-10-05 14:50:35] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-05 14:50:35] ==================================================
+[2026-10-05 15:34:20] ==================================================
+[2026-10-05 15:34:20] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-05 15:34:42] Added 30 new stories. Total in database: 211
+[2026-10-05 15:34:42] Global sitemap.xml updated.
+[2026-10-05 15:34:42] Detected 222 changed/new files. Committing and deploying...
