@@ -3,3 +3,89 @@
 [2026-10-05 14:33:49] Added 1 new stories. Total in database: 162
 [2026-10-05 14:33:49] Global sitemap.xml updated.
 [2026-10-05 14:33:50] Detected 172 changed/new files. Committing and deploying...
+[2026-10-05 14:33:50] Git commit created for [2026-10-05 14:33].
+[2026-10-05 14:33:53] Git push warning: remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:      (?) This repository does not have Secret Scanning enabled, but is eligible. Enable Secret Scanning to view and manage detected secrets.        
+remote:      Visit the repository settings page, https://github.com/bhomvratrai-glitch/thebhom-landing/settings/security_analysis        
+remote:             
+remote:             
+remote:       —— Cloudflare Global User API Key ————————————————————        
+remote:        locations:        
+remote:          - commit: 63e3365b40865fe42f20a5b19856f4eac17dc801        
+remote:            path: scripts/hourly_news_cron.py:28        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/bhomvratrai-glitch/thebhom-landing/security/secret-scanning/unblock-secret/3KF7T10iDAjXS9eQz4qpeRrDuyI        
+remote:             
+remote: 
+remote: 
+To https://github.com/bhomvratrai-glitch/thebhom-landing.git
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebhom-landing.git'
+
+[2026-10-05 14:34:17] Cloudflare Pages deployment completed successfully!
+[2026-10-05 14:34:17] Cloudflare edge cache purged successfully.
+[2026-10-05 14:34:18] [PING NOTICE] https://www.thebhom.in/sitemap-news.xml: HTTP Error 404: Sitemaps ping is deprecated. See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping.
+[2026-10-05 14:34:19] [PING NOTICE] https://www.thebhom.in/sitemap.xml: HTTP Error 404: Sitemaps ping is deprecated. See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping.
+[2026-10-05 14:34:19] [PING NOTICE] https://www.thebhom.in/sitemap-news.xml: HTTP Error 410: Gone
+[2026-10-05 14:34:19] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-05 14:34:19] ==================================================
+[2026-10-05 14:33:36] ==================================================
+[2026-10-05 14:33:36] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-05 14:33:49] Added 1 new stories. Total in database: 162
+[2026-10-05 14:33:49] Global sitemap.xml updated.
+[2026-10-05 14:33:50] Detected 172 changed/new files. Committing and deploying...
+[2026-10-05 14:33:50] Git commit created for [2026-10-05 14:33].
+[2026-10-05 14:33:53] Git push warning: remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:      (?) This repository does not have Secret Scanning enabled, but is eligible. Enable Secret Scanning to view and manage detected secrets.        
+remote:      Visit the repository settings page, https://github.com/bhomvratrai-glitch/thebhom-landing/settings/security_analysis        
+remote:             
+remote:             
+remote:       —— Cloudflare Global User API Key ————————————————————        
+remote:        locations:        
+remote:          - commit: 63e3365b40865fe42f20a5b19856f4eac17dc801        
+remote:            path: scripts/hourly_news_cron.py:28        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/bhomvratrai-glitch/thebhom-landing/security/secret-scanning/unblock-secret/3KF7T10iDAjXS9eQz4qpeRrDuyI        
+remote:             
+remote: 
+remote: 
+To https://github.com/bhomvratrai-glitch/thebhom-landing.git
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebhom-landing.git'
+
+[2026-10-05 14:34:17] Cloudflare Pages deployment completed successfully!
+[2026-10-05 14:34:17] Cloudflare edge cache purged successfully.
+[2026-10-05 14:34:18] [PING NOTICE] https://www.thebhom.in/sitemap-news.xml: HTTP Error 404: Sitemaps ping is deprecated. See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping.
+[2026-10-05 14:34:19] [PING NOTICE] https://www.thebhom.in/sitemap.xml: HTTP Error 404: Sitemaps ping is deprecated. See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping.
+[2026-10-05 14:34:19] [PING NOTICE] https://www.thebhom.in/sitemap-news.xml: HTTP Error 410: Gone
+[2026-10-05 14:34:19] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-05 14:34:19] ==================================================
+[2026-10-05 14:49:42] ==================================================
+[2026-10-05 14:49:42] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-05 14:50:04] Added 19 new stories. Total in database: 181
+[2026-10-05 14:50:04] Global sitemap.xml updated.
+[2026-10-05 14:50:04] Detected 188 changed/new files. Committing and deploying...
