@@ -165,35 +165,13 @@ def generate_rss(arts):
 
 # ── Telegram ──────────────────────────────────────────────────────────────────
 def post_telegram(arts):
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT:
-        log("[Telegram] Not configured (add TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID to credentials.env)")
-        return
-    for a in arts[:3]:
-        caption = (
-            f"🚨 *BREAKING NEWS | THEBHOM*\n\n"
-            f"*{a['title']}*\n\n"
-            f"{a['desc'][:200]}...\n\n"
-            f"👉 [पूरी खबर यहाँ पढ़ें]({a['url']})"
-        )
-        photo_payload = {
-            "chat_id": TELEGRAM_CHAT,
-            "photo": a.get('image', f"{SITE_URL}/assets/og-default.jpg"),
-            "caption": caption,
-            "parse_mode": "Markdown",
-            "reply_markup": {
-                "inline_keyboard": [
-                    [{"text": "📰 पूरी खबर पढ़ें (Click Here)", "url": a['url']}],
-                    [{"text": "⚡ ताज़ा खबरें (TheBhom News)", "url": f"{SITE_URL}/news/"}]
-                ]
-            }
-        }
-        s, r = http_post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendPhoto", photo_payload)
-        if s != 200:
-            # Fallback to sendMessage
-            s, r = http_post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
-                             {"chat_id": TELEGRAM_CHAT, "text": caption, "parse_mode": "Markdown"})
-        log(f"[Telegram] HTTP {s} — {a['title'][:40]}")
-        time.sleep(2)
+    try:
+        import sys
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import telegram_broadcaster
+        telegram_broadcaster.run_broadcast(max_items=3)
+    except Exception as e:
+        log(f"[Telegram] Broadcast error: {e}")
 
 # ── Pinterest ─────────────────────────────────────────────────────────────────
 def post_pinterest(arts):
