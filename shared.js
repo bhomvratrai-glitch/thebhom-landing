@@ -249,7 +249,6 @@ function renderHeader(activePage=''){
       <li><a href="/cards" class="hdr-nav-link ${activePage==='cards'?'active':''}"><span class="hdr-nav-txt">Cards</span></a></li>
       <li><a href="/deals/" class="hdr-nav-link ${activePage==='deals'?'active':''}" title="TheBhom Deals"><span class="hdr-nav-ic" style="color:#f59e0b;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r="1.5"/></svg></span><span class="hdr-nav-txt" style="color:#f59e0b;font-weight:700;">Deals</span></a></li>
       <li><a href="/news/" class="hdr-nav-link ${activePage==='news'?'active':''}" title="TheBhom News"><span class="hdr-nav-ic" style="color:#ea580c;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span><span class="hdr-nav-txt" style="color:#ea580c;font-weight:700;">News</span></a></li>
-      <li><a href="/articles/" class="hdr-nav-link ${activePage==='articles'?'active':''}"><span class="hdr-nav-txt" style="color:#0284c7;font-weight:700;">Articles</span></a></li>
     </ul>
   </nav>
   <div class="hdr-right">
@@ -812,8 +811,8 @@ function upgradeHeaderToNewNav() {
     else if (path.includes('articles')) activePage = 'articles';
   }
 
-  // Upgrade header if missing /deals/ or /news/
-  if (existingHdr && (!existingHdr.querySelector('a[href="/deals/"]') || !existingHdr.querySelector('a[href="/news/"]'))) {
+  // Upgrade header if missing /deals/ or /news/ or has obsolete /articles/
+  if (existingHdr && (!existingHdr.querySelector('a[href="/deals/"]') || !existingHdr.querySelector('a[href="/news/"]') || existingHdr.querySelector('a[href="/articles/"]'))) {
     const container = document.createElement('div');
     container.innerHTML = renderHeader(activePage);
     const newHdr = container.querySelector('header.hdr');
@@ -829,6 +828,17 @@ function upgradeHeaderToNewNav() {
       }
     }
     updateThemeIcon(getStoredTheme());
+  } else if (!existingHdr && !document.getElementById('shared-header') && document.body && !document.querySelector('.no-shared-hdr')) {
+    // Mount top header at the very top of body
+    const container = document.createElement('div');
+    container.innerHTML = renderHeader(activePage);
+    const newHdr = container.querySelector('header.hdr');
+    const newMobNav = container.querySelector('.mob-nav');
+    if (newHdr) {
+      document.body.prepend(newHdr);
+      if (newMobNav) newHdr.after(newMobNav);
+      updateThemeIcon(getStoredTheme());
+    }
   }
 
   // Mount into #shared-header placeholder if present
@@ -848,6 +858,13 @@ function upgradeHeaderToNewNav() {
   const existingSubnav = document.querySelector('nav.subnav');
   if (existingSubnav) {
     existingSubnav.outerHTML = renderSubnav(activePage);
+  } else if (!document.querySelector('.no-shared-subnav') && !document.getElementById('shared-header')) {
+    const hdrEl = document.querySelector('header.hdr');
+    if (hdrEl) {
+      const mobNavEl = document.getElementById('mobNav') || document.querySelector('.mob-nav');
+      const target = mobNavEl || hdrEl;
+      target.insertAdjacentHTML('afterend', renderSubnav(activePage));
+    }
   }
 }
 

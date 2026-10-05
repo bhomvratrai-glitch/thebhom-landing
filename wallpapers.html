@@ -143,21 +143,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 
-/* HEADER */
-.hdr{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;display:flex;align-items:center;padding:0 2rem;gap:1.5rem;background:var(--hdr-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:900;font-size:1.1rem;color:var(--text);}
-.logo-box{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;}
-.logo span{color:var(--primary-light);}
-.hdr-nav{list-style:none;display:flex;gap:.2rem;}
-.hdr-nav a{padding:6px 12px;border-radius:8px;color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:var(--t);}
-.hdr-nav a:hover,.hdr-nav a.active{color:var(--text);background:rgba(124,58,237,.2);}
-.hdr-right{margin-left:auto;display:flex;align-items:center;gap:.7rem;}
-.free-pill{padding:5px 14px;border-radius:50px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);color:var(--green);font-size:.75rem;font-weight:700;}
-
-/* SUB NAV */
-.subnav{display:flex;gap:.5rem;padding:.8rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border);overflow-x:auto;flex-wrap:nowrap;margin-top:64px;}
-.subnav a{white-space:nowrap;padding:6px 14px;border-radius:8px;color:var(--text2);text-decoration:none;font-size:.8rem;font-weight:500;border:1px solid var(--border);transition:var(--t);}
-.subnav a:hover,.subnav a.here{color:var(--text);border-color:var(--primary);background:rgba(124,58,237,.15);}
+/* Header & Subnav inherited from shared.css */
 
 /* FREE BANNER */
 .free-banner{background:linear-gradient(90deg,rgba(34,197,94,.15),rgba(6,182,212,.1));border-bottom:1px solid rgba(34,197,94,.2);padding:.5rem 2rem;text-align:center;font-size:.78rem;font-weight:600;color:var(--green);}
@@ -362,7 +348,6 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
       <li><a href="/cards" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#e11d48;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span><span class="hdr-nav-txt">Cards</span></a></li>
       <li><a href="/deals/" class="hdr-nav-link" title="TheBhom Deals — Handpicked Online Loot Deals"><span class="hdr-nav-ic" style="color:#f59e0b;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r="1.5"/></svg></span><span class="hdr-nav-txt" style="color:#f59e0b;font-weight:700;">Deals</span></a></li>
       <li><a href="/news/" class="hdr-nav-link" title="TheBhom News & Viral Stories"><span class="hdr-nav-ic" style="color:#ea580c;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span><span class="hdr-nav-txt" style="color:#ea580c;font-weight:700;">News</span></a></li>
-      <li><a href="/articles/" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#0284c7;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg></span><span class="hdr-nav-txt" style="color:#0284c7;font-weight:700;">Articles</span></a></li>
     </ul>
   </nav>
   <div class="hdr-right">
