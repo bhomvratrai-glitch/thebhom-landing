@@ -362,3 +362,39 @@ error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebho
 [2026-10-05 22:51:12] Added 33 new stories. Total in database: 350
 [2026-10-05 22:51:12] Global sitemap.xml updated.
 [2026-10-05 22:51:13] Detected 357 changed/new files. Committing and deploying...
+[2026-10-05 22:51:15] Git commit created for [2026-10-05 22:51].
+[2026-10-05 22:51:37] Git push to GitHub main successful.
+[2026-10-05 22:55:26] Cloudflare deployment warning: [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mFailed to upload files. Please try again. Error: {})[0m
+
+
+🪵  Logs were written to "/Users/bhomvratrai/Library/Preferences/.wrangler/logs/wrangler-2026-10-05_17-21-59_476.log"
+
+[2026-10-05 22:55:40] Cloudflare edge cache purged successfully.
+[2026-10-05 22:55:53] [IndexNow NOTICE] https://api.indexnow.org/indexnow: <urlopen error [Errno 54] Connection reset by peer>
+[2026-10-05 22:56:10] [IndexNow NOTICE] https://www.bing.com/indexnow: <urlopen error _ssl.c:1001: The handshake operation timed out>
+[2026-10-05 22:59:47] [TrafficBooster] Platform submissions complete.
+[2026-10-05 22:59:47] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-05 22:59:47] ==================================================
+[2026-10-05 22:50:32] ==================================================
+[2026-10-05 22:50:32] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-05 22:51:12] Added 33 new stories. Total in database: 350
+[2026-10-05 22:51:12] Global sitemap.xml updated.
+[2026-10-05 22:51:13] Detected 357 changed/new files. Committing and deploying...
+[2026-10-05 22:51:15] Git commit created for [2026-10-05 22:51].
+[2026-10-05 22:51:37] Git push to GitHub main successful.
+[2026-10-05 22:55:26] Cloudflare deployment warning: [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mFailed to upload files. Please try again. Error: {})[0m
+
+
+🪵  Logs were written to "/Users/bhomvratrai/Library/Preferences/.wrangler/logs/wrangler-2026-10-05_17-21-59_476.log"
+
+[2026-10-05 22:55:40] Cloudflare edge cache purged successfully.
+[2026-10-05 22:55:53] [IndexNow NOTICE] https://api.indexnow.org/indexnow: <urlopen error [Errno 54] Connection reset by peer>
+[2026-10-05 22:56:10] [IndexNow NOTICE] https://www.bing.com/indexnow: <urlopen error _ssl.c:1001: The handshake operation timed out>
+[2026-10-05 22:59:47] [TrafficBooster] Platform submissions complete.
+[2026-10-05 22:59:47] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-05 22:59:47] ==================================================
+[2026-10-05 23:59:47] ==================================================
+[2026-10-05 23:59:47] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-06 00:00:49] Added 38 new stories. Total in database: 350
+[2026-10-06 00:00:49] Global sitemap.xml updated.
+[2026-10-06 00:00:50] Detected 359 changed/new files. Committing and deploying...
