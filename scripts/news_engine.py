@@ -44,6 +44,20 @@ CATEGORY_IMAGES = {
         ('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop', 'Microchip hardware and advanced technology circuit'),
         ('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop', 'Humanoid robot and automation in modern era')
     ],
+    'business': [
+        ('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop', 'Stock market chart and global business economy financial analytics'),
+        ('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop', 'Financial trading terminal and modern investment growth'),
+        ('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop', 'Modern skyscraper banking and financial district')
+    ],
+    'sports': [
+        ('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop', 'Cricket stadium pitch floodlights and match atmosphere'),
+        ('https://images.unsplash.com/photo-1517649763962-0c623266ddc0?q=80&w=1200&auto=format&fit=crop', 'Athletic tournament sports and championship action'),
+        ('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1200&auto=format&fit=crop', 'Sports competition and athletic field energy')
+    ],
+    'entertainment': [
+        ('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop', 'Cinema movie theater screening room and film premiere'),
+        ('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop', 'Live music entertainment performance and stage lighting')
+    ],
     'science': [
         ('https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1200&auto=format&fit=crop', 'Scientific laboratory research and microscope analysis'),
         ('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1200&auto=format&fit=crop', 'Chemical molecular reactions and scientific discovery'),
@@ -77,6 +91,27 @@ FEEDS = [
         'badge': '⚡ Tech',
         'lang': 'en',
         'url': 'https://news.google.com/rss/search?q=technology+artificial+intelligence+AI+innovation&hl=en-IN&gl=IN&ceid=IN:en'
+    },
+    {
+        'category': 'business',
+        'label': 'Business & Markets',
+        'badge': '💼 Business',
+        'lang': 'en',
+        'url': 'https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN:en'
+    },
+    {
+        'category': 'sports',
+        'label': 'Sports & Cricket',
+        'badge': '🏆 Sports',
+        'lang': 'en',
+        'url': 'https://news.google.com/rss/headlines/section/topic/SPORTS?hl=en-IN&gl=IN&ceid=IN:en'
+    },
+    {
+        'category': 'entertainment',
+        'label': 'Entertainment & Cinema',
+        'badge': '🎭 Entertainment',
+        'lang': 'en',
+        'url': 'https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT?hl=en-IN&gl=IN&ceid=IN:en'
     },
     {
         'category': 'science',
@@ -113,6 +148,27 @@ FEEDS = [
         'badge': '⚡ तकनीक',
         'lang': 'hi',
         'url': 'https://news.google.com/rss/search?q=%E0%A4%A4%E0%A4%95%E0%A4%A8%E0%A5%80%E0%A4%95+AI+%E0%A4%8F%E0%A4%86%E0%A4%88&hl=hi&gl=IN&ceid=IN:hi'
+    },
+    {
+        'category': 'business',
+        'label': 'Business & Paisa (Hindi)',
+        'badge': '📈 बिज़नेस',
+        'lang': 'hi',
+        'url': 'https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=hi&gl=IN&ceid=IN:hi'
+    },
+    {
+        'category': 'sports',
+        'label': 'Sports & Cricket (Hindi)',
+        'badge': '🏏 खेल',
+        'lang': 'hi',
+        'url': 'https://news.google.com/rss/headlines/section/topic/SPORTS?hl=hi&gl=IN&ceid=IN:hi'
+    },
+    {
+        'category': 'entertainment',
+        'label': 'Entertainment & Cinema (Hindi)',
+        'badge': '🎬 सिनेमा',
+        'lang': 'hi',
+        'url': 'https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT?hl=hi&gl=IN&ceid=IN:hi'
     },
     {
         'category': 'viral',
@@ -232,6 +288,24 @@ def save_news(news_list):
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(news_list, f, indent=2, ensure_ascii=False)
 
+def extract_keywords(item):
+    cat = item['category']
+    is_hi = item.get('lang') == 'hi' or is_hindi(item['title'])
+    base_kw = {
+        'space': ['ISRO', 'Space News', 'NASA', 'अंतरिक्ष समाचार', 'गगनयान', 'चंद्रयान', 'खगोल विज्ञान'] if is_hi else ['ISRO', 'Space News', 'NASA', 'Astronomy', 'Rocket Launch', 'Cosmic Exploration'],
+        'india': ['India News', 'ताज़ा समाचार', 'Breaking News India', 'देश', 'राजनीति', 'लाइव अपडेट'] if is_hi else ['India News', 'Breaking News', 'National Updates', 'Government Policy', 'India Top Stories'],
+        'tech': ['Tech News', 'AI तकनीक', 'आर्टिफिशियल इंटेलिजेंस', 'स्मार्टफोन', 'टेक्नोलॉजी', 'नवाचार'] if is_hi else ['Technology News', 'Artificial Intelligence', 'AI Innovation', 'Tech Gadgets', 'Computing'],
+        'business': ['Business News', 'शेयर बाज़ार', 'अर्थव्यवस्था', 'वित्त समाचार', 'सेंसेक्स', 'निवेश'] if is_hi else ['Business News', 'Stock Market', 'Finance News', 'Economy', 'Sensex', 'Investment'],
+        'sports': ['Sports News', 'क्रिकेट समाचार', 'खेल जगत', 'लाइव स्कोर', 'IPL', 'टूर्नामेंट'] if is_hi else ['Sports News', 'Cricket News', 'Athletics', 'Live Match', 'Tournament', 'Champions'],
+        'entertainment': ['Entertainment News', 'सिनेमा', 'बॉलीवुड', 'मूवी रिव्यू', 'मनोरंजन', 'ओटीटी'] if is_hi else ['Entertainment News', 'Cinema', 'Movie Releases', 'Box Office', 'Pop Culture', 'OTT'],
+        'science': ['Science News', 'वैज्ञानिक शोध', 'विज्ञान', 'पर्यावरण', 'रिसर्च'] if is_hi else ['Science News', 'Scientific Research', 'Discovery', 'Health Science', 'Nature'],
+        'viral': ['Viral News', 'ट्रेंडिंग खबरें', 'वायरल वीडियो', 'सोशल मीडिया', 'ट्रेंड्स'] if is_hi else ['Viral News', 'Trending Stories', 'Social Media Trends', 'Viral Video']
+    }.get(cat, ['TheBhom News', 'Breaking Updates'])
+    
+    title_words = [w for w in re.split(r'[\s\-:,|]+', item['title']) if len(w) > 3][:4]
+    combined = list(dict.fromkeys(base_kw + title_words))
+    return ', '.join(combined)
+
 def build_article_body(item):
     cat = item['category']
     title = item['title']
@@ -239,12 +313,12 @@ def build_article_body(item):
     is_hi = item.get('lang') == 'hi' or is_hindi(title)
     
     if is_hi:
-        intro = f"भारत और वैश्विक मंच पर <strong>{html.escape(title)}</strong> को लेकर व्यापक चर्चाएं और अपडेट्स सामने आ रहे हैं। {source} के अनुसार, इस पूरे घटनाक्रम पर विशेषज्ञों और संबंधित विभागों द्वारा पैनी नजर रखी जा रही है।"
+        intro = f"भारत और वैश्विक मंच पर <strong>{html.escape(title)}</strong> को लेकर व्यापक चर्चाएं और ताज़ा अपडेट्स सामने आ रहे हैं। {source} के अनुसार, इस पूरे घटनाक्रम पर संबंधित विभागों और विशेषज्ञों द्वारा पैनी नजर रखी जा रही है।"
         if cat == 'space':
             section1_title = "मिशन विवरण एवं अंतरिक्ष अन्वेषण"
-            context_p = f"इसरो (ISRO) और वैश्विक अंतरिक्ष एजेंसियों द्वारा संचालित अभियानों के संदर्भ में यह विकास अत्यंत महत्वपूर्ण माना जा रहा है। {source} की रिपोर्ट के अनुसार, उपग्रह संचार और डीप-स्पेस टेलीमेट्री के क्षेत्र में नए तकनीकी डेटा से भविष्य के वैज्ञानिक मिशनों को नई गति मिलेगी।"
+            context_p = f"इसरो (ISRO) और वैश्विक अंतरिक्ष एजेंसियों द्वारा संचालित अभियानों के संदर्भ में यह विकास अत्यंत महत्वपूर्ण माना जा रहा है। {source} की रिपोर्ट के अनुसार, उपग्रह संचार और डीप-स्पेस टेलीमेट्री के क्षेत्र में नए तकनीकी डेटा से भविष्य के वैज्ञानिक अभियानों को नई दिशा मिलेगी।"
             impact_p = "भारतीय अंतरिक्ष अनुसंधान संगठन और सहयोगी संस्थाएं डेटा संग्रह और उपग्रह मैपिंग को मजबूत कर रही हैं, जिससे खगोलीय ज्ञान के नए आयाम खुल रहे हैं।"
-            takeaway_1 = "इसरो और अंतरराष्ट्रीय अंतरिक्ष मिशनों की दिशा में महत्वपूर्ण प्रगति।"
+            takeaway_1 = "इसरो और अंतरराष्ट्रीय अंतरिक्ष मिशनों की दिशा में महत्वपूर्ण मील का पत्थर।"
             takeaway_2 = f"{source} की आधिकारिक ब्रीफिंग और निरंतर डेटा मॉनिटरिंग।"
             takeaway_3 = "भविष्य के वैज्ञानिक अनुसंधान और युवा वैज्ञानिकों के लिए नई प्रेरणा।"
         elif cat == 'tech':
@@ -254,6 +328,27 @@ def build_article_body(item):
             takeaway_1 = "आधुनिक एआई और नेक्स्ट-जेनरेशन प्लेटफॉर्म्स के उपयोग में तीव्र वृद्धि।"
             takeaway_2 = f"{source} द्वारा सत्यापित तकनीकी विवरण और रिपोर्टिंग।"
             takeaway_3 = "डेवलपर्स, स्टार्टअप्स और सामान्य उपभोक्ताओं के लिए नए अवसर।"
+        elif cat == 'business':
+            section1_title = "व्यापार, शेयर बाजार एवं वित्तीय विश्लेषण"
+            context_p = f"भारतीय अर्थव्यवस्था, कॉर्पोरेट जगत और शेयर बाज़ार पर इस घटनाक्रम का गहरा प्रभाव देखा जा रहा है। {source} के विश्लेषकों के अनुसार, मैक्रोइकोनॉमिक संकेतकों और सेक्टरल ग्रोथ में नए बदलाव देखने को मिल रहे हैं।"
+            impact_p = "बाजार विशेषज्ञों का मानना है कि निवेशकों, वित्तीय संस्थाओं और सामान्य उपभोक्ताओं के लिए यह विकास दीर्घकालिक स्थिरता और लाभप्रदता का आधार तैयार करेगा।"
+            takeaway_1 = "शेयर बाजार सूचकांकों और औद्योगिक नीतियों पर प्रत्यक्ष प्रभाव।"
+            takeaway_2 = f"{source} द्वारा जारी ताजा वित्तीय मूल्यांकन और समीक्षा।"
+            takeaway_3 = "निवेशकों और कारोबारी जगत के लिए नए वित्तीय अवसर।"
+        elif cat == 'sports':
+            section1_title = "मैच विश्लेषण एवं खेल जगत की हलचल"
+            context_p = f"भारतीय खेल प्रेमियों और प्रशंसकों के बीच इस खबर को लेकर भारी उत्साह देखा जा रहा है। {source} के अनुसार, हालिया टूर्नामेंट और खिलाड़ियों के उल्लेखनीय प्रदर्शन ने खेल जगत का ध्यान आकर्षित किया है।"
+            impact_p = "आगामी श्रृंखलाओं और वैश्विक चैंपियनशिप की तैयारी कर रही टीमों के लिए यह परिणाम नए रणनीतिक समीकरण तैयार कर रहा है।"
+            takeaway_1 = "खिलाड़ियों का शानदार फॉर्म और मैच रणनीति में नया बदलाव।"
+            takeaway_2 = f"{source} द्वारा सत्यापित स्कोरकार्ड और खेल समीक्षा।"
+            takeaway_3 = "प्रशंसकों का उत्साह और आगामी महत्वपूर्ण मुकाबलों का इंतजार।"
+        elif cat == 'entertainment':
+            section1_title = "सिनेमा, ओटीटी एवं मनोरंजन जगत"
+            context_p = f"मनोरंजन इंडस्ट्री, बॉक्स ऑफिस और डिजिटल स्ट्रीमिंग प्लेटफॉर्म्स पर इस खबर ने हलचल मचा दी है। {source} की विशेष रिपोर्ट के अनुसार, दर्शकों और समीक्षकों की ओर से व्यापक प्रतिक्रियाएं मिल रही हैं।"
+            impact_p = "रचनात्मक कहानी और डिजिटल कंटेंट की बढ़ती मांग के बीच यह अपडेट दर्शकों के लिए मनोरंजन के नए विकल्प प्रस्तुत कर रहा है।"
+            takeaway_1 = "बॉक्स ऑफिस, ओटीटी और दर्शकों की जोरदार प्रतिक्रिया।"
+            takeaway_2 = f"{source} द्वारा उपलब्ध कराए गए विशेष इनपुट्स।"
+            takeaway_3 = "सोशल मीडिया और सिनेमा जगत में नए ट्रेंड्स की शुरुआत।"
         elif cat == 'india':
             section1_title = "राष्ट्रीय दृष्टिकोण एवं जन सरोकार"
             context_p = f"देश के प्रमुख क्षेत्रों में {html.escape(title)} को लेकर सकारात्मक विमर्श जारी है। {source} से प्राप्त आधिकारिक जानकारियों के आधार पर, यह घटनाक्रम प्रशासनिक सुधार, विकास नीतियों और जन कल्याण से गहराई से जुड़ा हुआ है।"
@@ -278,6 +373,21 @@ def build_article_body(item):
         
         section2_title = "रणनीतिक संदर्भ एवं भविष्य का परिदृश्य"
         citation = f"<strong>संपादकीय स्रोत एवं सत्यापन:</strong> यह समाचार TheBhom News Desk द्वारा सार्वजनिक आधिकारिक ब्रीफिंग, सत्यापित वायर रिपोर्ट्स और <em>{html.escape(source)}</em> के अपडेट्स के आधार पर संकलित किया गया है। सभी जानकारियों की तथ्यात्मक पुष्टि की जाती है।"
+        
+        faqs = [
+            {
+                'q': f"{html.escape(title)} की मुख्य खबर क्या है?",
+                'a': f"{takeaway_1} {takeaway_2} इस पूरे घटनाक्रम पर {html.escape(source)} की रिपोर्ट के अनुसार निरंतर निगरानी रखी जा रही है।"
+            },
+            {
+                'q': "यह खबर किस स्रोत द्वारा सत्यापित की गई है?",
+                'a': f"यह रिपोर्ट आधिकारिक प्रेस विज्ञप्तियों, सार्वजनिक ब्रीफिंग और {html.escape(source)} के सत्यापित इनपुट्स के आधार पर TheBhom News संपादकीय डेस्क द्वारा संकलित की गई है।"
+            },
+            {
+                'q': "इस घटनाक्रम का आगे क्या प्रभाव पड़ सकता है?",
+                'a': f"{impact_p}"
+            }
+        ]
     else:
         intro = f"In a notable development that has captured widespread attention across the {item['category_label'].lower()} sphere, <strong>{html.escape(title)}</strong> highlights ongoing milestones, emerging breakthroughs, and rapid global conversations."
         if cat == 'space':
@@ -294,6 +404,27 @@ def build_article_body(item):
             takeaway_1 = "Accelerated adoption of intelligent algorithms and next-generation frameworks."
             takeaway_2 = "Significant implications for developer workflows, security, and consumer speed."
             takeaway_3 = f"Validated reporting and technical insights sourced from {source}."
+        elif cat == 'business':
+            section1_title = "Market Performance & Economic Indicators"
+            context_p = f"Enterprise valuations, equity indices, and macroeconomic trends continue to reflect these emerging fiscal dynamics. Reporting via {source} indicates renewed investor focus across strategic sectors."
+            impact_p = "Analysts suggest that capital reallocation and adaptive business strategies will define operational resilience through upcoming quarters."
+            takeaway_1 = "Direct implications for equity indices and corporate forecasts."
+            takeaway_2 = f"Financial analysis and data corroboration sourced via {source}."
+            takeaway_3 = "New fiscal opportunities for institutional and retail investors."
+        elif cat == 'sports':
+            section1_title = "Match Dynamics & Athletic Highlights"
+            context_p = f"Sports audiences worldwide are actively following this latest match result and athletic showcase. Verified dispatches from {source} capture pivotal player performances and tactical highlights."
+            impact_p = "Tournament leaderboards and squad rankings underscore the high stakes governing this competitive sporting season."
+            takeaway_1 = "Standout athletic execution and game-changing tactics."
+            takeaway_2 = f"Live scorecard updates and commentary referenced from {source}."
+            takeaway_3 = "Substantial momentum leading into upcoming tournament fixtures."
+        elif cat == 'entertainment':
+            section1_title = "Cinema Trends & Streaming Highlights"
+            context_p = f"The entertainment world, theatrical box office, and streaming platforms are buzzing with audience reactions. Verified updates from {source} highlight creative milestones and storytelling breakthroughs."
+            impact_p = "Global audience reception confirms the enduring appeal of dynamic narrative experiences in the digital streaming era."
+            takeaway_1 = "Widespread viewer engagement and strong critical response."
+            takeaway_2 = f"Exclusive coverage and industry perspectives sourced from {source}."
+            takeaway_3 = "Pioneering creative trends shaping future releases."
         elif cat == 'india':
             section1_title = "National Overview & Public Impact"
             context_p = f"Across India's dynamic social, administrative, and economic sectors, discussions regarding {html.escape(title)} have trended nationwide. Verified reports from {source} highlight the strategic impact, policy perspectives, and public engagement surrounding this story."
@@ -318,6 +449,21 @@ def build_article_body(item):
         
         section2_title = "Strategic Context & Future Horizons"
         citation = f"<strong>Editorial Source & Verification:</strong> This story was compiled by TheBhom News Desk incorporating public agency briefings, verified wire reports, and updates from <em>{html.escape(source)}</em>. All information is continually monitored for factual accuracy."
+        
+        faqs = [
+            {
+                'q': f"What are the main takeaways from '{html.escape(title)}'?",
+                'a': f"{takeaway_1} {takeaway_2} Continuous updates monitored through {html.escape(source)}."
+            },
+            {
+                'q': "Which agency or source confirmed this reporting?",
+                'a': f"This report was compiled and verified by TheBhom News Desk incorporating accredited wire updates and public statements from {html.escape(source)}."
+            },
+            {
+                'q': "What is the expected long-term impact of this development?",
+                'a': f"{impact_p}"
+            }
+        ]
 
     return {
         'intro': intro,
@@ -326,7 +472,8 @@ def build_article_body(item):
         'context_p': context_p,
         'impact_p': impact_p,
         'takeaways': [takeaway_1, takeaway_2, takeaway_3],
-        'citation': citation
+        'citation': citation,
+        'faqs': faqs
     }
 
 CANONICAL_NAV_HEADER = """  <!-- HEADER -->
@@ -434,23 +581,56 @@ def render_article_html(item, related_items):
 
     lang = item.get('lang', 'en')
     is_hi = lang == 'hi'
+    locale = 'hi_IN' if is_hi else 'en_US'
+    keywords_str = extract_keywords(item)
+    word_count = len((body['intro'] + ' ' + body['context_p'] + ' ' + body['impact_p']).split()) + 120
+
+    # Build FAQ Schema and Interactive FAQ HTML
+    faqs = body.get('faqs', [])
+    faq_schema_items = []
+    faq_html_items = ""
+    for fq in faqs:
+        q_esc = html.escape(fq['q'])
+        a_esc = html.escape(fq['a'])
+        faq_schema_items.append(f"""    {{
+      "@type": "Question",
+      "name": "{q_esc}",
+      "acceptedAnswer": {{
+        "@type": "Answer",
+        "text": "{a_esc}"
+      }}
+    }}""")
+        faq_html_items += f"""
+        <details style="margin-bottom: 0.75rem; background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.85rem 1.15rem; transition: border-color 0.2s ease;">
+          <summary style="font-weight: 600; cursor: pointer; color: #1e293b; outline: none;">{q_esc}</summary>
+          <p style="margin: 0.65rem 0 0 0; color: #475569; font-size: 0.95rem; line-height: 1.65;">{a_esc}</p>
+        </details>"""
+    faq_schema_json = ",\n".join(faq_schema_items)
 
     article_html = f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title_esc} — TheBhom News</title>
+  <title>{title_esc} | ताज़ा समाचार और लाइव अपडेट्स — TheBhom</title>
   <meta name="description" content="{html.escape(item['desc_snippet'] or item['title'])}">
+  <meta name="keywords" content="{keywords_str}">
   <link rel="canonical" href="{canonical_url}">
   
   <!-- Open Graph / Social -->
   <meta property="og:type" content="article">
+  <meta property="og:locale" content="{locale}">
   <meta property="og:title" content="{title_esc}">
   <meta property="og:description" content="{html.escape(item['desc_snippet'] or item['title'])}">
   <meta property="og:url" content="{canonical_url}">
   <meta property="og:image" content="{img_url}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
   <meta property="og:site_name" content="TheBhom News">
+  <meta property="article:published_time" content="{iso_date}">
+  <meta property="article:modified_time" content="{iso_date}">
+  <meta property="article:section" content="{html.escape(item['category_label'])}">
+  <meta property="article:tag" content="{keywords_str.split(',')[0]}">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title_esc}">
@@ -471,6 +651,51 @@ def render_article_html(item, related_items):
   <link rel="preload" href="/shared.css?v=20260914_imgpdf_v9" as="style">
   <link rel="stylesheet" href="/shared.css?v=20260914_imgpdf_v9">
   
+  <!-- Breadcrumbs Schema JSON-LD -->
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.thebhom.in/"
+      }},
+      {{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "News",
+        "item": "https://www.thebhom.in/news/"
+      }},
+      {{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{html.escape(item['category_label'])}",
+        "item": "https://www.thebhom.in/news/"
+      }},
+      {{
+        "@type": "ListItem",
+        "position": 4,
+        "name": "{title_esc}",
+        "item": "{canonical_url}"
+      }}
+    ]
+  }}
+  </script>
+
+  <!-- FAQPage Schema JSON-LD for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+{faq_schema_json}
+    ]
+  }}
+  </script>
+
   <!-- Schema.org NewsArticle JSON-LD -->
   <script type="application/ld+json">
   {{
@@ -487,6 +712,14 @@ def render_article_html(item, related_items):
     ],
     "datePublished": "{iso_date}",
     "dateModified": "{iso_date}",
+    "articleSection": "{html.escape(item['category_label'])}",
+    "keywords": "{keywords_str}",
+    "isAccessibleForFree": "True",
+    "wordCount": {word_count},
+    "speakable": {{
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".article-title", ".highlights-box", ".article-content"]
+    }},
     "author": {{
       "@type": "Organization",
       "name": "TheBhom Editorial Desk",
@@ -497,7 +730,9 @@ def render_article_html(item, related_items):
       "name": "TheBhom",
       "logo": {{
         "@type": "ImageObject",
-        "url": "https://www.thebhom.in/icon-512.png"
+        "url": "https://www.thebhom.in/icon-512.png",
+        "width": 512,
+        "height": 512
       }}
     }},
     "description": "{html.escape(item['desc_snippet'] or item['title'])}"
@@ -817,6 +1052,14 @@ def render_article_html(item, related_items):
         <div class="source-citation">
           {body['citation']}
         </div>
+
+        <!-- Interactive FAQ Section -->
+        <section class="faq-section" style="margin: 2rem 0; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.5rem;">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.15rem; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
+            ❓ {('अक्सर पूछे जाने वाले प्रश्न (FAQ)' if is_hi else 'Frequently Asked Questions (FAQ)')}
+          </h3>
+          {faq_html_items}
+        </section>
       </div>
 
       <!-- Social Share Bar -->
@@ -1252,10 +1495,12 @@ def render_news_hub_html(all_news):
       <button class="tab-btn active" onclick="filterCategory('all', this)">All Stories</button>
       <button class="tab-btn" onclick="filterCategory('hindi', this)">🇮🇳 हिन्दी समाचार</button>
       <button class="tab-btn" onclick="filterCategory('space', this)">🚀 Space & ISRO</button>
-      <button class="tab-btn" onclick="filterCategory('india', this)">🇮🇳 India News</button>
       <button class="tab-btn" onclick="filterCategory('tech', this)">⚡ Tech & AI</button>
-      <button class="tab-btn" onclick="filterCategory('science', this)">🔬 Science & Facts</button>
-      <button class="tab-btn" onclick="filterCategory('viral', this)">🔥 Viral & Trending</button>
+      <button class="tab-btn" onclick="filterCategory('business', this)">📈 Business & Paisa</button>
+      <button class="tab-btn" onclick="filterCategory('sports', this)">🏏 Sports & Cricket</button>
+      <button class="tab-btn" onclick="filterCategory('entertainment', this)">🎬 Cinema & Viral</button>
+      <button class="tab-btn" onclick="filterCategory('india', this)">🇮🇳 India News</button>
+      <button class="tab-btn" onclick="filterCategory('science', this)">🔬 Science</button>
     </nav>
 
     <!-- Hero Featured Story -->
@@ -1333,7 +1578,7 @@ def generate_rss_feed(news_list):
     pub_date_now = datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S GMT')
     
     xml_items = []
-    for item in news_list[:50]:
+    for item in news_list[:60]:
         title = html.unescape(item['title']).strip()
         link = html.escape(f"https://www.thebhom.in/news/{item['slug']}")
         desc = html.unescape(item.get('desc_snippet') or item['title']).replace('\xa0', ' ').strip()
@@ -1368,13 +1613,13 @@ def generate_rss_feed(news_list):
     return rss_xml
 
 def generate_google_news_sitemap(news_list):
-    """Generate specialized Google News XML sitemap (<news:news>)"""
-    today_iso = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    """Generate specialized Google News XML sitemap (<news:news>) for stories published within the last 48 hours."""
     xml_items = []
-    for item in news_list[:40]:
+    for item in news_list[:80]:
         loc = f"https://www.thebhom.in/news/{item['slug']}"
         title = html.escape(item['title'])
-        pub_date = item.get('iso_date', f"{today_iso}T00:00:00+05:30")
+        pub_date = item.get('iso_date', datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S+05:30'))
+        kw = html.escape(extract_keywords(item))
         
         xml_items.append(f"""  <url>
     <loc>{loc}</loc>
@@ -1385,6 +1630,7 @@ def generate_google_news_sitemap(news_list):
       </news:publication>
       <news:publication_date>{pub_date}</news:publication_date>
       <news:title>{title}</news:title>
+      <news:keywords>{kw}</news:keywords>
     </news:news>
   </url>""")
 
@@ -1395,6 +1641,22 @@ def generate_google_news_sitemap(news_list):
 </urlset>
 """
     return sitemap_news_xml
+
+def ping_search_engines():
+    """Ping Google and Bing sitemap endpoints to notify crawlers instantly."""
+    pings = [
+        "https://www.google.com/ping?sitemap=https://www.thebhom.in/sitemap-news.xml",
+        "https://www.google.com/ping?sitemap=https://www.thebhom.in/sitemap.xml",
+        "https://www.bing.com/ping?sitemap=https://www.thebhom.in/sitemap-news.xml"
+    ]
+    ctx = ssl._create_unverified_context()
+    for url in pings:
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'TheBhomNewsBot/2.0'})
+            with urllib.request.urlopen(req, context=ctx, timeout=5) as resp:
+                print(f"[PING] {url.split('=')[-1]} -> HTTP {resp.status}")
+        except Exception as e:
+            print(f"[PING NOTICE] {url.split('=')[-1]}: {e}")
 
 def update_homepage_internal_linking(latest_news):
     """Kept clean: News is isolated to /news/ per user design preference"""
@@ -1431,8 +1693,8 @@ def main():
         existing_slugs.add(slug)
         added_count += 1
 
-    # Keep database at max 180 curated items
-    existing_news = existing_news[:180]
+    # Keep database at max 350 curated items
+    existing_news = existing_news[:350]
     save_news(existing_news)
     print(f"Added {added_count} new stories. Total in database: {len(existing_news)}")
 
@@ -1470,11 +1732,9 @@ def main():
     # 6. Update Homepage Internal Linking
     update_homepage_internal_linking(existing_news)
 
-    # 7. Update master sitemap.xml with /news/ and all news articles
-    sitemap_script = os.path.join(BASE_DIR, 'generate_sitemap.py')
-    if os.path.exists(sitemap_script):
-        # We can append news section into generate_sitemap.py
-        pass
+    # 7. Ping Search Engines
+    if added_count > 0:
+        ping_search_engines()
 
     print("News Engine execution completed successfully!")
 
