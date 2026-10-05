@@ -69,8 +69,25 @@ def http_get(url, headers=None, timeout=10):
         return 0, str(e)
 
 def get_news_urls(limit=100):
-    _, xml = http_get(f'{SITE_URL}/sitemap-news.xml')
-    return re.findall(r'<loc>([^<]+)</loc>', xml)[:limit]
+    urls = []
+    # 1. Local sitemap-news.xml if exists, else fetch
+    news_sitemap = os.path.join(BASE_DIR, 'sitemap-news.xml')
+    if os.path.exists(news_sitemap):
+        with open(news_sitemap, 'r', encoding='utf-8') as f:
+            urls.extend(re.findall(r'<loc>([^<]+)</loc>', f.read()))
+    if not urls:
+        _, xml = http_get(f'{SITE_URL}/sitemap-news.xml')
+        urls.extend(re.findall(r'<loc>([^<]+)</loc>', xml))
+    return urls[:limit]
+
+def get_all_sitemap_urls():
+    all_urls = set()
+    for s_file in ['sitemap.xml', 'sitemap-news.xml']:
+        p = os.path.join(BASE_DIR, s_file)
+        if os.path.exists(p):
+            with open(p, 'r', encoding='utf-8') as f:
+                all_urls.update(re.findall(r'<loc>([^<]+)</loc>', f.read()))
+    return sorted(list(all_urls))
 
 def parse_articles(urls, limit=10):
     arts = []
@@ -98,12 +115,21 @@ def parse_articles(urls, limit=10):
 
 # ── IndexNow ──────────────────────────────────────────────────────────────────
 def submit_indexnow(urls):
-    payload = {"host": "www.thebhom.in", "key": INDEXNOW_KEY,
-               "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt", "urlList": urls[:100]}
-    for ep in ["https://api.indexnow.org/indexnow", "https://www.bing.com/indexnow"]:
-        s, _ = http_post(ep, payload)
-        log(f"[IndexNow] {ep} -> HTTP {s} ({len(urls)} URLs)")
-        time.sleep(1)
+    if not urls:
+        urls = get_all_sitemap_urls()
+    # Submit in batches of 100
+    for i in range(0, len(urls), 100):
+        batch = urls[i:i+100]
+        payload = {
+            "host": "www.thebhom.in",
+            "key": INDEXNOW_KEY,
+            "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
+            "urlList": batch
+        }
+        for ep in ["https://api.indexnow.org/indexnow", "https://www.bing.com/indexnow"]:
+            s, _ = http_post(ep, payload)
+            log(f"[IndexNow] {ep} -> HTTP {s} (Batch {i//100 + 1}: {len(batch)} URLs)")
+            time.sleep(1)
 
 # ── RSS Feed ──────────────────────────────────────────────────────────────────
 def generate_rss(arts):
@@ -222,8 +248,11 @@ def main():
     arts = parse_articles(urls, 10)
     log(f"Loaded {len(urls)} URLs, parsed {len(arts)} articles")
 
-    log("--- IndexNow Bulk Submit ---")
-    submit_indexnow(urls)
+    all_site_urls = get_all_sitemap_urls()
+    log(f"Loaded {len(all_site_urls)} total sitemap URLs across the entire site")
+
+    log("--- IndexNow Bulk Submit (All 250+ Pages) ---")
+    submit_indexnow(all_site_urls)
 
     log("--- RSS Feed Generation ---")
     all_arts = parse_articles(urls, 30)
