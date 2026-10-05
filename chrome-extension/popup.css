@@ -1,0 +1,333 @@
+/* TheBhom Chrome Extension Stylesheet */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  width: 360px;
+  background-color: #f8fafc;
+  color: #0f172a;
+  padding: 14px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.1;
+}
+
+.brand-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.badge-free {
+  font-size: 11px;
+  font-weight: 600;
+  color: #059669;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+
+/* Tabs */
+.tab-nav {
+  display: flex;
+  gap: 6px;
+  background: #e2e8f0;
+  padding: 4px;
+  border-radius: 10px;
+  margin: 12px 0;
+}
+
+.tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 6px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+/* Tools Grid */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.1);
+}
+
+.tool-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.tool-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.tool-desc {
+  font-size: 10px;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.cta-full-btn {
+  display: block;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.cta-full-btn:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+/* Deals Hero Card */
+.deal-hero-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.deal-pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #e11d48;
+  background: #ffe4e6;
+  padding: 3px 8px;
+  border-radius: 100px;
+  margin-bottom: 6px;
+}
+
+.deal-hero-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.deal-hero-p {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.deal-action-btn {
+  display: block;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px;
+  border-radius: 8px;
+  text-align: center;
+  transition: background 0.15s ease;
+}
+
+.deal-action-btn.primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.deal-action-btn.primary:hover {
+  background: #1d4ed8;
+}
+
+.deal-action-btn.secondary {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.deal-action-btn.secondary:hover {
+  background: #1e293b;
+}
+
+.channel-promo-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.channel-icon {
+  font-size: 20px;
+}
+
+.channel-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.channel-sub {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.channel-btn {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.channel-btn:hover {
+  background: #0369a1;
+}
+
+/* News Card */
+.news-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.news-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #2563eb;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.news-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.news-desc {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Footer */
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.site-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-link:hover {
+  text-decoration: underline;
+}
+
+.dot {
+  font-weight: bold;
+}

@@ -120,10 +120,11 @@ def submit_indexnow(urls):
     # Submit in batches of 100
     for i in range(0, len(urls), 100):
         batch = urls[i:i+100]
+        host_domain = urllib.parse.urlparse(SITE_URL).netloc.replace('www.', '')
         payload = {
-            "host": "www.thebhom.in",
+            "host": host_domain,
             "key": INDEXNOW_KEY,
-            "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
+            "keyLocation": f"https://{host_domain}/{INDEXNOW_KEY}.txt",
             "urlList": batch
         }
         for ep in ["https://api.indexnow.org/indexnow", "https://www.bing.com/indexnow"]:

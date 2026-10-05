@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "TheBhom - Free PDF Tools & Loot Deals",
+  "short_name": "TheBhom",
+  "version": "1.0.0",
+  "description": "Instant free access to PDF compression, merge, image conversion tools and daily loot deals from Amazon & Flipkart.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "TheBhom: Free Tools & Deals"
+  },
+  "permissions": []
+}

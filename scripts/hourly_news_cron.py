@@ -108,10 +108,11 @@ def ping_search_engines(new_urls=None):
         ]
 
     # IndexNow payload (Google + Bing both accept api.indexnow.org)
+    host_domain = urllib.parse.urlparse(SITE_URL).netloc.replace('www.', '') or "thebhom.in"
     payload = json.dumps({
-        "host": "www.thebhom.in",
+        "host": host_domain,
         "key": INDEXNOW_KEY,
-        "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
+        "keyLocation": f"https://{host_domain}/{INDEXNOW_KEY}.txt",
         "urlList": new_urls[:100]  # max 100 per call
     }).encode('utf-8')
 
@@ -206,9 +207,17 @@ def run_hourly_cycle():
     # 6. Purge Cloudflare Cache
     purge_cloudflare_cache()
 
-    # 7. IndexNow — instant Google/Bing indexing of new articles
+    # 7. IndexNow — instant Google/Bing indexing of new articles, deals & tools
     index_urls = new_article_urls if new_article_urls else [f"{SITE_URL}/news/"]
-    index_urls += [f"{SITE_URL}/sitemap-news.xml", f"{SITE_URL}/news/"]
+    index_urls += [
+        f"{SITE_URL}/sitemap-news.xml",
+        f"{SITE_URL}/news/",
+        f"{SITE_URL}/deals/",
+        f"{SITE_URL}/imgpdf/compress-pdf-online",
+        f"{SITE_URL}/imgpdf/merge-pdf",
+        f"{SITE_URL}/imgpdf/image-to-pdf",
+        f"{SITE_URL}/tools/compress-image"
+    ]
     ping_search_engines(list(dict.fromkeys(index_urls)))  # deduplicated
 
     # 8. Traffic Booster — Platform submissions (Reddit, Pinterest, Telegram, RSS, Mix.com)
