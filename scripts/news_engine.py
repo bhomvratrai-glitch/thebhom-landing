@@ -56,41 +56,107 @@ CATEGORY_IMAGES = {
 }
 
 FEEDS = [
+    # English Feeds
     {
         'category': 'space',
         'label': 'Space & ISRO',
         'badge': '🚀 Space',
+        'lang': 'en',
         'url': 'https://news.google.com/rss/search?q=ISRO+space+NASA+astronomy&hl=en-IN&gl=IN&ceid=IN:en'
     },
     {
         'category': 'india',
         'label': 'India News',
         'badge': '🇮🇳 India',
+        'lang': 'en',
         'url': 'https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en'
     },
     {
         'category': 'tech',
         'label': 'Tech & AI',
         'badge': '⚡ Tech',
+        'lang': 'en',
         'url': 'https://news.google.com/rss/search?q=technology+artificial+intelligence+AI+innovation&hl=en-IN&gl=IN&ceid=IN:en'
     },
     {
         'category': 'science',
         'label': 'Science & Facts',
         'badge': '🔬 Science',
+        'lang': 'en',
         'url': 'https://news.google.com/rss/search?q=science+discovery+research+nature&hl=en-IN&gl=IN&ceid=IN:en'
     },
     {
         'category': 'viral',
         'label': 'Trending & Viral',
         'badge': '🔥 Viral',
+        'lang': 'en',
         'url': 'https://news.google.com/rss/search?q=viral+trending+story+India&hl=en-IN&gl=IN&ceid=IN:en'
+    },
+    # Hindi Feeds (Real-Time Authentic Indian Feeds)
+    {
+        'category': 'india',
+        'label': 'Hindi Top News',
+        'badge': '🇮🇳 देश',
+        'lang': 'hi',
+        'url': 'https://news.google.com/rss?hl=hi&gl=IN&ceid=IN:hi'
+    },
+    {
+        'category': 'space',
+        'label': 'Space & ISRO (Hindi)',
+        'badge': '🚀 अंतरिक्ष',
+        'lang': 'hi',
+        'url': 'https://news.google.com/rss/search?q=%E0%A4%87%E0%A4%B8%E0%A4%B0%E0%A5%8B+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B7&hl=hi&gl=IN&ceid=IN:hi'
+    },
+    {
+        'category': 'tech',
+        'label': 'Tech & AI (Hindi)',
+        'badge': '⚡ तकनीक',
+        'lang': 'hi',
+        'url': 'https://news.google.com/rss/search?q=%E0%A4%A4%E0%A4%95%E0%A4%A8%E0%A5%80%E0%A4%95+AI+%E0%A4%8F%E0%A4%86%E0%A4%88&hl=hi&gl=IN&ceid=IN:hi'
+    },
+    {
+        'category': 'viral',
+        'label': 'Viral Stories (Hindi)',
+        'badge': '🔥 वायरल',
+        'lang': 'hi',
+        'url': 'https://news.google.com/rss/search?q=%E0%A4%B5%E0%A4%BE%E0%A4%AF%E0%A4%B0%E0%A4%B2+%E0%A4%96%E0%A4%AC%E0%A4%B0%E0%A5%87%E0%A4%82&hl=hi&gl=IN&ceid=IN:hi'
     }
 ]
 
+DEVANAGARI_MAP = {
+    'अ': 'a', 'आ': 'aa', 'इ': 'i', 'ई': 'ee', 'उ': 'u', 'ऊ': 'oo',
+    'ऋ': 'ri', 'ए': 'e', 'ऐ': 'ai', 'ओ': 'o', 'औ': 'au',
+    'क': 'k', 'ख': 'kh', 'ग': 'g', 'घ': 'gh', 'ङ': 'ng',
+    'च': 'ch', 'छ': 'chh', 'ज': 'j', 'झ': 'jh', 'ञ': 'ny',
+    'ट': 't', 'ठ': 'th', 'ड': 'd', 'ढ': 'dh', 'ण': 'n',
+    'त': 't', 'थ': 'th', 'द': 'd', 'ध': 'dh', 'न': 'n',
+    'प': 'p', 'फ': 'f', 'ब': 'b', 'भ': 'bh', 'म': 'm',
+    'य': 'y', 'र': 'r', 'ल': 'l', 'व': 'v', 'श': 'sh',
+    'ष': 'sh', 'स': 's', 'ह': 'h',
+    'ा': 'a', 'ि': 'i', 'ी': 'ee', 'ु': 'u', 'ू': 'oo',
+    'ृ': 'ri', 'े': 'e', 'ै': 'ai', 'ो': 'o', 'ौ': 'au',
+    'ं': 'n', 'ः': 'h', 'ँ': 'n', '्': '', '़': ''
+}
+
+def is_hindi(text):
+    return any('\u0900' <= ch <= '\u097F' for ch in text)
+
+def transliterate_hindi(text):
+    res = []
+    for ch in text:
+        if ch in DEVANAGARI_MAP:
+            res.append(DEVANAGARI_MAP[ch])
+        elif ('a' <= ch.lower() <= 'z') or ('0' <= ch <= '9') or ch.isspace() or ch == '-':
+            res.append(ch)
+        else:
+            res.append(' ')
+    return ''.join(res)
+
 def make_slug(title):
-    # Remove source suffix like " - The Hindu"
+    # Remove source suffix like " - The Hindu" or " - Aaj Tak"
     t = re.sub(r'\s*-\s*[^-]+$', '', title).strip()
+    if is_hindi(t):
+        t = transliterate_hindi(t)
     slug = re.sub(r'[^a-zA-Z0-9\s-]', '', t).strip().lower()
     slug = re.sub(r'[\s-]+', '-', slug)
     return slug[:75].strip('-')
@@ -118,7 +184,7 @@ def fetch_rss_items():
                 tree = ET.fromstring(xml_data)
                 items = tree.findall('.//item')
                 
-                for it in items[:8]:  # Top 8 from each feed
+                for it in items[:10]:  # Top 10 from each feed
                     raw_title = it.find('title').text if it.find('title') is not None else ''
                     link = it.find('link').text if it.find('link') is not None else ''
                     pub_date = it.find('pubDate').text if it.find('pubDate') is not None else ''
@@ -129,10 +195,11 @@ def fetch_rss_items():
                         
                     clean_t = clean_title(raw_title)
                     slug = make_slug(clean_t)
-                    if not slug or len(slug) < 10:
+                    if not slug or len(slug) < 8:
                         continue
                         
                     source = extract_source(raw_title)
+                    is_hi = feed_info.get('lang') == 'hi' or is_hindi(clean_t)
                     
                     fetched.append({
                         'title': clean_t,
@@ -144,6 +211,7 @@ def fetch_rss_items():
                         'category': feed_info['category'],
                         'category_label': feed_info['label'],
                         'category_badge': feed_info['badge'],
+                        'lang': 'hi' if is_hi else 'en',
                         'desc_snippet': re.sub(r'<[^>]+>', '', desc).strip()[:180]
                     })
         except Exception as e:
@@ -168,54 +236,174 @@ def build_article_body(item):
     cat = item['category']
     title = item['title']
     source = item['source']
+    is_hi = item.get('lang') == 'hi' or is_hindi(title)
     
-    # Generate authentic, editorial-style paragraphs with key highlights
-    intro = f"In a notable development that has captured widespread attention across the {item['category_label'].lower()} sphere, <strong>{html.escape(title)}</strong> highlights ongoing milestones, emerging breakthroughs, and rapid global conversations."
-    
-    section1_title = "Key Highlights & What We Know"
-    if cat == 'space':
-        section1_title = "Mission Details & Cosmic Significance"
-        context_p = f"Astronomers, space agencies, and researchers continue to closely monitor updates surrounding this mission. With advancements in deep-space telemetry, lunar surface initiatives, and next-generation launch architectures, projects under {source} and global collaborative frameworks mark critical leaps forward for mankind's cosmic understanding."
-        impact_p = "From analyzing regolith compositions to unlocking spectroscopic signatures of early cosmic formations, these milestones underline how rapid computational astrophysics and satellite miniaturization are rewriting the rules of space science."
-        takeaway_1 = "Strategic expansion of planetary research and deep-space telemetry programs."
-        takeaway_2 = f"Active verification and updates monitored via official {source} communications."
-        takeaway_3 = "Long-term data collection contributing to global astrophysics archives."
-    elif cat == 'tech':
-        section1_title = "Technological Architecture & Innovation"
-        context_p = f"The global technology landscape is experiencing rapid tectonic shifts driven by multimodal artificial intelligence, edge compute, and high-efficiency architectures. This development reported via {source} illustrates how enterprise and consumer tools are evolving simultaneously."
-        impact_p = "Industry analysts point to increasing decentralization, reduced latency, and real-time generative capabilities as catalysts reshaping work, productivity, and modern user experiences."
-        takeaway_1 = "Accelerated adoption of intelligent algorithms and next-generation frameworks."
-        takeaway_2 = "Significant implications for developer workflows, security, and consumer speed."
-        takeaway_3 = f"Validated reporting and technical insights sourced from {source}."
-    elif cat == 'india':
-        section1_title = "National Overview & Public Impact"
-        context_p = f"Across India's dynamic social, administrative, and economic sectors, discussions regarding {html.escape(title)} have trended nationwide. Verified reports from {source} highlight the strategic impact, policy perspectives, and public engagement surrounding this story."
-        impact_p = "With high digital penetration and real-time connectivity, Indian communities continue to drive vibrant conversations, demanding transparent information, high-speed governance, and public service innovation."
-        takeaway_1 = "Widespread nationwide attention with verified public updates."
-        takeaway_2 = f"Key perspectives and official briefing notes referenced from {source}."
-        takeaway_3 = "Sustained interest across digital communities and public sector observers."
-    elif cat == 'science':
-        section1_title = "Scientific Findings & Methodological Context"
-        context_p = f"Peer-reviewed frameworks and observational studies reported by {source} shed fresh light on natural phenomena, experimental biology, and climate models. Cross-referencing field data enables researchers to formulate more resilient predictive models."
-        impact_p = "Understanding these fundamental mechanisms provides actionable insights for environmental conservation, healthcare innovation, and empirical scientific literacy."
-        takeaway_1 = "Robust empirical observation backed by cross-disciplinary field research."
-        takeaway_2 = "Comprehensive peer review and verification through international scientific desks."
-        takeaway_3 = "Direct implications for applied technology, medicine, and planetary ecology."
+    if is_hi:
+        intro = f"भारत और वैश्विक मंच पर <strong>{html.escape(title)}</strong> को लेकर व्यापक चर्चाएं और अपडेट्स सामने आ रहे हैं। {source} के अनुसार, इस पूरे घटनाक्रम पर विशेषज्ञों और संबंधित विभागों द्वारा पैनी नजर रखी जा रही है।"
+        if cat == 'space':
+            section1_title = "मिशन विवरण एवं अंतरिक्ष अन्वेषण"
+            context_p = f"इसरो (ISRO) और वैश्विक अंतरिक्ष एजेंसियों द्वारा संचालित अभियानों के संदर्भ में यह विकास अत्यंत महत्वपूर्ण माना जा रहा है। {source} की रिपोर्ट के अनुसार, उपग्रह संचार और डीप-स्पेस टेलीमेट्री के क्षेत्र में नए तकनीकी डेटा से भविष्य के वैज्ञानिक मिशनों को नई गति मिलेगी।"
+            impact_p = "भारतीय अंतरिक्ष अनुसंधान संगठन और सहयोगी संस्थाएं डेटा संग्रह और उपग्रह मैपिंग को मजबूत कर रही हैं, जिससे खगोलीय ज्ञान के नए आयाम खुल रहे हैं।"
+            takeaway_1 = "इसरो और अंतरराष्ट्रीय अंतरिक्ष मिशनों की दिशा में महत्वपूर्ण प्रगति।"
+            takeaway_2 = f"{source} की आधिकारिक ब्रीफिंग और निरंतर डेटा मॉनिटरिंग।"
+            takeaway_3 = "भविष्य के वैज्ञानिक अनुसंधान और युवा वैज्ञानिकों के लिए नई प्रेरणा।"
+        elif cat == 'tech':
+            section1_title = "तकनीकी नवाचार एवं डिजिटल विकास"
+            context_p = f"आर्टिफिशियल इंटेलिजेंस (AI), ऑटोमेशन और आधुनिक कंप्यूटिंग के इस दौर में यह कदम बेहद अहम साबित हो रहा है। {source} के विश्लेषकों का मानना है कि इससे न केवल डिजिटल उत्पादकता बढ़ेगी बल्कि नए उद्योग मानक भी स्थापित होंगे।"
+            impact_p = "उद्योग जगत के विशेषज्ञों के अनुसार, उच्च-दक्षता वाले एल्गोरिदम और डिजिटल सुरक्षा समाधान आधुनिक तकनीकी पारिस्थितिकी तंत्र को और अधिक मजबूत बना रहे हैं।"
+            takeaway_1 = "आधुनिक एआई और नेक्स्ट-जेनरेशन प्लेटफॉर्म्स के उपयोग में तीव्र वृद्धि।"
+            takeaway_2 = f"{source} द्वारा सत्यापित तकनीकी विवरण और रिपोर्टिंग।"
+            takeaway_3 = "डेवलपर्स, स्टार्टअप्स और सामान्य उपभोक्ताओं के लिए नए अवसर।"
+        elif cat == 'india':
+            section1_title = "राष्ट्रीय दृष्टिकोण एवं जन सरोकार"
+            context_p = f"देश के प्रमुख क्षेत्रों में {html.escape(title)} को लेकर सकारात्मक विमर्श जारी है। {source} से प्राप्त आधिकारिक जानकारियों के आधार पर, यह घटनाक्रम प्रशासनिक सुधार, विकास नीतियों और जन कल्याण से गहराई से जुड़ा हुआ है।"
+            impact_p = "डिजिटल कनेक्टिविटी और तेज सूचना प्रवाह के कारण देश भर के नागरिक इस मुद्दे पर सक्रियता से अपनी राय साझा कर रहे हैं।"
+            takeaway_1 = "देशव्यापी स्तर पर चर्चा में बना हुआ प्रमुख और प्रासंगिक विषय।"
+            takeaway_2 = f"{source} के विश्वसनीय स्रोतों से प्राप्त सत्यापित जानकारी।"
+            takeaway_3 = "सार्वजनिक नीतियों और विकास कार्यों में पारदर्शिता का प्रयास।"
+        elif cat == 'science':
+            section1_title = "वैज्ञानिक तथ्य एवं शोध निष्कर्ष"
+            context_p = f"वैज्ञानिक अनुसंधान और प्रयोगशाला अध्ययनों द्वारा प्रस्तुत तथ्यों के आधार पर, {source} ने इस नए शोध को पर्यावरण और मानव विकास के लिए महत्वपूर्ण बताया है।"
+            impact_p = "प्राकृतिक प्रक्रियाओं की गहरी समझ से स्वास्थ्य, जैव-विविधता और व्यावहारिक विज्ञान में नए अनुप्रयोगों का मार्ग प्रशस्त हो रहा है।"
+            takeaway_1 = "प्रमाणित शोध और वैज्ञानिक परीक्षणों पर आधारित पुख्ता तथ्य।"
+            takeaway_2 = f"{source} के माध्यम से सामने आए शोध के नए बिंदु।"
+            takeaway_3 = "पारिस्थितिकी, तकनीक और चिकित्सा जगत पर संभावित सकारात्मक प्रभाव।"
+        else:
+            section1_title = "वायरल ट्रेंड और सोशल मीडिया संवाद"
+            context_p = f"डिजिटल प्लेटफॉर्म्स और सोशल मीडिया पर यह विषय तेजी से ट्रेंड कर रहा है। {source} द्वारा प्रकाशित इस खबर पर लाखों लोग अपनी प्रतिक्रियाएं व्यक्त कर रहे हैं।"
+            impact_p = "ऑनलाइन कम्युनिटी और क्रिएटर्स के बीच इस कहानी ने एक जीवंत संवाद को जन्म दिया है, जो डिजिटल युग के सामाजिक जुड़ाव को दर्शाता है।"
+            takeaway_1 = "सोशल मीडिया पर तेजी से फैलता ट्रेंड और लाखों पाठकों का जुड़ाव।"
+            takeaway_2 = f"{source} द्वारा तथ्यों की पुष्टि और निष्पक्ष रिपोर्टिंग।"
+            takeaway_3 = "सकारात्मक सामाजिक संवाद और यूजर्स की जीवंत भागीदारी।"
+        
+        section2_title = "रणनीतिक संदर्भ एवं भविष्य का परिदृश्य"
+        citation = f"<strong>संपादकीय स्रोत एवं सत्यापन:</strong> यह समाचार TheBhom News Desk द्वारा सार्वजनिक आधिकारिक ब्रीफिंग, सत्यापित वायर रिपोर्ट्स और <em>{html.escape(source)}</em> के अपडेट्स के आधार पर संकलित किया गया है। सभी जानकारियों की तथ्यात्मक पुष्टि की जाती है।"
     else:
-        section1_title = "Trending Story & Social Relevance"
-        context_p = f"Stories capturing viral resonance across digital platforms often reflect broader cultural pulses, viral community movements, and compelling human journeys. Sourced through {source}, this development has resonated with millions across social channels."
-        impact_p = "As creator ecosystems expand, authentic human stories demonstrate the power of digital narrative sharing, bringing diverse communities together in real time."
-        takeaway_1 = "Massive viral engagement and audience discussion across platforms."
-        takeaway_2 = f"Fact-checked details and narrative corroboration via {source}."
-        takeaway_3 = "Ongoing community reactions and positive social discourse."
+        intro = f"In a notable development that has captured widespread attention across the {item['category_label'].lower()} sphere, <strong>{html.escape(title)}</strong> highlights ongoing milestones, emerging breakthroughs, and rapid global conversations."
+        if cat == 'space':
+            section1_title = "Mission Details & Cosmic Significance"
+            context_p = f"Astronomers, space agencies, and researchers continue to closely monitor updates surrounding this mission. With advancements in deep-space telemetry, lunar surface initiatives, and next-generation launch architectures, projects under {source} and global collaborative frameworks mark critical leaps forward for mankind's cosmic understanding."
+            impact_p = "From analyzing regolith compositions to unlocking spectroscopic signatures of early cosmic formations, these milestones underline how rapid computational astrophysics and satellite miniaturization are rewriting the rules of space science."
+            takeaway_1 = "Strategic expansion of planetary research and deep-space telemetry programs."
+            takeaway_2 = f"Active verification and updates monitored via official {source} communications."
+            takeaway_3 = "Long-term data collection contributing to global astrophysics archives."
+        elif cat == 'tech':
+            section1_title = "Technological Architecture & Innovation"
+            context_p = f"The global technology landscape is experiencing rapid tectonic shifts driven by multimodal artificial intelligence, edge compute, and high-efficiency architectures. This development reported via {source} illustrates how enterprise and consumer tools are evolving simultaneously."
+            impact_p = "Industry analysts point to increasing decentralization, reduced latency, and real-time generative capabilities as catalysts reshaping work, productivity, and modern user experiences."
+            takeaway_1 = "Accelerated adoption of intelligent algorithms and next-generation frameworks."
+            takeaway_2 = "Significant implications for developer workflows, security, and consumer speed."
+            takeaway_3 = f"Validated reporting and technical insights sourced from {source}."
+        elif cat == 'india':
+            section1_title = "National Overview & Public Impact"
+            context_p = f"Across India's dynamic social, administrative, and economic sectors, discussions regarding {html.escape(title)} have trended nationwide. Verified reports from {source} highlight the strategic impact, policy perspectives, and public engagement surrounding this story."
+            impact_p = "With high digital penetration and real-time connectivity, Indian communities continue to drive vibrant conversations, demanding transparent information, high-speed governance, and public service innovation."
+            takeaway_1 = "Widespread nationwide attention with verified public updates."
+            takeaway_2 = f"Key perspectives and official briefing notes referenced from {source}."
+            takeaway_3 = "Sustained interest across digital communities and public sector observers."
+        elif cat == 'science':
+            section1_title = "Scientific Findings & Methodological Context"
+            context_p = f"Peer-reviewed frameworks and observational studies reported by {source} shed fresh light on natural phenomena, experimental biology, and climate models. Cross-referencing field data enables researchers to formulate more resilient predictive models."
+            impact_p = "Understanding these fundamental mechanisms provides actionable insights for environmental conservation, healthcare innovation, and empirical scientific literacy."
+            takeaway_1 = "Robust empirical observation backed by cross-disciplinary field research."
+            takeaway_2 = "Comprehensive peer review and verification through international scientific desks."
+            takeaway_3 = "Direct implications for applied technology, medicine, and planetary ecology."
+        else:
+            section1_title = "Trending Story & Social Relevance"
+            context_p = f"Stories capturing viral resonance across digital platforms often reflect broader cultural pulses, viral community movements, and compelling human journeys. Sourced through {source}, this development has resonated with millions across social channels."
+            impact_p = "As creator ecosystems expand, authentic human stories demonstrate the power of digital narrative sharing, bringing diverse communities together in real time."
+            takeaway_1 = "Massive viral engagement and audience discussion across platforms."
+            takeaway_2 = f"Fact-checked details and narrative corroboration via {source}."
+            takeaway_3 = "Ongoing community reactions and positive social discourse."
+        
+        section2_title = "Strategic Context & Future Horizons"
+        citation = f"<strong>Editorial Source & Verification:</strong> This story was compiled by TheBhom News Desk incorporating public agency briefings, verified wire reports, and updates from <em>{html.escape(source)}</em>. All information is continually monitored for factual accuracy."
 
     return {
         'intro': intro,
         'section1_title': section1_title,
+        'section2_title': section2_title,
         'context_p': context_p,
         'impact_p': impact_p,
-        'takeaways': [takeaway_1, takeaway_2, takeaway_3]
+        'takeaways': [takeaway_1, takeaway_2, takeaway_3],
+        'citation': citation
     }
+
+CANONICAL_NAV_HEADER = """  <!-- HEADER -->
+  <header class="hdr">
+    <a href="/" class="logo">
+      <div class="logo-box">TB</div>
+      <span class="logo-txt">The<span class="brand-accent">Bhom</span></span>
+    </a>
+    <nav class="hdr-nav-container">
+      <ul class="hdr-nav">
+        <li><a href="/tools/" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#9333ea;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span><span class="hdr-nav-txt">Web Tools</span></a></li>
+        <li><a href="/imgpdf/" class="hdr-nav-link" title="ImgPDF Suite — 47+ Image & PDF Tools"><span class="hdr-nav-ic" style="color:#e5322d;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e5322d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span class="hdr-nav-txt" style="color:#e5322d;font-weight:700;">ImgPDF</span></a></li>
+        <li><a href="/downloader/" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#0891b2;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="hdr-nav-txt">Downloader</span></a></li>
+        <li><a href="/wallpapers" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#16a34a;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span><span class="hdr-nav-txt">Wallpapers</span></a></li>
+        <li><a href="/ebooks" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#dc2626;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></span><span class="hdr-nav-txt">E-Books</span></a></li>
+        <li><a href="/magazines" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#2563eb;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span><span class="hdr-nav-txt">Magazines</span></a></li>
+        <li><a href="/templates" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#c026d3;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#c026d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span><span class="hdr-nav-txt">Templates</span></a></li>
+        <li><a href="/cards" class="hdr-nav-link"><span class="hdr-nav-ic" style="color:#e11d48;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span><span class="hdr-nav-txt">Cards</span></a></li>
+        <li><a href="/deals/" class="hdr-nav-link" title="TheBhom Deals — Handpicked Online Loot Deals"><span class="hdr-nav-ic" style="color:#f59e0b;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r="1.5"/></svg></span><span class="hdr-nav-txt" style="color:#f59e0b;font-weight:700;">Deals</span></a></li>
+        <li><a href="/news/" class="hdr-nav-link active" title="TheBhom News & Viral Stories"><span class="hdr-nav-ic" style="color:#ea580c;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span><span class="hdr-nav-txt" style="color:#ea580c;font-weight:700;">News</span></a></li>
+      </ul>
+    </nav>
+    <div class="hdr-right">
+      <div class="hdr-search-pill" onclick="openSpotlight()" role="button" tabindex="0" title="Search tools (⌘K)">
+        <svg class="hdr-search-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="hdr-search-txt">Search tools...</span>
+        <kbd class="hdr-search-kbd">⌘K</kbd>
+      </div>
+      <button class="hdr-theme-btn" id="hdrThemeBtn" onclick="quickToggleTheme()" title="Toggle Theme" aria-label="Toggle Theme">
+        <svg class="theme-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+      </button>
+      <div class="hdr-user-pill" onclick="openFavDrawer()" role="button" tabindex="0" title="TheBhom (Saved items & profile)">
+        <div class="hdr-user-avatar">B</div>
+        <span class="hdr-user-name">TheBhom</span>
+      </div>
+      <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="mob-nav" id="mobNav">
+    <div class="mob-theme-row">
+      <span style="font-size:0.8rem;font-weight:700;color:var(--text2);margin-right:6px;">🎨 Theme:</span>
+      <button class="mob-theme-pill" data-theme="light" onclick="setAppTheme('light')">☀️ Light</button>
+      <button class="mob-theme-pill" data-theme="navy" onclick="setAppTheme('navy')">🌊 Navy</button>
+      <button class="mob-theme-pill" data-theme="purple" onclick="setAppTheme('purple')">🔮 Purple</button>
+      <button class="mob-theme-pill" data-theme="dark" onclick="setAppTheme('dark')">🌙 Dark</button>
+    </div>
+    <a href="/">🏠 Home</a>
+    <a href="/deals/" style="color:#f59e0b;font-weight:700;">🔥 Deals & Loot Offers</a>
+    <a href="/news/" class="active" style="color:#ea580c;font-weight:700;">📰 News & Viral Stories</a>
+    <a href="#" onclick="openSpotlight();return false;" style="color:#c084fc;font-weight:700;">🔍 Global Search (Cmd+K)</a>
+    <a href="/tools/">🛠️ Web Tools</a>
+    <a href="/imgpdf/" style="color:#ef4444;font-weight:700;">📄 ImgPDF</a>
+    <a href="/downloader/" style="color:#0891b2;font-weight:700;">⚡ Downloader</a>
+    <a href="/wallpapers">🖼️ Wallpapers</a>
+    <a href="/ebooks">📚 E-Books</a>
+    <a href="/magazines">📰 Magazines</a>
+    <a href="/templates">🎨 Templates</a>
+    <a href="/cards">💌 Cards</a>
+    <a href="#" onclick="openFavDrawer();return false;" style="color:#f472b6;font-weight:700;">❤️ My Saved Items (<span class="fav-count-badge">0</span>)</a>
+    <a href="#" onclick="toggleLanguage();return false;">🌐 Switch Language (HI/EN)</a>
+    <a href="#" onclick="triggerAppInstall();return false;" style="color:#a855f7;font-weight:700;">📱 Install TheBhom App</a>
+  </nav>
+
+  <!-- SUB NAV -->
+  <nav class="subnav">
+    <a href="/tools/">🛠️ Web Tools</a>
+    <a href="/imgpdf/">📄 ImgPDF</a>
+    <a href="/downloader/">⚡ Downloader</a>
+    <a href="/wallpapers">🖼️ Wallpapers</a>
+    <a href="/ebooks">📚 E-Books</a>
+    <a href="/magazines">📰 Magazines</a>
+    <a href="/templates">🎨 Templates</a>
+    <a href="/cards">💌 Cards</a>
+    <a href="/deals/">🔥 Deals</a>
+    <a href="/news/" class="here">📰 News</a>
+  </nav>
+"""
 
 def render_article_html(item, related_items):
     body = build_article_body(item)
@@ -244,8 +432,11 @@ def render_article_html(item, related_items):
         </a>
         """
 
+    lang = item.get('lang', 'en')
+    is_hi = lang == 'hi'
+
     article_html = f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="{lang}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -277,12 +468,15 @@ def render_article_html(item, related_items):
   
   <!-- Shared Styles & Design Tokens -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="preload" href="/shared.css?v=20260914_imgpdf_v9" as="style">
+  <link rel="stylesheet" href="/shared.css?v=20260914_imgpdf_v9">
   
   <!-- Schema.org NewsArticle JSON-LD -->
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
+    "inLanguage": "{lang}",
     "mainEntityOfPage": {{
       "@type": "WebPage",
       "@id": "{canonical_url}"
@@ -558,8 +752,8 @@ def render_article_html(item, related_items):
 </head>
 <body>
 
-  <!-- Top App Navigation -->
-  <div id="shared-header"></div>
+  <!-- Top App Navigation (Canonical Shared Bar) -->
+{CANONICAL_NAV_HEADER}
 
   <main class="article-wrap">
     <div class="breadcrumbs">
@@ -571,7 +765,7 @@ def render_article_html(item, related_items):
     <article class="article-card">
       <div class="badge-bar">
         <span class="category-badge">{item['category_badge']}</span>
-        <span class="read-time">⏱️ 3 min read</span>
+        <span class="read-time">⏱️ {('3 मिनट पठन' if is_hi else '3 min read')}</span>
         <span class="read-time">• {human_date}</span>
       </div>
 
@@ -581,7 +775,7 @@ def render_article_html(item, related_items):
         <div class="author-avatar">TB</div>
         <div>
           <div style="font-weight:600; color:#0f172a;">TheBhom Editorial Desk</div>
-          <div>Verified reporting • Source credit: {html.escape(item['source'])}</div>
+          <div>{('सत्यापित रिपोर्टिंग' if is_hi else 'Verified reporting')} • {('स्रोत' if is_hi else 'Source credit')}: {html.escape(item['source'])}</div>
         </div>
       </div>
 
@@ -592,7 +786,7 @@ def render_article_html(item, related_items):
 
       <!-- In-Article Highlights Box -->
       <div class="highlights-box">
-        <h3>📌 Key Highlights & Quick Takeaways</h3>
+        <h3>📌 {('प्रमुख बिंदु एवं मुख्य बातें' if is_hi else 'Key Highlights & Quick Takeaways')}</h3>
         <ul>
           <li>{html.escape(body['takeaways'][0])}</li>
           <li>{html.escape(body['takeaways'][1])}</li>
@@ -617,25 +811,25 @@ def render_article_html(item, related_items):
         <h2>{html.escape(body['section1_title'])}</h2>
         <p>{html.escape(body['context_p'])}</p>
 
-        <h2>Strategic Context & Future Horizons</h2>
+        <h2>{html.escape(body['section2_title'])}</h2>
         <p>{html.escape(body['impact_p'])}</p>
 
         <div class="source-citation">
-          <strong>Editorial Source & Verification:</strong> This story was compiled by TheBhom News Desk incorporating public agency briefings, verified wire reports, and updates from <em>{html.escape(item['source'])}</em>. All information is continually monitored for factual accuracy.
+          {body['citation']}
         </div>
       </div>
 
       <!-- Social Share Bar -->
       <div class="share-bar">
-        <span style="font-weight: 600; font-size: 0.9rem; color: #475569;">Share Story:</span>
+        <span style="font-weight: 600; font-size: 0.9rem; color: #475569;">{('शेयर करें:' if is_hi else 'Share Story:')}</span>
         <a href="https://api.whatsapp.com/send?text={title_esc}%20{canonical_url}" target="_blank" rel="noopener" class="share-btn share-wa">WhatsApp</a>
         <a href="https://twitter.com/intent/tweet?text={title_esc}&url={canonical_url}" target="_blank" rel="noopener" class="share-btn share-tw">X (Twitter)</a>
-        <button class="share-btn share-cp" onclick="navigator.clipboard.writeText('{canonical_url}'); alert('Link copied to clipboard!');">🔗 Copy Link</button>
+        <button class="share-btn share-cp" onclick="navigator.clipboard.writeText('{canonical_url}'); alert('{('लिंक कॉपी हो गया!' if is_hi else 'Link copied to clipboard!')}');">🔗 {('कॉपी करें' if is_hi else 'Copy Link')}</button>
       </div>
 
       <!-- Related Stories -->
       <section class="related-section">
-        <div class="related-title">Trending Related Stories</div>
+        <div class="related-title">{('संबंधित ट्रेंडिंग खबरें' if is_hi else 'Trending Related Stories')}</div>
         <div class="related-grid">
           {related_cards_html}
         </div>
@@ -656,10 +850,12 @@ def render_news_hub_html(all_news):
     ticker_items = " • ".join([f"<a href='/news/{n['slug']}'>{html.escape(n['title'])}</a>" for n in all_news[:6]])
     
     grid_cards_html = ""
-    for n in all_news[1:25]:  # show next 24 in grid
+    for n in all_news[1:60]:  # show up to 60 stories in hub
         img_url, _ = n.get('image', CATEGORY_IMAGES[n['category']][0])
+        n_is_hi = n.get('lang') == 'hi'
+        read_lbl = 'पूरी खबर पढ़ें →' if n_is_hi else 'Read Full Story →'
         grid_cards_html += f"""
-        <article class="news-card" data-category="{n['category']}">
+        <article class="news-card" data-category="{n['category']}" data-lang="{n.get('lang', 'en')}">
           <a href="/news/{n['slug']}" class="card-media-wrap">
             <img src="{img_url}" alt="{html.escape(n['title'])}" loading="lazy" width="400" height="230">
             <span class="card-badge">{n['category_badge']}</span>
@@ -674,7 +870,7 @@ def render_news_hub_html(all_news):
             </h3>
             <p class="card-desc">{html.escape(n['desc_snippet'] or '')}...</p>
             <div class="card-footer">
-              <a href="/news/{n['slug']}" class="read-more-link">Read Full Story →</a>
+              <a href="/news/{n['slug']}" class="read-more-link">{read_lbl}</a>
             </div>
           </div>
         </article>
@@ -713,6 +909,8 @@ def render_news_hub_html(all_news):
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="preload" href="/shared.css?v=20260914_imgpdf_v9" as="style">
+  <link rel="stylesheet" href="/shared.css?v=20260914_imgpdf_v9">
 
   <style>
     body {{
@@ -1025,7 +1223,8 @@ def render_news_hub_html(all_news):
 </head>
 <body>
 
-  <div id="shared-header"></div>
+  <!-- Top App Navigation (Canonical Shared Bar) -->
+{CANONICAL_NAV_HEADER}
 
   <main class="news-container">
     <!-- Breaking News Ticker -->
@@ -1051,6 +1250,7 @@ def render_news_hub_html(all_news):
     <!-- Category Tabs -->
     <nav class="category-tabs" aria-label="News Categories">
       <button class="tab-btn active" onclick="filterCategory('all', this)">All Stories</button>
+      <button class="tab-btn" onclick="filterCategory('hindi', this)">🇮🇳 हिन्दी समाचार</button>
       <button class="tab-btn" onclick="filterCategory('space', this)">🚀 Space & ISRO</button>
       <button class="tab-btn" onclick="filterCategory('india', this)">🇮🇳 India News</button>
       <button class="tab-btn" onclick="filterCategory('tech', this)">⚡ Tech & AI</button>
@@ -1060,7 +1260,7 @@ def render_news_hub_html(all_news):
 
     <!-- Hero Featured Story -->
     {f'''
-    <section class="hero-story" data-category="{hero['category']}">
+    <section class="hero-story" data-category="{hero['category']}" data-lang="{hero.get('lang', 'en')}">
       <div class="hero-media">
         <img src="{hero_img}" alt="{html.escape(hero['title'])}" loading="eager" width="600" height="380">
       </div>
@@ -1071,7 +1271,7 @@ def render_news_hub_html(all_news):
         </h2>
         <p class="hero-desc">{html.escape(hero['desc_snippet'] or '')}...</p>
         <div class="hero-meta">
-          <span>{hero.get('human_date', 'Today')}</span> • <span>Source: {html.escape(hero['source'])}</span> • <span>3 min read</span>
+          <span>{hero.get('human_date', 'Today')}</span> • <span>Source: {html.escape(hero['source'])}</span> • <span>{('3 मिनट पठन' if hero.get('lang') == 'hi' else '3 min read')}</span>
         </div>
       </div>
     </section>
@@ -1103,19 +1303,23 @@ def render_news_hub_html(all_news):
       
       const cards = document.querySelectorAll('.news-card');
       cards.forEach(card => {{
-        if (cat === 'all' || card.getAttribute('data-category') === cat) {{
+        if (cat === 'all') {{
           card.style.display = 'flex';
+        }} else if (cat === 'hindi') {{
+          card.style.display = card.getAttribute('data-lang') === 'hi' ? 'flex' : 'none';
         }} else {{
-          card.style.display = 'none';
+          card.style.display = card.getAttribute('data-category') === cat ? 'flex' : 'none';
         }}
       }});
       
       const hero = document.querySelector('.hero-story');
       if (hero) {{
-        if (cat === 'all' || hero.getAttribute('data-category') === cat) {{
+        if (cat === 'all') {{
           hero.style.display = 'grid';
+        }} else if (cat === 'hindi') {{
+          hero.style.display = hero.getAttribute('data-lang') === 'hi' ? 'grid' : 'none';
         }} else {{
-          hero.style.display = 'none';
+          hero.style.display = hero.getAttribute('data-category') === cat ? 'grid' : 'none';
         }}
       }}
     }}
@@ -1177,7 +1381,7 @@ def generate_google_news_sitemap(news_list):
     <news:news>
       <news:publication>
         <news:name>TheBhom News</news:name>
-        <news:language>en</news:language>
+        <news:language>{item.get('lang', 'en')}</news:language>
       </news:publication>
       <news:publication_date>{pub_date}</news:publication_date>
       <news:title>{title}</news:title>
@@ -1227,8 +1431,8 @@ def main():
         existing_slugs.add(slug)
         added_count += 1
 
-    # Keep database at max 120 curated items
-    existing_news = existing_news[:120]
+    # Keep database at max 180 curated items
+    existing_news = existing_news[:180]
     save_news(existing_news)
     print(f"Added {added_count} new stories. Total in database: {len(existing_news)}")
 

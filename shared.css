@@ -216,12 +216,11 @@ header.hdr .logo-txt span, header.hdr .logo-txt .brand-accent, .brand-accent {
 .hdr-nav-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 0 0.5rem;
   flex: 1;
   min-width: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  overflow: visible;
 }
 .hdr-nav-container::-webkit-scrollbar {
   display: none;
@@ -229,20 +228,22 @@ header.hdr .logo-txt span, header.hdr .logo-txt .brand-accent, .brand-accent {
 .hdr-nav {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   list-style: none;
   white-space: nowrap;
+  margin: 0;
+  padding: 0;
 }
 .hdr-nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 8px;
+  gap: 4px;
+  padding: 5px 7px;
   border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 550;
+  font-size: 0.79rem;
+  font-weight: 600;
   color: var(--text2);
-  transition: all 0.18s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -685,21 +686,22 @@ header.hdr .hdr-right, .hdr-right {
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 
 /* ===== RESPONSIVE ===== */
-@media(max-width:1400px){
+@media(max-width:1440px){
   .hdr-search-kbd{display:none !important;}
+  .hdr-search-txt{display:none !important;}
+  .hdr-search-pill{min-width:auto !important;padding:6px 8px !important;border-radius:50% !important;}
   .hdr-user-name{display:none !important;}
-  .hdr-user-pill{padding:0;}
+  .hdr-user-pill{padding:0 !important;background:transparent !important;border:none !important;}
   .hdr-nav-link{padding:4px 6px;font-size:0.78rem;gap:4px;}
   .hdr-nav-ic svg{width:14px;height:14px;}
 }
-@media(max-width:1220px){
-  .hdr-search-txt{display:none !important;}
-  .hdr-search-pill{padding:6px 8px !important;border-radius:50% !important;}
-  .hdr-nav-link{padding:4px 5px;font-size:0.75rem;gap:3px;}
+@media(max-width:1280px){
+  .hdr-nav-ic{display:none !important;}
+  .hdr-nav{gap:2px !important;}
+  .hdr-nav-link{padding:4px 6px !important;font-size:0.77rem !important;}
 }
 @media(max-width:1050px){
-  .hdr-nav-ic{display:none !important;}
-  .hdr-nav-link{padding:4px 6px;font-size:0.75rem;}
+  .hdr-nav-link{padding:4px 4px !important;font-size:0.74rem !important;}
   .g5{grid-template-columns:repeat(4,1fr);}
   .footer-grid{grid-template-columns:1fr 1fr;}
 }
