@@ -168,10 +168,30 @@ def post_telegram(arts):
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT:
         log("[Telegram] Not configured (add TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID to credentials.env)")
         return
-    for a in arts[:5]:
-        msg = f"🔴 *{a['title']}*\n\n{a['desc'][:200]}\n\n[📰 पूरी खबर पढ़ें]({a['url']})"
-        s, r = http_post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
-                          {"chat_id": TELEGRAM_CHAT, "text": msg, "parse_mode": "Markdown"})
+    for a in arts[:3]:
+        caption = (
+            f"🚨 *BREAKING NEWS | THEBHOM*\n\n"
+            f"*{a['title']}*\n\n"
+            f"{a['desc'][:200]}...\n\n"
+            f"👉 [पूरी खबर यहाँ पढ़ें]({a['url']})"
+        )
+        photo_payload = {
+            "chat_id": TELEGRAM_CHAT,
+            "photo": a.get('image', f"{SITE_URL}/assets/og-default.jpg"),
+            "caption": caption,
+            "parse_mode": "Markdown",
+            "reply_markup": {
+                "inline_keyboard": [
+                    [{"text": "📰 पूरी खबर पढ़ें (Click Here)", "url": a['url']}],
+                    [{"text": "⚡ ताज़ा खबरें (TheBhom News)", "url": f"{SITE_URL}/news/"}]
+                ]
+            }
+        }
+        s, r = http_post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendPhoto", photo_payload)
+        if s != 200:
+            # Fallback to sendMessage
+            s, r = http_post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+                             {"chat_id": TELEGRAM_CHAT, "text": caption, "parse_mode": "Markdown"})
         log(f"[Telegram] HTTP {s} — {a['title'][:40]}")
         time.sleep(2)
 

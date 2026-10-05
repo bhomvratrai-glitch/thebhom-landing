@@ -70,3 +70,66 @@
 [2026-10-05 17:36:40] [Feedly] Discovery ping HTTP 200
 [2026-10-05 17:36:40] Traffic Booster cycle DONE!
 [2026-10-05 17:36:40] ==========================================================
+[2026-10-05 17:49:21] ==========================================================
+[2026-10-05 17:49:21] TheBhom Traffic Booster STARTED
+[2026-10-05 17:49:22] Loaded 80 URLs, parsed 10 articles
+[2026-10-05 17:49:22] --- IndexNow Bulk Submit ---
+[2026-10-05 17:49:25] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (80 URLs)
+[2026-10-05 17:49:27] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (80 URLs)
+[2026-10-05 17:49:28] --- RSS Feed Generation ---
+[2026-10-05 17:49:28] [RSS] Generated feed.xml with 30 items -> https://www.thebhom.in/news/feed.xml
+[2026-10-05 17:49:28] --- Telegram Push ---
+[2026-10-05 17:49:28] [Telegram] Not configured (add TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID to credentials.env)
+[2026-10-05 17:49:28] --- Pinterest Auto-Pin ---
+[2026-10-05 17:49:28] [Pinterest] PINTEREST_ACCESS_TOKEN not set — skipping
+[2026-10-05 17:49:28] --- Reddit Submissions ---
+[2026-10-05 17:49:28] [Reddit] No token — add REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET to credentials.env
+[2026-10-05 17:49:28] --- RSS Aggregator Ping ---
+[2026-10-05 17:49:30] [Feedly] Discovery ping HTTP 200
+[2026-10-05 17:49:30] Traffic Booster cycle DONE!
+[2026-10-05 17:49:30] ==========================================================
+[2026-10-05 18:04:26] ==========================================================
+[2026-10-05 18:04:26] TheBhom Traffic Booster STARTED
+[2026-10-05 18:04:26] Loaded 80 URLs, parsed 10 articles
+[2026-10-05 18:04:26] --- IndexNow Bulk Submit ---
+[2026-10-05 18:04:28] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 1: 80 URLs)
+[2026-10-05 18:04:30] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 1: 80 URLs)
+[2026-10-05 18:04:31] --- RSS Feed Generation ---
+[2026-10-05 18:04:31] [RSS] Generated feed.xml with 30 items -> https://www.thebhom.in/news/feed.xml
+[2026-10-05 18:04:31] --- Telegram Push ---
+[2026-10-05 18:04:31] [Telegram] Not configured (add TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID to credentials.env)
+[2026-10-05 18:04:31] --- Pinterest Auto-Pin ---
+[2026-10-05 18:04:31] [Pinterest] PINTEREST_ACCESS_TOKEN not set — skipping
+[2026-10-05 18:04:31] --- Reddit Submissions ---
+[2026-10-05 18:04:31] [Reddit] No token — add REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET to credentials.env
+[2026-10-05 18:04:31] --- RSS Aggregator Ping ---
+[2026-10-05 18:04:31] [Feedly] Discovery ping HTTP 200
+[2026-10-05 18:04:31] Traffic Booster cycle DONE!
+[2026-10-05 18:04:31] ==========================================================
+[2026-10-05 18:05:00] ==========================================================
+[2026-10-05 18:05:00] TheBhom Traffic Booster STARTED
+[2026-10-05 18:05:00] Loaded 80 URLs, parsed 10 articles
+[2026-10-05 18:05:00] Loaded 465 total sitemap URLs across the entire site
+[2026-10-05 18:05:00] --- IndexNow Bulk Submit (All 250+ Pages) ---
+[2026-10-05 18:05:01] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 1: 100 URLs)
+[2026-10-05 18:05:03] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 1: 100 URLs)
+[2026-10-05 18:05:06] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 2: 100 URLs)
+[2026-10-05 18:05:08] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 2: 100 URLs)
+[2026-10-05 18:05:10] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 3: 100 URLs)
+[2026-10-05 18:05:13] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 3: 100 URLs)
+[2026-10-05 18:05:15] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 4: 100 URLs)
+[2026-10-05 18:05:17] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 4: 100 URLs)
+[2026-10-05 18:05:20] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 5: 65 URLs)
+[2026-10-05 18:05:23] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 5: 65 URLs)
+[2026-10-05 18:05:24] --- RSS Feed Generation ---
+[2026-10-05 18:05:24] [RSS] Generated feed.xml with 30 items -> https://www.thebhom.in/news/feed.xml
+[2026-10-05 18:05:24] --- Telegram Push ---
+[2026-10-05 18:05:24] [Telegram] Not configured (add TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID to credentials.env)
+[2026-10-05 18:05:24] --- Pinterest Auto-Pin ---
+[2026-10-05 18:05:24] [Pinterest] PINTEREST_ACCESS_TOKEN not set — skipping
+[2026-10-05 18:05:24] --- Reddit Submissions ---
+[2026-10-05 18:05:24] [Reddit] No token — add REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET to credentials.env
+[2026-10-05 18:05:24] --- RSS Aggregator Ping ---
+[2026-10-05 18:05:24] [Feedly] Discovery ping HTTP 200
+[2026-10-05 18:05:24] Traffic Booster cycle DONE!
+[2026-10-05 18:05:24] ==========================================================
