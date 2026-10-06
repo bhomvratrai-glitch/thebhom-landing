@@ -370,3 +370,33 @@
 [2026-10-06 01:05:10] [Feedly] Discovery ping HTTP 200
 [2026-10-06 01:05:10] Traffic Booster cycle DONE!
 [2026-10-06 01:05:10] ==========================================================
+[2026-10-06 11:23:36] ==========================================================
+[2026-10-06 11:23:36] TheBhom Traffic Booster STARTED
+[2026-10-06 11:23:36] Loaded 80 URLs, parsed 10 articles
+[2026-10-06 11:23:36] Loaded 693 total sitemap URLs across the entire site
+[2026-10-06 11:23:36] --- IndexNow Bulk Submit (All 250+ Pages) ---
+[2026-10-06 11:23:38] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 1: 100 URLs)
+[2026-10-06 11:23:39] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 1: 100 URLs)
+[2026-10-06 11:23:42] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 2: 100 URLs)
+[2026-10-06 11:23:44] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 2: 100 URLs)
+[2026-10-06 11:23:48] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 3: 100 URLs)
+[2026-10-06 11:23:51] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 3: 100 URLs)
+[2026-10-06 11:23:53] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 4: 100 URLs)
+[2026-10-06 11:23:55] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 4: 100 URLs)
+[2026-10-06 11:23:58] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 5: 100 URLs)
+[2026-10-06 11:24:00] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 5: 100 URLs)
+[2026-10-06 11:24:02] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 6: 100 URLs)
+[2026-10-06 11:24:05] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 6: 100 URLs)
+[2026-10-06 11:24:07] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 7: 93 URLs)
+[2026-10-06 11:24:09] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 7: 93 URLs)
+[2026-10-06 11:24:10] --- RSS Feed Generation ---
+[2026-10-06 11:24:11] [RSS] Generated feed.xml with 30 items -> https://www.thebhom.in/news/feed.xml
+[2026-10-06 11:24:11] --- Telegram Push ---
+[2026-10-06 11:24:26] --- Pinterest Auto-Pin ---
+[2026-10-06 11:24:26] [Pinterest] PINTEREST_ACCESS_TOKEN not set — skipping
+[2026-10-06 11:24:26] --- Reddit Submissions ---
+[2026-10-06 11:24:26] [Reddit] No token — add REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET to credentials.env
+[2026-10-06 11:24:26] --- RSS Aggregator Ping ---
+[2026-10-06 11:24:27] [Feedly] Discovery ping HTTP 200
+[2026-10-06 11:24:27] Traffic Booster cycle DONE!
+[2026-10-06 11:24:27] ==========================================================
