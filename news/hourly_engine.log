@@ -762,3 +762,28 @@ error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebho
 [2026-10-06 22:56:05] Added 0 new stories. Total in database: 350
 [2026-10-06 22:56:05] Global sitemap.xml updated.
 [2026-10-06 22:56:06] Detected 3 changed/new files. Committing and deploying...
+[2026-10-06 22:56:06] Git commit created for [2026-10-06 22:56].
+[2026-10-06 22:56:06] Git push warning: fatal: unable to access 'https://github.com/bhomvratrai-glitch/thebhom-landing.git/': Could not resolve host: github.com
+
+[2026-10-06 22:58:14] Cloudflare Pages deployment completed successfully!
+[2026-10-06 22:58:14] Cloudflare edge cache purged successfully.
+[2026-10-06 22:58:16] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-06 22:58:17] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-06 22:59:17] [TrafficBooster] Platform submissions complete.
+[2026-10-06 22:59:17] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-06 22:59:17] ==================================================
+[2026-10-06 22:56:05] ==================================================
+[2026-10-06 22:56:05] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-06 22:56:05] Added 0 new stories. Total in database: 350
+[2026-10-06 22:56:05] Global sitemap.xml updated.
+[2026-10-06 22:56:06] Detected 3 changed/new files. Committing and deploying...
+[2026-10-06 22:56:06] Git commit created for [2026-10-06 22:56].
+[2026-10-06 22:56:06] Git push warning: fatal: unable to access 'https://github.com/bhomvratrai-glitch/thebhom-landing.git/': Could not resolve host: github.com
+
+[2026-10-06 22:58:14] Cloudflare Pages deployment completed successfully!
+[2026-10-06 22:58:14] Cloudflare edge cache purged successfully.
+[2026-10-06 22:58:16] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-06 22:58:17] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-06 22:59:17] [TrafficBooster] Platform submissions complete.
+[2026-10-06 22:59:17] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-06 22:59:17] ==================================================
