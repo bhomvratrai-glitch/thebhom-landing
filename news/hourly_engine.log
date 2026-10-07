@@ -1244,3 +1244,54 @@ error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebho
 [2026-10-07 12:43:54] Added 0 new stories. Total in database: 350
 [2026-10-07 12:43:54] Global sitemap.xml updated.
 [2026-10-07 12:43:54] Detected 4 changed/new files. Committing and deploying...
+[2026-10-07 12:43:55] Git commit created for [2026-10-07 12:43].
+[2026-10-07 12:43:55] Git push warning: fatal: unable to access 'https://github.com/bhomvratrai-glitch/thebhom-landing.git/': Could not resolve host: github.com
+
+[2026-10-07 12:45:07] Cloudflare deployment warning: [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mUnable to resolve Cloudflare's API hostname (api.cloudflare.com or dash.cloudflare.com).[0m
+
+  
+  This is typically caused by:
+    - No internet connection or network connectivity issues
+    - DNS resolver not configured or not responding
+    - Firewall or VPN blocking DNS requests
+    - Corporate network with restricted DNS
+  
+  Please check your network connection and DNS settings.
+
+
+🪵  Logs were written to "/Users/bhomvratrai/Library/Preferences/.wrangler/logs/wrangler-2026-10-07_07-15-07_244.log"
+
+[2026-10-07 12:45:07] Failed to purge Cloudflare cache: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[2026-10-07 12:45:07] [IndexNow NOTICE] https://api.indexnow.org/indexnow: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[2026-10-07 12:45:07] [IndexNow NOTICE] https://www.bing.com/indexnow: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[2026-10-07 12:45:32] [TrafficBooster] Platform submissions complete.
+[2026-10-07 12:45:32] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-07 12:45:32] ==================================================
+[2026-10-07 12:43:53] ==================================================
+[2026-10-07 12:43:53] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-07 12:43:54] Added 0 new stories. Total in database: 350
+[2026-10-07 12:43:54] Global sitemap.xml updated.
+[2026-10-07 12:43:54] Detected 4 changed/new files. Committing and deploying...
+[2026-10-07 12:43:55] Git commit created for [2026-10-07 12:43].
+[2026-10-07 12:43:55] Git push warning: fatal: unable to access 'https://github.com/bhomvratrai-glitch/thebhom-landing.git/': Could not resolve host: github.com
+
+[2026-10-07 12:45:07] Cloudflare deployment warning: [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mUnable to resolve Cloudflare's API hostname (api.cloudflare.com or dash.cloudflare.com).[0m
+
+  
+  This is typically caused by:
+    - No internet connection or network connectivity issues
+    - DNS resolver not configured or not responding
+    - Firewall or VPN blocking DNS requests
+    - Corporate network with restricted DNS
+  
+  Please check your network connection and DNS settings.
+
+
+🪵  Logs were written to "/Users/bhomvratrai/Library/Preferences/.wrangler/logs/wrangler-2026-10-07_07-15-07_244.log"
+
+[2026-10-07 12:45:07] Failed to purge Cloudflare cache: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[2026-10-07 12:45:07] [IndexNow NOTICE] https://api.indexnow.org/indexnow: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[2026-10-07 12:45:07] [IndexNow NOTICE] https://www.bing.com/indexnow: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[2026-10-07 12:45:32] [TrafficBooster] Platform submissions complete.
+[2026-10-07 12:45:32] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-07 12:45:32] ==================================================
