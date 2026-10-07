@@ -2240,3 +2240,100 @@ error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebho
 [2026-10-08 01:12:46] Added 20 new stories. Total in database: 350
 [2026-10-08 01:12:47] Global sitemap.xml updated.
 [2026-10-08 01:12:47] Detected 357 changed/new files. Committing and deploying...
+[2026-10-08 01:12:48] Git commit created for [2026-10-08 01:12].
+[2026-10-08 01:13:04] Git push warning: remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:      (?) This repository does not have Secret Scanning enabled, but is eligible. Enable Secret Scanning to view and manage detected secrets.        
+remote:      Visit the repository settings page, https://github.com/bhomvratrai-glitch/thebhom-landing/settings/security_analysis        
+remote:             
+remote:             
+remote:       —— Cloudflare Global User API Key ————————————————————        
+remote:        locations:        
+remote:          - commit: 21d08f36e405d4dccb246324e576d15ff575eb6a        
+remote:            path: news/hourly_engine.log:739        
+remote:          - commit: 72fd4ccf292e90954c10a728084fef4b39324522        
+remote:            path: news/hourly_engine.log:739        
+remote:          - commit: 21d08f36e405d4dccb246324e576d15ff575eb6a        
+remote:            path: news/hourly_engine.log:753        
+remote:          - commit: 72fd4ccf292e90954c10a728084fef4b39324522        
+remote:            path: news/hourly_engine.log:753        
+remote:          - commit: 72fd4ccf292e90954c10a728084fef4b39324522        
+remote:            path: news/hourly_engine.log:1656        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/bhomvratrai-glitch/thebhom-landing/security/secret-scanning/unblock-secret/3KNOY3lnR0zaieSXl15dr4NkUK8        
+remote:             
+remote: 
+remote: 
+To https://github.com/bhomvratrai-glitch/thebhom-landing.git
+ ! [remote rejected]   main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebhom-landing.git'
+
+[2026-10-08 01:14:56] Cloudflare Pages deployment completed successfully!
+[2026-10-08 01:14:57] Cloudflare edge cache purged successfully.
+[2026-10-08 01:14:57] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-08 01:14:58] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-08 01:16:24] [TrafficBooster] Platform submissions complete.
+[2026-10-08 01:16:24] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-08 01:16:24] ==================================================
+[2026-10-08 01:12:24] ==================================================
+[2026-10-08 01:12:24] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-08 01:12:46] Added 20 new stories. Total in database: 350
+[2026-10-08 01:12:47] Global sitemap.xml updated.
+[2026-10-08 01:12:47] Detected 357 changed/new files. Committing and deploying...
+[2026-10-08 01:12:48] Git commit created for [2026-10-08 01:12].
+[2026-10-08 01:13:04] Git push warning: remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:      (?) This repository does not have Secret Scanning enabled, but is eligible. Enable Secret Scanning to view and manage detected secrets.        
+remote:      Visit the repository settings page, https://github.com/bhomvratrai-glitch/thebhom-landing/settings/security_analysis        
+remote:             
+remote:             
+remote:       —— Cloudflare Global User API Key ————————————————————        
+remote:        locations:        
+remote:          - commit: 21d08f36e405d4dccb246324e576d15ff575eb6a        
+remote:            path: news/hourly_engine.log:739        
+remote:          - commit: 72fd4ccf292e90954c10a728084fef4b39324522        
+remote:            path: news/hourly_engine.log:739        
+remote:          - commit: 21d08f36e405d4dccb246324e576d15ff575eb6a        
+remote:            path: news/hourly_engine.log:753        
+remote:          - commit: 72fd4ccf292e90954c10a728084fef4b39324522        
+remote:            path: news/hourly_engine.log:753        
+remote:          - commit: 72fd4ccf292e90954c10a728084fef4b39324522        
+remote:            path: news/hourly_engine.log:1656        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/bhomvratrai-glitch/thebhom-landing/security/secret-scanning/unblock-secret/3KNOY3lnR0zaieSXl15dr4NkUK8        
+remote:             
+remote: 
+remote: 
+To https://github.com/bhomvratrai-glitch/thebhom-landing.git
+ ! [remote rejected]   main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebhom-landing.git'
+
+[2026-10-08 01:14:56] Cloudflare Pages deployment completed successfully!
+[2026-10-08 01:14:57] Cloudflare edge cache purged successfully.
+[2026-10-08 01:14:57] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-08 01:14:58] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-08 01:16:24] [TrafficBooster] Platform submissions complete.
+[2026-10-08 01:16:24] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-08 01:16:24] ==================================================
