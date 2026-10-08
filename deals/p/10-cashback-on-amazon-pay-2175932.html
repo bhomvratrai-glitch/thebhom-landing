@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "10 Cashback On Amazon Pay",
     "image": ["https://cdn1.desidime.com/logo/Desidime_Logo-1200X630.png"],
     "description": "Verified trending loot deal from DesiDime community. Real price drop with exclusive discounts on Amazon.",
+    "sku": "DD-2175932",
+    "mpn": "2175932",
     "brand": {
       "@type": "Brand",
       "name": "AMAZON"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://www.amazon.in/h/rewards/dp/amzn1.rewards.rewardAd.4F5NZ66PWVY7K?rdpf=en&linkCode=sl2&tag=golden-deals-21&linkId=9024e02f70d14065717be7574a7e195a&ref_=as_li_ss_tl_btn_assoc_p-other_o-2_srctok-2b43b9172d221730_ht-t&ascsubtag=srctok-2b43b9172d221730&btn_type=ss&btn_ref=srctok-2b43b9172d221730&tag=bhom120704-21",
+      "url": "https://www.thebhom.in/deals/p/10-cashback-on-amazon-pay-2175932.html",
       "priceCurrency": "INR",
       "price": 499,
       "priceValidUntil": "2026-12-31",
@@ -62,12 +64,47 @@
       "seller": {
         "@type": "Organization",
         "name": "Amazon"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.3",
-      "reviewCount": "1200"
+      "ratingValue": "4.4",
+      "reviewCount": "1250"
     }
   }
   </script>

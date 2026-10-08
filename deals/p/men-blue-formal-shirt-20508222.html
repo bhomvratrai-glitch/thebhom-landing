@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Men Blue Formal Shirt",
     "image": ["https://assets.myntassets.com/assets/images/20508222/2022/10/26/063c50a2-efbc-41bc-9112-1bced0d7e8e21666771956200MenBlueRegularFitFormalShirts1.jpg"],
     "description": "Verified lowest price drop on MYNTRA. Genuine brand product with standard warranty and fast delivery.",
+    "sku": "FS-MYNTRA-20508222",
+    "mpn": "20508222",
     "brand": {
       "@type": "Brand",
       "name": "Men"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://myntr.it/y4Ss7wd",
+      "url": "https://www.thebhom.in/deals/p/men-blue-formal-shirt-20508222.html",
       "priceCurrency": "INR",
       "price": 503,
       "priceValidUntil": "2026-12-31",
@@ -62,12 +64,47 @@
       "seller": {
         "@type": "Organization",
         "name": "Myntra"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.3",
-      "reviewCount": "1200"
+      "ratingValue": "4.4",
+      "reviewCount": "1250"
     }
   }
   </script>

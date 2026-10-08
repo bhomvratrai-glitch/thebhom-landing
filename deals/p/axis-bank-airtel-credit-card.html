@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Axis Bank Airtel Credit Card - Flat 25% Cashback on Airtel Bills, 10% on Swiggy & Zomato",
     "image": ["https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80"],
     "description": "One of the most rewarding utility cashback credit cards in India: Get flat 25% cashback on Airtel mobile, broadband, and DTH recharges, 10% on Swiggy/Zomato, and 10% on electricity/gas bills.",
+    "sku": "deal-25",
+    "mpn": "deal-25",
     "brand": {
       "@type": "Brand",
       "name": "Axis Bank"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://earnkaro.com?r=5610321&fname=Bhomvrat+Rai&action=axis_card",
+      "url": "https://www.thebhom.in/deals/p/axis-bank-airtel-credit-card.html",
       "priceCurrency": "INR",
       "price": 0,
       "priceValidUntil": "2026-12-31",
@@ -62,6 +64,41 @@
       "seller": {
         "@type": "Organization",
         "name": "Axis Bank"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {

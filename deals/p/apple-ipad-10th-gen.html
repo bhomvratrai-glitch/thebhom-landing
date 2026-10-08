@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Apple iPad (10th Gen) 10.9-inch Liquid Retina Display (A14 Bionic, Wi-Fi, 64GB)",
     "image": ["https://rukminim2.flixcart.com/image/1500/1500/xif0q/tablet/h/b/l/-enriched-transparent-original-imagj72vgvcavh98.png"],
     "description": "The colorful all-screen redesign: Apple iPad 10th Gen features an expansive 10.9-inch Liquid Retina screen, blazing A14 Bionic chip, landscape 12MP Ultra Wide camera with Center Stage, and USB-C.",
+    "sku": "deal-10",
+    "mpn": "deal-10",
     "brand": {
       "@type": "Brand",
       "name": "Apple"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://fktr.in/ITKBD4M",
+      "url": "https://www.thebhom.in/deals/p/apple-ipad-10th-gen.html",
       "priceCurrency": "INR",
       "price": 30999,
       "priceValidUntil": "2026-12-31",
@@ -62,6 +64,41 @@
       "seller": {
         "@type": "Organization",
         "name": "Flipkart"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {

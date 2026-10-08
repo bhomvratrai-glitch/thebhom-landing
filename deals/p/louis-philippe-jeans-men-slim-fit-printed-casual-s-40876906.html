@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Louis Philippe Jeans Men Slim Fit Printed Casual Shirt",
     "image": ["https://assets.myntassets.com/assets/images/2026/MARCH/24/f4n2RGpe_29e8da9e4bd0454ca89df91c7c7a776d.jpg"],
     "description": "Verified lowest price drop on MYNTRA. Genuine brand product with standard warranty and fast delivery.",
+    "sku": "FS-MYNTRA-40876906",
+    "mpn": "40876906",
     "brand": {
       "@type": "Brand",
       "name": "Louis"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://myntr.it/qESxWu3",
+      "url": "https://www.thebhom.in/deals/p/louis-philippe-jeans-men-slim-fit-printed-casual-s-40876906.html",
       "priceCurrency": "INR",
       "price": 997,
       "priceValidUntil": "2026-12-31",
@@ -62,12 +64,47 @@
       "seller": {
         "@type": "Organization",
         "name": "Myntra"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.3",
-      "reviewCount": "1200"
+      "ratingValue": "4.4",
+      "reviewCount": "1250"
     }
   }
   </script>

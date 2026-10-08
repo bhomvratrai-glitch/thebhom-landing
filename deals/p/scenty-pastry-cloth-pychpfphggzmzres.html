@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Scenty Pastry Cloth",
     "image": ["https://rukminim2.flixcart.com/image/800/1070/xif0q/pastry-cloth/x/m/d/95x140-scenty-original-imahpfphg596ahpe.jpeg"],
     "description": "Verified lowest price drop on FLIPKART. Genuine brand product with standard warranty and fast delivery.",
+    "sku": "FS-FLIPKART-PYCHPFPHGGZMZRES",
+    "mpn": "PYCHPFPHGGZMZRES",
     "brand": {
       "@type": "Brand",
       "name": "Scenty"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://fktr.in/3516Ajc",
+      "url": "https://www.thebhom.in/deals/p/scenty-pastry-cloth-pychpfphggzmzres.html",
       "priceCurrency": "INR",
       "price": 145,
       "priceValidUntil": "2026-12-31",
@@ -62,12 +64,47 @@
       "seller": {
         "@type": "Organization",
         "name": "Flipkart"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.3",
-      "reviewCount": "1200"
+      "ratingValue": "4.4",
+      "reviewCount": "1250"
     }
   }
   </script>

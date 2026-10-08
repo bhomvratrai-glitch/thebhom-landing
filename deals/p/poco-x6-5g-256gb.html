@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "POCO X6 5G (Mirror Black, 256 GB, 8 GB RAM, 1.5K AMOLED)",
     "image": ["https://rukminim2.flixcart.com/image/1500/1500/xif0q/mobile/o/0/o/x6-5g-mzb0g3sin-poco-original-imahcny9hwsxs76m.jpeg"],
     "description": "POCO X6 5G delivers stunning 1.5K CrystalRes 120Hz AMOLED visuals, Snapdragon 7s Gen 2 4nm power, 64MP OIS triple camera, and 67W Turbo Charge.",
+    "sku": "deal-7",
+    "mpn": "deal-7",
     "brand": {
       "@type": "Brand",
       "name": "POCO"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://fktr.in/63DjnC2",
+      "url": "https://www.thebhom.in/deals/p/poco-x6-5g-256gb.html",
       "priceCurrency": "INR",
       "price": 18999,
       "priceValidUntil": "2026-12-31",
@@ -62,6 +64,41 @@
       "seller": {
         "@type": "Organization",
         "name": "Flipkart"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {

@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Levi's Men's 511 Slim Fit Stretchable Denim Jeans (Dark Indigo)",
     "image": ["https://rukminim2.flixcart.com/image/1500/1500/xif0q/jean/4/l/d/-original-imahpw559zhatraj.jpeg"],
     "description": "The modern slim jean benchmark: Levi's 511 is cut close without being too tight, featuring stretch denim for all-day mobility and iconic 5-pocket styling.",
+    "sku": "deal-44",
+    "mpn": "deal-44",
     "brand": {
       "@type": "Brand",
       "name": "Levi's"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://fktr.in/Wl9G43t",
+      "url": "https://www.thebhom.in/deals/p/levis-511-slim-fit-jeans.html",
       "priceCurrency": "INR",
       "price": 1599,
       "priceValidUntil": "2026-12-31",
@@ -62,6 +64,41 @@
       "seller": {
         "@type": "Organization",
         "name": "Flipkart"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {

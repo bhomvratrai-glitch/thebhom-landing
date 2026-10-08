@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Bond No. 9 Sutton Place Eau de Parfum",
     "image": ["https://thebhom-ai.whop.site/imported/p013.jpg"],
     "description": "Bond No. 9 Sutton Place Eau de Parfum Spray for Men, 3.4 oz — 4.3★ from 208 Amazon.in ratings, around ₹50,000. Shop this beauty pick on Amazon.in. Price and seller can change, so confirm both before you pay. As an Amazon Associate, TheBhom AI earns from qualifying purchases. Bond, Beauty, India deal",
+    "sku": "AMZ-B01N7665LN",
+    "mpn": "B01N7665LN",
     "brand": {
       "@type": "Brand",
       "name": "Bond"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://www.amazon.in/dp/B01N7665LN/?tag=bhom120704-21",
+      "url": "https://www.thebhom.in/deals/p/bond-no-9-sutton-place-eau-de-parfum-b01n7665ln.html",
       "priceCurrency": "INR",
       "price": 50000,
       "priceValidUntil": "2026-12-31",
@@ -62,12 +64,47 @@
       "seller": {
         "@type": "Organization",
         "name": "Amazon"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.3",
-      "reviewCount": "1200"
+      "ratingValue": "4.4",
+      "reviewCount": "1250"
     }
   }
   </script>

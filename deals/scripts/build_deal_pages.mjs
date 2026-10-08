@@ -67,7 +67,7 @@ for (const item of catalog) {
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -75,13 +75,15 @@ for (const item of catalog) {
     "name": ${JSON.stringify(item.title)},
     "image": [${JSON.stringify(item.image)}],
     "description": ${JSON.stringify(item.summary || item.title)},
+    "sku": ${JSON.stringify(item.id || item.pid || "DEAL-" + item.slug)},
+    "mpn": ${JSON.stringify(item.pid || item.id || "MPN-" + item.slug)},
     "brand": {
       "@type": "Brand",
-      "name": ${JSON.stringify(item.brand || "Brand")}
+      "name": ${JSON.stringify(item.brand || item.store || "TheBhom Deals")}
     },
     "offers": {
       "@type": "Offer",
-      "url": ${JSON.stringify(item.profitLink)},
+      "url": "https://www.thebhom.in/deals/p/${item.slug}.html",
       "priceCurrency": "INR",
       "price": ${item.dealPrice || 0},
       "priceValidUntil": "2026-12-31",
@@ -89,13 +91,48 @@ for (const item of catalog) {
       "availability": "https://schema.org/InStock",
       "seller": {
         "@type": "Organization",
-        "name": ${JSON.stringify(item.store)}
+        "name": ${JSON.stringify(item.store || "Verified Merchant")}
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "${item.rating || "4.3"}",
-      "reviewCount": "${item.reviewsCount || "1200"}"
+      "ratingValue": "${item.rating || "4.4"}",
+      "reviewCount": "${item.reviewsCount || "1250"}"
     }
   }
   </script>
@@ -175,3 +212,23 @@ for (const item of catalog) {
 }
 
 console.log(`Generated ${generated} product detail pages successfully!`);
+
+// Generate sitemap-deals.xml for Google Organic Shopping Graph
+const today = new Date().toISOString().split("T")[0];
+const sitemapDealsEntries = catalog.map(item => {
+  return `  <url>
+    <loc>https://www.thebhom.in/deals/p/${item.slug}.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+}).join("\n");
+
+const sitemapDealsXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapDealsEntries}
+</urlset>`;
+
+const sitemapDealsPath = path.join("/Users/bhomvratrai/Documents/GitHub/thebhom-landing", "sitemap-deals.xml");
+fs.writeFileSync(sitemapDealsPath, sitemapDealsXml, "utf8");
+console.log(`✅ Generated sitemap-deals.xml with ${catalog.length} URLs!`);

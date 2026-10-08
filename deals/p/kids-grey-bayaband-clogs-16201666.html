@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Kids Grey Bayaband Clogs",
     "image": ["https://assets.myntassets.com/h_400,q_90,w_400/v1/assets/images/16201666/2022/6/2/731e43c2-3d02-47a4-a7f4-baaf8c6d8cda1654165012006-Crocs-Kids-Grey-Bayaband-Clogs-181654165011625-1.jpg"],
     "description": "Real User Verdict: Verified all-time lowest price drop. High build quality with 100% genuine brand packaging and manufacturer warranty.",
+    "sku": "16201666",
+    "mpn": "16201666",
     "brand": {
       "@type": "Brand",
       "name": "Kids"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://myntr.it/B8qa7mx",
+      "url": "https://www.thebhom.in/deals/p/kids-grey-bayaband-clogs-16201666.html",
       "priceCurrency": "INR",
       "price": 1677,
       "priceValidUntil": "2026-12-31",
@@ -62,6 +64,41 @@
       "seller": {
         "@type": "Organization",
         "name": "Myntra"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {

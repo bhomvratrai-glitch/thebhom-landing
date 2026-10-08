@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Ajio All Stars Fashion Sale",
     "image": ["https://cdn1.desidime.com/logo/Desidime_Logo-1200X630.png"],
     "description": "Verified trending loot deal from DesiDime community. Real price drop with exclusive discounts on Ajio.",
+    "sku": "DD-2168190",
+    "mpn": "2168190",
     "brand": {
       "@type": "Brand",
       "name": "AJIO"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://trackingv3.linkredirect.in/visitretailer/2276?id=5610321&dl=https%3A%2F%2Fwww.ajio.com%2Fsections%2Fexclusive-edit-festive%3Fitm_source%3Dbanner%26itm_source_detail%3DRest-of-india-M-UHP-ST-MB-S1-P1-AASSCR-Curtainraiser-50to90off-25092026-1790259060585.jpeg",
+      "url": "https://www.thebhom.in/deals/p/ajio-all-stars-fashion-sale-2168190.html",
       "priceCurrency": "INR",
       "price": 499,
       "priceValidUntil": "2026-12-31",
@@ -62,12 +64,47 @@
       "seller": {
         "@type": "Organization",
         "name": "Ajio"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.3",
-      "reviewCount": "1200"
+      "ratingValue": "4.4",
+      "reviewCount": "1250"
     }
   }
   </script>

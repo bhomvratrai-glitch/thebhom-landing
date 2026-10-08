@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Samsung Galaxy M35 5G (128 GB, 6 GB RAM, 6000mAh Monster Battery)",
     "image": ["https://rukminim2.flixcart.com/image/1500/1500/xif0q/mobile/x/y/l/-original-imah8pvvhmj76hvg.jpeg"],
     "description": "The ultimate endurance champion: Samsung Galaxy M35 5G combines a 6000mAh battery with a 120Hz sAMOLED display, Corning Gorilla Glass Victus+, and 50MP OIS No-Shake camera.",
+    "sku": "deal-4",
+    "mpn": "deal-4",
     "brand": {
       "@type": "Brand",
       "name": "Samsung"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://fktr.in/kcZPeeJ",
+      "url": "https://www.thebhom.in/deals/p/samsung-galaxy-m35-5g.html",
       "priceCurrency": "INR",
       "price": 16999,
       "priceValidUntil": "2026-12-31",
@@ -62,6 +64,41 @@
       "seller": {
         "@type": "Organization",
         "name": "Flipkart"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {

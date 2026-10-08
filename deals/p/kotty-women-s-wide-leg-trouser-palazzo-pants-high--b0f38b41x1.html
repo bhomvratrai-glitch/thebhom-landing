@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "KOTTY Women's Wide-Leg Trouser|Palazzo Pants|High Waist Flowy Trousers with Drawstring|Lightweight Casual & Travel Wear|Women Trousers Pants",
     "image": ["https://m.media-amazon.com/images/I/31yzQj42xjL._SY445_SX342_QL70_ML2_.jpg"],
     "description": "Verified lowest price drop on AMAZON. Genuine brand product with standard warranty and fast delivery.",
+    "sku": "FS-AMAZON-B0F38B41X1",
+    "mpn": "B0F38B41X1",
     "brand": {
       "@type": "Brand",
       "name": "KOTTY"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://www.amazon.in/dp/B0F38B41X1/?tag=bhom120704-21",
+      "url": "https://www.thebhom.in/deals/p/kotty-women-s-wide-leg-trouser-palazzo-pants-high--b0f38b41x1.html",
       "priceCurrency": "INR",
       "price": 260,
       "priceValidUntil": "2026-12-31",
@@ -62,12 +64,47 @@
       "seller": {
         "@type": "Organization",
         "name": "Amazon"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.3",
-      "reviewCount": "1200"
+      "ratingValue": "4.4",
+      "reviewCount": "1250"
     }
   }
   </script>

@@ -1,9 +1,10 @@
 User-agent: Googlebot
 Allow: /
+Allow: /deals/
+Allow: /deals/p/
 Disallow: /admin/
 Disallow: /api/admin
 Disallow: /directory/
-Disallow: /deals/p/
 Disallow: /marvel/
 Disallow: /cartoon/
 Disallow: /voices/
@@ -38,7 +39,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/admin
 Disallow: /directory/
-Disallow: /deals/p/
 Disallow: /marvel/
 Disallow: /cartoon/
 Disallow: /voices/
@@ -48,3 +48,4 @@ Disallow: /dashboard.html
 
 Sitemap: https://www.thebhom.in/sitemap.xml
 Sitemap: https://www.thebhom.in/sitemap-news.xml
+Sitemap: https://www.thebhom.in/sitemap-deals.xml

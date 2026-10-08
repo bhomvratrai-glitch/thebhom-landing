@@ -39,7 +39,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Google Shopping Graph & Merchant Listings) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -47,13 +47,15 @@
     "name": "Swiggy HDFC Bank Credit Card - Flat 10% Cashback on Swiggy, Dineout & Instamart",
     "image": ["https://media-assets.swiggy.com/co-web-assets/external_landing_pages/images/cbcc_new/Card%20Facia%20Ornge.png"],
     "description": "India's highest-reward food and dining card: Swiggy HDFC Credit Card delivers flat 10% cashback on Swiggy food orders, Instamart groceries, and Dineout dining.",
+    "sku": "deal-51",
+    "mpn": "deal-51",
     "brand": {
       "@type": "Brand",
       "name": "HDFC Bank"
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://earnkaro.com?r=5610321",
+      "url": "https://www.thebhom.in/deals/p/swiggy-hdfc-credit-card.html",
       "priceCurrency": "INR",
       "price": 0,
       "priceValidUntil": "2026-12-31",
@@ -62,6 +64,41 @@
       "seller": {
         "@type": "Organization",
         "name": "HDFC Bank"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "INR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "IN"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 4,
+            "unitCode": "d"
+          }
+        }
       }
     },
     "aggregateRating": {
