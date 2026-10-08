@@ -2454,3 +2454,59 @@ error: failed to push some refs to 'https://github.com/bhomvratrai-glitch/thebho
 [2026-10-08 05:35:15] Added 22 new stories. Total in database: 350
 [2026-10-08 05:35:16] Global sitemap.xml updated.
 [2026-10-08 05:35:16] Detected 419 changed/new files. Committing and deploying...
+[2026-10-08 05:35:17] Git commit created for [2026-10-08 05:35].
+[2026-10-08 05:35:22] Git push to GitHub main successful.
+[2026-10-08 05:35:27] Cloudflare deployment warning: [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/accounts/f0229ef3f7b9c89edefc57c0303ed4e9/pages/projects/thebhom) failed.[0m
+
+  Authentication error [code: 10000]
+  To learn more about this error, visit: [4mhttps://developers.cloudflare.com/api/resources/pages[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/accounts) failed.[0m
+
+  Unknown X-Auth-Key or X-Auth-Email [code: 9103]
+  
+  If you think this is a bug, please open an issue at: [4mhttps://github.com/cloudflare/workers-sdk/issues/new/choose[0m
+
+
+🪵  Logs were written to "/Users/bhomvratrai/Library/Preferences/.wrangler/logs/wrangler-2026-10-08_00-05-25_007.log"
+
+[2026-10-08 05:35:27] Failed to purge Cloudflare cache: HTTP Error 401: Unauthorized
+[2026-10-08 05:35:29] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-08 05:35:30] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-08 05:36:33] [TrafficBooster] Platform submissions complete.
+[2026-10-08 05:36:33] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-08 05:36:33] ==================================================
+[2026-10-08 05:34:56] ==================================================
+[2026-10-08 05:34:56] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-08 05:35:15] Added 22 new stories. Total in database: 350
+[2026-10-08 05:35:16] Global sitemap.xml updated.
+[2026-10-08 05:35:16] Detected 419 changed/new files. Committing and deploying...
+[2026-10-08 05:35:17] Git commit created for [2026-10-08 05:35].
+[2026-10-08 05:35:22] Git push to GitHub main successful.
+[2026-10-08 05:35:27] Cloudflare deployment warning: [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/accounts/f0229ef3f7b9c89edefc57c0303ed4e9/pages/projects/thebhom) failed.[0m
+
+  Authentication error [code: 10000]
+  To learn more about this error, visit: [4mhttps://developers.cloudflare.com/api/resources/pages[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/accounts) failed.[0m
+
+  Unknown X-Auth-Key or X-Auth-Email [code: 9103]
+  
+  If you think this is a bug, please open an issue at: [4mhttps://github.com/cloudflare/workers-sdk/issues/new/choose[0m
+
+
+🪵  Logs were written to "/Users/bhomvratrai/Library/Preferences/.wrangler/logs/wrangler-2026-10-08_00-05-25_007.log"
+
+[2026-10-08 05:35:27] Failed to purge Cloudflare cache: HTTP Error 401: Unauthorized
+[2026-10-08 05:35:29] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-08 05:35:30] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (7 URLs submitted)
+[2026-10-08 05:36:33] [TrafficBooster] Platform submissions complete.
+[2026-10-08 05:36:33] Hourly Publishing Cycle finished successfully. Articles are live and ready for Google Crawl.
+[2026-10-08 05:36:33] ==================================================
+[2026-10-08 11:41:30] ==================================================
+[2026-10-08 11:41:30] Starting Hourly TheBhom News & SEO Publishing Cycle...
+[2026-10-08 11:41:52] Added 60 new stories. Total in database: 350
+[2026-10-08 11:41:52] Global sitemap.xml updated.
+[2026-10-08 11:41:53] Detected 391 changed/new files. Committing and deploying...
