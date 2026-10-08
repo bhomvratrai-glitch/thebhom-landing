@@ -1572,3 +1572,49 @@
 [2026-10-08 11:43:29] [Feedly] Discovery ping HTTP 200
 [2026-10-08 11:43:29] Traffic Booster cycle DONE!
 [2026-10-08 11:43:29] ==========================================================
+[2026-10-08 12:44:10] ==========================================================
+[2026-10-08 12:44:10] TheBhom Traffic Booster STARTED
+[2026-10-08 12:44:10] Loaded 80 URLs, parsed 10 articles
+[2026-10-08 12:44:10] Loaded 1467 total sitemap URLs across the entire site
+[2026-10-08 12:44:10] --- IndexNow Bulk Submit (All 250+ Pages) ---
+[2026-10-08 12:44:11] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 1: 100 URLs)
+[2026-10-08 12:44:15] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 1: 100 URLs)
+[2026-10-08 12:44:17] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 2: 100 URLs)
+[2026-10-08 12:44:19] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 2: 100 URLs)
+[2026-10-08 12:44:21] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 3: 100 URLs)
+[2026-10-08 12:44:26] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 3: 100 URLs)
+[2026-10-08 12:44:28] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 4: 100 URLs)
+[2026-10-08 12:44:30] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 4: 100 URLs)
+[2026-10-08 12:44:33] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 5: 100 URLs)
+[2026-10-08 12:44:35] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 5: 100 URLs)
+[2026-10-08 12:44:37] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 6: 100 URLs)
+[2026-10-08 12:44:39] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 6: 100 URLs)
+[2026-10-08 12:44:41] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 7: 100 URLs)
+[2026-10-08 12:44:43] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 7: 100 URLs)
+[2026-10-08 12:44:45] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 8: 100 URLs)
+[2026-10-08 12:44:47] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 8: 100 URLs)
+[2026-10-08 12:44:49] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 9: 100 URLs)
+[2026-10-08 12:44:51] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 9: 100 URLs)
+[2026-10-08 12:44:53] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 10: 100 URLs)
+[2026-10-08 12:44:56] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 10: 100 URLs)
+[2026-10-08 12:44:58] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 11: 100 URLs)
+[2026-10-08 12:45:00] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 11: 100 URLs)
+[2026-10-08 12:45:02] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 12: 100 URLs)
+[2026-10-08 12:45:04] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 12: 100 URLs)
+[2026-10-08 12:45:06] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 13: 100 URLs)
+[2026-10-08 12:45:08] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 13: 100 URLs)
+[2026-10-08 12:45:10] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 14: 100 URLs)
+[2026-10-08 12:45:13] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 14: 100 URLs)
+[2026-10-08 12:45:15] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 15: 67 URLs)
+[2026-10-08 12:45:17] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 15: 67 URLs)
+[2026-10-08 12:45:18] --- RSS Feed Generation ---
+[2026-10-08 12:45:18] [RSS] Generated feed.xml with 30 items -> https://www.thebhom.in/news/feed.xml
+[2026-10-08 12:45:18] --- Telegram Push ---
+[2026-10-08 12:45:20] --- Pinterest Auto-Pin ---
+[2026-10-08 12:45:20] [Pinterest] PINTEREST_ACCESS_TOKEN not set — skipping
+[2026-10-08 12:45:20] --- Reddit Submissions ---
+[2026-10-08 12:45:20] [Reddit] No token — add REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET to credentials.env
+[2026-10-08 12:45:20] --- RSS Aggregator Ping ---
+[2026-10-08 12:45:27] [Feedly] Discovery ping HTTP 200
+[2026-10-08 12:45:27] Traffic Booster cycle DONE!
+[2026-10-08 12:45:27] ==========================================================
