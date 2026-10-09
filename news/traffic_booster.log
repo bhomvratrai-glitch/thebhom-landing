@@ -2382,3 +2382,57 @@
 [2026-10-09 16:52:17] [Feedly] Discovery ping HTTP 200
 [2026-10-09 16:52:17] Traffic Booster cycle DONE!
 [2026-10-09 16:52:17] ==========================================================
+[2026-10-09 18:19:20] ==========================================================
+[2026-10-09 18:19:20] TheBhom Traffic Booster STARTED
+[2026-10-09 18:19:20] Loaded 80 URLs, parsed 10 articles
+[2026-10-09 18:19:20] Loaded 1898 total sitemap URLs across the entire site
+[2026-10-09 18:19:20] --- IndexNow Bulk Submit (All 250+ Pages) ---
+[2026-10-09 18:19:21] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 1: 100 URLs)
+[2026-10-09 18:19:23] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 1: 100 URLs)
+[2026-10-09 18:19:25] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 2: 100 URLs)
+[2026-10-09 18:19:27] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 2: 100 URLs)
+[2026-10-09 18:19:29] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 3: 100 URLs)
+[2026-10-09 18:19:31] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 3: 100 URLs)
+[2026-10-09 18:19:33] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 4: 100 URLs)
+[2026-10-09 18:19:36] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 4: 100 URLs)
+[2026-10-09 18:19:38] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 5: 100 URLs)
+[2026-10-09 18:19:40] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 5: 100 URLs)
+[2026-10-09 18:19:42] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 6: 100 URLs)
+[2026-10-09 18:19:44] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 6: 100 URLs)
+[2026-10-09 18:19:48] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 7: 100 URLs)
+[2026-10-09 18:19:50] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 7: 100 URLs)
+[2026-10-09 18:19:53] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 8: 100 URLs)
+[2026-10-09 18:19:55] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 8: 100 URLs)
+[2026-10-09 18:19:57] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 9: 100 URLs)
+[2026-10-09 18:19:59] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 9: 100 URLs)
+[2026-10-09 18:20:02] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 10: 100 URLs)
+[2026-10-09 18:20:04] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 10: 100 URLs)
+[2026-10-09 18:20:06] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 11: 100 URLs)
+[2026-10-09 18:20:09] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 11: 100 URLs)
+[2026-10-09 18:20:11] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 12: 100 URLs)
+[2026-10-09 18:20:13] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 12: 100 URLs)
+[2026-10-09 18:20:15] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 13: 100 URLs)
+[2026-10-09 18:20:18] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 13: 100 URLs)
+[2026-10-09 18:20:20] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 14: 100 URLs)
+[2026-10-09 18:20:23] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 14: 100 URLs)
+[2026-10-09 18:20:26] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 15: 100 URLs)
+[2026-10-09 18:20:28] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 15: 100 URLs)
+[2026-10-09 18:20:30] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 16: 100 URLs)
+[2026-10-09 18:20:33] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 16: 100 URLs)
+[2026-10-09 18:20:36] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 17: 100 URLs)
+[2026-10-09 18:20:38] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 17: 100 URLs)
+[2026-10-09 18:20:41] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 18: 100 URLs)
+[2026-10-09 18:20:44] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 18: 100 URLs)
+[2026-10-09 18:20:49] [IndexNow] https://api.indexnow.org/indexnow -> HTTP 200 (Batch 19: 98 URLs)
+[2026-10-09 18:20:50] [IndexNow] https://www.bing.com/indexnow -> HTTP 200 (Batch 19: 98 URLs)
+[2026-10-09 18:20:52] --- RSS Feed Generation ---
+[2026-10-09 18:20:52] [RSS] Generated feed.xml with 30 items -> https://www.thebhom.in/news/feed.xml
+[2026-10-09 18:20:52] --- Telegram Push ---
+[2026-10-09 18:25:32] --- Pinterest Auto-Pin ---
+[2026-10-09 18:25:32] [Pinterest] PINTEREST_ACCESS_TOKEN not set — skipping
+[2026-10-09 18:25:32] --- Reddit Submissions ---
+[2026-10-09 18:25:32] [Reddit] No token — add REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET to credentials.env
+[2026-10-09 18:25:32] --- RSS Aggregator Ping ---
+[2026-10-09 18:25:34] [Feedly] Discovery ping HTTP 200
+[2026-10-09 18:25:34] Traffic Booster cycle DONE!
+[2026-10-09 18:25:34] ==========================================================
