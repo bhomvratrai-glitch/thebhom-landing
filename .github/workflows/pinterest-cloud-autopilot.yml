@@ -1,0 +1,42 @@
+name: Pinterest 24/7 Cloud Autopilot Engine
+
+on:
+  schedule:
+    # Runs every 4 hours automatically 100% in the cloud
+    - cron: '0 */4 * * *'
+  workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  cloud_sync:
+    name: Sync Deals & Refresh Pinterest Feeds
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ⚡ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 🚀 Run Cloud Pinterest Synchronization Engine
+        run: |
+          node ./scripts/cloud_pinterest_sync.mjs
+
+      - name: 💾 Commit & Push Cloud Updates
+        run: |
+          git config --local user.name "GitHub Cloud Autopilot"
+          git config --local user.email "cloud-autopilot@thebhom.in"
+          git add *feed.xml
+          if git diff --staged --quiet; then
+            echo "No feed changes to commit."
+          else
+            git commit -m "chore(autopilot): cloud sync Pinterest feeds [skip ci]"
+            git push origin main
+          fi
