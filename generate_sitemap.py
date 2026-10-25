@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import glob
 from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -8,23 +9,28 @@ TODAY = datetime.utcnow().strftime('%Y-%m-%d')
 urls = [
     ('https://www.thebhom.in/', '1.0', 'daily'),
     ('https://www.thebhom.in/deals/', '0.95', 'daily'),
-    ('https://www.thebhom.in/downloader/', '0.95', 'daily'),
-    ('https://www.thebhom.in/downloader/youtube-video-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/youtube-shorts-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/youtube-song-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/instagram-reels-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/instagram-story-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/tiktok-video-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/facebook-video-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/twitter-video-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/pinterest-video-downloader.html', '0.90', 'daily'),
-    ('https://www.thebhom.in/downloader/reddit-video-downloader.html', '0.90', 'daily'),
+    ('https://www.thebhom.in/guides/', '0.95', 'daily'),
+]
+
+# Scan all verified guides in guides/
+guides_dir = os.path.join(BASE_DIR, 'guides')
+for f in sorted(glob.glob(os.path.join(guides_dir, '*.html'))):
+    fname = os.path.basename(f)
+    if fname == 'index.html':
+        continue
+    # Exclude any download guides if present
+    if 'download' in fname or 'youtube' in fname:
+        continue
+    urls.append((f'https://www.thebhom.in/guides/{fname}', '0.85', 'weekly'))
+
+# Legal and institutional pages
+urls.extend([
     ('https://www.thebhom.in/about', '0.7', 'monthly'),
     ('https://www.thebhom.in/contact', '0.7', 'monthly'),
     ('https://www.thebhom.in/privacy-policy', '0.6', 'monthly'),
     ('https://www.thebhom.in/terms', '0.6', 'monthly'),
     ('https://www.thebhom.in/disclaimer', '0.6', 'monthly'),
-]
+])
 
 xml_lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',

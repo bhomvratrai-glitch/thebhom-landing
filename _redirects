@@ -43,8 +43,20 @@ http://www.thebhom.in/* https://www.thebhom.in/:splat 301!
 /refer* https://www.thebhom.in/ 301
 /pitch* https://www.thebhom.in/ 301
 
+# Downloader & Download Guides Redirects (AdSense Compliance)
+/guides/youtube-video-kaise-download-kare-gallery-me.html https://www.thebhom.in/guides/ 301
+/guides/youtube-se-mp3-song-kaise-download-kare.html https://www.thebhom.in/guides/ 301
+/guides/how-to-extract-320kbps-mp3-from-youtube.html https://www.thebhom.in/guides/ 301
+/guides/download-instagram-reels-with-audio-gallery.html https://www.thebhom.in/guides/ 301
+/guides/how-to-save-youtube-shorts-in-1080p.html https://www.thebhom.in/guides/ 301
+/guides/youtube-shorts-video-kaise-download-kare.html https://www.thebhom.in/guides/ 301
+/guides/instagram-reel-gallery-me-audio-ke-sath-kaise-save-kare.html https://www.thebhom.in/guides/ 301
+/guides/safe-video-downloading-fair-use-copyright-guide.html https://www.thebhom.in/guides/ 301
+/downloader/* https://www.thebhom.in/guides/ 302
+/downloader https://www.thebhom.in/guides/ 302
+
 # Subdirectory PWA manifest rewrites
 /guides/manifest.json /manifest.json 200
 /deals/manifest.json /manifest.json 200
-/downloader/manifest.json /manifest.json 200
+
 

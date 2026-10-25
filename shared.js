@@ -154,12 +154,12 @@ const SUBDOMAINS = [
     svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fb641b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`
   },
   {
-    id: "downloader",
-    name: "Downloader",
-    label: "⚡ Downloader",
-    url: "/downloader/",
-    color: "#0891b2",
-    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`
+    id: "guides",
+    name: "Guides",
+    label: "📖 Tech Guides",
+    url: "/guides/",
+    color: "#10b981",
+    svg: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`
   }
 ];
 
@@ -287,8 +287,7 @@ function renderHeader(activePage=''){
   <nav class="hdr-nav-container">
     <ul class="hdr-nav">
       <li><a href="/deals/" class="hdr-nav-link ${activePage==='deals'?'active':''}" title="TheBhom Deals"><span class="hdr-nav-ic" style="color:#f59e0b;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r="1.5"/></svg></span><span class="hdr-nav-txt" style="color:#f59e0b;font-weight:700;">Deals</span></a></li>
-      <li><a href="/downloader/" class="hdr-nav-link ${activePage==='downloader'?'active':''}" title="Universal Video Downloader"><span class="hdr-nav-ic" style="color:#0891b2;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="hdr-nav-txt" style="color:#0891b2;font-weight:700;">Downloader</span></a></li>
-      <li><a href="/guides/" class="hdr-nav-link ${activePage==='guides'?'active':''}" title="Buying Guides & Tutorials"><span class="hdr-nav-ic" style="color:#10b981;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span><span class="hdr-nav-txt" style="color:#10b981;font-weight:700;">Guides</span></a></li>
+      <li><a href="/guides/" class="hdr-nav-link ${activePage==='guides'?'active':''}" title="Buying Guides & Tech Reviews"><span class="hdr-nav-ic" style="color:#10b981;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span><span class="hdr-nav-txt" style="color:#10b981;font-weight:700;">Guides & Reviews</span></a></li>
       <li><button onclick="window.openFavDrawer()" class="hdr-nav-link" style="background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font:inherit;" title="Saved Items"><span class="hdr-nav-ic" style="color:#e11d48;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span><span class="hdr-nav-txt" style="color:#e11d48;font-weight:700;">Saved</span><span class="fav-badge fav-count-badge" style="background:#e11d48;color:#fff;font-size:11px;font-weight:700;padding:1px 6px;border-radius:12px;min-width:18px;text-align:center;">0</span></button></li>
     </ul>
   </nav>
@@ -318,7 +317,6 @@ function renderHeader(activePage=''){
   </div>
   <a href="/">🏠 Home</a>
   <a href="/deals/" style="color:#f59e0b;font-weight:700;">🔥 Deals</a>
-  <a href="/downloader/" style="color:#0891b2;font-weight:700;">⚡ Downloader</a>
   <a href="/guides/" style="color:#10b981;font-weight:700;">📖 Guides & Reviews</a>
   <a href="#" onclick="window.openFavDrawer();return false;" style="color:#e11d48;font-weight:700;">❤️ Saved Items (<span class="fav-count-badge">0</span>)</a>
   <a href="/about">ℹ️ About Us</a>
@@ -353,7 +351,7 @@ function getHdrUserSnippet(base) {
           <span style="display:inline-block;margin-top:6px;background:${badgeBg};color:${badgeColor};padding:2px 8px;border-radius:999px;font-size:0.7rem;font-weight:800;">${badgeText}</span>
         </div>
         <a href="${base}deals/" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#374151;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">🛍️ Loot Deals</a>
-        <a href="${base}downloader/" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#2563eb;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='transparent'">⚡ Video Downloader</a>
+        <a href="${base}guides/" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#10b981;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#ecfdf5'" onmouseout="this.style.background='transparent'">📖 Tech Guides</a>
         <a href="#" onclick="logoutTheBhomUser();return false;" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem;color:#dc2626;text-decoration:none;font-weight:600;" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='transparent'">↪ Logout</a>
       </div>
     </div>`;
@@ -534,25 +532,25 @@ function renderFooter(){
     <div class="footer-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:2rem;margin-bottom:2.5rem;">
       
       <div class="f-col">
-        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Downloader Tools</h5>
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Tech Guides & Editorial</h5>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
-          <li><a href="/downloader/youtube-shorts-downloader.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">YouTube Shorts Downloader</a></li>
-          <li><a href="/downloader/instagram-reels-downloader.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Instagram Reels Downloader</a></li>
-          <li><a href="/downloader/tiktok-video-downloader.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">TikTok Video Downloader</a></li>
-          <li><a href="/downloader/video-to-mp3-converter.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Video to MP3 Converter</a></li>
-          <li><a href="/downloader/youtube-song-downloader.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">MP3 Audio Downloader</a></li>
+          <li><a href="/guides/best-budget-smartphones-under-15000.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Best 5G Phones Under ₹15,000</a></li>
+          <li><a href="/guides/best-budget-laptops-for-students-under-40000.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Student Laptops Under ₹40,000</a></li>
+          <li><a href="/guides/best-tws-earbuds-under-1500-anc.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Best TWS Earbuds Under ₹1,500</a></li>
+          <li><a href="/guides/top-10-smartwatches-under-2000.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Top Smartwatches Under ₹2,000</a></li>
+          <li><a href="/guides/best-power-banks-fast-charging-india.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Fast Charging Power Banks</a></li>
+          <li><a href="/guides/how-to-track-real-amazon-flipkart-price-drops.html" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">Amazon & Flipkart Price Drop Hacks</a></li>
         </ul>
       </div>
 
       <div class="f-col">
-        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Deals & Utilities</h5>
+        <h5 style="font-size:0.88rem;font-weight:800;color:#111827;margin-bottom:1rem;text-transform:none;letter-spacing:0;">Deals & Categories</h5>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
           <li><a href="/deals/" style="color:#f59e0b;font-weight:700;text-decoration:none;font-size:0.88rem;">🔥 Live Loot Deals</a></li>
           <li><a href="/deals/?store=amazon" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">📦 Amazon Deals</a></li>
           <li><a href="/deals/?store=flipkart" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">🛍️ Flipkart Deals</a></li>
           <li><a href="/deals/?store=myntra" style="color:#4b5563;text-decoration:none;font-size:0.88rem;">👗 Myntra Deals</a></li>
-          <li><a href="/downloader/" style="color:#0891b2;font-weight:700;text-decoration:none;font-size:0.88rem;">⚡ Video Downloader</a></li>
-          <li><a href="/guides/" style="color:#10b981;font-weight:700;text-decoration:none;font-size:0.88rem;">📖 Buying Guides & Reviews</a></li>
+          <li><a href="/guides/" style="color:#10b981;font-weight:700;text-decoration:none;font-size:0.88rem;">📖 Tech Buying Guides Hub</a></li>
         </ul>
       </div>
 
@@ -883,8 +881,8 @@ function upgradeHeaderToNewNav() {
     existingSubnav.remove();
   }
 
-  // Upgrade header if missing downloader or has obsolete sections
-  if (existingHdr && (!existingHdr.querySelector('a[href="/downloader/"]') || !existingHdr.querySelector('a[href="/guides/"]') || existingHdr.querySelector('a[href*="tools"]') || existingHdr.querySelector('a[href*="imgpdf"]') || existingHdr.querySelector('a[href*="wallpapers"]') || existingHdr.querySelector('a[href*="ebooks"]') || existingHdr.querySelector('a[href*="magazines"]') || existingHdr.querySelector('a[href*="templates"]') || existingHdr.querySelector('a[href*="cards"]') || existingHdr.querySelector('a[href*="news"]'))) {
+  // Upgrade header if missing guides or has obsolete sections
+  if (existingHdr && (!existingHdr.querySelector('a[href="/guides/"]') || existingHdr.querySelector('a[href*="tools"]') || existingHdr.querySelector('a[href*="downloader"]') || existingHdr.querySelector('a[href*="imgpdf"]') || existingHdr.querySelector('a[href*="wallpapers"]') || existingHdr.querySelector('a[href*="ebooks"]') || existingHdr.querySelector('a[href*="magazines"]') || existingHdr.querySelector('a[href*="templates"]') || existingHdr.querySelector('a[href*="cards"]') || existingHdr.querySelector('a[href*="news"]'))) {
     const container = document.createElement('div');
     container.innerHTML = renderHeader(activePage);
     const newHdr = container.querySelector('header.hdr');
@@ -1186,13 +1184,13 @@ let spotlightActiveCategory = 'all';
 function getAllContentItems() {
   return [
     { id: 'item-deals', title: 'TheBhom Deals — Handpicked Daily Loot Deals & Price Drops', cat: 'deals', tag: 'Deals Store', emoji: '🔥', url: '/deals/' },
-    { id: 'item-downloader', title: 'Universal Video Downloader & Trimmer (1080p Full HD & MP3)', cat: 'downloader', tag: 'Downloader', emoji: '⚡', url: '/downloader/' },
-    { id: 'item-guides', title: 'TheBhom Editorial Buying Guides & Video Tutorials', cat: 'guides', tag: 'Guides Hub', emoji: '📖', url: '/guides/' },
+    { id: 'item-guides', title: 'TheBhom Editorial Buying Guides & Gadget Reviews', cat: 'guides', tag: 'Guides Hub', emoji: '📖', url: '/guides/' },
+    { id: 'guide-smartphones', title: 'Best 5G Smartphones Under ₹15,000 in India (Gaming & Battery Life)', cat: 'guides', tag: 'Tech Guide', emoji: '📱', url: '/guides/best-budget-smartphones-under-15000.html' },
+    { id: 'guide-laptops', title: 'Best Budget Laptops for Students Under ₹40,000 in India (Coding & Multi-tasking)', cat: 'guides', tag: 'Tech Guide', emoji: '💻', url: '/guides/best-budget-laptops-for-students-under-40000.html' },
     { id: 'guide-smartwatch', title: 'Top 10 Best Smartwatches Under ₹2,000 (Tested Battery & AMOLED)', cat: 'guides', tag: 'Tech Guide', emoji: '⌚', url: '/guides/top-10-smartwatches-under-2000.html' },
     { id: 'guide-tws', title: 'Best TWS Earbuds Under ₹1,500 with Active Noise Cancellation (ANC)', cat: 'guides', tag: 'Audio Guide', emoji: '🎧', url: '/guides/best-tws-earbuds-under-1500-anc.html' },
+    { id: 'guide-powerbank', title: 'Best Power Banks in India: Fast Charging & Airline Safety Guide', cat: 'guides', tag: 'Tech Guide', emoji: '🔋', url: '/guides/best-power-banks-fast-charging-india.html' },
     { id: 'guide-price-track', title: 'How to Track Real Price Drops on Amazon & Flipkart (Avoid Fake Sales)', cat: 'guides', tag: 'Shopping Guide', emoji: '📉', url: '/guides/how-to-track-real-amazon-flipkart-price-drops.html' },
-    { id: 'guide-ig-reels', title: 'How to Download Instagram Reels with Audio Directly to Gallery', cat: 'guides', tag: 'Video Tutorial', emoji: '📸', url: '/guides/download-instagram-reels-with-audio-gallery.html' },
-    { id: 'guide-yt-mp3', title: 'Convert YouTube Videos to High Quality 320kbps MP3 Audio', cat: 'guides', tag: 'Audio Tutorial', emoji: '🎵', url: '/guides/convert-youtube-video-to-mp3-320kbps.html' },
     { id: 'deal-powerbank', title: '15W Fast Charging 10000mAh Power Bank (₹527 - 73% OFF)', cat: 'deals', tag: 'Amazon Deal', emoji: '🔋', url: '/deals/p/15w-fast-charging-10000mah-power-bank-with-type-c--fs-amazon-b0flxvqr5r.html' },
     { id: 'deal-smartwatch', title: 'Ai+ NovaWatch AMOLED Bluetooth Calling Smartwatch (₹1,499 - 66% OFF)', cat: 'deals', tag: 'Flipkart Deal', emoji: '⌚', url: '/deals/p/ai-novawatch-active-9mm-slim-173-amoled-display-bt-fs-flipkart-smwhjhukphmzbqxq.html' },
     { id: 'deal-charger', title: '100W Fast Charger Adapter & Type-C Cable Combo (₹699 - 65% OFF)', cat: 'deals', tag: 'Amazon Deal', emoji: '⚡', url: '/deals/p/100w-fast-charger-adapter-usb-a-to-type-c-cable-co-fs-amazon-b0gh86tbh3.html' },
@@ -1202,22 +1200,13 @@ function getAllContentItems() {
     { id: 'item-amazon', title: 'Amazon Top Discounts & Lightning Deals', cat: 'deals', tag: 'Amazon', emoji: '📦', url: '/deals/?store=amazon' },
     { id: 'item-flipkart', title: 'Flipkart Big Savings & Flash Offers', cat: 'deals', tag: 'Flipkart', emoji: '🛍️', url: '/deals/?store=flipkart' },
     { id: 'item-myntra', title: 'Myntra Fashion, Clothing & Footwear Deals', cat: 'deals', tag: 'Myntra', emoji: '👗', url: '/deals/?store=myntra' },
-    { id: 'dl-yt-shorts', title: 'YouTube Shorts Downloader & MP4 Video Saver', cat: 'downloader', tag: 'YouTube', emoji: '▶️', url: '/downloader/youtube-shorts-downloader.html' },
-    { id: 'dl-ig-reels', title: 'Instagram Reels & Video Downloader (Full HD)', cat: 'downloader', tag: 'Instagram', emoji: '📸', url: '/downloader/instagram-reels-downloader.html' },
-    { id: 'dl-tiktok', title: 'TikTok Video Downloader Without Watermark', cat: 'downloader', tag: 'TikTok', emoji: '🎵', url: '/downloader/tiktok-video-downloader.html' },
-    { id: 'dl-video-to-mp3', title: 'Video to MP3 Converter (Extract 320kbps Audio)', cat: 'downloader', tag: 'Audio', emoji: '🎧', url: '/downloader/video-to-mp3-converter.html' },
-    { id: 'dl-mp3', title: 'High Quality MP3 Audio & Song Extractor', cat: 'downloader', tag: 'Audio', emoji: '🎵', url: '/downloader/youtube-song-downloader.html' },
     { id: 'item-electronics', title: 'Electronics, Mobiles & Gadgets Deals', cat: 'deals', tag: 'Electronics', emoji: '📱', url: '/deals/?category=electronics' }
   ];
 }
 
 function openSpotlightItem(url, id, cat) {
   closeSpotlight();
-  const isInSubdir = window.location.pathname.includes('/downloader/') || window.location.pathname.includes('/directory/');
   let targetUrl = url;
-  if (!targetUrl.startsWith('/') && !targetUrl.startsWith('http')) {
-    targetUrl = isInSubdir ? '../' + targetUrl : targetUrl;
-  }
   window.location.href = targetUrl;
 }
 
@@ -1240,14 +1229,13 @@ function openSpotlight() {
       <div class="spotlight-modal" onclick="event.stopPropagation()">
         <div class="spotlight-top">
           <span class="spotlight-icon">🔍</span>
-          <input type="text" id="spotlightInput" class="spotlight-input" placeholder="Search Deals, Video Downloader, Offers..." autocomplete="off" />
+          <input type="text" id="spotlightInput" class="spotlight-input" placeholder="Search Deals, Buying Guides, Tech Reviews..." autocomplete="off" />
           <span class="spotlight-esc" onclick="closeSpotlight()">ESC</span>
         </div>
         <div class="spotlight-filter-bar">
           <button class="spotlight-chip active" onclick="setSpotlightCat('all', this)">🔥 All</button>
           <button class="spotlight-chip" onclick="setSpotlightCat('deals', this)">🛍️ Loot Deals</button>
-          <button class="spotlight-chip" onclick="setSpotlightCat('downloader', this)">⚡ Downloader</button>
-          <button class="spotlight-chip" onclick="setSpotlightCat('guides', this)">📖 Guides</button>
+          <button class="spotlight-chip" onclick="setSpotlightCat('guides', this)">📖 Tech Guides</button>
         </div>
         <div class="spotlight-results" id="spotlightResults"></div>
         <div class="spotlight-footer">
@@ -1832,18 +1820,18 @@ let currentLang = localStorage.getItem('thebhom_lang') || 'hi';
 const I18N_DICT = {
   hi: {
     langBtn: '🇮🇳 हिन्दी',
-    freeBand: '🎉 TheBhom.in पर verified Loot Deals और High-Speed Video Downloader 100% FREE है!',
+    freeBand: '🎉 TheBhom.in पर verified Loot Deals और Expert Buying Guides 100% FREE हैं!',
     savedBtn: '❤️ सेव्ड',
     searchBtn: '🔍 खोजें',
-    searchPlaceholder: 'Deals, Offers और Video Downloader खोजें...',
+    searchPlaceholder: 'Deals, Offers और Tech Buying Guides खोजें...',
     loadMore: 'और लोड करें'
   },
   en: {
     langBtn: '🌐 English',
-    freeBand: '🎉 Verified Loot Deals and High-Speed Video Downloader on TheBhom.in are 100% FREE!',
+    freeBand: '🎉 Verified Loot Deals and Expert Tech Buying Guides on TheBhom.in are 100% FREE!',
     savedBtn: '❤️ Saved',
     searchBtn: '🔍 Search',
-    searchPlaceholder: 'Search Deals, Offers and Video Downloader...',
+    searchPlaceholder: 'Search Deals, Offers and Tech Buying Guides...',
     loadMore: 'Load More'
   }
 };
