@@ -4,10 +4,9 @@
 
 ## Core Services
 
-- [TheBhom Home](https://www.thebhom.in/): Central portal with featured shopping deals, price drop alerts, editorial guides, and instant video downloading utilities.
+- [TheBhom Home](https://www.thebhom.in/): Central portal with featured shopping deals, price drop alerts, and expert consumer tech buying guides.
 - [Deals & Offers Store](https://www.thebhom.in/deals/): Verified handpicked loot deals, price drop alerts, and flash sales across Amazon, Flipkart, Myntra, and major Indian retailers.
-- [Universal Video Downloader](https://www.thebhom.in/downloader/): Multi-platform 1080p Full HD video downloader and MP3 audio extractor supporting Instagram Reels, YouTube Shorts, TikTok (watermark-free), Facebook, and Twitter/X.
-- [Guides & Editorial Reviews](https://www.thebhom.in/guides/): In-depth smart buying guides, gadget reviews, price tracking strategies, and multimedia tutorials.
+- [Guides & Editorial Reviews](https://www.thebhom.in/guides/): 105+ in-depth smart buying guides, smartphone processor rankings, display technologies, laptop guides, and consumer electronics reviews.
 
 ## Platform & Policies
 
