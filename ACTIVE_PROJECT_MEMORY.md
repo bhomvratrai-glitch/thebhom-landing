@@ -22,6 +22,31 @@
 - **Active Core Structure (Ultra-Clean Focus)**:
   - **Main Landing Site**: Root (`/`) at `https://www.thebhom.in/` featuring Deals Hub and Universal Video Downloader.
   - **Guides & In-Depth Editorial Reviews**: Subdirectory (`/guides/`) at `https://www.thebhom.in/guides/` featuring consumer guides, editorial comparisons, and Hinglish long-tail video saving guides.
+    - **October 26, 2026 Milestone (21 High-Quality Featured Tech Buying Guides on Main Homepage)**:
+      - Curated and integrated 21 of the highest-authority, in-depth technical guides directly onto `index.html` across 5 categories:
+        1. *Processors & Silicon*: Best Smartphone Processors 2026 Ranking (Snapdragon 8 Elite vs Dimensity 9400 vs A18 Pro).
+        2. *Mobile Cameras*: Best Camera Phones Under ₹25k (Sony IMX & OIS Night Mode).
+        3. *Gaming Phones*: Best Gaming Phones Under ₹20k (90FPS BGMI & Vapor Chamber Cooling).
+        4. *Display Tech*: OLED vs AMOLED vs IPS LCD (PWM Dimming & Brightness Nits).
+        5. *5G Connectivity*: 5G Bands in India Explained (n28, n78, Sub-6 Checklist).
+        6. *Student Laptops*: Best Budget Student Laptops Under ₹40,000 (SSD & Battery).
+        7. *Programming & Dev*: Best Coding Laptops: Mac vs Windows vs Linux.
+        8. *Gaming Laptops*: Best Gaming Laptops Under ₹60,000 (RTX TGP & Thermals).
+        9. *Storage Tech*: SSD Types: SATA vs NVMe PCIe Gen 4 vs Gen 5 Speeds.
+        10. *Hardware DIY*: How to Upgrade Old Laptop SSD & RAM (Step-by-Step).
+        11. *Audio & ANC*: Best TWS Earbuds Under ₹1,500 (Active Noise Cancellation).
+        12. *Wearables*: Top 10 Smartwatches Under ₹2,000 (Display & Sensor Accuracy).
+        13. *Audio Science*: ANC vs ENC Noise Cancellation Explained.
+        14. *Studio Headphones*: Best Over-Ear ANC Headphones Under ₹5,000 (Deep Bass).
+        15. *Fast Charging*: Best 65W PD Power Banks (Airline Approved).
+        16. *GaN Power*: GaN Chargers vs Traditional Silicon Fast Charging Guide.
+        17. *Battery Science*: Fast Charging vs Battery Health Degradation Myths.
+        18. *Smart Shopping*: How to Track Real Amazon & Flipkart Price Drops.
+        19. *Refurbished Tech*: Refurbished Phones Buying Guide (Amazon Renewed vs Cashify).
+        20. *Anti-Counterfeit*: How to Identify Fake Products on Amazon & Flipkart.
+        21. *Consumer Rights*: Return & Replacement Policy Hacks & Open Box Delivery Rights.
+      - Updated homepage stats: `105+ Expert Tech Guides` (previously said `25+`).
+      - Sanitized all residual "downloader" copy in the "Why TheBhom" section.
     - **October 26, 2026 Milestone (100% Human-Crafted In-Depth Rewrite of all 6 Company & Policy Pages)**:
       - **Complete Architectural Overhaul of Legal & Corporate Hub**:
         - **`about.html` (`/about`)**: Rewritten with rich editorial charter, 105+ guides stats row, 3 core pillars (Curated Deals, Hardware Guides, Consumer Advisory), silicon/thermal testing methodology, commercial transparency (AdSense + affiliate), team structure, and community links.
