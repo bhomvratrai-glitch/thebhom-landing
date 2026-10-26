@@ -16,20 +16,18 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service & User Agreement • TheBhom</title>
-  <meta name="description" content="Official Terms of Service and User Agreement for TheBhom web utilities, consumer buying guides, deal discovery engine, and digital services.">
+  <title>Terms of Service • TheBhom — User Agreement &amp; Operating Policies</title>
+  <meta name="description" content="Official Terms of Service governing access to TheBhom website, tech buying guides, and curated e-commerce deals catalog. Rights, liabilities, and acceptable use.">
   <link rel="icon" type="image/svg+xml" href="/icon.svg">
   <link rel="apple-touch-icon" href="/icon-192.png">
-  
+
+  <!-- Open Graph / Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.thebhom.in/terms">
-  <meta property="og:title" content="Terms of Service & User Agreement • TheBhom">
-  <meta property="og:description" content="Terms and legal conditions governing the use of TheBhom online utilities, guides, and deal catalog.">
+  <meta property="og:title" content="Terms of Service • TheBhom">
+  <meta property="og:description" content="User Agreement and Operating Policies for TheBhom digital platform.">
   <meta property="og:image" content="https://www.thebhom.in/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Terms of Service • TheBhom">
-  <meta name="twitter:description" content="Terms of Service and legal agreements for TheBhom users.">
-  <meta name="twitter:image" content="https://www.thebhom.in/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,147 +39,225 @@
       --text: #0f172a;
       --muted: #475569;
       --cyan: #0284c7;
-      --border: rgba(15, 23, 42, 0.09);
+      --accent: #2563eb;
+      --border: rgba(15, 23, 42, 0.08);
       --heading-color: #0f172a;
-    }
-    [data-theme="navy"] {
-      --bg: #0b132b;
-      --card: #142042;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --cyan: #38bdf8;
-      --border: rgba(56, 189, 248, 0.18);
-      --heading-color: #f1f5f9;
-    }
-    [data-theme="purple"] {
-      --bg: #0f0a1c;
-      --card: #1b1231;
-      --text: #f8fafc;
-      --muted: #c4b5fd;
-      --cyan: #a855f7;
-      --border: rgba(168, 85, 247, 0.22);
-      --heading-color: #f8fafc;
+      --pill-bg: #f1f5f9;
+      --highlight-bg: #f8fafc;
+      --highlight-border: #e2e8f0;
     }
     [data-theme="dark"] {
       --bg: #0b0f19;
       --card: #131b2e;
       --text: #f8fafc;
       --muted: #94a3b8;
-      --cyan: #00f2fe;
+      --cyan: #38bdf8;
+      --accent: #60a5fa;
       --border: rgba(255, 255, 255, 0.08);
       --heading-color: #f8fafc;
+      --pill-bg: #1e293b;
+      --highlight-bg: #1e293b;
+      --highlight-border: #334155;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      line-height: 1.8;
-      padding: 40px 20px;
+      line-height: 1.75;
+      padding-top: 80px;
     }
-    .container {
-      max-width: 900px;
+    .page-wrapper {
+      max-width: 960px;
       margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    .breadcrumb-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .breadcrumb-nav:hover { color: var(--accent); }
+    .hero-badge {
+      display: inline-block;
+      background: var(--pill-bg);
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--heading-color);
+      letter-spacing: -0.8px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .policy-meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+    .content-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 52px;
-      box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05);
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
     }
-    h1 { font-size: 34px; font-weight: 800; color: var(--heading-color); margin-bottom: 8px; letter-spacing: -0.02em; }
-    .updated { color: var(--cyan); font-size: 14.5px; margin-bottom: 32px; font-weight: 700; }
-    h2 { font-size: 22px; font-weight: 800; color: var(--heading-color); margin: 34px 0 14px; border-bottom: 1.5px solid var(--border); padding-bottom: 10px; }
-    h3 { font-size: 17px; font-weight: 700; color: var(--heading-color); margin: 20px 0 8px; }
-    p, li { color: var(--muted); font-size: 15.5px; margin-bottom: 16px; }
-    ul, ol { padding-left: 28px; margin-bottom: 20px; }
-    a { color: var(--cyan); text-decoration: none; font-weight: 600; }
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 36px 0 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+    h2:first-of-type { margin-top: 0; }
+    h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 24px 0 10px;
+    }
+    p {
+      color: var(--muted);
+      font-size: 15.5px;
+      margin-bottom: 16px;
+    }
+    ul, ol {
+      margin: 0 0 20px 24px;
+      color: var(--muted);
+    }
+    li {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    strong { color: var(--text); }
+    a { color: var(--cyan); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .nav-back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--muted); font-size: 14px; text-decoration: none; font-weight: 600; }
-    .nav-back:hover { color: var(--cyan); }
-    .callout {
-      background: rgba(2, 132, 199, 0.05);
-      border-left: 4px solid var(--cyan);
-      border-radius: 0 14px 14px 0;
-      padding: 20px 24px;
+    .terms-box {
+      background: var(--highlight-bg);
+      border: 1px solid var(--highlight-border);
+      border-radius: 14px;
+      padding: 20px;
       margin: 24px 0;
     }
-    @media (max-width: 640px) {
-      .container { padding: 28px 20px; border-radius: 16px; }
-      h1 { font-size: 26px; }
+    @media (max-width: 768px) {
+      .content-card { padding: 28px 20px; }
+      h1 { font-size: 28px; }
     }
   </style>
   <link rel="stylesheet" href="shared.css?v=20261026_v2">
 </head>
 <body>
-  <div class="container">
-    <a href="/" class="nav-back">← Back to TheBhom Home</a>
+  <div id="shared-header"></div>
+
+  <main class="page-wrapper">
+    <a href="/" class="breadcrumb-nav">← Back to TheBhom Home</a>
+
+    <div class="hero-badge">Binding Legal Agreement</div>
     <h1>Terms of Service</h1>
-    <div class="updated">Effective Date: October 24, 2026 • Official Platform Terms</div>
+    <div class="policy-meta">Last Updated: October 26, 2026 • Effective Date: October 26, 2026</div>
 
-    <p>Please read these Terms of Service ("Terms", "Agreement") carefully before using the <strong>TheBhom</strong> digital platform, available at <a href="https://thebhom.in">https://www.thebhom.in</a>, its tools, media utilities, shopping deals catalog, and consumer guides (collectively referred to as the "Service").</p>
+    <article class="content-card">
+      <p>Welcome to <strong>TheBhom</strong> (accessible at <a href="https://thebhom.in">https://www.thebhom.in</a>). These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", or "your") and <strong>TheBhom Digital Media</strong> ("TheBhom", "we", "us", or "our") regarding your access to and use of our website, editorial buying guides, curated deal catalogs, and related digital resources.</p>
+      <p>By accessing or browsing TheBhom, you confirm that you have read, understood, and agreed to be bound by these Terms and our official <a href="/privacy-policy">Privacy Policy</a>. If you do not agree with any part of these Terms, you must discontinue using the platform immediately.</p>
 
-    <div class="callout">
-      <p style="margin-bottom:0;"><strong>Summary of Key Points:</strong> By accessing or using TheBhom, you confirm that you have read, understood, and agreed to be legally bound by these Terms. If you do not agree with any part of these Terms, you must not access or use our services.</p>
-    </div>
+      <h2>1. Nature of TheBhom's Services</h2>
+      <p>TheBhom is an independent digital consumer technology publication and deal intelligence catalog. We provide:</p>
+      <ul>
+        <li><strong>Original Consumer Buying Guides:</strong> In-depth research, silicon architecture comparisons, display evaluations, and longevity checklists to assist consumers in evaluating electronics and appliances.</li>
+        <li><strong>Curated Deal Intelligence:</strong> Curated price drop alerts, promotional discount tracking, and coupon alerts across major Indian third-party e-commerce platforms.</li>
+      </ul>
+      <div class="terms-box">
+        <p style="margin-bottom:0;"><strong>Important Clarification:</strong> TheBhom is NOT an e-commerce retailer, merchant, manufacturer, or banking institution. We do not sell products directly, hold physical inventory, process consumer payments, or arrange shipping logistics. All transactions occur exclusively on third-party merchant platforms.</p>
+      </div>
 
-    <h2>1. Acceptance of Terms & Eligibility</h2>
-    <p>By using TheBhom, you represent and warrant that you are at least 13 years of age (or the minimum legal age of digital consent in your jurisdiction) and possess the legal capacity to enter into a binding agreement. Use of the Service is void where prohibited by applicable local, national, or international law.</p>
+      <h2>2. Curated Deals, Price Tracking &amp; Affiliate Disclosures</h2>
+      <p>Our deals desk monitors and highlights promotional offers from major online retailers (such as Amazon India, Flipkart, and Myntra):</p>
+      <ul>
+        <li><strong>Real-Time Price Volatility:</strong> E-commerce prices, coupon codes, and inventory availability are controlled exclusively by third-party retailers and change dynamically in real-time. While we strive to verify pricing accuracy before syndication, TheBhom cannot guarantee that a listed discount will remain active when you reach the merchant website.</li>
+        <li><strong>Affiliate Links Disclosure:</strong> We participate in affiliate marketing programs, including Amazon Associates and EarnKaro. When you click on product links on TheBhom and complete a purchase on a merchant site, we may earn a small referral commission at <strong>zero additional cost to you</strong>.</li>
+        <li><strong>Merchant Contracts:</strong> Any purchase you complete—including payment processing, billing, product warranties, order tracking, returns, and customer service—is governed strictly by the terms and conditions of the respective retailer. TheBhom disclaims all liability for merchant order fulfillment or defective goods.</li>
+      </ul>
 
-    <h2>2. Permitted & Acceptable Use Policy</h2>
-    <p>TheBhom provides free consumer web tools, curated product deals, and educational buying guides. You agree to use the Service only for lawful, personal, non-commercial purposes in full compliance with all relevant laws.</p>
+      <h2>3. Editorial Buying Guides &amp; Technical Specifications</h2>
+      <p>Our technical guides and hardware hierarchies are compiled by our editorial researchers for general informational and educational guidance:</p>
+      <ul>
+        <li><strong>Independent Evaluations:</strong> Product rankings, pros/cons assessments, and buying checklists reflect our independent technical evaluation based on public manufacturer documentation, synthetic benchmarks, and consumer feedback.</li>
+        <li><strong>Specification Variance:</strong> Hardware specifications, firmware versions, battery ratings, and bundled accessories may vary across regional manufacturing revisions. Users are advised to confirm exact specifications with the manufacturer or retailer prior to purchasing.</li>
+        <li><strong>No Professional Advisory:</strong> Content on TheBhom is intended for general consumer literacy. It does not constitute formal financial, electrical engineering, or legal advice.</li>
+      </ul>
 
-    <h3>Prohibited Conduct</h3>
-    <p>You expressly agree that you will NOT:</p>
-    <ul>
-      <li>Engage in automated bulk web scraping, crawling, or data harvesting against TheBhom without our prior express written consent.</li>
-      <li>Interfere with, disrupt, or place an undue, unreasonable server load on our infrastructure (e.g., Denial of Service attacks, flood requests).</li>
-      <li>Attempt to bypass, disable, reverse-engineer, or circumvent any security measures, rate limiters, or access restrictions implemented on the platform.</li>
-      <li>Use the platform to transmit malware, spyware, worms, trojans, or malicious scripts.</li>
-    </ul>
+      <h2>4. Permitted &amp; Acceptable Use Policy</h2>
+      <p>You agree to access and use TheBhom solely for personal, non-commercial, and lawful purposes in compliance with all applicable Indian and international laws.</p>
+      
+      <h3>Prohibited Conduct</h3>
+      <p>You expressly agree that you will NOT:</p>
+      <ul>
+        <li>Engage in automated bulk web scraping, crawling, or data harvesting against TheBhom in violation of our <a href="/robots.txt">robots.txt</a> rules without our express written consent.</li>
+        <li>Interfere with, disrupt, or place an unreasonable or disproportionately large server load on our infrastructure (including Denial of Service or DDoS attacks).</li>
+        <li>Attempt to bypass, reverse-engineer, probe, or breach any security measures, rate limiters, or firewalls implemented on our edge servers.</li>
+        <li>Use the platform to distribute spam, malware, spyware, worms, or malicious scripts.</li>
+        <li>Submit fraudulent deal reports, deceptive affiliate links, or defamatory messages through our helpdesk channels.</li>
+      </ul>
 
-    <h2>3. Consumer Buying Guides & Technical Review Guidelines</h2>
-    <p>Our consumer guides, hardware benchmarks, and smartphone/laptop buying advice are researched and compiled to assist users in making informed purchasing decisions.</p>
-    <ul>
-      <li><strong>Independent Technical Analysis:</strong> All hardware analyses, processor hierarchies, battery degradation guides, and display evaluations are formulated using publicly verified technical documentation, manufacturer whitepapers, and standardized synthetic benchmarks.</li>
-      <li><strong>No Warranty on Specifications:</strong> While we strive for absolute technical precision, hardware specifications, firmware updates, and retail packaging may vary across regional revisions and manufacturing batches.</li>
-      <li><strong>Editorial Independence:</strong> Our technical evaluations and buying recommendations are formulated independently without editorial influence from smartphone, laptop, or hardware manufacturers.</li>
-    </ul>
+      <h2>5. Intellectual Property Rights</h2>
+      <p>The original written articles, layout designs, benchmark charts, custom graphics, and software code on TheBhom are the exclusive intellectual property of TheBhom and are protected under Indian and international copyright laws.</p>
+      <ul>
+        <li>You may view, read, and share links to our guides for personal, non-commercial use.</li>
+        <li>You may not copy, republish, syndicate, or scrape entire articles or benchmark tables onto other websites without prior written permission and clear canonical attribution.</li>
+        <li><strong>Third-Party Trademarks:</strong> Third-party brand names, retailer marks (e.g., Amazon, Flipkart, Myntra), and hardware trademarks (e.g., Apple, Snapdragon, MediaTek, Samsung) referenced on TheBhom are the property of their respective owners. They are used on our platform solely under the principles of <strong>Fair Dealing / Nominative Fair Use</strong> for descriptive, identification, and review purposes.</li>
+      </ul>
 
-    <h2>4. Curated Deals, Price Tracking & Affiliate Disclosures</h2>
-    <p>TheBhom displays curated price alerts, discount percentages, and verified promotional deals across major e-commerce platforms (including Amazon India, Flipkart, and Myntra).</p>
-    <ul>
-      <li><strong>Price Volatility:</strong> E-commerce prices, promotional coupons, stock availability, and shipping fees are determined entirely by third-party retailers and change dynamically in real-time. While we strive for absolute accuracy, TheBhom cannot guarantee that a listed price will remain active when you reach the merchant store.</li>
-      <li><strong>Affiliate Links:</strong> We participate in affiliate marketing programs. When you click on product links on TheBhom and complete a purchase, we may receive a small referral commission at no additional cost to you.</li>
-      <li><strong>Independent Merchant Transactions:</strong> All sales contracts, order fulfillment, product warranties, delivery, and customer service are strictly between you and the respective third-party merchant. TheBhom is not a retailer and bears no responsibility for merchant order fulfillment.</li>
-    </ul>
+      <h2>6. External Third-Party Links</h2>
+      <p>TheBhom contains hyperlinks to external third-party websites and merchant stores. We do not own, manage, or control the content, privacy practices, or security policies of any third-party website. Accessing third-party sites is done entirely at your own discretion and risk.</p>
 
-    <h2>5. Intellectual Property Rights</h2>
-    <p>The original content, layout design, branding, custom code, graphics, and articles on TheBhom are the intellectual property of TheBhom and protected by copyright and intellectual property laws. Third-party brand names, retailer logos (e.g., Amazon, Flipkart), and social network trademarks referenced on the site are the property of their respective owners and used solely for identification and fair contextual reference.</p>
+      <h2>7. Warranty Disclaimer ("As Is")</h2>
+      <p>TheBhom and all content, deal feeds, and technical guides are provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+      <p>We do not warrant that our website will be uninterrupted, error-free, completely secure, or free from server transmission delays.</p>
 
-    <h2>6. Disclaimer of Warranties</h2>
-    <p>THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE FROM HARMFUL COMPONENTS.</p>
+      <h2>8. Limitation of Liability</h2>
+      <p>To the fullest extent permitted under applicable law, TheBhom, its founders, editors, and affiliates shall not be liable for any direct, indirect, incidental, consequential, special, or punitive damages arising from:</p>
+      <ul>
+        <li>Your reliance on any buying advice, price drop notification, or hardware specification on the platform.</li>
+        <li>Any transactions, order disputes, delivery delays, or warranty issues with third-party merchants linked from TheBhom.</li>
+        <li>Any temporary server downtime, technical glitches, or cyber-intrusions beyond our reasonable control.</li>
+      </ul>
 
-    <h2>7. Limitation of Liability</h2>
-    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THEBHOM, ITS DIRECTORS, EMPLOYEES, AFFILIATES, OR PARTNERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES (INCLUDING LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES) ARISING OUT OF OR IN CONNECTION WITH YOUR ACCESS TO OR USE OF (OR INABILITY TO USE) THE SERVICE.</p>
+      <h2>9. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless TheBhom, its directors, team members, and contributors from and against any claims, liabilities, damages, losses, or legal costs arising out of your violation of these Terms, misuse of the platform, or infringement of any third-party rights.</p>
 
-    <h2>8. Indemnification</h2>
-    <p>You agree to defend, indemnify, and hold harmless TheBhom and its operators from and against any claims, liabilities, damages, judgments, losses, costs, or expenses (including reasonable legal fees) arising out of or relating to your violation of these Terms, your misuse of the Service, or your infringement of any third-party intellectual property rights.</p>
+      <h2>10. Governing Law &amp; Legal Jurisdiction</h2>
+      <p>These Terms shall be governed by, interpreted, and construed in accordance with the substantive laws of the <strong>Republic of India</strong>, without regard to conflict of law principles. Any legal suit, action, or proceeding arising out of or related to these Terms or your use of TheBhom shall be subject to the exclusive jurisdiction of the competent courts located in <strong>New Delhi, India</strong>.</p>
 
-    <h2>9. Governing Law & Dispute Resolution</h2>
-    <p>These Terms shall be governed by and construed in accordance with the laws of the Republic of India, without regard to conflict of law principles. Any dispute, claim, or controversy arising out of or relating to these Terms shall be subject to the exclusive jurisdiction of the competent courts located in New Delhi, India.</p>
+      <h2>11. Modifications to These Terms</h2>
+      <p>We reserve the right to amend or update these Terms of Service at any time to reflect platform enhancements or regulatory changes. The latest revision date will always be visible at the top of this document. Continued use of TheBhom following the posting of amended Terms constitutes your acceptance of the revisions.</p>
 
-    <h2>10. Modifications to Terms</h2>
-    <p>We reserve the right to amend, update, or replace these Terms at our sole discretion. Any changes will become effective immediately upon posting to this page. Your continued use of TheBhom following the posting of revised Terms constitutes your full acceptance of the updated terms.</p>
+      <h2>12. Contact &amp; Questions</h2>
+      <p>If you have questions, concerns, or legal inquiries regarding these Terms of Service, please reach out to our legal and compliance desk:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:legal@thebhom.in">legal@thebhom.in</a></li>
+        <li><strong>General Helpdesk:</strong> <a href="/contact">Visit Contact Helpdesk</a></li>
+        <li><strong>Mailing Address:</strong> TheBhom Digital Media, Connaught Place, New Delhi 110001, India</li>
+      </ul>
+    </article>
+  </main>
 
-    <h2>11. Contact Information</h2>
-    <p>If you have any questions or require clarification regarding these Terms of Service, please reach out to us:</p>
-    <ul>
-      <li><strong>Legal Desk:</strong> <a href="mailto:legal@thebhom.in">legal@thebhom.in</a></li>
-      <li><strong>General Support:</strong> <a href="mailto:contact@thebhom.in">contact@thebhom.in</a></li>
-      <li><strong>Online Helpdesk:</strong> <a href="/contact">TheBhom Contact Page</a></li>
-    </ul>
-  </div>
-
+  <div id="shared-footer"></div>
   <script src="shared.js?v=20261026_v2"></script>
 </body>
 </html>

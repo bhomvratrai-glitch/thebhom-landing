@@ -6,7 +6,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
   <script>(function(){try{const t=localStorage.getItem('thebhom_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-      <!-- GA4 -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHVNZWFVQV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,24 +16,25 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About TheBhom • Verified Shopping Deals, Consumer Buying Guides & Hardware Reviews</title>
-  <meta name="description" content="Discover TheBhom's mission: Bringing you verified daily loot deals, comprehensive hardware comparisons, and expert consumer buying guides in one clean, lightning-fast platform.">
+  <title>About Us • TheBhom — Independent Consumer Tech Editorial & Deal Intelligence</title>
+  <meta name="description" content="Learn about TheBhom's editorial mission: Empowering Indian shoppers with authentic, research-backed tech buying guides, processor benchmarks, and verified daily e-commerce deals.">
   <link rel="icon" type="image/svg+xml" href="/icon.svg">
   <link rel="apple-touch-icon" href="/icon-192.png">
+  
   <!-- Open Graph / Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.thebhom.in/about">
-  <meta property="og:title" content="About TheBhom • Verified Shopping Deals, Consumer Buying Guides & Hardware Reviews">
-  <meta property="og:description" content="Discover TheBhom's mission: Bringing you verified daily loot deals, comprehensive hardware comparisons, and expert consumer buying guides in one clean, lightning-fast platform.">
+  <meta property="og:title" content="About Us • TheBhom — Independent Tech Editorial & Deal Intelligence">
+  <meta property="og:description" content="Learn about TheBhom's editorial mission: Empowering Indian shoppers with authentic, research-backed tech buying guides, processor benchmarks, and verified daily e-commerce deals.">
   <meta property="og:image" content="https://www.thebhom.in/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About TheBhom • Verified Shopping Deals, Consumer Buying Guides & Hardware Reviews">
-  <meta name="twitter:description" content="Discover TheBhom's mission: Bringing you verified daily loot deals, comprehensive hardware comparisons, and expert consumer buying guides in one clean, lightning-fast platform.">
+  <meta name="twitter:title" content="About Us • TheBhom — Independent Tech Editorial & Deal Intelligence">
+  <meta name="twitter:description" content="Learn about TheBhom's editorial mission: Empowering Indian shoppers with authentic, research-backed tech buying guides, processor benchmarks, and verified daily e-commerce deals.">
   <meta name="twitter:image" content="https://www.thebhom.in/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
   <style>
     :root, [data-theme="light"] {
       --bg: #f8fafc;
@@ -41,35 +42,27 @@
       --text: #0f172a;
       --muted: #475569;
       --cyan: #0284c7;
-      --border: rgba(15, 23, 42, 0.09);
+      --accent: #2563eb;
+      --border: rgba(15, 23, 42, 0.08);
       --heading-color: #0f172a;
-    }
-    [data-theme="navy"] {
-      --bg: #0b132b;
-      --card: #142042;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --cyan: #38bdf8;
-      --border: rgba(56, 189, 248, 0.18);
-      --heading-color: #f1f5f9;
-    }
-    [data-theme="purple"] {
-      --bg: #0f0a1c;
-      --card: #1b1231;
-      --text: #f8fafc;
-      --muted: #c4b5fd;
-      --cyan: #a855f7;
-      --border: rgba(168, 85, 247, 0.22);
-      --heading-color: #f8fafc;
+      --pill-bg: #f1f5f9;
+      --highlight-bg: #f0fdf4;
+      --highlight-border: #bbf7d0;
+      --stat-bg: #f8fafc;
     }
     [data-theme="dark"] {
       --bg: #0b0f19;
       --card: #131b2e;
       --text: #f8fafc;
       --muted: #94a3b8;
-      --cyan: #00f2fe;
+      --cyan: #38bdf8;
+      --accent: #60a5fa;
       --border: rgba(255, 255, 255, 0.08);
       --heading-color: #f8fafc;
+      --pill-bg: #1e293b;
+      --highlight-bg: #064e3b;
+      --highlight-border: #047857;
+      --stat-bg: #111827;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -77,106 +70,293 @@
       color: var(--text);
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.75;
-      padding: 40px 20px;
+      padding-top: 80px;
     }
-    .container {
-      max-width: 920px;
+    .page-wrapper {
+      max-width: 960px;
       margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    .breadcrumb-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .breadcrumb-nav:hover { color: var(--accent); }
+    .hero-badge {
+      display: inline-block;
+      background: var(--pill-bg);
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--heading-color);
+      letter-spacing: -0.8px;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .hero-lead {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .stat-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 52px;
-      box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
-    h1 { font-size: 34px; font-weight: 800; color: var(--heading-color); margin-bottom: 10px; letter-spacing: -0.02em; }
-    .tagline { color: var(--cyan); font-size: 16px; margin-bottom: 30px; font-weight: 700; }
-    h2 { font-size: 22px; font-weight: 700; color: var(--heading-color); margin: 36px 0 14px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-    h3 { font-size: 18px; font-weight: 700; color: var(--heading-color); margin: 20px 0 8px; }
-    p { color: var(--muted); font-size: 15.5px; margin-bottom: 20px; }
-    ul { list-style: none; padding: 0; margin-bottom: 24px; }
-    ul li { position: relative; padding-left: 28px; margin-bottom: 12px; color: var(--muted); font-size: 15px; }
-    ul li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan); font-weight: 800; }
-    .nav-back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--muted); font-size: 14px; text-decoration: none; font-weight: 600; }
-    .nav-back:hover { color: var(--cyan); }
-    .grid-hub {
+    .stat-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .content-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 36px 0 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+    h2:first-of-type { margin-top: 0; }
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 24px 0 10px;
+    }
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+    ul, ol {
+      margin: 0 0 20px 24px;
+      color: var(--muted);
+    }
+    li {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    strong { color: var(--text); }
+    .pillar-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-      margin: 24px 0 32px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 28px 0;
     }
-    .hub-box {
-      background: rgba(2, 132, 199, 0.04);
+    .pillar-card {
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .hub-box h4 { font-size: 16px; font-weight: 700; color: var(--heading-color); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-    .hub-box p { font-size: 13.5px; margin-bottom: 0; }
-    .quote-box {
-      background: rgba(2, 132, 199, 0.06);
-      border-left: 4px solid var(--cyan);
-      border-radius: 0 16px 16px 0;
-      padding: 20px 24px;
+    .pillar-icon {
+      font-size: 28px;
+    }
+    .pillar-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--heading-color);
+    }
+    .pillar-text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .callout-box {
+      background: var(--highlight-bg);
+      border: 1px solid var(--highlight-border);
+      border-radius: 16px;
+      padding: 24px;
       margin: 28px 0;
-      font-style: italic;
+    }
+    .callout-box h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    [data-theme="dark"] .callout-box h4 { color: #34d399; }
+    .callout-box p {
+      font-size: 14px;
+      color: #047857;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+    [data-theme="dark"] .callout-box p { color: #a7f3d0; }
+    .team-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .team-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 600;
       color: var(--text);
     }
-    @media (max-width: 640px) {
-      .container { padding: 28px 20px; border-radius: 16px; }
-      h1 { font-size: 26px; }
+    @media (max-width: 768px) {
+      .content-card { padding: 28px 20px; }
+      h1 { font-size: 28px; }
+      .hero-lead { font-size: 16px; }
     }
   </style>
   <link rel="stylesheet" href="shared.css?v=20261026_v2">
 </head>
 <body>
-  <div class="container">
-    <a href="/" class="nav-back">← Back to TheBhom Home</a>
+  <div id="shared-header"></div>
+
+  <main class="page-wrapper">
+    <a href="/" class="breadcrumb-nav">← Back to TheBhom Home</a>
+
+    <div class="hero-badge">Editorial Charter &amp; Company Overview</div>
     <h1>About TheBhom</h1>
-    <div class="tagline">Daily Verified Shopping Deals, High-Speed Media Utilities & Expert Tech Guides</div>
+    <p class="hero-lead">Empowering Indian consumers with uncompromised hardware intelligence, verified price drop tracking, and rigorous technical buying guides.</p>
 
-    <div class="quote-box">
-      "Online shopping and multimedia tools should be honest, fast, and completely free. TheBhom tracks genuine price drops across top retailers, delivers instant 1080p media downloads without deceptive ads, and publishes human-written buying guides so you never overpay."
-    </div>
-
-    <h2>Our Core Purpose & Philosophy</h2>
-    <p>Every single day, shoppers, tech enthusiasts, and professionals spend hours searching the web for verified online deals, discounts, and reliable hardware recommendations. Often, they encounter fake discount codes, deceptive affiliate links, aggressive ads, or outdated specifications.</p>
-    <p><strong>TheBhom</strong> solves this problem. We curate handpicked, verified shopping deals and write in-depth, research-backed consumer buying guides—complete with technical benchmarks, processor architectures, and real-world durability testing with zero clickbait and zero hidden paywalls.</p>
-
-    <h2>What You Can Find on TheBhom Today</h2>
-    <div class="grid-hub">
-      <div class="hub-box">
-        <h4>🔥 Verified Loot Deals & Offers</h4>
-        <p>Curated price drop alerts, lightning deals, and genuine discount offers tracked across Amazon, Flipkart, Myntra, and top retailers.</p>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">105+</div>
+        <div class="stat-label">In-Depth Tech Guides</div>
       </div>
-      <div class="hub-box">
-        <h4>⚡ In-Depth Tech Buying Guides</h4>
-        <p>Comprehensive 3,000+ word guides covering Smartphone Processors, Laptops, OLED Displays, ANC Earbuds, and Smart Home tech with benchmark tables.</p>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Independent Research</div>
       </div>
-      <div class="hub-box">
-        <h4>📖 Smart Shopping & Consumer Advisory</h4>
-        <p>In-depth, human-researched consumer advice, UPI fraud prevention rules, No-Cost EMI realities, CIBIL improvement, and price tracking strategies.</p>
+      <div class="stat-card">
+        <div class="stat-number">24x7</div>
+        <div class="stat-label">Deal &amp; Price Monitoring</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Zero</div>
+        <div class="stat-label">Paywalled Content</div>
       </div>
     </div>
 
-    <h2>Upcoming Horizon: Expanding What TheBhom Offers</h2>
-    <p>TheBhom is constantly expanding. In the coming months, our platform is actively onboarding:</p>
-    <ul>
-      <li><strong>Real-Time Price Drop Alerts:</strong> Instant notifications and Telegram alert channels for 80%+ discount loot drops.</li>
-      <li><strong>Independent Lab Benchmarks:</strong> Extensive battery longevity, display flicker (PWM), and processor stress testing data.</li>
-      <li><strong>Interactive Price History Trackers:</strong> Visual historical price trends so you can determine whether a sale price is genuinely the lowest.</li>
-    </ul>
+    <article class="content-card">
+      <h2>1. Who We Are &amp; Why TheBhom Exists</h2>
+      <p><strong>TheBhom</strong> (<a href="https://thebhom.in">thebhom.in</a>) is an independent digital consumer technology publication and deal intelligence platform founded in India. We operate at the intersection of exhaustive hardware engineering analysis and real-world e-commerce price dynamics.</p>
+      <p>In today's digital marketplace, Indian consumers face an unprecedented challenge: commercial e-commerce platforms are saturated with flash sales featuring inflated Maximum Retail Prices (MRPs), misleading benchmark claims, and sponsored product roundups disguised as genuine reviews. Making an informed purchase—whether choosing a ₹15,000 smartphone with reliable 5G band support or investing in an energy-efficient inverter air conditioner—has become overwhelming.</p>
+      <p><strong>TheBhom was built to solve this exact problem.</strong> We believe every rupee spent on electronics, home appliances, and digital utilities should deliver proven long-term value. Our platform combines deep technical teardowns, synthetic and thermal benchmark evaluations, and rigorous daily deal verification to give you clear, actionable, and trustworthy buying guidance.</p>
 
-    <h2>Strict Commitment to Authenticity & User Privacy</h2>
-    <p>We believe digital utilities should be honest and transparent:</p>
-    <ul>
-      <li><strong>100% Genuine Metrics:</strong> Every catalog count and deal price on TheBhom is authentic and mathematically verifiable.</li>
-      <li><strong>Privacy-First:</strong> We do not track personal identifying information, store user files on our servers, or ask for payment details.</li>
-      <li><strong>Zero Forced Accounts:</strong> You never have to create an account or provide payment card details to access our primary suite of public tools and deals.</li>
-    </ul>
+      <h2>2. Our Three Core Editorial Pillars</h2>
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">🔥</div>
+          <div class="pillar-title">Verified Deal Intelligence</div>
+          <p class="pillar-text">Our dedicated deals desk monitors Amazon India, Flipkart, Myntra, and major brand portals around the clock. We cross-reference historical price tracking data to verify that a discount is a genuine price drop rather than an artificial sale markup.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">📊</div>
+          <div class="pillar-title">Deep Technical Hardware Reviews</div>
+          <p class="pillar-text">Our library of over 105 in-depth technical guides cuts through marketing jargon. We evaluate silicon architectures, real-world battery degradation curves, display flicker (PWM), thermal throttling, and real Indian network compatibility.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🛡️</div>
+          <div class="pillar-title">Consumer Safety &amp; Protection</div>
+          <p class="pillar-text">We actively educate digital shoppers on avoiding modern cyber threats, understanding No-Cost EMI calculations, safeguarding personal UPI accounts from financial fraud, and verifying product authenticity upon delivery.</p>
+        </div>
+      </div>
 
-    <h2>Connect With TheBhom Team</h2>
-    <p>Have an idea for a feature or deal category we should integrate? Need technical support? Reach out directly via our <a href="/contact" style="color: var(--cyan); font-weight: 700;">Contact Page</a> or email us at <a href="mailto:contact@thebhom.in" style="color: var(--cyan); font-weight: 700;">contact@thebhom.in</a>.</p>
-  </div>
+      <h2>3. Our Rigorous Editorial &amp; Testing Methodology</h2>
+      <p>Every article, buying checklist, and specification hierarchy published on TheBhom adheres to strict editorial standards:</p>
+      <ul>
+        <li><strong>Silicon &amp; Architectural Scrutiny:</strong> When evaluating smartphones and laptops, we do not simply read marketing spec sheets. We examine nanometer fabrication nodes, core cluster arrangements (Cortex-X, Performance vs. Efficiency cores), memory bus bandwidth (LPDDR5X vs. LPDDR4X), and storage read/write performance (UFS 4.0 vs. UFS 2.2).</li>
+        <li><strong>Thermal &amp; Longevity Reality:</strong> India's ambient temperatures place extreme stress on electronics. Our guides specifically evaluate vapor chamber cooling efficiency, sustained gaming stability, and lithium-ion battery preservation protocols.</li>
+        <li><strong>Indian Market Grounding:</strong> A product that works well abroad may struggle in India. We prioritize Indian carrier band coverage (e.g., Sub-6GHz n28 and n78 5G bands), regional service center responsiveness, BIS certification standards, and local manufacturer warranty support.</li>
+        <li><strong>Continuous Guide Maintenance:</strong> Technology evolves rapidly. Our editorial team revisits and refreshes our buyer guides whenever major software updates (e.g., Android OS updates, Windows 11 builds) or newer hardware revisions reach Indian shelves.</li>
+      </ul>
+
+      <div class="callout-box">
+        <h4>⚖️ Editorial Independence &amp; Commercial Transparency</h4>
+        <p>TheBhom operates with complete editorial autonomy. We never accept paid compensation, sponsorship fees, or editorial direction from gadget manufacturers in exchange for favorable review scores or guide rankings. Our assessments are formulated solely in the interest of the end consumer.</p>
+      </div>
+
+      <h2>4. How We Support Our Free Platform</h2>
+      <p>All content on TheBhom—including our 105+ detailed guides, deals feeds, and search utilities—is accessible to the public 100% free with zero paywalls or mandatory membership fees. To sustain our full-time research, hosting infrastructure, and daily deal verification, we utilize two transparent revenue streams:</p>
+      <ol>
+        <li><strong>Digital Advertising:</strong> We partner with verified advertising networks, including <strong>Google AdSense</strong> (Publisher ID: <code>ca-pub-4674566886677472</code>), to serve contextually relevant, non-intrusive advertisements across our pages.</li>
+        <li><strong>Affiliate Partnerships:</strong> When you read one of our buying guides or deal recommendations and click through to an e-commerce merchant (such as Amazon India, Flipkart, or Myntra) to complete a purchase, we may earn a small referral commission. This commission comes at <strong>zero additional cost to you</strong>—the product price, applicable discounts, and terms remain identical.</li>
+      </ol>
+
+      <h2>5. Core Editorial Team &amp; Contact</h2>
+      <p>TheBhom is steered by dedicated technology analysts, consumer researchers, and software engineers based in India who are passionate about honest tech journalism and smart shopping.</p>
+      <div class="team-badge-row">
+        <div class="team-badge">📱 Mobile &amp; Silicon Research</div>
+        <div class="team-badge">💻 Computing &amp; Laptops Desk</div>
+        <div class="team-badge">🎧 Audio &amp; Wearables Lab</div>
+        <div class="team-badge">🏠 Smart Home &amp; Appliances</div>
+        <div class="team-badge">🛍️ E-Commerce Deal Verification</div>
+      </div>
+
+      <h2>6. Join Our Community &amp; Connect With Us</h2>
+      <p>We welcome feedback, article corrections, product suggestions, and reader tips. If you notice a pricing discrepancy or have a hardware question, reach out to our team:</p>
+      <ul>
+        <li><strong>General &amp; Editorial Desk:</strong> <a href="mailto:contact@thebhom.in" style="color:var(--cyan);text-decoration:none;font-weight:600;">contact@thebhom.in</a></li>
+        <li><strong>Official Helpdesk Form:</strong> <a href="/contact" style="color:var(--cyan);text-decoration:none;font-weight:600;">Visit our Contact Helpdesk</a></li>
+        <li><strong>Official Storefront:</strong> <a href="https://www.amazon.in/shop/bhom120704" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;font-weight:600;">Amazon Verified Storefront</a></li>
+        <li><strong>Telegram Deal Alerts:</strong> <a href="https://t.me/+UhSD6hAJe7NhODM1" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;font-weight:600;">Join TheBhom Deals Channel</a></li>
+        <li><strong>WhatsApp Broadcasts:</strong> <a href="https://whatsapp.com/channel/0029Vb9DmoaEKyZLLKtLdc2I" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;font-weight:600;">Follow on WhatsApp</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <div id="shared-footer"></div>
   <script src="shared.js?v=20261026_v2"></script>
 </body>
 </html>

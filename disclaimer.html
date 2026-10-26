@@ -6,7 +6,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674566886677472" crossorigin="anonymous"></script>
 
   <script>(function(){try{const t=localStorage.getItem('thebhom_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-      <!-- GA4 -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHVNZWFVQV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,19 +16,22 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Disclaimer & Editorial Notice • TheBhom</title>
-  <meta name="description" content="Legal disclaimer, editorial standards, affiliate disclosure, and Fair Use Notice for product reviews, deals, and consumer guides on TheBhom.">
-    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <title>Disclaimer &amp; Editorial Disclosures • TheBhom</title>
+  <meta name="description" content="Official editorial disclosure, affiliate transparency notice, hardware benchmark variance advisory, and third-party merchant transaction policies for TheBhom.">
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
   <link rel="apple-touch-icon" href="/icon-192.png">
+
+  <!-- Open Graph / Social Cards -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.thebhom.in/disclaimer.html">
-  <meta property="og:title" content="Disclaimer & Editorial Notice • TheBhom">
-  <meta property="og:description" content="Legal disclaimer, editorial standards, affiliate disclosure, and Fair Use Notice on TheBhom.">
-  <meta property="og:image" content="https://www.thebhom.in/icon-512.png">
+  <meta property="og:url" content="https://www.thebhom.in/disclaimer">
+  <meta property="og:title" content="Disclaimer &amp; Editorial Disclosures • TheBhom">
+  <meta property="og:description" content="Editorial standards, affiliate marketing transparency, hardware benchmark variance, and transaction policies for TheBhom.">
+  <meta property="og:image" content="https://www.thebhom.in/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root, [data-theme="light"] {
       --bg: #f8fafc;
@@ -36,8 +39,31 @@
       --text: #0f172a;
       --muted: #475569;
       --cyan: #0284c7;
-      --border: rgba(15, 23, 42, 0.09);
+      --accent: #2563eb;
+      --border: rgba(15, 23, 42, 0.08);
       --heading-color: #0f172a;
+      --pill-bg: #f1f5f9;
+      --highlight-bg: #f8fafc;
+      --highlight-border: #e2e8f0;
+      --card-warn-bg: #fffbeb;
+      --card-warn-border: #fef3c7;
+      --card-warn-text: #92400e;
+    }
+    [data-theme="dark"] {
+      --bg: #0b0f19;
+      --card: #131b2e;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --cyan: #38bdf8;
+      --accent: #60a5fa;
+      --border: rgba(255, 255, 255, 0.08);
+      --heading-color: #f8fafc;
+      --pill-bg: #1e293b;
+      --highlight-bg: #1e293b;
+      --highlight-border: #334155;
+      --card-warn-bg: #1f1b13;
+      --card-warn-border: #453412;
+      --card-warn-text: #fde68a;
     }
     [data-theme="navy"] {
       --bg: #0b132b;
@@ -45,8 +71,15 @@
       --text: #f1f5f9;
       --muted: #94a3b8;
       --cyan: #38bdf8;
-      --border: rgba(56, 189, 248, 0.18);
-      --heading-color: var(--heading-color, #0f172a);
+      --accent: #60a5fa;
+      --border: rgba(56, 189, 248, 0.16);
+      --heading-color: #f1f5f9;
+      --pill-bg: #1e294f;
+      --highlight-bg: #1a2754;
+      --highlight-border: #24356e;
+      --card-warn-bg: #262118;
+      --card-warn-border: #4d3f1a;
+      --card-warn-text: #fde68a;
     }
     [data-theme="purple"] {
       --bg: #0f0a1c;
@@ -54,61 +87,270 @@
       --text: #f8fafc;
       --muted: #c4b5fd;
       --cyan: #a855f7;
-      --border: rgba(168, 85, 247, 0.22);
-      --heading-color: var(--heading-color, #0f172a);
-    }
-    [data-theme="dark"] {
-      --bg: #0b0f19;
-      --card: #131b2e;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --cyan: #00f2fe;
-      --border: rgba(255, 255, 255, 0.08);
-      --heading-color: var(--heading-color, #0f172a);
+      --accent: #c084fc;
+      --border: rgba(168, 85, 247, 0.2);
+      --heading-color: #f8fafc;
+      --pill-bg: #271a47;
+      --highlight-bg: #261944;
+      --highlight-border: #382565;
+      --card-warn-bg: #261a22;
+      --card-warn-border: #4a283b;
+      --card-warn-text: #fbcfe8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      line-height: 1.7;
-      padding: 40px 20px;
+      line-height: 1.8;
+      padding: 40px 20px 80px;
+      -webkit-font-smoothing: antialiased;
     }
     .container {
-      max-width: 860px;
+      max-width: 900px;
       margin: 0 auto;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 48px;
+      border-radius: 24px;
+      padding: 52px;
+      box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05);
     }
-    h1 { font-size: 32px; font-weight: 800; color: var(--heading-color, #0f172a); margin-bottom: 8px; }
-    .updated { color: var(--cyan); font-size: 14px; margin-bottom: 32px; font-weight: 600; }
-    h2 { font-size: 20px; color: var(--heading-color, #0f172a); margin: 28px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-    p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
-    a { color: var(--cyan); text-decoration: none; }
-    .nav-back { display: inline-block; margin-bottom: 24px; color: var(--muted); font-size: 14px; }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--pill-bg);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--heading-color);
+      margin-bottom: 8px;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+    }
+    .updated {
+      color: var(--cyan);
+      font-size: 14.5px;
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--heading-color);
+      margin: 36px 0 14px;
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 10px;
+      letter-spacing: -0.015em;
+    }
+    h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 22px 0 8px;
+    }
+    p, li {
+      color: var(--muted);
+      font-size: 15.5px;
+      margin-bottom: 16px;
+    }
+    ul, ol {
+      padding-left: 28px;
+      margin-bottom: 20px;
+    }
+    li { margin-bottom: 10px; }
+    strong { color: var(--heading-color); }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    .disclosure-box {
+      background: var(--highlight-bg);
+      border: 1px solid var(--highlight-border);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin: 26px 0;
+    }
+    .disclosure-box h3 { margin-top: 0; color: var(--heading-color); font-size: 17px; }
+    .disclosure-box p:last-child { margin-bottom: 0; }
+
+    .alert-box {
+      background: var(--card-warn-bg);
+      border: 1px solid var(--card-warn-border);
+      border-left: 4px solid #f59e0b;
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin: 26px 0;
+      color: var(--card-warn-text);
+    }
+    .alert-box h3 { margin-top: 0; color: #b45309; }
+    .alert-box p { color: inherit; }
+    .alert-box p:last-child { margin-bottom: 0; }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin: 26px 0;
+    }
+    .meta-card {
+      background: var(--highlight-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .meta-card h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--heading-color);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .meta-card p {
+      font-size: 14px;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 680px) {
+      .container { padding: 30px 20px; border-radius: 18px; }
+      h1 { font-size: 26px; }
+      h2 { font-size: 20px; }
+    }
   </style>
   <link rel="stylesheet" href="shared.css?v=20261026_v2">
 </head>
 <body>
   <div class="container">
-    <a href="/" class="nav-back">← Back to Home</a>
-    <h1>Disclaimer & Fair Use Notice</h1>
-    <div class="updated">Last Updated: September 12, 2026</div>
+    <a href="/" class="nav-back">← Back to TheBhom Home</a>
+    <div><span class="badge">Legal Disclosures &amp; Transparency</span></div>
+    <h1>Disclaimer &amp; Editorial Disclosures</h1>
+    <div class="updated">Last Updated: October 26, 2026 • Published by TheBhom Editorial Desk</div>
 
-    <h2>1. General Information</h2>
-    <p>All information, buying guides, hardware benchmarks, and deals curated on <strong>TheBhom</strong> (<a href="https://thebhom.in">thebhom.in</a>) are published in good faith and for general educational, consumer purchasing guidance, and informational purposes only.</p>
+    <div class="disclosure-box">
+      <h3>Summary of Editorial Principles</h3>
+      <p><strong>TheBhom</strong> (<a href="https://thebhom.in">https://www.thebhom.in</a>) operates as an independent consumer technology publication, hardware benchmarking resource, and deal discovery platform. We believe in 100% transparency regarding how our research is conducted, how prices are monitored, and how our platform sustains itself financially through affiliate partnerships and programmatic advertising.</p>
+    </div>
 
-    <h2>2. Copyright Disclaimer Under Section 107 of the Copyright Act 1976</h2>
-    <p>Any video critiques, movie breakdowns, and educational analyses hosted or demonstrated on this website may use copyrighted materials under the "Fair Use" doctrine (17 U.S. Code § 107) for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.</p>
+    <h2>1. General Informational Nature of Content</h2>
+    <p>All tech buying guides, processor hierarchy tables, display tech breakdowns, laptop buying checklists, comparison articles, and consumer shopping tips published on TheBhom are intended strictly for <strong>general informational, educational, and consumer purchasing guidance purposes</strong>.</p>
+    <p>While our editorial team endeavors to ensure that all specifications, benchmark data, technical explanations, and pricing points are accurate, complete, and up-to-date at the time of publication, consumer technology evolves at a rapid pace. Manufacturers frequently issue silent hardware revisions, software/firmware updates, or regional configuration changes. Consequently, TheBhom makes no representations, warranties, or guarantees—express or implied—regarding the absolute completeness, reliability, or accuracy of any information presented on this website.</p>
+    <p>Any reliance you place upon information obtained through TheBhom is strictly at your own discretion and risk. We strongly recommend cross-referencing critical hardware requirements with official manufacturer datasheets before completing high-value purchases.</p>
 
-    <h2>3. Hardware & Editorial Product Reviews Notice</h2>
-    <p>All tech buying guides, processor rankings, specification tables, and hardware comparisons on TheBhom are based on public manufacturer specifications, independent technical testing, and consumer feedback. Product specifications and retail availability may vary across regions and are subject to change by manufacturers without prior notice.</p>
+    <h2>2. Commercial Disclosure &amp; Affiliate Marketing Transparency</h2>
+    <p>To support our independent testing infrastructure, research operations, and daily deal verification team, TheBhom participates in various affiliate marketing programs. This disclosure is made in full compliance with the <strong>Advertising Standards Council of India (ASCI) Guidelines for Influencer and Digital Advertising</strong> and the <strong>United States Federal Trade Commission (FTC) 16 CFR Part 255 Guides Concerning the Use of Endorsements and Testimonials in Advertising</strong>.</p>
 
-    <h2>4. DMCA & Takedown Requests</h2>
-    <p>If you believe that any content or link on our platform infringes your copyright, please notify our designated agent with detailed proof at <a href="mailto:dmca@thebhom.in">dmca@thebhom.in</a>, and the material will be promptly investigated and addressed.</p>
+    <div class="disclosure-box">
+      <h3>Amazon Associates &amp; Merchant Affiliate Declaration</h3>
+      <p><strong>As an Amazon Associate, TheBhom earns from qualifying purchases.</strong></p>
+      <p style="margin-top:10px;">When you click on an external product link on TheBhom and complete a purchase on Amazon, Flipkart, Croma, Reliance Digital, or other partnered e-commerce marketplaces, we may earn a small referral commission at <strong>absolutely zero additional cost to you</strong>. The retail price you pay remains exactly the same as visiting the marketplace directly.</p>
+    </div>
+
+    <p>We maintain a strict and inviolable wall between our commercial relationships and our editorial opinions:</p>
+    <ul>
+      <li><strong>No Paid Editorial Bias:</strong> Hardware rankings, benchmark evaluations, and "Best of" selections are determined solely by silicon performance, thermal efficiency, price-to-performance ratio, and consumer value. We never rank a product higher because it carries a higher affiliate commission rate.</li>
+      <li><strong>Independent Selection:</strong> Manufacturers, brands, and retail merchants have zero advance approval rights, preview access, or editorial veto power over our reviews or buying guides.</li>
+      <li><strong>Sponsored Content Labeling:</strong> If an article, guide, or feature is ever sponsored or underwritten by a commercial brand, it will be prominently and unequivocally labeled at the top of the page with a clear "Sponsored" or "Partner Content" disclosure.</li>
+    </ul>
+
+    <h2>3. Programmatic Advertising (Google AdSense)</h2>
+    <p>TheBhom displays contextual and interest-based banner advertisements through <strong>Google AdSense</strong> (Publisher ID: <code>ca-pub-4674566886677472</code>). These advertisements are automatically auctioned, served, and rendered by Google's advertising networks based on algorithmic context and user browsing signals.</p>
+    <ul>
+      <li><strong>Non-Endorsement of Advertised Products:</strong> The appearance of any third-party product, service, mobile application, investment platform, or brand within an AdSense advertising unit on TheBhom does not constitute an endorsement, sponsorship, or recommendation by TheBhom.</li>
+      <li><strong>Verification of Advertised Claims:</strong> We have no direct involvement in the claims, warranties, or fulfillment of products advertised via programmatic ad networks. Visitors should exercise appropriate due diligence and verify all offers directly on the advertiser's official landing page before submitting payment information or personal details.</li>
+      <li><strong>Ad Personalization Choices:</strong> You can manage or disable personalized advertising by visiting the <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google Ads Settings</a> page or via the <a href="https://optout.aboutads.info" target="_blank" rel="noopener noreferrer">Digital Advertising Alliance Consumer Choice Tool</a>.</li>
+    </ul>
+
+    <h2>4. Hardware Benchmarks, Thermal Testing &amp; Performance Variance</h2>
+    <p>Throughout our 105+ in-depth technical guides, processor comparisons, and smartphone/laptop analyses, we frequently cite benchmark scores (including AnTuTu v10, Geekbench 6, 3DMark Wild Life Extreme, PCMark, and Cinebench R23), thermal throttling percentages, and battery life estimates.</p>
+    <div class="alert-box">
+      <h3>⚠️ Real-World Hardware Variance Notice</h3>
+      <p>Benchmark scores and battery endurance figures published on TheBhom represent testing performed under controlled laboratory conditions or verified reference engineering benchmarks. Actual real-world performance will naturally vary depending on:</p>
+      <ul style="margin: 10px 0 0 20px;">
+        <li>Ambient room temperature and seasonal climatic conditions (e.g., thermal throttling in non-air-conditioned tropical environments).</li>
+        <li>OEM software builds, manufacturer skin overhead (e.g., One UI, HyperOS, ColorOS, OxygenOS), and background system daemons.</li>
+        <li>Silicon lottery variances across identical fabrication node batches.</li>
+        <li>Display brightness levels, network band strength (5G Sub-6 vs. 4G LTE vs. Wi-Fi 6E/7), and user application workloads.</li>
+      </ul>
+    </div>
+    <p>Scores are provided to illustrate comparative relative performance tiers across silicon generations rather than absolute guarantees of frame rates or rendering speeds on any specific retail unit.</p>
+
+    <h2>5. Deal Curation, Price Volatility &amp; Third-Party Transactions</h2>
+    <p>TheBhom monitors and curates limited-time discounts, festival sales, bank card offers, exchange bonuses, and promotional coupon codes across major online marketplaces.</p>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <h4>⚡ Dynamic Pricing</h4>
+        <p>E-commerce pricing is controlled by algorithmic seller repricing engines. Prices, discount percentages, and stock availability displayed on TheBhom may fluctuate rapidly or expire without notice.</p>
+      </div>
+      <div class="meta-card">
+        <h4>📦 Merchant Fulfillment</h4>
+        <p>TheBhom is not an e-commerce store, seller, or logistics provider. All orders, payments, packaging, warranties, and deliveries are handled directly by the third-party merchant.</p>
+      </div>
+      <div class="meta-card">
+        <h4>💳 Bank &amp; Card Offers</h4>
+        <p>Instant card discounts, EMI tenures, and cashback offers are subject to merchant-specific terms, minimum transaction thresholds, and issuing bank approval.</p>
+      </div>
+      <div class="meta-card">
+        <h4>🔄 Returns &amp; Refunds</h4>
+        <p>Customer service inquiries, order tracking, returns, replacement claims, and warranty registrations must be directed to the retail platform where the purchase occurred.</p>
+      </div>
+    </div>
+
+    <h2>6. Non-Advice Statement: Financial, Legal &amp; Professional</h2>
+    <p>Content published on TheBhom does not constitute financial, investment, taxation, or legal advice. While we provide budgeting frameworks, total cost of ownership (TCO) calculations for gadgets, and consumer rights awareness tips under Indian consumer law, this material is published solely for educational empowerment.</p>
+    <p>You should consult certified financial professionals, chartered accountants, or qualified legal counsel for guidance tailored to your specific fiscal or legal circumstances.</p>
+
+    <h2>7. External Links &amp; Cyber Safety Advisory</h2>
+    <p>TheBhom contains outbound hyperlinks to external third-party websites, merchant portals, manufacturer specification databases, and technical whitepapers. While we implement automated security screening to filter broken links and malicious redirects, we have no operational control over external websites.</p>
+    <p>We advise all users to review the privacy notices and terms of use of any third-party website they visit. Never disclose sensitive banking credentials, one-time passwords (OTPs), or Aadhaar/PAN details on unauthorized third-party pages.</p>
+
+    <h2>8. Fair Dealing &amp; Trademark Declarations</h2>
+    <p>All brand names, product titles, logos, registered trademarks, service marks, and trade dress referenced throughout TheBhom (including, but not limited to, Apple, Qualcomm, MediaTek, Samsung, Google, Intel, AMD, NVIDIA, Sony, Amazon, Flipkart, Croma, and others) are the intellectual property of their respective owners.</p>
+    <p>Reference to any third-party brand or product is made solely under the <strong>Fair Dealing</strong> provisions of Section 52 of the Indian Copyright Act, 1957 and the <strong>Fair Use</strong> doctrine of 17 U.S.C. § 107 for the legitimate purposes of technological criticism, comparative review, consumer education, and descriptive identification (Nominative Fair Use). Such references do not constitute or imply any endorsement, sponsorship, or corporate affiliation between TheBhom and the respective trademark proprietors.</p>
+
+    <h2>9. Questions, Corrections &amp; Editorial Inquiries</h2>
+    <p>We take factual accuracy and transparency very seriously. If you have identified an outdated price, a typographical error in a processor specification, or have questions regarding our commercial disclosures, please contact our team:</p>
+    <ul>
+      <li><strong>Editorial &amp; Fact-Checking Desk:</strong> <a href="mailto:editorial@thebhom.in">editorial@thebhom.in</a></li>
+      <li><strong>Affiliate &amp; Commercial Transparency:</strong> <a href="mailto:partnerships@thebhom.in">partnerships@thebhom.in</a></li>
+      <li><strong>Legal &amp; Regulatory Inquiries:</strong> <a href="mailto:legal@thebhom.in">legal@thebhom.in</a></li>
+      <li><strong>Interactive Helpdesk:</strong> <a href="/contact">TheBhom Contact Page</a></li>
+    </ul>
+
+    <!-- In-Article AdSense Unit -->
+    <div style="margin: 40px 0; text-align: center;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-4674566886677472"
+           data-ad-slot="9101298657"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
   </div>
+
   <script src="shared.js?v=20261026_v2"></script>
 </body>
 </html>
