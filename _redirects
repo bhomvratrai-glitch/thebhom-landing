@@ -1,6 +1,4 @@
-https://thebhom.in/* https://www.thebhom.in/:splat 301!
-http://thebhom.in/* https://www.thebhom.in/:splat 301!
-http://www.thebhom.in/* https://www.thebhom.in/:splat 301!
+# Cloudflare Pages Redirects
 
 # 301 Redirects for legacy product & deal routes (Eliminating GSC 404s)
 /deals/p/mini-uv-protection-capsule-umbrella-b0hcvk32qj.html https://www.thebhom.in/deals/p/mini-uv-protection-capsule-umbrella-fs-amazon-b0hcvk32qj.html 301
@@ -51,9 +49,9 @@ http://www.thebhom.in/* https://www.thebhom.in/:splat 301!
 /guides/how-to-save-youtube-shorts-in-1080p.html https://www.thebhom.in/guides/ 301
 /guides/youtube-shorts-video-kaise-download-kare.html https://www.thebhom.in/guides/ 301
 /guides/instagram-reel-gallery-me-audio-ke-sath-kaise-save-kare.html https://www.thebhom.in/guides/ 301
-/downloader/* https://www.thebhom.in/ 301!
-/downloader https://www.thebhom.in/ 301!
-/api/download* https://www.thebhom.in/ 301!
+/downloader/* https://www.thebhom.in/ 301
+/downloader https://www.thebhom.in/ 301
+/api/download* https://www.thebhom.in/ 301
 
 # Subdirectory PWA manifest rewrites
 /guides/manifest.json /manifest.json 200
