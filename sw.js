@@ -3,12 +3,12 @@
 // Cache Version: v2026.09.14
 // ============================================================
 
-const CACHE_NAME = 'thebhom-cache-v6';
+const CACHE_NAME = 'thebhom-cache-v7';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
-  '/shared.css?v=20261018_v1',
-  '/shared.js?v=20261018_v1',
+  '/shared.css?v=20261026_v2',
+  '/shared.js?v=20261026_v2',
   '/icon-192.png',
   '/icon-512.png',
   '/manifest.json'

@@ -930,7 +930,7 @@ function initShared(){
   if ('serviceWorker' in navigator && window.caches) {
     caches.keys().then(keys => {
       keys.forEach(k => {
-        if (k !== 'thebhom-cache-v3') caches.delete(k);
+        if (k !== 'thebhom-cache-v7') caches.delete(k);
       });
     });
   }
