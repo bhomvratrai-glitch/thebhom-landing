@@ -51,9 +51,9 @@ http://www.thebhom.in/* https://www.thebhom.in/:splat 301!
 /guides/how-to-save-youtube-shorts-in-1080p.html https://www.thebhom.in/guides/ 301
 /guides/youtube-shorts-video-kaise-download-kare.html https://www.thebhom.in/guides/ 301
 /guides/instagram-reel-gallery-me-audio-ke-sath-kaise-save-kare.html https://www.thebhom.in/guides/ 301
-/guides/safe-video-downloading-fair-use-copyright-guide.html https://www.thebhom.in/guides/ 301
-/downloader/* https://www.thebhom.in/guides/ 302
-/downloader https://www.thebhom.in/guides/ 302
+/downloader/* https://www.thebhom.in/ 301!
+/downloader https://www.thebhom.in/ 301!
+/api/download* https://www.thebhom.in/ 301!
 
 # Subdirectory PWA manifest rewrites
 /guides/manifest.json /manifest.json 200
