@@ -13,8 +13,8 @@ Allow: /
 
 User-agent: Mediapartners-Google
 Allow: /
-Allow: /deals/
 Allow: /guides/
+Disallow: /deals/p/
 Disallow: /downloader/
 Disallow: /_drafts/
 Disallow: /admin/
@@ -22,8 +22,8 @@ Disallow: /api/
 
 User-agent: AdsBot-Google
 Allow: /
-Allow: /deals/
 Allow: /guides/
+Disallow: /deals/p/
 Disallow: /downloader/
 Disallow: /_drafts/
 Disallow: /admin/
@@ -40,5 +40,3 @@ Disallow: /admin/
 Disallow: /api/
 
 Sitemap: https://www.thebhom.in/sitemap.xml
-Sitemap: https://www.thebhom.in/sitemap-deals.xml
-
