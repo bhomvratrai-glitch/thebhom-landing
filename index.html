@@ -191,7 +191,12 @@
 .hero-stats-row{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;}
 .hub-section{padding:70px 2rem;}
 .hub-inner{max-width:1280px;margin:0 auto;}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem;}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;}
+@media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+.editorial-deep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media(max-width:992px){.editorial-deep-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.editorial-deep-grid{grid-template-columns:1fr;}}
 .why-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:2rem 1.5rem;text-align:center;transition:var(--t);}
 .why-card:hover{transform:translateY(-5px);border-color:var(--primary-light);box-shadow:var(--glow);}
 .why-icon{font-size:2.5rem;margin-bottom:1rem;}
@@ -326,7 +331,7 @@
       <a href="/guides/" style="color:#10b981;font-weight:700;text-decoration:none;font-size:0.95rem;display:flex;align-items:center;gap:4px;">Browse All 105+ Editorial Guides →</a>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:24px;">
+    <div class="editorial-deep-grid">
       
       <!-- Deep Dive 1: Processors -->
       <article style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:24px;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,0,0,0.03);">
@@ -409,6 +414,48 @@
         <div style="margin-top:auto;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
           <span style="font-size:0.82rem;font-weight:700;color:var(--text3);">By Bhomvrat Rai</span>
           <a href="/guides/fast-charging-speed-battery-health-myth-facts.html" style="font-size:0.9rem;font-weight:700;color:#059669;text-decoration:none;">Read Full Analysis →</a>
+        </div>
+      </article>
+
+      <!-- Deep Dive 5: Audio Acoustics & ANC -->
+      <article style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:24px;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,0,0,0.03);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <span style="background:rgba(79,70,229,0.1);color:#4f46e5;font-size:12px;font-weight:800;padding:4px 10px;border-radius:6px;text-transform:uppercase;">Audio Engineering</span>
+          <span style="font-size:12px;color:var(--text3);font-weight:600;">10 Min Read • Acoustic Lab</span>
+        </div>
+        <h3 style="font-size:1.25rem;font-weight:800;line-height:1.4;margin:0 0 10px;color:var(--text);">
+          <a href="/guides/active-noise-cancellation-anc-vs-enc-explained.html" style="color:inherit;text-decoration:none;">Active Noise Cancellation (ANC) vs ENC: Acoustic Physics, Decibel Damping &amp; Call Clarity</a>
+        </h3>
+        <p style="font-size:0.92rem;color:var(--text2);line-height:1.65;margin:0 0 16px;">
+          How dual-mic inverted phase algorithms silence low-frequency airplane and traffic rumble up to 45dB, why hybrid ANC outshines feedforward setups, and how beamforming ENC algorithms protect microphone speech during windy calls.
+        </p>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:0.85rem;color:var(--text2);">
+          <strong style="color:var(--text);">Acoustic Rule:</strong> ANC protects your hearing from ambient noise; ENC cleans outgoing microphone audio for callers. Verify 30dB+ hybrid ANC for train travel.
+        </div>
+        <div style="margin-top:auto;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:0.82rem;font-weight:700;color:var(--text3);">By Bhomvrat Rai</span>
+          <a href="/guides/active-noise-cancellation-anc-vs-enc-explained.html" style="font-size:0.9rem;font-weight:700;color:#4f46e5;text-decoration:none;">Read Full Analysis →</a>
+        </div>
+      </article>
+
+      <!-- Deep Dive 6: Storage & NVMe -->
+      <article style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:24px;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,0,0,0.03);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <span style="background:rgba(14,165,233,0.1);color:#0284c7;font-size:12px;font-weight:800;padding:4px 10px;border-radius:6px;text-transform:uppercase;">Storage Tech</span>
+          <span style="font-size:12px;color:var(--text3);font-weight:600;">9 Min Read • IOPS Benchmark</span>
+        </div>
+        <h3 style="font-size:1.25rem;font-weight:800;line-height:1.4;margin:0 0 10px;color:var(--text);">
+          <a href="/guides/ssd-types-explained-sata-vs-nvme-pcie-gen4-vs-gen5.html" style="color:inherit;text-decoration:none;">SSD Architecture: SATA vs NVMe PCIe Gen 4 vs Gen 5 Speed, DRAM Cache &amp; Endurance</a>
+        </h3>
+        <p style="font-size:0.92rem;color:var(--text2);line-height:1.65;margin:0 0 16px;">
+          Benchmarking throughput from 550 MB/s SATA up to 14,000 MB/s Gen 5. We test real-world 4K random read IOPS in gaming, SLC cache exhaustion during large file copies, and TBW endurance ratings across TLC and QLC NAND flash.
+        </p>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:0.85rem;color:var(--text2);">
+          <strong style="color:var(--text);">Hardware Advice:</strong> PCIe Gen 4 NVMe with onboard DRAM cache is the sweet spot for gaming and coding; Gen 5 requires heavy active heatsinks to avoid throttling.
+        </div>
+        <div style="margin-top:auto;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:0.82rem;font-weight:700;color:var(--text3);">By Bhomvrat Rai</span>
+          <a href="/guides/ssd-types-explained-sata-vs-nvme-pcie-gen4-vs-gen5.html" style="font-size:0.9rem;font-weight:700;color:#0284c7;text-decoration:none;">Read Full Analysis →</a>
         </div>
       </article>
 
@@ -733,21 +780,18 @@
         <summary>Is TheBhom completely free to use?</summary>
         <div class="faq-answer">Yes, TheBhom is 100% free. There are no subscriptions, no premium tiers, and no registration required. Every deal link and editorial tech guide is accessible at zero cost.</div>
       </details>
-      <div id="index-more-faqs" style="display: none; flex-direction: column; gap: 1rem;">
-        <details class="faq-item">
-          <summary>How does TheBhom Deals work?</summary>
-          <div class="faq-answer">We continuously track price drops and promotional offers across India's top online stores. All deals are verified for lowest price history and link directly to official store checkout pages.</div>
-        </details>
-        <details class="faq-item">
-          <summary>How do TheBhom Tech Buying Guides help shoppers?</summary>
-          <div class="faq-answer">Our editorial guides provide honest, research-backed benchmarks on 5G smartphones, student laptops, ANC earbuds, smartwatches, and smart price tracking tools to help you buy the right product at the lowest price.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Do I need to install any software or app to use TheBhom?</summary>
-          <div class="faq-answer">No installation is required. TheBhom runs completely in your web browser across iOS, Android, macOS, and Windows.</div>
-        </details>
-      </div>
-      <button class="btn btn-outline" onclick="document.getElementById('index-more-faqs').style.display='flex'; this.style.display='none';" style="margin-top: 1rem; width: 100%; justify-content: center;">See More FAQs</button>
+      <details class="faq-item">
+        <summary>How does TheBhom Deals work?</summary>
+        <div class="faq-answer">We continuously track price drops and promotional offers across India's top online stores. All deals are verified for lowest price history and link directly to official store checkout pages.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do TheBhom Tech Buying Guides help shoppers?</summary>
+        <div class="faq-answer">Our editorial guides provide honest, research-backed benchmarks on 5G smartphones, student laptops, ANC earbuds, smartwatches, and smart price tracking tools to help you buy the right product at the lowest price.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to install any software or app to use TheBhom?</summary>
+        <div class="faq-answer">No installation is required. TheBhom runs completely in your web browser across iOS, Android, macOS, and Windows.</div>
+      </details>
     </div>
   </div>
 </section>
