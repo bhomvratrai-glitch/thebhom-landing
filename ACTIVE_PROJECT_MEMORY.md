@@ -22,6 +22,13 @@
 - **Active Core Structure (Ultra-Clean Focus)**:
   - **Main Landing Site**: Root (`/`) at `https://www.thebhom.in/` featuring Deals Hub and Universal Video Downloader.
   - **Guides & In-Depth Editorial Reviews**: Subdirectory (`/guides/`) at `https://www.thebhom.in/guides/` featuring consumer guides, editorial comparisons, and Hinglish long-tail video saving guides.
+    - **October 26, 2026 Milestone (Forensic AdSense Audit Hardening — 100% Policy Cleanliness)**:
+      - **Purged Unsigned `.zip` Link from Header**: Removed `thebhom-chrome-extension.zip` download buttons from desktop and mobile navbars to eliminate any Safe Browsing / deceptive navigation doubts.
+      - **Eliminated Blank `<ins class="adsbygoogle">` Containers**: Removed raw body `<ins>` tags from `index.html` and `deals/index.html` during site review, preserving only `<head>` verification scripts (`ca-pub-4674566886677472`) so Google Auto-Ads manages injection upon approval.
+      - **Deduplicated Scripts on `/deals/`**: Removed duplicate GA4 (`G-GHVNZWFVQV`) and duplicate `adsbygoogle.js` script tags from `deals/index.html` to optimize TTFB and Core Web Vitals.
+      - **Added Accessible Search Bar**: Added native HTML `<form action="/deals/" method="GET" role="search">` on the homepage hero section.
+      - **Implemented Static GDPR & DPDP Cookie Consent Banner**: Native dismissable cookie banner on homepage with local storage caching.
+      - **Baked Static HTML Footer with E-E-A-T & Social Links**: Baked full HTML footer directly into `index.html` featuring Bhomvrat Rai Author Bio Box, Pinterest (`@bhomvrat`), Instagram, Facebook, Amazon Storefront, and clear links to all 6 Company & Policy pages (`/about`, `/contact`, `/privacy-policy`, `/terms`, `/disclaimer`, `/dmca`).
     - **October 26, 2026 Milestone (21 High-Quality Featured Tech Buying Guides on Main Homepage)**:
       - Curated and integrated 21 of the highest-authority, in-depth technical guides directly onto `index.html` across 5 categories:
         1. *Processors & Silicon*: Best Smartphone Processors 2026 Ranking (Snapdragon 8 Elite vs Dimensity 9400 vs A18 Pro).
