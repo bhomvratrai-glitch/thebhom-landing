@@ -41,6 +41,8 @@ jobs:
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
           EARNKARO_API_TOKEN: ${{ secrets.EARNKARO_API_TOKEN }}
           WA_SESSION_BASE64: ${{ secrets.WA_SESSION_BASE64 }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
         run: |
           if [ -d "scripts/wa_cloud" ]; then
             cd scripts/wa_cloud && npm install --omit=dev && cd ../..
@@ -49,6 +51,7 @@ jobs:
           python3 scripts/generate_facebook_catalog_feed.py || true
           python3 scripts/telegram_broadcaster.py || true
           python3 scripts/whatsapp_broadcaster.py || true
+          python3 scripts/facebook_broadcaster.py || true
 
       - name: 📱 Broadcast to WhatsApp Channel (24/7 Cloud Session)
         env:
@@ -62,7 +65,7 @@ jobs:
         run: |
           git config --local user.name "TheBhom Deals Bot"
           git config --local user.email "bot@thebhom.in"
-          git add deals/p/ deals/data/catalog.json feed.xml rss.xml women-fashion-feed.xml pinterest-feed.xml facebook-fashion-feed.xml facebook-catalog-feed.xml sitemap-deals.xml scripts/telegram_posted.json scripts/whatsapp_posted.json
+          git add deals/p/ deals/data/catalog.json feed.xml rss.xml women-fashion-feed.xml pinterest-feed.xml facebook-fashion-feed.xml facebook-catalog-feed.xml sitemap-deals.xml scripts/telegram_posted.json scripts/whatsapp_posted.json scripts/facebook_posted.json
           if git diff --staged --quiet; then
             echo "No new products or feed changes this hour."
           else
