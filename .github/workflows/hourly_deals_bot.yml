@@ -2,8 +2,8 @@ name: 🤖 24/7 Hourly Deals & RSS Syndication Bot
 
 on:
   schedule:
-    # Runs every hour at minute 0 (24 times a day automatically)
-    - cron: '0 * * * *'
+    # Runs every 30 minutes (48 times a day automatically)
+    - cron: '*/30 * * * *'
   workflow_dispatch: # Allows 1-click manual trigger anytime from GitHub Actions tab
 
 permissions:
@@ -52,14 +52,6 @@ jobs:
           python3 scripts/telegram_broadcaster.py || true
           python3 scripts/whatsapp_broadcaster.py || true
           python3 scripts/facebook_broadcaster.py || true
-
-      - name: 📱 Broadcast to WhatsApp Channel (24/7 Cloud Session)
-        env:
-          WA_SESSION_BASE64: ${{ secrets.WA_SESSION_BASE64 }}
-        run: |
-          if [ -n "$WA_SESSION_BASE64" ]; then
-            cd scripts/wa_cloud && npm install --omit=dev && node broadcast_cloud.mjs || true
-          fi
 
       - name: 💾 Commit & Push Updates to GitHub
         run: |
