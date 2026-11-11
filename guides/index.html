@@ -20,17 +20,24 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-GHVNZWFVQV');
+
+    (function applyQueryCat() {
+      const cat = new URLSearchParams(window.location.search).get('cat');
+      if (!cat) return;
+      const btn = document.querySelector(`.filter-btn[onclick*="'${cat}'"]`);
+      if (btn) filterGuides(cat, btn);
+    })();
   </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-  <title>Editorial Tech Buying Guides & Hardware Reviews (105+ Tested) | TheBhom</title>
-  <meta name="description" content="Explore 105+ in-depth, research-backed tech buying guides, smartphone processor hierarchies, laptop benchmark reviews, and smart shopping price drop strategies on TheBhom.">
+  <title>Editorial Tech Buying Guides & Hardware Reviews (111+ Tested) | TheBhom</title>
+  <meta name="description" content="Explore 111+ in-depth, research-backed tech buying guides, smartphone processor hierarchies, laptop benchmark reviews, and smart shopping price drop strategies on TheBhom.">
   <meta name="keywords" content="tech buying guides, smartphone reviews, laptop benchmarks, best tws earbuds, oled vs amoled, smart shopping tips, thebhom editorial">
   <meta property="og:title" content="Editorial Tech Buying Guides & Hardware Reviews | TheBhom">
-  <meta property="og:description" content="Explore 105+ in-depth, research-backed tech buying guides and honest gadget reviews.">
+  <meta property="og:description" content="Explore 111+ in-depth, research-backed tech buying guides and honest gadget reviews.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.thebhom.in/guides/">
   <meta property="og:image" content="https://www.thebhom.in/og-image.png">
@@ -278,26 +285,140 @@
     <div class="guides-hero">
       <div class="guides-badge">📚 Editorial Research & Hardware Benchmarks</div>
       <h1>Expert Tech Buying Guides & Hardware Reviews</h1>
-      <p>Over 105+ thoroughly tested buying guides, smartphone processor hierarchies, student laptop reviews, and smart shopping price-tracking strategies.</p>
+      <p>Over 111+ thoroughly tested buying guides, smartphone processor hierarchies, student laptop reviews, and smart shopping price-tracking strategies.</p>
       
       <div class="guides-search-bar">
         <span class="guides-search-icon">🔍</span>
-        <input type="text" id="guideSearchInput" class="guides-search-input" placeholder="Search 105+ tech buying guides (e.g. OLED, Snapdragon, ANC, Laptops)..." oninput="searchGuides(this.value)">
+        <input type="text" id="guideSearchInput" class="guides-search-input" placeholder="Search 111+ tech buying guides (e.g. OLED, Snapdragon, ANC, Laptops)..." oninput="searchGuides(this.value)">
       </div>
     </div>
 
+    <!-- SILO_BRANCHES_START -->
+    <section aria-label="Topic Branch Hubs" style="margin-bottom:28px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;">
+        <a href="/guides/smartphones/" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--g-card);border:1.5px solid var(--g-border);border-radius:14px;text-decoration:none;color:var(--g-text);box-shadow:var(--g-shadow);transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='#2563eb';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--g-border)';this.style.transform='none'"><span style="font-size:1.7rem;line-height:1;">📱</span><div><div style="font-weight:800;font-size:0.98rem;">Smartphones &amp; Mobile</div><div style="font-size:0.8rem;color:var(--g-muted);font-weight:600;">26 Guides • Open Hub →</div></div></a>
+        <a href="/guides/laptops/" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--g-card);border:1.5px solid var(--g-border);border-radius:14px;text-decoration:none;color:var(--g-text);box-shadow:var(--g-shadow);transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='#d97706';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--g-border)';this.style.transform='none'"><span style="font-size:1.7rem;line-height:1;">💻</span><div><div style="font-weight:800;font-size:0.98rem;">Laptops &amp; Computing</div><div style="font-size:0.8rem;color:var(--g-muted);font-weight:600;">21 Guides • Open Hub →</div></div></a>
+        <a href="/guides/audio/" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--g-card);border:1.5px solid var(--g-border);border-radius:14px;text-decoration:none;color:var(--g-text);box-shadow:var(--g-shadow);transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='#7c3aed';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--g-border)';this.style.transform='none'"><span style="font-size:1.7rem;line-height:1;">🎧</span><div><div style="font-weight:800;font-size:0.98rem;">Audio &amp; Wearables</div><div style="font-size:0.8rem;color:var(--g-muted);font-weight:600;">22 Guides • Open Hub →</div></div></a>
+        <a href="/guides/smart-home/" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--g-card);border:1.5px solid var(--g-border);border-radius:14px;text-decoration:none;color:var(--g-text);box-shadow:var(--g-shadow);transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='#059669';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--g-border)';this.style.transform='none'"><span style="font-size:1.7rem;line-height:1;">🏠</span><div><div style="font-weight:800;font-size:0.98rem;">Smart Home &amp; Power</div><div style="font-size:0.8rem;color:var(--g-muted);font-weight:600;">21 Guides • Open Hub →</div></div></a>
+        <a href="/guides/shopping/" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--g-card);border:1.5px solid var(--g-border);border-radius:14px;text-decoration:none;color:var(--g-text);box-shadow:var(--g-shadow);transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='#e11d48';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--g-border)';this.style.transform='none'"><span style="font-size:1.7rem;line-height:1;">💳</span><div><div style="font-weight:800;font-size:0.98rem;">Smart Shopping &amp; Security</div><div style="font-size:0.8rem;color:var(--g-muted);font-weight:600;">21 Guides • Open Hub →</div></div></a>
+      </div>
+    </section>
+    <!-- SILO_BRANCHES_END -->
+
     <!-- Category Filter Tabs -->
     <div class="filter-tabs">
-      <button class="filter-btn active" onclick="filterGuides('all', this)">All Guides (105)</button>
-      <button class="filter-btn" onclick="filterGuides('smartphones', this)">📱 Smartphones & Mobile (25)</button>
-      <button class="filter-btn" onclick="filterGuides('laptops', this)">💻 Laptops & Computing (20)</button>
-      <button class="filter-btn" onclick="filterGuides('audio', this)">🎧 Audio & Wearables (20)</button>
-      <button class="filter-btn" onclick="filterGuides('smart-home', this)">🏠 Smart Home & Power (20)</button>
-      <button class="filter-btn" onclick="filterGuides('shopping', this)">💳 Smart Shopping & Security (20)</button>
+      <button class="filter-btn active" onclick="filterGuides('all', this)">All Guides (111)</button>
+      <button class="filter-btn" onclick="filterGuides('smartphones', this)">📱 Smartphones & Mobile (26)</button>
+      <button class="filter-btn" onclick="filterGuides('laptops', this)">💻 Laptops & Computing (21)</button>
+      <button class="filter-btn" onclick="filterGuides('audio', this)">🎧 Audio & Wearables (22)</button>
+      <button class="filter-btn" onclick="filterGuides('smart-home', this)">🏠 Smart Home & Power (21)</button>
+      <button class="filter-btn" onclick="filterGuides('shopping', this)">💳 Smart Shopping & Security (21)</button>
     </div>
 
     <!-- Guides Grid -->
     <div class="guides-grid" id="guidesGrid">
+      <a href="/guides/how-to-track-real-amazon-flipkart-price-drops.html" class="guide-card" data-cat="shopping">
+        <div class="guide-thumb-wrap" style="background:linear-gradient(135deg, #ea580c, #9a3412);">
+          <span>📉</span>
+          <span class="guide-category-badge">Price Tracking</span>
+          <span class="guide-read-time">⏱️ 9 min read</span>
+        </div>
+        <div class="guide-content">
+          <div class="guide-meta"><span>By Bhomvrat Rai</span> • <span>Updated Oct 2026</span></div>
+          <h2 class="guide-title">How to Track Real Price Drops on Amazon &amp; Flipkart (Avoid Fake Festive Discounts)</h2>
+          <p class="guide-desc">Learn how sellers inflate MRPs before festive sales, how to check true 90-day price history charts, and the secret coupon stacking tricks to get genuine 50-80% off.</p>
+          <div class="guide-footer-action">
+            <span>Read Complete Guide →</span>
+            <span>⭐ 4.9/5</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/guides/best-power-banks-fast-charging-india.html" class="guide-card" data-cat="smart-home">
+        <div class="guide-thumb-wrap" style="background:linear-gradient(135deg, #10b981, #047857);">
+          <span>🔋</span>
+          <span class="guide-category-badge">Power Banks</span>
+          <span class="guide-read-time">⏱️ 10 min read</span>
+        </div>
+        <div class="guide-content">
+          <div class="guide-meta"><span>By Bhomvrat Rai</span> • <span>Updated Oct 2026</span></div>
+          <h2 class="guide-title">Top 7 Best 20000mAh Power Banks with 22.5W &amp; 65W Fast Charging (Safety Tested)</h2>
+          <p class="guide-desc">Real capacity efficiency, thermal heat management, and flight safety ratings: Which 20000mAh portable power bank can charge both smartphones and laptops safely?</p>
+          <div class="guide-footer-action">
+            <span>Read Complete Guide →</span>
+            <span>⭐ 4.9/5</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/guides/top-10-smartwatches-under-2000.html" class="guide-card" data-cat="audio">
+        <div class="guide-thumb-wrap" style="background:linear-gradient(135deg, #ec4899, #9d174d);">
+          <span>⌚</span>
+          <span class="guide-category-badge">Smartwatches</span>
+          <span class="guide-read-time">⏱️ 12 min read</span>
+        </div>
+        <div class="guide-content">
+          <div class="guide-meta"><span>By Bhomvrat Rai</span> • <span>Updated Oct 2026</span></div>
+          <h2 class="guide-title">Top 10 Best Smartwatches Under ₹2,000 in India (Real Battery &amp; Display Test)</h2>
+          <p class="guide-desc">We tested 14 budget smartwatches on outdoor brightness, Bluetooth calling clarity, and battery life to crown the top 10 best smartwatches under ₹2,000 in India.</p>
+          <div class="guide-footer-action">
+            <span>Read Complete Guide →</span>
+            <span>⭐ 4.9/5</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/guides/best-tws-earbuds-under-1500-anc.html" class="guide-card" data-cat="audio">
+        <div class="guide-thumb-wrap" style="background:linear-gradient(135deg, #8b5cf6, #5b21b6);">
+          <span>🎧</span>
+          <span class="guide-category-badge">TWS &amp; ANC</span>
+          <span class="guide-read-time">⏱️ 11 min read</span>
+        </div>
+        <div class="guide-content">
+          <div class="guide-meta"><span>By Bhomvrat Rai</span> • <span>Updated Oct 2026</span></div>
+          <h2 class="guide-title">Best TWS Earbuds Under ₹1,500 with Active Noise Cancellation (ANC Tested)</h2>
+          <p class="guide-desc">Can you really get genuine Active Noise Cancellation under 1500 rupees? We tested 11 budget earbuds in real bus and train commutes to find the true winners.</p>
+          <div class="guide-footer-action">
+            <span>Read Complete Guide →</span>
+            <span>⭐ 4.9/5</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/guides/best-budget-laptops-for-students-under-40000.html" class="guide-card" data-cat="laptops">
+        <div class="guide-thumb-wrap" style="background:linear-gradient(135deg, #f59e0b, #b45309);">
+          <span>💻</span>
+          <span class="guide-category-badge">Student Laptops</span>
+          <span class="guide-read-time">⏱️ 10 min read</span>
+        </div>
+        <div class="guide-content">
+          <div class="guide-meta"><span>By Bhomvrat Rai</span> • <span>Updated Oct 2026</span></div>
+          <h2 class="guide-title">Best Laptops for Students &amp; Remote Workers Under ₹40,000 (Coding &amp; Multitasking)</h2>
+          <p class="guide-desc">Tested benchmarks for battery endurance, keyboard ergonomics, SSD speeds, and RAM upgradeability on the best budget laptops under ₹40,000 in India.</p>
+          <div class="guide-footer-action">
+            <span>Read Complete Guide →</span>
+            <span>⭐ 4.9/5</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/guides/best-budget-smartphones-under-15000.html" class="guide-card" data-cat="smartphones">
+        <div class="guide-thumb-wrap" style="background:linear-gradient(135deg, #0ea5e9, #0369a1);">
+          <span>📱</span>
+          <span class="guide-category-badge">Budget 5G</span>
+          <span class="guide-read-time">⏱️ 12 min read</span>
+        </div>
+        <div class="guide-content">
+          <div class="guide-meta"><span>By Bhomvrat Rai</span> • <span>Updated Oct 2026</span></div>
+          <h2 class="guide-title">Best 5G Smartphones Under ₹15,000 in India (Gaming &amp; Battery Life Breakdown)</h2>
+          <p class="guide-desc">In-depth comparison of real gaming performance, battery endurance, and camera samples of the best 5G smartphones under ₹15,000 in India.</p>
+          <div class="guide-footer-action">
+            <span>Read Complete Guide →</span>
+            <span>⭐ 4.9/5</span>
+          </div>
+        </div>
+      </a>
+
       <a href="/guides/best-smartphone-processors-2026-ranking.html" class="guide-card" data-cat="smartphones">
         <div class="guide-thumb-wrap" style="background:linear-gradient(135deg, #2563eb, #1d4ed8);">
           <span>⚡</span>

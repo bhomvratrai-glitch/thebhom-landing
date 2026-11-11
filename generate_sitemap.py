@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
 import os
 import glob
-from datetime import datetime
+from datetime import datetime, timezone
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-TODAY = datetime.utcnow().strftime('%Y-%m-%d')
+TODAY = datetime.now(timezone.utc).strftime('%Y-%m-%d')
 
 urls = [
     ('https://www.thebhom.in/', '1.0', 'daily'),
     ('https://www.thebhom.in/deals/', '0.95', 'daily'),
     ('https://www.thebhom.in/guides/', '0.95', 'daily'),
+    ('https://www.thebhom.in/guides/smartphones/', '0.90', 'daily'),
+    ('https://www.thebhom.in/guides/laptops/', '0.90', 'daily'),
+    ('https://www.thebhom.in/guides/audio/', '0.90', 'daily'),
+    ('https://www.thebhom.in/guides/smart-home/', '0.90', 'daily'),
+    ('https://www.thebhom.in/guides/shopping/', '0.90', 'daily'),
 ]
 
 # Scan all verified guides in guides/
@@ -23,13 +28,22 @@ for f in sorted(glob.glob(os.path.join(guides_dir, '*.html'))):
         continue
     urls.append((f'https://www.thebhom.in/guides/{fname}', '0.85', 'weekly'))
 
+# Preserve curated featured /deals/p/ URLs already present in sitemap.xml (avoid shrinking sitemap)
+import re
+existing_sitemap = os.path.join(BASE_DIR, 'sitemap.xml')
+if os.path.exists(existing_sitemap):
+    existing_xml = open(existing_sitemap, 'r', encoding='utf-8').read()
+    for deal_loc in re.findall(r'<loc>(https://www\.thebhom\.in/deals/p/[^<]+)</loc>', existing_xml):
+        urls.append((deal_loc, '0.80', 'weekly'))
+
 # Legal and institutional pages
 urls.extend([
-    ('https://www.thebhom.in/about', '0.7', 'monthly'),
-    ('https://www.thebhom.in/contact', '0.7', 'monthly'),
-    ('https://www.thebhom.in/privacy-policy', '0.6', 'monthly'),
-    ('https://www.thebhom.in/terms', '0.6', 'monthly'),
-    ('https://www.thebhom.in/disclaimer', '0.6', 'monthly'),
+    ('https://www.thebhom.in/about', '0.70', 'monthly'),
+    ('https://www.thebhom.in/contact', '0.70', 'monthly'),
+    ('https://www.thebhom.in/privacy-policy', '0.60', 'monthly'),
+    ('https://www.thebhom.in/terms', '0.60', 'monthly'),
+    ('https://www.thebhom.in/disclaimer', '0.60', 'monthly'),
+    ('https://www.thebhom.in/dmca', '0.60', 'monthly'),
 ])
 
 xml_lines = [
@@ -41,9 +55,10 @@ for url, pri, freq in urls:
     xml_lines.append(f'  <url><loc>{url}</loc><lastmod>{TODAY}</lastmod><changefreq>{freq}</changefreq><priority>{pri}</priority></url>')
 
 xml_lines.append('</urlset>\n')
+xml_output = '\n'.join(xml_lines)
 
-sitemap_main_path = os.path.join(BASE_DIR, 'sitemap-main.xml')
-with open(sitemap_main_path, 'w', encoding='utf-8') as out:
-    out.write('\n'.join(xml_lines))
-
-print(f"Generated {sitemap_main_path} successfully with {len(urls)} canonical URLs.")
+for fname in ('sitemap-main.xml', 'sitemap.xml'):
+    out_path = os.path.join(BASE_DIR, fname)
+    with open(out_path, 'w', encoding='utf-8') as out:
+        out.write(xml_output)
+    print(f"Generated {out_path} successfully with {len(urls)} canonical URLs.")
