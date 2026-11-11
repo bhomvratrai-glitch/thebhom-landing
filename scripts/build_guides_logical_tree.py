@@ -309,7 +309,7 @@ def render_branch_hub_page(branch, branch_cards):
   <meta property="og:image" content="https://www.thebhom.in/og-image.png">
   <link rel="manifest" href="/manifest.json">
   <link rel="canonical" href="{canonical}">
-  <link rel="stylesheet" href="/shared.css?v=20261026_v2">
+  <link rel="stylesheet" href="/shared.css?v=20261111_v4">
 
   <script type="application/ld+json">
   {ld_json}
@@ -381,7 +381,7 @@ def render_branch_hub_page(branch, branch_cards):
     }}
     .filter-btn {{
       background: var(--g-card); border: 1px solid var(--g-border); color: var(--g-muted);
-      padding: 8px 16px; border-radius: 9999px; font-size: 13.5px; font-weight: 600;
+      padding: 10px 16px; min-height: 44px; border-radius: 9999px; font-size: 14px; font-weight: 600;
       cursor: pointer; transition: all 0.2s;
     }}
     .filter-btn:hover, .filter-btn.active {{
