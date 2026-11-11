@@ -3,6 +3,7 @@
 .github
 .vercel
 .wrangler
+_drafts
 node_modules
 scripts
 __pycache__

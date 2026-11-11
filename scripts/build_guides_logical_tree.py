@@ -477,7 +477,7 @@ def render_branch_hub_page(branch, branch_cards):
   </main>
 
   <div id="shared-footer"></div>
-  <script src="/shared.js?v=20261026_v2"></script>
+  <script src="/shared.js?v=20261111_v4"></script>
   <script>
     function searchGuides(query) {{
       const q = query.toLowerCase().trim();

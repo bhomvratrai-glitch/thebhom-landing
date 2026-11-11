@@ -1,5 +1,6 @@
 .vercel
 .wrangler
+_drafts/
 _worker.bundle
 __pycache__/
 *.pyc

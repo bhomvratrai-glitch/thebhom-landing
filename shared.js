@@ -804,17 +804,6 @@ window.renderFavDrawer = function() {
         <button class="fav-close" onclick="closeFavDrawer()">✕</button>
       </div>
       <div class="fav-body" id="favBody"></div>
-      <div class="fav-vip-box">
-        <div class="fav-vip-info">
-          <h5>⚡ TheBhom VIP & Support</h5>
-          <p>Scan & pay via Paytm UPI for VIP perks</p>
-        </div>
-        <button class="fav-vip-pay-btn" onclick="openUpiPaymentModal({title:'TheBhom VIP Supporter', amount:99, desc:'VIP Supporter Plan: Ad-free perks & high-speed downloads'})">Pay ₹99 ⚡</button>
-      </div>
-      <div style="margin:10px 16px 14px 16px;padding:10px 14px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:12px;display:flex;align-items:center;justify-content:space-between;">
-        <div style="font-size:0.78rem;color:#cbd5e1;">👑 <strong>Owner Portal</strong> (bhomvratrai7225)</div>
-        <a href="/admin/" style="font-size:0.75rem;font-weight:800;color:#fbbf24;text-decoration:none;padding:4px 10px;background:rgba(245,158,11,0.2);border-radius:6px;border:1px solid rgba(245,158,11,0.4);">Dashboard →</a>
-      </div>
     </div>
   `;
   document.body.appendChild(mount);
@@ -828,8 +817,8 @@ window.renderFavDrawerBody = function() {
     body.innerHTML = `
       <div class="fav-empty">
         <div class="fav-empty-icon">📂</div>
-        <h4>कोई Saved Item नहीं है</h4>
-        <p style="font-size:0.83rem;margin-top:0.5rem;">किसी भी Wallpaper, E-Book, Magazine या Card पर ❤️ दबाकर यहाँ सेव करें।</p>
+        <h4>No Saved Items Yet</h4>
+        <p style="font-size:0.88rem;margin-top:0.5rem;">Bookmark any verified deal or buying guide with ❤️ to access it quickly here.</p>
       </div>
     `;
     return;

@@ -28,15 +28,7 @@ for f in sorted(glob.glob(os.path.join(guides_dir, '*.html'))):
         continue
     urls.append((f'https://www.thebhom.in/guides/{fname}', '0.85', 'weekly'))
 
-# Preserve curated featured /deals/p/ URLs already present in sitemap.xml (avoid shrinking sitemap)
-import re
-existing_sitemap = os.path.join(BASE_DIR, 'sitemap.xml')
-if os.path.exists(existing_sitemap):
-    existing_xml = open(existing_sitemap, 'r', encoding='utf-8').read()
-    for deal_loc in re.findall(r'<loc>(https://www\.thebhom\.in/deals/p/[^<]+)</loc>', existing_xml):
-        urls.append((deal_loc, '0.80', 'weekly'))
-
-# Legal and institutional pages
+# Legal and institutional pages (pure editorial & institutional sitemap for AdSense quality compliance)
 urls.extend([
     ('https://www.thebhom.in/about', '0.70', 'monthly'),
     ('https://www.thebhom.in/contact', '0.70', 'monthly'),
