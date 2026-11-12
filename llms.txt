@@ -5,8 +5,8 @@
 ## Core Services
 
 - [TheBhom Home](https://www.thebhom.in/): Central portal with featured shopping deals, price drop alerts, and expert consumer tech buying guides.
-- [Deals & Offers Store](https://www.thebhom.in/deals/): Verified handpicked loot deals, price drop alerts, and flash sales across Amazon, Flipkart, Myntra, and major Indian retailers.
-- [Guides & Editorial Reviews](https://www.thebhom.in/guides/): 105+ in-depth smart buying guides, smartphone processor rankings, display technologies, laptop guides, and consumer electronics reviews.
+- [Deals & Offers Store](https://www.thebhom.in/deals/): Handpicked deals and price tracking on Flipkart, Myntra & Ajio, plus direct Amazon India links. Amazon pricing is not included in price tracking/graph, and we do not issue alerts for any products through Amazon.
+- [Guides & Editorial Reviews](https://www.thebhom.in/guides/): 30+ in-depth smart buying guides, smartphone processor rankings, display technologies, laptop guides, and consumer electronics reviews.
 
 ## Platform & Policies
 

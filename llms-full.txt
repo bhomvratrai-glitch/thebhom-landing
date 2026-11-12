@@ -6,8 +6,8 @@
 
 TheBhom is built for high speed, zero latency, and privacy-first web performance. The platform is organized into two core editorial and commercial divisions:
 
-1. **TheBhom Deals Store (`/deals/`)**: Handpicked, verified discount deals and price drops from Amazon, Flipkart, Myntra, and top Indian shopping destinations. Includes category filtering for Electronics, Fashion, Home, and Lightning Deals.
-2. **Guides & Editorial Reviews Hub (`/guides/`)**: 105+ comprehensive, 3,000+ word expert consumer buying guides, smartphone processor rankings, OLED display guides, laptop comparisons, smart home guides, and online shopping safety checklists.
+1. **TheBhom Deals Store (`/deals/`)**: Handpicked discount deals and price drop tracking for Flipkart, Myntra, and Ajio, plus direct live links for Amazon India. Amazon pricing is not included in price tracking/graph, and we do not issue alerts for any products through Amazon.
+2. **Guides & Editorial Reviews Hub (`/guides/`)**: 30+ comprehensive, in-depth expert consumer buying guides, smartphone processor rankings, OLED display guides, laptop comparisons, smart home guides, and online shopping safety checklists.
 
 ## Verification & Trust Standards
 

@@ -796,14 +796,28 @@ def run_hourly_bot(limit_per_run=70):
         catalog.insert(0, p)
         print(f"  + Added/Promoted [{p['store']}]: {p['title'][:55]}... at ₹{p['price']:,}")
         
-        # 3. Format for Discover RSS Feed
-        disc_text = f"{p['discountNum']}% OFF"
-        discover_title = f"⚡ [Price Drop {disc_text}] {p['title'][:85]} at ₹{p['price']:,} (MRP ₹{p['mrp']:,})"
-        feed_desc = f"""<![CDATA[
+        # 3. Format for Discover RSS Feed (Strictly exclude Amazon from cached price / alerts)
+        is_amazon = (
+            "amazon" in str(p.get("store", "")).lower()
+            or "amazon." in str(p.get("url", "")).lower()
+            or "amzn." in str(p.get("url", "")).lower()
+        )
+        if is_amazon:
+            discover_title = f"🛒 [Amazon Store Link] {p['title'][:95]} — Check Live Price on Amazon.in"
+            feed_desc = f"""<![CDATA[
+<p><strong>🛒 Featured Product on Amazon.in:</strong> {p['title']}</p>
+<p>🏬 <strong>Store:</strong> Amazon.in | 🔗 Check current live price &amp; availability directly on Amazon.in.</p>
+<p><small>Amazon pricing is not included in price tracking/graph. We do not issue alerts for any products through Amazon.</small></p>
+<p><img src="{p['cleanImage']}" alt="{saxutils.escape(p['title'])}" style="max-width:100%; height:auto;" /></p>
+]]>"""
+        else:
+            disc_text = f"{p['discountNum']}% OFF"
+            discover_title = f"⚡ [Price Drop {disc_text}] {p['title'][:85]} at ₹{p['price']:,} (MRP ₹{p['mrp']:,})"
+            feed_desc = f"""<![CDATA[
 <p><strong>⚡ Verified Price Drop Alert:</strong> {p['title']}</p>
 <p>💰 <strong>Deal Price:</strong> ₹{p['price']:,} (MRP: ₹{p['mrp']:,} - <strong>{disc_text}</strong>)</p>
 <p>⭐ <strong>Customer Rating:</strong> {p.get('rating', 4.3)} / 5 | 🏬 <strong>Store:</strong> {p['store']} Verified</p>
-<p>Direct buy link with maximum discount and genuine manufacturer warranty available on TheBhom Deals.</p>
+<p>Direct buy link with maximum discount and genuine manufacturer warranty available on TheBhom Deals. (Amazon pricing is not included in price tracking/graph. We do not issue alerts for any products through Amazon.)</p>
 <p><img src="{p['cleanImage']}" alt="{saxutils.escape(p['title'])}" style="max-width:100%; height:auto;" /></p>
 ]]>"""
         new_feed_items.append(f"""    <item>

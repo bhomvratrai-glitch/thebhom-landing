@@ -627,7 +627,7 @@ function renderFooter(){
         <div style="font-size:0.8rem;color:#4b5563;">🔒 Client-side browser processing. Files are never stored on external servers.</div>
       </div>
       <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:10px 16px;font-size:0.78rem;color:#92400e;line-height:1.5;">
-        <strong>📢 Affiliate Disclosure:</strong> TheBhom participates in the Amazon Associates Program, Flipkart Partner Program, and Myntra Affiliate Program. As an affiliate, we earn a small commission from qualifying purchases at <strong>no extra cost to you</strong>. This helps us keep the platform free for everyone. All product recommendations are based on genuine research and editorial opinion.
+        <strong>📢 Affiliate &amp; Price Tracking Disclosure:</strong> TheBhom participates in the Amazon Associates Program, Flipkart Partner Program, and Myntra Affiliate Program. As an affiliate, we earn a small commission from qualifying purchases at <strong>no extra cost to you</strong>. Amazon pricing is not included in price tracking/graph. We do not issue alerts for any products through Amazon. Live Amazon prices and availability are checked directly on Amazon.in.
       </div>
     </div>
 
@@ -1180,13 +1180,13 @@ function getAllContentItems() {
     { id: 'guide-tws', title: 'Best TWS Earbuds Under ₹1,500 with Active Noise Cancellation (ANC)', cat: 'guides', tag: 'Audio Guide', emoji: '🎧', url: '/guides/best-tws-earbuds-under-1500-anc.html' },
     { id: 'guide-powerbank', title: 'Best Power Banks in India: Fast Charging & Airline Safety Guide', cat: 'guides', tag: 'Tech Guide', emoji: '🔋', url: '/guides/best-power-banks-fast-charging-india.html' },
     { id: 'guide-price-track', title: 'How to Track Real Price Drops on Amazon & Flipkart (Avoid Fake Sales)', cat: 'guides', tag: 'Shopping Guide', emoji: '📉', url: '/guides/how-to-track-real-amazon-flipkart-price-drops.html' },
-    { id: 'deal-powerbank', title: '15W Fast Charging 10000mAh Power Bank (₹527 - 73% OFF)', cat: 'deals', tag: 'Amazon Deal', emoji: '🔋', url: '/deals/p/15w-fast-charging-10000mah-power-bank-with-type-c--fs-amazon-b0flxvqr5r.html' },
+    { id: 'deal-powerbank', title: '15W Fast Charging 10000mAh Power Bank (Check Live on Amazon)', cat: 'deals', tag: 'Amazon Store', emoji: '🔋', url: '/deals/p/15w-fast-charging-10000mah-power-bank-with-type-c--fs-amazon-b0flxvqr5r.html' },
     { id: 'deal-smartwatch', title: 'Ai+ NovaWatch AMOLED Bluetooth Calling Smartwatch (₹1,499 - 66% OFF)', cat: 'deals', tag: 'Flipkart Deal', emoji: '⌚', url: '/deals/p/ai-novawatch-active-9mm-slim-173-amoled-display-bt-fs-flipkart-smwhjhukphmzbqxq.html' },
-    { id: 'deal-charger', title: '100W Fast Charger Adapter & Type-C Cable Combo (₹699 - 65% OFF)', cat: 'deals', tag: 'Amazon Deal', emoji: '⚡', url: '/deals/p/100w-fast-charger-adapter-usb-a-to-type-c-cable-co-fs-amazon-b0gh86tbh3.html' },
+    { id: 'deal-charger', title: '100W Fast Charger Adapter & Type-C Cable Combo (Check Live on Amazon)', cat: 'deals', tag: 'Amazon Store', emoji: '⚡', url: '/deals/p/100w-fast-charger-adapter-usb-a-to-type-c-cable-co-fs-amazon-b0gh86tbh3.html' },
     { id: 'deal-earrings', title: 'Rubans 22K Gold-Plated Zircon Drop Earrings (₹372 - 88% OFF)', cat: 'deals', tag: 'Myntra Deal', emoji: '✨', url: '/deals/p/22k-mehandi-gold-plated-crystal-zircon-studded-tra-fs-myntra-31133316.html' },
-    { id: 'deal-saree', title: 'Paithani Soft Silk Saree with Rich Golden Zari (₹999 - 66% OFF)', cat: 'deals', tag: 'Amazon Deal', emoji: '👗', url: '/deals/p/a-pethani-silk-saree-perot-using-silk-yarn-and-emb-amz-b0hgmj7xdc.html' },
-    { id: 'deal-earphones', title: 'Ambrane Type-C In-Ear Earphones with Mic (₹199 - 66% OFF)', cat: 'deals', tag: 'Amazon Deal', emoji: '🎧', url: '/deals/p/ambrane-wired-type-c-in-ear-earphones-with-in-line-fs-amazon-b0ckbyhs8s.html' },
-    { id: 'item-amazon', title: 'Amazon Top Discounts & Lightning Deals', cat: 'deals', tag: 'Amazon', emoji: '📦', url: '/deals/?store=amazon' },
+    { id: 'deal-saree', title: 'Paithani Soft Silk Saree with Rich Golden Zari (Check Live on Amazon)', cat: 'deals', tag: 'Amazon Store', emoji: '👗', url: '/deals/p/a-pethani-silk-saree-perot-using-silk-yarn-and-emb-amz-b0hgmj7xdc.html' },
+    { id: 'deal-earphones', title: 'Ambrane Type-C In-Ear Earphones with Mic (Check Live on Amazon)', cat: 'deals', tag: 'Amazon Store', emoji: '🎧', url: '/deals/p/ambrane-wired-type-c-in-ear-earphones-with-in-line-fs-amazon-b0ckbyhs8s.html' },
+    { id: 'item-amazon', title: 'Amazon Storefront — Curated Products (Check Live on Amazon.in)', cat: 'deals', tag: 'Amazon', emoji: '📦', url: '/deals/?store=amazon' },
     { id: 'item-flipkart', title: 'Flipkart Big Savings & Flash Offers', cat: 'deals', tag: 'Flipkart', emoji: '🛍️', url: '/deals/?store=flipkart' },
     { id: 'item-myntra', title: 'Myntra Fashion, Clothing & Footwear Deals', cat: 'deals', tag: 'Myntra', emoji: '👗', url: '/deals/?store=myntra' },
     { id: 'item-electronics', title: 'Electronics, Mobiles & Gadgets Deals', cat: 'deals', tag: 'Electronics', emoji: '📱', url: '/deals/?category=electronics' }

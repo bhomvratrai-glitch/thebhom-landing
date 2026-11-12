@@ -176,6 +176,20 @@ def format_whatsapp_deal_message(deal, channel_link=DEFAULT_WA_CHANNEL):
     store_url = deal["store_url"]
     page_url = deal["page_url"]
     
+    is_amazon = "amazon" in str(store).lower() or "amazon." in str(store_url).lower()
+    if is_amazon:
+        return (
+            f"🛍️ *FEATURED FIND | THEBHOM*\n\n"
+            f"📦 *{title}*\n"
+            f"🏪 *Store:* Amazon\n\n"
+            f"🛒 *Buy on Amazon:*\n"
+            f"👉 {store_url}\n\n"
+            f"🌐 *View Details on TheBhom:*\n"
+            f"👉 {page_url}\n\n"
+            f"📢 *Join WhatsApp Channel:*\n"
+            f"👉 {channel_link}"
+        )
+
     price_str = f"₹{price}" if price else "Loot Price"
     mrp_str = f" ~₹{mrp}~" if mrp and mrp != price else ""
     disc_str = f" (🔥 *{discount}% OFF*)" if discount else ""

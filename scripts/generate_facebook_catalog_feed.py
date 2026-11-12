@@ -28,12 +28,17 @@ def build_feed(items, title, feed_path):
         '  <channel>',
         f'    <title>{escape_xml(title)}</title>',
         '    <link>https://thebhom.in</link>',
-        '    <description>Best online shopping verified deals and fashion discounts in India with price tracker.</description>',
+        '    <description>Best online shopping verified deals and fashion discounts in India on Flipkart, Myntra, and Ajio. Amazon pricing is not included in price tracking/graph. We do not issue alerts for any products through Amazon.</description>',
         f'    <lastBuildDate>{datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")}</lastBuildDate>'
     ]
 
     count = 0
     for it in items:
+        store_l = str(it.get("store") or "").lower()
+        url_l = str(it.get("url") or "").lower()
+        pid_l = str(it.get("asin") or it.get("id") or "").lower()
+        if "amazon" in store_l or "amazon." in url_l or "amzn." in url_l or "amazon" in pid_l:
+            continue
         pid = it.get("asin") or it.get("id")
         if not pid:
             continue

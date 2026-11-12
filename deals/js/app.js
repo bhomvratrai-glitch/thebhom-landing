@@ -1121,6 +1121,7 @@ function showRedirectBridge(deal) {
 
   const dealPrice = Number(deal.dealPrice ?? deal.price ?? 0);
   const origPrice = Number(deal.originalPrice ?? deal.mrp ?? 0);
+  const isAmazon = String(deal.store || deal.storeKey || "").toLowerCase().includes("amazon") || String(deal.url || deal.profitLink || "").toLowerCase().includes("amazon.");
   const priceText = dealPrice > 0 ? `₹${dealPrice.toLocaleString("en-IN")}` : "FREE";
   const originalText = origPrice > dealPrice ? `₹${origPrice.toLocaleString("en-IN")}` : "";
   const targetLink = deal.profitLink || deal.url || (deal.asin ? `https://www.amazon.in/dp/${deal.asin}?tag=bhom120704-21` : `/deals/p/${deal.slug}`);
@@ -1128,16 +1129,18 @@ function showRedirectBridge(deal) {
   overlay.innerHTML = `
     <div style="background:#fff; max-width:480px; width:100%; border-radius:16px; padding:28px; text-align:center; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); animation:modalPop 0.3s cubic-bezier(0.16,1,0.3,1);">
       <div style="width:56px; height:56px; background:#eff6ff; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:28px;">⚡</div>
-      <span style="font-size:12px; font-weight:800; color:#2563eb; text-transform:uppercase; letter-spacing:0.5px;">Verified Lowest Price Deal</span>
+      <span style="font-size:12px; font-weight:800; color:#2563eb; text-transform:uppercase; letter-spacing:0.5px;">${isAmazon ? "Official Amazon Store Redirect" : "Verified Lowest Price Deal"}</span>
       <h3 style="font-size:17px; font-weight:800; color:#0f172a; margin:8px 0 14px; line-height:1.4; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">${escapeHtml(deal.title)}</h3>
       
-      <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:18px;">
+      ${isAmazon
+        ? `<div style="margin-bottom:18px;"><span style="background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; font-size:13px; font-weight:800; padding:6px 14px; border-radius:8px; display:inline-block;">Check Live Price &amp; Offers on Amazon.in</span></div>`
+        : `<div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:18px;">
         <span style="font-size:24px; font-weight:900; color:#0f172a;">${priceText}</span>
         ${originalText ? `<span style="font-size:14px; color:#94a3b8; text-decoration:line-through;">${originalText}</span>` : ""}
         <span style="background:#dcfce7; color:#166534; font-size:12px; font-weight:800; padding:2px 8px; border-radius:4px;">${deal.discount || "DEAL"}</span>
-      </div>
+      </div>`}
 
-      <p style="font-size:13px; color:#64748b; margin-bottom:20px;">Transferring you directly to official <strong>${escapeHtml(deal.store)}</strong> store checkout with discount locked in...</p>
+      <p style="font-size:13px; color:#64748b; margin-bottom:20px;">Transferring you directly to official <strong>${escapeHtml(deal.store)}</strong> store checkout...</p>
 
       <div style="display:flex; flex-direction:column; gap:10px;">
         <a href="${targetLink}" target="_blank" rel="noopener noreferrer nofollow" id="directStoreLinkBtn" style="display:flex; align-items:center; justify-content:center; gap:8px; background:#fb641b; color:#fff; font-size:15px; font-weight:800; padding:13px; border-radius:8px; text-decoration:none;">
@@ -1254,12 +1257,13 @@ function renderProducts() {
   const filtered = catalog.filter(item => {
     const cat = classifyProduct(item);
     let matchesCategory = false;
+    const isItemAmazon = String(item.store || item.storeKey || "").toLowerCase().includes("amazon") || String(item.url || item.profitLink || "").toLowerCase().includes("amazon.");
     if (currentCategory === "all") {
       matchesCategory = true;
     } else if (currentCategory === "under499") {
-      matchesCategory = Number(item.dealPrice || item.price || 0) <= 499 && Number(item.dealPrice || item.price || 0) > 0;
+      matchesCategory = !isItemAmazon && Number(item.dealPrice || item.price || 0) <= 499 && Number(item.dealPrice || item.price || 0) > 0;
     } else if (currentCategory === "lowestprice") {
-      matchesCategory = (parseInt(item.discount || "0") >= 60) || (item.badge && item.badge.includes("UNDER"));
+      matchesCategory = !isItemAmazon && ((parseInt(item.discount || "0") >= 60) || (item.badge && item.badge.includes("UNDER")));
     } else if (currentCategory === "mobiles") {
       matchesCategory = cat === "mobiles";
     } else if (currentCategory === "electronics") {
@@ -1337,7 +1341,8 @@ function createProductCardHtml(item) {
     detailUrl = `/deals/p/${code}.html`;
   }
 
-  const isLowestPrice = (parseInt(item.discount || "0") >= 60) || (dealPrice <= 499 && dealPrice > 0);
+  const isAmazon = String(item.store || item.storeKey || "").toLowerCase().includes("amazon") || String(item.url || item.profitLink || "").toLowerCase().includes("amazon.");
+  const isLowestPrice = !isAmazon && ((parseInt(item.discount || "0") >= 60) || (dealPrice <= 499 && dealPrice > 0));
   const cleanDiscount = (item.discount && item.discount.length <= 15) ? escapeHtml(item.discount) : "DEAL";
   const buyUrl = item.profitLink || item.url || (item.asin ? `https://www.amazon.in/dp/${item.asin}?tag=bhom120704-21` : detailUrl);
   const primaryImg = item.cleanImage || item.image || "";
@@ -1351,7 +1356,7 @@ function createProductCardHtml(item) {
         <a href="${detailUrl}" class="thumb-link" title="${escapeHtml(item.title)}">
           <img class="product-img" src="${primaryImg}" alt="${escapeHtml(item.title)}" loading="lazy" referrerpolicy="no-referrer" style="max-height:160px; max-width:160px; object-fit:contain;" onerror="handleCardImgError(this, '${escapeHtml(fallbackImg)}')">
         </a>
-        <span class="discount-badge">${cleanDiscount}</span>
+        ${isAmazon ? `<span class="discount-badge" style="background:#232f3e;color:#fff;">LIVE CHECK</span>` : `<span class="discount-badge">${cleanDiscount}</span>`}
         <span class="store-badge ${String(item.store).toLowerCase().replace(/\s+/g, '-')}">${escapeHtml(item.store)}</span>
         ${isLowestPrice ? `<span class="lowest-price-tag" style="position:absolute; bottom:6px; left:6px; background:#ecfdf5; color:#047857; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; border:1px solid #a7f3d0; letter-spacing:0.2px;">📉 Lowest Price Ever</span>` : ""}
       </div>
@@ -1373,14 +1378,15 @@ function createProductCardHtml(item) {
 
         <!-- Pricing Row -->
         <div class="price-strip">
-          <span class="price-current">${formattedPrice}</span>
-          ${formattedOriginalPrice ? `<span class="price-mrp">${formattedOriginalPrice}</span>` : ""}
+          ${isAmazon
+            ? `<span class="price-current" style="font-size:13px;color:#c2410c;">Check Live Price on Amazon</span>`
+            : `<span class="price-current">${formattedPrice}</span>${formattedOriginalPrice ? `<span class="price-mrp">${formattedOriginalPrice}</span>` : ""}`}
         </div>
 
         <!-- Two Primary Action Buttons: BUY NOW + SEE DETAILS -->
         <div class="product-btn-group">
           <a href="${buyUrl}" target="_blank" rel="noopener noreferrer nofollow" class="btn-buy-now">
-            <span>Buy Now</span>
+            <span>${isAmazon ? "Buy on Amazon" : "Buy Now"}</span>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a href="${detailUrl}" class="btn-see-details">

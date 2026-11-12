@@ -178,11 +178,23 @@ def format_facebook_post(deal):
     store_url = deal['store_url']
     page_url = deal['page_url']
     
+    is_amazon = 'amazon' in str(store).lower() or 'amazon.' in str(store_url).lower()
+    clean_store = store.replace(" ", "")
+    if is_amazon:
+        return (
+            f"🛍️ FEATURED FIND | THEBHOM\n\n"
+            f"📦 {title}\n"
+            f"🏪 Store: Amazon\n\n"
+            f"🛒 Buy on Amazon:\n"
+            f"👉 {store_url}\n\n"
+            f"🌐 View Details on TheBhom:\n"
+            f"👉 {page_url}\n\n"
+            f"#OnlineShopping #TheBhom #AmazonFinds"
+        )
+
     price_str = f"₹{price}" if price else "Loot Price"
     mrp_str = f" (~₹{mrp}~)" if mrp and mrp != price else ""
     disc_str = f" (🔥 {discount}% OFF)" if discount else ""
-    
-    clean_store = store.replace(" ", "")
     
     message = (
         f"🔥 LOOT DEAL ALERT | THEBHOM 🔥\n\n"

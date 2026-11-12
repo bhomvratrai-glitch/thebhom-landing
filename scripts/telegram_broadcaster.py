@@ -248,27 +248,42 @@ def broadcast_deal(token, channel, deal):
     page_url = deal['page_url']
     img = deal['image']
     
+    is_amazon = 'amazon' in str(store).lower() or 'amazon.' in str(store_url).lower()
     price_str = f"₹{price}" if price else "Loot Price"
     mrp_str = f" ~₹{mrp}~" if mrp and mrp != price else ""
     disc_str = f" (🔥 {discount}% OFF)" if discount else ""
-    
-    caption = (
-        f"🔥 *LOOT DEAL ALERT | THEBHOM*\n\n"
-        f"🛍️ *{title}*\n\n"
-        f"💰 *Deal Price: {price_str}*{mrp_str}{disc_str}\n"
-        f"🏪 *Store:* {store}\n\n"
-        f"⚡ *1-Click Direct Store Purchase:*\n"
-        f"👉 [⚡ Buy Directly on {store}]({store_url})\n\n"
-        f"🌐 *Check Price History & Tracker:*\n"
-        f"👉 [View on TheBhom Site]({page_url})\n\n"
-        f"📢 *Join Group:* [Loot Deals India](https://t.me/+UhSD6hAJe7NhODM1)"
-    )
-    
-    buttons = [
-        [{"text": f"⚡ Buy on {store} ({price_str})", "url": store_url}],
-        [{"text": "🌐 Check Price History on TheBhom", "url": page_url}],
-        [{"text": "📢 Join TheBhom Deals Channel", "url": "https://t.me/+UhSD6hAJe7NhODM1"}]
-    ]
+
+    if is_amazon:
+        caption = (
+            f"🛍️ *FEATURED FIND | THEBHOM*\n\n"
+            f"📦 *{title}*\n"
+            f"🏪 *Store:* Amazon\n\n"
+            f"👉 [🛒 Buy on Amazon]({store_url})\n"
+            f"🌐 [View Details on TheBhom]({page_url})\n\n"
+            f"📢 *Join Group:* [TheBhom Finds](https://t.me/+UhSD6hAJe7NhODM1)"
+        )
+        buttons = [
+            [{"text": "🛒 Buy on Amazon", "url": store_url}],
+            [{"text": "🌐 View Details on TheBhom", "url": page_url}],
+            [{"text": "📢 Join TheBhom Channel", "url": "https://t.me/+UhSD6hAJe7NhODM1"}]
+        ]
+    else:
+        caption = (
+            f"🔥 *LOOT DEAL ALERT | THEBHOM*\n\n"
+            f"🛍️ *{title}*\n\n"
+            f"💰 *Deal Price: {price_str}*{mrp_str}{disc_str}\n"
+            f"🏪 *Store:* {store}\n\n"
+            f"⚡ *1-Click Direct Store Purchase:*\n"
+            f"👉 [⚡ Buy Directly on {store}]({store_url})\n\n"
+            f"🌐 *Check Price History & Tracker:*\n"
+            f"👉 [View on TheBhom Site]({page_url})\n\n"
+            f"📢 *Join Group:* [Loot Deals India](https://t.me/+UhSD6hAJe7NhODM1)"
+        )
+        buttons = [
+            [{"text": f"⚡ Buy on {store} ({price_str})", "url": store_url}],
+            [{"text": "🌐 Check Price History on TheBhom", "url": page_url}],
+            [{"text": "📢 Join TheBhom Deals Channel", "url": "https://t.me/+UhSD6hAJe7NhODM1"}]
+        ]
     
     photo_payload = {
         "chat_id": channel,
