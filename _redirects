@@ -1,68 +1,60 @@
-# Cloudflare Pages Redirects
+# Cloudflare Pages Redirects (Primary Edge Rules - Sub-100 Cap)
 
-# 301 Redirects for legacy product & deal routes (Eliminating GSC 404s)
-/deals/p/mini-uv-protection-capsule-umbrella-b0hcvk32qj.html https://www.thebhom.in/deals/p/mini-uv-protection-capsule-umbrella-fs-amazon-b0hcvk32qj.html 301
-/deals/p/portable-mini-electric-juicer-blender-b0h5r3f1yc.html https://www.amazon.in/dp/B0H5R3F1YC?tag=bhom120704-21 302
-/product/* https://www.thebhom.in/deals/ 301
-/product https://www.thebhom.in/deals/ 301
+# Core section redirects
+/product* https://www.thebhom.in/deals/ 301
+/best* https://www.thebhom.in/deals/ 301
+/articles* https://www.thebhom.in/deals/ 301
 /deal-of-the-day https://www.thebhom.in/deals/ 301
-/best/* https://www.thebhom.in/deals/ 301
-/best https://www.thebhom.in/deals/ 301
-/articles/* https://www.thebhom.in/deals/ 301
-/articles https://www.thebhom.in/deals/ 301
-/sitemap-news.xml https://www.thebhom.in/sitemap.xml 301
 /deals/category-preview* https://www.thebhom.in/deals/ 301
 /deals/product-preview* https://www.thebhom.in/deals/ 301
+/deals/p/mini-uv-protection-capsule-umbrella-b0hcvk32qj* https://www.thebhom.in/deals/p/mini-uv-protection-capsule-umbrella-fs-amazon-b0hcvk32qj.html 301
+/deals/p/portable-mini-electric-juicer-blender-b0h5r3f1yc* https://www.amazon.in/dp/B0H5R3F1YC?tag=bhom120704-21 302
+/sitemap-news.xml https://www.thebhom.in/sitemap.xml 301
 
-# 301 Redirects for removed obsolete sections
-/tools/* https://www.thebhom.in/ 301
-/tools https://www.thebhom.in/ 301
-/imgpdf/* https://www.thebhom.in/ 301
-/imgpdf https://www.thebhom.in/ 301
+# Removed obsolete sections (Clean wildcards)
+/tools* https://www.thebhom.in/ 301
+/imgpdf* https://www.thebhom.in/ 301
 /wallpapers* https://www.thebhom.in/ 301
 /ebooks* https://www.thebhom.in/ 301
 /magazines* https://www.thebhom.in/ 301
 /templates* https://www.thebhom.in/ 301
 /cards* https://www.thebhom.in/ 301
-/news/* https://www.thebhom.in/ 301
-/news https://www.thebhom.in/ 301
+/news* https://www.thebhom.in/ 301
 /pricing* https://www.thebhom.in/ 301
 /checkout* https://www.thebhom.in/ 301
 /payment* https://www.thebhom.in/ 301
 /dashboard* https://www.thebhom.in/ 301
-/directory/* https://www.thebhom.in/ 301
-/directory https://www.thebhom.in/ 301
-/cartoon/* https://www.thebhom.in/ 301
-/cartoon https://www.thebhom.in/ 301
-/marvel/* https://www.thebhom.in/ 301
-/marvel https://www.thebhom.in/ 301
-/voices/* https://www.thebhom.in/ 301
-/voices https://www.thebhom.in/ 301
-/widget/* https://www.thebhom.in/ 301
-/widget https://www.thebhom.in/ 301
+/directory* https://www.thebhom.in/ 301
+/cartoon* https://www.thebhom.in/ 301
+/marvel* https://www.thebhom.in/ 301
+/voices* https://www.thebhom.in/ 301
+/widget* https://www.thebhom.in/ 301
 /refer* https://www.thebhom.in/ 301
 /pitch* https://www.thebhom.in/ 301
+/downloader* https://www.thebhom.in/ 301
+/api/download* https://www.thebhom.in/ 301
 
-# Downloader & Download Guides Redirects (AdSense Compliance)
+# Downloader guides (AdSense compliance)
+/guides/oled-vs-amoled-vs-super-amoled-vs-microled-display.html /guides/oled-vs-amoled-vs-ips-lcd-smartphone-display-guide.html 301
+/guides/fast-charging-speed-battery-health-myth-facts.html /guides/fast-charging-battery-health-degradation-myth-vs-reality.html 301
+
+# PWA Manifests
+/guides/manifest.json /manifest.json 200
+/deals/manifest.json /manifest.json 200
+
+# Consolidated guides redirects (Top priority - remaining handled by functions/_middleware.js)
 /guides/youtube-video-kaise-download-kare-gallery-me.html https://www.thebhom.in/guides/ 301
 /guides/youtube-se-mp3-song-kaise-download-kare.html https://www.thebhom.in/guides/ 301
 /guides/how-to-extract-320kbps-mp3-from-youtube.html https://www.thebhom.in/guides/ 301
 /guides/download-instagram-reels-with-audio-gallery.html https://www.thebhom.in/guides/ 301
 /guides/how-to-save-youtube-shorts-in-1080p.html https://www.thebhom.in/guides/ 301
 /guides/youtube-shorts-video-kaise-download-kare.html https://www.thebhom.in/guides/ 301
-/guides/oled-vs-amoled-vs-super-amoled-vs-microled-display.html /guides/oled-vs-amoled-vs-ips-lcd-smartphone-display-guide.html 301
-/guides/fast-charging-speed-battery-health-myth-facts.html /guides/fast-charging-battery-health-degradation-myth-vs-reality.html 301
-/downloader/* https://www.thebhom.in/ 301
-/downloader https://www.thebhom.in/ 301
-/api/download* https://www.thebhom.in/ 301
-
-# Subdirectory PWA manifest rewrites
-/guides/manifest.json /manifest.json 200
-/deals/manifest.json /manifest.json 200
-
-
-
-# 301 Redirects for consolidated editorial guides (Zero 404s)
+/guides/youtube-video-kaise-download-kare-gallery-me.html https://www.thebhom.in/guides/ 301
+/guides/youtube-se-mp3-song-kaise-download-kare.html https://www.thebhom.in/guides/ 301
+/guides/how-to-extract-320kbps-mp3-from-youtube.html https://www.thebhom.in/guides/ 301
+/guides/download-instagram-reels-with-audio-gallery.html https://www.thebhom.in/guides/ 301
+/guides/how-to-save-youtube-shorts-in-1080p.html https://www.thebhom.in/guides/ 301
+/guides/youtube-shorts-video-kaise-download-kare.html https://www.thebhom.in/guides/ 301
 /guides/air-purifiers-tested-hepa-filters-pm25-india-pollution.html /guides/smart-home/ 301
 /guides/android-custom-os-comparison-oxygenos-oneui-hello-ui.html /guides/smartphones/ 301
 /guides/anti-theft-settings-every-android-user-must-enable.html /guides/smartphones/ 301
@@ -91,56 +83,3 @@
 /guides/bone-conduction-headphones-guide-running-and-cycling.html /guides/audio/ 301
 /guides/camera-sensors-explained-sony-lytia-vs-samsung-isocell.html /guides/smartphones/ 301
 /guides/credit-card-reward-points-optimization-cashback-strategy.html /guides/shopping/ 301
-/guides/credit-score-improvement-cibil-score-repair-hacks.html /guides/shopping/ 301
-/guides/cyber-crime-helpline-1930-reporting-financial-fraud-guide.html /guides/shopping/ 301
-/guides/dark-web-monitoring-how-to-know-if-email-is-pwned.html /guides/shopping/ 301
-/guides/digital-doorbell-cameras-installation-safety-guide.html /guides/smart-home/ 301
-/guides/dolby-audio-vs-dts-virtual-x-home-theater-guide.html /guides/audio/ 301
-/guides/dual-pairing-multipoint-bluetooth-earbuds-guide.html /guides/audio/ 301
-/guides/earbuds-battery-drain-issue-fixes-and-maintenance.html /guides/audio/ 301
-/guides/ergonomic-wireless-mouse-buying-guide-wrist-pain.html /guides/laptops/ 301
-/guides/esim-vs-physical-sim-india-jio-airtel-vi-guide.html /guides/smartphones/ 301
-/guides/external-monitor-guide-ips-vs-va-1080p-vs-2k-vs-4k.html /guides/laptops/ 301
-/guides/flipkart-supercoins-and-amazon-pay-rewards-maximization.html /guides/shopping/ 301
-/guides/gaming-earbuds-low-latency-mode-40ms-tested.html /guides/audio/ 301
-/guides/google-tv-vs-fire-tv-os-vs-webos-comparison.html /guides/smart-home/ 301
-/guides/gorilla-glass-victus-vs-dragontrail-durability-scratch-test.html /guides/smartphones/ 301
-/guides/hi-res-audio-certification-does-it-really-matter.html /guides/audio/ 301
-/guides/home-wi-fi-mesh-systems-vs-range-extenders-guide.html /guides/smart-home/ 301
-/guides/how-to-clean-and-disinfect-tws-earbuds-safely.html /guides/audio/ 301
-/guides/how-to-clean-install-windows-11-without-bloatware.html /guides/laptops/ 301
-/guides/how-to-disable-annoying-ads-in-xiaomi-realme-phones.html /guides/smartphones/ 301
-/guides/how-to-fix-one-side-earbud-not-working-pairing-issue.html /guides/audio/ 301
-/guides/how-to-freeze-credit-profile-prevent-identity-theft.html /guides/shopping/ 301
-/guides/how-to-increase-smartphone-battery-lifespan-daily-habits.html /guides/smartphones/ 301
-/guides/how-to-prevent-laptop-overheating-thermal-throttling.html /guides/laptops/ 301
-/guides/how-to-remove-personal-data-from-data-brokers-online.html /guides/shopping/ 301
-/guides/how-to-safely-backup-android-phone-to-cloud-pc.html /guides/smartphones/ 301
-/guides/induction-cooktops-vs-gas-stoves-power-consumption.html /guides/smart-home/ 301
-/guides/instant-geysers-vs-storage-water-heaters-efficiency.html /guides/smart-home/ 301
-/guides/laptop-battery-calibration-and-health-extension-guide.html /guides/laptops/ 301
-/guides/macbook-air-m2-m3-vs-windows-laptops-for-college-students.html /guides/laptops/ 301
-/guides/mini-pc-vs-budget-desktop-vs-laptop-comparison.html /guides/laptops/ 301
-/guides/no-cost-emi-reality-processing-fee-and-gst-breakdown.html /guides/shopping/ 301
-/guides/open-ear-air-conduction-earbuds-guide.html /guides/audio/ 301
-/guides/phishing-email-and-sms-scam-identification-checklist.html /guides/shopping/ 301
-/guides/price-drop-tracker-extensions-safety-and-permissions-audit.html /guides/shopping/ 301
-/guides/public-wi-fi-safety-best-practices-at-airports-railways.html /guides/shopping/ 301
-/guides/ram-guide-ddr4-vs-ddr5-single-vs-dual-channel-impact.html /guides/laptops/ 301
-/guides/sim-swap-fraud-protection-and-e-sim-security.html /guides/shopping/ 301
-/guides/smart-door-locks-fingerprint-biometric-security-guide.html /guides/smart-home/ 301
-/guides/smart-home-automation-matter-protocol-explained.html /guides/smart-home/ 301
-/guides/smart-tv-guide-oled-vs-qled-vs-mini-led-explained.html /guides/smart-home/ 301
-/guides/smartphone-display-refresh-rate-60hz-vs-120hz-battery-drain.html /guides/smartphones/ 301
-/guides/smartphone-heating-issue-causes-thermal-throttling-fixes.html /guides/smartphones/ 301
-/guides/smartphone-water-resistance-ratings-ip67-vs-ip68-guide.html /guides/smartphones/ 301
-/guides/smartwatch-os-comparison-wear-os-vs-rtos-battery-life.html /guides/audio/ 301
-/guides/smartwatch-sensors-accuracy-test-heart-rate-spo2-ecg.html /guides/audio/ 301
-/guides/storage-types-explained-emmc-vs-ufs-2-2-vs-ufs-3-1-vs-ufs-4-0.html /guides/smartphones/ 301
-/guides/surge-protector-spike-guards-vs-regular-power-strips.html /guides/smart-home/ 301
-/guides/thermal-paste-replacement-and-laptop-cooling-pads-tested.html /guides/laptops/ 301
-/guides/thunderbolt-dock-vs-usb-c-hub-guide.html /guides/laptops/ 301
-/guides/two-factor-authentication-2fa-authenticator-apps-guide.html /guides/shopping/ 301
-/guides/usb-type-c-standards-explained-usb2-usb3-thunderbolt.html /guides/smartphones/ 301
-/guides/wi-fi-6-vs-wi-fi-6e-vs-wi-fi-7-explained.html /guides/laptops/ 301
-/guides/wireless-charging-guide-qi2-magsafe-for-android.html /guides/smartphones/ 301
