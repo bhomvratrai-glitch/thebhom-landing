@@ -1276,6 +1276,10 @@ function renderProducts() {
   if (!container) return;
 
   const filtered = catalog.filter(item => {
+    if (!item || !item.title || typeof item.title !== "string") return false;
+    const titleClean = item.title.trim();
+    if (titleClean.length < 5 || titleClean.startsWith("<") || titleClean.includes("pricingFeedback")) return false;
+
     const cat = classifyProduct(item);
     let matchesCategory = false;
     const isItemAmazon = String(item.store || item.storeKey || "").toLowerCase().includes("amazon") || String(item.url || item.profitLink || "").toLowerCase().includes("amazon.");
