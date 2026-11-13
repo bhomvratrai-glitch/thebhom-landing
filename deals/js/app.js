@@ -1043,6 +1043,7 @@ const FALLBACK_CATALOG = [
 
 let catalog = FALLBACK_CATALOG;
 let currentCategory = "all";
+let currentStore = "all";
 let searchQuery = "";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -1075,6 +1076,26 @@ function checkUrlParams() {
     const urlParams = new URLSearchParams(window.location.search);
     const dealParam = urlParams.get("deal");
     const qParam = urlParams.get("q");
+    const storeParam = urlParams.get("store");
+    const catParam = urlParams.get("category");
+
+    if (storeParam) {
+      currentStore = storeParam.trim().toLowerCase();
+      const matchingStoreTab = document.querySelector(`.store-tab[data-store="${currentStore}"]`);
+      if (matchingStoreTab) {
+        document.querySelectorAll(".store-tab").forEach(t => t.classList.remove("active"));
+        matchingStoreTab.classList.add("active");
+      }
+    }
+
+    if (catParam) {
+      currentCategory = catParam.trim().toLowerCase();
+      const matchingCatTab = document.querySelector(`.cat-tab[data-category="${currentCategory}"]`);
+      if (matchingCatTab) {
+        document.querySelectorAll(".cat-tab").forEach(t => t.classList.remove("active"));
+        matchingCatTab.classList.add("active");
+      }
+    }
 
     if (qParam) {
       searchQuery = qParam.trim();
@@ -1258,6 +1279,18 @@ function renderProducts() {
     const cat = classifyProduct(item);
     let matchesCategory = false;
     const isItemAmazon = String(item.store || item.storeKey || "").toLowerCase().includes("amazon") || String(item.url || item.profitLink || "").toLowerCase().includes("amazon.");
+
+    // Store Filter
+    let matchesStore = true;
+    if (currentStore !== "all") {
+      if (currentStore === "amazon") {
+        matchesStore = isItemAmazon;
+      } else {
+        const itemStoreStr = String(item.store || item.storeKey || "").toLowerCase();
+        matchesStore = !isItemAmazon && itemStoreStr.includes(currentStore);
+      }
+    }
+    if (!matchesStore) return false;
     if (currentCategory === "all") {
       matchesCategory = true;
     } else if (currentCategory === "under499") {
@@ -1409,6 +1442,17 @@ function setupEventListeners() {
       tabs.forEach(t => t.classList.remove("active"));
       tab.classList.add("active");
       currentCategory = tab.dataset.category;
+      renderProducts();
+    });
+  });
+
+  // Store tabs
+  const storeTabs = document.querySelectorAll(".store-tab");
+  storeTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      storeTabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      currentStore = tab.dataset.store;
       renderProducts();
     });
   });

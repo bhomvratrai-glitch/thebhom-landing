@@ -397,6 +397,52 @@ button {
   font-weight: 700;
 }
 
+.store-filter-bar {
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.store-filter-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 4px;
+}
+
+.store-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.store-tab:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+.store-tab.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(15,23,42,0.18);
+}
+
 .cat-icon {
   font-size: 15px;
 }
@@ -1250,6 +1296,16 @@ button {
   <!-- Main Shopping Section -->
   <main class="main-shopping-container container-fluid">
     
+    <!-- Dedicated Store Filter Strip -->
+    <div class="store-filter-bar">
+      <span class="store-filter-label">Filter Store:</span>
+      <button class="store-tab active" data-store="all">🏪 All Stores</button>
+      <button class="store-tab" data-store="amazon">📦 Amazon Store</button>
+      <button class="store-tab" data-store="flipkart">🛍️ Flipkart</button>
+      <button class="store-tab" data-store="myntra">👗 Myntra</button>
+      <button class="store-tab" data-store="ajio">✨ Ajio</button>
+    </div>
+
     <!-- Products Grid (Dense Flipkart/Amazon Style: 6-8 per row on large displays) -->
     <div id="dealsContainer" class="products-grid" aria-live="polite">
       <!-- Injected dynamically via js/app.js -->
@@ -1316,7 +1372,7 @@ button {
       100% { transform: scale(1); opacity: 1; }
     }
   </style>
-  <script src="/deals/js/app.js?v=20261112_v13"></script>
+  <script src="/deals/js/app.js?v=20261113_v15"></script>
   <!-- Cookie Consent Banner (GDPR & Indian DPDP Act Compliant - Clean White Theme) -->
   <div id="cookieConsentBanner" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);max-width:920px;width:calc(100% - 32px);background:#ffffff !important;border:1.5px solid #e2e8f0 !important;border-radius:18px;padding:16px 24px;box-shadow:0 16px 40px rgba(0,0,0,0.18) !important;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;z-index:999999;font-family:'Inter',sans-serif;color:#1e293b !important;">
     <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:270px;">
